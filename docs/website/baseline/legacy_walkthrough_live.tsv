@@ -1,0 +1,22 @@
+mode	step	expected	observed	result
+live	load: all records listed	5466 records match	5466 records match	PASS
+live	E1 filter (incl. engineered)	91	91 records match	PASS
+live	FASTA download of E1 selection	91	91	PASS
+live	TSV download of E1 selection (rows excl. header)	91	91	PASS
+live	E1 filter excluding engineered	88	88 records match	PASS
+live	call-conflict filter	468	468 records match	PASS
+live	clade MR_CLD3_017 (confident)	1646	1646 records match	PASS
+live	clade MR_CLD3_017 + tentative	2243	2243 records match	PASS
+live	deep link #/record/MRDB000001	MRDB000001 / P02945	MRDB000001 / P02945	PASS
+live	P02945 publications displayed	>=1 with DOI link	3	PASS
+live	deep link UmOps1: E1 + PMID 31024506	PMID 31024506 shown	True	PASS
+live	engineered construct flagged with wild type	engineered + A0ABF7PQ82	True	PASS
+live	conflict + v1.4 + motif classes shown	call conflict: yes	True	PASS
+live	sequence search: BR example top hit	P02945, 100% identity	P02945 100.0% qcov 100.0%	PASS
+live	sequence search returns top 10	10	10	PASS
+live	search page states CLI needed for membership score	mrdb_search.py mentioned	True	PASS
+live	sequence search: HcKCR1 UOK93384.1 top hit	A0ABF7PQ82/PQA2/PQ84, identity >= 99%	A0ABF7PQA2 99.6%	PASS
+live	novel-family view: Foldseek watchlist rows + 5-family HMM funnel	181 / 5	181 / 5	PASS
+live	curated member A0A1I3DJQ0: status + override reason	typeI_member_curated + PMID:40614199	True	PASS
+live	schizorhodopsin A0AAP2RB57: family flag + override rule + E5 unresolved	flag + rule shown	True	PASS
+live	JavaScript errors	0	0	PASS

@@ -1,0 +1,105 @@
+{
+ "base": "http://127.0.0.1:46772/MicroRhodoDB/site/",
+ "tree_rect": {
+  "tree": {
+   "tips": 472,
+   "uniqueTips": 472,
+   "supportLabels": 470,
+   "supportExample": [
+    "36.6/53",
+    "96.2/100",
+    "90.7/94"
+   ],
+   "svgTipTexts": 472,
+   "renderMs": 125,
+   "radial": false,
+   "firstTips": [
+    "A0AAE0BL41",
+    "A0A0M0JPF9",
+    "A0ABP0LPA7"
+   ]
+  },
+  "errors": [],
+  "mol_chunks_requested": [
+   "index-jG62jdVT.js",
+   "phylotree-COo22w47.css",
+   "rolldown-runtime-hePW80VL.js",
+   "src-BAOOqiix.js"
+  ]
+ },
+ "tree_radial": {
+  "tree": {
+   "tips": 472,
+   "uniqueTips": 472,
+   "supportLabels": 470,
+   "supportExample": [
+    "36.6/53",
+    "96.2/100",
+    "90.7/94"
+   ],
+   "svgTipTexts": 472,
+   "renderMs": 131,
+   "radial": true,
+   "firstTips": [
+    "A0AAE0BL41",
+    "A0A0M0JPF9",
+    "A0ABP0LPA7"
+   ]
+  },
+  "errors": [],
+  "mol_chunks_requested": [
+   "index-jG62jdVT.js",
+   "phylotree-COo22w47.css",
+   "rolldown-runtime-hePW80VL.js",
+   "src-BAOOqiix.js"
+  ]
+ },
+ "structure_pdb": {
+  "structure": {
+   "asset": "pdb",
+   "url": "https://models.rcsb.org/v1/1c3w/full?encoding=bcif",
+   "nStructures": 1,
+   "atoms": 6219,
+   "units": 51,
+   "loadMs": 2085
+  },
+  "errors": [],
+  "mol_chunks_requested": [
+   "index-jG62jdVT.js",
+   "light-C4FknDzV.css",
+   "mol-plugin-ui-Dk9MrqSy.js",
+   "react18-Ckh_bkfG.js",
+   "rolldown-runtime-hePW80VL.js",
+   "spec-ZIbCzJCj.js"
+  ]
+ },
+ "structure_afdb": {
+  "structure": {
+   "asset": "afdb",
+   "url": "https://alphafold.ebi.ac.uk/files/AF-P02945-F1-model_v6.pdb",
+   "nStructures": 1,
+   "atoms": 1995,
+   "units": 1,
+   "loadMs": 1823
+  },
+  "errors": [],
+  "mol_chunks_requested": [
+   "index-jG62jdVT.js",
+   "light-C4FknDzV.css",
+   "mol-plugin-ui-Dk9MrqSy.js",
+   "react18-Ckh_bkfG.js",
+   "rolldown-runtime-hePW80VL.js",
+   "spec-ZIbCzJCj.js"
+  ]
+ },
+ "bundle": {
+  "index-jG62jdVT.js": 145702,
+  "light-C4FknDzV.css": 69164,
+  "mol-plugin-ui-Dk9MrqSy.js": 761516,
+  "phylotree-COo22w47.css": 1062,
+  "react18-Ckh_bkfG.js": 123,
+  "rolldown-runtime-hePW80VL.js": 716,
+  "spec-ZIbCzJCj.js": 2794366,
+  "src-BAOOqiix.js": 299414
+ }
+}

@@ -1,0 +1,2551 @@
+{
+ "db": "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite",
+ "db_sha256": "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f",
+ "metrics": {
+  "records": {
+   "value": 5466,
+   "sql": "SELECT COUNT(*) FROM v_master",
+   "expected_plan_1_3": 5466,
+   "match": true
+  },
+  "counted": {
+   "value": 5460,
+   "sql": "SELECT COUNT(*) FROM v_counted",
+   "expected_plan_1_3": 5460,
+   "match": true
+  },
+  "mrdb_accessions": {
+   "value": 5299,
+   "sql": "SELECT COUNT(*) FROM mrdb_accession",
+   "expected_plan_1_3": 5299,
+   "match": true
+  },
+  "mrdb_accessions_in_map": {
+   "value": 5299,
+   "sql": "SELECT COUNT(DISTINCT mrdb_acc) FROM accession_map",
+   "expected_plan_1_3": 5299,
+   "match": true
+  },
+  "members": {
+   "value": 3089,
+   "sql": "SELECT COUNT(*) FROM v_typeI_member",
+   "expected_plan_1_3": 3089,
+   "match": true
+  },
+  "candidates": {
+   "value": 1379,
+   "sql": "SELECT COUNT(*) FROM v_typeI_candidate",
+   "expected_plan_1_3": 1379,
+   "match": true
+  },
+  "boundary": {
+   "value": 509,
+   "sql": "SELECT COUNT(*) FROM v_boundary_family",
+   "expected_plan_1_3": 509,
+   "match": true
+  },
+  "helio": {
+   "value": 386,
+   "sql": "SELECT COUNT(*) FROM v_heliorhodopsin",
+   "expected_plan_1_3": 386,
+   "match": true
+  },
+  "engineered": {
+   "value": 6,
+   "sql": "SELECT COUNT(*) FROM v_engineered",
+   "expected_plan_1_3": 6,
+   "match": true
+  },
+  "membership_status_all": {
+   "value": [
+    [
+     "typeI_member_core",
+     2704
+    ],
+    [
+     "typeI_candidate_unresolved",
+     897
+    ],
+    [
+     "boundary_family",
+     509
+    ],
+    [
+     "heliorhodopsin",
+     386
+    ],
+    [
+     "typeI_member_architecture_supported",
+     381
+    ],
+    [
+     "typeI_candidate_architecture_supported",
+     273
+    ],
+    [
+     "typeI_candidate",
+     209
+    ],
+    [
+     "decoy_or_rejected",
+     103
+    ],
+    [
+     "typeI_member_curated",
+     4
+    ]
+   ],
+   "sql": "SELECT membership_status, COUNT(*) FROM v_master GROUP BY 1 ORDER BY 2 DESC",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "membership_status_counted": {
+   "value": [
+    [
+     "typeI_member_core",
+     2700
+    ],
+    [
+     "typeI_candidate_unresolved",
+     897
+    ],
+    [
+     "boundary_family",
+     509
+    ],
+    [
+     "heliorhodopsin",
+     386
+    ],
+    [
+     "typeI_member_architecture_supported",
+     381
+    ],
+    [
+     "typeI_candidate_architecture_supported",
+     273
+    ],
+    [
+     "typeI_candidate",
+     207
+    ],
+    [
+     "decoy_or_rejected",
+     103
+    ],
+    [
+     "typeI_member_curated",
+     4
+    ]
+   ],
+   "sql": "SELECT membership_status, COUNT(*) FROM v_counted GROUP BY 1 ORDER BY 2 DESC",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "decoy": {
+   "value": 103,
+   "sql": "SELECT COUNT(*) FROM v_master WHERE membership_status LIKE '%decoy%'",
+   "expected_plan_1_3": 103,
+   "match": true
+  },
+  "evidence_counted": {
+   "value": [
+    [
+     "E1",
+     88
+    ],
+    [
+     "E2",
+     109
+    ],
+    [
+     "E3",
+     1143
+    ],
+    [
+     "E4",
+     1050
+    ],
+    [
+     "E5",
+     3070
+    ]
+   ],
+   "sql": "SELECT evidence_level, COUNT(*) FROM v_counted GROUP BY 1 ORDER BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "evidence_all": {
+   "value": [
+    [
+     "E1",
+     91
+    ],
+    [
+     "E2",
+     112
+    ],
+    [
+     "E3",
+     1143
+    ],
+    [
+     "E4",
+     1050
+    ],
+    [
+     "E5",
+     3070
+    ]
+   ],
+   "sql": "SELECT evidence_level, COUNT(*) FROM v_master GROUP BY 1 ORDER BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "e1_total": {
+   "value": 91,
+   "sql": "SELECT COUNT(*) FROM v_master WHERE evidence_level='E1'",
+   "expected_plan_1_3": 91,
+   "match": true
+  },
+  "e1_counted": {
+   "value": 88,
+   "sql": "SELECT COUNT(*) FROM v_counted WHERE evidence_level='E1'",
+   "expected_plan_1_3": 88,
+   "match": true
+  },
+  "publications": {
+   "value": 121,
+   "sql": "SELECT COUNT(*) FROM publication",
+   "expected_plan_1_3": 121,
+   "match": true
+  },
+  "active_links": {
+   "value": 255,
+   "sql": "SELECT COUNT(*) FROM assertion_publication WHERE is_active=1",
+   "expected_plan_1_3": 255,
+   "match": true
+  },
+  "novel_watchlist": {
+   "value": 181,
+   "sql": "SELECT COUNT(*) FROM novel_family_candidate",
+   "expected_plan_1_3": 181,
+   "match": true
+  },
+  "func_class_counted": {
+   "value": [
+    [
+     "unresolved",
+     2631
+    ],
+    [
+     "proton_pump",
+     1716
+    ],
+    [
+     "unassigned",
+     439
+    ],
+    [
+     "sensory",
+     226
+    ],
+    [
+     "anion_pump",
+     154
+    ],
+    [
+     "sensory_like",
+     101
+    ],
+    [
+     "light_gated_channel",
+     94
+    ],
+    [
+     "sodium_pump",
+     74
+    ],
+    [
+     "enzyme_rhodopsin",
+     14
+    ],
+    [
+     "photoreceptor_unassigned",
+     8
+    ],
+    [
+     "proton_pump_inward",
+     3
+    ]
+   ],
+   "sql": "SELECT func_class, COUNT(*) FROM v_counted GROUP BY 1 ORDER BY 2 DESC",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "tax_domain_counted": {
+   "value": [
+    [
+     "Eukaryota",
+     3118
+    ],
+    [
+     "Bacteria",
+     1451
+    ],
+    [
+     "Archaea",
+     699
+    ],
+    [
+     null,
+     192
+    ]
+   ],
+   "sql": "SELECT tax_domain, COUNT(*) FROM v_counted GROUP BY 1 ORDER BY 2 DESC",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "is_engineered_counted": {
+   "value": [
+    [
+     0,
+     1,
+     5460
+    ],
+    [
+     1,
+     0,
+     6
+    ]
+   ],
+   "sql": "SELECT is_engineered, counts_eligible, COUNT(*) FROM v_master GROUP BY 1,2",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "map_rows": {
+   "value": 5466,
+   "sql": "SELECT COUNT(*) FROM accession_map",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "map_current": {
+   "value": [
+    [
+     1,
+     5466
+    ]
+   ],
+   "sql": "SELECT is_current, COUNT(*) FROM accession_map GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "map_multiplicity": {
+   "value": [
+    [
+     1,
+     5170
+    ],
+    [
+     2,
+     104
+    ],
+    [
+     3,
+     18
+    ],
+    [
+     4,
+     4
+    ],
+    [
+     5,
+     1
+    ],
+    [
+     6,
+     1
+    ],
+    [
+     7,
+     1
+    ]
+   ],
+   "sql": "SELECT n, COUNT(*) FROM (SELECT mrdb_acc, COUNT(*) n FROM accession_map GROUP BY 1) GROUP BY n ORDER BY n",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "map_source_db": {
+   "value": [
+    [
+     "UniProt",
+     5466
+    ]
+   ],
+   "sql": "SELECT source_database, COUNT(*) FROM accession_map GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "map_release_added": {
+   "value": [
+    [
+     "<=1.4.0",
+     5466
+    ]
+   ],
+   "sql": "SELECT release_added, COUNT(*) FROM accession_map GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "map_source_not_in_master": {
+   "value": 0,
+   "sql": "SELECT COUNT(*) FROM accession_map WHERE source_acc NOT IN (SELECT source_acc FROM v_master)",
+   "expected_plan_1_3": 0,
+   "match": true
+  },
+  "master_source_not_in_map": {
+   "value": 0,
+   "sql": "SELECT COUNT(*) FROM v_master WHERE source_acc NOT IN (SELECT source_acc FROM accession_map)",
+   "expected_plan_1_3": 0,
+   "match": true
+  },
+  "master_mrdb_mismatch": {
+   "value": 0,
+   "sql": "SELECT COUNT(*) FROM v_master m JOIN accession_map a USING(source_acc) WHERE m.mrdb_acc<>a.mrdb_acc",
+   "expected_plan_1_3": 0,
+   "match": true
+  },
+  "map_examples_multi": {
+   "value": [
+    [
+     "MRDB000001",
+     "P02945;B0R5N9"
+    ],
+    [
+     "MRDB000004",
+     "B0R2U4;P0DMH7"
+    ],
+    [
+     "MRDB000008",
+     "Q18DH8;G0LFX8"
+    ],
+    [
+     "MRDB000030",
+     "B0R633;P0DMH8"
+    ],
+    [
+     "MRDB000037",
+     "P25619;B3LU93"
+    ],
+    [
+     "MRDB000040",
+     "P33743;A0A256IYT1"
+    ],
+    [
+     "MRDB000045",
+     "P42197;Q5V5V3"
+    ],
+    [
+     "MRDB000046",
+     "P69051;P69052;A0A256IUW2"
+    ],
+    [
+     "MRDB000048",
+     "P94853;M0JG49"
+    ],
+    [
+     "MRDB000049",
+     "P96787;A0A1I6G6Y6"
+    ]
+   ],
+   "sql": "SELECT mrdb_acc, group_concat(source_acc, ';') FROM accession_map GROUP BY 1 HAVING COUNT(*)>1 ORDER BY 1 LIMIT 10",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "mrdb_rep_flag": {
+   "value": [
+    [
+     0,
+     167
+    ],
+    [
+     1,
+     5299
+    ]
+   ],
+   "sql": "SELECT (m.source_acc=a.representative_source_acc), COUNT(*) FROM v_master m JOIN mrdb_accession a USING(mrdb_acc) GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "exact_dup_nonnull": {
+   "value": 6,
+   "sql": "SELECT COUNT(*) FROM v_master WHERE exact_duplicate_of IS NOT NULL AND exact_duplicate_of<>''",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "source_acc_unique_master": {
+   "value": 0,
+   "sql": "SELECT COUNT(*)-COUNT(DISTINCT source_acc) FROM v_master",
+   "expected_plan_1_3": 0,
+   "match": true
+  },
+  "protein_pdb_links": {
+   "value": 472,
+   "sql": "SELECT COUNT(*) FROM protein_pdb",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "protein_pdb_distinct_pairs": {
+   "value": 472,
+   "sql": "SELECT COUNT(*) FROM (SELECT DISTINCT source_acc, pdb_id FROM protein_pdb)",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "protein_pdb_distinct_ids": {
+   "value": 438,
+   "sql": "SELECT COUNT(DISTINCT pdb_id) FROM protein_pdb",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "protein_pdb_distinct_acc": {
+   "value": 66,
+   "sql": "SELECT COUNT(DISTINCT source_acc) FROM protein_pdb",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "protein_pdb_acc_in_master": {
+   "value": 66,
+   "sql": "SELECT COUNT(DISTINCT source_acc) FROM protein_pdb WHERE source_acc IN (SELECT source_acc FROM v_master)",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "protein_pdb_acc_outside_master": {
+   "value": null,
+   "sql": "SELECT group_concat(DISTINCT source_acc) FROM protein_pdb WHERE source_acc NOT IN (SELECT source_acc FROM v_master)",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "pdb_ids_missing_meta": {
+   "value": 0,
+   "sql": "SELECT COUNT(DISTINCT pdb_id) FROM protein_pdb WHERE pdb_id NOT IN (SELECT pdb_id FROM pdb_structure)",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "pdb_meta_unlinked": {
+   "value": 0,
+   "sql": "SELECT COUNT(*) FROM pdb_structure WHERE pdb_id NOT IN (SELECT pdb_id FROM protein_pdb)",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "pdb_id_format_bad": {
+   "value": 0,
+   "sql": "SELECT COUNT(*) FROM protein_pdb WHERE pdb_id NOT GLOB '[0-9][A-Za-z0-9][A-Za-z0-9][A-Za-z0-9]'",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "pdb_case": {
+   "value": [
+    [
+     472,
+     0
+    ]
+   ],
+   "sql": "SELECT SUM(pdb_id=upper(pdb_id)), SUM(pdb_id=lower(pdb_id)) FROM protein_pdb",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "pdb_methods": {
+   "value": [
+    [
+     "X-RAY DIFFRACTION",
+     393
+    ],
+    [
+     "ELECTRON MICROSCOPY",
+     32
+    ],
+    [
+     "SOLUTION NMR",
+     7
+    ],
+    [
+     "ELECTRON CRYSTALLOGRAPHY",
+     6
+    ]
+   ],
+   "sql": "SELECT method, COUNT(*) FROM pdb_structure GROUP BY 1 ORDER BY 2 DESC",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "pdb_has_retinal": {
+   "value": [
+    [
+     0,
+     56
+    ],
+    [
+     1,
+     382
+    ]
+   ],
+   "sql": "SELECT has_retinal, COUNT(*) FROM pdb_structure GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "pdb_resolution_null": {
+   "value": 7,
+   "sql": "SELECT COUNT(*) FROM pdb_structure WHERE resolution IS NULL OR resolution=''",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "pdb_links_per_acc": {
+   "value": [
+    [
+     1,
+     27
+    ],
+    [
+     2,
+     11
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     5
+    ],
+    [
+     6,
+     3
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     12,
+     1
+    ],
+    [
+     14,
+     2
+    ],
+    [
+     23,
+     1
+    ],
+    [
+     41,
+     1
+    ],
+    [
+     53,
+     1
+    ],
+    [
+     174,
+     1
+    ]
+   ],
+   "sql": "SELECT n, COUNT(*) FROM (SELECT source_acc, COUNT(DISTINCT pdb_id) n FROM protein_pdb GROUP BY 1) GROUP BY n ORDER BY n",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "pdb_shared_ids": {
+   "value": [
+    [
+     1,
+     414
+    ],
+    [
+     2,
+     14
+    ],
+    [
+     3,
+     10
+    ]
+   ],
+   "sql": "SELECT n, COUNT(*) FROM (SELECT pdb_id, COUNT(DISTINCT source_acc) n FROM protein_pdb GROUP BY 1) GROUP BY n ORDER BY n",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "structure_rows": {
+   "value": 4886,
+   "sql": "SELECT COUNT(*) FROM structure",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "structure_has_exp": {
+   "value": [
+    [
+     0,
+     4821
+    ],
+    [
+     1,
+     65
+    ]
+   ],
+   "sql": "SELECT has_experimental_structure, COUNT(*) FROM structure GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "structure_n_pdb_mismatch": {
+   "value": 0,
+   "sql": "SELECT COUNT(*) FROM structure s LEFT JOIN (SELECT source_acc, COUNT(DISTINCT pdb_id) n FROM protein_pdb GROUP BY 1) p USING(source_acc) WHERE COALESCE(s.n_pdb_structures,0)<>COALESCE(p.n,0)",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "structure_n_pdb_mismatch_examples": {
+   "value": [],
+   "sql": "SELECT s.source_acc, s.n_pdb_structures, p.n FROM structure s LEFT JOIN (SELECT source_acc, COUNT(DISTINCT pdb_id) n FROM protein_pdb GROUP BY 1) p USING(source_acc) WHERE COALESCE(s.n_pdb_structures,0)<>COALESCE(p.n,0) LIMIT 10",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "rep_pdb_not_linked": {
+   "value": 0,
+   "sql": "SELECT COUNT(*) FROM structure s WHERE rep_pdb_id IS NOT NULL AND rep_pdb_id<>'' AND NOT EXISTS (SELECT 1 FROM protein_pdb p WHERE p.source_acc=s.source_acc AND upper(p.pdb_id)=upper(s.rep_pdb_id))",
+   "expected_plan_1_3": 0,
+   "match": true
+  },
+  "highres_pdb_not_linked": {
+   "value": 0,
+   "sql": "SELECT COUNT(*) FROM structure s WHERE highest_res_pdb_id IS NOT NULL AND highest_res_pdb_id<>'' AND NOT EXISTS (SELECT 1 FROM protein_pdb p WHERE p.source_acc=s.source_acc AND upper(p.pdb_id)=upper(s.highest_res_pdb_id))",
+   "expected_plan_1_3": 0,
+   "match": true
+  },
+  "pdb_acc_without_structure_row": {
+   "value": 1,
+   "sql": "SELECT COUNT(DISTINCT source_acc) FROM protein_pdb WHERE source_acc NOT IN (SELECT source_acc FROM structure)",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "master_without_structure_row": {
+   "value": 580,
+   "sql": "SELECT COUNT(*) FROM v_master WHERE source_acc NOT IN (SELECT source_acc FROM structure)",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "master_without_structure_by_status": {
+   "value": [
+    [
+     "boundary_family",
+     23
+    ],
+    [
+     "decoy_or_rejected",
+     98
+    ],
+    [
+     "heliorhodopsin",
+     386
+    ],
+    [
+     "typeI_candidate",
+     3
+    ],
+    [
+     "typeI_candidate_unresolved",
+     18
+    ],
+    [
+     "typeI_member_architecture_supported",
+     4
+    ],
+    [
+     "typeI_member_core",
+     48
+    ]
+   ],
+   "sql": "SELECT membership_status, COUNT(*) FROM v_master WHERE source_acc NOT IN (SELECT source_acc FROM structure) GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "pdb_acc_by_status": {
+   "value": [
+    [
+     "heliorhodopsin",
+     1
+    ],
+    [
+     "typeI_candidate",
+     2
+    ],
+    [
+     "typeI_candidate_architecture_supported",
+     2
+    ],
+    [
+     "typeI_member_architecture_supported",
+     13
+    ],
+    [
+     "typeI_member_core",
+     44
+    ],
+    [
+     "typeI_member_curated",
+     4
+    ]
+   ],
+   "sql": "SELECT membership_status, COUNT(DISTINCT p.source_acc) FROM protein_pdb p JOIN v_master m USING(source_acc) GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "pdb_links_P02945_B0R5N9": {
+   "value": [
+    [
+     "B0R5N9",
+     1
+    ],
+    [
+     "P02945",
+     174
+    ]
+   ],
+   "sql": "SELECT source_acc, COUNT(*) FROM protein_pdb WHERE source_acc IN ('P02945','B0R5N9') GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "pdb_links_via_mrdb_MRDB000001": {
+   "value": 175,
+   "sql": "SELECT COUNT(DISTINCT p.pdb_id) FROM protein_pdb p JOIN accession_map a USING(source_acc) WHERE a.mrdb_acc='MRDB000001'",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "pdb_links_master_vs_mrdb_union": {
+   "value": 58,
+   "sql": "SELECT COUNT(*) FROM (SELECT a.mrdb_acc FROM protein_pdb p JOIN accession_map a USING(source_acc) GROUP BY 1)",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "structure_arch": {
+   "value": [
+    [
+     "single_domain_core",
+     3631
+    ],
+    [
+     "extended",
+     679
+    ],
+    [
+     "truncated_core",
+     365
+    ],
+    [
+     "fusion",
+     211
+    ]
+   ],
+   "sql": "SELECT arch_primary, COUNT(*) FROM structure GROUP BY 1 ORDER BY 2 DESC",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "afdb_rows": {
+   "value": 5466,
+   "sql": "SELECT COUNT(*) FROM afdb_model",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "afdb_status": {
+   "value": [
+    [
+     "no_model",
+     1069
+    ],
+    [
+     "ok",
+     4397
+    ]
+   ],
+   "sql": "SELECT status, COUNT(*) FROM afdb_model GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "afdb_seq_match": {
+   "value": [
+    [
+     null,
+     1069
+    ],
+    [
+     1,
+     4397
+    ]
+   ],
+   "sql": "SELECT seq_match, COUNT(*) FROM afdb_model GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "afdb_version": {
+   "value": [
+    [
+     null,
+     1069
+    ],
+    [
+     6.0,
+     4397
+    ]
+   ],
+   "sql": "SELECT version, COUNT(*) FROM afdb_model GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "afdb_url_examples": {
+   "value": [
+    [
+     "AF-P42196-F1",
+     "https://alphafold.ebi.ac.uk/files/AF-P42196-F1-model_v6.pdb"
+    ],
+    [
+     "AF-B0R2U4-F1",
+     "https://alphafold.ebi.ac.uk/files/AF-B0R2U4-F1-model_v6.pdb"
+    ],
+    [
+     "AF-Q18DH5-F1",
+     "https://alphafold.ebi.ac.uk/files/AF-Q18DH5-F1-model_v6.pdb"
+    ]
+   ],
+   "sql": "SELECT model_id, model_url FROM afdb_model WHERE model_url IS NOT NULL AND model_url<>'' LIMIT 3",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "afdb_url_nonnull": {
+   "value": 4397,
+   "sql": "SELECT COUNT(*) FROM afdb_model WHERE model_url IS NOT NULL AND model_url<>''",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "afdb_model_id_nonnull": {
+   "value": 4397,
+   "sql": "SELECT COUNT(*) FROM afdb_model WHERE model_id IS NOT NULL AND model_id<>''",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "afdb_only_no_pdb": {
+   "value": 4336,
+   "sql": "SELECT COUNT(*) FROM afdb_model a WHERE model_id IS NOT NULL AND model_id<>'' AND source_acc NOT IN (SELECT source_acc FROM protein_pdb)",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "no_pdb_no_afdb": {
+   "value": 1064,
+   "sql": "SELECT COUNT(*) FROM v_master m WHERE source_acc NOT IN (SELECT source_acc FROM protein_pdb) AND source_acc NOT IN (SELECT source_acc FROM afdb_model WHERE model_id IS NOT NULL AND model_id<>'')",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "master_afdb_disagree": {
+   "value": 0,
+   "sql": "SELECT COUNT(*) FROM v_master m JOIN afdb_model a USING(source_acc) WHERE COALESCE(m.afdb_model_id,'')<>COALESCE(a.model_id,'')",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "predicted_structure": {
+   "value": [
+    [
+     "A0A9X2L7U0",
+     "ESMCFold2 (full)",
+     93.49,
+     "structures/A0A9X2L7U0_esmfold.pdb",
+     "chloride_pump_NTQ",
+     "ESMFold prediction for clade rep lacking experimental structure; len=293aa; torch2.8/cu128"
+    ],
+    [
+     "B0R633",
+     "ESMCFold2 (full)",
+     93.71,
+     "structures/B0R633_esmfold.pdb",
+     "sensory_rhodopsin_I",
+     "ESMFold prediction for clade rep lacking experimental structure; len=239aa; torch2.8/cu128"
+    ]
+   ],
+   "sql": "SELECT * FROM predicted_structure",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "reference_tree": {
+   "value": [
+    [
+     "MR_RT_001",
+     185,
+     "IQ-TREE2 UFBoot1000+SH-aLRT",
+     "Q.PFAM+F+R6",
+     "bf9d5e4f20144b207af5e17770b07f84",
+     1,
+     "legacy"
+    ],
+    [
+     "MR_RT_002",
+     278,
+     "IQ-TREE2 UFBoot1000+SH-aLRT",
+     "Q.PFAM+F+R6",
+     "8526256947c8508a685c9535d96ab15f",
+     1,
+     "legacy"
+    ],
+    [
+     "MR_RT_003",
+     472,
+     "IQ-TREE 2.3.6; UFBoot2 1000 + SH-aLRT 1000; 3 independent searches (seeds 1501-1503)",
+     "Q.pfam+F+R9",
+     "712f53eb06fcb0277c79f188dd4bb574",
+     1,
+     "canonical_release"
+    ]
+   ],
+   "sql": "SELECT tree_id, n_tips, method, model, treefile_md5, unrooted, status FROM reference_tree",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "tree_node_kinds": {
+   "value": [
+    [
+     "MR_RT_001",
+     "internal",
+     183
+    ],
+    [
+     "MR_RT_001",
+     "tip",
+     185
+    ],
+    [
+     "MR_RT_002",
+     "internal",
+     276
+    ],
+    [
+     "MR_RT_002",
+     "tip",
+     278
+    ],
+    [
+     "MR_RT_003",
+     "internal",
+     470
+    ],
+    [
+     "MR_RT_003",
+     "tip",
+     472
+    ]
+   ],
+   "sql": "SELECT tree_id, kind, COUNT(*) FROM tree_node GROUP BY 1,2",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "tree_edges": {
+   "value": [
+    [
+     "MR_RT_001",
+     367
+    ],
+    [
+     "MR_RT_002",
+     553
+    ],
+    [
+     "MR_RT_003",
+     941
+    ]
+   ],
+   "sql": "SELECT tree_id, COUNT(*) FROM tree_edge GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "clade_levels": {
+   "value": [
+    [
+     "MR_RT_003",
+     "MR_CLD3",
+     1,
+     19
+    ],
+    [
+     "MR_RT_003",
+     "MR_CLD3",
+     2,
+     30
+    ]
+   ],
+   "sql": "SELECT tree_id, scheme, level, COUNT(*) FROM clade GROUP BY 1,2,3",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "clade_level1": {
+   "value": [
+    [
+     "MR_CLD3_001",
+     "Schizorhodopsins",
+     5,
+     100.0,
+     96.8,
+     "no_E1",
+     3,
+     1.0
+    ],
+    [
+     "MR_CLD3_002",
+     "Eukaryotic ETK rhodopsins (enzyme-rhodopsin-like)",
+     5,
+     100.0,
+     100.0,
+     "no_E1",
+     43,
+     1.0
+    ],
+    [
+     "MR_CLD3_003",
+     "Chlorophyte channelrhodopsins",
+     31,
+     100.0,
+     93.8,
+     "consensus",
+     72,
+     1.0
+    ],
+    [
+     "MR_CLD3_004",
+     "Eukaryotic enzyme rhodopsins (Rh-GC and relatives)",
+     25,
+     100.0,
+     99.9,
+     "consensus",
+     113,
+     1.0
+    ],
+    [
+     "MR_CLD3_005",
+     "Bacteroidota DTK SRI-like rhodopsins",
+     11,
+     100.0,
+     100.0,
+     "no_E1",
+     39,
+     1.0
+    ],
+    [
+     "MR_CLD3_006",
+     "Proteorhodopsins",
+     20,
+     100.0,
+     100.0,
+     "consensus",
+     583,
+     0.7407407407407407
+    ],
+    [
+     "MR_CLD3_007",
+     "Xanthorhodopsin / NDQ-NTQ ion-pump superclade",
+     83,
+     99.0,
+     95.1,
+     "mixed",
+     707,
+     1.0
+    ],
+    [
+     "MR_CLD3_008",
+     "Eukaryotic DTE BR-like group A",
+     5,
+     100.0,
+     99.9,
+     "no_E1",
+     31,
+     1.0
+    ],
+    [
+     "MR_CLD3_009",
+     "Bacterial DTG/DTA/cyanobacterial assemblage (incl. xenorhodopsins, ASR, cyanobacterial Cl- pumps)",
+     50,
+     96.0,
+     84.1,
+     "mixed",
+     229,
+     1.0
+    ],
+    [
+     "MR_CLD3_010",
+     "Chloroflexota/Actinomycetota DTD pumps",
+     6,
+     100.0,
+     97.7,
+     "single_E1",
+     10,
+     0.0895522388059701
+    ],
+    [
+     "MR_CLD3_011",
+     "Archaeal BR-like pumps (non-Halobacterium)",
+     5,
+     96.0,
+     96.8,
+     "consensus",
+     165,
+     0.0
+    ],
+    [
+     "MR_CLD3_012",
+     "Halorhodopsins",
+     9,
+     100.0,
+     100.0,
+     "consensus",
+     163,
+     0.1343283582089552
+    ],
+    [
+     "MR_CLD3_013",
+     "Archaeal sensory rhodopsins (SRI/SRII/SRIII)",
+     38,
+     95.0,
+     86.3,
+     "consensus",
+     172,
+     0.5671641791044776
+    ],
+    [
+     "MR_CLD3_014",
+     "Eukaryotic DTD BR-like group B",
+     14,
+     97.0,
+     86.8,
+     "no_E1",
+     34,
+     1.0
+    ],
+    [
+     "MR_CLD3_015",
+     "Eukaryotic DTN rhodopsins",
+     10,
+     100.0,
+     99.6,
+     "no_E1",
+     15,
+     1.0
+    ],
+    [
+     "MR_CLD3_016",
+     "Chlorophyte DTD pumps",
+     5,
+     100.0,
+     99.3,
+     "single_E1",
+     12,
+     0.087719298245614
+    ],
+    [
+     "MR_CLD3_017",
+     "Fungal rhodopsins (CarO / LR / NOP-1-like)",
+     100,
+     100.0,
+     100.0,
+     "mixed",
+     1646,
+     0.52
+    ],
+    [
+     "MR_CLD3_B01",
+     "Haloarchaeal bacteriorhodopsins / archaerhodopsins (backbone group)",
+     4,
+     98.0,
+     94.3,
+     "consensus",
+     97,
+     null
+    ],
+    [
+     "MR_CLD3_B02",
+     "Amoebozoan (Evosea) DTE rhodopsins (backbone group)",
+     4,
+     99.0,
+     100.0,
+     "no_E1",
+     5,
+     null
+    ]
+   ],
+   "sql": "SELECT clade_id, name, n_tips, ufboot, sh_alrt, consensus_status, n_records_assigned, min_cross_replicate_jaccard FROM clade WHERE level=1 ORDER BY clade_id",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "clade_tip_by_clade_level": {
+   "value": [
+    [
+     1,
+     422,
+     422
+    ]
+   ],
+   "sql": "SELECT c.level, COUNT(*), COUNT(DISTINCT ct.rowid) FROM clade_tip ct JOIN clade c USING(clade_id) GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "placement_current_track": {
+   "value": [
+    [
+     0,
+     null,
+     "MR_RT_002",
+     4335
+    ],
+    [
+     0,
+     null,
+     "MR_RT_003",
+     9992
+    ],
+    [
+     0,
+     "exploratory",
+     "MR_RT_001",
+     1201
+    ],
+    [
+     0,
+     "primary",
+     "MR_RT_001",
+     3125
+    ],
+    [
+     1,
+     null,
+     "MR_RT_003",
+     4996
+    ]
+   ],
+   "sql": "SELECT is_current, track, tree_id, COUNT(*) FROM placement GROUP BY 1,2,3",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "placement_clade_call_current": {
+   "value": [
+    [
+     "assigned",
+     4337
+    ],
+    [
+     "outgroup_heliorhodopsin",
+     456
+    ],
+    [
+     "unassigned",
+     199
+    ],
+    [
+     "tentative",
+     4
+    ]
+   ],
+   "sql": "SELECT clade_call, COUNT(*) FROM placement WHERE is_current=1 GROUP BY 1 ORDER BY 2 DESC",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "placement_current_per_acc": {
+   "value": [
+    [
+     1,
+     4996
+    ]
+   ],
+   "sql": "SELECT n, COUNT(*) FROM (SELECT source_acc, COUNT(*) n FROM placement WHERE is_current=1 GROUP BY 1) GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "record_clade_source": {
+   "value": [
+    [
+     "placement",
+     4996
+    ],
+    [
+     "reference_tip",
+     455
+    ]
+   ],
+   "sql": "SELECT source, COUNT(*) FROM record_clade GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "record_clade_call": {
+   "value": [
+    [
+     "assigned",
+     4337
+    ],
+    [
+     "outgroup_heliorhodopsin",
+     456
+    ],
+    [
+     null,
+     455
+    ],
+    [
+     "unassigned",
+     199
+    ],
+    [
+     "tentative",
+     4
+    ]
+   ],
+   "sql": "SELECT clade_call, COUNT(*) FROM record_clade GROUP BY 1 ORDER BY 2 DESC",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "master_without_record_clade_by_status": {
+   "value": [
+    [
+     "heliorhodopsin",
+     15
+    ]
+   ],
+   "sql": "SELECT membership_status, COUNT(*) FROM v_master WHERE source_acc NOT IN (SELECT source_acc FROM record_clade) GROUP BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "master_without_record_clade_list": {
+   "value": [
+    [
+     "A0A089ZH82",
+     "heliorhodopsin"
+    ],
+    [
+     "A0A0L0D3S9",
+     "heliorhodopsin"
+    ],
+    [
+     "A0A0M0JPF9",
+     "heliorhodopsin"
+    ],
+    [
+     "A0A0W0GG67",
+     "heliorhodopsin"
+    ],
+    [
+     "A0A143YUX7",
+     "heliorhodopsin"
+    ],
+    [
+     "A0A2P6V4I5",
+     "heliorhodopsin"
+    ],
+    [
+     "A0A2R5GFT6",
+     "heliorhodopsin"
+    ],
+    [
+     "A0A3A5MKG8",
+     "heliorhodopsin"
+    ],
+    [
+     "A0A4R8X1F9",
+     "heliorhodopsin"
+    ],
+    [
+     "A0A9E8S8N4",
+     "heliorhodopsin"
+    ],
+    [
+     "A0AAE0BL41",
+     "heliorhodopsin"
+    ],
+    [
+     "A0AB38BLM1",
+     "heliorhodopsin"
+    ],
+    [
+     "A0ABP0LPA7",
+     "heliorhodopsin"
+    ],
+    [
+     "A0ABU4B2X0",
+     "heliorhodopsin"
+    ],
+    [
+     "B5Y4Q4",
+     "heliorhodopsin"
+    ]
+   ],
+   "sql": "SELECT source_acc, membership_status FROM v_master WHERE source_acc NOT IN (SELECT source_acc FROM record_clade)",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "master_clade_id_counted": {
+   "value": [
+    [
+     null,
+     15
+    ],
+    [
+     "",
+     1310
+    ],
+    [
+     "MR_CLD3_001",
+     3
+    ],
+    [
+     "MR_CLD3_002",
+     43
+    ],
+    [
+     "MR_CLD3_003",
+     72
+    ],
+    [
+     "MR_CLD3_004",
+     113
+    ],
+    [
+     "MR_CLD3_005",
+     39
+    ],
+    [
+     "MR_CLD3_006",
+     583
+    ],
+    [
+     "MR_CLD3_007",
+     707
+    ],
+    [
+     "MR_CLD3_008",
+     31
+    ],
+    [
+     "MR_CLD3_009",
+     225
+    ],
+    [
+     "MR_CLD3_010",
+     10
+    ],
+    [
+     "MR_CLD3_011",
+     165
+    ],
+    [
+     "MR_CLD3_012",
+     163
+    ],
+    [
+     "MR_CLD3_013",
+     172
+    ],
+    [
+     "MR_CLD3_014",
+     34
+    ],
+    [
+     "MR_CLD3_015",
+     15
+    ],
+    [
+     "MR_CLD3_016",
+     12
+    ],
+    [
+     "MR_CLD3_017",
+     1646
+    ],
+    [
+     "MR_CLD3_B01",
+     97
+    ],
+    [
+     "MR_CLD3_B02",
+     5
+    ]
+   ],
+   "sql": "SELECT clade_id, COUNT(*) FROM v_counted GROUP BY 1 ORDER BY 1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "master_tentative_nonblank": {
+   "value": 720,
+   "sql": "SELECT COUNT(*) FROM v_master WHERE tentative_clade_id IS NOT NULL AND tentative_clade_id<>''",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "MR_CLD3_017": {
+   "value": [
+    [
+     "MR_CLD3_017",
+     "Fungal rhodopsins (CarO / LR / NOP-1-like)",
+     1,
+     "mixed",
+     1646,
+     4,
+     0.52
+    ]
+   ],
+   "sql": "SELECT clade_id, name, level, consensus_status, n_records_assigned, n_E1, min_cross_replicate_jaccard FROM clade WHERE clade_id='MR_CLD3_017'",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "clade_robustness_cols": {
+   "value": [
+    [
+     "run1.treefile",
+     "outgroup",
+     3,
+     60,
+     95,
+     80,
+     25,
+     419,
+     0.6480901092548714,
+     1.0,
+     0.8823529411764706,
+     0.8823529411764706
+    ],
+    [
+     "run1.treefile",
+     "outgroup",
+     3,
+     60,
+     90,
+     70,
+     22,
+     441,
+     0.7058969946830081,
+     1.0,
+     0.7647058823529411,
+     0.7647058823529411
+    ]
+   ],
+   "sql": "SELECT * FROM clade_robustness LIMIT 2",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "active_link_distinct_acc": {
+   "value": 106,
+   "sql": "SELECT COUNT(DISTINCT source_acc) FROM assertion_publication WHERE is_active=1",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "all_link_distinct_acc": {
+   "value": 106,
+   "sql": "SELECT COUNT(DISTINCT source_acc) FROM assertion_publication",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "active_link_roles": {
+   "value": [
+    [
+     "compilation",
+     0,
+     109
+    ],
+    [
+     "conflicting_evidence",
+     0,
+     1
+    ],
+    [
+     "context",
+     0,
+     3
+    ],
+    [
+     "support",
+     1,
+     141
+    ],
+    [
+     "unresolvable_not_counted",
+     0,
+     1
+    ]
+   ],
+   "sql": "SELECT link_role, counts_as_support, COUNT(*) FROM assertion_publication WHERE is_active=1 GROUP BY 1,2",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "active_link_acc_not_in_master": {
+   "value": 0,
+   "sql": "SELECT COUNT(DISTINCT source_acc) FROM assertion_publication WHERE is_active=1 AND source_acc NOT IN (SELECT source_acc FROM v_master)",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "link_verdicts": {
+   "value": [
+    [
+     0,
+     "not_supported",
+     6
+    ],
+    [
+     0,
+     "verified_with_correction",
+     1
+    ],
+    [
+     1,
+     "compilation",
+     109
+    ],
+    [
+     1,
+     "context",
+     2
+    ],
+    [
+     1,
+     "curator_approved_not_verified_in_abstract",
+     1
+    ],
+    [
+     1,
+     "not_supported",
+     1
+    ],
+    [
+     1,
+     "unresolvable",
+     1
+    ],
+    [
+     1,
+     "verified",
+     130
+    ],
+    [
+     1,
+     "verified_fulltext",
+     2
+    ],
+    [
+     1,
+     "verified_with_correction",
+     9
+    ]
+   ],
+   "sql": "SELECT is_active, verdict, COUNT(*) FROM assertion_publication GROUP BY 1,2",
+   "expected_plan_1_3": null,
+   "match": null
+  },
+  "watchlist_in_corpus": {
+   "value": 0,
+   "sql": "SELECT COUNT(*) FROM novel_family_candidate WHERE query_accession IN (SELECT source_acc FROM v_master)",
+   "expected_plan_1_3": 0,
+   "match": true
+  }
+ },
+ "v_master_columns": [
+  "mrdb_acc",
+  "source_acc",
+  "protein_name",
+  "organism",
+  "organism_id",
+  "tax_domain",
+  "length",
+  "membership_status",
+  "boundary_subtype",
+  "membership_score",
+  "retinal_site_residue",
+  "func_class",
+  "evidence_level",
+  "function_basis",
+  "func_class_v14",
+  "helixC_motif",
+  "motif_class",
+  "call_conflict",
+  "call_conflict_detail",
+  "is_engineered",
+  "wild_type_acc",
+  "counts_eligible",
+  "exact_duplicate_of",
+  "e1_representative",
+  "clade_id",
+  "subclade_id",
+  "clade_source",
+  "clade_lwr",
+  "placement_call",
+  "clade_name",
+  "tentative_clade_id",
+  "tentative_clade_name",
+  "gtdb_taxonomy",
+  "afdb_model_id",
+  "afdb_global_plddt"
+ ],
+ "schemas": {
+  "assertion_publication": [
+   "assertion_id",
+   "publication_id",
+   "source_acc",
+   "assertion",
+   "verdict",
+   "corrected_field",
+   "corrected_value",
+   "evidence_basis",
+   "snippet",
+   "checked_at",
+   "caveat",
+   "snippet_verified_in_retrieved_text",
+   "is_active",
+   "counts_as_support",
+   "link_role",
+   "curator_decision",
+   "curator_note",
+   "decided_by",
+   "decided_at",
+   "replaces_publication_id"
+  ],
+  "publication": [
+   "publication_id",
+   "doi",
+   "pmid",
+   "title",
+   "journal",
+   "year",
+   "raw_ref",
+   "ingestion",
+   "doi_resolves",
+   "doi_corrected",
+   "crossref_title",
+   "crossref_journal",
+   "crossref_year",
+   "crossref_first_author",
+   "first_author_match",
+   "year_match",
+   "verdict_summary",
+   "notes",
+   "title_v150",
+   "journal_v150",
+   "year_v150",
+   "ingestion_v150"
+  ],
+  "novel_family_candidate": [
+   "family",
+   "source_db",
+   "query_accession",
+   "resolved_accession",
+   "identifier",
+   "description",
+   "species",
+   "taxonomy_id",
+   "architecture",
+   "score",
+   "evalue",
+   "seq_length",
+   "has_retinalK",
+   "mapali_window"
+  ],
+  "mrdb_accession": [
+   "mrdb_acc",
+   "sequence_sha256",
+   "representative_source_acc",
+   "first_release",
+   "n_source_records"
+  ],
+  "clade_tip": [
+   "source_acc",
+   "clade_id",
+   "subclade_id",
+   "tree_id"
+  ],
+  "clade_robustness": [
+   "tree",
+   "rooting",
+   "min_size",
+   "max_size",
+   "ufb",
+   "alrt",
+   "n_clades",
+   "n_tips_in_clades",
+   "ari_vs_primary",
+   "median_best_jaccard",
+   "frac_primary_clades_recovered_j1",
+   "frac_primary_clades_j_ge_0_8"
+  ],
+  "foldseek_hit": [
+   "target_id",
+   "source_db",
+   "length",
+   "architecture",
+   "best_query",
+   "best_query_family",
+   "best_bits",
+   "best_evalue",
+   "best_prob",
+   "her_bits",
+   "nearest_corpus_acc",
+   "nearest_corpus_pid",
+   "nearest_corpus_qcov",
+   "helixC_motif_pairwise_BR",
+   "retinal_K_pairwise_BR_unverified",
+   "pf01036_hmmsearch_evalue",
+   "taxonomy",
+   "scorer_membership_score",
+   "scorer_provisional_status",
+   "scorer_typeI_detected_070",
+   "scorer_has_retinal_lysine",
+   "family_flag",
+   "family_flag_bits",
+   "scorer_pf01036_bits",
+   "scorer_nn_source_acc",
+   "scorer_nn_identity",
+   "scorer_nn_clade_id",
+   "watchlist_tier",
+   "sequence",
+   "to_watchlist"
+  ],
+  "retinal_pocket_summary": [
+   "source_acc",
+   "pocket_string_br",
+   "n_pocket_observed",
+   "has_afdb_model",
+   "pocket_mean_plddt",
+   "pocket_min_plddt"
+  ],
+  "gtdb_taxonomy": [
+   "source_acc",
+   "organism",
+   "organism_id",
+   "tax_domain",
+   "gtdb_taxonomy",
+   "gtdb_agreement",
+   "gtdb_n_genomes",
+   "gtdb_match_level",
+   "gtdb_release",
+   "gtdb_d",
+   "gtdb_p",
+   "gtdb_c",
+   "gtdb_o",
+   "gtdb_f",
+   "gtdb_g",
+   "gtdb_s"
+  ]
+ },
+ "watchlist_acc_col": "query_accession",
+ "fixtures": {
+  "P02945": {
+   "master": [
+    "MRDB000001",
+    "P02945",
+    "Bacteriorhodopsin (BR) (Bacterioopsin) (BO)",
+    "typeI_member_core",
+    "E1",
+    "proton_pump",
+    "MR_CLD3_B01",
+    null,
+    0,
+    1,
+    "AF-P02945-F1"
+   ],
+   "n_pdb": 174,
+   "pdb_ids": [
+    "1AP9",
+    "1AT9",
+    "1BCT",
+    "1BHA",
+    "1BHB",
+    "1BM1",
+    "1BRD",
+    "1BRR",
+    "1BRX",
+    "1C3W",
+    "1C8R",
+    "1C8S"
+   ],
+   "in_map": [
+    [
+     "MRDB000001"
+    ]
+   ]
+  },
+  "B0R5N9": {
+   "master": [
+    "MRDB000001",
+    "B0R5N9",
+    "Bacteriorhodopsin",
+    "typeI_member_core",
+    "E1",
+    "proton_pump",
+    "MR_CLD3_B01",
+    null,
+    0,
+    1,
+    "AF-B0R5N9-F1"
+   ],
+   "n_pdb": 1,
+   "pdb_ids": [
+    "4Y9H"
+   ],
+   "in_map": [
+    [
+     "MRDB000001"
+    ]
+   ]
+  },
+  "A0A1I3DJQ0": {
+   "master": [
+    "MRDB000238",
+    "A0A1I3DJQ0",
+    "Rhodopsin",
+    "typeI_member_curated",
+    "E1",
+    "proton_pump_inward",
+    "MR_CLD3_007",
+    null,
+    0,
+    1,
+    "AF-A0A1I3DJQ0-F1"
+   ],
+   "n_pdb": 5,
+   "pdb_ids": [
+    "8R0K",
+    "8R0L",
+    "8R0M",
+    "8R0N",
+    "8R0O"
+   ],
+   "in_map": [
+    [
+     "MRDB000238"
+    ]
+   ]
+  },
+  "L1K1K8": {
+   "master": [
+    "MRDB001687",
+    "L1K1K8",
+    "Uncharacterized protein",
+    "typeI_member_curated",
+    "E1",
+    "light_gated_channel",
+    "",
+    null,
+    0,
+    1,
+    "AF-L1K1K8-F1"
+   ],
+   "n_pdb": 2,
+   "pdb_ids": [
+    "8YEJ",
+    "8YEK"
+   ],
+   "in_map": [
+    [
+     "MRDB001687"
+    ]
+   ]
+  },
+  "A0A3G1I4H9": {
+   "master": [
+    "MRDB002499",
+    "A0A3G1I4H9",
+    "Cation channel rhodopsin 4",
+    "typeI_member_curated",
+    "E1",
+    "light_gated_channel",
+    "",
+    "MR_CLD3_002",
+    0,
+    1,
+    "AF-A0A3G1I4H9-F1"
+   ],
+   "n_pdb": 1,
+   "pdb_ids": [
+    "8YEL"
+   ],
+   "in_map": [
+    [
+     "MRDB002499"
+    ]
+   ]
+  },
+  "A0ABF7PQ82": {
+   "master": [
+    "MRDB003606",
+    "A0ABF7PQ82",
+    "exoKCR1",
+    "typeI_member_curated",
+    "E1",
+    "light_gated_channel",
+    "",
+    "MR_CLD3_002",
+    0,
+    1,
+    "AF-A0ABF7PQ82-F1"
+   ],
+   "n_pdb": 1,
+   "pdb_ids": [
+    "8ZAO"
+   ],
+   "in_map": [
+    [
+     "MRDB003606"
+    ]
+   ]
+  },
+  "A0ABF7PQA2": {
+   "master": [
+    "MRDB003608",
+    "A0ABF7PQA2",
+    "Kalium Channelrhodopsin 1 (Kalium channelrhodopsin 1 C110A)",
+    "typeI_candidate",
+    "E1",
+    "light_gated_channel",
+    "",
+    "MR_CLD3_002",
+    1,
+    0,
+    "AF-A0ABF7PQA2-F1"
+   ],
+   "n_pdb": 3,
+   "pdb_ids": [
+    "9CDC",
+    "9CDD",
+    "9CDE"
+   ],
+   "in_map": [
+    [
+     "MRDB003608"
+    ]
+   ]
+  },
+  "A0ABF7PQ84": {
+   "master": [
+    "MRDB003607",
+    "A0ABF7PQ84",
+    "C110T class2 (C110T-class1)",
+    "typeI_candidate",
+    "E1",
+    "light_gated_channel",
+    "",
+    "MR_CLD3_002",
+    1,
+    0,
+    "AF-A0ABF7PQ84-F1"
+   ],
+   "n_pdb": 2,
+   "pdb_ids": [
+    "8ZAP",
+    "8ZAQ"
+   ],
+   "in_map": [
+    [
+     "MRDB003607"
+    ]
+   ]
+  },
+  "A0AAP2RB57": {
+   "master": [
+    "MRDB003484",
+    "A0AAP2RB57",
+    "Bacteriorhodopsin",
+    "typeI_member_core",
+    "E5",
+    "unresolved",
+    "MR_CLD3_001",
+    null,
+    0,
+    1,
+    "AF-A0AAP2RB57-F1"
+   ],
+   "n_pdb": 0,
+   "pdb_ids": [],
+   "in_map": [
+    [
+     "MRDB003484"
+    ]
+   ]
+  },
+  "_multi_pdb_top": [
+   [
+    "P02945",
+    174
+   ],
+   [
+    "W8VZW3",
+    53
+   ],
+   [
+    "N0DKS8",
+    41
+   ],
+   [
+    "P42196",
+    23
+   ],
+   [
+    "A0A2K3E0X5",
+    14
+   ]
+  ],
+  "_multi_pdb_counted_member": [
+   [
+    "A0A060H1D7",
+    3
+   ],
+   [
+    "A0A0C3TEH9",
+    3
+   ],
+   [
+    "A0A1I3DJQ0",
+    5
+   ]
+  ],
+  "_afdb_only": [
+   [
+    "Q53461",
+    "MRDB000053",
+    "AF-Q53461-F1",
+    98.06
+   ],
+   [
+    "U5TV41",
+    "MRDB004745",
+    "AF-U5TV41-F1",
+    97.88
+   ],
+   [
+    "W0FV18",
+    "MRDB004784",
+    "AF-W0FV18-F1",
+    97.75
+   ]
+  ],
+  "_no_pdb_no_afdb": [
+   [
+    "A0A060JDQ1",
+    "MRDB001781",
+    "typeI_member_core"
+   ],
+   [
+    "A0A0K3CUU3",
+    "MRDB000014",
+    "boundary_family"
+   ],
+   [
+    "A0A150G9K7",
+    "MRDB000181",
+    "typeI_candidate_architecture_supported"
+   ]
+  ]
+ },
+ "refpkg_tree": {
+  "file": "refpkg/MR_RT_003/tree/MR_RT_003.rooted.treefile",
+  "md5": "f47ef7649dc5b01a6ea58e9c0ea1c238",
+  "sha256": "c56196970698decea8384c1cad97545794268e6d8a2df2b195e7d35d5ded9aef",
+  "bytes": 17517,
+  "n_tips_regex": 472,
+  "n_unique_tips": 472,
+  "tip_examples": [
+   "A0AAE0BL41",
+   "A0A0M0JPF9",
+   "A0ABP0LPA7",
+   "A0ABU4B2X0",
+   "A0A0L0D3S9"
+  ],
+  "internal_label_examples": [
+   "36.6/53",
+   "96.2/100",
+   "90.7/94",
+   "92.6/100",
+   "85.4/99",
+   "82.1/72",
+   "100/100",
+   "96.9/99"
+  ],
+  "tips_tsv_header": [
+   "source_acc",
+   "tip_role"
+  ],
+  "tips_tsv_n": 472,
+  "tips_tsv_col0_matches_tree": 472,
+  "db_tip_labels_n": 1,
+  "db_tip_labels_match_tree": 0
+ },
+ "refpkg_clades": {
+  "header": [
+   "clade_id",
+   "n_tips",
+   "ufboot",
+   "sh_alrt",
+   "dominant_subfamily_v14",
+   "subfamily_fraction",
+   "dominant_helixC_motif",
+   "motif_fraction",
+   "dominant_domain",
+   "domain_fraction",
+   "dominant_phylum",
+   "phylum_fraction",
+   "e1_classes",
+   "clade_function_e1_consensus",
+   "n_anchors",
+   "anchors"
+  ],
+  "n_rows": 17
+ },
+ "refpkg_subclades": {
+  "header": [
+   "subclade_id",
+   "parent_clade",
+   "n_tips",
+   "ufboot",
+   "sh_alrt",
+   "dominant_subfamily_v14",
+   "dominant_helixC_motif",
+   "dominant_domain",
+   "dominant_phylum",
+   "e1_classes",
+   "clade_function_e1_consensus",
+   "e1_members"
+  ],
+  "n_rows": 32,
+  "refpkg_only": [
+   "MR_CLD3_B01",
+   "MR_CLD3_B02"
+  ],
+  "db_only": []
+ },
+ "refpkg_clade_tips": {
+  "header": [
+   "clade_id",
+   "source_acc",
+   "subclade_id"
+  ],
+  "n_rows": 457
+ },
+ "tree_reconciliation": {
+  "tip_roles": {
+   "anchor_characterized": 57,
+   "boundary_schizorhodopsin": 2,
+   "cl0.6_representative": 394,
+   "outgroup_heliorhodopsin": 15,
+   "seed": 4
+  },
+  "tips_not_in_corpus": [
+   "QBQ84355",
+   "QBQ84358"
+  ],
+  "outgroup_tips_equal_records_without_record_clade": true,
+  "db_tree_node_tip_source_acc_match_treefile": 472,
+  "clade_tip_by_clade": [
+   [
+    "MR_CLD3_001",
+    0,
+    3
+   ],
+   [
+    "MR_CLD3_001",
+    1,
+    2
+   ],
+   [
+    "MR_CLD3_002",
+    0,
+    3
+   ],
+   [
+    "MR_CLD3_002",
+    1,
+    2
+   ],
+   [
+    "MR_CLD3_003",
+    0,
+    27
+   ],
+   [
+    "MR_CLD3_003",
+    1,
+    4
+   ],
+   [
+    "MR_CLD3_004",
+    0,
+    22
+   ],
+   [
+    "MR_CLD3_004",
+    1,
+    3
+   ],
+   [
+    "MR_CLD3_005",
+    0,
+    10
+   ],
+   [
+    "MR_CLD3_005",
+    1,
+    1
+   ],
+   [
+    "MR_CLD3_006",
+    0,
+    20
+   ],
+   [
+    "MR_CLD3_007",
+    0,
+    83
+   ],
+   [
+    "MR_CLD3_008",
+    1,
+    5
+   ],
+   [
+    "MR_CLD3_009",
+    0,
+    49
+   ],
+   [
+    "MR_CLD3_009",
+    1,
+    1
+   ],
+   [
+    "MR_CLD3_010",
+    0,
+    6
+   ],
+   [
+    "MR_CLD3_011",
+    1,
+    5
+   ],
+   [
+    "MR_CLD3_012",
+    0,
+    8
+   ],
+   [
+    "MR_CLD3_012",
+    1,
+    1
+   ],
+   [
+    "MR_CLD3_013",
+    0,
+    37
+   ],
+   [
+    "MR_CLD3_013",
+    1,
+    1
+   ],
+   [
+    "MR_CLD3_014",
+    0,
+    11
+   ],
+   [
+    "MR_CLD3_014",
+    1,
+    3
+   ],
+   [
+    "MR_CLD3_015",
+    0,
+    8
+   ],
+   [
+    "MR_CLD3_015",
+    1,
+    2
+   ],
+   [
+    "MR_CLD3_016",
+    1,
+    5
+   ],
+   [
+    "MR_CLD3_017",
+    0,
+    84
+   ],
+   [
+    "MR_CLD3_017",
+    1,
+    16
+   ],
+   [
+    "backbone_unassigned",
+    0,
+    8
+   ],
+   [
+    "backbone_unassigned",
+    1,
+    27
+   ]
+  ],
+  "backbone_unassigned_subclades": [
+   [
+    null,
+    27
+   ],
+   [
+    "MR_CLD3_B01",
+    4
+   ],
+   [
+    "MR_CLD3_B02",
+    4
+   ]
+  ],
+  "reference_tree_md5_matches_file": {
+   "MR_RT_003.rooted.treefile": "f47ef7649dc5b01a6ea58e9c0ea1c238",
+   "run1.treefile": "712f53eb06fcb0277c79f188dd4bb574",
+   "run2.treefile": "f47be99e6a9e3a221a2ca58c4c792d52",
+   "run3.treefile": "ee83dbdbb6679072106dfa402ca85aa6"
+  }
+ },
+ "legacy_data_js": {
+  "sha256": "485b229663036042d4bb517e0690b247000e4a83075b49c3c7a33550346108a8",
+  "n_rows": 5466,
+  "n_columns": 39,
+  "common_with_v_master": 30,
+  "legacy_only_columns": [
+   "reviewed",
+   "e2_ref",
+   "e2_identity",
+   "override_rule",
+   "pocket_string_br",
+   "status_reason",
+   "novel_family_flag",
+   "is_mrdb_representative",
+   "clade_confidence"
+  ],
+  "mismatched_cells_by_column": {},
+  "pubs_accessions": 106,
+  "pubs_rows": 255,
+  "has_pdb_fields": false,
+  "meta_keys": [
+   "version",
+   "release_date",
+   "license",
+   "n_protein_records",
+   "n_counted_records",
+   "n_engineered_records",
+   "evidence_level_counts_counted",
+   "n_call_conflict",
+   "n_conflict_downgrades",
+   "n_novel_family_candidates",
+   "n_typeI_member_curated",
+   "n_novel_family_flag",
+   "n_foldseek_hits",
+   "audit_agreement_primary",
+   "scope"
+  ]
+ },
+ "errors": {}
+}
