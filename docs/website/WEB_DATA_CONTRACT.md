@@ -63,7 +63,7 @@ Estimated sizes (raw):
 - `corpus.fasta`: about 1.9 MB.
 - Record files: 1-60 KB each. P02945 is the largest because of 174 PDB entries.
 
-Home loads only `current.json`, `manifest.json`, `summary.json` and `preview.svg`.
+Home loads only `current.json`, `manifest.json`, `summary.json` and `preview.svg`. **PR-2 as built:** Home draws the preview from the Newick itself and also loads `clades.json`, `phylogeny/tips.json`, `phylogeny/MR_RT_003.rooted.treefile` and `vocabulary.json` (about 186 KiB raw / 25 KiB gzip of data in total); it still never loads `records-index.json`, `accessions.json`, record files or sequences. See section 11.
 
 ## 4. Payload contracts
 
@@ -71,9 +71,9 @@ Home loads only `current.json`, `manifest.json`, `summary.json` and `preview.svg
 
 ```ts
 interface Manifest {
-  schema_version: "1.0.0";
+  schema_version: "1.1.0";              // "1.0.0" in PR-1; additive 1.1.0 in PR-2 (section 11)
   dataset_release: "1.6.0";
-  website_version: string;               // e.g. "2.0.0-pr1"
+  website_version: string;               // e.g. "2.0.0-pr2"
   source_db: { file: "microrhododb_v1.6.0.sqlite"; sha256: string; opened_read_only: true };
   refpkg: { id: "MR_RT_003"; rooted_treefile_sha256: string; rooted_treefile_md5: string;
             db_treefile_md5: string; db_treefile_md5_refers_to: "run1.treefile" };
@@ -396,3 +396,19 @@ All deviations are additive or make a type explicit; none changes a scientific v
 | New files | — | `phylogeny/support_audit.json`, `phylogeny/tree_stats.json` (support census and audit counts), `phylogeny/preview.svg` | section 7.1 |
 | `export_manifest.json` | — | every other file under the output root (path, sha256, bytes, records), exporter commit and `git_dirty`, DB SHA-256; no timestamps | principle 4 |
 | Exit codes | `BLOCKED_DATA_SOURCE` | 2 `BLOCKED_DATA_SOURCE` (DB missing/SHA mismatch, refpkg input mismatch), 3 `STRUCTURE_SOURCE_ANOMALY` (predicted file not uniquely resolved or SHA mismatch), 4 `CONTRACT_VIOLATION` (any invariant, including refusing to replace a directory that is not a previous export) | fail closed |
+
+## 11. Schema 1.1.0 (PR-2, additive)
+
+PR-2 needed three things the 1.0.0 export did not provide. All changes are additive; no 1.0.0 field changed name,
+type or value, and no scientific value changed. `tests/test_web_export.py` (33 tests) and the JSON Schema enforce them.
+
+| Area | 1.0.0 | 1.1.0 | Reason |
+|---|---|---|---|
+| `records-index.json` columns | 25 | 46: 21 columns appended after the 1.0.0 columns, same order: `membership_group`, `retinal_site_residue`, `function_basis`, `func_class_v14`, `motif_class`, `call_conflict_detail`, `wild_type_acc`, `exact_duplicate_of`, `e1_representative`, `clade_name`, `tentative_clade_name`, `gtdb_taxonomy`, `afdb_model_id`, `afdb_global_plddt`, `e2_ref`, `e2_identity`, `override_rule`, `pocket_string_br`, `status_reason`, `lineage`, `pdb_ids` (list of source-level PDB IDs) | Browse must filter on and export every legacy TSV field (39 legacy columns) without fetching 5,299 record files. Values are identical to the record files, full precision (`test_records_index_v11_columns_cover_legacy_tsv`) |
+| `clades.json` → `level1[].support_audit` | `db_label`, `rooted_file_label`, `iqtree_run1_label`, `db_matches_iqtree_run1` | adds `iqtree_run1_sh_alrt`, `iqtree_run1_ufboot` (numbers parsed from the run1 label of the same bipartition) and `iqtree_run1_meets_support_thresholds` | The UI displays corrected support from numbers, never from the rooted-file labels; the threshold flag is computed once in the exporter |
+| `clades.json` top level | — | `clade_rule` (the MR_CLD3 rule copied from `pipeline/v150/define_clades.py` PRIMARY/SUB and `refpkg/MR_RT_003/README.md` item 4: level-1 5-100 tips, subclade 3-40 tips, SH-aLRT >= 80 and UFBoot >= 95, both inclusive) and `support_display` (which field to show and why) | Reporting only. The rule is never used to redefine or reclassify clades. With it, exactly one level-1 clade fails: MR_CLD3_017, run1 SH-aLRT 50.3 / UFBoot 72 (frozen DB label 100/100), retained as a legacy v1.6.0 assignment |
+| New file `vocabulary.json` | — | `membership_status` (9 rows from `status_definition`: status, group, is_member, is_candidate, v1.4 label, definition), `func_class` (11 rows from `func_class_definition`), `evidence_level` (E1-E5 parsed from `data_dictionary` `function_evidence.evidence_level`, with the source text), `clade_state` (7 exporter definitions, section 7.3), `evidence_note` | Labels and definitions shown in the UI come from the DB, not from UI literals. Counts are omitted (they live in `summary.json`) |
+| `manifest.website_version` | `2.0.0-pr1` | `2.0.0-pr2` | Release label |
+
+Not changed: record files, `accessions.json`, `summary.json` metrics and distributions, sequences, structures,
+publications, watchlist, phylogeny files, `export_manifest.json` format, determinism rules, exit codes.

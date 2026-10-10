@@ -239,6 +239,49 @@ def test_records_index_matches_records(D, records):
         assert r["has_afdb"] is (s["structures"]["afdb"]["status"] == "ok")
         assert r["has_predicted"] is bool(s["structures"]["predicted"])
         assert r["n_support_links"] == sum(p["counts_as_support"] for p in s["publications"])
+        # schema 1.1.0 (PR-2) columns: identical to the record file, full precision
+        for c in ex.INDEX_COLS_V11:
+            if c == "membership_group":
+                n = s["membership"]["group"]
+            elif c == "status_reason":
+                n = s["membership"]["status_reason"]
+            elif c in ("e2_ref", "e2_identity", "override_rule"):
+                n = s["function"][c]
+            elif c == "pocket_string_br":
+                n = s["motifs"]["pocket_string_br"]
+            elif c == "lineage":
+                n = s["lineage"]
+            elif c == "pdb_ids":
+                n = [x["pdb_id"] for x in s["structures"]["experimental"]]
+            else:
+                n = path_get(e, s, ex.V_MASTER_FIELD_MAP[c])
+            assert r[c] == n and type(r[c]) is type(n), (r["source_acc"], c)
+
+
+def test_records_index_v11_columns_cover_legacy_tsv():
+    """Every legacy TSV column is either an index column or derivable (clade_confidence <- clade_state)."""
+    ri_cols = set(ex.INDEX_COLS_V11) | {"mrdb_acc", "source_acc", "is_mrdb_representative", "protein_name", "organism",
+                                         "tax_domain", "length", "membership_status", "membership_score", "func_class",
+                                         "evidence_level", "call_conflict", "is_engineered", "counts_eligible",
+                                         "clade_state", "clade_id", "subclade_id", "tentative_clade_id", "n_pdb",
+                                         "has_afdb", "has_predicted", "helixC_motif", "novel_family_flag", "reviewed",
+                                         "n_support_links"}
+    assert set(LEGACY_PATH) - ri_cols == {"clade_confidence"}
+
+
+def test_vocabulary(D, con):
+    v = load(D, "vocabulary.json")
+    sd = sql_df(con, "SELECT * FROM status_definition ORDER BY rowid")
+    assert [x["status"] for x in v["membership_status"]] == list(sd.status)
+    assert [x["definition"] for x in v["membership_status"]] == list(sd.definition)
+    assert [x["group"] for x in v["membership_status"]] == list(sd.status_group)
+    fd = sql_df(con, "SELECT * FROM func_class_definition ORDER BY rowid")
+    assert [(x["func_class"], x["definition"]) for x in v["func_class"]] == list(zip(fd.func_class, fd.definition))
+    assert [x["level"] for x in v["evidence_level"]] == ["E1", "E2", "E3", "E4", "E5"]
+    src = v["evidence_level_source"]["text"]
+    for x in v["evidence_level"]:
+        assert f"{x['level']} {x['definition']}" in src
+    assert [x["state"] for x in v["clade_state"]] == ex.CLADE_STATES
 
 
 def test_sequences_fasta(D, records):
@@ -513,6 +556,25 @@ def test_clades(D, con):
         assert x["function_consensus"]["level"] == r.level
         assert x["function_consensus"]["consensus_status"] == r.consensus_status == x["consensus_status"]
         assert x["function_consensus"]["E1_classes"] == (r.E1_classes or None)
+    # schema 1.1.0 (PR-2): run1 support parsed + predefined-threshold test, rule copied from define_clades.py
+    src = (REPO / "pipeline/v150/define_clades.py").read_text()
+    assert 'PRIMARY = dict(rooting="outgroup", min_size=5, max_size=100, ufb=95, alrt=80)' in src
+    assert "SUB = dict(min_size=3, max_size=40, ufb=95, alrt=80)" in src
+    r = c["clade_rule"]
+    assert r["level1"] == {"rooting": "outgroup", "min_tips": 5, "max_tips": 100, "min_ufboot": 95, "min_sh_alrt": 80}
+    assert r["subclade"] == {"min_tips": 3, "max_tips": 40, "min_ufboot": 95, "min_sh_alrt": 80}
+    failing = []
+    for x in c["level1"] + c["subclades"]:
+        sa = x["support_audit"]
+        sh, uf = (float(t) for t in sa["iqtree_run1_label"].split("/"))
+        assert (sa["iqtree_run1_sh_alrt"], sa["iqtree_run1_ufboot"]) == (sh, uf)
+        assert sa["iqtree_run1_meets_support_thresholds"] is (sh >= 80 and uf >= 95)
+        if not sa["iqtree_run1_meets_support_thresholds"]:
+            failing.append(x["clade_id"])
+    assert failing == ["MR_CLD3_017"]
+    c17 = next(x for x in c["level1"] if x["clade_id"] == "MR_CLD3_017")
+    assert c17["support_audit"]["iqtree_run1_label"] == "50.3/72"
+    assert (c17["sh_alrt"], c17["ufboot"]) == (100.0, 100.0)  # frozen DB values unchanged
 
 
 # ----------------------------------------------------------------------------------------------- v_master cells
@@ -765,7 +827,7 @@ def test_json_schema_all_payloads(out):
         seen[pats[0]] += 1
     assert not errors, errors[:5]
     assert set(seen) == set(schema["x-files"])
-    assert len(files) == 5315
+    assert len(files) == 5316  # 5,315 in schema 1.0.0 + vocabulary.json (1.1.0)
 
 
 def test_typescript_types_up_to_date():

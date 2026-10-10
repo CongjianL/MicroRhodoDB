@@ -69,11 +69,34 @@ export interface CladeLevel1 {
     readonly db_label: string;
     readonly db_matches_iqtree_run1: boolean;
     readonly iqtree_run1_label: string;
+    readonly iqtree_run1_meets_support_thresholds: boolean;
+    readonly iqtree_run1_sh_alrt: number;
+    readonly iqtree_run1_ufboot: number;
     readonly rooted_file_label: string | null;
   };
   readonly top_frac: number | null;
   readonly tree_id: "MR_RT_003";
   readonly ufboot: number | null;
+}
+
+export interface CladeRule {
+  readonly backbone_group: string;
+  readonly level1: {
+    readonly max_tips: 100;
+    readonly min_sh_alrt: 80;
+    readonly min_tips: 5;
+    readonly min_ufboot: 95;
+    readonly rooting: "outgroup";
+  };
+  readonly source: Array<string>;
+  readonly subclade: {
+    readonly max_tips: 40;
+    readonly min_sh_alrt: 80;
+    readonly min_tips: 3;
+    readonly min_ufboot: 95;
+  };
+  readonly support_label_order: "SH-aLRT/UFBoot";
+  readonly support_test: string;
 }
 
 export type CladeState = "confident" | "tentative" | "reference_tip_unclustered" | "outgroup_reference_tip" | "outgroup_placed" | "unassigned" | "distant";
@@ -91,19 +114,21 @@ export interface CladeTips {
 }
 
 export interface Clades {
+  readonly clade_rule: CladeRule;
   readonly dataset_release: "1.6.0";
   readonly display: string;
   readonly level1: Array<CladeLevel1>;
   readonly robustness_caveat_rule: string;
   readonly scheme: "MR_CLD3";
   readonly subclades: Array<Subclade>;
+  readonly support_display: string;
   readonly tree_id: "MR_RT_003";
 }
 
 export interface Current {
   readonly dataset_release: "1.6.0";
   readonly path: "data/v1.6.0/";
-  readonly schema_version: "1.0.0";
+  readonly schema_version: "1.1.0";
 }
 
 export interface EvidenceIndex {
@@ -143,7 +168,7 @@ export interface ExportManifest {
     readonly sha256: string;
   }>;
   readonly n_files: number;
-  readonly schema_version: "1.0.0";
+  readonly schema_version: "1.1.0";
   readonly source_db_sha256: string;
   readonly total_bytes: number;
 }
@@ -185,7 +210,7 @@ export interface Manifest {
   };
   readonly release_date: string;
   readonly schema_revision: string;
-  readonly schema_version: "1.0.0";
+  readonly schema_version: "1.1.0";
   readonly source_db: {
     readonly file: "microrhododb_v1.6.0.sqlite";
     readonly opened_read_only: true;
@@ -305,9 +330,9 @@ export interface Publications {
 }
 
 export interface RecordsIndex {
-  readonly columns: ["mrdb_acc", "source_acc", "is_mrdb_representative", "protein_name", "organism", "tax_domain", "length", "membership_status", "membership_score", "func_class", "evidence_level", "call_conflict", "is_engineered", "counts_eligible", "clade_state", "clade_id", "subclade_id", "tentative_clade_id", "n_pdb", "has_afdb", "has_predicted", "helixC_motif", "novel_family_flag", "reviewed", "n_support_links"];
+  readonly columns: ["mrdb_acc", "source_acc", "is_mrdb_representative", "protein_name", "organism", "tax_domain", "length", "membership_status", "membership_score", "func_class", "evidence_level", "call_conflict", "is_engineered", "counts_eligible", "clade_state", "clade_id", "subclade_id", "tentative_clade_id", "n_pdb", "has_afdb", "has_predicted", "helixC_motif", "novel_family_flag", "reviewed", "n_support_links", "membership_group", "retinal_site_residue", "function_basis", "func_class_v14", "motif_class", "call_conflict_detail", "wild_type_acc", "exact_duplicate_of", "e1_representative", "clade_name", "tentative_clade_name", "gtdb_taxonomy", "afdb_model_id", "afdb_global_plddt", "e2_ref", "e2_identity", "override_rule", "pocket_string_br", "status_reason", "lineage", "pdb_ids"];
   readonly dataset_release: "1.6.0";
-  readonly rows: Array<[MrdbAcc, string, boolean, string | null, string | null, TaxDomain, number, MembershipStatus, number | null, FuncClass, EvidenceLevel, boolean, boolean, boolean, CladeState, string | null, string | null, string | null, number, boolean, boolean, string | null, string | null, boolean | null, number]>;
+  readonly rows: Array<[MrdbAcc, string, boolean, string | null, string | null, TaxDomain, number, MembershipStatus, number | null, FuncClass, EvidenceLevel, boolean, boolean, boolean, CladeState, string | null, string | null, string | null, number, boolean, boolean, string | null, string | null, boolean | null, number, "member" | "candidate" | "boundary" | "outgroup" | "rejected", string | null, string | null, string | null, string | null, string | null, string | null, string | null, string | null, string | null, string | null, string | null, string | null, number | null, string | null, number | null, string | null, string | null, string | null, string | null, Array<string>]>;
 }
 
 export interface Robustness {
@@ -476,6 +501,9 @@ export interface Subclade {
     readonly db_label: string;
     readonly db_matches_iqtree_run1: boolean;
     readonly iqtree_run1_label: string;
+    readonly iqtree_run1_meets_support_thresholds: boolean;
+    readonly iqtree_run1_sh_alrt: number;
+    readonly iqtree_run1_ufboot: number;
     readonly rooted_file_label: string | null;
   };
   readonly top_frac: number | null;
@@ -523,7 +551,7 @@ export interface Summary {
     readonly value: number;
   }>;
   readonly notes: Array<string>;
-  readonly schema_version: "1.0.0";
+  readonly schema_version: "1.1.0";
 }
 
 export interface SupportAudit {
@@ -602,6 +630,37 @@ export interface TreeStats {
   }>;
 }
 
+export interface Vocabulary {
+  readonly clade_state: Array<{
+    readonly definition: string;
+    readonly state: CladeState;
+  }>;
+  readonly dataset_release: "1.6.0";
+  readonly evidence_level: Array<{
+    readonly definition: string;
+    readonly level: EvidenceLevel;
+  }>;
+  readonly evidence_level_source: {
+    readonly object: string;
+    readonly table: "data_dictionary";
+    readonly text: string;
+  };
+  readonly evidence_note: string;
+  readonly func_class: Array<{
+    readonly definition: string;
+    readonly func_class: FuncClass;
+  }>;
+  readonly membership_status: Array<{
+    readonly definition: string;
+    readonly group: "member" | "candidate" | "boundary" | "outgroup" | "rejected";
+    readonly is_candidate: boolean;
+    readonly is_member: boolean;
+    readonly label_v14: string | null;
+    readonly status: MembershipStatus;
+  }>;
+  readonly sources: Record<string, string>;
+}
+
 export interface Watchlist {
   readonly candidates: Array<Record<string, unknown>>;
   readonly caveat: string;
@@ -628,5 +687,6 @@ export interface DataFiles {
   "v1.6.0/records/*.json": MrdbEntry;
   "v1.6.0/structures-index.json": StructuresIndex;
   "v1.6.0/summary.json": Summary;
+  "v1.6.0/vocabulary.json": Vocabulary;
   "v1.6.0/watchlist.json": Watchlist;
 }

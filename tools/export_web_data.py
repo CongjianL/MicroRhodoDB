@@ -28,9 +28,9 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-SCHEMA_VERSION = "1.0.0"
+SCHEMA_VERSION = "1.1.0"
 DATASET_RELEASE = "1.6.0"
-WEBSITE_VERSION = "2.0.0-pr1"
+WEBSITE_VERSION = "2.0.0-pr2"
 DB_REL = "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"
 EXPECTED_DB_SHA256 = "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f"
 TREE_ID = "MR_RT_003"
@@ -46,6 +46,35 @@ PREDICTED_SHA256 = {
 SUPPORT_RE = re.compile(r"^\d+(\.\d+)?/\d+(\.\d+)?$")
 LEVEL1_RE = re.compile(r"^MR_CLD3_0\d\d$")
 BACKBONE_GROUPS = ("MR_CLD3_B01", "MR_CLD3_B02")
+# MR_CLD3 clade-definition rule, copied verbatim from pipeline/v150/define_clades.py (PRIMARY / SUB) and
+# refpkg/MR_RT_003/README.md item 4. Used only to *report* whether a node's IQ-TREE run1 support meets the
+# predefined support thresholds; never to redefine or reclassify clades (schema 1.1.0, PR-2).
+CLADE_RULE = {
+    "source": ["pipeline/v150/define_clades.py (PRIMARY, SUB)", "refpkg/MR_RT_003/README.md (item 4)"],
+    "support_label_order": "SH-aLRT/UFBoot",
+    "level1": {"rooting": "outgroup", "min_tips": 5, "max_tips": 100, "min_ufboot": 95, "min_sh_alrt": 80},
+    "subclade": {"min_tips": 3, "max_tips": 40, "min_ufboot": 95, "min_sh_alrt": 80},
+    "backbone_group": "well-supported backbone groups below the level-1 size floor (UFBoot >= 95 and SH-aLRT >= 80)",
+    "support_test": "sh_alrt >= 80 and ufboot >= 95 (both inclusive), evaluated on the IQ-TREE run1 label of the "
+                    "same bipartition",
+}
+# Index columns appended in schema 1.1.0 (PR-2) so Browse can filter on, and export, every legacy TSV field
+# without fetching 5,299 record files. Values are identical to the record files (full precision).
+INDEX_COLS_V11 = ["membership_group", "retinal_site_residue", "function_basis", "func_class_v14", "motif_class",
+                  "call_conflict_detail", "wild_type_acc", "exact_duplicate_of", "e1_representative", "clade_name",
+                  "tentative_clade_name", "gtdb_taxonomy", "afdb_model_id", "afdb_global_plddt", "e2_ref",
+                  "e2_identity", "override_rule", "pocket_string_br", "status_reason", "lineage", "pdb_ids"]
+CLADE_STATE_DEFINITIONS = {
+    "confident": "Assigned to a level-1 clade or backbone group (v_master.clade_id).",
+    "tentative": "No confident clade; v_master.tentative_clade_id set: primary-model placement assigned a clade but "
+                 "pendant QC failed (distant placement, low confidence); not counted in clade coverage.",
+    "reference_tip_unclustered": "Reference-tree tip on the backbone that belongs to no level-1 clade or backbone group.",
+    "outgroup_reference_tip": "Heliorhodopsin outgroup tip of the reference tree (no clade_tip row).",
+    "outgroup_placed": "Placed into the heliorhodopsin outgroup (placement clade_call = outgroup_heliorhodopsin).",
+    "unassigned": "Placed but not assigned to a clade (placement clade_call = unassigned).",
+    "distant": "Current placement clade_call = tentative with no tentative_clade_id (placement_call = distant_tentative).",
+}
+EVIDENCE_LEVEL_RE = re.compile(r"(E[1-5]) ([^;]+?)(?=; E[1-5] |\.?$)")
 # Every (table, column) in which the DB stores '' and the explicit rule applied. Any other '' -> error.
 EMPTY_STRING_RULES = {
     ("v_master", "clade_id"): "null (clade_state carries the meaning)",
@@ -749,13 +778,21 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
                            rec["phylogeny"]["clade_id"], rec["phylogeny"]["subclade_id"], v["tentative_clade_id"],
                            len(exp), afdb[acc]["status"] == "ok", bool(predicted.get(acc)), v["helixC_motif"],
                            nf["novel_family_hit"], b(p["reviewed"]), sum(1 for x in rec["publications"]
-                                                                          if x["counts_as_support"])])
+                                                                          if x["counts_as_support"]),
+                           # schema 1.1.0 additions (INDEX_COLS_V11), same values as the record file
+                           status_group[v["membership_status"]], v["retinal_site_residue"], v["function_basis"],
+                           v["func_class_v14"], v["motif_class"], v["call_conflict_detail"], v["wild_type_acc"],
+                           v["exact_duplicate_of"], v["e1_representative"], v["clade_name"],
+                           v["tentative_clade_name"], v["gtdb_taxonomy"], v["afdb_model_id"],
+                           v["afdb_global_plddt"], f["e2_ref"], f["e2_identity"], f["override_rule"],
+                           pk["pocket_string_br"], m["status_reason"], p["lineage"], [x["pdb_id"] for x in exp]])
     require(set(predicted) <= set(accs), "predicted_structure accession not in corpus")
     index_cols = ["mrdb_acc", "source_acc", "is_mrdb_representative", "protein_name", "organism", "tax_domain",
                   "length", "membership_status", "membership_score", "func_class", "evidence_level", "call_conflict",
                   "is_engineered", "counts_eligible", "clade_state", "clade_id", "subclade_id", "tentative_clade_id",
                   "n_pdb", "has_afdb", "has_predicted", "helixC_motif", "novel_family_flag", "reviewed",
-                  "n_support_links"]
+                  "n_support_links"] + INDEX_COLS_V11
+    require(all(len(r) == len(index_cols) for r in index_rows), "records-index row width mismatch")
     put(R + "records-index.json", dumps({"dataset_release": DATASET_RELEASE, "columns": index_cols,
                                          "rows": index_rows}), len(index_rows))
     require(set(sources_by_mrdb) == set(mrdb), "MRDB accession sets differ")
@@ -846,8 +883,13 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
         f = cfc.get(c["clade_id"])
         require(f is not None and f["consensus_status"] == c["consensus_status"], f"consensus mismatch {c['clade_id']}")
         d = dict(c)
+        r1_sh, r1_uf = (float(x) for x in run1_lab[k].split("/"))
         d["support_audit"] = {"db_label": db_lab, "rooted_file_label": rooted_lab.get(k) or None,
-                              "iqtree_run1_label": run1_lab[k], "db_matches_iqtree_run1": fmt(run1_lab[k]) == db_lab}
+                              "iqtree_run1_label": run1_lab[k], "db_matches_iqtree_run1": fmt(run1_lab[k]) == db_lab,
+                              "iqtree_run1_sh_alrt": r1_sh, "iqtree_run1_ufboot": r1_uf,
+                              "iqtree_run1_meets_support_thresholds":
+                                  r1_sh >= CLADE_RULE["level1"]["min_sh_alrt"] and
+                                  r1_uf >= CLADE_RULE["level1"]["min_ufboot"]}
         d["function_consensus"] = {k: (ne(f[k], "clade_function_consensus", k) if k == "E1_classes" else f[k])
                                    for k in ("level", "n_records", "n_E1", "top_frac", "consensus_status",
                                              "clade_function", "E1_classes")}
@@ -870,6 +912,11 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
                                   "display": "17 level-1 clades + 2 backbone groups",
                                   "robustness_caveat_rule": "display rule only: min_cross_replicate_jaccard < 0.8 or "
                                                             "consensus_status = mixed; not a reclassification",
+                                  "clade_rule": CLADE_RULE,
+                                  "support_display": "Display iqtree_run1_* (IQ-TREE run1 label of the same bipartition). "
+                                                     "sh_alrt/ufboot are the frozen v1.6.0 DB values; where they differ "
+                                                     "from run1 (db_matches_iqtree_run1 = false) the assignment is a "
+                                                     "legacy v1.6.0 assignment and is not changed here.",
                                   "level1": level1, "subclades": sub}), len(level1) + len(sub))
     rob = rows(con, "SELECT * FROM clade_robustness ORDER BY tree, rooting, min_size, max_size, ufb, alrt")
     put(R + "phylogeny/robustness.json", dumps({
@@ -897,6 +944,31 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
         "caveat": md.get("foldseek_watchlist"),
         "isolation": "Watchlist entries are not corpus records: no membership, evidence or function is assigned."}),
         len(wl))
+
+    # ---------------- vocabulary (schema 1.1.0, PR-2): DB definitions for display labels and legends
+    ev_def = con.execute("SELECT definition FROM data_dictionary WHERE object_name = 'function_evidence' "
+                         "AND column_name = 'evidence_level'").fetchone()
+    require(ev_def is not None, "data_dictionary lacks function_evidence.evidence_level")
+    ev = EVIDENCE_LEVEL_RE.findall(ev_def[0].split(":", 1)[1].strip())
+    require([e for e, _ in ev] == ["E1", "E2", "E3", "E4", "E5"], "cannot parse E1-E5 definitions")
+    put(R + "vocabulary.json", dumps({
+        "dataset_release": DATASET_RELEASE,
+        "membership_status": [{"status": r["status"], "group": r["status_group"], "is_member": b(r["is_member"]),
+                               "is_candidate": b(r["is_candidate"]), "label_v14": r["status_label_v14"],
+                               "definition": r["definition"]}
+                              for r in rows(con, "SELECT * FROM status_definition ORDER BY rowid")],
+        "func_class": [{"func_class": r["func_class"], "definition": r["definition"]}
+                       for r in rows(con, "SELECT * FROM func_class_definition ORDER BY rowid")],
+        "evidence_level": [{"level": e, "definition": d.strip()} for e, d in ev],
+        "evidence_level_source": {"table": "data_dictionary", "object": "function_evidence.evidence_level",
+                                  "text": ev_def[0]},
+        "evidence_note": "E1-E5 are evidence types, not probabilities; membership status and evidence level are "
+                         "separate axes.",
+        "clade_state": [{"state": k, "definition": CLADE_STATE_DEFINITIONS[k]} for k in CLADE_STATES],
+        "sources": {"membership_status": "status_definition (n_records_v150 omitted: v1.5.0 counts)",
+                    "func_class": "func_class_definition (counts omitted; see summary.json)",
+                    "clade_state": "exporter CLADE_STATE_SQL rules (WEB_DATA_CONTRACT.md section 7.3)"},
+    }), 9 + 11 + 5)
 
     # ---------------- summary + manifest + current
     summary = build_summary(con, tip_roles)

@@ -1,0 +1,218 @@
+[
+ {
+  "page": "about",
+  "hash": "#/about",
+  "viewport": 375,
+  "scrollWidth": 375,
+  "innerWidth": 375,
+  "scrollHeight": 5912,
+  "headerHeight": 65,
+  "tableScroll": null,
+  "console_errors": 0
+ },
+ {
+  "page": "browse",
+  "hash": "#/browse",
+  "viewport": 375,
+  "scrollWidth": 375,
+  "innerWidth": 375,
+  "scrollHeight": 5205,
+  "headerHeight": 65,
+  "tableScroll": {
+   "client": 341,
+   "scroll": 1800
+  },
+  "console_errors": 0
+ },
+ {
+  "page": "browse_clade017_tent",
+  "hash": "#/browse?group=all&eng=1&clade=MR_CLD3_017&tent=1",
+  "viewport": 375,
+  "scrollWidth": 375,
+  "innerWidth": 375,
+  "scrollHeight": 5640,
+  "headerHeight": 65,
+  "tableScroll": {
+   "client": 341,
+   "scroll": 1920
+  },
+  "console_errors": 0
+ },
+ {
+  "page": "home",
+  "hash": "#/",
+  "viewport": 375,
+  "scrollWidth": 375,
+  "innerWidth": 375,
+  "scrollHeight": 6941,
+  "headerHeight": 65,
+  "tableScroll": null,
+  "console_errors": 0
+ },
+ {
+  "page": "planned_phylogeny",
+  "hash": "#/phylogeny",
+  "viewport": 375,
+  "scrollWidth": 375,
+  "innerWidth": 375,
+  "scrollHeight": 851,
+  "headerHeight": 65,
+  "tableScroll": null,
+  "console_errors": 0
+ },
+ {
+  "page": "record_P02945",
+  "hash": "#/record/P02945",
+  "viewport": 375,
+  "scrollWidth": 375,
+  "innerWidth": 375,
+  "scrollHeight": 4903,
+  "headerHeight": 65,
+  "tableScroll": null,
+  "console_errors": 0
+ },
+ {
+  "page": "about",
+  "hash": "#/about",
+  "viewport": 768,
+  "scrollWidth": 768,
+  "innerWidth": 768,
+  "scrollHeight": 3944,
+  "headerHeight": 65,
+  "tableScroll": null,
+  "console_errors": 0
+ },
+ {
+  "page": "browse",
+  "hash": "#/browse",
+  "viewport": 768,
+  "scrollWidth": 768,
+  "innerWidth": 768,
+  "scrollHeight": 4660,
+  "headerHeight": 65,
+  "tableScroll": {
+   "client": 718,
+   "scroll": 1800
+  },
+  "console_errors": 0
+ },
+ {
+  "page": "browse_clade017_tent",
+  "hash": "#/browse?group=all&eng=1&clade=MR_CLD3_017&tent=1",
+  "viewport": 768,
+  "scrollWidth": 768,
+  "innerWidth": 768,
+  "scrollHeight": 5059,
+  "headerHeight": 65,
+  "tableScroll": {
+   "client": 718,
+   "scroll": 1920
+  },
+  "console_errors": 0
+ },
+ {
+  "page": "home",
+  "hash": "#/",
+  "viewport": 768,
+  "scrollWidth": 768,
+  "innerWidth": 768,
+  "scrollHeight": 5277,
+  "headerHeight": 65,
+  "tableScroll": null,
+  "console_errors": 0
+ },
+ {
+  "page": "planned_phylogeny",
+  "hash": "#/phylogeny",
+  "viewport": 768,
+  "scrollWidth": 768,
+  "innerWidth": 768,
+  "scrollHeight": 1024,
+  "headerHeight": 65,
+  "tableScroll": null,
+  "console_errors": 0
+ },
+ {
+  "page": "record_P02945",
+  "hash": "#/record/P02945",
+  "viewport": 768,
+  "scrollWidth": 768,
+  "innerWidth": 768,
+  "scrollHeight": 3272,
+  "headerHeight": 65,
+  "tableScroll": null,
+  "console_errors": 0
+ },
+ {
+  "page": "about",
+  "hash": "#/about",
+  "viewport": 1440,
+  "scrollWidth": 1440,
+  "innerWidth": 1440,
+  "scrollHeight": 3206,
+  "headerHeight": 65,
+  "tableScroll": null,
+  "console_errors": 0
+ },
+ {
+  "page": "browse",
+  "hash": "#/browse",
+  "viewport": 1440,
+  "scrollWidth": 1440,
+  "innerWidth": 1440,
+  "scrollHeight": 4427,
+  "headerHeight": 65,
+  "tableScroll": {
+   "client": 1038,
+   "scroll": 1800
+  },
+  "console_errors": 0
+ },
+ {
+  "page": "browse_clade017_tent",
+  "hash": "#/browse?group=all&eng=1&clade=MR_CLD3_017&tent=1",
+  "viewport": 1440,
+  "scrollWidth": 1440,
+  "innerWidth": 1440,
+  "scrollHeight": 4850,
+  "headerHeight": 65,
+  "tableScroll": {
+   "client": 1038,
+   "scroll": 1920
+  },
+  "console_errors": 0
+ },
+ {
+  "page": "home",
+  "hash": "#/",
+  "viewport": 1440,
+  "scrollWidth": 1440,
+  "innerWidth": 1440,
+  "scrollHeight": 3402,
+  "headerHeight": 65,
+  "tableScroll": null,
+  "console_errors": 0
+ },
+ {
+  "page": "planned_phylogeny",
+  "hash": "#/phylogeny",
+  "viewport": 1440,
+  "scrollWidth": 1440,
+  "innerWidth": 1440,
+  "scrollHeight": 900,
+  "headerHeight": 65,
+  "tableScroll": null,
+  "console_errors": 0
+ },
+ {
+  "page": "record_P02945",
+  "hash": "#/record/P02945",
+  "viewport": 1440,
+  "scrollWidth": 1440,
+  "innerWidth": 1440,
+  "scrollHeight": 2341,
+  "headerHeight": 65,
+  "tableScroll": null,
+  "console_errors": 0
+ }
+]

@@ -334,6 +334,15 @@
       "iqtree_run1_label": {
        "type": "string"
       },
+      "iqtree_run1_meets_support_thresholds": {
+       "type": "boolean"
+      },
+      "iqtree_run1_sh_alrt": {
+       "type": "number"
+      },
+      "iqtree_run1_ufboot": {
+       "type": "number"
+      },
       "rooted_file_label": {
        "type": [
         "string",
@@ -345,6 +354,9 @@
       "db_label",
       "db_matches_iqtree_run1",
       "iqtree_run1_label",
+      "iqtree_run1_meets_support_thresholds",
+      "iqtree_run1_sh_alrt",
+      "iqtree_run1_ufboot",
       "rooted_file_label"
      ],
      "type": "object"
@@ -399,6 +411,87 @@
     "top_frac",
     "tree_id",
     "ufboot"
+   ],
+   "type": "object"
+  },
+  "CladeRule": {
+   "additionalProperties": false,
+   "properties": {
+    "backbone_group": {
+     "type": "string"
+    },
+    "level1": {
+     "additionalProperties": false,
+     "properties": {
+      "max_tips": {
+       "const": 100
+      },
+      "min_sh_alrt": {
+       "const": 80
+      },
+      "min_tips": {
+       "const": 5
+      },
+      "min_ufboot": {
+       "const": 95
+      },
+      "rooting": {
+       "const": "outgroup"
+      }
+     },
+     "required": [
+      "max_tips",
+      "min_sh_alrt",
+      "min_tips",
+      "min_ufboot",
+      "rooting"
+     ],
+     "type": "object"
+    },
+    "source": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "subclade": {
+     "additionalProperties": false,
+     "properties": {
+      "max_tips": {
+       "const": 40
+      },
+      "min_sh_alrt": {
+       "const": 80
+      },
+      "min_tips": {
+       "const": 3
+      },
+      "min_ufboot": {
+       "const": 95
+      }
+     },
+     "required": [
+      "max_tips",
+      "min_sh_alrt",
+      "min_tips",
+      "min_ufboot"
+     ],
+     "type": "object"
+    },
+    "support_label_order": {
+     "const": "SH-aLRT/UFBoot"
+    },
+    "support_test": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "backbone_group",
+    "level1",
+    "source",
+    "subclade",
+    "support_label_order",
+    "support_test"
    ],
    "type": "object"
   },
@@ -467,6 +560,9 @@
   "Clades": {
    "additionalProperties": false,
    "properties": {
+    "clade_rule": {
+     "$ref": "#/$defs/CladeRule"
+    },
     "dataset_release": {
      "const": "1.6.0"
     },
@@ -491,17 +587,22 @@
      },
      "type": "array"
     },
+    "support_display": {
+     "type": "string"
+    },
     "tree_id": {
      "const": "MR_RT_003"
     }
    },
    "required": [
+    "clade_rule",
     "dataset_release",
     "display",
     "level1",
     "robustness_caveat_rule",
     "scheme",
     "subclades",
+    "support_display",
     "tree_id"
    ],
    "type": "object"
@@ -516,7 +617,7 @@
      "const": "data/v1.6.0/"
     },
     "schema_version": {
-     "const": "1.0.0"
+     "const": "1.1.0"
     }
    },
    "required": [
@@ -701,7 +802,7 @@
      "type": "integer"
     },
     "schema_version": {
-     "const": "1.0.0"
+     "const": "1.1.0"
     },
     "source_db_sha256": {
      "pattern": "^[0-9a-f]{64}$",
@@ -885,7 +986,7 @@
      "type": "string"
     },
     "schema_version": {
-     "const": "1.0.0"
+     "const": "1.1.0"
     },
     "source_db": {
      "additionalProperties": false,
@@ -1529,7 +1630,28 @@
       "helixC_motif",
       "novel_family_flag",
       "reviewed",
-      "n_support_links"
+      "n_support_links",
+      "membership_group",
+      "retinal_site_residue",
+      "function_basis",
+      "func_class_v14",
+      "motif_class",
+      "call_conflict_detail",
+      "wild_type_acc",
+      "exact_duplicate_of",
+      "e1_representative",
+      "clade_name",
+      "tentative_clade_name",
+      "gtdb_taxonomy",
+      "afdb_model_id",
+      "afdb_global_plddt",
+      "e2_ref",
+      "e2_identity",
+      "override_rule",
+      "pocket_string_br",
+      "status_reason",
+      "lineage",
+      "pdb_ids"
      ]
     },
     "dataset_release": {
@@ -1538,7 +1660,7 @@
     "rows": {
      "items": {
       "items": false,
-      "minItems": 25,
+      "minItems": 46,
       "prefixItems": [
        {
         "$ref": "#/$defs/MrdbAcc"
@@ -1641,6 +1763,136 @@
        },
        {
         "type": "integer"
+       },
+       {
+        "enum": [
+         "member",
+         "candidate",
+         "boundary",
+         "outgroup",
+         "rejected"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "number",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "number",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "items": {
+         "pattern": "^[0-9A-Z]{4}$",
+         "type": "string"
+        },
+        "type": "array"
        }
       ],
       "type": "array"
@@ -2600,6 +2852,15 @@
       "iqtree_run1_label": {
        "type": "string"
       },
+      "iqtree_run1_meets_support_thresholds": {
+       "type": "boolean"
+      },
+      "iqtree_run1_sh_alrt": {
+       "type": "number"
+      },
+      "iqtree_run1_ufboot": {
+       "type": "number"
+      },
       "rooted_file_label": {
        "type": [
         "string",
@@ -2611,6 +2872,9 @@
       "db_label",
       "db_matches_iqtree_run1",
       "iqtree_run1_label",
+      "iqtree_run1_meets_support_thresholds",
+      "iqtree_run1_sh_alrt",
+      "iqtree_run1_ufboot",
       "rooted_file_label"
      ],
      "type": "object"
@@ -2861,7 +3125,7 @@
      "type": "array"
     },
     "schema_version": {
-     "const": "1.0.0"
+     "const": "1.1.0"
     }
    },
    "required": [
@@ -3204,6 +3468,163 @@
    ],
    "type": "object"
   },
+  "Vocabulary": {
+   "additionalProperties": false,
+   "properties": {
+    "clade_state": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "definition": {
+        "type": "string"
+       },
+       "state": {
+        "$ref": "#/$defs/CladeState"
+       }
+      },
+      "required": [
+       "definition",
+       "state"
+      ],
+      "type": "object"
+     },
+     "maxItems": 7,
+     "minItems": 7,
+     "type": "array"
+    },
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "evidence_level": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "definition": {
+        "type": "string"
+       },
+       "level": {
+        "$ref": "#/$defs/EvidenceLevel"
+       }
+      },
+      "required": [
+       "definition",
+       "level"
+      ],
+      "type": "object"
+     },
+     "maxItems": 5,
+     "minItems": 5,
+     "type": "array"
+    },
+    "evidence_level_source": {
+     "additionalProperties": false,
+     "properties": {
+      "object": {
+       "type": "string"
+      },
+      "table": {
+       "const": "data_dictionary"
+      },
+      "text": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "object",
+      "table",
+      "text"
+     ],
+     "type": "object"
+    },
+    "evidence_note": {
+     "type": "string"
+    },
+    "func_class": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "definition": {
+        "type": "string"
+       },
+       "func_class": {
+        "$ref": "#/$defs/FuncClass"
+       }
+      },
+      "required": [
+       "definition",
+       "func_class"
+      ],
+      "type": "object"
+     },
+     "maxItems": 11,
+     "minItems": 11,
+     "type": "array"
+    },
+    "membership_status": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "definition": {
+        "type": "string"
+       },
+       "group": {
+        "enum": [
+         "member",
+         "candidate",
+         "boundary",
+         "outgroup",
+         "rejected"
+        ]
+       },
+       "is_candidate": {
+        "type": "boolean"
+       },
+       "is_member": {
+        "type": "boolean"
+       },
+       "label_v14": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "status": {
+        "$ref": "#/$defs/MembershipStatus"
+       }
+      },
+      "required": [
+       "definition",
+       "group",
+       "is_candidate",
+       "is_member",
+       "label_v14",
+       "status"
+      ],
+      "type": "object"
+     },
+     "maxItems": 9,
+     "minItems": 9,
+     "type": "array"
+    },
+    "sources": {
+     "additionalProperties": {
+      "type": "string"
+     },
+     "type": "object"
+    }
+   },
+   "required": [
+    "clade_state",
+    "dataset_release",
+    "evidence_level",
+    "evidence_level_source",
+    "evidence_note",
+    "func_class",
+    "membership_status",
+    "sources"
+   ],
+   "type": "object"
+  },
   "Watchlist": {
    "additionalProperties": false,
    "properties": {
@@ -3269,6 +3690,7 @@
   "v1.6.0/records/*.json": "MrdbEntry",
   "v1.6.0/structures-index.json": "StructuresIndex",
   "v1.6.0/summary.json": "Summary",
+  "v1.6.0/vocabulary.json": "Vocabulary",
   "v1.6.0/watchlist.json": "Watchlist"
  }
 }

@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+/*
+ * MicroRhodoDB design tokens (WEBSITE_REDESIGN_SPEC.md section 3.2).
+ * Light scientific theme: neutral canvas, deep-blue text, restrained blue/teal accents.
+ * All text/background pairs used below meet WCAG 2.2 AA (>= 4.5:1 for body text);
+ * see docs/website/PR2_VALIDATION_REPORT.md (contrast table).
+ */
+@theme {
+  --color-canvas: #f8fafc;
+  --color-surface: #ffffff;
+  --color-ink: #142238;
+  --color-ink-2: #526175;
+  --color-accent: #1665b5;
+  --color-accent-strong: #0f4f91;
+  --color-accent-soft: #e8f1fb;
+  --color-teal: #087f78;
+  --color-teal-soft: #e6f4f3;
+  --color-line: #dee5ec;
+  --color-line-strong: #c3ced9;
+  --color-warn: #b45309;
+  --color-warn-soft: #fff7ed;
+  --color-warn-line: #f3c48b;
+  --color-danger: #b42318;
+  --color-danger-soft: #fef3f2;
+  --color-subtle: #f1f5f9;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Liberation Sans", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+  h1, h2, h3, h4 {
+    @apply text-ink font-semibold;
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+  a {
+    @apply text-accent underline-offset-2;
+  }
+  a:hover {
+    @apply text-accent-strong underline;
+  }
+  code, kbd, samp {
+    @apply font-mono;
+    font-size: 0.92em;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full px-4 sm:px-6 lg:px-8;
+    max-width: 88rem;
+  }
+  .card {
+    @apply bg-surface border border-line rounded-lg;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border px-4 font-medium no-underline transition-colors;
+    min-height: 2.75rem;
+    font-size: 0.95rem;
+  }
+  .btn:hover { text-decoration: none; }
+  .btn-primary { @apply bg-accent border-accent text-white; }
+  .btn-primary:hover { @apply bg-accent-strong border-accent-strong text-white; }
+  .btn-secondary { @apply bg-surface border-line-strong text-ink; }
+  .btn-secondary:hover { @apply bg-subtle text-ink; }
+  .btn-sm { min-height: 2.25rem; @apply px-3 text-sm; }
+  .btn[disabled], .btn[aria-disabled="true"] { @apply opacity-60 cursor-not-allowed; }
+
+  .field-label { @apply block text-sm font-medium text-ink mb-1; }
+  .field {
+    @apply block w-full rounded-md border border-line-strong bg-surface px-3 text-ink;
+    min-height: 2.5rem;
+    font-size: 0.95rem;
+  }
+  .field::placeholder { color: #6b7a8c; }
+  .help { @apply text-sm text-ink-2; }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded border px-1.5 font-medium whitespace-nowrap;
+    font-size: 0.8125rem;
+    line-height: 1.45rem;
+  }
+  .badge-neutral { @apply bg-subtle border-line text-ink; }
+  .badge-member { background: #e7f5ee; border-color: #9fd3b5; color: #14532d; }
+  .badge-candidate { background: #eef2ff; border-color: #b9c3f0; color: #2b3a8c; }
+  .badge-boundary { background: #f5f0ff; border-color: #cdbdf0; color: #4c2a85; }
+  .badge-outgroup { background: #f1f5f9; border-color: #c3ced9; color: #334155; }
+  .badge-rejected { background: #fef3f2; border-color: #f2b8b5; color: #8a1c13; }
+  .badge-warn { @apply bg-warn-soft border-warn-line; color: #8a3c04; }
+  .badge-info { @apply bg-accent-soft; border-color: #b6d0ee; color: #0f4f91; }
+
+  .ev { @apply inline-flex items-center rounded border font-semibold font-mono; font-size: 0.8125rem; line-height: 1.45rem; padding: 0 0.4rem; }
+  .ev-E1 { background: #0f4f91; border-color: #0f4f91; color: #fff; }
+  .ev-E2 { background: #1665b5; border-color: #1665b5; color: #fff; }
+  .ev-E3 { background: #e8f1fb; border-color: #8fb5e0; color: #0f3d6e; }
+  .ev-E4 { background: #f8fafc; border-color: #8fa3b8; color: #1e2f45; }
+  .ev-E5 { background: #ffffff; border-color: #c3ced9; color: #526175; border-style: dashed; }
+
+  .data-table { @apply w-full border-collapse text-sm; }
+  .data-table th {
+    @apply bg-subtle text-left font-semibold text-ink border-b border-line-strong px-3 py-2 align-bottom whitespace-nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  .data-table td { @apply border-b border-line px-3 py-2 align-top; }
+  .data-table tbody tr:hover td { background: #f6f9fc; }
+  .data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+  @media (max-width: 639.98px) {
+    .legend-table { table-layout: fixed; }
+    .legend-table th, .legend-table td { padding-left: 0.5rem; padding-right: 0.5rem; }
+    .legend-table td { overflow-wrap: break-word; hyphens: auto; }
+    .legend-table .lc-clade { width: 50%; }
+    .legend-table .lc-rec { width: 22%; }
+    .legend-table .lc-sup { width: 28%; }
+  }
+  /* First column stays visible while the table scrolls horizontally inside its region. */
+  .sticky-first th:first-child, .sticky-first td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    box-shadow: inset -1px 0 0 var(--color-line);
+  }
+  .sticky-first td:first-child { background: var(--color-surface); }
+  .sticky-first tbody tr:hover td:first-child { background: #f6f9fc; }
+
+  .sr-only-focusable:not(:focus) {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+  .prose-sci p { @apply mb-3; }
+  .prose-sci h2 { @apply text-xl mt-8 mb-3; }
+  .prose-sci h3 { @apply text-lg mt-6 mb-2; }
+  .prose-sci ul { @apply list-disc pl-6 mb-3; }
+  .prose-sci li { @apply mb-1; }
+  .tabular { font-variant-numeric: tabular-nums; }
+}

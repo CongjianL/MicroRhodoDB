@@ -1,4 +1,5 @@
-# PR-1: validate the deterministic web data export. Validation only - no build, no Pages, no deploy.
+# PR-1: validate the deterministic web data export. PR-2: build the website and run unit + browser tests.
+# Validation only - no Pages, no deploy (PR-7).
 # Data source: the official v1.6.0 GitHub Release asset, verified against BINARIES.md (SHA-256 + size).
 # Until that Release is published, the fetch step fails with BLOCKED_DATA_SOURCE (by design).
 name: web-data
@@ -20,7 +21,7 @@ permissions:
 jobs:
   export-and-validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -36,3 +37,33 @@ jobs:
         run: python -m pytest -q tests/test_web_export.py tests/test_fetch_release_db.py
       - name: Check generated TypeScript types
         run: python web/scripts/schema_to_ts.py --check
+      # PR-2 frontend (added locally in PR-2; has not yet run on GitHub)
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install frontend dependencies
+        working-directory: web
+        run: npm ci
+      - name: Typecheck and build (base /MicroRhodoDB/site/)
+        working-directory: web
+        run: npm run build
+      - name: Unit tests (Vitest)
+        working-directory: web
+        run: npx vitest run
+      - name: Install Playwright Chromium
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+      - name: Browser tests (Playwright)
+        working-directory: web
+        run: npx playwright test
+      - name: Upload Playwright report and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr2-playwright
+          path: |
+            web/test-results/
+            web/playwright-report/
+          if-no-files-found: ignore
