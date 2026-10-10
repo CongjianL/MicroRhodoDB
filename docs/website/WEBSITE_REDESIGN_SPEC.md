@@ -1,13 +1,13 @@
 # MicroRhodoDB Website Redesign & Scientific Portal Upgrade
 ## Complete Implementation Plan and Technical Specification
 
-**Status:** APPROVED FOR IMPLEMENTATION PLANNING (website redesign; not a scientific database release change)  
-**Specification date:** 2026-10-10  
-**Current website:** https://congjianl.github.io/MicroRhodoDB/site/#/  
-**Source repository:** https://github.com/CongjianL/MicroRhodoDB  
-**`main` commit inspected:** `fab9182044c45670c869c8778fd8d48932bd35b8` (recheck `HEAD` before implementation)  
-**Scientific data baseline:** MicroRhodoDB **v1.6.0** (schema `v160.1`), read-only and immutable.  
-**Document purpose:** An actionable requirements specification, implementation plan, scientific-constraints document, and acceptance contract for Codex or another development agent.  
+**Status:** APPROVED FOR IMPLEMENTATION PLANNING (website redesign; not a scientific database release change)\
+**Specification date:** 2026-10-10\
+**Current website:** https://congjianl.github.io/MicroRhodoDB/site/#/\
+**Source repository:** https://github.com/CongjianL/MicroRhodoDB\
+**`main` commit inspected:** `fab9182044c45670c869c8778fd8d48932bd35b8` (recheck `HEAD` before implementation)\
+**Scientific data baseline:** MicroRhodoDB **v1.6.0** (schema `v160.1`), read-only and immutable.\
+**Document purpose:** An actionable requirements specification, implementation plan, scientific-constraints document, and acceptance contract for Codex or another development agent.\
 **Delivery policy:** Use small, independently verifiable pull requests. Preserve data and existing behavior before replacing the interface. A website redesign must not be represented as a new scientific data release.
 
 ---

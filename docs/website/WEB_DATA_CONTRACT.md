@@ -1,18 +1,18 @@
 # MicroRhodoDB website 2.0: static data contract (dataset v1.6.0)
 
-Status: PR-0 draft for review. PR-1 implements it in `tools/export_web_data.py` together with TypeScript types and JSON Schemas (`web/src/data/schemas/`).
+Status: PR-0, corrected after owner review (CONDITIONAL PASS; see `WEB_BASELINE_AUDIT.md` sections 8-9). PR-1 implements it in `tools/export_web_data.py` together with TypeScript types and JSON Schemas (`web/src/data/schemas/`).
 This document covers the topics that plan section 15 assigns to `WEB_DATA_CONTRACT.md`, `PDB_STRUCTURE_MAPPING.md`, `PHYLOGENY_DISPLAY_SPEC.md` and `EVIDENCE_AND_STATISTICS_DENOMINATORS.md`. They are consolidated here (sections 6-8) and may be split later. All counts quoted are from `baseline/pr0_db_audit.json`.
 
 ## 1. Principles
 
 1. **Single source.** Every value shown by the website comes from:
    - the official v1.6.0 SQLite file, opened read-only, SHA-256 `379a2543...dce17f`
-   - the files in `refpkg/MR_RT_003/` (byte-identical copies only)
-   
+   - the files in `refpkg/MR_RT_003/` and the two ESMCFold2 files in `releases/v1.0/structures/` (byte-identical copies only)
+
    The browser does no scientific aggregation. Every count shown is precomputed by the exporter, and its SQL is recorded.
 2. **Fail closed.** If the DB is missing or its SHA-256 differs, the exporter exits non-zero with `BLOCKED_DATA_SOURCE`. It never reads `site/data.js` as a data source. `site/data.js` is used only as a regression oracle in tests.
 3. **No invention.** The exporter emits PDB IDs only from `protein_pdb`, functions only from `v_master` / `function_evidence`, and topology only from the treefile. Missing values stay missing, with an explicit reason.
-4. **Determinism.** The same inputs produce byte-identical outputs: sorted keys, stable row order (`mrdb_acc, source_acc`), fixed float formatting, and no timestamps except the build stamp in `manifest.json`. A second run must reproduce every checksum in `export_manifest.json`.
+4. **Determinism.** The same inputs and the same exporter commit produce byte-identical outputs: sorted keys, stable row order (`mrdb_acc, source_acc`), fixed float formatting and **no wall-clock timestamps in any exported file** (there is no `built_at_utc`). Provenance is carried by content-derived values only: the input SHA-256 values, the exporter git commit and a `git_dirty` flag. `export_manifest.json` lists every other output file with its SHA-256, byte size and record count; it is itself deterministic, so two runs must produce byte-identical `export_manifest.json` files. Build time, if wanted, belongs in CI logs, not in the data.
 5. **Release-scoped URLs.** All payloads live under `data/v1.6.0/`. The frontend reads `data/current.json` → `{ "dataset_release": "1.6.0", "path": "data/v1.6.0/" }`, and caches are keyed by release so versions cannot mix.
 
 ## 2. Missing-value conventions
@@ -43,6 +43,7 @@ data/
     records/MRDB000001.json  # 5,299 files: MRDB entry with all source records (4.5)
     sequences/corpus.fasta   # 5,466 sequences, header ">source_acc mrdb_acc"; lazy (Search, bulk FASTA)
     structures-index.json    # pdb_id -> metadata + [source_acc]; AFDB/predicted summary (6)
+    structures/predicted/    # A0A9X2L7U0_esmfold.pdb, B0R633_esmfold.pdb: byte copies from releases/v1.0/structures/ (6)
     evidence-index.json      # per E-level / function basis / conflict / curated lists (8)
     clades.json              # 19 level-1 entries (17 clades + 2 backbone groups) + 30 subclades (7)
     phylogeny/
@@ -50,10 +51,11 @@ data/
       tips.json                   # 472 tips (7.2)
       clade_tips.json             # tip -> clade/subclade/backbone membership (7.2)
       robustness.json             # clade_robustness (54 rows) + per-clade Jaccard columns
+      tree_stats.json             # node census: 472 tips, 471 internal (incl. root), 469 support labels (7.1)
       preview.svg                 # static homepage preview drawn from the same Newick (no phylotree on Home)
     publications.json        # 121 publications + 255 active links (inactive links excluded; see 4.6)
     watchlist.json           # 181 novel_family_candidate + funnel; never merged with records (4.7)
-    export_manifest.json     # sha256 + bytes + row counts for every file above
+    export_manifest.json     # sha256 + bytes + row counts for every file above (not itself); no timestamps
 ```
 
 Estimated sizes (raw):
@@ -76,7 +78,6 @@ interface Manifest {
   refpkg: { id: "MR_RT_003"; rooted_treefile_sha256: string; rooted_treefile_md5: string;
             db_treefile_md5: string; db_treefile_md5_refers_to: "run1.treefile" };
   exporter: { path: "tools/export_web_data.py"; git_commit: string; git_dirty: boolean; python: string };
-  built_at_utc: string;                  // the only non-deterministic field; excluded from reproducibility hash
   counts: { records: 5466; counted: 5460; mrdb_accessions: 5299; tree_tips: 472; level1_clades: 17;
             backbone_groups: 2; pdb_links: 472; pdb_entries: 438; publications: 121; active_links: 255; watchlist: 181 };
 }
@@ -184,7 +185,14 @@ interface PdbLink { pdb_id: string; method: PdbMethod; resolution_A: number | "n
 interface AfdbModel { model_id: string | null; status: "ok" | "no_model"; version: number | null;
                       global_plddt: number | null; seq_match: boolean | null;
                       seq_start: number | null; seq_end: number | null; model_url: string | null }
-interface PredictedModel { method: string; mean_plddt: number; file: string | null /* null if coordinates are not shipped */; note: string }
+interface PredictedModel { method: string;            // "ESMCFold2 (full)"
+                          mean_plddt: number;        // 0-100 (DB predicted_structure.mean_plddt)
+                          file: string;              // export path, e.g. "structures/predicted/B0R633_esmfold.pdb"
+                          source_path: string;       // "releases/v1.0/structures/B0R633_esmfold.pdb" (resolved from DB pdb_file)
+                          sha256: string;            // equals the frozen manifest and the copied file
+                          bytes: number;
+                          bfactor_scale: "fraction_0_1"; // per-residue pLDDT stored in B-factor as 0-1
+                          note: string | null }
 interface PubLink { publication_id: string; doi: string | null; pmid: string | null; title: string; journal: string | null;
                     year: number | null; link_role: LinkRole; counts_as_support: boolean; verdict: string;
                     caveat: string | null; evidence_basis: string | null }
@@ -232,7 +240,11 @@ Rules:
 - Resolution `NULL` with method `SOLUTION NMR` → `"not_applicable"`. Resolution `NULL` with any other method → `null` ("Not reported").
 - **No chain or residue mapping** between a PDB entry and the UniProt sequence is claimed in v2.0. Bacteriorhodopsin reference numbering is shown only where the DB provides it (`pocket_string_br`, helix-C motif).
 - AFDB model: `afdb_model` only. The record shows status, version, global pLDDT, `seq_match`, residue range and `model_url`. A `no_model` record shows "No AlphaFold DB model".
-- Predicted models (`predicted_structure`, 2 rows, ESMCFold2) are shown in a separate "Other predicted models" block. Their coordinate files are not in the repository, so `file` is `null` until the owner provides them.
+- Predicted models (`predicted_structure`, 2 rows, ESMCFold2 (full), A0A9X2L7U0 and B0R633) are shown in a separate "Other predicted models" block and are loadable in Mol*.
+  - Path resolution: the DB `pdb_file` (`structures/<acc>_esmfold.pdb`) is relative to the historical release directory. The exporter globs `releases/*/<pdb_file>` and requires **exactly one** match (today `releases/v1.0/`); zero or several matches fail with `STRUCTURE_SOURCE_ANOMALY`.
+  - The file's SHA-256 must equal the frozen manifest (`3089c414...198a` and `e6edb539...a4b4`); otherwise the export fails.
+  - The file is byte-copied to `data/v1.6.0/structures/predicted/<acc>_esmfold.pdb`; the original is opened read-only and never modified.
+  - Labelling: "Predicted model (ESMCFold2), not experimental". B-factors hold pLDDT as a 0-1 fraction.
 - Mol* viewer:
   - Lazily imported on the structure tab only.
   - Experimental structures load from `https://models.rcsb.org/v1/<id>/full?encoding=bcif`, falling back to `https://files.rcsb.org/download/<ID>.cif`.
@@ -255,7 +267,8 @@ These counts are recomputed at export time and validated, not typed in.
 ### 7.1 Tree
 
 - The Newick is the rooted file, byte-copied and verified by SHA-256. The root is the heliorhodopsin outgroup.
-- Internal labels are parsed as `SH-aLRT/UFBoot`. They are exported unchanged and displayed as "SH-aLRT x / UFBoot y".
+- Node census of the rooted file: 472 tips, **471 internal nodes including the root**, **469 genuine support labels**. The 2 unlabelled internal nodes are the root and one root child (rooting split an ML edge). DB `tree_node` stores the unrooted `run1` topology (470 internal nodes, the same 469-label multiset).
+- A label is shown as statistical support **only** if it is a Newick internal-node label matching `^\d+(\.\d+)?/\d+(\.\d+)?$`; it is exported unchanged and displayed as "SH-aLRT x / UFBoot y". Unlabelled nodes show no support. Parser-generated names (phylotree 2.6.0 names the root `"root"`, which is why the PoC counted 470 "named" internal nodes) are never displayed as support. `phylogeny/tree_stats.json` records 471 / 469 / 2 and the tests check it.
 - Topology and branch lengths are never edited in the browser. Collapsing a clade is a display-only operation.
 
 ### 7.2 Tips and clade membership
@@ -339,7 +352,25 @@ Default denominators:
 3. The structure-integrity gate (section 6) passes on all records. PDB metadata equals `pdb_structure`.
 4. The 472 tips, the 7.2 tallies, `clade_state` summing to 5,466, and the 19 + 30 clade rows all match the DB and refpkg.
 5. Every `summary.json` value is recomputed independently in pytest from SQLite. Section 1.3 baselines are fixtures.
-6. Every legacy `site/data.js` column that maps to the new export (39) agrees cell by cell. This is a regression oracle, read only in tests.
+6. Every legacy `site/data.js` column that maps to the new export (39) agrees cell by cell under the exact rules of section 9.1. This is a regression oracle, read only in tests.
 7. The watchlist and the corpus are disjoint.
-8. JSON Schema validation runs on every payload. A second export reproduces `export_manifest.json` byte for byte.
+8. JSON Schema validation runs on every payload. A second export (same inputs, same commit) into a fresh directory reproduces every output file, including `export_manifest.json`, byte for byte. No exported file contains a wall-clock timestamp.
 9. Frozen files (`releases/**`, `refpkg/MR_RT_003/**`) are unchanged against `baseline/frozen_sha256_fab9182.txt`, and the DB SHA-256 is unchanged after export.
+
+### 9.1 Legacy oracle: exact allowed transformations
+
+Default rule: **strict equality of value and type** (string = string, int = int). This applies without exception to accession identifiers (`mrdb_acc`, `source_acc`, `wild_type_acc`, `exact_duplicate_of`, `e1_representative`, `e2_ref`, `afdb_model_id`), categorical assignments (`membership_status`, `func_class`, `func_class_v14`, `evidence_level`, `motif_class`, `tax_domain`, clade and subclade IDs and names) and scientifically discrete fields (`length`, `retinal_site_residue`, `helixC_motif`, `pocket_string_br`, `call_conflict_detail`, `function_basis`, `status_reason`, `override_rule`, `novel_family_flag`, `gtdb_taxonomy`, `protein_name`, `organism`). There is no numeric tolerance and no generic blank/NULL equivalence.
+
+The only permitted transformations between the legacy value `L` and the new export value `N`:
+
+| # | Columns | Rule |
+|---|---|---|
+| T1 | `membership_score` (k=3), `afdb_global_plddt` (k=1), `e2_identity` (k=3) | `L == float(numpy.round(N, k))` (legacy used pandas `Series.round`; for `e2_identity` the DB value is first coerced with `float()`). `N` is the full-precision DB value. `L is None` iff `N is None` |
+| T2 | 0/1 integer flags: `call_conflict`, `is_engineered`, `counts_eligible`, `reviewed`, `is_mrdb_representative` | `L in (0, 1)` and `bool(L) == N` when the new field is boolean; otherwise strict |
+| T3 | `clade_id`, `subclade_id` (the only columns where the DB holds `''`: 1,312 and 1,741 cells) | `L == ''` iff `N is None`; non-empty values strictly equal |
+| T4 | `clade_confidence` (legacy-only) vs new `clade_state` | `confident`→`confident`, `tentative`→`tentative`, `none`→ any of `outgroup_reference_tip`, `reference_tip_unclustered`, `outgroup_placed`, `unassigned`, `distant` |
+| T5 | `is_mrdb_representative` | `L == int(source_acc == mrdb_accession.representative_source_acc)` and equals the new `is_representative` |
+| T6 | Row order | Legacy order is `ORDER BY mrdb_acc, source_acc`; records are matched by `source_acc`, and the set must be equal |
+| T7 | Publications | Legacy `pubs[source_acc]` lists equal the new active links in order (`source_acc`, `counts_as_support DESC`, `year`), with `pmid` as the string of the integer and `year` as int |
+
+Any other difference fails the test. PR-0a strict check: 0 mismatched cells (`baseline/pr0a_corrections.json`).

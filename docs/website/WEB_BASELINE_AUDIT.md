@@ -48,7 +48,7 @@ Until one of these exists, any CI export step must stop with `BLOCKED_DATA_SOURC
 | File | `refpkg/MR_RT_003/tree/MR_RT_003.rooted.treefile`, 17,517 bytes, SHA-256 `c56196970698decea8384c1cad97545794268e6d8a2df2b195e7d35d5ded9aef`, MD5 `f47ef7649dc5b01a6ea58e9c0ea1c238` |
 | DB `reference_tree` row | `MR_RT_003`, status `canonical_release`, IQ-TREE 2.3.6, Q.pfam+F+R9, 472 tips |
 | `reference_tree.treefile_md5` | `712f53eb06fcb0277c79f188dd4bb574`. This is the MD5 of `run1.treefile` (the unrooted primary ML tree), **not** of the rooted file. This is expected (the rooted file is derived), but the website manifest must record the rooted file's own checksum and say which file the DB MD5 refers to |
-| Support label format | `SH-aLRT/UFBoot` on internal nodes (e.g. `96.2/100`). 470 internal nodes; 469 carry labels (the root does not) |
+| Support label format | `SH-aLRT/UFBoot` on internal nodes (e.g. `96.2/100`). The rooted file has 472 tips and **471 internal nodes including the root** (471 `(` and 471 `)`). **469** internal nodes carry a genuine `SH-aLRT/UFBoot` label; 2 are unlabelled: the root and one child of the root (rooting on the outgroup split an edge of the unrooted ML tree into two). DB `tree_node` (MR_RT_003) stores the unrooted `run1` topology (470 internal nodes, 469 labels); its label multiset equals the rooted file's. Evidence: `baseline/pr0a_corrections.json` |
 | Legacy trees | `MR_RT_001` (185 tips) and `MR_RT_002` (278 tips) are `legacy`. Their placements have `is_current=0` and must not be shown as current |
 
 ## 2. Baseline tests (recorded honestly)
@@ -79,7 +79,7 @@ Exporter: `tools/build_site_v160.py` (88 lines, read-only SQL over `v_master` + 
 
 `site/data.js` was compared cell by cell against `v_master` (ordered by `mrdb_acc, source_acc`):
 
-- 5,466 rows. 30 of 39 columns come from `v_master`: **0 mismatched cells**.
+- 5,466 rows. 30 of 39 columns come from `v_master`; 9 are derived (below). Under the **strict** rules of contract section 9.1 (exact value *and* type equality; the only transformation is `numpy.round` for `membership_score` (3), `afdb_global_plddt` (1) and `e2_identity` (3), exactly as `tools/build_site_v160.py` does) all 39 columns have **0 mismatched cells** (`baseline/pr0a_corrections.json` → `legacy_strict`). The legacy file keeps DB `''` as `''` (only in `clade_id`, 1,312 cells, and `subclade_id`, 1,741 cells). *(Correction: the PR-0 draft compared with a 0.051 numeric tolerance and treated blank and NULL as equal; that comparison is superseded. Python's built-in `round` would differ from the legacy value in 272 `membership_score` cells and 1 `afdb_global_plddt` cell, so the oracle must use numpy rounding.)*
 - 9 columns are derived outside `v_master`: `reviewed`, `e2_ref`, `e2_identity`, `override_rule`, `pocket_string_br`, `status_reason`, `novel_family_flag`, `is_mrdb_representative` (= `source_acc == mrdb_accession.representative_source_acc`), and `clade_confidence` (computed by the exporter: `confident` if `clade_id` is non-empty, `tentative` if only `tentative_clade_id` is set, else `none`).
 - Publications: 106 accessions and 255 link rows. This **equals** the DB's active links (`assertion_publication.is_active=1`: 255 rows, 106 distinct `source_acc`). The legacy publication export is complete; "only 106" is the true number of accessions with links.
 - **No PDB fields** are exported: no `protein_pdb`, `pdb_structure` or `structure` content. None of the 472 PDB links reach the website.
@@ -164,7 +164,14 @@ Note the status split between denominators: `typeI_member_core` is 2,704 over al
   - AFDB-only (no PDB link): 4,336
   - neither PDB nor AFDB: 1,064
   - PDB: 66
-- `predicted_structure`: 2 ESMCFold2 models, for A0A9X2L7U0 and B0R633. Their `pdb_file` paths (`structures/*.pdb`) are **not present in the repository**. The website can show the metadata but cannot serve these coordinates unless the files are found (open question).
+- `predicted_structure`: 2 ESMCFold2 (full) models, for A0A9X2L7U0 (chloride-pump NTQ, 293 aa, mean pLDDT 93.49) and B0R633 (sensory rhodopsin I, 239 aa, mean pLDDT 93.71). The DB `pdb_file` values (`structures/<acc>_esmfold.pdb`) are **relative to the historical release directory `releases/v1.0/`**, where both files exist and are listed in the frozen manifest (`releases/v1.0/report_microrhododb.md` describes them):
+
+  | File | SHA-256 (matches `frozen_sha256_fab9182.txt`) | Bytes | ATOM records |
+  |---|---|---|---|
+  | `releases/v1.0/structures/A0A9X2L7U0_esmfold.pdb` | `3089c414abb50907266fe397ca9cba925464a7129e72819194bdb2349f54198a` | 185,856 | 2,294 |
+  | `releases/v1.0/structures/B0R633_esmfold.pdb` | `e6edb5395e571c05517fd3c5d9820a3821c2551ec9579b5da04e3fabc2b29da4` | 146,490 | 1,808 |
+
+  The B-factor column holds per-residue pLDDT as a **0-1 fraction** (range 0.49-1.00 and 0.66-0.99), not 0-100; PR-3 colouring must scale accordingly. PR-1 resolves each path as `releases/*/<pdb_file>` (exactly one match required), verifies the frozen SHA-256 and byte-copies the file into the export. The originals are never modified. *(Correction: the PR-0 draft wrongly stated these files were absent; it had searched only the repository root.)*
 - Network: RCSB (`files.rcsb.org`, `models.rcsb.org`) returns `Access-Control-Allow-Origin: *`. AFDB serves files to browsers (it returns 403 to the default curl user agent but 200 to a browser user agent and inside Chromium). The AFDB API reports the latest version as 6 for P02945, which matches the DB.
 
 ### 4.5 Reference tree, clades and placements
@@ -221,7 +228,7 @@ It was served under `/MicroRhodoDB/site/` and checked in headless Chromium (Swif
 
 | Test | Real asset | Result |
 |---|---|---|
-| phylotree.js, rectangular | `MR_RT_003.rooted.treefile` (copied byte-identically; SHA-256 checked) | 472 tips (472 unique), 470 internal labels parsed (`SH-aLRT/UFBoot` strings), 472 tip text nodes in SVG, render 124 ms, 0 console errors |
+| phylotree.js, rectangular | `MR_RT_003.rooted.treefile` (copied byte-identically; SHA-256 checked) | 472 tips (472 unique), 470 named internal nodes = 469 genuine `SH-aLRT/UFBoot` labels + the synthetic name `"root"` that phylotree's `newickParser` assigns to the root (not a support value; see section 1.3), 472 tip text nodes in SVG, render 124 ms, 0 console errors |
 | phylotree.js, radial | same | 472 tips, 130 ms, 0 errors |
 | Mol*, experimental | PDB 1C3W (linked to P02945 in `protein_pdb`), RCSB ModelServer BinaryCIF | Loaded, 6,219 atoms (protein + lipids/waters/RET), about 2.1 s, 0 errors |
 | Mol*, predicted | `afdb_model.model_url` for P02945 (`AF-P02945-F1-model_v6.pdb`) | Loaded, 1,995 atoms (262 aa), about 1.9 s, 0 errors |
@@ -252,7 +259,7 @@ Findings:
 | A5 | P1 | Horizontal overflow: Browse 818 px at 375 px, Novel 627 px even at 1440 px; record panel clipped on mobile; no standalone record page | PR-2, PR-3 |
 | A6 | P1 | "17 vs 19 level-1 clades": DB/legacy show B01/B02 as level-1 rows while the refpkg treats them as backbone subclades | Contract (section 7 of `WEB_DATA_CONTRACT.md`); confirm with owner |
 | A7 | P2 | `clade_id` blank vs NULL vs tentative semantics are implicit | PR-1 exporter enums |
-| A8 | P2 | `structure` lacks a row for PDB-linked A0A2R4S913 and 579 others; `predicted_structure.pdb_file` files are absent | Contract rule; owner question |
+| A8 | P2 | `structure` lacks a row for PDB-linked A0A2R4S913 and 579 others; `predicted_structure.pdb_file` paths are relative to `releases/v1.0/`, not the repository root | Contract rule (section 6 of `WEB_DATA_CONTRACT.md`); PR-1 resolves the release-relative paths |
 | A9 | P2 | Root redirect drops hash fragments | PR-2/PR-7 (JS redirect that preserves `location.hash`) |
 | A10 | P3 | `tests/README.md` test counts are stale (45/38 vs 52/42) | PR-6 docs |
 | A11 | P3 | `reference_tree.treefile_md5` refers to `run1.treefile`, not the rooted file | Document in manifest; no data change |
@@ -266,10 +273,20 @@ At the end of PR-0:
 
 Output: `baseline/frozen_check.txt`.
 
-## 8. Decisions requested from the owner before PR-1
+## 8. Owner decisions (recorded after PR-0 review, verdict CONDITIONAL PASS)
 
-1. **Data source for CI**: publish the v1.6.0 GitHub Release (recommended) or approve committed, provenance-bearing pre-generated `data/v1.6.0/`?
-2. **Pages source**: confirm the current setting (branch `main` / root assumed). Approve switching to GitHub Actions in PR-7?
-3. **Level-1 clade presentation**: approve "17 level-1 clades + 2 backbone groups (B01, B02)" as the display rule?
-4. **ESMCFold2 files** (`structures/A0A9X2L7U0_esmfold.pdb`, `structures/B0R633_esmfold.pdb`): are they available somewhere for publication? Otherwise the site shows metadata only.
-5. Approve PR-1 (deterministic exporter) to start.
+1. **Data source for CI**: the official v1.6.0 GitHub Release assets, with mandatory SHA-256 verification against `BINARIES.md`. Until the Release is published, CI reports `BLOCKED_DATA_SOURCE`; local work uses the checksum-verified DB. No committed pre-generated data and no fallback to `site/data.js`.
+2. **Deployment**: GitHub Actions deployment is approved for PR-7 only, subject to confirming the existing Pages settings and a tested rollback procedure.
+3. **Level-1 clade presentation**: display "17 level-1 clades + 2 backbone groups (B01, B02)", preserving the underlying DB relationships (`clade.level=1`, `parent_id='backbone'`).
+4. **ESMCFold2 models**: both historical models (A0A9X2L7U0, B0R633) are supported as predicted structures, served from byte-identical copies of the `releases/v1.0/structures/` files.
+5. **PR-1** approved after the documentation correction commit.
+
+## 9. PR-0 corrections (correction commit after review)
+
+| Finding | Correction | Evidence |
+|---|---|---|
+| ESMCFold2 files reported missing | Files exist under `releases/v1.0/structures/`; SHA-256 match the frozen manifest; release-relative path rule added (section 4.4; contract section 6) | `baseline/pr0a_corrections.json` → `predicted_structures` |
+| Support-label counts (470 vs 471/469) | 471 internal nodes incl. root, 469 genuine labels; phylotree adds a synthetic `"root"` name. Only labels matching `^\d+(\.\d+)?/\d+(\.\d+)?$` are displayed as support (contract section 7.1) | `pr0a_corrections.json` → `support_labels` |
+| `built_at_utc` vs byte-identical manifest | Wall-clock timestamps removed from all exported files; provenance is commit + input checksums (contract sections 1, 4.1, 9) | contract |
+| Legacy fidelity used `abs < 0.051` and blank equivalence | Replaced by exact transformation rules; strict check gives 0 mismatched cells over 5,466 rows x 39 columns (section 3.1; contract section 9.1) | `pr0a_corrections.json` → `legacy_strict` |
+| `git diff --check` warnings | `WEBSITE_REDESIGN_SPEC.md` header lines 4-10: trailing double-space hard breaks replaced by the equivalent CommonMark backslash hard break (rendering unchanged; this is the only deviation from the verbatim plan). Whitespace-only line removed from `WEB_DATA_CONTRACT.md`. No scientific file touched | `git diff --check fab9182 HEAD` clean |
