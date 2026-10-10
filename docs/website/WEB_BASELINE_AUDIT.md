@@ -48,7 +48,7 @@ Until one of these exists, any CI export step must stop with `BLOCKED_DATA_SOURC
 | File | `refpkg/MR_RT_003/tree/MR_RT_003.rooted.treefile`, 17,517 bytes, SHA-256 `c56196970698decea8384c1cad97545794268e6d8a2df2b195e7d35d5ded9aef`, MD5 `f47ef7649dc5b01a6ea58e9c0ea1c238` |
 | DB `reference_tree` row | `MR_RT_003`, status `canonical_release`, IQ-TREE 2.3.6, Q.pfam+F+R9, 472 tips |
 | `reference_tree.treefile_md5` | `712f53eb06fcb0277c79f188dd4bb574`. This is the MD5 of `run1.treefile` (the unrooted primary ML tree), **not** of the rooted file. This is expected (the rooted file is derived), but the website manifest must record the rooted file's own checksum and say which file the DB MD5 refers to |
-| Support label format | `SH-aLRT/UFBoot` on internal nodes (e.g. `96.2/100`). The rooted file has 472 tips and **471 internal nodes including the root** (471 `(` and 471 `)`). **469** internal nodes carry a genuine `SH-aLRT/UFBoot` label; 2 are unlabelled: the root and one child of the root (rooting on the outgroup split an edge of the unrooted ML tree into two). DB `tree_node` (MR_RT_003) stores the unrooted `run1` topology (470 internal nodes, 469 labels); its label multiset equals the rooted file's. Evidence: `baseline/pr0a_corrections.json` |
+| Support label format | `SH-aLRT/UFBoot` on internal nodes (e.g. `96.2/100`). The rooted file has 472 tips and **471 internal nodes including the root** (471 `(` and 471 `)`). **469** internal nodes carry a genuine `SH-aLRT/UFBoot` label; 2 are unlabelled: the root (472 tips) and a **non-root** 25-tip node at depth 17, which is the former top node of the unrooted `run1.treefile` (both root children are labelled; *corrected in PR-1, see section 10*). DB `tree_node` (MR_RT_003) stores the unrooted `run1` topology (470 internal nodes, 469 labels); its label **multiset** equals the rooted file's, but on 17 nodes the rooted file attaches the label to a different bipartition than IQ-TREE did (section 10.2). Evidence: `baseline/pr0a_corrections.json`, `pr1/support_label_audit.json` |
 | Legacy trees | `MR_RT_001` (185 tips) and `MR_RT_002` (278 tips) are `legacy`. Their placements have `is_current=0` and must not be shown as current |
 
 ## 2. Baseline tests (recorded honestly)
@@ -290,3 +290,25 @@ Output: `baseline/frozen_check.txt`.
 | `built_at_utc` vs byte-identical manifest | Wall-clock timestamps removed from all exported files; provenance is commit + input checksums (contract sections 1, 4.1, 9) | contract |
 | Legacy fidelity used `abs < 0.051` and blank equivalence | Replaced by exact transformation rules; strict check gives 0 mismatched cells over 5,466 rows x 39 columns (section 3.1; contract section 9.1) | `pr0a_corrections.json` → `legacy_strict` |
 | `git diff --check` warnings | `WEBSITE_REDESIGN_SPEC.md` header lines 4-10: trailing double-space hard breaks replaced by the equivalent CommonMark backslash hard break (rendering unchanged; this is the only deviation from the verbatim plan). Whitespace-only line removed from `WEB_DATA_CONTRACT.md`. No scientific file touched | `git diff --check fab9182 HEAD` clean |
+
+## 10. PR-1 corrections and findings
+
+### 10.1 Correction to section 1.2 / section 9 (PR-0a)
+
+PR-0a stated that the 2 unlabelled internal nodes of `MR_RT_003.rooted.treefile` are "the root and one child of the root". That is wrong. The exporter's node census (`phylogeny/tree_stats.json` → `unlabelled_internal`) shows they are the root (472 tips) and a non-root node of 25 tips at depth 17, the former top node of the unrooted `run1.treefile`. Both root children carry labels. The counts (471 internal incl. root, 469 genuine labels, 2 unlabelled) were correct and are unchanged.
+
+### 10.2 Support labels in the rooted file are shifted on 17 nodes (owner decision required)
+
+Frozen data are unchanged; this is a documentation and display finding only.
+
+- `MR_RT_003.rooted.treefile` was written by `pipeline/v150/define_clades.py`, which loaded `run1.treefile` with ete3 (format 1), stored each label as node features (`alrt`, `ufb`) and then called `set_outgroup`. Rerooting reverses parent/child relations on the path from the old top node to the new root, but node-attached features do not move with the edges, so each label on that path ends up on the adjacent node.
+- Comparing every bipartition of the rooted file with the same bipartition in IQ-TREE `run1.treefile`: **453 of 470 non-root internal nodes agree; 17 disagree**, each shifted by exactly one node along that path. Disagreeing nodes have 457, 452, 416, 391, 268, 266, 260, 141, 126, 116, 114, 110, 109, 100, 48, 47 and 25 tips. The 25-tip node is unlabelled in the rooted file (IQ-TREE: 40/51). The outgroup split appears with two labels on the two root edges: 98.8/100 (IQ-TREE value) and 92.1/96 (shifted).
+- DB `tree_node` (unrooted `run1` topology) agrees with `run1.treefile` on all 469 labels.
+- Of the 49 DB `clade` rows, only **MR_CLD3_017** carries a wrong support value: DB `sh_alrt/ufboot` 100/100, IQ-TREE `run1` **50.3/72** for the same bipartition (100 tips, 1,646 records, consensus `mixed`, min cross-replicate Jaccard 0.52).
+- Re-running the PRIMARY clade rule (outgroup rooting, 5-100 ingroup tips, UFBoot >= 95 and SH-aLRT >= 80, top-down) reproduces the 17 DB level-1 clades exactly with the rooted-file labels. With IQ-TREE labels it yields 19 clades: the other 16 are unchanged, MR_CLD3_017 is not recovered and splits into clades of 48 (100/100), 30 (97.3/100) and 5 (99.9/100) tips, and 17 tips go to the backbone. Subclades and the `clade_robustness` grid were produced by the same code and have not been re-derived.
+- PR-1 exports the audit and changes nothing: `phylogeny/support_audit.json` (per rooted internal node: `rooted_label`, `iqtree_run1_label`, `agrees`), `clades.json` → `support_audit` per clade, and `tree_stats.json` → `support_audit` counts. Reproduce with `python web/scripts/pr1_support_label_audit.py`.
+- **Owner decision for PR-4** (tree display): (a) show IQ-TREE `run1` bipartition support (the statistically correct value for each displayed branch), with the rooted-file label available in the audit; or (b) show the rooted-file labels as frozen, with a visible caveat on the 17 affected nodes. In both cases MR_CLD3_017 needs a caveat (its DB support is not the IQ-TREE value). Re-deriving the clades is a scientific release decision (a future dataset version), not website work.
+
+### 10.3 Release data source
+
+Live check during PR-1: `GET /repos/CongjianL/MicroRhodoDB/releases/tags/v1.6.0` → 404 and the repository has no releases; the asset URL `releases/download/v1.6.0/microrhododb_v1.6.0.sqlite` → HTTP 404. CI status is therefore **`BLOCKED_DATA_SOURCE`**; local work used the checksum-verified DB.

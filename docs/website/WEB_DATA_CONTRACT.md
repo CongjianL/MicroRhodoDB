@@ -1,6 +1,6 @@
 # MicroRhodoDB website 2.0: static data contract (dataset v1.6.0)
 
-Status: PR-0, corrected after owner review (CONDITIONAL PASS; see `WEB_BASELINE_AUDIT.md` sections 8-9). PR-1 implements it in `tools/export_web_data.py` together with TypeScript types and JSON Schemas (`web/src/data/schemas/`).
+Status: PR-0, corrected after owner review (CONDITIONAL PASS; see `WEB_BASELINE_AUDIT.md` sections 8-9); implemented in PR-1 by `tools/export_web_data.py`. **Normative payload shapes are the JSON Schema `web/src/data/schemas/web-data.schema.json`** (and the TypeScript types generated from it, `web/src/data/types.ts`); where the prose of sections 3-8 differs, section 10 lists the as-built deviations and the schema wins.
 This document covers the topics that plan section 15 assigns to `WEB_DATA_CONTRACT.md`, `PDB_STRUCTURE_MAPPING.md`, `PHYLOGENY_DISPLAY_SPEC.md` and `EVIDENCE_AND_STATISTICS_DENOMINATORS.md`. They are consolidated here (sections 6-8) and may be split later. All counts quoted are from `baseline/pr0_db_audit.json`.
 
 ## 1. Principles
@@ -267,7 +267,8 @@ These counts are recomputed at export time and validated, not typed in.
 ### 7.1 Tree
 
 - The Newick is the rooted file, byte-copied and verified by SHA-256. The root is the heliorhodopsin outgroup.
-- Node census of the rooted file: 472 tips, **471 internal nodes including the root**, **469 genuine support labels**. The 2 unlabelled internal nodes are the root and one root child (rooting split an ML edge). DB `tree_node` stores the unrooted `run1` topology (470 internal nodes, the same 469-label multiset).
+- Node census of the rooted file: 472 tips, **471 internal nodes including the root**, **469 genuine support labels**. The 2 unlabelled internal nodes are the root and a non-root 25-tip node (the former top node of `run1.treefile`); both root children are labelled (corrected in PR-1; `WEB_BASELINE_AUDIT.md` section 10.1). DB `tree_node` stores the unrooted `run1` topology (470 internal nodes, the same 469-label multiset).
+- **Support provenance.** On 17 of 470 non-root internal nodes the rooted file attaches a label to a different bipartition than IQ-TREE `run1.treefile` (rerooting moved node-attached labels; `WEB_BASELINE_AUDIT.md` section 10.2). The exporter therefore also emits `phylogeny/support_audit.json` (keyed by first/last tip in Newick order) and `tree_stats.json` → `support_audit`. Which label is displayed is an owner decision for PR-4; until then no UI may present a rooted-file label on a disagreeing node without the audit caveat.
 - A label is shown as statistical support **only** if it is a Newick internal-node label matching `^\d+(\.\d+)?/\d+(\.\d+)?$`; it is exported unchanged and displayed as "SH-aLRT x / UFBoot y". Unlabelled nodes show no support. Parser-generated names (phylotree 2.6.0 names the root `"root"`, which is why the PoC counted 470 "named" internal nodes) are never displayed as support. `phylogeny/tree_stats.json` records 471 / 469 / 2 and the tests check it.
 - Topology and branch lengths are never edited in the browser. Collapsing a clade is a display-only operation.
 
@@ -374,3 +375,24 @@ The only permitted transformations between the legacy value `L` and the new expo
 | T7 | Publications | Legacy `pubs[source_acc]` lists equal the new active links in order (`source_acc`, `counts_as_support DESC`, `year`), with `pmid` as the string of the integer and `year` as int |
 
 Any other difference fails the test. PR-0a strict check: 0 mismatched cells (`baseline/pr0a_corrections.json`).
+
+## 10. PR-1 as-built deviations from the PR-0 prose
+
+All deviations are additive or make a type explicit; none changes a scientific value. Each is enforced by the schema and by `tests/test_web_export.py`.
+
+| Area | PR-0 prose | As built (PR-1) | Reason |
+|---|---|---|---|
+| Empty strings | generic missing-value rules | `EMPTY_STRING_RULES` in the exporter lists every DB column holding `''`: `v_master.clade_id`/`subclade_id` → `null` (meaning carried by `clade_state`), `pdb_structure.ligands` → `[]`, `structure.fusion_partner_domains` → `null`, `clade_function_consensus.E1_classes` → `null`. Any other `''` aborts the export (`CONTRACT_VIOLATION`); no exported JSON contains `""` | fail closed |
+| `PdbLink.year` | text | integer parsed from `pdb_structure.year` | typed |
+| `PdbLink` / `PdbIndexEntry` | — | `ligands` is a list split on `;`; NMR `resolution_A` = `"not_applicable"`; `is_rep`, `is_highest_res` from `structure.rep_pdb_id` / `highest_res_pdb_id` (`false` when a PDB-linked record has no `structure` row); `shared_with` = other source accessions linked to the same PDB ID | explicit |
+| `gtdb.agreement` | string | number (DB REAL) | typed |
+| `architecture` | nullable | always an object with `has_structure_row` | records without a `structure` row are explicit |
+| `membership.curated_override` | free text | `{rationale: membership.status_reason, source}` for the 4 `typeI_member_curated` records; `function.override_rule` stays as in the DB (null for these 4) | no invention |
+| Publication order | by role | `counts_as_support DESC, year, publication_id, assertion_id` (legacy order plus deterministic tie-breaks) | determinism; legacy oracle T7 compares per-source multisets and the (support, year) key order |
+| `LinkRole` enum | active roles | adds `dropped`, `replaced`, used only in `publications.json` → `inactive_links` (7 links, never support) | audit trail |
+| Record fields | — | added `release_added`, `is_current`, `lineage`, `novel_family_flag` object (`hit`, bits, e-value), `phylogeny.placement` object, `clade_function_source`, `function.v160_change`, `call_conflict_exact`, `exp_class`, `clade_function` | complete v_master/DB coverage |
+| UniProt cross-reference strings | — | `protein.pdb`/`kegg`/`refseq` are **not** exported; PDB IDs come only from `protein_pdb` | principle 3 |
+| Floats | "fixed formatting" | full-precision DB value, Python `repr` (shortest round-trip); rounding is a display concern | lossless, deterministic |
+| New files | — | `phylogeny/support_audit.json`, `phylogeny/tree_stats.json` (support census and audit counts), `phylogeny/preview.svg` | section 7.1 |
+| `export_manifest.json` | — | every other file under the output root (path, sha256, bytes, records), exporter commit and `git_dirty`, DB SHA-256; no timestamps | principle 4 |
+| Exit codes | `BLOCKED_DATA_SOURCE` | 2 `BLOCKED_DATA_SOURCE` (DB missing/SHA mismatch, refpkg input mismatch), 3 `STRUCTURE_SOURCE_ANOMALY` (predicted file not uniquely resolved or SHA mismatch), 4 `CONTRACT_VIOLATION` (any invariant, including refusing to replace a directory that is not a previous export) | fail closed |

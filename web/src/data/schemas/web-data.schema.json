@@ -1,0 +1,3274 @@
+{
+ "$defs": {
+  "Accessions": {
+   "additionalProperties": false,
+   "properties": {
+    "by_mrdb": {
+     "additionalProperties": {
+      "additionalProperties": false,
+      "properties": {
+       "first_release": {
+        "type": "string"
+       },
+       "representative_source_acc": {
+        "type": "string"
+       },
+       "sequence_sha256": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+       },
+       "sources": {
+        "items": {
+         "type": "string"
+        },
+        "minItems": 1,
+        "type": "array"
+       }
+      },
+      "required": [
+       "first_release",
+       "representative_source_acc",
+       "sequence_sha256",
+       "sources"
+      ],
+      "type": "object"
+     },
+     "type": "object"
+    },
+    "by_source": {
+     "additionalProperties": {
+      "$ref": "#/$defs/MrdbAcc"
+     },
+     "type": "object"
+    },
+    "dataset_release": {
+     "const": "1.6.0"
+    }
+   },
+   "required": [
+    "by_mrdb",
+    "by_source",
+    "dataset_release"
+   ],
+   "type": "object"
+  },
+  "AfdbModel": {
+   "additionalProperties": false,
+   "properties": {
+    "global_plddt": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "model_created": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "model_id": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "model_url": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "seq_end": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "seq_match": {
+     "type": [
+      "boolean",
+      "null"
+     ]
+    },
+    "seq_start": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "status": {
+     "enum": [
+      "ok",
+      "no_model"
+     ]
+    },
+    "version": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    }
+   },
+   "required": [
+    "global_plddt",
+    "model_created",
+    "model_id",
+    "model_url",
+    "seq_end",
+    "seq_match",
+    "seq_start",
+    "status",
+    "version"
+   ],
+   "type": "object"
+  },
+  "CladeId": {
+   "pattern": "^MR_CLD3_(0\\d\\d|B0\\d)(\\.\\d\\d)?$",
+   "type": "string"
+  },
+  "CladeLevel1": {
+   "additionalProperties": false,
+   "properties": {
+    "clade_id": {
+     "$ref": "#/$defs/CladeId"
+    },
+    "consensus_status": {
+     "type": "string"
+    },
+    "dominant_domain": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "dominant_helixC_motif": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "dominant_phylum": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "dominant_subfamily_v14": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "e1_classes_records": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "e1_classes_tips": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "e1_function_consensus": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "function_consensus": {
+     "additionalProperties": false,
+     "properties": {
+      "E1_classes": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "clade_function": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "consensus_status": {
+       "type": "string"
+      },
+      "level": {
+       "enum": [
+        "clade",
+        "subclade"
+       ]
+      },
+      "n_E1": {
+       "type": "integer"
+      },
+      "n_records": {
+       "type": "integer"
+      },
+      "top_frac": {
+       "type": [
+        "number",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "E1_classes",
+      "clade_function",
+      "consensus_status",
+      "level",
+      "n_E1",
+      "n_records",
+      "top_frac"
+     ],
+     "type": "object"
+    },
+    "jaccard_midpoint_rooting": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "jaccard_run2": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "jaccard_run3": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "kind": {
+     "enum": [
+      "clade",
+      "backbone_group"
+     ]
+    },
+    "level": {
+     "enum": [
+      1,
+      2
+     ]
+    },
+    "min_cross_replicate_jaccard": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "n_E1": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "n_records_assigned": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "n_records_confident": {
+     "type": "integer"
+    },
+    "n_records_tentative": {
+     "type": "integer"
+    },
+    "n_tips": {
+     "type": "integer"
+    },
+    "n_tips_in_tree": {
+     "type": "integer"
+    },
+    "name": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "naming_basis": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "parent_clade_id": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "robustness_caveat": {
+     "type": "boolean"
+    },
+    "robustness_caveat_reasons": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "scheme": {
+     "const": "MR_CLD3"
+    },
+    "sh_alrt": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "support_audit": {
+     "additionalProperties": false,
+     "properties": {
+      "db_label": {
+       "type": "string"
+      },
+      "db_matches_iqtree_run1": {
+       "type": "boolean"
+      },
+      "iqtree_run1_label": {
+       "type": "string"
+      },
+      "rooted_file_label": {
+       "type": [
+        "string",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "db_label",
+      "db_matches_iqtree_run1",
+      "iqtree_run1_label",
+      "rooted_file_label"
+     ],
+     "type": "object"
+    },
+    "top_frac": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "tree_id": {
+     "const": "MR_RT_003"
+    },
+    "ufboot": {
+     "type": [
+      "number",
+      "null"
+     ]
+    }
+   },
+   "required": [
+    "clade_id",
+    "consensus_status",
+    "dominant_domain",
+    "dominant_helixC_motif",
+    "dominant_phylum",
+    "dominant_subfamily_v14",
+    "e1_classes_records",
+    "e1_classes_tips",
+    "e1_function_consensus",
+    "function_consensus",
+    "jaccard_midpoint_rooting",
+    "jaccard_run2",
+    "jaccard_run3",
+    "kind",
+    "level",
+    "min_cross_replicate_jaccard",
+    "n_E1",
+    "n_records_assigned",
+    "n_records_confident",
+    "n_records_tentative",
+    "n_tips",
+    "n_tips_in_tree",
+    "name",
+    "naming_basis",
+    "parent_clade_id",
+    "robustness_caveat",
+    "robustness_caveat_reasons",
+    "scheme",
+    "sh_alrt",
+    "support_audit",
+    "top_frac",
+    "tree_id",
+    "ufboot"
+   ],
+   "type": "object"
+  },
+  "CladeState": {
+   "enum": [
+    "confident",
+    "tentative",
+    "reference_tip_unclustered",
+    "outgroup_reference_tip",
+    "outgroup_placed",
+    "unassigned",
+    "distant"
+   ]
+  },
+  "CladeTips": {
+   "additionalProperties": false,
+   "properties": {
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "rows": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "clade_id": {
+        "type": "string"
+       },
+       "source_acc": {
+        "type": "string"
+       },
+       "subclade_id": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "tree_id": {
+        "const": "MR_RT_003"
+       }
+      },
+      "required": [
+       "clade_id",
+       "source_acc",
+       "subclade_id",
+       "tree_id"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "source": {
+     "type": "string"
+    },
+    "tree_id": {
+     "const": "MR_RT_003"
+    }
+   },
+   "required": [
+    "dataset_release",
+    "rows",
+    "source",
+    "tree_id"
+   ],
+   "type": "object"
+  },
+  "Clades": {
+   "additionalProperties": false,
+   "properties": {
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "display": {
+     "type": "string"
+    },
+    "level1": {
+     "items": {
+      "$ref": "#/$defs/CladeLevel1"
+     },
+     "type": "array"
+    },
+    "robustness_caveat_rule": {
+     "type": "string"
+    },
+    "scheme": {
+     "const": "MR_CLD3"
+    },
+    "subclades": {
+     "items": {
+      "$ref": "#/$defs/Subclade"
+     },
+     "type": "array"
+    },
+    "tree_id": {
+     "const": "MR_RT_003"
+    }
+   },
+   "required": [
+    "dataset_release",
+    "display",
+    "level1",
+    "robustness_caveat_rule",
+    "scheme",
+    "subclades",
+    "tree_id"
+   ],
+   "type": "object"
+  },
+  "Current": {
+   "additionalProperties": false,
+   "properties": {
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "path": {
+     "const": "data/v1.6.0/"
+    },
+    "schema_version": {
+     "const": "1.0.0"
+    }
+   },
+   "required": [
+    "dataset_release",
+    "path",
+    "schema_version"
+   ],
+   "type": "object"
+  },
+  "EvidenceIndex": {
+   "additionalProperties": false,
+   "properties": {
+    "call_conflict": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "curated_overrides": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "rationale": {
+        "type": "string"
+       },
+       "source_acc": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "rationale",
+       "source_acc"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "e1": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "counts_eligible": {
+        "type": "boolean"
+       },
+       "func_class": {
+        "$ref": "#/$defs/FuncClass"
+       },
+       "function_basis": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "mrdb_acc": {
+        "$ref": "#/$defs/MrdbAcc"
+       },
+       "n_support_links": {
+        "type": "integer"
+       },
+       "source_acc": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "counts_eligible",
+       "func_class",
+       "function_basis",
+       "mrdb_acc",
+       "n_support_links",
+       "source_acc"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "engineered": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "source_acc": {
+        "type": "string"
+       },
+       "wild_type_acc": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "source_acc",
+       "wild_type_acc"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "engineered_policy": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "function_conflict_rule": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "override_rules": {
+     "additionalProperties": {
+      "items": {
+       "type": "string"
+      },
+      "type": "array"
+     },
+     "type": "object"
+    }
+   },
+   "required": [
+    "call_conflict",
+    "curated_overrides",
+    "dataset_release",
+    "e1",
+    "engineered",
+    "engineered_policy",
+    "function_conflict_rule",
+    "override_rules"
+   ],
+   "type": "object"
+  },
+  "EvidenceLevel": {
+   "enum": [
+    "E1",
+    "E2",
+    "E3",
+    "E4",
+    "E5"
+   ]
+  },
+  "ExportManifest": {
+   "additionalProperties": false,
+   "properties": {
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "exporter_git_commit": {
+     "type": "string"
+    },
+    "exporter_git_dirty": {
+     "type": "boolean"
+    },
+    "files": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "bytes": {
+        "type": "integer"
+       },
+       "path": {
+        "type": "string"
+       },
+       "records": {
+        "type": "integer"
+       },
+       "sha256": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+       }
+      },
+      "required": [
+       "bytes",
+       "path",
+       "records",
+       "sha256"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "n_files": {
+     "type": "integer"
+    },
+    "schema_version": {
+     "const": "1.0.0"
+    },
+    "source_db_sha256": {
+     "pattern": "^[0-9a-f]{64}$",
+     "type": "string"
+    },
+    "total_bytes": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "dataset_release",
+    "exporter_git_commit",
+    "exporter_git_dirty",
+    "files",
+    "n_files",
+    "schema_version",
+    "source_db_sha256",
+    "total_bytes"
+   ],
+   "type": "object"
+  },
+  "FuncClass": {
+   "enum": [
+    "proton_pump",
+    "proton_pump_inward",
+    "anion_pump",
+    "sodium_pump",
+    "light_gated_channel",
+    "sensory",
+    "sensory_like",
+    "enzyme_rhodopsin",
+    "photoreceptor_unassigned",
+    "unassigned",
+    "unresolved"
+   ]
+  },
+  "LinkRole": {
+   "enum": [
+    "support",
+    "compilation",
+    "context",
+    "conflicting_evidence",
+    "unresolvable_not_counted",
+    "dropped",
+    "replaced"
+   ]
+  },
+  "Manifest": {
+   "additionalProperties": false,
+   "properties": {
+    "counts": {
+     "additionalProperties": false,
+     "properties": {
+      "active_links": {
+       "type": "integer"
+      },
+      "backbone_groups": {
+       "type": "integer"
+      },
+      "counted": {
+       "type": "integer"
+      },
+      "level1_clades": {
+       "type": "integer"
+      },
+      "mrdb_accessions": {
+       "type": "integer"
+      },
+      "pdb_entries": {
+       "type": "integer"
+      },
+      "pdb_links": {
+       "type": "integer"
+      },
+      "publications": {
+       "type": "integer"
+      },
+      "records": {
+       "type": "integer"
+      },
+      "tree_tips": {
+       "type": "integer"
+      },
+      "watchlist": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "active_links",
+      "backbone_groups",
+      "counted",
+      "level1_clades",
+      "mrdb_accessions",
+      "pdb_entries",
+      "pdb_links",
+      "publications",
+      "records",
+      "tree_tips",
+      "watchlist"
+     ],
+     "type": "object"
+    },
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "exporter": {
+     "additionalProperties": false,
+     "properties": {
+      "git_commit": {
+       "type": "string"
+      },
+      "git_dirty": {
+       "type": "boolean"
+      },
+      "path": {
+       "const": "tools/export_web_data.py"
+      },
+      "python": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "git_commit",
+      "git_dirty",
+      "path",
+      "python"
+     ],
+     "type": "object"
+    },
+    "license": {
+     "type": "string"
+    },
+    "predicted_structure_sources": {
+     "additionalProperties": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+     },
+     "type": "object"
+    },
+    "refpkg": {
+     "additionalProperties": false,
+     "properties": {
+      "db_treefile_md5": {
+       "type": "string"
+      },
+      "db_treefile_md5_refers_to": {
+       "const": "run1.treefile"
+      },
+      "id": {
+       "const": "MR_RT_003"
+      },
+      "inputs_sha256": {
+       "additionalProperties": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+       },
+       "type": "object"
+      },
+      "rooted_treefile_md5": {
+       "type": "string"
+      },
+      "rooted_treefile_sha256": {
+       "pattern": "^[0-9a-f]{64}$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "db_treefile_md5",
+      "db_treefile_md5_refers_to",
+      "id",
+      "inputs_sha256",
+      "rooted_treefile_md5",
+      "rooted_treefile_sha256"
+     ],
+     "type": "object"
+    },
+    "release_date": {
+     "type": "string"
+    },
+    "schema_revision": {
+     "type": "string"
+    },
+    "schema_version": {
+     "const": "1.0.0"
+    },
+    "source_db": {
+     "additionalProperties": false,
+     "properties": {
+      "file": {
+       "const": "microrhododb_v1.6.0.sqlite"
+      },
+      "opened_read_only": {
+       "const": true
+      },
+      "sha256": {
+       "pattern": "^[0-9a-f]{64}$",
+       "type": "string"
+      }
+     },
+     "required": [
+      "file",
+      "opened_read_only",
+      "sha256"
+     ],
+     "type": "object"
+    },
+    "timestamps": {
+     "type": "string"
+    },
+    "website_version": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "counts",
+    "dataset_release",
+    "exporter",
+    "license",
+    "predicted_structure_sources",
+    "refpkg",
+    "release_date",
+    "schema_revision",
+    "schema_version",
+    "source_db",
+    "timestamps",
+    "website_version"
+   ],
+   "type": "object"
+  },
+  "MembershipGroup": {
+   "enum": [
+    "member",
+    "candidate",
+    "boundary",
+    "outgroup",
+    "rejected"
+   ]
+  },
+  "MembershipStatus": {
+   "enum": [
+    "typeI_member_core",
+    "typeI_member_architecture_supported",
+    "typeI_member_curated",
+    "typeI_candidate",
+    "typeI_candidate_architecture_supported",
+    "typeI_candidate_unresolved",
+    "boundary_family",
+    "heliorhodopsin",
+    "decoy_or_rejected"
+   ]
+  },
+  "MrdbAcc": {
+   "pattern": "^MRDB\\d{6}$",
+   "type": "string"
+  },
+  "MrdbEntry": {
+   "additionalProperties": false,
+   "properties": {
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "first_release": {
+     "type": "string"
+    },
+    "mrdb_acc": {
+     "$ref": "#/$defs/MrdbAcc"
+    },
+    "n_source_records": {
+     "minimum": 1,
+     "type": "integer"
+    },
+    "pdb_union": {
+     "items": {
+      "$ref": "#/$defs/PdbId"
+     },
+     "type": "array",
+     "uniqueItems": true
+    },
+    "representative_source_acc": {
+     "type": "string"
+    },
+    "sequence_sha256": {
+     "pattern": "^[0-9a-f]{64}$",
+     "type": "string"
+    },
+    "sources": {
+     "items": {
+      "$ref": "#/$defs/SourceRecord"
+     },
+     "minItems": 1,
+     "type": "array"
+    }
+   },
+   "required": [
+    "dataset_release",
+    "first_release",
+    "mrdb_acc",
+    "n_source_records",
+    "pdb_union",
+    "representative_source_acc",
+    "sequence_sha256",
+    "sources"
+   ],
+   "type": "object"
+  },
+  "PdbId": {
+   "pattern": "^[0-9A-Z]{4}$",
+   "type": "string"
+  },
+  "PdbIndexEntry": {
+   "additionalProperties": false,
+   "properties": {
+    "has_retinal": {
+     "type": "boolean"
+    },
+    "ligands": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "method": {
+     "$ref": "#/$defs/PdbMethod"
+    },
+    "mrdb_accs": {
+     "items": {
+      "$ref": "#/$defs/MrdbAcc"
+     },
+     "minItems": 1,
+     "type": "array"
+    },
+    "pdb_id": {
+     "$ref": "#/$defs/PdbId"
+    },
+    "resolution_A": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "const": "not_applicable"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "source_accs": {
+     "items": {
+      "type": "string"
+     },
+     "minItems": 1,
+     "type": "array"
+    },
+    "title": {
+     "type": "string"
+    },
+    "year": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "has_retinal",
+    "ligands",
+    "method",
+    "mrdb_accs",
+    "pdb_id",
+    "resolution_A",
+    "source_accs",
+    "title",
+    "year"
+   ],
+   "type": "object"
+  },
+  "PdbLink": {
+   "additionalProperties": false,
+   "properties": {
+    "has_retinal": {
+     "type": "boolean"
+    },
+    "is_highest_res": {
+     "type": "boolean"
+    },
+    "is_rep": {
+     "type": "boolean"
+    },
+    "ligands": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "method": {
+     "$ref": "#/$defs/PdbMethod"
+    },
+    "pdb_id": {
+     "$ref": "#/$defs/PdbId"
+    },
+    "resolution_A": {
+     "anyOf": [
+      {
+       "type": "number"
+      },
+      {
+       "const": "not_applicable"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "shared_with": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "title": {
+     "type": "string"
+    },
+    "year": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "has_retinal",
+    "is_highest_res",
+    "is_rep",
+    "ligands",
+    "method",
+    "pdb_id",
+    "resolution_A",
+    "shared_with",
+    "title",
+    "year"
+   ],
+   "type": "object"
+  },
+  "PdbMethod": {
+   "enum": [
+    "X-RAY DIFFRACTION",
+    "ELECTRON MICROSCOPY",
+    "SOLUTION NMR",
+    "ELECTRON CRYSTALLOGRAPHY"
+   ]
+  },
+  "PredictedModel": {
+   "additionalProperties": false,
+   "properties": {
+    "bfactor_scale": {
+     "const": "fraction_0_1"
+    },
+    "bytes": {
+     "type": "integer"
+    },
+    "db_pdb_file": {
+     "type": "string"
+    },
+    "file": {
+     "pattern": "^structures/predicted/[A-Za-z0-9_]+\\.pdb$",
+     "type": "string"
+    },
+    "mean_plddt": {
+     "type": "number"
+    },
+    "method": {
+     "type": "string"
+    },
+    "note": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "sha256": {
+     "pattern": "^[0-9a-f]{64}$",
+     "type": "string"
+    },
+    "source_path": {
+     "pattern": "^releases/[^/]+/structures/",
+     "type": "string"
+    },
+    "subfamily": {
+     "type": [
+      "string",
+      "null"
+     ]
+    }
+   },
+   "required": [
+    "bfactor_scale",
+    "bytes",
+    "db_pdb_file",
+    "file",
+    "mean_plddt",
+    "method",
+    "note",
+    "sha256",
+    "source_path",
+    "subfamily"
+   ],
+   "type": "object"
+  },
+  "PubLink": {
+   "additionalProperties": false,
+   "properties": {
+    "assertion": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "assertion_id": {
+     "type": "integer"
+    },
+    "caveat": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "counts_as_support": {
+     "type": "boolean"
+    },
+    "doi": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "evidence_basis": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "journal": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "link_role": {
+     "$ref": "#/$defs/LinkRole"
+    },
+    "pmid": {
+     "pattern": "^\\d+$",
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "publication_id": {
+     "type": "integer"
+    },
+    "title": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "verdict": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "year": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    }
+   },
+   "required": [
+    "assertion",
+    "assertion_id",
+    "caveat",
+    "counts_as_support",
+    "doi",
+    "evidence_basis",
+    "journal",
+    "link_role",
+    "pmid",
+    "publication_id",
+    "title",
+    "verdict",
+    "year"
+   ],
+   "type": "object"
+  },
+  "PubLink_open": {
+   "additionalProperties": true,
+   "properties": {
+    "assertion": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "assertion_id": {
+     "type": "integer"
+    },
+    "caveat": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "counts_as_support": {
+     "type": "boolean"
+    },
+    "doi": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "evidence_basis": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "journal": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "link_role": {
+     "$ref": "#/$defs/LinkRole"
+    },
+    "pmid": {
+     "pattern": "^\\d+$",
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "publication_id": {
+     "type": "integer"
+    },
+    "title": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "verdict": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "year": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    }
+   },
+   "required": [
+    "assertion",
+    "assertion_id",
+    "caveat",
+    "counts_as_support",
+    "doi",
+    "evidence_basis",
+    "journal",
+    "link_role",
+    "pmid",
+    "publication_id",
+    "title",
+    "verdict",
+    "year"
+   ],
+   "type": "object"
+  },
+  "Publications": {
+   "additionalProperties": false,
+   "properties": {
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "inactive_links": {
+     "items": {
+      "allOf": [
+       {
+        "$ref": "#/$defs/PubLink_open"
+       },
+       {
+        "properties": {
+         "is_active": {
+          "const": false
+         }
+        },
+        "required": [
+         "source_acc",
+         "is_active",
+         "display"
+        ],
+        "type": "object"
+       }
+      ]
+     },
+     "type": "array"
+    },
+    "links": {
+     "items": {
+      "allOf": [
+       {
+        "$ref": "#/$defs/PubLink_open"
+       },
+       {
+        "required": [
+         "source_acc",
+         "mrdb_acc"
+        ],
+        "type": "object"
+       }
+      ]
+     },
+     "type": "array"
+    },
+    "publications": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "doi": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "doi_corrected": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "journal": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "pmid": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "publication_id": {
+        "type": "integer"
+       },
+       "title": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "verdict_summary": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "year": {
+        "type": [
+         "integer",
+         "null"
+        ]
+       }
+      },
+      "required": [
+       "doi",
+       "doi_corrected",
+       "journal",
+       "pmid",
+       "publication_id",
+       "title",
+       "verdict_summary",
+       "year"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "dataset_release",
+    "inactive_links",
+    "links",
+    "publications"
+   ],
+   "type": "object"
+  },
+  "RecordsIndex": {
+   "additionalProperties": false,
+   "properties": {
+    "columns": {
+     "const": [
+      "mrdb_acc",
+      "source_acc",
+      "is_mrdb_representative",
+      "protein_name",
+      "organism",
+      "tax_domain",
+      "length",
+      "membership_status",
+      "membership_score",
+      "func_class",
+      "evidence_level",
+      "call_conflict",
+      "is_engineered",
+      "counts_eligible",
+      "clade_state",
+      "clade_id",
+      "subclade_id",
+      "tentative_clade_id",
+      "n_pdb",
+      "has_afdb",
+      "has_predicted",
+      "helixC_motif",
+      "novel_family_flag",
+      "reviewed",
+      "n_support_links"
+     ]
+    },
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "rows": {
+     "items": {
+      "items": false,
+      "minItems": 25,
+      "prefixItems": [
+       {
+        "$ref": "#/$defs/MrdbAcc"
+       },
+       {
+        "type": "string"
+       },
+       {
+        "type": "boolean"
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "$ref": "#/$defs/TaxDomain"
+       },
+       {
+        "type": "integer"
+       },
+       {
+        "$ref": "#/$defs/MembershipStatus"
+       },
+       {
+        "type": [
+         "number",
+         "null"
+        ]
+       },
+       {
+        "$ref": "#/$defs/FuncClass"
+       },
+       {
+        "$ref": "#/$defs/EvidenceLevel"
+       },
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "boolean"
+       },
+       {
+        "$ref": "#/$defs/CladeState"
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": "integer"
+       },
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "boolean"
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       {
+        "type": [
+         "boolean",
+         "null"
+        ]
+       },
+       {
+        "type": "integer"
+       }
+      ],
+      "type": "array"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "columns",
+    "dataset_release",
+    "rows"
+   ],
+   "type": "object"
+  },
+  "Robustness": {
+   "additionalProperties": false,
+   "properties": {
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "grid": {
+     "items": {
+      "required": [
+       "tree",
+       "rooting",
+       "ufb",
+       "alrt",
+       "n_clades"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "per_clade": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "clade_id": {
+        "$ref": "#/$defs/CladeId"
+       },
+       "jaccard_midpoint_rooting": {
+        "type": [
+         "number",
+         "null"
+        ]
+       },
+       "jaccard_run2": {
+        "type": [
+         "number",
+         "null"
+        ]
+       },
+       "jaccard_run3": {
+        "type": [
+         "number",
+         "null"
+        ]
+       },
+       "kind": {
+        "type": "string"
+       },
+       "min_cross_replicate_jaccard": {
+        "type": [
+         "number",
+         "null"
+        ]
+       }
+      },
+      "required": [
+       "clade_id",
+       "jaccard_midpoint_rooting",
+       "jaccard_run2",
+       "jaccard_run3",
+       "kind",
+       "min_cross_replicate_jaccard"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "tree_id": {
+     "const": "MR_RT_003"
+    }
+   },
+   "required": [
+    "dataset_release",
+    "grid",
+    "per_clade",
+    "tree_id"
+   ],
+   "type": "object"
+  },
+  "SourceRecord": {
+   "additionalProperties": false,
+   "properties": {
+    "architecture": {
+     "additionalProperties": false,
+     "properties": {
+      "arch_primary": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "flags": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "fusion_partner_domains": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "fusion_type": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "has_structure_row": {
+       "type": "boolean"
+      }
+     },
+     "required": [
+      "arch_primary",
+      "flags",
+      "fusion_partner_domains",
+      "fusion_type",
+      "has_structure_row"
+     ],
+     "type": "object"
+    },
+    "engineering": {
+     "additionalProperties": false,
+     "properties": {
+      "counts_eligible": {
+       "type": "boolean"
+      },
+      "is_engineered": {
+       "type": "boolean"
+      },
+      "wild_type_acc": {
+       "type": [
+        "string",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "counts_eligible",
+      "is_engineered",
+      "wild_type_acc"
+     ],
+     "type": "object"
+    },
+    "exact_duplicate_of": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "function": {
+     "additionalProperties": false,
+     "properties": {
+      "call_conflict": {
+       "type": "boolean"
+      },
+      "call_conflict_detail": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "call_conflict_exact": {
+       "type": [
+        "boolean",
+        "null"
+       ]
+      },
+      "clade_function": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "e1_representative": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "e2_identity": {
+       "type": [
+        "number",
+        "null"
+       ]
+      },
+      "e2_ref": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "evidence_level": {
+       "$ref": "#/$defs/EvidenceLevel"
+      },
+      "exp_class": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "func_class": {
+       "$ref": "#/$defs/FuncClass"
+      },
+      "func_class_v14": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "function_basis": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "override_rule": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "v160_change": {
+       "type": [
+        "string",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "call_conflict",
+      "call_conflict_detail",
+      "call_conflict_exact",
+      "clade_function",
+      "e1_representative",
+      "e2_identity",
+      "e2_ref",
+      "evidence_level",
+      "exp_class",
+      "func_class",
+      "func_class_v14",
+      "function_basis",
+      "override_rule",
+      "v160_change"
+     ],
+     "type": "object"
+    },
+    "gtdb": {
+     "additionalProperties": false,
+     "properties": {
+      "agreement": {
+       "type": [
+        "number",
+        "null"
+       ]
+      },
+      "match_level": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "n_genomes": {
+       "type": [
+        "integer",
+        "null"
+       ]
+      },
+      "release": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "taxonomy": {
+       "type": [
+        "string",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "agreement",
+      "match_level",
+      "n_genomes",
+      "release",
+      "taxonomy"
+     ],
+     "type": "object"
+    },
+    "is_current": {
+     "type": "boolean"
+    },
+    "is_mrdb_representative": {
+     "type": "boolean"
+    },
+    "length": {
+     "type": "integer"
+    },
+    "lineage": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "membership": {
+     "additionalProperties": false,
+     "properties": {
+      "arch_route": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "architecture_class": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "boundary_subtype": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "covers_TM7": {
+       "type": [
+        "boolean",
+        "null"
+       ]
+      },
+      "curated_override": {
+       "anyOf": [
+        {
+         "additionalProperties": false,
+         "properties": {
+          "rationale": {
+           "type": "string"
+          },
+          "source": {
+           "const": "membership.status_reason"
+          }
+         },
+         "required": [
+          "rationale",
+          "source"
+         ],
+         "type": "object"
+        },
+        {
+         "type": "null"
+        }
+       ]
+      },
+      "group": {
+       "$ref": "#/$defs/MembershipGroup"
+      },
+      "homolog_identity": {
+       "type": [
+        "number",
+        "null"
+       ]
+      },
+      "nearest_fulllength_homolog": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "provisional_inference": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "score": {
+       "type": [
+        "number",
+        "null"
+       ]
+      },
+      "status": {
+       "$ref": "#/$defs/MembershipStatus"
+      },
+      "status_reason": {
+       "type": [
+        "string",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "arch_route",
+      "architecture_class",
+      "boundary_subtype",
+      "covers_TM7",
+      "curated_override",
+      "group",
+      "homolog_identity",
+      "nearest_fulllength_homolog",
+      "provisional_inference",
+      "score",
+      "status",
+      "status_reason"
+     ],
+     "type": "object"
+    },
+    "motifs": {
+     "additionalProperties": false,
+     "properties": {
+      "helixC_motif": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "motif_class": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "n_pocket_observed": {
+       "type": [
+        "integer",
+        "null"
+       ]
+      },
+      "pocket_mean_plddt": {
+       "type": [
+        "number",
+        "null"
+       ]
+      },
+      "pocket_min_plddt": {
+       "type": [
+        "number",
+        "null"
+       ]
+      },
+      "pocket_string_br": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "retinal_site_residue": {
+       "type": [
+        "string",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "helixC_motif",
+      "motif_class",
+      "n_pocket_observed",
+      "pocket_mean_plddt",
+      "pocket_min_plddt",
+      "pocket_string_br",
+      "retinal_site_residue"
+     ],
+     "type": "object"
+    },
+    "novel_family_flag": {
+     "additionalProperties": false,
+     "properties": {
+      "family_bits": {
+       "type": [
+        "number",
+        "null"
+       ]
+      },
+      "family_evalue": {
+       "type": [
+        "number",
+        "null"
+       ]
+      },
+      "hit": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "pf01036_bits": {
+       "type": [
+        "number",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "family_bits",
+      "family_evalue",
+      "hit",
+      "pf01036_bits"
+     ],
+     "type": "object"
+    },
+    "organism": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "organism_id": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "phylogeny": {
+     "additionalProperties": false,
+     "properties": {
+      "clade_function_source": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "clade_id": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "clade_lwr": {
+       "type": [
+        "number",
+        "null"
+       ]
+      },
+      "clade_name": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "clade_source": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "clade_state": {
+       "$ref": "#/$defs/CladeState"
+      },
+      "is_reference_tip": {
+       "type": "boolean"
+      },
+      "placement": {
+       "anyOf": [
+        {
+         "properties": {
+          "tree_id": {
+           "const": "MR_RT_003"
+          }
+         },
+         "required": [
+          "tree_id",
+          "clade_call"
+         ],
+         "type": "object"
+        },
+        {
+         "type": "null"
+        }
+       ]
+      },
+      "placement_call": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "subclade_id": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "tentative_clade_id": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "tentative_clade_name": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "tip_role": {
+       "anyOf": [
+        {
+         "$ref": "#/$defs/TipRole"
+        },
+        {
+         "type": "null"
+        }
+       ]
+      }
+     },
+     "required": [
+      "clade_function_source",
+      "clade_id",
+      "clade_lwr",
+      "clade_name",
+      "clade_source",
+      "clade_state",
+      "is_reference_tip",
+      "placement",
+      "placement_call",
+      "subclade_id",
+      "tentative_clade_id",
+      "tentative_clade_name",
+      "tip_role"
+     ],
+     "type": "object"
+    },
+    "protein_name": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "publications": {
+     "items": {
+      "$ref": "#/$defs/PubLink"
+     },
+     "type": "array"
+    },
+    "release_added": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "reviewed": {
+     "type": [
+      "boolean",
+      "null"
+     ]
+    },
+    "sequence": {
+     "pattern": "^[A-Z*]+$",
+     "type": "string"
+    },
+    "sequence_sha256": {
+     "pattern": "^[0-9a-f]{64}$",
+     "type": "string"
+    },
+    "source_acc": {
+     "type": "string"
+    },
+    "source_database": {
+     "const": "UniProt"
+    },
+    "structures": {
+     "additionalProperties": false,
+     "properties": {
+      "afdb": {
+       "$ref": "#/$defs/AfdbModel"
+      },
+      "experimental": {
+       "items": {
+        "$ref": "#/$defs/PdbLink"
+       },
+       "type": "array"
+      },
+      "predicted": {
+       "items": {
+        "$ref": "#/$defs/PredictedModel"
+       },
+       "type": "array"
+      }
+     },
+     "required": [
+      "afdb",
+      "experimental",
+      "predicted"
+     ],
+     "type": "object"
+    },
+    "tax_domain": {
+     "$ref": "#/$defs/TaxDomain"
+    }
+   },
+   "required": [
+    "architecture",
+    "engineering",
+    "exact_duplicate_of",
+    "function",
+    "gtdb",
+    "is_current",
+    "is_mrdb_representative",
+    "length",
+    "lineage",
+    "membership",
+    "motifs",
+    "novel_family_flag",
+    "organism",
+    "organism_id",
+    "phylogeny",
+    "protein_name",
+    "publications",
+    "release_added",
+    "reviewed",
+    "sequence",
+    "sequence_sha256",
+    "source_acc",
+    "source_database",
+    "structures",
+    "tax_domain"
+   ],
+   "type": "object"
+  },
+  "StructuresIndex": {
+   "additionalProperties": false,
+   "properties": {
+    "afdb_url_template": {
+     "type": "string"
+    },
+    "chain_mapping": {
+     "type": "string"
+    },
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "pdb": {
+     "additionalProperties": {
+      "$ref": "#/$defs/PdbIndexEntry"
+     },
+     "type": "object"
+    },
+    "predicted": {
+     "items": {
+      "allOf": [
+       {
+        "required": [
+         "source_acc",
+         "mrdb_acc"
+        ],
+        "type": "object"
+       }
+      ]
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "afdb_url_template",
+    "chain_mapping",
+    "dataset_release",
+    "pdb",
+    "predicted"
+   ],
+   "type": "object"
+  },
+  "Subclade": {
+   "additionalProperties": false,
+   "properties": {
+    "clade_id": {
+     "$ref": "#/$defs/CladeId"
+    },
+    "consensus_status": {
+     "type": "string"
+    },
+    "dominant_domain": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "dominant_helixC_motif": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "dominant_phylum": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "dominant_subfamily_v14": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "e1_classes_records": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "e1_classes_tips": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "e1_function_consensus": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "function_consensus": {
+     "additionalProperties": false,
+     "properties": {
+      "E1_classes": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "clade_function": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
+      "consensus_status": {
+       "type": "string"
+      },
+      "level": {
+       "enum": [
+        "clade",
+        "subclade"
+       ]
+      },
+      "n_E1": {
+       "type": "integer"
+      },
+      "n_records": {
+       "type": "integer"
+      },
+      "top_frac": {
+       "type": [
+        "number",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "E1_classes",
+      "clade_function",
+      "consensus_status",
+      "level",
+      "n_E1",
+      "n_records",
+      "top_frac"
+     ],
+     "type": "object"
+    },
+    "jaccard_midpoint_rooting": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "jaccard_run2": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "jaccard_run3": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "level": {
+     "enum": [
+      1,
+      2
+     ]
+    },
+    "min_cross_replicate_jaccard": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "n_E1": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "n_records_assigned": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "n_tips": {
+     "type": "integer"
+    },
+    "name": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "naming_basis": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "parent_clade_id": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "scheme": {
+     "const": "MR_CLD3"
+    },
+    "sh_alrt": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "support_audit": {
+     "additionalProperties": false,
+     "properties": {
+      "db_label": {
+       "type": "string"
+      },
+      "db_matches_iqtree_run1": {
+       "type": "boolean"
+      },
+      "iqtree_run1_label": {
+       "type": "string"
+      },
+      "rooted_file_label": {
+       "type": [
+        "string",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "db_label",
+      "db_matches_iqtree_run1",
+      "iqtree_run1_label",
+      "rooted_file_label"
+     ],
+     "type": "object"
+    },
+    "top_frac": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "tree_id": {
+     "const": "MR_RT_003"
+    },
+    "ufboot": {
+     "type": [
+      "number",
+      "null"
+     ]
+    }
+   },
+   "required": [
+    "clade_id",
+    "consensus_status",
+    "dominant_domain",
+    "dominant_helixC_motif",
+    "dominant_phylum",
+    "dominant_subfamily_v14",
+    "e1_classes_records",
+    "e1_classes_tips",
+    "e1_function_consensus",
+    "function_consensus",
+    "jaccard_midpoint_rooting",
+    "jaccard_run2",
+    "jaccard_run3",
+    "level",
+    "min_cross_replicate_jaccard",
+    "n_E1",
+    "n_records_assigned",
+    "n_tips",
+    "name",
+    "naming_basis",
+    "parent_clade_id",
+    "scheme",
+    "sh_alrt",
+    "support_audit",
+    "top_frac",
+    "tree_id",
+    "ufboot"
+   ],
+   "type": "object"
+  },
+  "Summary": {
+   "additionalProperties": false,
+   "properties": {
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "denominators": {
+     "additionalProperties": {
+      "additionalProperties": false,
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "label": {
+        "type": "string"
+       },
+       "sql": {
+        "type": "string"
+       },
+       "value": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "id",
+       "label",
+       "sql",
+       "value"
+      ],
+      "type": "object"
+     },
+     "type": "object"
+    },
+    "distributions": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "dataset_release": {
+        "const": "1.6.0"
+       },
+       "denominator": {
+        "additionalProperties": false,
+        "properties": {
+         "id": {
+          "type": "string"
+         },
+         "value": {
+          "type": "integer"
+         }
+        },
+        "required": [
+         "id",
+         "value"
+        ],
+        "type": "object"
+       },
+       "id": {
+        "type": "string"
+       },
+       "items": {
+        "items": {
+         "additionalProperties": false,
+         "properties": {
+          "key": {
+           "type": [
+            "string",
+            "null"
+           ]
+          },
+          "value": {
+           "type": "integer"
+          }
+         },
+         "required": [
+          "key",
+          "value"
+         ],
+         "type": "object"
+        },
+        "type": "array"
+       },
+       "label": {
+        "type": "string"
+       },
+       "source_file": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "sql": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "total": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "dataset_release",
+       "denominator",
+       "id",
+       "items",
+       "label",
+       "source_file",
+       "sql",
+       "total"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "metrics": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "dataset_release": {
+        "const": "1.6.0"
+       },
+       "denominator": {
+        "anyOf": [
+         {
+          "additionalProperties": false,
+          "properties": {
+           "id": {
+            "type": "string"
+           },
+           "value": {
+            "type": "integer"
+           }
+          },
+          "required": [
+           "id",
+           "value"
+          ],
+          "type": "object"
+         },
+         {
+          "type": "null"
+         }
+        ]
+       },
+       "id": {
+        "type": "string"
+       },
+       "inclusion": {
+        "additionalProperties": false,
+        "properties": {
+         "engineered": {
+          "enum": [
+           "included",
+           "excluded"
+          ]
+         },
+         "watchlist": {
+          "enum": [
+           "excluded",
+           "only"
+          ]
+         }
+        },
+        "required": [
+         "engineered",
+         "watchlist"
+        ],
+        "type": "object"
+       },
+       "label": {
+        "type": "string"
+       },
+       "sql": {
+        "type": "string"
+       },
+       "value": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "dataset_release",
+       "denominator",
+       "id",
+       "inclusion",
+       "label",
+       "sql",
+       "value"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "notes": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "schema_version": {
+     "const": "1.0.0"
+    }
+   },
+   "required": [
+    "dataset_release",
+    "denominators",
+    "distributions",
+    "metrics",
+    "notes",
+    "schema_version"
+   ],
+   "type": "object"
+  },
+  "SupportAudit": {
+   "additionalProperties": false,
+   "properties": {
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "n_disagree": {
+     "type": "integer"
+    },
+    "node_key": {
+     "type": "string"
+    },
+    "nodes": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "agrees": {
+        "type": "boolean"
+       },
+       "first_tip": {
+        "type": "string"
+       },
+       "iqtree_run1_label": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "is_root": {
+        "type": "boolean"
+       },
+       "last_tip": {
+        "type": "string"
+       },
+       "n_tips": {
+        "type": "integer"
+       },
+       "preorder_index": {
+        "type": "integer"
+       },
+       "rooted_label": {
+        "type": [
+         "string",
+         "null"
+        ]
+       }
+      },
+      "required": [
+       "agrees",
+       "first_tip",
+       "iqtree_run1_label",
+       "is_root",
+       "last_tip",
+       "n_tips",
+       "preorder_index",
+       "rooted_label"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "reference_file": {
+     "type": "string"
+    },
+    "rooted_file": {
+     "type": "string"
+    },
+    "tree_id": {
+     "const": "MR_RT_003"
+    }
+   },
+   "required": [
+    "dataset_release",
+    "n_disagree",
+    "node_key",
+    "nodes",
+    "reference_file",
+    "rooted_file",
+    "tree_id"
+   ],
+   "type": "object"
+  },
+  "TaxDomain": {
+   "enum": [
+    "Archaea",
+    "Bacteria",
+    "Eukaryota",
+    null
+   ]
+  },
+  "TipRole": {
+   "enum": [
+    "cl0.6_representative",
+    "anchor_characterized",
+    "seed",
+    "outgroup_heliorhodopsin",
+    "boundary_schizorhodopsin"
+   ]
+  },
+  "Tips": {
+   "additionalProperties": false,
+   "properties": {
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "tips": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "backbone_group": {
+        "enum": [
+         "MR_CLD3_B01",
+         "MR_CLD3_B02",
+         null
+        ]
+       },
+       "in_corpus": {
+        "type": "boolean"
+       },
+       "level1": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "mrdb_acc": {
+        "anyOf": [
+         {
+          "$ref": "#/$defs/MrdbAcc"
+         },
+         {
+          "type": "null"
+         }
+        ]
+       },
+       "subclade": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "tip": {
+        "type": "string"
+       },
+       "tip_role": {
+        "$ref": "#/$defs/TipRole"
+       },
+       "unclustered_backbone": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "backbone_group",
+       "in_corpus",
+       "level1",
+       "mrdb_acc",
+       "subclade",
+       "tip",
+       "tip_role",
+       "unclustered_backbone"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "tree_id": {
+     "const": "MR_RT_003"
+    }
+   },
+   "required": [
+    "dataset_release",
+    "tips",
+    "tree_id"
+   ],
+   "type": "object"
+  },
+  "TreeStats": {
+   "additionalProperties": false,
+   "properties": {
+    "bytes": {
+     "type": "integer"
+    },
+    "db_tree_node_internal": {
+     "type": "integer"
+    },
+    "db_tree_node_support_labels": {
+     "type": "integer"
+    },
+    "db_tree_node_topology": {
+     "type": "string"
+    },
+    "db_treefile_md5": {
+     "type": "string"
+    },
+    "db_treefile_md5_refers_to": {
+     "const": "run1.treefile"
+    },
+    "display_rule": {
+     "type": "string"
+    },
+    "file": {
+     "type": "string"
+    },
+    "log_likelihood": {
+     "type": "number"
+    },
+    "md5": {
+     "type": "string"
+    },
+    "method": {
+     "type": "string"
+    },
+    "model": {
+     "type": "string"
+    },
+    "n_internal_incl_root": {
+     "type": "integer"
+    },
+    "n_support_labels": {
+     "type": "integer"
+    },
+    "n_tips": {
+     "type": "integer"
+    },
+    "n_unlabelled_internal": {
+     "type": "integer"
+    },
+    "root_children": {
+     "type": "integer"
+    },
+    "rooting": {
+     "type": "string"
+    },
+    "sha256": {
+     "pattern": "^[0-9a-f]{64}$",
+     "type": "string"
+    },
+    "source_path": {
+     "type": "string"
+    },
+    "support_audit": {
+     "additionalProperties": false,
+     "properties": {
+      "file": {
+       "type": "string"
+      },
+      "finding": {
+       "type": "string"
+      },
+      "n_agree": {
+       "type": "integer"
+      },
+      "n_disagree": {
+       "type": "integer"
+      },
+      "n_nonroot_internal": {
+       "type": "integer"
+      },
+      "reference": {
+       "type": "string"
+      }
+     },
+     "required": [
+      "file",
+      "finding",
+      "n_agree",
+      "n_disagree",
+      "n_nonroot_internal",
+      "reference"
+     ],
+     "type": "object"
+    },
+    "support_label_format": {
+     "const": "SH-aLRT/UFBoot"
+    },
+    "support_label_regex": {
+     "type": "string"
+    },
+    "tree_id": {
+     "const": "MR_RT_003"
+    },
+    "unlabelled_internal": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "is_root": {
+        "type": "boolean"
+       },
+       "n_tips": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "is_root",
+       "n_tips"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    }
+   },
+   "required": [
+    "bytes",
+    "db_tree_node_internal",
+    "db_tree_node_support_labels",
+    "db_tree_node_topology",
+    "db_treefile_md5",
+    "db_treefile_md5_refers_to",
+    "display_rule",
+    "file",
+    "log_likelihood",
+    "md5",
+    "method",
+    "model",
+    "n_internal_incl_root",
+    "n_support_labels",
+    "n_tips",
+    "n_unlabelled_internal",
+    "root_children",
+    "rooting",
+    "sha256",
+    "source_path",
+    "support_audit",
+    "support_label_format",
+    "support_label_regex",
+    "tree_id",
+    "unlabelled_internal"
+   ],
+   "type": "object"
+  },
+  "Watchlist": {
+   "additionalProperties": false,
+   "properties": {
+    "candidates": {
+     "items": {
+      "required": [
+       "family",
+       "source_db",
+       "query_accession",
+       "resolved_accession"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "caveat": {
+     "type": "string"
+    },
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "funnel": {
+     "items": {
+      "required": [
+       "family",
+       "final_combined_candidates"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
+    "isolation": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "candidates",
+    "caveat",
+    "dataset_release",
+    "funnel",
+    "isolation"
+   ],
+   "type": "object"
+  }
+ },
+ "$id": "https://congjianl.github.io/MicroRhodoDB/schemas/web-data-1.0.0.json",
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "MicroRhodoDB website static data, schema 1.0.0 (dataset v1.6.0)",
+ "x-files": {
+  "current.json": "Current",
+  "v1.6.0/accessions.json": "Accessions",
+  "v1.6.0/clades.json": "Clades",
+  "v1.6.0/evidence-index.json": "EvidenceIndex",
+  "v1.6.0/export_manifest.json": "ExportManifest",
+  "v1.6.0/manifest.json": "Manifest",
+  "v1.6.0/phylogeny/clade_tips.json": "CladeTips",
+  "v1.6.0/phylogeny/robustness.json": "Robustness",
+  "v1.6.0/phylogeny/support_audit.json": "SupportAudit",
+  "v1.6.0/phylogeny/tips.json": "Tips",
+  "v1.6.0/phylogeny/tree_stats.json": "TreeStats",
+  "v1.6.0/publications.json": "Publications",
+  "v1.6.0/records-index.json": "RecordsIndex",
+  "v1.6.0/records/*.json": "MrdbEntry",
+  "v1.6.0/structures-index.json": "StructuresIndex",
+  "v1.6.0/summary.json": "Summary",
+  "v1.6.0/watchlist.json": "Watchlist"
+ }
+}

@@ -1,0 +1,233 @@
+{
+ "A_n_clades": 17,
+ "A_rooted_labels_reproduce_db_level1": true,
+ "B_db_clades_not_recovered": [
+  {
+   "clade_id": "MR_CLD3_017",
+   "iqtree_run1_label": "50.3/72",
+   "n_records_assigned": 1646,
+   "n_tips": 100
+  }
+ ],
+ "B_db_clades_unchanged": [
+  "MR_CLD3_001",
+  "MR_CLD3_002",
+  "MR_CLD3_003",
+  "MR_CLD3_004",
+  "MR_CLD3_005",
+  "MR_CLD3_006",
+  "MR_CLD3_007",
+  "MR_CLD3_008",
+  "MR_CLD3_009",
+  "MR_CLD3_010",
+  "MR_CLD3_011",
+  "MR_CLD3_012",
+  "MR_CLD3_013",
+  "MR_CLD3_014",
+  "MR_CLD3_015",
+  "MR_CLD3_016"
+ ],
+ "B_iqtree_labels_n_clades": 19,
+ "B_new_clades": [
+  {
+   "iqtree_run1_label": "100/100",
+   "n_tips": 48,
+   "overlap_with_db_clades": {
+    "MR_CLD3_017": 48
+   }
+  },
+  {
+   "iqtree_run1_label": "97.3/100",
+   "n_tips": 30,
+   "overlap_with_db_clades": {
+    "MR_CLD3_017": 30
+   }
+  },
+  {
+   "iqtree_run1_label": "99.9/100",
+   "n_tips": 5,
+   "overlap_with_db_clades": {
+    "MR_CLD3_017": 5
+   }
+  }
+ ],
+ "disagreements": [
+  {
+   "agrees": false,
+   "first_tip": "A0AAP2RB57",
+   "iqtree_run1_label": "98.8/100",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 457,
+   "preorder_index": 15,
+   "rooted_label": "92.1/96"
+  },
+  {
+   "agrees": false,
+   "first_tip": "A0A812RSB1",
+   "iqtree_run1_label": "92.1/96",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 452,
+   "preorder_index": 20,
+   "rooted_label": "82.2/82"
+  },
+  {
+   "agrees": false,
+   "first_tip": "A0ABQ7GWT0",
+   "iqtree_run1_label": "82.2/82",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 416,
+   "preorder_index": 56,
+   "rooted_label": "76.7/84"
+  },
+  {
+   "agrees": false,
+   "first_tip": "A0A6C2YMB8",
+   "iqtree_run1_label": "76.7/84",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 391,
+   "preorder_index": 81,
+   "rooted_label": "64.9/67"
+  },
+  {
+   "agrees": false,
+   "first_tip": "A0A2P6NAM3",
+   "iqtree_run1_label": "64.9/67",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 268,
+   "preorder_index": 204,
+   "rooted_label": "61.4/84"
+  },
+  {
+   "agrees": false,
+   "first_tip": "A0A812RXI0",
+   "iqtree_run1_label": "61.4/84",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 266,
+   "preorder_index": 206,
+   "rooted_label": "73.3/76"
+  },
+  {
+   "agrees": false,
+   "first_tip": "A0A0M3DJN5",
+   "iqtree_run1_label": "73.3/76",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 260,
+   "preorder_index": 212,
+   "rooted_label": "98.7/81"
+  },
+  {
+   "agrees": false,
+   "first_tip": "A0A812J1Q6",
+   "iqtree_run1_label": "98.7/81",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 141,
+   "preorder_index": 331,
+   "rooted_label": "18.9/64"
+  },
+  {
+   "agrees": false,
+   "first_tip": "L1K1C9",
+   "iqtree_run1_label": "18.9/64",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 126,
+   "preorder_index": 346,
+   "rooted_label": "87.6/88"
+  },
+  {
+   "agrees": false,
+   "first_tip": "C8CHH8",
+   "iqtree_run1_label": "87.6/88",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 116,
+   "preorder_index": 356,
+   "rooted_label": "75.3/86"
+  },
+  {
+   "agrees": false,
+   "first_tip": "A0A2P6NS35",
+   "iqtree_run1_label": "75.3/86",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 114,
+   "preorder_index": 358,
+   "rooted_label": "11.1/62"
+  },
+  {
+   "agrees": false,
+   "first_tip": "A0A139AI58",
+   "iqtree_run1_label": "11.1/62",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 110,
+   "preorder_index": 362,
+   "rooted_label": "93.9/89"
+  },
+  {
+   "agrees": false,
+   "first_tip": "A0AAW1NX46",
+   "iqtree_run1_label": "93.9/89",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 109,
+   "preorder_index": 363,
+   "rooted_label": "50.3/72"
+  },
+  {
+   "agrees": false,
+   "first_tip": "A0AAV9X7P9",
+   "iqtree_run1_label": "50.3/72",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 100,
+   "preorder_index": 372,
+   "rooted_label": "100/100"
+  },
+  {
+   "agrees": false,
+   "first_tip": "R4X8C7",
+   "iqtree_run1_label": "100/100",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 48,
+   "preorder_index": 424,
+   "rooted_label": "87.1/98"
+  },
+  {
+   "agrees": false,
+   "first_tip": "A0A6A6UWB9",
+   "iqtree_run1_label": "87.1/98",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 47,
+   "preorder_index": 425,
+   "rooted_label": "40/51"
+  },
+  {
+   "agrees": false,
+   "first_tip": "A0A6A6UC61",
+   "iqtree_run1_label": "40/51",
+   "is_root": false,
+   "last_tip": "A0A3E2H811",
+   "n_tips": 25,
+   "preorder_index": 447,
+   "rooted_label": null
+  }
+ ],
+ "n_label_disagreements": 17,
+ "n_nonroot_internal": 470,
+ "pattern": "each disagreeing rooted node carries the run1 label of its child on the path towards the original Newick top node (shift by one node), as produced by rerooting node-attached labels",
+ "reference_file": "refpkg/MR_RT_003/tree/run1.treefile",
+ "rooted_file": "refpkg/MR_RT_003/tree/MR_RT_003.rooted.treefile",
+ "rule": "pipeline/v150/define_clades.py PRIMARY {\"alrt\": 80.0, \"max_size\": 100, \"min_size\": 5, \"ufb\": 95.0}",
+ "scope_note": "Level-2 subclades and the clade_robustness grid were produced with the same code and may be affected as well; not re-derived here. No DB, refpkg or classification value was changed."
+}
