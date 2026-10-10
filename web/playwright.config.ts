@@ -22,7 +22,11 @@ export default defineConfig({
     viewport: { width: 1440, height: 900 },
     acceptDownloads: true,
     trace: "off",
+    // Software WebGL (SwiftShader) so the Mol* viewer renders in headless CI without a GPU.
+    launchOptions: { args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"] },
   },
+  // @live tests hit RCSB PDB / AlphaFold DB over the network; excluded unless E2E_LIVE=1.
+  grepInvert: process.env.E2E_LIVE ? undefined : /@live/,
   webServer: {
     command: `${PY} scripts/serve_e2e.py ${PORT}`,
     url: `http://127.0.0.1:${PORT}/MicroRhodoDB/site/index.html`,

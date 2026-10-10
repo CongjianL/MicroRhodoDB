@@ -35,7 +35,7 @@ class Boundary extends Component<{ children: ReactNode; resetKey: string }, { er
   }
 }
 
-/** Identity of a "page" for focus/scroll handling: Browse query changes are in-page state, not navigation. */
+/** Identity of a "page" for focus/scroll handling: Browse query changes and record ?section=/?structure= are in-page state, not navigation. */
 function pageKey(r: Route): string {
   switch (r.name) {
     case "browse": return "browse";
@@ -51,7 +51,7 @@ function page(r: Route) {
   switch (r.name) {
     case "home": return <HomePage />;
     case "browse": return <BrowsePage params={r.params} />;
-    case "record": return <RecordPage key={r.accession} accession={r.accession} />;
+    case "record": return <RecordPage key={r.accession} accession={r.accession} params={r.params} />;
     case "about": return <AboutPage />;
     case "clade": return <CladePage key={r.cladeId} cladeId={r.cladeId} />;
     case "planned": return <PlaceholderPage key={r.page} page={r.page} />;

@@ -8,7 +8,7 @@
  */
 import { useEffect, useState } from "react";
 import type {
-  Accessions, Clades, CladeTips, Current, Manifest, MrdbEntry, RecordsIndex, Summary, Tips, Vocabulary,
+  Accessions, Clades, CladeTips, Current, EvidenceIndex, Manifest, MrdbEntry, RecordsIndex, Summary, Tips, Vocabulary,
 } from "./types";
 
 const BASE = import.meta.env.BASE_URL; // "/MicroRhodoDB/site/"
@@ -74,6 +74,12 @@ export const loadNewick = () => text("phylogeny/MR_RT_003.rooted.treefile");
 export const loadRecordsIndex = () => json<RecordsIndex>("records-index.json");
 export const loadAccessions = () => json<Accessions>("accessions.json");
 export const loadCorpusFasta = () => text("sequences/corpus.fasta");
+
+/* Record page, fetched on demand (engineered wild-type -> variant links, evidence policy texts). */
+export const loadEvidenceIndex = () => json<EvidenceIndex>("evidence-index.json");
+
+/** Absolute URL of a release-relative file (e.g. structures/predicted/<acc>_esmfold.pdb). */
+export const releaseFileUrl = (rel: string) => releaseUrl(rel);
 
 export function loadRecord(mrdbAcc: string): Promise<MrdbEntry | null> {
   if (!/^MRDB\d{6}$/.test(mrdbAcc)) return Promise.resolve(null);

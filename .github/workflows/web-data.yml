@@ -1,4 +1,5 @@
-# PR-1: validate the deterministic web data export. PR-2: build the website and run unit + browser tests.
+# PR-1: validate the deterministic web data export. PR-2/PR-3: build the website and run unit + browser tests.
+# PR-3: structure requests (RCSB/AFDB) are mocked from committed fixtures; @live tests are excluded (E2E_LIVE unset).
 # Validation only - no Pages, no deploy (PR-7).
 # Data source: the official v1.6.0 GitHub Release asset, verified against BINARIES.md (SHA-256 + size).
 # Until that Release is published, the fetch step fails with BLOCKED_DATA_SOURCE (by design).
@@ -37,7 +38,9 @@ jobs:
         run: python -m pytest -q tests/test_web_export.py tests/test_fetch_release_db.py
       - name: Check generated TypeScript types
         run: python web/scripts/schema_to_ts.py --check
-      # PR-2 frontend (added locally in PR-2; has not yet run on GitHub)
+      - name: Verify committed structure fixtures (PR-3, offline SHA-256 check)
+        run: python web/scripts/fetch_structure_fixtures.py --check
+      # Frontend (added locally in PR-2, extended in PR-3; has not yet run on GitHub)
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
@@ -55,14 +58,14 @@ jobs:
       - name: Install Playwright Chromium
         working-directory: web
         run: npx playwright install --with-deps chromium
-      - name: Browser tests (Playwright)
+      - name: Browser tests (Playwright, mocked structures; @live excluded)
         working-directory: web
         run: npx playwright test
       - name: Upload Playwright report and screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: pr2-playwright
+          name: web-playwright
           path: |
             web/test-results/
             web/playwright-report/

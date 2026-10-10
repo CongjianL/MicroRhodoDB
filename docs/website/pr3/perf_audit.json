@@ -1,0 +1,4931 @@
+{
+ "generated_by": "web/scripts/pr3_perf_audit.py",
+ "environment": {
+  "machine": "Linux x86_64, 16 logical CPUs (sandbox)",
+  "python": "3.11.16",
+  "browser": "Chromium 153.0.8010.12 (Playwright headless, SwiftShader WebGL)",
+  "server": "scripts/serve_e2e.py (loopback, no compression, Cache-Control: no-store)",
+  "viewport": "1440x900",
+  "runs_per_route": 5,
+  "cache": "cold (new browser context per run)",
+  "throttling": "none",
+  "live_viewer_runs": true
+ },
+ "routes": [
+  {
+   "id": "home",
+   "hash": "#/",
+   "viewer": null,
+   "files_before_viewer": [
+    {
+     "file": "assets/echarts-core-0HeO-QSV.js",
+     "kind": "js",
+     "raw": 475468,
+     "gzip": 157390
+    },
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "data/v1.6.0/phylogeny/tips.json",
+     "kind": "data",
+     "raw": 91433,
+     "gzip": 5912
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "assets/HomePage-B_tbsCTT.js",
+     "kind": "js",
+     "raw": 18558,
+     "gzip": 6066
+    },
+    {
+     "file": "data/v1.6.0/summary.json",
+     "kind": "data",
+     "raw": 17791,
+     "gzip": 3169
+    },
+    {
+     "file": "data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+     "kind": "data",
+     "raw": 17517,
+     "gzip": 8325
+    },
+    {
+     "file": "assets/TreePreview-ajopcG2d.js",
+     "kind": "js",
+     "raw": 7296,
+     "gzip": 2936
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/tslib.es6-MM1X6Oub.js",
+     "kind": "js",
+     "raw": 3740,
+     "gzip": 1529
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 675967,
+     "gzip": 223284
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 190058,
+     "gzip": 25956
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 905399,
+     "gzip": 257584
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [],
+   "timing_ms_median": {
+    "fcp": 200,
+    "dom_content_loaded": 95.1,
+    "load": 95.1,
+    "ready": 430
+   },
+   "timing_ms_ready_all_runs": [
+    356.1,
+    430,
+    453.8,
+    364.3,
+    446.2
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(8,127,120)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 4.65,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "MicroRhodoDB knowledgebase"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 5.17,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Methods"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 5.55,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "MR_CLD3_017"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "CC BY 4.0 (data); MIT (code)"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 12,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Search"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 64,
+     "sample": "P02945"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 5.95,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Fungal rhodopsins (CarO / LR / NOP-1-lik"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 21,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 109,
+     "sample": "UniProt source records, engineered const"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Home"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "fails thresholds"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 8.24,
+     "large": false,
+     "need": 4.5,
+     "count": 6,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 13.99,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Membership status is distinct from funct"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 14,
+     "sample": "Category"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 20,
+     "sample": "100"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 17,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Explore the diversity of microbial rhodo"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 153,
+     "sample": "Explore phylogeny"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": true,
+     "need": 3,
+     "count": 6,
+     "sample": "5,466"
+    }
+   ],
+   "contrast_failures": [],
+   "pr2_baseline": {
+    "totals": {
+     "js": {
+      "raw": 671158,
+      "gzip": 221058
+     },
+     "css": {
+      "raw": 34301,
+      "gzip": 7033
+     },
+     "data": {
+      "raw": 190058,
+      "gzip": 25956
+     },
+     "other": {
+      "raw": 1352,
+      "gzip": 781
+     },
+     "all": {
+      "raw": 896869,
+      "gzip": 254828
+     }
+    },
+    "ready_ms_median": 377.9,
+    "files": [
+     "assets/CladeSupportNotice-CIYT7Mz_.js",
+     "assets/HomePage-CItFXBcb.js",
+     "assets/echarts-core-CMBc36WV.js",
+     "assets/index-BMfkaUtr.js",
+     "assets/index-DXH0SZC0.css",
+     "assets/rolldown-runtime-hePW80VL.js",
+     "data/current.json",
+     "data/v1.6.0/clades.json",
+     "data/v1.6.0/manifest.json",
+     "data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+     "data/v1.6.0/phylogeny/tips.json",
+     "data/v1.6.0/summary.json",
+     "data/v1.6.0/vocabulary.json",
+     "favicon.svg",
+     "index.html"
+    ]
+   }
+  },
+  {
+   "id": "about",
+   "hash": "#/about",
+   "viewer": null,
+   "files_before_viewer": [
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "data/v1.6.0/summary.json",
+     "kind": "data",
+     "raw": 17791,
+     "gzip": 3169
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/AboutPage-CuFXsLAa.js",
+     "kind": "js",
+     "raw": 5581,
+     "gzip": 2129
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 176486,
+     "gzip": 57492
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 81108,
+     "gzip": 11719
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 296968,
+     "gzip": 77555
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [],
+   "timing_ms_median": {
+    "fcp": 192,
+    "dom_content_loaded": 93.3,
+    "load": 93.3,
+    "ready": 271.4
+   },
+   "timing_ms_ready_all_runs": [
+    248.6,
+    271.4,
+    302,
+    304,
+    269.1
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "About"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 16,
+     "sample": "typeI_member_core"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "About"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Phylogenetic uncertainty"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Status"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 15,
+     "sample": "MR_CLD3_017"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 134,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "About MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 34,
+     "sample": "Member (core)"
+    }
+   ],
+   "contrast_failures": [],
+   "pr2_baseline": {
+    "totals": {
+     "js": {
+      "raw": 176064,
+      "gzip": 57313
+     },
+     "css": {
+      "raw": 34301,
+      "gzip": 7033
+     },
+     "data": {
+      "raw": 81108,
+      "gzip": 11719
+     },
+     "other": {
+      "raw": 1352,
+      "gzip": 781
+     },
+     "all": {
+      "raw": 292825,
+      "gzip": 76846
+     }
+    },
+    "ready_ms_median": 281.1,
+    "files": [
+     "assets/AboutPage-BvguEtUH.js",
+     "assets/CladeSupportNotice-CIYT7Mz_.js",
+     "assets/index-BMfkaUtr.js",
+     "assets/index-DXH0SZC0.css",
+     "assets/rolldown-runtime-hePW80VL.js",
+     "data/current.json",
+     "data/v1.6.0/clades.json",
+     "data/v1.6.0/manifest.json",
+     "data/v1.6.0/summary.json",
+     "data/v1.6.0/vocabulary.json",
+     "favicon.svg",
+     "index.html"
+    ]
+   }
+  },
+  {
+   "id": "browse",
+   "hash": "#/browse",
+   "viewer": null,
+   "files_before_viewer": [
+    {
+     "file": "data/v1.6.0/records-index.json",
+     "kind": "data",
+     "raw": 4238744,
+     "gzip": 368890
+    },
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "assets/BrowsePage-DDXodR0A.js",
+     "kind": "js",
+     "raw": 83212,
+     "gzip": 23741
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "assets/Badges-aMy7BPsU.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 689
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 255884,
+     "gzip": 79793
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 4302061,
+     "gzip": 377440
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 4597319,
+     "gzip": 465577
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [
+    "records-index.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 200,
+    "dom_content_loaded": 86.3,
+    "load": 86.4,
+    "ready": 491.2
+   },
+   "timing_ms_ready_all_runs": [
+    491.2,
+    485.3,
+    516.9,
+    507.4,
+    464.5
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 10,
+     "sample": "Type-I members"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 103,
+     "sample": "MRDB000001"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 18,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 243,
+     "sample": "1,377"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 6,
+     "sample": "Phylogenetic uncertainty"
+    },
+    {
+     "fg": "rgb(20,83,45)",
+     "bg": "rgb(231,245,238)",
+     "ratio": 8.11,
+     "large": false,
+     "need": 4.5,
+     "count": 50,
+     "sample": "Member (core)"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(15,79,145)",
+     "ratio": 8.24,
+     "large": false,
+     "need": 4.5,
+     "count": 32,
+     "sample": "E1"
+    },
+    {
+     "fg": "rgb(15,61,110)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 9.62,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "E3"
+    },
+    {
+     "fg": "rgb(30,47,69)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 12.97,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "E4"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 151,
+     "sample": "MRDB accession"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 22,
+     "sample": "MR_CLD3_017"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 42,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Browse source records"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 307,
+     "sample": "Candidates"
+    }
+   ],
+   "contrast_failures": [],
+   "pr2_baseline": {
+    "totals": {
+     "js": {
+      "raw": 255467,
+      "gzip": 79615
+     },
+     "css": {
+      "raw": 34301,
+      "gzip": 7033
+     },
+     "data": {
+      "raw": 4302061,
+      "gzip": 377440
+     },
+     "other": {
+      "raw": 1352,
+      "gzip": 781
+     },
+     "all": {
+      "raw": 4593181,
+      "gzip": 464869
+     }
+    },
+    "ready_ms_median": 492.8,
+    "files": [
+     "assets/Badges-Djku6_1K.js",
+     "assets/BrowsePage-DkEREcBU.js",
+     "assets/CladeSupportNotice-CIYT7Mz_.js",
+     "assets/index-BMfkaUtr.js",
+     "assets/index-DXH0SZC0.css",
+     "assets/rolldown-runtime-hePW80VL.js",
+     "data/current.json",
+     "data/v1.6.0/clades.json",
+     "data/v1.6.0/manifest.json",
+     "data/v1.6.0/records-index.json",
+     "data/v1.6.0/vocabulary.json",
+     "favicon.svg",
+     "index.html"
+    ]
+   }
+  },
+  {
+   "id": "browse_clade017_tent",
+   "hash": "#/browse?group=all&eng=1&clade=MR_CLD3_017&tent=1",
+   "viewer": null,
+   "files_before_viewer": [
+    {
+     "file": "data/v1.6.0/records-index.json",
+     "kind": "data",
+     "raw": 4238744,
+     "gzip": 368890
+    },
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "assets/BrowsePage-DDXodR0A.js",
+     "kind": "js",
+     "raw": 83212,
+     "gzip": 23741
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "assets/Badges-aMy7BPsU.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 689
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 255884,
+     "gzip": 79793
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 4302061,
+     "gzip": 377440
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 4597319,
+     "gzip": 465577
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [
+    "records-index.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 192,
+    "dom_content_loaded": 86.5,
+    "load": 86.6,
+    "ready": 488.7
+   },
+   "timing_ms_ready_all_runs": [
+    491.5,
+    461.6,
+    476.7,
+    488.7,
+    522.4
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "All records"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 103,
+     "sample": "MRDB000003"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 19,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 260,
+     "sample": "3,089"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 57,
+     "sample": "Phylogenetic uncertainty"
+    },
+    {
+     "fg": "rgb(20,83,45)",
+     "bg": "rgb(231,245,238)",
+     "ratio": 8.11,
+     "large": false,
+     "need": 4.5,
+     "count": 24,
+     "sample": "Member (core)"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(15,79,145)",
+     "ratio": 8.24,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E1"
+    },
+    {
+     "fg": "rgb(138,28,19)",
+     "bg": "rgb(254,243,242)",
+     "ratio": 8.56,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Decoy / rejected"
+    },
+    {
+     "fg": "rgb(43,58,140)",
+     "bg": "rgb(238,242,255)",
+     "ratio": 9,
+     "large": false,
+     "need": 4.5,
+     "count": 13,
+     "sample": "Candidate"
+    },
+    {
+     "fg": "rgb(76,42,133)",
+     "bg": "rgb(245,240,255)",
+     "ratio": 9.5,
+     "large": false,
+     "need": 4.5,
+     "count": 9,
+     "sample": "Boundary family"
+    },
+    {
+     "fg": "rgb(30,47,69)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 12.97,
+     "large": false,
+     "need": 4.5,
+     "count": 18,
+     "sample": "E4"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 69,
+     "sample": "MRDB accession"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 22,
+     "sample": "MR_CLD3_017"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 42,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Browse source records"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 255,
+     "sample": "Type-I members"
+    }
+   ],
+   "contrast_failures": [],
+   "pr2_baseline": {
+    "totals": {
+     "js": {
+      "raw": 255467,
+      "gzip": 79615
+     },
+     "css": {
+      "raw": 34301,
+      "gzip": 7033
+     },
+     "data": {
+      "raw": 4302061,
+      "gzip": 377440
+     },
+     "other": {
+      "raw": 1352,
+      "gzip": 781
+     },
+     "all": {
+      "raw": 4593181,
+      "gzip": 464869
+     }
+    },
+    "ready_ms_median": 488.5,
+    "files": [
+     "assets/Badges-Djku6_1K.js",
+     "assets/BrowsePage-DkEREcBU.js",
+     "assets/CladeSupportNotice-CIYT7Mz_.js",
+     "assets/index-BMfkaUtr.js",
+     "assets/index-DXH0SZC0.css",
+     "assets/rolldown-runtime-hePW80VL.js",
+     "data/current.json",
+     "data/v1.6.0/clades.json",
+     "data/v1.6.0/manifest.json",
+     "data/v1.6.0/records-index.json",
+     "data/v1.6.0/vocabulary.json",
+     "favicon.svg",
+     "index.html"
+    ]
+   }
+  },
+  {
+   "id": "record_source",
+   "hash": "#/record/P02945",
+   "viewer": null,
+   "files_before_viewer": [
+    {
+     "file": "data/v1.6.0/accessions.json",
+     "kind": "data",
+     "raw": 1138955,
+     "gzip": 323365
+    },
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "assets/RecordPage-DkUJ1fvh.js",
+     "kind": "js",
+     "raw": 67896,
+     "gzip": 18830
+    },
+    {
+     "file": "data/v1.6.0/records/MRDB000001.json",
+     "kind": "data",
+     "raw": 58869,
+     "gzip": 9642
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "data/v1.6.0/evidence-index.json",
+     "kind": "data",
+     "raw": 24516,
+     "gzip": 4985
+    },
+    {
+     "file": "assets/TreePreview-ajopcG2d.js",
+     "kind": "js",
+     "raw": 7296,
+     "gzip": 2936
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "assets/Badges-aMy7BPsU.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 689
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 247864,
+     "gzip": 77818
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 1285657,
+     "gzip": 346542
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 1572895,
+     "gzip": 432704
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [
+    "accessions.json",
+    "evidence-index.json",
+    "records/MRDB000001.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 192,
+    "dom_content_loaded": 83.5,
+    "load": 83.6,
+    "ready": 393
+   },
+   "timing_ms_ready_all_runs": [
+    399.9,
+    418.6,
+    383.3,
+    382.1,
+    393
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 5.53,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "(shown)"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Home"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 93,
+     "sample": "P02945"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "Load 3D viewer"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 43,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 179,
+     "sample": "MRDB accession"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(20,83,45)",
+     "bg": "rgb(231,245,238)",
+     "ratio": 8.11,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Member (core)"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(15,79,145)",
+     "ratio": 8.24,
+     "large": false,
+     "need": 4.5,
+     "count": 6,
+     "sample": "E1"
+    },
+    {
+     "fg": "rgb(15,61,110)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 9.62,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E3"
+    },
+    {
+     "fg": "rgb(30,47,69)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 12.97,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E4"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 13.99,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "P02945"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 21,
+     "sample": "Source accession"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 37,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Bacteriorhodopsin (BR) (Bacterioopsin) ("
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 318,
+     "sample": "Copy link"
+    }
+   ],
+   "contrast_failures": [],
+   "pr2_baseline": {
+    "totals": {
+     "js": {
+      "raw": 184607,
+      "gzip": 59634
+     },
+     "css": {
+      "raw": 34301,
+      "gzip": 7033
+     },
+     "data": {
+      "raw": 1261141,
+      "gzip": 341557
+     },
+     "other": {
+      "raw": 1352,
+      "gzip": 781
+     },
+     "all": {
+      "raw": 1481401,
+      "gzip": 409005
+     }
+    },
+    "ready_ms_median": 344.8,
+    "files": [
+     "assets/Badges-Djku6_1K.js",
+     "assets/CladeSupportNotice-CIYT7Mz_.js",
+     "assets/RecordPage-DP46yLDw.js",
+     "assets/index-BMfkaUtr.js",
+     "assets/index-DXH0SZC0.css",
+     "assets/rolldown-runtime-hePW80VL.js",
+     "data/current.json",
+     "data/v1.6.0/accessions.json",
+     "data/v1.6.0/clades.json",
+     "data/v1.6.0/manifest.json",
+     "data/v1.6.0/records/MRDB000001.json",
+     "data/v1.6.0/vocabulary.json",
+     "favicon.svg",
+     "index.html"
+    ]
+   }
+  },
+  {
+   "id": "record_mrdb",
+   "hash": "#/record/MRDB000001",
+   "viewer": null,
+   "files_before_viewer": [
+    {
+     "file": "data/v1.6.0/accessions.json",
+     "kind": "data",
+     "raw": 1138955,
+     "gzip": 323365
+    },
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "assets/RecordPage-DkUJ1fvh.js",
+     "kind": "js",
+     "raw": 67896,
+     "gzip": 18830
+    },
+    {
+     "file": "data/v1.6.0/records/MRDB000001.json",
+     "kind": "data",
+     "raw": 58869,
+     "gzip": 9642
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "data/v1.6.0/evidence-index.json",
+     "kind": "data",
+     "raw": 24516,
+     "gzip": 4985
+    },
+    {
+     "file": "assets/TreePreview-ajopcG2d.js",
+     "kind": "js",
+     "raw": 7296,
+     "gzip": 2936
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "assets/Badges-aMy7BPsU.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 689
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 247864,
+     "gzip": 77818
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 1285657,
+     "gzip": 346542
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 1572895,
+     "gzip": 432704
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [
+    "accessions.json",
+    "evidence-index.json",
+    "records/MRDB000001.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 196,
+    "dom_content_loaded": 90.2,
+    "load": 90.3,
+    "ready": 421.9
+   },
+   "timing_ms_ready_all_runs": [
+    438.8,
+    399.8,
+    421.9,
+    425,
+    400.3
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 5.53,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "(shown)"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Home"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 93,
+     "sample": "P02945"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "Load 3D viewer"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 43,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 179,
+     "sample": "MRDB accession"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(20,83,45)",
+     "bg": "rgb(231,245,238)",
+     "ratio": 8.11,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Member (core)"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(15,79,145)",
+     "ratio": 8.24,
+     "large": false,
+     "need": 4.5,
+     "count": 6,
+     "sample": "E1"
+    },
+    {
+     "fg": "rgb(15,61,110)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 9.62,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E3"
+    },
+    {
+     "fg": "rgb(30,47,69)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 12.97,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E4"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 13.99,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "P02945"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 21,
+     "sample": "Source accession"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 37,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Bacteriorhodopsin (BR) (Bacterioopsin) ("
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 318,
+     "sample": "Copy link"
+    }
+   ],
+   "contrast_failures": [],
+   "pr2_baseline": {
+    "totals": {
+     "js": {
+      "raw": 184607,
+      "gzip": 59634
+     },
+     "css": {
+      "raw": 34301,
+      "gzip": 7033
+     },
+     "data": {
+      "raw": 1261141,
+      "gzip": 341557
+     },
+     "other": {
+      "raw": 1352,
+      "gzip": 781
+     },
+     "all": {
+      "raw": 1481401,
+      "gzip": 409005
+     }
+    },
+    "ready_ms_median": 359,
+    "files": [
+     "assets/Badges-Djku6_1K.js",
+     "assets/CladeSupportNotice-CIYT7Mz_.js",
+     "assets/RecordPage-DP46yLDw.js",
+     "assets/index-BMfkaUtr.js",
+     "assets/index-DXH0SZC0.css",
+     "assets/rolldown-runtime-hePW80VL.js",
+     "data/current.json",
+     "data/v1.6.0/accessions.json",
+     "data/v1.6.0/clades.json",
+     "data/v1.6.0/manifest.json",
+     "data/v1.6.0/records/MRDB000001.json",
+     "data/v1.6.0/vocabulary.json",
+     "favicon.svg",
+     "index.html"
+    ]
+   }
+  },
+  {
+   "id": "planned_phylogeny",
+   "hash": "#/phylogeny",
+   "viewer": null,
+   "files_before_viewer": [
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "assets/PlaceholderPage-C5Qhf1S8.js",
+     "kind": "js",
+     "raw": 2877,
+     "gzip": 1176
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 173782,
+     "gzip": 56539
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 1744,
+     "gzip": 1072
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 214900,
+     "gzip": 65955
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [],
+   "timing_ms_median": {
+    "fcp": 184,
+    "dom_content_loaded": 84.1,
+    "load": 84.2,
+    "ready": 230
+   },
+   "timing_ms_ready_all_runs": [
+    252.9,
+    229.5,
+    241.2,
+    230,
+    229.1
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "Interactive explorer for the 472-tip MR_"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Phylogeny"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Phylogeny"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 11,
+     "sample": "Phylogeny"
+    }
+   ],
+   "contrast_failures": [],
+   "pr2_baseline": {
+    "totals": {
+     "js": {
+      "raw": 173355,
+      "gzip": 56358
+     },
+     "css": {
+      "raw": 34301,
+      "gzip": 7033
+     },
+     "data": {
+      "raw": 1744,
+      "gzip": 1072
+     },
+     "other": {
+      "raw": 1352,
+      "gzip": 781
+     },
+     "all": {
+      "raw": 210752,
+      "gzip": 65244
+     }
+    },
+    "ready_ms_median": 261.5,
+    "files": [
+     "assets/CladeSupportNotice-CIYT7Mz_.js",
+     "assets/PlaceholderPage-CTp4ORNX.js",
+     "assets/index-BMfkaUtr.js",
+     "assets/index-DXH0SZC0.css",
+     "assets/rolldown-runtime-hePW80VL.js",
+     "data/current.json",
+     "data/v1.6.0/manifest.json",
+     "favicon.svg",
+     "index.html"
+    ]
+   }
+  },
+  {
+   "id": "record_no_structure",
+   "hash": "#/record/MRDB000003",
+   "viewer": null,
+   "files_before_viewer": [
+    {
+     "file": "data/v1.6.0/accessions.json",
+     "kind": "data",
+     "raw": 1138955,
+     "gzip": 323365
+    },
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "assets/RecordPage-DkUJ1fvh.js",
+     "kind": "js",
+     "raw": 67896,
+     "gzip": 18830
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "data/v1.6.0/evidence-index.json",
+     "kind": "data",
+     "raw": 24516,
+     "gzip": 4985
+    },
+    {
+     "file": "assets/TreePreview-ajopcG2d.js",
+     "kind": "js",
+     "raw": 7296,
+     "gzip": 2936
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "data/v1.6.0/records/MRDB000003.json",
+     "kind": "data",
+     "raw": 5094,
+     "gzip": 2750
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "assets/Badges-aMy7BPsU.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 689
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 247864,
+     "gzip": 77818
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 1231882,
+     "gzip": 339650
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 1519120,
+     "gzip": 425812
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [
+    "accessions.json",
+    "evidence-index.json",
+    "records/MRDB000003.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 200,
+    "dom_content_loaded": 90.6,
+    "load": 90.7,
+    "ready": 358.5
+   },
+   "timing_ms_ready_all_runs": [
+    383.8,
+    358.5,
+    369.5,
+    348,
+    348.6
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 5.53,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "(shown)"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Home"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 9,
+     "sample": "A0A5N6KXX2"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E2"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 28,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 124,
+     "sample": "E5"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 6,
+     "sample": "support caveat"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(15,79,145)",
+     "ratio": 8.24,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E1"
+    },
+    {
+     "fg": "rgb(43,58,140)",
+     "bg": "rgb(238,242,255)",
+     "ratio": 9,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Candidate"
+    },
+    {
+     "fg": "rgb(15,61,110)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 9.62,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E3"
+    },
+    {
+     "fg": "rgb(30,47,69)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 12.97,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E4"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 13.99,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "A0A5N6KXX2"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 11,
+     "sample": "Source accession"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 15,
+     "sample": "MR_CLD3_017"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 30,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Bifunctional lycopene cyclase/phytoene s"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 120,
+     "sample": "Copy link"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "record_afdb_only",
+   "hash": "#/record/MRDB000009",
+   "viewer": null,
+   "files_before_viewer": [
+    {
+     "file": "data/v1.6.0/accessions.json",
+     "kind": "data",
+     "raw": 1138955,
+     "gzip": 323365
+    },
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "assets/RecordPage-DkUJ1fvh.js",
+     "kind": "js",
+     "raw": 67896,
+     "gzip": 18830
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "data/v1.6.0/evidence-index.json",
+     "kind": "data",
+     "raw": 24516,
+     "gzip": 4985
+    },
+    {
+     "file": "assets/TreePreview-ajopcG2d.js",
+     "kind": "js",
+     "raw": 7296,
+     "gzip": 2936
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "data/v1.6.0/records/MRDB000009.json",
+     "kind": "data",
+     "raw": 4666,
+     "gzip": 2221
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "assets/Badges-aMy7BPsU.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 689
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 247864,
+     "gzip": 77818
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 1231454,
+     "gzip": 339121
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 1518692,
+     "gzip": 425283
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [
+    "accessions.json",
+    "evidence-index.json",
+    "records/MRDB000009.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 196,
+    "dom_content_loaded": 92.7,
+    "load": 92.8,
+    "ready": 381.3
+   },
+   "timing_ms_ready_all_runs": [
+    364.5,
+    384.5,
+    381.3,
+    383,
+    368.2
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 5.53,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "(shown)"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Home"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 18,
+     "sample": "Q5V4H7"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Load 3D viewer"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 27,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 146,
+     "sample": "MRDB accession"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 6,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(20,83,45)",
+     "bg": "rgb(231,245,238)",
+     "ratio": 8.11,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Member (core)"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(15,79,145)",
+     "ratio": 8.24,
+     "large": false,
+     "need": 4.5,
+     "count": 5,
+     "sample": "E1"
+    },
+    {
+     "fg": "rgb(15,61,110)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 9.62,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E3"
+    },
+    {
+     "fg": "rgb(30,47,69)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 12.97,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E4"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 13.99,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Q5V4H7"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 11,
+     "sample": "Source accession"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 37,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Sensory rhodopsin III (HmSRIII) (Opsin) "
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 108,
+     "sample": "Copy link"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "record_multi_source",
+   "hash": "#/record/MRDB000249",
+   "viewer": null,
+   "files_before_viewer": [
+    {
+     "file": "data/v1.6.0/accessions.json",
+     "kind": "data",
+     "raw": 1138955,
+     "gzip": 323365
+    },
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "assets/RecordPage-DkUJ1fvh.js",
+     "kind": "js",
+     "raw": 67896,
+     "gzip": 18830
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "data/v1.6.0/records/MRDB000249.json",
+     "kind": "data",
+     "raw": 24802,
+     "gzip": 2486
+    },
+    {
+     "file": "data/v1.6.0/evidence-index.json",
+     "kind": "data",
+     "raw": 24516,
+     "gzip": 4985
+    },
+    {
+     "file": "assets/TreePreview-ajopcG2d.js",
+     "kind": "js",
+     "raw": 7296,
+     "gzip": 2936
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "assets/Badges-aMy7BPsU.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 689
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 247864,
+     "gzip": 77818
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 1251590,
+     "gzip": 339386
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 1538828,
+     "gzip": 425548
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [
+    "accessions.json",
+    "evidence-index.json",
+    "records/MRDB000249.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 192,
+    "dom_content_loaded": 89.6,
+    "load": 89.7,
+    "ready": 365.4
+   },
+   "timing_ms_ready_all_runs": [
+    371.6,
+    369.3,
+    364.6,
+    363.1,
+    365.4
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 5.53,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "(shown)"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Home"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 18,
+     "sample": "A0A1L9NH58"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Load 3D viewer"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 45,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 149,
+     "sample": "E5"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 6,
+     "sample": "support caveat"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(15,79,145)",
+     "ratio": 8.24,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E1"
+    },
+    {
+     "fg": "rgb(76,42,133)",
+     "bg": "rgb(245,240,255)",
+     "ratio": 9.5,
+     "large": false,
+     "need": 4.5,
+     "count": 9,
+     "sample": "Boundary family"
+    },
+    {
+     "fg": "rgb(15,61,110)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 9.62,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E3"
+    },
+    {
+     "fg": "rgb(30,47,69)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 12.97,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E4"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 13.99,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "A0A1L9NH58"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 10,
+     "sample": "tentative"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 15,
+     "sample": "MR_CLD3_017"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 29,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Opsin"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 131,
+     "sample": "Copy link"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "record_tentative",
+   "hash": "#/record/A0A135LS53",
+   "viewer": null,
+   "files_before_viewer": [
+    {
+     "file": "data/v1.6.0/accessions.json",
+     "kind": "data",
+     "raw": 1138955,
+     "gzip": 323365
+    },
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "assets/RecordPage-DkUJ1fvh.js",
+     "kind": "js",
+     "raw": 67896,
+     "gzip": 18830
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "data/v1.6.0/evidence-index.json",
+     "kind": "data",
+     "raw": 24516,
+     "gzip": 4985
+    },
+    {
+     "file": "assets/TreePreview-ajopcG2d.js",
+     "kind": "js",
+     "raw": 7296,
+     "gzip": 2936
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "data/v1.6.0/records/MRDB000015.json",
+     "kind": "data",
+     "raw": 4770,
+     "gzip": 2606
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "assets/Badges-aMy7BPsU.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 689
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 247864,
+     "gzip": 77818
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 1231558,
+     "gzip": 339506
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 1518796,
+     "gzip": 425668
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [
+    "accessions.json",
+    "evidence-index.json",
+    "records/MRDB000015.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 188,
+    "dom_content_loaded": 85.4,
+    "load": 85.5,
+    "ready": 377.2
+   },
+   "timing_ms_ready_all_runs": [
+    353.7,
+    393.7,
+    404.9,
+    363.8,
+    377.2
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 5.53,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "(shown)"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Home"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 12,
+     "sample": "A0A135LS53"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Load 3D viewer"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 29,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 135,
+     "sample": "E5"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 6,
+     "sample": "support caveat"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(15,79,145)",
+     "ratio": 8.24,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E1"
+    },
+    {
+     "fg": "rgb(76,42,133)",
+     "bg": "rgb(245,240,255)",
+     "ratio": 9.5,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Boundary family"
+    },
+    {
+     "fg": "rgb(15,61,110)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 9.62,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E3"
+    },
+    {
+     "fg": "rgb(30,47,69)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 12.97,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E4"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 13.99,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "A0A135LS53"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 13,
+     "sample": "tentative"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 15,
+     "sample": "MR_CLD3_017"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 29,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Isoleucine--tRNA ligase, mitochondrial ("
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 131,
+     "sample": "Copy link"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "viewer_mocked_pdb_5ZIM",
+   "hash": "#/record/MRDB000001",
+   "viewer": "mocked",
+   "files_before_viewer": [
+    {
+     "file": "data/v1.6.0/accessions.json",
+     "kind": "data",
+     "raw": 1138955,
+     "gzip": 323365
+    },
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "assets/RecordPage-DkUJ1fvh.js",
+     "kind": "js",
+     "raw": 67896,
+     "gzip": 18830
+    },
+    {
+     "file": "data/v1.6.0/records/MRDB000001.json",
+     "kind": "data",
+     "raw": 58869,
+     "gzip": 9642
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "data/v1.6.0/evidence-index.json",
+     "kind": "data",
+     "raw": 24516,
+     "gzip": 4985
+    },
+    {
+     "file": "assets/TreePreview-ajopcG2d.js",
+     "kind": "js",
+     "raw": 7296,
+     "gzip": 2936
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "assets/Badges-aMy7BPsU.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 689
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 247864,
+     "gzip": 77818
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 1285657,
+     "gzip": 346542
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 1572895,
+     "gzip": 432704
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [
+    "accessions.json",
+    "evidence-index.json",
+    "records/MRDB000001.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 268,
+    "dom_content_loaded": 126,
+    "load": 126,
+    "ready": 493.1
+   },
+   "timing_ms_ready_all_runs": [
+    433.7,
+    519,
+    524.1,
+    476.6,
+    493.1
+   ],
+   "console_errors": 0,
+   "contrast": null,
+   "contrast_failures": [],
+   "viewer_result": {
+    "mode": "mocked",
+    "phases": [
+     "ready",
+     "ready",
+     "ready",
+     "ready",
+     "ready"
+    ],
+    "click_to_ready_ms_median": 8378,
+    "click_to_ready_ms_all_runs": [
+     9020,
+     8065,
+     8282,
+     8517,
+     8378
+    ],
+    "files_after_click": [
+     {
+      "file": "assets/molstarViewer-DNj2LmP5.js",
+      "kind": "js",
+      "raw": 3176598,
+      "gzip": 873087
+     },
+     {
+      "file": "assets/tslib.es6-MM1X6Oub.js",
+      "kind": "js",
+      "raw": 3740,
+      "gzip": 1529
+     }
+    ],
+    "totals_after_click_local": {
+     "js": {
+      "raw": 3180338,
+      "gzip": 874616
+     },
+     "css": {
+      "raw": 0,
+      "gzip": 0
+     },
+     "data": {
+      "raw": 0,
+      "gzip": 0
+     },
+     "other": {
+      "raw": 0,
+      "gzip": 0
+     },
+     "all": {
+      "raw": 3180338,
+      "gzip": 874616
+     }
+    },
+    "external_responses": [
+     {
+      "url": "https://models.rcsb.org/v1/5zim/full?encoding=bcif",
+      "status": 200,
+      "bytes": 88633
+     }
+    ],
+    "status_last_run": "Showing 5ZIM \u00b7 X-ray 1.25 \u00c5 (87 KB, 3318 ms).",
+    "phase_transitions_ms": [
+     [
+      [
+       "starting",
+       50
+      ],
+      [
+       "loading",
+       2008
+      ],
+      [
+       "ready",
+       6750
+      ]
+     ],
+     [
+      [
+       "starting",
+       29
+      ],
+      [
+       "loading",
+       1369
+      ],
+      [
+       "ready",
+       5964
+      ]
+     ],
+     [
+      [
+       "starting",
+       41
+      ],
+      [
+       "loading",
+       1537
+      ],
+      [
+       "ready",
+       6267
+      ]
+     ],
+     [
+      [
+       "starting",
+       40
+      ],
+      [
+       "loading",
+       1458
+      ],
+      [
+       "ready",
+       6536
+      ]
+     ],
+     [
+      [
+       "starting",
+       31
+      ],
+      [
+       "loading",
+       1435
+      ],
+      [
+       "ready",
+       6169
+      ]
+     ]
+    ],
+    "init_ms_median": 1458
+   }
+  },
+  {
+   "id": "viewer_mocked_afdb_Q5V4H7",
+   "hash": "#/record/MRDB000009",
+   "viewer": "mocked",
+   "files_before_viewer": [
+    {
+     "file": "data/v1.6.0/accessions.json",
+     "kind": "data",
+     "raw": 1138955,
+     "gzip": 323365
+    },
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "assets/RecordPage-DkUJ1fvh.js",
+     "kind": "js",
+     "raw": 67896,
+     "gzip": 18830
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "data/v1.6.0/evidence-index.json",
+     "kind": "data",
+     "raw": 24516,
+     "gzip": 4985
+    },
+    {
+     "file": "assets/TreePreview-ajopcG2d.js",
+     "kind": "js",
+     "raw": 7296,
+     "gzip": 2936
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "data/v1.6.0/records/MRDB000009.json",
+     "kind": "data",
+     "raw": 4666,
+     "gzip": 2221
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "assets/Badges-aMy7BPsU.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 689
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 247864,
+     "gzip": 77818
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 1231454,
+     "gzip": 339121
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 1518692,
+     "gzip": 425283
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [
+    "accessions.json",
+    "evidence-index.json",
+    "records/MRDB000009.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 216,
+    "dom_content_loaded": 104.2,
+    "load": 104.2,
+    "ready": 412.1
+   },
+   "timing_ms_ready_all_runs": [
+    452.4,
+    379.5,
+    389.1,
+    424.9,
+    412.1
+   ],
+   "console_errors": 0,
+   "contrast": null,
+   "contrast_failures": [],
+   "viewer_result": {
+    "mode": "mocked",
+    "phases": [
+     "ready",
+     "ready",
+     "ready",
+     "ready",
+     "ready"
+    ],
+    "click_to_ready_ms_median": 4311,
+    "click_to_ready_ms_all_runs": [
+     4333,
+     4170,
+     4104,
+     4311,
+     4321
+    ],
+    "files_after_click": [
+     {
+      "file": "assets/molstarViewer-DNj2LmP5.js",
+      "kind": "js",
+      "raw": 3176598,
+      "gzip": 873087
+     },
+     {
+      "file": "assets/tslib.es6-MM1X6Oub.js",
+      "kind": "js",
+      "raw": 3740,
+      "gzip": 1529
+     }
+    ],
+    "totals_after_click_local": {
+     "js": {
+      "raw": 3180338,
+      "gzip": 874616
+     },
+     "css": {
+      "raw": 0,
+      "gzip": 0
+     },
+     "data": {
+      "raw": 0,
+      "gzip": 0
+     },
+     "other": {
+      "raw": 0,
+      "gzip": 0
+     },
+     "all": {
+      "raw": 3180338,
+      "gzip": 874616
+     }
+    },
+    "external_responses": [
+     {
+      "url": "https://alphafold.ebi.ac.uk/files/AF-Q5V4H7-F1-model_v6.pdb",
+      "status": 200,
+      "bytes": 149444
+     }
+    ],
+    "status_last_run": "Showing AlphaFold DB AF-Q5V4H7-F1 (v6) (146 KB, 1497 ms).",
+    "phase_transitions_ms": [
+     [
+      [
+       "starting",
+       31
+      ],
+      [
+       "loading",
+       1478
+      ],
+      [
+       "ready",
+       3597
+      ]
+     ],
+     [
+      [
+       "starting",
+       44
+      ],
+      [
+       "loading",
+       955
+      ],
+      [
+       "ready",
+       3490
+      ]
+     ],
+     [
+      [
+       "starting",
+       48
+      ],
+      [
+       "loading",
+       1431
+      ],
+      [
+       "ready",
+       3449
+      ]
+     ],
+     [
+      [
+       "starting",
+       46
+      ],
+      [
+       "loading",
+       1448
+      ],
+      [
+       "ready",
+       3542
+      ]
+     ],
+     [
+      [
+       "starting",
+       55
+      ],
+      [
+       "loading",
+       1539
+      ],
+      [
+       "ready",
+       3572
+      ]
+     ]
+    ],
+    "init_ms_median": 1448
+   }
+  },
+  {
+   "id": "viewer_release_B0R633",
+   "hash": "#/record/B0R633?structure=pred",
+   "viewer": "mocked",
+   "files_before_viewer": [
+    {
+     "file": "data/v1.6.0/accessions.json",
+     "kind": "data",
+     "raw": 1138955,
+     "gzip": 323365
+    },
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "assets/RecordPage-DkUJ1fvh.js",
+     "kind": "js",
+     "raw": 67896,
+     "gzip": 18830
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "data/v1.6.0/evidence-index.json",
+     "kind": "data",
+     "raw": 24516,
+     "gzip": 4985
+    },
+    {
+     "file": "data/v1.6.0/records/MRDB000030.json",
+     "kind": "data",
+     "raw": 9155,
+     "gzip": 2823
+    },
+    {
+     "file": "assets/TreePreview-ajopcG2d.js",
+     "kind": "js",
+     "raw": 7296,
+     "gzip": 2936
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "assets/Badges-aMy7BPsU.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 689
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 247864,
+     "gzip": 77818
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 1235943,
+     "gzip": 339723
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 1523181,
+     "gzip": 425885
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [
+    "accessions.json",
+    "evidence-index.json",
+    "records/MRDB000030.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 220,
+    "dom_content_loaded": 109.7,
+    "load": 110.3,
+    "ready": 422.9
+   },
+   "timing_ms_ready_all_runs": [
+    464,
+    419.4,
+    419.4,
+    458,
+    422.9
+   ],
+   "console_errors": 0,
+   "contrast": null,
+   "contrast_failures": [],
+   "viewer_result": {
+    "mode": "mocked",
+    "phases": [
+     "ready",
+     "ready",
+     "ready",
+     "ready",
+     "ready"
+    ],
+    "click_to_ready_ms_median": 3875,
+    "click_to_ready_ms_all_runs": [
+     3875,
+     3706,
+     3937,
+     3965,
+     3702
+    ],
+    "files_after_click": [
+     {
+      "file": "assets/molstarViewer-DNj2LmP5.js",
+      "kind": "js",
+      "raw": 3176598,
+      "gzip": 873087
+     },
+     {
+      "file": "data/v1.6.0/structures/predicted/B0R633_esmfold.pdb",
+      "kind": "data",
+      "raw": 146490,
+      "gzip": 31111
+     },
+     {
+      "file": "assets/tslib.es6-MM1X6Oub.js",
+      "kind": "js",
+      "raw": 3740,
+      "gzip": 1529
+     }
+    ],
+    "totals_after_click_local": {
+     "js": {
+      "raw": 3180338,
+      "gzip": 874616
+     },
+     "css": {
+      "raw": 0,
+      "gzip": 0
+     },
+     "data": {
+      "raw": 146490,
+      "gzip": 31111
+     },
+     "other": {
+      "raw": 0,
+      "gzip": 0
+     },
+     "all": {
+      "raw": 3326828,
+      "gzip": 905727
+     }
+    },
+    "external_responses": [],
+    "status_last_run": "Showing Release model \u00b7 ESMCFold2 (full) (143 KB, 1116 ms).",
+    "phase_transitions_ms": [
+     [
+      [
+       "starting",
+       27
+      ],
+      [
+       "loading",
+       1453
+      ],
+      [
+       "ready",
+       3162
+      ]
+     ],
+     [
+      [
+       "starting",
+       42
+      ],
+      [
+       "loading",
+       1406
+      ],
+      [
+       "ready",
+       3072
+      ]
+     ],
+     [
+      [
+       "starting",
+       42
+      ],
+      [
+       "loading",
+       1489
+      ],
+      [
+       "ready",
+       2907
+      ]
+     ],
+     [
+      [
+       "starting",
+       25
+      ],
+      [
+       "loading",
+       876
+      ],
+      [
+       "ready",
+       3152
+      ]
+     ],
+     [
+      [
+       "starting",
+       39
+      ],
+      [
+       "loading",
+       1463
+      ],
+      [
+       "ready",
+       3008
+      ]
+     ]
+    ],
+    "init_ms_median": 1453
+   }
+  },
+  {
+   "id": "viewer_live_pdb_5ZIM",
+   "hash": "#/record/MRDB000001",
+   "viewer": "live",
+   "files_before_viewer": [
+    {
+     "file": "data/v1.6.0/accessions.json",
+     "kind": "data",
+     "raw": 1138955,
+     "gzip": 323365
+    },
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "assets/RecordPage-DkUJ1fvh.js",
+     "kind": "js",
+     "raw": 67896,
+     "gzip": 18830
+    },
+    {
+     "file": "data/v1.6.0/records/MRDB000001.json",
+     "kind": "data",
+     "raw": 58869,
+     "gzip": 9642
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "data/v1.6.0/evidence-index.json",
+     "kind": "data",
+     "raw": 24516,
+     "gzip": 4985
+    },
+    {
+     "file": "assets/TreePreview-ajopcG2d.js",
+     "kind": "js",
+     "raw": 7296,
+     "gzip": 2936
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "assets/Badges-aMy7BPsU.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 689
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 247864,
+     "gzip": 77818
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 1285657,
+     "gzip": 346542
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 1572895,
+     "gzip": 432704
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [
+    "accessions.json",
+    "evidence-index.json",
+    "records/MRDB000001.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 228,
+    "dom_content_loaded": 122.4,
+    "load": 123.8,
+    "ready": 469.3
+   },
+   "timing_ms_ready_all_runs": [
+    431.7,
+    495.8,
+    457.9,
+    469.3,
+    481.3
+   ],
+   "console_errors": 0,
+   "contrast": null,
+   "contrast_failures": [],
+   "viewer_result": {
+    "mode": "live",
+    "phases": [
+     "ready",
+     "ready",
+     "ready",
+     "ready",
+     "ready"
+    ],
+    "click_to_ready_ms_median": 8603,
+    "click_to_ready_ms_all_runs": [
+     8679,
+     8238,
+     8521,
+     8777,
+     8603
+    ],
+    "files_after_click": [
+     {
+      "file": "assets/molstarViewer-DNj2LmP5.js",
+      "kind": "js",
+      "raw": 3176598,
+      "gzip": 873087
+     },
+     {
+      "file": "assets/tslib.es6-MM1X6Oub.js",
+      "kind": "js",
+      "raw": 3740,
+      "gzip": 1529
+     }
+    ],
+    "totals_after_click_local": {
+     "js": {
+      "raw": 3180338,
+      "gzip": 874616
+     },
+     "css": {
+      "raw": 0,
+      "gzip": 0
+     },
+     "data": {
+      "raw": 0,
+      "gzip": 0
+     },
+     "other": {
+      "raw": 0,
+      "gzip": 0
+     },
+     "all": {
+      "raw": 3180338,
+      "gzip": 874616
+     }
+    },
+    "external_responses": [
+     {
+      "url": "https://models.rcsb.org/v1/5zim/full?encoding=bcif",
+      "status": 200,
+      "bytes": 88633
+     }
+    ],
+    "status_last_run": "Showing 5ZIM \u00b7 X-ray 1.25 \u00c5 (87 KB, 3670 ms).",
+    "phase_transitions_ms": [
+     [
+      [
+       "starting",
+       49
+      ],
+      [
+       "loading",
+       1467
+      ],
+      [
+       "ready",
+       6436
+      ]
+     ],
+     [
+      [
+       "starting",
+       36
+      ],
+      [
+       "loading",
+       1433
+      ],
+      [
+       "ready",
+       6112
+      ]
+     ],
+     [
+      [
+       "starting",
+       42
+      ],
+      [
+       "loading",
+       1433
+      ],
+      [
+       "ready",
+       6580
+      ]
+     ],
+     [
+      [
+       "starting",
+       31
+      ],
+      [
+       "loading",
+       1446
+      ],
+      [
+       "ready",
+       6505
+      ]
+     ],
+     [
+      [
+       "starting",
+       33
+      ],
+      [
+       "loading",
+       1472
+      ],
+      [
+       "ready",
+       6606
+      ]
+     ]
+    ],
+    "init_ms_median": 1446
+   }
+  },
+  {
+   "id": "viewer_live_afdb_P02945",
+   "hash": "#/record/MRDB000001?structure=afdb",
+   "viewer": "live",
+   "files_before_viewer": [
+    {
+     "file": "data/v1.6.0/accessions.json",
+     "kind": "data",
+     "raw": 1138955,
+     "gzip": 323365
+    },
+    {
+     "file": "assets/index-BevcMKNt.js",
+     "kind": "js",
+     "raw": 168341,
+     "gzip": 54038
+    },
+    {
+     "file": "assets/RecordPage-DkUJ1fvh.js",
+     "kind": "js",
+     "raw": 67896,
+     "gzip": 18830
+    },
+    {
+     "file": "data/v1.6.0/records/MRDB000001.json",
+     "kind": "data",
+     "raw": 58869,
+     "gzip": 9642
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 54960,
+     "gzip": 5105
+    },
+    {
+     "file": "assets/index-DBSrhDlK.css",
+     "kind": "css",
+     "raw": 38022,
+     "gzip": 7567
+    },
+    {
+     "file": "data/v1.6.0/evidence-index.json",
+     "kind": "data",
+     "raw": 24516,
+     "gzip": 4985
+    },
+    {
+     "file": "assets/TreePreview-ajopcG2d.js",
+     "kind": "js",
+     "raw": 7296,
+     "gzip": 2936
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 895
+    },
+    {
+     "file": "assets/Badges-aMy7BPsU.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 689
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1669,
+     "gzip": 990
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 587
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals_before_viewer": {
+    "js": {
+     "raw": 247864,
+     "gzip": 77818
+    },
+    "css": {
+     "raw": 38022,
+     "gzip": 7567
+    },
+    "data": {
+     "raw": 1285657,
+     "gzip": 346542
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 777
+    },
+    "all": {
+     "raw": 1572895,
+     "gzip": 432704
+    }
+   },
+   "molstar_chunk_before_viewer": false,
+   "heavy_data_files": [
+    "accessions.json",
+    "evidence-index.json",
+    "records/MRDB000001.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 216,
+    "dom_content_loaded": 98.3,
+    "load": 98.4,
+    "ready": 476.1
+   },
+   "timing_ms_ready_all_runs": [
+    481,
+    480.6,
+    476.1,
+    434.5,
+    437.8
+   ],
+   "console_errors": 0,
+   "contrast": null,
+   "contrast_failures": [],
+   "viewer_result": {
+    "mode": "live",
+    "phases": [
+     "ready",
+     "ready",
+     "ready",
+     "ready",
+     "ready"
+    ],
+    "click_to_ready_ms_median": 4217,
+    "click_to_ready_ms_all_runs": [
+     4217,
+     4307,
+     4375,
+     3914,
+     3945
+    ],
+    "files_after_click": [
+     {
+      "file": "assets/molstarViewer-DNj2LmP5.js",
+      "kind": "js",
+      "raw": 3176598,
+      "gzip": 873087
+     },
+     {
+      "file": "assets/tslib.es6-MM1X6Oub.js",
+      "kind": "js",
+      "raw": 3740,
+      "gzip": 1529
+     }
+    ],
+    "totals_after_click_local": {
+     "js": {
+      "raw": 3180338,
+      "gzip": 874616
+     },
+     "css": {
+      "raw": 0,
+      "gzip": 0
+     },
+     "data": {
+      "raw": 0,
+      "gzip": 0
+     },
+     "other": {
+      "raw": 0,
+      "gzip": 0
+     },
+     "all": {
+      "raw": 3180338,
+      "gzip": 874616
+     }
+    },
+    "external_responses": [
+     {
+      "url": "https://alphafold.ebi.ac.uk/files/AF-P02945-F1-model_v6.pdb",
+      "status": 200,
+      "bytes": 167264
+     }
+    ],
+    "status_last_run": "Showing AlphaFold DB AF-P02945-F1 (v6) (163 KB, 1216 ms).",
+    "phase_transitions_ms": [
+     [
+      [
+       "starting",
+       47
+      ],
+      [
+       "loading",
+       1471
+      ],
+      [
+       "ready",
+       3530
+      ]
+     ],
+     [
+      [
+       "starting",
+       41
+      ],
+      [
+       "loading",
+       1428
+      ],
+      [
+       "ready",
+       3477
+      ]
+     ],
+     [
+      [
+       "starting",
+       46
+      ],
+      [
+       "loading",
+       1478
+      ],
+      [
+       "ready",
+       3547
+      ]
+     ],
+     [
+      [
+       "starting",
+       45
+      ],
+      [
+       "loading",
+       1445
+      ],
+      [
+       "ready",
+       3225
+      ]
+     ],
+     [
+      [
+       "starting",
+       38
+      ],
+      [
+       "loading",
+       1382
+      ],
+      [
+       "ready",
+       3179
+      ]
+     ]
+    ],
+    "init_ms_median": 1445
+   }
+  }
+ ],
+ "chunks": [
+  {
+   "file": "assets/AboutPage-CuFXsLAa.js",
+   "raw": 5581,
+   "gzip": 2129
+  },
+  {
+   "file": "assets/Badges-aMy7BPsU.js",
+   "raw": 1767,
+   "gzip": 689
+  },
+  {
+   "file": "assets/BrowsePage-DDXodR0A.js",
+   "raw": 83212,
+   "gzip": 23741
+  },
+  {
+   "file": "assets/CladeSupportNotice-BvzKCF9q.js",
+   "raw": 1848,
+   "gzip": 895
+  },
+  {
+   "file": "assets/HomePage-B_tbsCTT.js",
+   "raw": 18558,
+   "gzip": 6066
+  },
+  {
+   "file": "assets/PlaceholderPage-C5Qhf1S8.js",
+   "raw": 2877,
+   "gzip": 1176
+  },
+  {
+   "file": "assets/RecordPage-DkUJ1fvh.js",
+   "raw": 67896,
+   "gzip": 18830
+  },
+  {
+   "file": "assets/TreePreview-ajopcG2d.js",
+   "raw": 7296,
+   "gzip": 2936
+  },
+  {
+   "file": "assets/echarts-core-0HeO-QSV.js",
+   "raw": 475468,
+   "gzip": 157390
+  },
+  {
+   "file": "assets/index-BevcMKNt.js",
+   "raw": 168341,
+   "gzip": 54038
+  },
+  {
+   "file": "assets/index-DBSrhDlK.css",
+   "raw": 38022,
+   "gzip": 7567
+  },
+  {
+   "file": "assets/molstarViewer-DNj2LmP5.js",
+   "raw": 3176598,
+   "gzip": 873087
+  },
+  {
+   "file": "assets/rolldown-runtime-hePW80VL.js",
+   "raw": 716,
+   "gzip": 430
+  },
+  {
+   "file": "assets/tslib.es6-MM1X6Oub.js",
+   "raw": 3740,
+   "gzip": 1529
+  }
+ ]
+}

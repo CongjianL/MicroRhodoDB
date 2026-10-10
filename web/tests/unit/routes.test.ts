@@ -6,9 +6,10 @@ describe("parseHash", () => {
     for (const h of ["", "#", "#/", "/"]) expect(parseHash(h)).toEqual({ name: "home" });
   });
   it("keeps legacy record deep links (MRDB and source accessions)", () => {
-    expect(parseHash("#/record/MRDB000001")).toEqual({ name: "record", accession: "MRDB000001" });
-    expect(parseHash("#/record/P02945")).toEqual({ name: "record", accession: "P02945" });
-    expect(parseHash("#/record/P02945%20")).toEqual({ name: "record", accession: "P02945" });
+    expect(parseHash("#/record/MRDB000001")).toMatchObject({ name: "record", accession: "MRDB000001" });
+    expect(parseHash("#/record/P02945")).toMatchObject({ name: "record", accession: "P02945" });
+    expect(parseHash("#/record/P02945%20")).toMatchObject({ name: "record", accession: "P02945" });
+    expect(parseHash("#/record/p02945")).toMatchObject({ name: "record", accession: "P02945" });
     expect(parseHash("#/record/")).toMatchObject({ name: "not-found" });
   });
   it("parses Browse queries", () => {
@@ -36,10 +37,35 @@ describe("parseHash", () => {
     expect(canonicalRedirect("#/browse")).toBeNull();
   });
   it("href builders round-trip through parseHash", () => {
-    expect(parseHash(href.record("MRDB000011"))).toEqual({ name: "record", accession: "MRDB000011" });
+    expect(parseHash(href.record("MRDB000011"))).toMatchObject({ name: "record", accession: "MRDB000011" });
     expect(parseHash(href.clade("MR_CLD3_B01"))).toEqual({ name: "clade", cladeId: "MR_CLD3_B01" });
     expect(parseHash(href.home())).toEqual({ name: "home" });
     expect(routeTitle({ name: "planned", page: "search" })).toMatch(/planned/);
+  });
+});
+
+describe("record deep links (PR-3)", () => {
+  it("carries the query string (section, structure) as params", () => {
+    const r = parseHash("#/record/MRDB000001?section=experimental&structure=pdb:5ZIM");
+    expect(r.name).toBe("record");
+    if (r.name === "record") {
+      expect(r.accession).toBe("MRDB000001");
+      expect(r.params.get("section")).toBe("experimental");
+      expect(r.params.get("structure")).toBe("pdb:5ZIM");
+    }
+    const bare = parseHash("#/record/MRDB000001");
+    if (bare.name === "record") expect([...bare.params.keys()]).toEqual([]);
+  });
+  it("rewrites lower-case well-formed accessions to upper case, keeping the query", () => {
+    expect(canonicalRedirect("#/record/mrdb000001")).toBe("#/record/MRDB000001");
+    expect(canonicalRedirect("#/record/p02945?section=sequence")).toBe("#/record/P02945?section=sequence");
+    expect(canonicalRedirect("#/record/MRDB000001")).toBeNull();
+    expect(canonicalRedirect("#/record/not-an-id")).toBeNull();
+  });
+  it("href.record appends a query without a duplicate '?'", () => {
+    expect(href.record("MRDB000001", "section=phylogeny")).toBe("#/record/MRDB000001?section=phylogeny");
+    expect(href.record("MRDB000001", "?section=phylogeny")).toBe("#/record/MRDB000001?section=phylogeny");
+    expect(href.record("MRDB000001")).toBe("#/record/MRDB000001");
   });
 });
 

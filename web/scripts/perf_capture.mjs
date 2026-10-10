@@ -6,14 +6,23 @@
 // run a WCAG text-contrast scan over visible HTML text (computed colour vs. first opaque ancestor
 // background; SVG/canvas text is not scanned).
 //
-// Usage: node scripts/perf_capture.mjs <baseURL> <runs> <out.json>
+// PR-3 adds a route set ("pr3") with Protein Entry record types and structure-viewer timings: the
+// viewer is started by clicking "Load 3D viewer" after the page is ready; RCSB / AlphaFold DB are
+// either answered from tests/fixtures/structures ("mocked") or fetched over the network ("live",
+// only when PERF_LIVE=1). Bytes of external responses are recorded from the response bodies.
+//
+// Usage: node scripts/perf_capture.mjs <baseURL> <runs> <out.json> [pr2|pr3]
 import { chromium } from "@playwright/test";
-import { writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const [baseURL = "http://127.0.0.1:4173/MicroRhodoDB/site/", runsArg = "5", out = "perf_capture.json"] = process.argv.slice(2);
+const [baseURL = "http://127.0.0.1:4173/MicroRhodoDB/site/", runsArg = "5", out = "perf_capture.json", SET = "pr2"] = process.argv.slice(2);
 const RUNS = Number(runsArg);
+const FIX = resolve(dirname(fileURLToPath(import.meta.url)), "../tests/fixtures/structures");
+const EXTERNAL = /^https:\/\/(models\.rcsb\.org|files\.rcsb\.org|alphafold\.ebi\.ac\.uk)\//;
 
-const ROUTES = [
+const PR2_ROUTES = [
   { id: "home", hash: "#/", ready: '[data-testid="stat-cards"]', also: 'svg[data-testid="tree-preview"] path' },
   { id: "about", hash: "#/about", ready: '[data-testid="clade-support-notice"]' },
   { id: "browse", hash: "#/browse", ready: '[data-testid="results-table"] tbody tr' },
@@ -22,6 +31,36 @@ const ROUTES = [
   { id: "record_mrdb", hash: "#/record/MRDB000001", ready: '[data-testid="sequence"]' },
   { id: "planned_phylogeny", hash: "#/phylogeny", ready: '[data-testid="planned-notice"]' },
 ];
+
+const SEQ = '[data-testid="sequence"]';
+const PR3_ROUTES = [
+  ...PR2_ROUTES,
+  { id: "record_no_structure", hash: "#/record/MRDB000003", ready: SEQ },
+  { id: "record_afdb_only", hash: "#/record/MRDB000009", ready: SEQ },
+  { id: "record_multi_source", hash: "#/record/MRDB000249", ready: SEQ },
+  { id: "record_tentative", hash: "#/record/A0A135LS53", ready: SEQ },
+  { id: "viewer_mocked_pdb_5ZIM", hash: "#/record/MRDB000001", ready: SEQ, viewer: "mocked" },
+  { id: "viewer_mocked_afdb_Q5V4H7", hash: "#/record/MRDB000009", ready: SEQ, viewer: "mocked" },
+  { id: "viewer_release_B0R633", hash: "#/record/B0R633?structure=pred", ready: SEQ, viewer: "mocked" },
+  ...(process.env.PERF_LIVE ? [
+    { id: "viewer_live_pdb_5ZIM", hash: "#/record/MRDB000001", ready: SEQ, viewer: "live" },
+    { id: "viewer_live_afdb_P02945", hash: "#/record/MRDB000001?structure=afdb", ready: SEQ, viewer: "live" },
+  ] : []),
+];
+const ROUTES = SET === "pr3" ? PR3_ROUTES : PR2_ROUTES;
+
+async function mock(page) {
+  await page.route(EXTERNAL, async (route) => {
+    const u = new URL(route.request().url());
+    let m, file = null;
+    if (u.hostname === "models.rcsb.org" && (m = /^\/v1\/([0-9a-z]{4})\/full$/.exec(u.pathname))) file = `${m[1]}.bcif`;
+    else if (u.hostname === "files.rcsb.org" && (m = /^\/download\/([0-9A-Z]{4})\.cif$/.exec(u.pathname))) file = `${m[1]}.cif`;
+    else if (u.hostname === "alphafold.ebi.ac.uk" && (m = /^\/files\/(AF-[A-Z0-9]+-F1-model_v\d+\.pdb)$/.exec(u.pathname))) file = m[1];
+    const p = file && resolve(FIX, file);
+    if (p && existsSync(p)) return route.fulfill({ status: 200, headers: { "access-control-allow-origin": "*" }, body: readFileSync(p) });
+    return route.fulfill({ status: 404, headers: { "access-control-allow-origin": "*" }, body: "not mocked" });
+  });
+}
 
 function contrastScan() {
   const lum = ([r, g, b]) => {
@@ -80,6 +119,14 @@ for (const r of ROUTES) {
     page.on("request", (q) => requests.push(q.url()));
     page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
     page.on("pageerror", (e) => errors.push(e.message));
+    const external = [];
+    if (r.viewer) {
+      if (r.viewer === "mocked") await mock(page);
+      page.on("response", async (res) => {
+        if (!EXTERNAL.test(res.url())) return;
+        try { external.push({ url: res.url(), status: res.status(), bytes: (await res.body()).length }); } catch { external.push({ url: res.url(), status: res.status(), bytes: null }); }
+      });
+    }
     await page.goto(baseURL + r.hash, { waitUntil: "commit" });
     await page.waitForSelector(r.ready, { state: "attached", timeout: 30000 });
     const readyMs = await page.evaluate(() => performance.now());
@@ -91,11 +138,30 @@ for (const r of ROUTES) {
       const fcp = performance.getEntriesByName("first-contentful-paint")[0];
       return { dcl: n.domContentLoadedEventEnd, load: n.loadEventEnd, fcp: fcp ? fcp.startTime : null };
     });
-    if (i === 0) contrast = await page.evaluate(contrastScan);
-    runs.push({ readyMs, alsoMs, ...nav, requests: [...new Set(requests)], errors });
+    let viewer = null;
+    if (r.viewer) {
+      const before = [...new Set(requests)];
+      const t0 = await page.evaluate(() => {
+        // record every data-phase transition (starting = Mol* chunk + plugin init; loading = coordinates fetch/parse/build)
+        const el = document.querySelector('[data-testid="structure-viewer"]');
+        window.__phases = [];
+        new MutationObserver(() => window.__phases.push([el.getAttribute("data-phase"), performance.now()])).observe(el, { attributes: true, attributeFilter: ["data-phase"] });
+        return performance.now();
+      });
+      await page.click('[data-testid="viewer-load"]');
+      await page.waitForSelector('[data-testid="structure-viewer"][data-phase="ready"], [data-testid="structure-viewer"][data-phase="error"]', { timeout: 90000 });
+      const t1 = await page.evaluate(() => performance.now());
+      const phase = await page.getAttribute('[data-testid="structure-viewer"]', "data-phase");
+      const status = await page.textContent('[data-testid="viewer-status"]');
+      await page.waitForLoadState("networkidle");
+      const phases = (await page.evaluate(() => window.__phases)).map(([ph, t]) => [ph, Math.round(t - t0)]);
+      viewer = { mode: r.viewer, clickToReadyMs: Math.round(t1 - t0), phase, status, phases, requestsBeforeClick: before, external: [...external] };
+    }
+    if (i === 0 && !r.viewer) contrast = await page.evaluate(contrastScan);
+    runs.push({ readyMs, alsoMs, ...nav, requests: [...new Set(requests)], errors, viewer });
     await ctx.close();
   }
-  routes.push({ id: r.id, hash: r.hash, ready: r.ready, also: r.also ?? null, runs, contrast });
+  routes.push({ id: r.id, hash: r.hash, ready: r.ready, also: r.also ?? null, viewer: r.viewer ?? null, runs, contrast });
 }
 await browser.close();
 writeFileSync(out, JSON.stringify({ env, routes }, null, 1));

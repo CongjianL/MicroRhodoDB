@@ -93,6 +93,8 @@ export interface RadialLayout {
   radius: number;
   /** Radius per substitution/site, for the scale bar. */
   scale: number;
+  /** Tip name -> angle (radians) and drawn radius, for highlighting a single tip. */
+  tipPos: Map<string, { angle: number; r: number }>;
 }
 
 /**
@@ -164,7 +166,8 @@ export function radialLayout(root: TreeNode, groupOf: (tip: string) => string | 
       last.n++;
     } else if (g) arcs.push({ group: g, start: a - half, end: a + half, n: 1 });
   });
-  return { edges, arcs, nTips: n, maxDepth, radius, scale: sc };
+  const tipPos = new Map(tips.map((t) => [t.name, { angle: angle.get(t)!, r: depth.get(t)! * sc }]));
+  return { edges, arcs, nTips: n, maxDepth, radius, scale: sc, tipPos };
 }
 
 /** SVG path for an annular sector (clade ring). */

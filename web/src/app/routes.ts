@@ -22,7 +22,7 @@ export type PlannedPage =
 export type Route =
   | { name: "home" }
   | { name: "browse"; params: URLSearchParams }
-  | { name: "record"; accession: string }
+  | { name: "record"; accession: string; params: URLSearchParams }
   | { name: "about" }
   | { name: "clade"; cladeId: string }
   | { name: "planned"; page: PlannedPage }
@@ -59,7 +59,7 @@ export function parseHash(hash: string): Route {
     case "browse":
       return arg === undefined ? { name: "browse", params: new URLSearchParams(query) } : { name: "not-found", path };
     case "record":
-      return arg ? { name: "record", accession: arg.trim() } : { name: "not-found", path };
+      return arg ? { name: "record", accession: arg.trim().toUpperCase(), params: new URLSearchParams(query) } : { name: "not-found", path };
     case "about":
       return arg === undefined ? { name: "about" } : { name: "not-found", path };
     case "clade":
@@ -76,6 +76,13 @@ export function parseHash(hash: string): Route {
 export function canonicalRedirect(hash: string): string | null {
   const h = hash.replace(/^#/, "");
   if (h === "/novel" || h.startsWith("/novel?") || h === "/novel/") return "#/watchlist";
+  // Record accessions are case-insensitive; the address bar shows the canonical upper-case form.
+  const m = /^\/record\/([^/?]+)(\?.*)?$/.exec(h);
+  if (m) {
+    const acc = safeDecode(m[1]).trim();
+    const up = acc.toUpperCase();
+    if (acc !== up && (MRDB_RE.test(up) || UNIPROT_RE.test(up))) return `#/record/${encodeURIComponent(up)}${m[2] ?? ""}`;
+  }
   return null;
 }
 
@@ -90,7 +97,7 @@ function safeDecode(s: string): string {
 export const href = {
   home: () => "#/",
   browse: (query = "") => (query ? `#/browse?${query.replace(/^\?/, "")}` : "#/browse"),
-  record: (acc: string) => `#/record/${encodeURIComponent(acc)}`,
+  record: (acc: string, query = "") => `#/record/${encodeURIComponent(acc)}${query ? `?${query.replace(/^\?/, "")}` : ""}`,
   about: () => "#/about",
   clade: (id: string) => `#/clade/${encodeURIComponent(id)}`,
   planned: (p: PlannedPage) => `#/${p}`,

@@ -23,14 +23,15 @@ test.describe("Routing, history and static assets under /MicroRhodoDB/site/", ()
     await page.goto("#/record/P02945");
     await expect(rec).toHaveAttribute("data-mrdb", "MRDB000001");
     await expect(rec).toHaveAttribute("data-focus", "P02945");
-    await expect(page.getByTestId("pdb-list")).toContainText("1C3W");
+    await expect(page.getByTestId("pdb-table")).toBeVisible();
+    await page.getByTestId("pdb-filter-q").fill("1C3W");
+    await expect(page.getByTestId("pdb-table")).toContainText("1C3W");
     // MRDB representative and E1 representative are shown as distinct concepts
     await expect(rec).toContainText(/MRDB representative/i);
     await expect(rec).toContainText(/E1 representative/i);
-    await expect(rec).toContainText("Interim record view");
-    await expect(rec).toContainText("planned for PR-3");
     await page.goto("#/record/q9f7p4");
     await expect(rec).toHaveAttribute("data-mrdb", "MRDB000011");
+    await expect(page).toHaveURL(/#\/record\/Q9F7P4$/);
     expect(watch.errors).toEqual([]);
   });
 

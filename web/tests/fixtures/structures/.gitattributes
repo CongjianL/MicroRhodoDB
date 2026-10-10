@@ -1,0 +1,4 @@
+# Verbatim downloads from RCSB PDB / AlphaFold DB, verified by SHA256SUMS: never normalise or diff as text.
+*.cif binary
+*.bcif binary
+*.pdb binary

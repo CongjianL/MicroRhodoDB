@@ -19,6 +19,7 @@
   "dependencies": {
     "@tanstack/react-table": "8.21.3",
     "echarts": "5.6.0",
+    "molstar": "5.13.1",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },

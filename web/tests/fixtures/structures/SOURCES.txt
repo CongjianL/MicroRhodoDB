@@ -1,0 +1,8 @@
+Real structure files served by the Playwright network mocks (tests/e2e/record.spec.ts).
+Downloaded by web/scripts/fetch_structure_fixtures.py; PDB data CC0 (wwPDB), AlphaFold DB CC BY 4.0.
+
+5zim.bcif	https://models.rcsb.org/v1/5zim/full?encoding=bcif
+5ZIM.cif	https://files.rcsb.org/download/5ZIM.cif
+4y9h.bcif	https://models.rcsb.org/v1/4y9h/full?encoding=bcif
+AF-P02945-F1-model_v6.pdb	https://alphafold.ebi.ac.uk/files/AF-P02945-F1-model_v6.pdb
+AF-Q5V4H7-F1-model_v6.pdb	https://alphafold.ebi.ac.uk/files/AF-Q5V4H7-F1-model_v6.pdb

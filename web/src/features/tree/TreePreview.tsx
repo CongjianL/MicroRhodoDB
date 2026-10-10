@@ -49,7 +49,15 @@ export function buildTreeModel(newick: string, tips: Tips, radius: number): Tree
 
 export const TREE_RADIUS = 250;
 
-export function TreePreview({ model, clades }: { model: TreeModel; clades: Clades }) {
+export interface TreeHighlight {
+  /** Reference-tree tip to mark (only for records that are themselves tips). */
+  tip?: string | null;
+  /** Level-1 clade / backbone group whose ring segment is emphasised (placed records: clade arc only). */
+  group?: string | null;
+  label: string;
+}
+
+export function TreePreview({ model, clades, highlight, idPrefix = "tree" }: { model: TreeModel; clades: Clades; highlight?: TreeHighlight; idPrefix?: string }) {
   const R = model.layout.radius;
   const ring0 = R + 8;
   const ring1 = R + 26;
@@ -59,32 +67,38 @@ export function TreePreview({ model, clades }: { model: TreeModel; clades: Clade
   const scaleLen = 1; // substitutions per site
   const nClades = clades.level1.filter((c) => c.kind === "clade").length;
   const nBackbone = clades.level1.filter((c) => c.kind === "backbone_group").length;
+  const hiGroup = highlight?.group ?? null;
+  const dim = (g: string) => !!highlight && hiGroup !== null && g !== hiGroup;
+  const tip = highlight?.tip ? layout.tipPos.get(highlight.tip) : undefined;
+  const hiArcs = hiGroup ? layout.arcs.filter((a) => a.group === hiGroup) : [];
 
   return (
     <svg
       viewBox={`${-ext} ${-ext} ${2 * ext} ${2 * ext + 26}`}
       className="h-auto w-full"
       role="img"
-      aria-labelledby="tree-title tree-desc"
+      aria-labelledby={`${idPrefix}-title ${idPrefix}-desc`}
       data-testid="tree-preview"
       data-tips={model.nTips}
+      data-highlight-tip={highlight?.tip ?? undefined}
+      data-highlight-group={highlight?.group ?? undefined}
     >
-      <title id="tree-title">MR_RT_003 reference tree preview ({model.nTips} tips)</title>
-      <desc id="tree-desc">
+      <title id={`${idPrefix}-title`}>MR_RT_003 reference tree preview ({model.nTips} tips){highlight ? `: ${highlight.label}` : ""}</title>
+      <desc id={`${idPrefix}-desc`}>
         Circular phylogram of the {model.nTips}-tip MR_RT_003 reference tree rooted on {model.nOutgroup} heliorhodopsin outgroup tips,
         branch lengths to scale. Outer ring segments mark {nClades} level-1 clades and {nBackbone} backbone groups;
         {" "}{model.nUnclustered} backbone tips belong to no clade. Hatched segments fail the corrected clade-support thresholds.
         The table next to the figure lists every clade with its support.
       </desc>
       <defs>
-        <pattern id="hatch-fail" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+        <pattern id={`${idPrefix}-hatch-fail`} patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
           <rect width="6" height="6" fill="#fff7ed" />
           <line x1="0" y1="0" x2="0" y2="6" stroke="#b45309" strokeWidth="3" />
         </pattern>
       </defs>
       <g fill="none" strokeWidth="0.9" strokeLinecap="round">
         {layout.edges.map((e) => (
-          <path key={e.group ?? "_"} d={e.d} stroke={e.group ? colorOf.get(e.group) ?? BACKBONE : BACKBONE} />
+          <path key={e.group ?? "_"} d={e.d} stroke={e.group ? colorOf.get(e.group) ?? BACKBONE : BACKBONE} opacity={highlight && (dim(e.group ?? "") || !e.group) ? 0.35 : 1} />
         ))}
       </g>
       <g>
@@ -98,7 +112,8 @@ export function TreePreview({ model, clades }: { model: TreeModel; clades: Clade
             <g key={a.group + a.start} data-group={a.group}>
               <path
                 d={sectorPath(ring0, ring1, a.start, a.end)}
-                fill={fail ? "url(#hatch-fail)" : colorOf.get(a.group)}
+                fill={fail ? `url(#${idPrefix}-hatch-fail)` : colorOf.get(a.group)}
+                opacity={dim(a.group) ? 0.28 : 1}
                 stroke={fail ? "#b45309" : "#ffffff"}
                 strokeWidth={fail ? 1.2 : 0.8}
               >
@@ -124,6 +139,23 @@ export function TreePreview({ model, clades }: { model: TreeModel; clades: Clade
           );
         })}
       </g>
+      {hiArcs.map((a) => (
+        <path key={`hi${a.start}`} d={sectorPath(ring0 - 4, ring1 + 4, a.start, a.end)} fill="none" stroke="#142238" strokeWidth="3" data-testid="tree-highlight-arc" />
+      ))}
+      {tip ? (
+        <g data-testid="tree-highlight-tip">
+          <line
+            x1={tip.r * Math.cos(tip.angle)}
+            y1={tip.r * Math.sin(tip.angle)}
+            x2={(ring1 + 10) * Math.cos(tip.angle)}
+            y2={(ring1 + 10) * Math.sin(tip.angle)}
+            stroke="#142238"
+            strokeWidth="2"
+            strokeDasharray="3 3"
+          />
+          <circle cx={tip.r * Math.cos(tip.angle)} cy={tip.r * Math.sin(tip.angle)} r="7" fill="#E9ED4C" stroke="#142238" strokeWidth="2.5" />
+        </g>
+      ) : null}
       <g transform={`translate(${-ext + 12} ${ext + 6})`} fontSize="13" fill="#526175">
         <line x1="0" x2={scaleLen * layout.scale} y1="0" y2="0" stroke="#142238" strokeWidth="1.5" />
         <line x1="0" x2="0" y1="-4" y2="4" stroke="#142238" strokeWidth="1.5" />
