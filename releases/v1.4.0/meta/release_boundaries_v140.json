@@ -1,0 +1,32 @@
+{
+ "database_release": "1.4.0",
+ "schema_revision": "v140.1",
+ "base_release": "1.3.0 (immutable base; all carried rows content-identical, verified by tests/release_v140.py F-series)",
+ "uniprot_release": "2026_03 delta harvested 2026-10-01 (base corpus remains UniProtKB 2026_02)",
+ "pfam_typeI": "PF01036.25",
+ "pfam_helio": "PF18761.8",
+ "scope_taxonomic": "Bacteria, Archaea, microbial Eukaryota, Viruses",
+ "scope_provenance": "cultured isolates + metagenomic/environmental (flagged separately); MGnify environmental pilot remains isolated from membership",
+ "families": "type_I core (PF01036) + heliorhodopsin companion (PF18761)",
+ "membership_authority": "membership.membership_status (legacy module column deprecated)",
+ "append_only_contract": "v1.4.0 = v1.3.0 + strictly additive rows/tables. Frozen values never edited. Documented exceptions: (1) reference_tree.MR_RT_002.status lifecycle transition orphaned_candidate->canonical_release after promotion gates; (2) release_metadata identity keys (database_release, schema_revision, base_release) updated per release-cut convention.",
+ "feature_status": {
+  "implemented": [
+   "everything in v1.3.0 (see release_boundaries_v130.json)",
+   "UniProtKB 2026_03 sequence extension: 105 new accessions admitted through the frozen v1.2 scorer (reconstructed; 0-difference gate on 5,361 frozen records)",
+   "MR_RT_002 (278-tip backbone, Q.PFAM+F+R6) promoted to canonical reference tree; 55 MR_CLD2_* reference clades with tier-A anchors",
+   "placement_v140: EPA-ng placements of all 4,335 eligible active members on MR_RT_002"
+  ],
+  "not_in_scope": [
+   "re-computation of any frozen nondeterministic layer (MMseqs2 clusters, v1.x placements, v1.2 scores)",
+   "MR_RT_001-side placement of v1.4.0-new sequences (v1.1 reference MSA does not survive; frozen placement table remains authoritative for MR_RT_001)",
+   "functional/spectral annotation of new accessions beyond seed-homology evidence"
+  ]
+ },
+ "known_limitations": [
+  "scorer end-to-end recomputation: 5360/5361 exact; single +0.0002 score diff (A0ABR3CQ64) from a DIAMOND 2.2.8 bitscore tie between SRI/SRII seeds (category unaffected)",
+  "4 midpoint-enumerated root-side complement clades (MR_CLD2_018/027/040/057) are not representable in the as-parsed tree storage orientation and are excluded from reference_clade (documented in build_provenance)",
+  "placement_v140 uses LG+G (libpll/epa-ng 0.3.8 lacks Q.PFAM); v1-era convention for this tree",
+  "n_credible in placement_v140 = #edges with LWR>=0.05 (v1.4.0 convention; the frozen v1.x rule is unrecoverable)"
+ ]
+}

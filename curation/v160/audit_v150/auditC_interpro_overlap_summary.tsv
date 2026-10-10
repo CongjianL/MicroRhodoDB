@@ -1,0 +1,11 @@
+item	n	pct_of_interpro
+InterPro PF01036 UniProt proteins (retrieved)	5088	92.95
+InterPro PF18761 UniProt proteins (retrieved)	386	7.05
+InterPro union (unique accessions)	5474	100.0
+MicroRhodoDB v1.5.0 protein records	5466	99.85
+overlap (accession)	5460	99.74
+InterPro-only	14	0.26
+MicroRhodoDB-only	6	0.11
+InterPro-only: created_after_2026_03_snapshot (>=2026-06-01)	14	0.26
+MicroRhodoDB-only: obsolete_or_merged_in_UniProt	6	0.11
+InterPro-only pre-snapshot full-length, reviewed	0	0.0

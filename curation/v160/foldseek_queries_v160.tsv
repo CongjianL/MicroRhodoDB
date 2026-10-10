@@ -1,0 +1,12 @@
+query_id	family	source_id	chain	residue_range	title	retrieved_at_utc
+BR_1C3W	bacteriorhodopsin	1C3W	A	5-231 (222 CA)	BACTERIORHODOPSIN/LIPID COMPLEX AT 1.55 A RESOLUTION	2026-10-10T02:45:50Z
+KR2_3X3C	sodium_pump_KR2	3X3C	A	5-275 (271 CA)	Crystal structure of the light-driven sodium pump KR2 in neutral state	2026-10-10T02:45:50Z
+PR_4JQ6	proteorhodopsin	4JQ6	A	9-231 (197 CA)	Crystal structure of blue light-absorbing proteorhodopsin from Med12 at 2.3 Angstrom	2026-10-10T02:45:50Z
+XeR_6EYU	xenorhodopsin	6EYU	A	1-232 (232 CA)	Crystal structure of the inward H(+) pump xenorhodopsin	2026-10-10T02:45:51Z
+SzR_7E4G	schizorhodopsin	7E4G	A	1-199 (199 CA)	Crystal structure of schizorhodopsin 4	2026-10-10T02:45:52Z
+VR1_7AKX	viral_rhodopsin_OLPVR1	7AKX	A	2-225 (223 CA)	Crystal structure of the viral rhodopsin OLPVR1 in P1 space group	2026-10-10T02:45:52Z
+KCR1_8H86	kalium_channelrhodopsin_HcKCR1	8H86	A	6-260 (255 CA)	Cryo-EM structure of the potassium-selective channelrhodopsin HcKCR1 in lipid nanodisc	2026-10-10T02:45:52Z
+HR_1E12	halorhodopsin	1E12	A	24-262 (239 CA)	Halorhodopsin, a light-driven chloride pump	2026-10-10T02:45:52Z
+HeR_6IS6	heliorhodopsin_OUTGROUP	6IS6	A	4-253 (250 CA)	Crystal structure of Thermoplasmatales archaeon heliorhodopsin	2026-10-10T02:45:53Z
+BestR_A0AAE0C9L8	bestrhodopsin_rhodopsin_domain_surrogate	AF-A0AAE0C9L8-F1 (model_v6)	A	85-345 (261 CA; mean pLDDT 80.7)	AlphaFold Monomer v2.0 prediction for uncharacterized protein A0AAE0C9L8 (Cymbomonas tetramitiformis; PF01036 196-372 + PF25539 576-850); closest UniProtKB homolog of bestrhodopsin seed USH44359.1 (41% id/824 aa)	2026-10-10T03:00:00Z
+MerMAID_SKIPPED	MerMAID	none			SKIPPED: 6 MerMAID seeds (QCW06519-24) have no UniProtKB accession (UniParc only) -> no AFDB model; nearest UniProtKB BLAST hit A0AAE0FQI2 only 30% id (channelopsin-like), not used	2026-10-10T02:50:00Z

@@ -1,0 +1,93 @@
+{
+ "release": "1.4.0",
+ "schema_revision": "v140.1",
+ "base_release": "1.3.0",
+ "built_at": "2026-10-01T18:20:12.531919+00:00",
+ "db_sha256": "21342d94b207b6e0b9e8f313d3689ea962fc59c89503c287ee59de46061f6854",
+ "db_bytes": 18759680,
+ "n_tables": 41,
+ "table_counts": {
+  "active_population": 5466,
+  "assertion_publication": 81,
+  "benchmark_v2": 261,
+  "build_provenance": 49,
+  "citation": 10,
+  "environmental_admission": 1352,
+  "extension_delta": 111,
+  "external_validation": 106,
+  "external_validation_metric": 18,
+  "function": 5361,
+  "function_assignment": 4119,
+  "holdout_assignment": 15110,
+  "holdout_metric": 264,
+  "membership": 5466,
+  "pdb_structure": 438,
+  "placement": 4326,
+  "placement_v140": 4335,
+  "predicted_structure": 2,
+  "protein": 6818,
+  "protein_architecture_flag": 2840,
+  "protein_pdb": 472,
+  "publication": 69,
+  "qc_feature": 5466,
+  "qc_feature_tool": 105,
+  "redundancy": 5466,
+  "reference_backbone": 186,
+  "reference_clade": 115,
+  "reference_clade_member": 161,
+  "reference_clade_tip": 1882,
+  "reference_tree": 2,
+  "release_metadata": 13,
+  "seed": 15,
+  "sequence_source": 6818,
+  "structure": 4886,
+  "subfamily": 2990,
+  "subfamily_assignment": 2990,
+  "tier_a_assertion": 63,
+  "tier_a_evidence": 63,
+  "tier_a_holdout": 34,
+  "tree_edge": 920,
+  "tree_node": 922
+ },
+ "release_suite": {
+  "db": "releases/v1.4.0/db/microrhododb_v1.4.0.sqlite",
+  "n_pass": 18,
+  "n_fail": 0,
+  "results": "<see validation/validation_v140.json>"
+ },
+ "recovery_probes_regression": {
+  "results": "<see validation/recovery_probes_v140.txt>",
+  "verdicts": {
+   "P1": "PASS",
+   "P2": "PASS",
+   "P3": "PASS",
+   "P4": "MATCH-WITH-DIFFERENCES",
+   "P5": "PASS",
+   "P6": "PASS",
+   "P7": "PASS",
+   "P8": "MATCH-WITH-DIFFERENCES",
+   "P9": "PASS"
+  }
+ },
+ "components": {
+  "base": "v1.3.0 frozen layers carried byte-identical (35/35 table row-hashes verified; only reference_tree.MR_RT_002.status lifecycle transition + release identity keys)",
+  "extension": "UniProtKB 2026_03 delta: 105 new accessions (96 PF01036-primary, 9 PF18761-primary); 6 demoted/merged logged in extension_delta; frozen scorer applied (0/5361 rosetta gate, 5360/5361 end-to-end with one documented DIAMOND bitscore tie)",
+  "mr_rt_002": "promoted orphaned_candidate -> canonical_release: 554 nodes/553 edges stored as-parsed (MR_RT_001 conventions), 55 MR_CLD2_* clades (100% monophyly), 4 root-side complement clades excluded (documented)",
+  "placement_v140": "epa-ng 0.3.8 LG+G on MR_RT_002: 4,335/4,335 eligible active members placed (100% coverage = v1.3.0 baseline); 52 new core all clade-assigned; MR_RT_001-side placement of new cores skipped (v1.1 reference MSA does not survive)"
+ },
+ "tools": {
+  "python": "3.11",
+  "biopython": "1.85",
+  "pyhmmer": "0.12.3",
+  "HMMER": "3.4",
+  "DIAMOND": "2.2.8",
+  "MMseqs2": "18.8cc5c",
+  "epa-ng": "0.3.8"
+ },
+ "code": {
+  "scorer": "pipeline/v140/scorer_v140.py#fe1148c333c9",
+  "features": "pipeline/v140/features_v140.py#951d7ed21981",
+  "tree": "pipeline/v140/tree_v140.py#006a462682ad",
+  "tests": "tests/release_v140.py"
+ }
+}

@@ -1,0 +1,55 @@
+v1.5.0 base: 5466 records; levels {'E1': 85, 'E2': 119, 'E3': 1388, 'E4': 1358, 'E5': 2516}
+[1] characterized_protein: compilation-PMID rows fixed 67; ECO-token rows cleaned 16 (of which ECO:0000269 16)
+[1] spectral_audit: compilation-PMID rows fixed 65; ECO-token rows cleaned 12 (of which ECO:0000269 12)
+[2a] taskD doi/pmid fills applied: 15
+[2b] E1 promotions: 16 (1 existing rows updated, 15 rows inserted); incl. engineered transfer ['A0AAJ0LKB3']
+[2c/d] carO demoted: ['Q70LL3', 'S0ELR6']; RETIER: ['A0A0G9MK34', 'A0A0M7BDG0', 'A0A1C7DB83', 'A0A840I7T6', 'A0ABX5PZH6', 'A6W8Z2']
+[2y] R2 E1 caveats: withdrawn ['A0A0P6XBM7', 'Q6R5N7']; kept with quote ['A0A0M5L0M3']; primary paper replaced {'A0ACE3JIR6': '26260121'}
+[2z] R2 membership override -> typeI_member_curated: 4 (A0A1I3DJQ0, L1K1K8, A0A3G1I4H9, A0ABF7PQ82)
+[3] v1.5.0 ladder reproduction: 5466/5466 records identical (level, class, basis)
+[3] v1.6.0 E1 set: 91 records (3 engineered); E2 reference set (non-engineered): 88
+[3] clade_function recomputed (v1.5.0 rule, 88 non-engineered E1): records changed 657; groups with consensus 16/49
+[3] carO Q70LL3: unmodified ladder -> E4/sensory; signed -> E4/proton_pump
+[3] carO S0ELR6: unmodified ladder -> E4/proton_pump; signed -> E4/proton_pump
+[4] conflict downgrades applied: 439 (signed list 443; in both 439; signed-not-applied 4; policy-derived extra 0)
+    signed-not-applied: {'A0A0D1E071': 'E1', 'A0A0D1EC87': 'E1', 'A0A517QXI7': 'E1', 'A0AAJ6N6B2': 'E1'}
+    policy-derived extra downgrades (were v1.5 {} )
+    flagged-only conflicts: 29 (by level {'E1': 14, 'E2': 9, 'E4': 6}); signed flag rows still flagged 9/9
+[4b] rule_xeno_DTA_DSA: 69 records E4 -> E5 unresolved (audit_rule_ASR_vs_XeR_ambiguous)
+[4b] rule_opsA_DSE: 47 records E4 -> E5 unresolved (audit_rule_OpsA_like_nonpumping_lineage)
+[4b] schizorhodopsin reassignment: ['A0AAP2RB57', 'A0ABT8M6U9'] -> E5 unresolved
+[5] basis renamed: legacy_v14_concordant_motif 973; legacy_v14_motif_untestable 51
+[5] E-level transitions v1.5.0 (rows) -> v1.6.0 (cols):
+evidence_level       E1  E2    E3   E4    E5
+evidence_level_v150                         
+E1                   75   1     1    8     0
+E2                    1  95     0   22     1
+E3                    3   0  1142  217    26
+E4                    8  16     0  803   531
+E5                    4   0     0    0  2512
+[5] v1.6.0 levels (all records): {'E1': 91, 'E2': 112, 'E3': 1143, 'E4': 1050, 'E5': 3070}
+[5] v1.6.0 levels (counted, non-engineered): {'E1': 88, 'E2': 109, 'E3': 1143, 'E4': 1050, 'E5': 3070}
+[5] E2 lost 23; E2 gained 17; E2 ref changed 0
+[5] E1 exact-sequence clusters with >1 E1 record: 11; unique E1 sequences (non-engineered): 76
+[5] engineered records: 6; exact_duplicate_of set: 6
+[6] publications added: 49 (total 121); links added 178 (skipped 2 already present) by role {'compilation': 109, 'support': 66, 'context': 3}
+[6] new support links with quote verified in retrieved text (abstract or full text): 66/66
+[6] E1 records with >=1 active support link: 91/91; linkless: []
+[7] curation_v160_decision rows: 622
+[7] novel_family_candidate rows: 181 by family {'viral_rhodopsin': 138, 'structure_only': 23, 'schizorhodopsin': 12, 'bestrhodopsin': 5, 'MerMAID': 3} (counts unaffected)
+[7] foldseek_hit rows 786 by tier {'pfam_detectable_sampling_gap': 605, 'underrepresented_family': 155, 'structure_only_no_PF01036': 26}
+[7] novel_family_flag: 139/5466 flagged {'xenorhodopsin': 125, 'MerMAID': 9, 'schizorhodopsin': 3, 'bestrhodopsin': 2}
+[7] audit E2: 39/40 = 0.975 [0.871-0.996]
+[7] audit E3: 39/40 = 0.975 [0.871-0.996]
+[7] audit E4: 22/40 = 0.550 [0.398-0.693]
+[7] audit E2-E4: 100/120 = 0.833 [0.757-0.889]
+[7] FINAL LOCO all_E1/none/legacy: n=76 cov=70/76 prec=52/70=0.743 [0.63-0.83]
+[7] FINAL LOCO all_E1/none/downgrade: n=76 cov=64/76 prec=49/64=0.766 [0.65-0.85]
+[7] FINAL LOCO all_E1/none/motif: n=76 cov=57/76 prec=45/57=0.789 [0.67-0.88]
+[7] FINAL LOCO sim_E4/LOCO/legacy: n=70 cov=70/70 prec=52/70=0.743 [0.63-0.83]
+[7] FINAL LOCO sim_E4/LOCO/downgrade: n=70 cov=64/70 prec=49/64=0.766 [0.65-0.85]
+[7] FINAL LOCO sim_E4/LOCO/motif: n=70 cov=57/70 prec=45/57=0.789 [0.67-0.88]
+[7] FINAL set n=76, clades=13, sim tiers LOCO {'E4': 70, 'E5': 6}
+[7] spectral_audit rows 72 -> 63
+[8] alias_v14 dropped; views now: ['v_boundary_family', 'v_call_conflict', 'v_counted', 'v_engineered', 'v_heliorhodopsin', 'v_master', 'v_typeI_candidate', 'v_typeI_member']
+[9] source_release backfill: v1.2.0-corpus -> UniProtKB_2026_02 (5361); 2026_03 -> UniProtKB_2026_03 (105)

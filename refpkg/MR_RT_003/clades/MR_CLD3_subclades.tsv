@@ -1,0 +1,33 @@
+subclade_id	parent_clade	n_tips	ufboot	sh_alrt	dominant_subfamily_v14	dominant_helixC_motif	dominant_domain	dominant_phylum	e1_classes	clade_function_e1_consensus	e1_members
+MR_CLD3_001.01	MR_CLD3_001	3	100.0	99.0	channelrhodopsin	YSD	Archaea	Methanobacteriota			
+MR_CLD3_002.01	MR_CLD3_002	3	98.0	95.6	enzyme_rhodopsin	ETK	Eukaryota				
+MR_CLD3_003.01	MR_CLD3_003	27	97.0	87.1	channelrhodopsin	ETH	Eukaryota	Chlorophyta	cation_channelx2	cation_channel	H2EZZ6:Channelrhodopsin-2 PsChR2;Q8RUT8:Archaeal-type opsin 2
+MR_CLD3_004.01	MR_CLD3_004	7	100.0	89.2	unclassified_typeI	LTI	Eukaryota	Chlorophyta			
+MR_CLD3_004.02	MR_CLD3_004	15	100.0	98.3	enzyme_rhodopsin	ETL	Eukaryota	Chytridiomycota	enzymex1	enzyme	A0A060H1D7:Bacterio-rhodopsin/guanylyl cyclase 1 fusion protein
+MR_CLD3_005.01	MR_CLD3_005	10	99.0	95.7	sensory_rhodopsin_I	DTK	Bacteria	Bacteroidota			
+MR_CLD3_006.01	MR_CLD3_006	9	100.0	99.8	proteorhodopsin	DTE	Bacteria	Pseudomonadota	proton_pump_outwardx3	proton_pump_outward	Q9AFF7:Blue-light absorbing proteorhodopsin;Q6J4G7:Green-light absorbing proteorhodopsin;Q9F7P4:Green-light absorbing proteorhodopsin
+MR_CLD3_006.02	MR_CLD3_006	11	96.0	90.3	proteorhodopsin	DTE	Bacteria	Bacteroidota	proton_pump_outwardx1	proton_pump_outward	A0ABX5PZH6:NdR1
+MR_CLD3_007.01	MR_CLD3_007	29	100.0	100.0	sodium_pump	NDQ	Bacteria	Pseudomonadota	anion_pumpx5;sodium_pumpx5		W8VZW3:Chloride pumping rhodopsin;A0A840I7T6:PoClR2;Q0FYH0:FR;A0A0G9MK34:EgClR;A0A1C7DB83:AnClR;A0A0P6XBM7:BcNaR;S2D3K4:IaNaR;H2BW50:GlNaR;N0DKS8:Sodium pumping rhodopsin;A0A0M7BDG0:JsNaR
+MR_CLD3_007.02	MR_CLD3_007	24	100.0	100.0	xanthorhodopsin	DTE	Bacteria	Actinomycetota	proton_pump_outwardx1	proton_pump_outward	A6W8Z2:KrActR
+MR_CLD3_007.03	MR_CLD3_007	30	100.0	99.8	xanthorhodopsin	DTE	Bacteria	Actinomycetota	proton_pump_outwardx3	proton_pump_outward	Q2S2F8:Xanthorhodopsin;H9ZSC3:Bacteriorhodopsin;Q7NP59:Gll0198 protein
+MR_CLD3_009.01	MR_CLD3_009	8	98.0	82.2	bacteriorhodopsin	DTE	Bacteria	Cyanobacteriota	anion_pumpx2	anion_pump	A0A9X9ZA75:Synechocystis halorhodopsin;A0A6P3CW41:Cyanobacterial chloride importer
+MR_CLD3_009.02	MR_CLD3_009	19	100.0	97.5	channelrhodopsin	DTG	Bacteria	Pseudomonadota	proton_pump_outwardx2	proton_pump_outward	A0A8X6EH36:DTG_PspR;A0ABY3LD08:DTG_PvR
+MR_CLD3_009.03	MR_CLD3_009	22	100.0	99.9	anabaena_sensory	DTA	Bacteria	Bacillota	sensory_transducerx1;proton_pump_inwardx1		A0ACD6B968:Bacteriorhodopsin;A0AA82WPB4:Xenorhodopsin
+MR_CLD3_010.01	MR_CLD3_010	3	100.0	93.2	bacteriorhodopsin	DTD	Bacteria	Chloroflexota			
+MR_CLD3_010.02	MR_CLD3_010	3	100.0	98.7	bacteriorhodopsin	DTD	Bacteria	Actinomycetota	proton_pump_outwardx1	proton_pump_outward	Q1AUE6:Rhodopsin
+MR_CLD3_B01	backbone	4	98.0	94.3		DTD	Archaea	Methanobacteriota	proton_pump_outwardx3	proton_pump_outward	Q18DH8:Bacteriorhodopsin-I;P69051:Archaerhodopsin-1;P02945:Bacteriorhodopsin
+MR_CLD3_012.01	MR_CLD3_012	8	100.0	96.1	halorhodopsin	TSA	Archaea	Methanobacteriota	anion_pumpx3	anion_pump	P15647:Halorhodopsin;Q5V1N0:Halorhodopsin;P0DMH7:Halorhodopsin
+MR_CLD3_013.01	MR_CLD3_013	3	100.0	100.0	unclassified_typeI	ESN	Eukaryota	Perkinsozoa			
+MR_CLD3_013.02	MR_CLD3_013	5	100.0	99.5	sensory_rhodopsin_II	DTY	Archaea	Methanobacteriota	sensory_transducerx1	sensory_transducer	Q5V4H7:Sensory rhodopsin III
+MR_CLD3_013.03	MR_CLD3_013	9	100.0	99.7	sensory_rhodopsin_I	DTY	Archaea	Methanobacteriota	sensory_transducerx3	sensory_transducer	Q2RZM2:SrSRI;P0DMH8:Sensory rhodopsin-1;Q5UXM9:Sensory rhodopsin I
+MR_CLD3_013.04	MR_CLD3_013	20	99.0	94.5	sensory_rhodopsin_II	DTY	Archaea	Methanobacteriota	sensory_transducerx3	sensory_transducer	A0A1U7EZ03:NpSRII;P42196:Sensory rhodopsin-2;P42197:HmSRII
+MR_CLD3_014.01	MR_CLD3_014	5	100.0	100.0	halorhodopsin	DTD	Eukaryota				
+MR_CLD3_014.02	MR_CLD3_014	6	99.0	94.9	bacteriorhodopsin	DTD	Eukaryota				
+MR_CLD3_015.01	MR_CLD3_015	8	100.0	99.5	sensory_rhodopsin_II	DTN	Eukaryota				
+MR_CLD3_B02	backbone	4	99.0	100.0	anabaena_sensory	DTE	Eukaryota	Evosea			
+MR_CLD3_017.01	MR_CLD3_017	21	100.0	95.3	sensory_rhodopsin_II	DTD	Eukaryota	Ascomycota	proton_pump_outwardx1	proton_pump_outward	Q70LL3:Opsin-like protein carO
+MR_CLD3_017.02	MR_CLD3_017	22	100.0	95.6	sensory_rhodopsin_II	DTE	Eukaryota	Basidiomycota			
+MR_CLD3_017.03	MR_CLD3_017	5	100.0	99.9	sensory_rhodopsin_II	DTD	Eukaryota	Basidiomycota			
+MR_CLD3_017.04	MR_CLD3_017	3	100.0	100.0	unclassified_typeI	DGQ	Eukaryota	Basidiomycota			
+MR_CLD3_017.05	MR_CLD3_017	3	100.0	100.0	bacteriorhodopsin	DTS	Eukaryota	Basidiomycota			
+MR_CLD3_017.06	MR_CLD3_017	30	100.0	97.3	halorhodopsin	DTD	Eukaryota	Ascomycota	proton_pump_outwardx1	proton_pump_outward	Q9HGT7:LR

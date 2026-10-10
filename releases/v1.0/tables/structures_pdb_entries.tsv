@@ -1,0 +1,439 @@
+pdb_id	method	resolution	title	ligands	has_retinal	year
+1AP9	X-RAY DIFFRACTION	2.35	X-RAY STRUCTURE OF BACTERIORHODOPSIN FROM MICROCRYSTALS GROWN IN LIPIDIC CUBIC PHASES	RET	True	1998
+1AT9	ELECTRON CRYSTALLOGRAPHY	2.8	STRUCTURE OF BACTERIORHODOPSIN AT 3.0 ANGSTROM DETERMINED BY ELECTRON CRYSTALLOGRAPHY	RET	True	1998
+1BCT	SOLUTION NMR		THREE-DIMENSIONAL STRUCTURE OF PROTEOLYTIC FRAGMENT 163-231 OF BACTERIOOPSIN DETERMINED FROM NUCLEAR MAGNETIC RESONANCE DATA IN SOLUTION		False	1994
+1BHA	SOLUTION NMR		THREE-DIMENSIONAL STRUCTURE OF (1-71) BACTERIOOPSIN SOLUBILIZED IN METHANOL-CHLOROFORM AND SDS MICELLES DETERMINED BY 15N-1H HETERONUCLEAR NMR SPECTROSCOPY		False	1994
+1BHB	SOLUTION NMR		Three-dimensional structure of (1-71) bacterioopsin solubilized in methanol-chloroform and SDS micelles determined by 15N-1H heteronuclear NMR spectroscopy		False	1994
+1BM1	X-RAY DIFFRACTION	3.5	CRYSTAL STRUCTURE OF BACTERIORHODOPSIN IN THE LIGHT-ADAPTED STATE	DPG;RET	True	1999
+1BRD	ELECTRON CRYSTALLOGRAPHY	3.5	Model for the structure of Bacteriorhodopsin based on high-resolution Electron Cryo-microscopy	RET	True	1991
+1BRR	X-RAY DIFFRACTION	2.9	X-RAY STRUCTURE OF THE BACTERIORHODOPSIN TRIMER/LIPID COMPLEX	ARC;BGC;GOL;OCT;RET	True	1998
+1BRX	X-RAY DIFFRACTION	2.3	BACTERIORHODOPSIN/LIPID COMPLEX	RET	True	1999
+1C3W	X-RAY DIFFRACTION	1.55	BACTERIORHODOPSIN/LIPID COMPLEX AT 1.55 A RESOLUTION	LI1;RET;SQU	True	1999
+1C8R	X-RAY DIFFRACTION	1.8	BACTERIORHODOPSIN D96N BR STATE AT 2.0 A RESOLUTION	LI1;RET;SQU	True	1999
+1C8S	X-RAY DIFFRACTION	2.0	BACTERIORHODOPSIN D96N LATE M STATE INTERMEDIATE	LI1;RET;SQU	True	1999
+1CWQ	X-RAY DIFFRACTION	2.25	M INTERMEDIATE STRUCTURE OF THE WILD TYPE BACTERIORHODOPSIN IN COMBINATION WITH THE GROUND STATE STRUCTURE	HEX;OCT;RET;TRD;UND	True	1999
+1DZE	X-RAY DIFFRACTION	2.5	Structure of the M Intermediate of Bacteriorhodopsin trapped at 100K	L1P;L2P;L3P;L4P;RET	True	2000
+1E0P	X-RAY DIFFRACTION	2.1	L intermediate of bacteriorhodopsin	RET	True	2000
+1E12	X-RAY DIFFRACTION	1.8	Halorhodopsin, a light-driven chloride pump	CL;K;OLC;PLM;RET	True	2000
+1F4Z	X-RAY DIFFRACTION	1.8	BACTERIORHODOPSIN-M PHOTOINTERMEDIATE STATE OF THE E204Q MUTANT AT 1.8 ANGSTROM RESOLUTION	LI1;RET;SQU	True	2000
+1F50	X-RAY DIFFRACTION	1.7	BACTERIORHODOPSIN-BR STATE OF THE E204Q MUTANT AT 1.7 ANGSTROM RESOLUTION	LI1;RET;SQU	True	2000
+1FBB	ELECTRON CRYSTALLOGRAPHY	3.2	CRYSTAL STRUCTURE OF NATIVE CONFORMATION OF BACTERIORHODOPSIN	RET	True	2000
+1FBK	ELECTRON CRYSTALLOGRAPHY	3.2	CRYSTAL STRUCTURE OF CYTOPLASMICALLY OPEN CONFORMATION OF BACTERIORHODOPSIN	RET	True	2000
+1GU8	X-RAY DIFFRACTION	2.27	SENSORY RHODOPSIN II	CL;RET	True	2002
+1GUE	X-RAY DIFFRACTION	2.27	SENSORY RHODOPSIN II	CL;RET	True	2002
+1H2S	X-RAY DIFFRACTION	1.93	Molecular basis of transmenbrane signalling by sensory rhodopsin II-transducer complex	BOG;RET	True	2002
+1H68	X-RAY DIFFRACTION	2.1	sensory rhodopsin II	CL;RET	True	2001
+1IW6	X-RAY DIFFRACTION	2.3	Crystal Structure of the Ground State of Bacteriorhodopsin	L2P;L3P;RET	True	2002
+1IW9	X-RAY DIFFRACTION	2.5	Crystal Structure of the M Intermediate of Bacteriorhodopsin	L2P;L3P;RET	True	2003
+1IXF	X-RAY DIFFRACTION	2.6	Crystal Structure of the K intermediate of bacteriorhodopsin	L2P;L3P;RET	True	2002
+1JGJ	X-RAY DIFFRACTION	2.4	CRYSTAL STRUCTURE OF SENSORY RHODOPSIN II AT 2.4 ANGSTROMS: INSIGHTS INTO COLOR TUNING AND TRANSDUCER INTERACTION	BOG;RET	True	2001
+1JV6	X-RAY DIFFRACTION	2.0	BACTERIORHODOPSIN D85S/F219L DOUBLE MUTANT AT 2.00 ANGSTROM RESOLUTION	LI1;RET	True	2001
+1JV7	X-RAY DIFFRACTION	2.25	BACTERIORHODOPSIN O-LIKE INTERMEDIATE STATE OF THE D85S MUTANT AT 2.25 ANGSTROM RESOLUTION	LI1;RET	True	2001
+1KG8	X-RAY DIFFRACTION	2.0	X-ray structure of an early-M intermediate of bacteriorhodopsin	LI1;RET	True	2001
+1KG9	X-RAY DIFFRACTION	1.81	"Structure of a ""mock-trapped"" early-M intermediate of bacteriorhosopsin"	LI1;RET	True	2001
+1KGB	X-RAY DIFFRACTION	1.65	structure of ground-state bacteriorhodopsin	LI1;RET	True	2001
+1KME	X-RAY DIFFRACTION	2.0	CRYSTAL STRUCTURE OF BACTERIORHODOPSIN CRYSTALLIZED FROM BICELLES	BGC;RET;SQU	True	2002
+1L0M	SOLUTION NMR		Solution structure of Bacteriorhodopsin		False	2002
+1M0K	X-RAY DIFFRACTION	1.43	BACTERIORHODOPSIN K INTERMEDIATE AT 1.43 A RESOLUTION	LI1;RET;SQU	True	2002
+1M0L	X-RAY DIFFRACTION	1.47	BACTERIORHODOPSIN/LIPID COMPLEX AT 1.47 A RESOLUTION	LI1;RET;SQU	True	2002
+1M0M	X-RAY DIFFRACTION	1.43	BACTERIORHODOPSIN M1 INTERMEDIATE AT 1.43 A RESOLUTION	LI1;RET;SQU	True	2002
+1MGY	X-RAY DIFFRACTION	2.0	Structure of the D85S mutant of bacteriorhodopsin with bromide bound	BR;K;LI1;RET	True	2003
+1O0A	X-RAY DIFFRACTION	1.62	BACTERIORHODOPSIN L INTERMEDIATE AT 1.62 A RESOLUTION	LI1;RET;SQU	True	2003
+1P8H	X-RAY DIFFRACTION	1.52	BACTERIORHODOPSIN M1 INTERMEDIATE PRODUCED AT ROOM TEMPERATURE	LI1;RET;SQU	True	2003
+1P8I	X-RAY DIFFRACTION	1.86	F219L BACTERIORHODOPSIN MUTANT	LI1;RET;SQU	True	2003
+1P8U	X-RAY DIFFRACTION	1.62	BACTERIORHODOPSIN N' INTERMEDIATE AT 1.62 A RESOLUTION	LI1;RET;SQU	True	2003
+1PXR	X-RAY DIFFRACTION	1.7	Structure of Pro50Ala mutant of Bacteriorhodopsin	RET	True	2003
+1PXS	X-RAY DIFFRACTION	2.2	Structure of Met56Ala mutant of Bacteriorhodopsin	RET	True	2003
+1PY6	X-RAY DIFFRACTION	1.8	Bacteriorhodopsin crystallized from bicells	RET	True	2003
+1Q5I	X-RAY DIFFRACTION	2.3	Crystal structure of bacteriorhodopsin mutant P186A crystallized from bicelles	RET	True	2004
+1Q5J	X-RAY DIFFRACTION	2.1	Crystal structure of bacteriorhodopsin mutant P91A crystallized from bicelles	RET	True	2004
+1QHJ	X-RAY DIFFRACTION	1.9	X-RAY STRUCTURE OF BACTERIORHODOPSIN GROWN IN LIPIDIC CUBIC PHASES	PH1;RET	True	1999
+1QKO	X-RAY DIFFRACTION	2.1	HIGH RESOLUTION X-RAY STRUCTURE OF AN EARLY INTERMEDIATE IN THE BACTERIORHODOPSIN PHOTOCYCLE	RET	True	1999
+1QKP	X-RAY DIFFRACTION	2.1	HIGH RESOLUTION X-RAY STRUCTURE OF AN EARLY INTERMEDIATE IN THE BACTERIORHODOPSIN PHOTOCYCLE	RET	True	1999
+1QM8	X-RAY DIFFRACTION	2.5	Structure of Bacteriorhodopsin at 100 K	L1P;L2P;L3P;L4P;RET	True	2000
+1R2N	SOLUTION NMR		NMR structure of the all-trans retinal in dark-adapted Bacteriorhodopsin	RET	True	2003
+1R84	SOLUTION NMR		NMR structure of the 13-cis-15-syn retinal in dark_adapted bacteriorhodopsin	RET	True	2003
+1S51	X-RAY DIFFRACTION	2.0	Thr24Ser Bacteriorhodopsin	RET	True	2004
+1S52	X-RAY DIFFRACTION	2.3	Thr24Val Bacteriorhodopsin	RET	True	2004
+1S53	X-RAY DIFFRACTION	2.0	Thr46Ser Bacteriorhodopsin	RET	True	2004
+1S54	X-RAY DIFFRACTION	2.2	Thr24Ala Bacteriorhodopsin	RET	True	2004
+1S8J	X-RAY DIFFRACTION	2.3	Nitrate-bound D85S mutant of bacteriorhodopsin	LI1;NO3;RET	True	2004
+1S8L	X-RAY DIFFRACTION	2.3	Anion-free form of the D85S mutant of bacteriorhodopsin from crystals grown in the presence of halide	LI1;RET	True	2004
+1TN0	X-RAY DIFFRACTION	2.5	Structure of bacterorhodopsin mutant A51P	RET	True	2004
+1TN5	X-RAY DIFFRACTION	2.2	Structure of bacterorhodopsin mutant K41P	RET	True	2004
+1UAZ	X-RAY DIFFRACTION	3.4	Crystal structure of archaerhodopsin-1	RET	True	2003
+1UCQ	X-RAY DIFFRACTION	2.4	Crystal structure of the L intermediate of bacteriorhodopsin	L2P;L3P;RET	True	2003
+1VGO	X-RAY DIFFRACTION	2.5	Crystal Structure of Archaerhodopsin-2	BNG;RET;SO4	True	2005
+1VJM	X-RAY DIFFRACTION	2.3	Deformation of helix C in the low-temperature L-intermediate of bacteriorhodopsin	RET	True	2004
+1X0I	X-RAY DIFFRACTION	2.3	Crystal Structure of the Acid Blue Form of Bacteriorhodopsin	L2P;L3P;RET;SO4	True	2005
+1X0K	X-RAY DIFFRACTION	2.6	Crystal Structure of Bacteriorhodopsin at pH 10	L2P;L3P;RET	True	2005
+1X0S	X-RAY DIFFRACTION	2.5	Crystal structure of the 13-cis isomer of bacteriorhodopsin	L2P;L3P;RET;SO4	True	2005
+1XJI	X-RAY DIFFRACTION	2.2	Bacteriorhodopsin crystallized in bicelles at room temperature	C14;CPS;D10;D12;OCT;RET	True	2005
+2AT9	ELECTRON CRYSTALLOGRAPHY	3.0	STRUCTURE OF BACTERIORHODOPSIN AT 3.0 ANGSTROM BY ELECTRON CRYSTALLOGRAPHY	2DP;RET	True	1999
+2BRD	ELECTRON CRYSTALLOGRAPHY	3.5	CRYSTAL STRUCTURE OF BACTERIORHODOPSIN IN PURPLE MEMBRANE	DPG;RET	True	1996
+2EI4	X-RAY DIFFRACTION	2.1	Trimeric complex of archaerhodopsin-2	22B;GLC;L2P;RET	True	2008
+2F93	X-RAY DIFFRACTION	2.0	K Intermediate Structure of Sensory Rhodopsin II/Transducer Complex in Combination with the Ground State Structure	BOG;RET	True	2006
+2F95	X-RAY DIFFRACTION	2.2	M intermediate structure of sensory rhodopsin II/transducer complex in combination with the ground state structure	BOG;RET	True	2006
+2I1X	X-RAY DIFFRACTION	2.0	Bacteriorhodopsin/lipid complex, D96A mutant	LI1;RET;SQU	True	2006
+2I20	X-RAY DIFFRACTION	2.08	Bacteriorhodopsin/lipid complex, M state of D96A mutant	LI1;RET;SQU	True	2006
+2I21	X-RAY DIFFRACTION	1.84	Bacteriorhodopsin/lipid complex, T46V mutant	LI1;RET;SQU	True	2006
+2JAF	X-RAY DIFFRACTION	1.7	Ground state of halorhodopsin T203V	BOG;CL;PLM;RET	True	2006
+2JAG	X-RAY DIFFRACTION	1.93	L1-intermediate of halorhodopsin T203V	BOG;CL;PLM;RET	True	2006
+2L6X	SOLUTION NMR		Solution NMR Structure of Proteorhodopsin.	RET	True	2011
+2NTU	X-RAY DIFFRACTION	1.53	Bacteriorhodopsin, wild type, before illumination	RET	True	2006
+2NTW	X-RAY DIFFRACTION	1.53	Bacteriorhodopsin, wild type, after illumination to produce the L intermediate	RET	True	2006
+2WJK	X-RAY DIFFRACTION	2.3	Bacteriorhodopsin mutant E204D	LI1;RET	True	2010
+2WJL	X-RAY DIFFRACTION	2.15	Bacteriorhodopsin mutant E194D	RET	True	2010
+2Z55	X-RAY DIFFRACTION	2.5	Bacterioruberin in the trimeric structure of archaerhodopsin-2	22B;L2P;RET	True	2008
+2ZFE	X-RAY DIFFRACTION	2.5	Crystal structure of bacteriorhodopsin-xenon complex	L1P;L2P;L3P;RET;XE	True	2008
+2ZZL	X-RAY DIFFRACTION	2.03	Structure of bacteriorhodopsin's M intermediate at pH 7	L1P;L2P;L3P;RET;SOG	True	2009
+3AM6	X-RAY DIFFRACTION	3.2	Crystal structure of the proton pumping rhodopsin AR2 from marine alga Acetabularia acetabulum	CLR;RET	True	2011
+3COC	X-RAY DIFFRACTION	2.31	Crystal Structure of D115A mutant of Bacteriorhodopsin	RET	True	2008
+3COD	X-RAY DIFFRACTION	2.7	Crystal Structure of T90A/D115A mutant of Bacteriorhodopsin	RET	True	2008
+3DDL	X-RAY DIFFRACTION	1.9	Crystallographic Structure of Xanthorhodopsin, a Light-Driven Ion Pump with Dual Chromophore	PCW;PX4;RET;SXN;UNL	True	2008
+3HAN	X-RAY DIFFRACTION	2.75	Crystal structure of bacteriorhodopsin mutant V49A crystallized from bicelles	RET	True	2009
+3HAO	X-RAY DIFFRACTION	2.49	Crystal structure of bacteriorhodopsin mutant L94A crystallized from bicelles	RET	True	2009
+3HAP	X-RAY DIFFRACTION	1.6	Crystal structure of bacteriorhodopsin mutant L111A crystallized from bicelles	CPS;D10;D12;DD9;HP6;R16;RET	True	2009
+3HAQ	X-RAY DIFFRACTION	2.3	Crystal structure of bacteriorhodopsin mutant I148A crystallized from bicelles	CPS;D10;D12;DD9;HP6;R16;RET	True	2009
+3HAR	X-RAY DIFFRACTION	1.7	Crystal structure of bacteriorhodopsin mutant I148V crystallized from bicelles	CPS;RET	True	2009
+3HAS	X-RAY DIFFRACTION	1.9	Crystal structure of bacteriorhodopsin mutant L152A crystallized from bicelles	CPS;D10;D12;HP6;OCT;R16;RET	True	2009
+3MBV	X-RAY DIFFRACTION	2.0	Structure of bacterirhodopsin crystallized in betta-XylOC(16+4) meso phase	BXC;RET	True	2010
+3NS0	X-RAY DIFFRACTION	1.78	X-ray structure of bacteriorhodopsin	LI1;RET	True	2011
+3NSB	X-RAY DIFFRACTION	1.78	Structure of bacteriorhodopsin ground state before and after X-ray modification	LI1;RET	True	2011
+3QAP	X-RAY DIFFRACTION	1.9	Crystal structure of Natronomonas pharaonis sensory rhodopsin II in the ground state	BOG;L2P;LFA;RET	True	2011
+3QBG	X-RAY DIFFRACTION	1.8	Anion-free blue form of pharaonis halorhodopsin	22B;BNG;RET	True	2011
+3QBI	X-RAY DIFFRACTION	2.1	Crystal structure of an anion-free yellow form of pharaonis halorhodopsin	22B;BNG;RET	True	2011
+3QBK	X-RAY DIFFRACTION	2.2	Bromide-bound form of pharaonis halorhodopsin	22B;BR;RET	True	2011
+3QBL	X-RAY DIFFRACTION	2.2	Pharaonis halorhodopsin complexed with nitrate	22B;NO3;RET	True	2011
+3QDC	X-RAY DIFFRACTION	2.5	Crystal structure of Natronomonas pharaonis sensory rhodopsin II in the active state	BOG;L2P;LFA;RET	True	2011
+3T45	X-RAY DIFFRACTION	3.01	Crystal structure of bacteriorhodopsin mutant A215T, a phototaxis signaling mutant at 3.0 A resolution	LI1;RET	True	2011
+3UG9	X-RAY DIFFRACTION	2.3	Crystal Structure of the Closed State of Channelrhodopsin	OLA;RET	True	2012
+3UTV	X-RAY DIFFRACTION	2.06	Crystal structure of bacteriorhodopsin mutant Y57F	MC3;RET	True	2012
+3UTW	X-RAY DIFFRACTION	2.4	Crystal structure of bacteriorhodopsin mutant P50A/Y57F	BOG;MC3;RET	True	2012
+3UTX	X-RAY DIFFRACTION	2.47	Crystal structure of bacteriorhodopsin mutant T46A	D12;RET	True	2012
+3UTY	X-RAY DIFFRACTION	2.37	Crystal structure of bacteriorhodopsin mutant P50A/T46A	D12;RET	True	2012
+3VHZ	X-RAY DIFFRACTION	2.3	Crystal structure of the trans isomer of the L93A mutant of bacteriorhodopsin	L2P;RET;SOG	True	2012
+3VI0	X-RAY DIFFRACTION	2.3	Crystal structure of the O intermediate of the L93A mutant of bacteriorhodopsin	L2P;RET;SOG	True	2012
+3VVK	X-RAY DIFFRACTION	2.3	An M-like Reaction State of the azide-bound purple form of pharaonis halorhodopsin	22B;AZI;BNG;L3P;RET	True	2013
+3WQJ	X-RAY DIFFRACTION	1.8	Crystal structure of archaerhodopsin-2 at 1.8 angstrom resolution	22B;L2P;L3P;L4P;RET;SO4;SQL	True	2014
+3X3B	X-RAY DIFFRACTION	2.3	Crystal structure of the light-driven sodium pump KR2 in acidic state	OLA;PEG;RET	True	2015
+3X3C	X-RAY DIFFRACTION	2.3	Crystal structure of the light-driven sodium pump KR2 in neutral state	OLA;RET	True	2015
+4FBZ	X-RAY DIFFRACTION	2.7	Crystal structure of deltarhodopsin from Haloterrigena thermotolerans	22B;BNG;L2P;RET;SO4;SQL	True	2013
+4FPD	X-RAY DIFFRACTION	2.65	Deprotonation of D96 in bacteriorhodopsin opens the proton uptake pathway	CL;LI1;RET	True	2013
+4GYC	X-RAY DIFFRACTION	2.0501	"Structure of the SRII(D75N mutant)/HtrII Complex in I212121 space group (""U"" shape)"	LFA;RET	True	2013
+4HWL	X-RAY DIFFRACTION	2.0	Crystal Structure Analysis of the Bacteriorhodopsin in Facial Amphiphile-7 DMPC Bicelle	GOL;HEX;HP6;RET	True	2013
+4HYJ	X-RAY DIFFRACTION	2.3	Crystal structure of Exiguobacterium sibiricum rhodopsin	LFA;RET	True	2013
+4HYX	X-RAY DIFFRACTION	1.99	Crystal Structure Analysis of the Bacteriorhodopsin in Facial Amphiphile-4 DMPC Bicelle	C14;D10;GOL;HEX;OCT;RET	True	2013
+4JR8	X-RAY DIFFRACTION	2.3	Crystal structure of cruxrhodopsin-3 from Haloarcula vallismortis at 2.3 angstrom resolution	22B;RET	True	2014
+4KLY	X-RAY DIFFRACTION	2.7	Crystal structure of a blue-light absorbing proteorhodopsin mutant D97N from HOT75	RET	True	2013
+4KNF	X-RAY DIFFRACTION	2.6	Crystal structure of a blue-light absorbing proteorhodopsin double-mutant D97N/Q105L from HOT75	RET	True	2013
+4L35	X-RAY DIFFRACTION	2.1	Crystal structure of cruxrhodopsin-3 at pH5 from Haloarcula vallismortis at 2.1 angstrom resolution	22B;RET	True	2014
+4MD1	X-RAY DIFFRACTION	1.73	Orange species of bacteriorhodopsin from Halobacterium salinarum	L2P;RET;SQL	True	2014
+4MD2	X-RAY DIFFRACTION	1.73	Ground state of bacteriorhodopsin from Halobacterium salinarum	L2P;RET;SQL	True	2014
+4OV0	X-RAY DIFFRACTION	2.0	Structure of Bacteriorhdopsin Transferred from Amphipol A8-35 to a Lipidic Mesophase	RET	True	2014
+4PXK	X-RAY DIFFRACTION	2.5	Crystal structure of Haloarcula marismortui bacteriorhodopsin I D94N mutant	LFA;RET;SO4	True	2014
+4QI1	X-RAY DIFFRACTION	1.85	Crystal structure of H. walsbyi bacteriorhodopsin	GOL;MPG;RET	True	2015
+4QID	X-RAY DIFFRACTION	2.57	Crystal structure of Haloquadratum walsbyi bacteriorhodopsin	ACT;MPG;RET	True	2015
+4WAV	X-RAY DIFFRACTION	2.8	Crystal Structure of Haloquadratum walsbyi bacteriorhodopsin mutant D93N	MPG;RET	True	2015
+4X31	X-RAY DIFFRACTION	2.4	Room temperature structure of bacteriorhodopsin from lipidic cubic phase obtained with serial millisecond crystallography using synchrotron radiation	LI1;RET	True	2015
+4X32	X-RAY DIFFRACTION	1.9	Bacteriorhodopsin ground state structure collected in cryo conditions from crystals obtained in LCP with PEG as a precipitant.	LI1;RET	True	2015
+4XTL	X-RAY DIFFRACTION	1.45	Crystal structure of the light-driven sodium pump KR2 in the monomeric blue form, pH 4.3	GOL;LFA;NA	False	2015
+4XTN	X-RAY DIFFRACTION	2.2	Crystal structure of the light-driven sodium pump KR2 in the pentameric red form, pH 4.9	LFA;MPG;NA	False	2015
+4XTO	X-RAY DIFFRACTION	2.8	Crystal structure of the light-driven sodium pump KR2 in the pentameric red form, pH 5.6	LFA;NA	False	2015
+4XXJ	X-RAY DIFFRACTION	1.9	Crystal Structure of Escherichia coli-Expressed Halobacterium salinarum Bacteriorhodopsin in the Trimeric Form	LFA;MPG	False	2015
+4Y9H	X-RAY DIFFRACTION	1.43	The 1.43 angstrom crystal structure of bacteriorhodopsin crystallized from bicelles	D10;D12;DD9;HP6;PO4;R16;RET	True	2016
+4YZI	X-RAY DIFFRACTION	2.5	Crystal structure of blue-shifted channelrhodopsin mutant (T198G/G202A)	OLA;RET;ZN	True	2015
+5A44	X-RAY DIFFRACTION	2.29	Structure of Bacteriorhodopsin obtained from 20um crystals by multi crystal data collection	HP6;LI1;RET	True	2015
+5A45	X-RAY DIFFRACTION	2.57	Structure of Bacteriorhodopsin obtained from 5um crystals by multi crystal data collection	RET	True	2015
+5ABB	ELECTRON MICROSCOPY	8.0	Visualization of a polytopic membrane protein during SecY-mediated membrane insertion		False	2015
+5AHY	X-RAY DIFFRACTION	2.15	Halorhodopsin from Halobacterium salinarum in a new rhombohedral crystal form	BOG;CL;RET	True	2015
+5AHZ	X-RAY DIFFRACTION	2.45	Bromide-bound form of Halorhodopsin from Halobacterium salinarum in a new rhombohedral crystal form	BOG;BR;RET	True	2015
+5AWZ	X-RAY DIFFRACTION	1.57	Crystal Structure of the Cell-Free Synthesized Membrane Protein, Acetabularia Rhodopsin I, at 1.57 angstrom	C14;D10;D12;OCT;OLB;RET	True	2015
+5AX0	X-RAY DIFFRACTION	1.521	Crystal Structure of the Cell-Free Synthesized Membrane Protein, Acetabularia Rhodopsin I, at 1.52 angstrom	C14;D10;D12;OLB;R16;RET	True	2015
+5AX1	X-RAY DIFFRACTION	1.803	Crystal Structure of the Cell-Free Synthesized Membrane Protein, Acetabularia Rhodopsin I, at 1.80 angstrom	C14;D10;D12;OLB;R16;RET	True	2015
+5AZD	X-RAY DIFFRACTION	2.8	Crystal structure of thermophilic rhodopsin.		False	2016
+5B2N	X-RAY DIFFRACTION	1.581	Crystal structure of the light-driven chloride ion-pumping rhodopsin, ClP, from Nonlabens marinus	CL;D10;D12;HEX;OCT;RET	True	2016
+5B34	X-RAY DIFFRACTION	2.1	Serial Femtosecond Crystallography (SFX) of Ground State Bacteriorhodopsin Crystallized from Bicelles in Complex with Iodine-labeled Detergent HAD13a Determined Using 7-keV X-ray Free Electron Laser (XFEL) at SACLA	4QL;D10;D12;DD9;HP6;OCT;R16;RET	True	2016
+5B35	X-RAY DIFFRACTION	2.35	Serial Femtosecond Crystallography (SFX) of Ground State Bacteriorhodopsin Crystallized from Bicelles Determined Using 7-keV X-ray Free Electron Laser (XFEL) at SACLA	4QM;D10;D12;DD9;HP6;OCT;R16;RET	True	2016
+5B6V	X-RAY DIFFRACTION	2.0	A three dimensional movie of structural changes in bacteriorhodopsin: resting state structure	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2016
+5B6W	X-RAY DIFFRACTION	2.1	A three dimensional movie of structural changes in bacteriorhodopsin: structure obtained 16 ns after photoexcitation	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2016
+5B6X	X-RAY DIFFRACTION	2.1	A three dimensional movie of structural changes in bacteriorhodopsin: structure obtained 760 ns after photoexcitation	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2016
+5B6Y	X-RAY DIFFRACTION	2.1	A three dimensional movie of structural changes in bacteriorhodopsin: structure obtained 36.2 us after photoexcitation	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2016
+5B6Z	X-RAY DIFFRACTION	2.1	A three dimensional movie of structural changes in bacteriorhodopsin: structure obtained 1.725 ms us after photoexcitation	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2016
+5BR2	X-RAY DIFFRACTION	1.8	Structure of bacteriorhodopsin crystallized from ND-MSP1	RET	True	2016
+5BR5	X-RAY DIFFRACTION	2.0	Structure of bacteriorhodopsin crystallized from ND-MSP1E3D1	RET	True	2016
+5FJG	X-RAY DIFFRACTION	2.0	The crystal structure of light-driven chloride pump ClR in pH 4.5.	ANR;CL;OLA	False	2016
+5G28	X-RAY DIFFRACTION	1.57	The crystal structure of light-driven chloride pump ClR at pH 6.0.	CL;OLA;RET	True	2016
+5G2A	X-RAY DIFFRACTION	2.17	The crystal structure of light-driven chloride pump ClR at pH 6.0 with Bromide ion.	BR;RET	True	2016
+5G2C	X-RAY DIFFRACTION	2.31	The crystal structure of light-driven chloride pump ClR (T102D) mutant at pH 4.5.	CL;OLA;PEG;RET	True	2016
+5G2D	X-RAY DIFFRACTION	1.8	The crystal structure of light-driven chloride pump ClR (T102N) mutant at pH 4.5.	CL;OLA;PEG;RET	True	2016
+5G36	X-RAY DIFFRACTION	2.6	Yellow form of Halorhodopsin from Halobacterium salinarum in a new rhombohedral crystal form	BOG;CL;RET	True	2016
+5G54	X-RAY DIFFRACTION	2.0	The crystal structure of light-driven chloride pump ClR at pH 4.5	CL;OLA;RET	True	2016
+5H2H	X-RAY DIFFRACTION	2.1	A three dimensional movie of structural changes in bacteriorhodopsin: structure obtained 40 ns after photoexcitation	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2016
+5H2I	X-RAY DIFFRACTION	2.1	A three dimensional movie of structural changes in bacteriorhodopsin: structure obtained 110 ns after photoexcitation	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2016
+5H2J	X-RAY DIFFRACTION	2.1	A three dimensional movie of structural changes in bacteriorhodopsin: structure obtained 290 ns after photoexcitation	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2016
+5H2K	X-RAY DIFFRACTION	2.1	A three dimensional movie of structural changes in bacteriorhodopsin: structure obtained 2 us after photoexcitation	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2016
+5H2L	X-RAY DIFFRACTION	2.1	A three dimensional movie of structural changes in bacteriorhodopsin: structure obtained 5.25 us after photoexcitation	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2016
+5H2M	X-RAY DIFFRACTION	2.1	A three dimensional movie of structural changes in bacteriorhodopsin: structure obtained 13.8 us after photoexcitation	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2016
+5H2N	X-RAY DIFFRACTION	2.1	A three dimensional movie of structural changes in bacteriorhodopsin: structure obtained 95.2 us after photoexcitation	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2016
+5H2O	X-RAY DIFFRACTION	2.1	A three dimensional movie of structural changes in bacteriorhodopsin: structure obtained 250 us after photoexcitation	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2016
+5H2P	X-RAY DIFFRACTION	2.1	A three dimensional movie of structural changes in bacteriorhodopsin: structure obtained 657 us after photoexcitation	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2016
+5ITC	X-RAY DIFFRACTION	1.999	2.2-Angstrom in meso crystal structure of Haloquadratum Walsbyi Bacteriorhodopsin (HwBR) from Styrene Maleic Acid (SMA) Polymer Nanodiscs	OLB;OLC;RET	True	2017
+5ITE	X-RAY DIFFRACTION	2.182	2.2-Angstrom in meso crystal structure of Haloquadratum Walsbyi Bacteriorhodopsin (HwBR) from Octylglucoside (OG) Detergent Micelles	OLB;OLC;RET	True	2017
+5J7A	X-RAY DIFFRACTION	2.3	Bacteriorhodopsin ground state structure obtained with Serial Femtosecond Crystallography	LI1;RET	True	2016
+5JJE	X-RAY DIFFRACTION	1.9	"Structure of the SRII/HtrII Complex in I212121 space group (""U"" shape)"	BOG;LFA;RET	True	2017
+5JJF	X-RAY DIFFRACTION	1.9	"Structure of the SRII/HtrII Complex in I212121 space group (""U"" shape) - M state"	BOG;LFA;RET	True	2017
+5JJJ	X-RAY DIFFRACTION	2.5	"Structure of the SRII/HtrII Complex in P64 space group (""U"" shape)"	LFA;RET	True	2017
+5JJN	X-RAY DIFFRACTION	2.25	"Structure of the SRII/HtrII(G83F) Complex in P212121 space group (""V"" shape)"	BOG;LFA;RET	True	2017
+5JRF	X-RAY DIFFRACTION	2.5	Crystal structure of the light-driven sodium pump KR2 bound with iodide ions	IOD;LFA	False	2017
+5JSI	X-RAY DIFFRACTION	2.0	Structure of membrane protein	IOD;LFA;OLC;RET	True	2017
+5KKH	X-RAY DIFFRACTION	2.125	2.1-Angstrom In situ Mylar structure of bacteriorhodopsin from Haloquadratum walsbyi (HwBR) at 100 K	OLB;OLC;RET	True	2017
+5VN7	X-RAY DIFFRACTION	2.7	Structure of bacteriorhodopsin from crystals grown at 20 deg Celcius using GlyNCOC15+4 as an LCP host lipid		False	2017
+5VN9	X-RAY DIFFRACTION	2.594	Structure of bacteriorhodopsin from crystals grown at 4 deg C using GlyNCOC15+4 as an LCP host lipid		False	2017
+5VYD	X-RAY DIFFRACTION	2.3	Crystal structure of phosphodiesterase domain of RhoPDE fusion protein from the Choanoflagellate Salpingoeca rosetta	MG;ZN	False	2017
+5ZIH	X-RAY DIFFRACTION	2.6	Crystal structure of the red light-activated channelrhodopsin Chrimson.	OLC	False	2018
+5ZIL	X-RAY DIFFRACTION	1.29	Crystal structure of bacteriorhodopsin at 1.29 A resolution	L2P;RET	True	2018
+5ZIM	X-RAY DIFFRACTION	1.25	Crystal structure of bacteriorhodopsin at 1.25 A resolution	L2P;RET	True	2018
+5ZIN	X-RAY DIFFRACTION	1.27	Crystal structure of bacteriorhodopsin at 1.27 A resolution	L2P;RET	True	2018
+5ZTK	X-RAY DIFFRACTION	1.75	Synchrotron structure of light-driven chloride pump having an NTQ motif	CL;OLA;RET	True	2018
+5ZTL	X-RAY DIFFRACTION	1.85	Non-cryogenic structure of light-driven chloride pump having an NTQ motif	CL;OLA;RET	True	2018
+6AB9	X-RAY DIFFRACTION	1.75	The crystal structure of the relaxed state of Nonlabens marinus Rhodopsin 3	CL;OLA;RET	True	2019
+6ABA	X-RAY DIFFRACTION	1.797	The crystal structure of the photoactivated state of Nonlabens marinus Rhodopsin 3	CL;OLA;RET	True	2019
+6AO9	X-RAY DIFFRACTION	1.13	Crystal structure of monomeric guanylyl cyclase domain of RhoGC fusion protein from the aquatic fungus Blastocladiella emersonii		False	2017
+6AOA	X-RAY DIFFRACTION	1.4	Monomeric crystal structure of the E497/C566D double mutant of the guanylyl cyclase domain of the RhoGC fusion protein from the aquatic fungus Blastocladiella emersonii		False	2017
+6AOB	X-RAY DIFFRACTION	1.7	Crystal structure of non-canonical dimeric guanylyl cyclase domain of RhoGC fusion protein from the aquatic fungus Blastocladiella emersonii	MN;TLA	False	2017
+6CSM	X-RAY DIFFRACTION	2.9	Crystal structure of the natural light-gated anion channel GtACR1	OLA;RET	True	2018
+6EDQ	X-RAY DIFFRACTION	2.9	Crystal Structure of the Light-Gated Anion Channelrhodopsin GtACR1	GOL;OLC	False	2019
+6EID	X-RAY DIFFRACTION	2.39	Crystal structure of wild-type Channelrhodopsin 2	EDT;OLC;PO4	False	2017
+6EIG	X-RAY DIFFRACTION	2.7	Crystal structure of N24Q/C128T mutant of Channelrhodopsin 2	LFA;OLC;PO4	False	2017
+6G7H	X-RAY DIFFRACTION	1.5	Retinal isomerization in bacteriorhodopsin revealed by a femtosecond X-ray laser: resting state structure	LI1;OLC;RET	True	2018
+6G7I	X-RAY DIFFRACTION	1.9	Retinal isomerization in bacteriorhodopsin revealed by a femtosecond X-ray laser: 49-406 fs state structure	LI1;OLC;RET	True	2018
+6G7J	X-RAY DIFFRACTION	1.9	Retinal isomerization in bacteriorhodopsin revealed by a femtosecond X-ray laser: 457-646 fs state structure	LI1;OLC;RET	True	2018
+6G7K	X-RAY DIFFRACTION	1.9	Retinal isomerization in bacteriorhodopsin revealed by a femtosecond X-ray laser: 10 ps state structure	LI1;OLC;RET	True	2018
+6G7L	X-RAY DIFFRACTION	1.9	Retinal isomerization in bacteriorhodopsin revealed by a femtosecond X-ray laser: 8.3 ms state structure	LI1;OLC;RET	True	2018
+6GA1	X-RAY DIFFRACTION	1.7	Bacteriorhodopsin, dark state, cell 1	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GA2	X-RAY DIFFRACTION	1.8	Bacteriorhodopsin, dark state, cell 2	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GA3	X-RAY DIFFRACTION	2.1	Bacteriorhodopsin, 33 ms state, ensemble refinement	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GA4	X-RAY DIFFRACTION	1.8	Bacteriorhodopsin, 1 ps state, real-space refined against 15% extrapolated map	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GA5	X-RAY DIFFRACTION	1.9	Bacteriorhodopsin, 3 ps state, REAL-SPACE REFINEMED AGAINST 10% EXTRAPOLATED MAP	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GA6	X-RAY DIFFRACTION	1.8	Bacteriorhodopsin, 10 ps state, real-space refined against 10% extrapolated map	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GA7	X-RAY DIFFRACTION	1.8	BACTERIORHODOPSIN, 240FS STATE, REAL-SPACE REFINED AGAINST 10% EXTRAPOLATED MAP	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GA8	X-RAY DIFFRACTION	1.8	BACTERIORHODOPSIN, 330 FS STATE, REAL-SPACE REFINED AGAINST 15% EXTRAPOLATED STRUCTURE FACTORS	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GA9	X-RAY DIFFRACTION	1.8	BACTERIORHODOPSIN, 390 FS STATE, REAL-SPACE REFINED AGAINST 15% EXTRAPOLATED STRUCTURE FACTORS	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GAA	X-RAY DIFFRACTION	1.8	BACTERIORHODOPSIN, 430 FS STATE, REAL-SPACE REFINED AGAINST 15% EXTRAPOLATED STRUCTURE FACTORS	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GAB	X-RAY DIFFRACTION	1.8	BACTERIORHODOPSIN, 460 FS STATE, REAL-SPACE REFINED AGAINST 15% EXTRAPOLATED STRUCTURE FACTORS	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GAC	X-RAY DIFFRACTION	1.8	BACTERIORHODOPSIN, 490 FS STATE, REAL-SPACE REFINED AGAINST 15% EXTRAPOLATED STRUCTURE FACTORS	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GAD	X-RAY DIFFRACTION	1.8	BACTERIORHODOPSIN, 530 FS STATE, REAL-SPACE REFINED AGAINST 15% EXTRAPOLATED STRUCTURE FACTORS	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GAE	X-RAY DIFFRACTION	1.8	BACTERIORHODOPSIN, 560 FS STATE, REAL-SPACE REFINED AGAINST 15% EXTRAPOLATED STRUCTURE FACTORS	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GAF	X-RAY DIFFRACTION	1.8	BACTERIORHODOPSIN, 590 FS STATE, REAL-SPACE REFINED AGAINST 15% EXTRAPOLATED STRUCTURE FACTORS	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GAG	X-RAY DIFFRACTION	1.8	BACTERIORHODOPSIN, 630 FS STATE, REAL-SPACE REFINED AGAINST 15% EXTRAPOLATED STRUCTURE FACTORS	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GAH	X-RAY DIFFRACTION	1.8	BACTERIORHODOPSIN, 680 FS STATE, REAL-SPACE REFINED AGAINST 15% EXTRAPOLATED STRUCTURE FACTORS	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GAI	X-RAY DIFFRACTION	1.8	BACTERIORHODOPSIN, 740 FS STATE, REAL-SPACE REFINED AGAINST 15% EXTRAPOLATED STRUCTURE FACTORS	C14;D10;DD9;HP6;L2P;MYS;OCT;RET;TRD;UND	True	2019
+6GUX	X-RAY DIFFRACTION	1.3	Dark-adapted structure of Archaerhodopsin-3 at 100K	CA;CL;D12;DD9;NA;R16;RET	True	2019
+6GUY	X-RAY DIFFRACTION	2.2	Room temperature structure of Archaerhodopsin-3 via LCP extruder using synchrotron radiation	CA;CL;DD9;NA;R16;RET	True	2019
+6GUZ	X-RAY DIFFRACTION	1.9	Ground state structure of Archaerhodopsin-3 obtained from LCP crystals using a thin-film sandwich at room temperature	CA;CL;D10;DD9;NA;R16;RET	True	2019
+6GYH	X-RAY DIFFRACTION	2.0	Crystal structure of the light-driven proton pump Coccomyxa subellipsoidea Rhodopsin CsR	CLR;OLB;RET	True	2019
+6JY6	X-RAY DIFFRACTION	1.8	Structure of dark-state marine bacterial chloride importer, NM-R3, with Pulse laser (ND-1%) at 95K.	CL;OLA;RET	True	2020
+6JY7	X-RAY DIFFRACTION	1.8	Structure of light-state marine bacterial chloride importer, NM-R3, with Pulse laser (ND-1%) at 95K.	CL;OLA;RET	True	2020
+6JY8	X-RAY DIFFRACTION	1.9	Structure of dark-state marine bacterial chloride importer, NM-R3, with CW laser (ND-3%) at 95K.	CL;OLA;RET	True	2020
+6JY9	X-RAY DIFFRACTION	1.9	Structure of light-state marine bacterial chloride importer, NM-R3, with CW laser (ND-3%) at 95K.	CL;OLA;RET	True	2020
+6JYA	X-RAY DIFFRACTION	1.803	Structure of dark-state marine bacterial chloride importer, NM-R3, with CW laser (ND-10%) at 95K.	CL;OLA;RET	True	2020
+6JYB	X-RAY DIFFRACTION	1.802	Structure of light-state marine bacterial chloride importer, NM-R3, with CW laser (ND-10%) at 95K.	CL;OLA;RET	True	2020
+6JYC	X-RAY DIFFRACTION	1.892	Structure of dark-state marine bacterial chloride importer, NM-R3, with CW laser (ND-30%) at 95K.	CL;OLA;RET	True	2020
+6JYD	X-RAY DIFFRACTION	2.007	Structure of light-state marine bacterial chloride importer, NM-R3, with CW laser (ND-30%) at 95K.	CL;OLA;RET	True	2020
+6JYE	X-RAY DIFFRACTION	1.9	Structure of dark-state marine bacterial chloride importer, NM-R3, with Pulse laser (ND-1%) at 140K.	CL;OLA;RET	True	2020
+6JYF	X-RAY DIFFRACTION	2.004	Structure of light-state marine bacterial chloride importer, NM-R3, with Pulse laser (ND-1%) at 140K.	CL;OLA;RET	True	2020
+6K6I	X-RAY DIFFRACTION	1.9	The crystal structure of light-driven cyanobacterial chloride importer from Mastigocladopsis repens	CL;OLA;RET	True	2020
+6K6J	X-RAY DIFFRACTION	2.5	The crystal structure of light-driven cyanobacterial chloride importer from Mastigocladopsis repens with Bromide ion	BR;OLA;RET	True	2020
+6K6K	X-RAY DIFFRACTION	2.197	The crystal structure of light-driven cyanobacterial chloride importer (N63A/P118A) Mastigocladopsis repens	CL;OLA;RET	True	2020
+6KFQ	X-RAY DIFFRACTION	1.84	Crystal structure of thermophilic rhodopsin from Rubrobacter xylanophilus	MPG;RET;SO4	True	2020
+6NWD	X-RAY DIFFRACTION	2.0	X-ray Crystallographic structure of Gloeobacter rhodopsin	D10;D12;PX4;RET	True	2019
+6REX	X-RAY DIFFRACTION	2.7	Crystal structure of the light-driven sodium pump KR2 in the pentameric form, pH 6.0	BOG;LFA;NA;OLC;RET	True	2019
+6REZ	X-RAY DIFFRACTION	2.6	Crystal structure of the light-driven sodium pump KR2 in the pentameric form, pH 5.0	LFA;NA;OLC;RET	True	2019
+6RF0	X-RAY DIFFRACTION	3.0	"Crystal structure of the light-driven sodium pump KR2 in the pentameric ""dry"" form"	LFA;NA;OLC;RET	True	2019
+6RF1	X-RAY DIFFRACTION	2.8	"Crystal structure of the light-driven sodium pump KR2 in the pentameric ""wet"" form"	BOG;LFA;NA;OLC;RET	True	2019
+6RF3	X-RAY DIFFRACTION	2.4	Crystal structure of the potassium-pumping G263F mutant of the light-driven sodium pump KR2 in the pentameric form, pH 8.0	BOG;LFA;NA;OLC	False	2019
+6RF4	X-RAY DIFFRACTION	2.4	Crystal structure of the potassium-pumping S254A mutant of the light-driven sodium pump KR2 in the pentameric form, pH 8.0	BOG;LFA;NA;OLC;RET	True	2019
+6RF5	X-RAY DIFFRACTION	2.3	Crystal structure of the light-driven sodium pump KR2 in the monomeric form, pH 6.0	GOL;LFA;NA;RET	True	2019
+6RF6	X-RAY DIFFRACTION	1.8	Crystal structure of the light-driven sodium pump KR2 in the monomeric form, pH 8.0	LFA;NA;RET	True	2019
+6RF7	X-RAY DIFFRACTION	2.6	Crystal structure of the light-driven sodium pump KR2 in the monomeric form, pH 8.9	LFA;RET	True	2019
+6RF9	X-RAY DIFFRACTION	1.8	Crystal structure of the Y154F mutant of the light-driven sodium pump KR2 in the monomeric form, pH 8.0	GOL;LFA;NA;RET	True	2019
+6RFA	X-RAY DIFFRACTION	2.2	Crystal structure of the H30K mutant of the light-driven sodium pump KR2 in the monomeric form, pH 8.0	GOL;LFA;NA;RET	True	2019
+6RFB	X-RAY DIFFRACTION	2.1	Crystal structure of the potassium-pumping S254A mutant of the light-driven sodium pump KR2 in the monomeric form, pH 4.3	GOL;LFA;NA;RET	True	2019
+6RFC	X-RAY DIFFRACTION	2.0	Crystal structure of the potassium-pumping G263F mutant of the light-driven sodium pump KR2 in the monomeric form, pH 4.3	GOL;LFA;NA;OLC;RET	True	2019
+6RMK	X-RAY DIFFRACTION	1.8	Bacteriorhodopsin, dark state, cell 2, refined using the same protocol as sub-ps time delays	RET	True	2019
+6RNJ	X-RAY DIFFRACTION	2.6	TR-SMX closed state structure (0-5ms) of bacteriorhodopsin	RET	True	2019
+6RPH	X-RAY DIFFRACTION	2.6	TR-SMX open state structure (10-15ms) of bacteriorhodopsin	RET	True	2019
+6RQO	X-RAY DIFFRACTION	2.0	Steady-state-SMX activated state structure of bacteriorhodopsin	RET	True	2019
+6RQP	X-RAY DIFFRACTION	1.8	Steady-state-SMX dark state structure of bacteriorhodopsin	LI1;OLC;RET	True	2019
+6S63	X-RAY DIFFRACTION	1.85	Dark-adapted structure of Archaerhodopsin-3 obtained from LCP crystals using a thin-film sandwich at room temperature	CA;CL;DD9;NA;R16;RET	True	2020
+6S6C	X-RAY DIFFRACTION	1.07	Ground state structure of Archaerhodopsin-3 at 100K	CA;CL;D12;DD9;NA;R16;RET	True	2020
+6SU3	X-RAY DIFFRACTION	1.5	Crystal structure of the 48C12 heliorhodopsin in the violet form at pH 8.8	GOL;LFA;OLA;OLC;RET;SO4	True	2019
+6SU4	X-RAY DIFFRACTION	1.5	Crystal structure of the 48C12 heliorhodopsin in the blue form at pH 4.3	ACT;GOL;LFA;OLA;OLC;RET;SO4	True	2019
+6TK1	X-RAY DIFFRACTION	2.5	Femtosecond to millisecond structural changes in a light-driven sodium pump: 20ms structure of KR2 with extrapolated, light and dark datasets	LFA;NA;RET	True	2020
+6TK2	X-RAY DIFFRACTION	2.5	Femtosecond to millisecond structural changes in a light-driven sodium pump: 1ms structure of KR2 with extrapolated, light and dark datasets	LFA;NA;RET	True	2020
+6TK3	X-RAY DIFFRACTION	2.25	Femtosecond to millisecond structural changes in a light-driven sodium pump: 30us+150us structure of KR2 with extrapolated, light and dark datasets	LFA;RET	True	2020
+6TK4	X-RAY DIFFRACTION	2.25	Femtosecond to millisecond structural changes in a light-driven sodium pump: 1ns+16ns structure of KR2 with extrapolated, light and dark datasets	LFA;RET	True	2020
+6TK5	X-RAY DIFFRACTION	2.25	Femtosecond to millisecond structural changes in a light-driven sodium pump: 800fs+2ps structure of KR2 with extrapolated, light and dark datasets	LFA;RET	True	2020
+6TK6	X-RAY DIFFRACTION	1.6	Femtosecond to millisecond structural changes in a light-driven sodium pump: Dark structure in neutral conditions with attached light datasets at 800fs, 2ps, 100ps, 1ns, 16ns, 1us, 30us, 150us, 1ms and 20ms	LFA;RET	True	2020
+6TK7	X-RAY DIFFRACTION	1.6	Femtosecond to millisecond structural changes in a light-driven sodium pump: Dark structure in acidic conditions	LFA;RET	True	2020
+6UH3	X-RAY DIFFRACTION	2.7	Crystal structure of bacterial heliorhodopsin 48C12	PEG;PGE;PLM;RET	True	2019
+6WP8	X-RAY DIFFRACTION	2.5	Proton-pumping mutant of Mastigocladopsis repens rhodopsin chloride pump	BOG;RET	True	2020
+6XL3	X-RAY DIFFRACTION	2.33	Mastigocladopsis repens rhodopsin chloride pump	BOG;C14;CL;D10;RET	True	2020
+6XYT	X-RAY DIFFRACTION	2.1	Crystal structure of the O-state of the light-driven sodium pump KR2 in the pentameric form, pH 8.0	BOG;GOL;LFA;NA;OLA;OLC	False	2020
+6YBY	X-RAY DIFFRACTION	1.8	Crystal structure of the D116N mutant of the light-driven sodium pump KR2 in the monomeric form, pH 4.6	LFA;NA;RET	True	2020
+6YBZ	X-RAY DIFFRACTION	2.35	Crystal structure of the D116N mutant of the light-driven sodium pump KR2 in the pentameric form, pH 8.0	BOG;LFA;NA;OLC;RET	True	2020
+6YC0	X-RAY DIFFRACTION	2.7	Crystal structure of the steady-state-SMX activated state of the light-driven sodium pump KR2 in the pentameric form at room temperature, pH 8.0	GOL;LFA;NA;OLA;OLC;RET	True	2020
+6YC1	X-RAY DIFFRACTION	2.2	Crystal structure of the H30A mutant of the light-driven sodium pump KR2 in the pentameric form, pH 8.0	BOG;LFA;NA;OLC;RET	True	2020
+6YC2	X-RAY DIFFRACTION	2.5	Crystal structure of the light-driven sodium pump KR2 in the pentameric form at room temperature, pH 8.0	ALA;LFA;NA;OLA;OLC	False	2020
+6YC3	X-RAY DIFFRACTION	2.0	Crystal structure of the light-driven sodium pump KR2 in the pentameric form, pH 8.0	BOG;LFA;NA;OLC;RET	True	2020
+6YC4	X-RAY DIFFRACTION	2.6	Crystal structure of the steady-state activated state of the light-driven sodium pump KR2 in the pentameric form at room temperature, pH 8.0	GOL;LFA;NA;OLA;OLC;RET	True	2020
+6YT4	X-RAY DIFFRACTION	2.4	Crystal structure of the N112A mutant of the light-driven sodium pump KR2 in the pentameric form, pH 8.0	BOG;LFA;NA;OLA;OLC;RET	True	2020
+7AVN	X-RAY DIFFRACTION	1.6	Crystal structure of marine actinobacteria clade rhodopsin (MAR) in the M-like state	LFA;OLB;OLC;RET	True	2022
+7AVO	X-RAY DIFFRACTION	1.7	Structure of marine actinobacteria clade rhodopsin (MacR) in orange form in P1211 space group	LFA;OLB;OLC	False	2022
+7AVP	X-RAY DIFFRACTION	1.09	Crystal structure of marine actinobacteria clade rhodopsin (MAR) in the O state	LFA;RET	True	2022
+7B03	ELECTRON MICROSCOPY	2.93	Cryo-EM structure of the green-light absorbing proteorhodopsin	RET	True	2021
+7BMH	X-RAY DIFFRACTION	2.2	Crystal structure of a light-driven proton pump LR (Mac) from Leptosphaeria maculans	LFA;OLA	False	2021
+7C86	X-RAY DIFFRACTION	2.3	Time-resolved serial femtosecond crystallography reveals early structural changes in channelrhodopsin: Dark state structure	OLC;RET	True	2021
+7CJ3	X-RAY DIFFRACTION	2.6	Crystal structure of the transmembrane domain of Salpingoeca rosetta rhodopsin phosphodiesterase	OLC;RET	True	2020
+7CRI	X-RAY DIFFRACTION	1.85	1 ps Structure of Chloride ion pumping rhodopsin (ClR) with NTQ motif	CL;OLA;RET	True	2020
+7CRJ	X-RAY DIFFRACTION	1.65	Dark State Structure of Chloride ion pumping rhodopsin (ClR) with NTQ motif	CL;OLA;RET	True	2020
+7CRK	X-RAY DIFFRACTION	1.85	2ps Structure of Chloride ion pumping rhodopsin (ClR) with NTQ motif	CL;OLA;RET	True	2021
+7CRL	X-RAY DIFFRACTION	1.85	Structure of Chloride ion pumping rhodopsin (ClR) with NTQ motif 50 ps after light activation	CL;OLA;RET	True	2021
+7CRS	X-RAY DIFFRACTION	1.85	Structure of Chloride ion pumping rhodopsin (ClR) with NTQ motif 100 ps after light activation (0.90mJ/mm2)	CL;OLA;RET	True	2021
+7CRT	X-RAY DIFFRACTION	1.85	Structure of Chloride ion pumping rhodopsin (ClR) with NTQ motif 100 ps after light activation (0.17mJ/mm2)	CL;OLA;RET	True	2021
+7CRX	X-RAY DIFFRACTION	1.85	Structure of Chloride ion pumping rhodopsin (ClR) with NTQ motif 100 ps after light activation (2.63mJ/mm2)	CL;OLA;RET	True	2021
+7CRY	X-RAY DIFFRACTION	1.85	Structure of Chloride ion pumping rhodopsin (ClR) with NTQ motif 100 ps after light activation (6.49 mJ/mm2)	CL;OLA;RET	True	2021
+7D7P	X-RAY DIFFRACTION	2.1	Crystal structure of the phosphodiesterase domain of Salpingoeca rosetta rhodopsin phosphodiesterase	2PE;EDO;MG;PEG;ZN	False	2020
+7D7Q	X-RAY DIFFRACTION	3.5	Crystal structure of the transmembrane domain and linker region of Salpingoeca rosetta rhodopsin phosphodiesterase	OLC;RET	True	2020
+7DOH	X-RAY DIFFRACTION	1.45	Crystal Structure of GD-26 Fab in Complex with TD Peptide from Haloarcula Marismortui Bacteriorhodopsin I		False	2021
+7E6X	X-RAY DIFFRACTION	2.5	Time-resolved serial femtosecond crystallography reveals early structural changes in channelrhodopsin: 4 ms structure	OLC;RET	True	2021
+7E6Y	X-RAY DIFFRACTION	2.5	Time-resolved serial femtosecond crystallography reveals early structural changes in channelrhodopsin: 1 microsecond structure	OLC;RET	True	2021
+7E6Z	X-RAY DIFFRACTION	2.5	Time-resolved serial femtosecond crystallography reveals early structural changes in channelrhodopsin: 50 microsecond structure	OLC;RET	True	2021
+7E70	X-RAY DIFFRACTION	2.5	Time-resolved serial femtosecond crystallography reveals early structural changes in channelrhodopsin: 250 microsecond structure	OLC;RET	True	2021
+7E71	X-RAY DIFFRACTION	2.5	Time-resolved serial femtosecond crystallography reveals early structural changes in channelrhodopsin: 1 ms structure	OLC;RET	True	2021
+7L1E	X-RAY DIFFRACTION	3.2	The Crystal Structure of Bromide-Bound GtACR1	BR;GOL;OLC	False	2021
+7O8F	X-RAY DIFFRACTION	1.45	NmHR dark state structure determined by serial femtosecond crystallography	CL;OLA;OLC;RET	True	2022
+7O8G	X-RAY DIFFRACTION	1.9	NmHR light state structure at 10 ps after photoexcitation determined by serial femtosecond crystallography (with extrapolated, dark and light dataset)	CL;OLA;OLC;RET	True	2022
+7O8H	X-RAY DIFFRACTION	1.8	NmHR light state structure at 10 ns after photoexcitation determined by serial femtosecond crystallography (with extrapolated, dark and light dataset)	CL;OLA;OLC;RET	True	2022
+7O8I	X-RAY DIFFRACTION	1.8	NmHR light state structure at 1 us after photoexcitation determined by serial femtosecond crystallography (with extrapolated, dark and light dataset)	CL;OLA;OLC;RET	True	2022
+7O8J	X-RAY DIFFRACTION	1.8	NmHR light state structure at 20 us after photoexcitation determined by serial femtosecond crystallography (with extrapolated, dark and light dataset)	CL;OLA;OLC;RET	True	2022
+7O8K	X-RAY DIFFRACTION	1.9	NmHR light state structure at 300 us after photoexcitation determined by serial femtosecond crystallography (with extrapolated, dark and light dataset)	OLA;OLC;RET	True	2022
+7O8L	X-RAY DIFFRACTION	1.8	NmHR dark state structure determined by serial millisecond crystallography	CL;OLA;OLC;RET	True	2022
+7O8M	X-RAY DIFFRACTION	2.2	NmHR light state structure at 2.5 ms (0 - 5 ms) after photoexcitation determined by serial millisecond crystallography	OLA;OLC;RET	True	2022
+7O8N	X-RAY DIFFRACTION	2.1	NmHR light state structure at 7.5 ms (5 - 10 ms) after photoexcitation determined by serial millisecond crystallography	OLA;OLC;RET	True	2022
+7O8O	X-RAY DIFFRACTION	2.2	NmHR light state structure at 12.5 ms (10 - 15 ms) after photoexcitation determined by serial millisecond crystallography	OLA;OLC;RET	True	2022
+7O8P	X-RAY DIFFRACTION	2.4	NmHR light state structure at 17.5 ms (15 - 20 ms) after photoexcitation determined by serial millisecond crystallography	OLA;OLC;RET	True	2022
+7O8Q	X-RAY DIFFRACTION	2.6	NmHR light state structure at 22.5 ms (20 - 25 ms) after photoexcitation determined by serial millisecond crystallography	CL;OLA;OLC;RET	True	2022
+7O8R	X-RAY DIFFRACTION	2.7	NmHR light state structure at 27.5 ms (25 - 30 ms) after photoexcitation determined by serial millisecond crystallography	CL;OLA;OLC;RET	True	2022
+7O8S	X-RAY DIFFRACTION	2.5	NmHR light state structure at 32.5 ms (30 - 35 ms) after photoexcitation determined by serial millisecond crystallography	CL;OLA;OLC;RET	True	2022
+7O8T	X-RAY DIFFRACTION	2.5	NmHR light state structure at 37.5 ms (35 - 40 ms) after photoexcitation determined by serial millisecond crystallography	CL;OLA;OLC;RET	True	2022
+7O8U	X-RAY DIFFRACTION	2.5	NmHR light state structure at 45 ms (40 - 50 ms) after photoexcitation determined by serial millisecond crystallography	CL;OLA;OLC;RET	True	2022
+7O8V	X-RAY DIFFRACTION	2.5	NmHR light state structure at 55 ms (50 - 60 ms) after photoexcitation determined by serial millisecond crystallography	CL;OLA;OLC;RET	True	2022
+7O8Y	X-RAY DIFFRACTION	1.75	Anomalous bromide substructure of NmHR under dark state conditions determined at 13.7 keV with serial crystallography	BR;OLA;OLC;RET	True	2022
+7O8Z	X-RAY DIFFRACTION	1.8	Anomalous bromide substructure of NmHR under continuous illumination determined at 13.7 keV with serial crystallography	BR;OLA;OLC;RET	True	2022
+7Q35	X-RAY DIFFRACTION	2.0	Crystal structure of the mutant bacteriorhodopsin pressurized with krypton	HEX;KR;LFA;OLA;RET;SO4	True	2022
+7Q36	X-RAY DIFFRACTION	2.6	Crystal structure of KR2 sodium pump rhodopsin pressurized with krypton	HEX;KR;LFA;NA;RET	True	2022
+7Q37	X-RAY DIFFRACTION	2.25	Crystal structure of proton pump MAR rhodopsin pressurized with krypton	HEX;KR;LFA;RET	True	2022
+7Q38	X-RAY DIFFRACTION	1.65	Crystal structure of the mutant bacteriorhodopsin pressurized with argon	AR;HEX;LFA;OLA;OLC;RET;SO4	True	2022
+7VGT	X-RAY DIFFRACTION	2.1	Time-resolved serial femtosecond crystallography structure of light-driven chloride ion-pumping rhodopsin, NM-R3: resting state structure with bromide ion	BR;D10;HEX;RET	True	2022
+7VGU	X-RAY DIFFRACTION	2.1	Time-resolved serial femtosecond crystallography structure of light-driven chloride ion-pumping rhodopsin, NM-R3 : structure obtained 1 msec after photoexcitation with bromide ion	BR;D10;HEX;RET	True	2022
+7VGV	X-RAY DIFFRACTION	2.3	Anion free form of light-driven chloride ion-pumping rhodopsin, NM-R3, structure determined by serial femtosecond crystallography at SACLA	C14;CL;DD9;HEX;OCT;R16;RET	True	2022
+7VSO	X-RAY DIFFRACTION	2.35	Serial Femtosecond Crystallography (SFX) of Ground State Bacteriorhodopsin Crystallized from Bicelles in Complex with HAD16 Determined Using 7-keV X-ray Free Electron Laser (XFEL) at SACLA	7YH;CPS;D10;D12;DD9;HP6;IOD;OCT;R16;RET	True	2022
+7W74	X-RAY DIFFRACTION	2.84	Crystal structure of DTG rhodopsin from Pseudomonas putida	OLB;OLC;RET	True	2022
+7XJC	X-RAY DIFFRACTION	1.33	Crystal structure of bacteriorhodopsin in the ground and K states after green laser irradiation	L2P;RET;SQU	True	2023
+7XJD	X-RAY DIFFRACTION	1.33	Crystal structure of bacteriorhodopsin in the ground state by red laser irradiation	L2P;RET;SQU	True	2023
+7XJE	X-RAY DIFFRACTION	1.33	Crystal structure of bacteriorhodopsin in the K state refined against the extrapolated dataset	L2P;RET	True	2023
+7YTB	X-RAY DIFFRACTION	3.0	Crystal structure of Kin4B8	OLC;RET	True	2023
+7Z09	X-RAY DIFFRACTION	1.05	Crystal structure of the ground state of bacteriorhodopsin at 1.05 Angstrom resolution	LFA;OLA;OLC	False	2022
+7Z0A	X-RAY DIFFRACTION	1.22	Crystal structure of the ground state of bacteriorhodopsin at 1.22 Angstrom resolution	LFA;OLA;OLC	False	2022
+7Z0C	X-RAY DIFFRACTION	1.53	Crystal structure of the K state of bacteriorhodopsin at 1.53 Angstrom resolution	LFA;OLA;OLC	False	2022
+7Z0D	X-RAY DIFFRACTION	1.2	Crystal structure of the L state of bacteriorhodopsin at 1.20 Angstrom resolution	LFA;OLA;OLC	False	2022
+7Z0E	X-RAY DIFFRACTION	1.22	Crystal structure of the M state of bacteriorhodopsin at 1.22 Angstrom resolution	L2P;LFA;OLC;SQL	False	2022
+7ZCM	X-RAY DIFFRACTION	2.85	Dark state structure of Sensory Rhodopsin II in complex with HtrII solved by room temperature serial synchrotron crystallography	RET	True	2023
+7ZMY	X-RAY DIFFRACTION	1.7	Crystal structure of the light-driven inward proton pump xenorhodopsin BcXeR in the ground state at pH 8.2 in the presence of sodium at 100K	LFA;NA;OLA;OLC;PO4	False	2023
+7ZN0	X-RAY DIFFRACTION	1.7	Crystal structure of the light-driven inward proton pump xenorhodopsin BcXeR in the M state at pH 8.2 in the presence of sodium at 100K	LFA;NA;OLA;PO4	False	2023
+7ZN3	X-RAY DIFFRACTION	1.6	Crystal structure of the light-driven inward proton pump xenorhodopsin BcXeR in the L state at pH 8.2 in the presence of sodium at 100K	LFA;NA;OLA;PO4	False	2023
+7ZN8	X-RAY DIFFRACTION	2.2	Crystal structure of the light-driven inward proton pump xenorhodopsin BcXeR in the ground state at pH 7.0 in the presence of sodium at 100K	LFA;NA;OLA;OLC;PO4	False	2023
+7ZN9	X-RAY DIFFRACTION	2.3	Crystal structure of the light-driven inward proton pump xenorhodopsin BcXeR in the M state at pH 7.0 in the presence of sodium at 100K	LFA;OLA;PO4	False	2023
+7ZNA	X-RAY DIFFRACTION	1.8	Crystal structure of the light-driven inward proton pump xenorhodopsin BcXeR in the ground state at pH 5.2 in the presence of sodium at 100K	LFA;NA;OLA;OLC;PO4	False	2023
+7ZNB	X-RAY DIFFRACTION	1.9	Crystal structure of the light-driven inward proton pump xenorhodopsin BcXeR in the M state at pH 5.2 in the presence of sodium at 100K	LFA;OLA;PO4	False	2023
+7ZNC	X-RAY DIFFRACTION	1.7	Crystal structure of the light-driven inward proton pump xenorhodopsin BcXeR in the ground state at pH 7.6 in the absence of sodium at 100K	LFA;OLA;OLC;PO4	False	2023
+7ZND	X-RAY DIFFRACTION	1.985	Crystal structure of the light-driven inward proton pump xenorhodopsin BcXeR in the M state at pH 7.6 in the absence of sodium at 100K	LFA;OLA;OLC;PO4	False	2023
+7ZNE	X-RAY DIFFRACTION	2.1	Crystal structure of the light-driven inward proton pump xenorhodopsin BcXeR in the ground state at pH 8.2 at room temperature, 7.5-ms-long snapshots	LFA;OLA;PO4	False	2023
+7ZNG	X-RAY DIFFRACTION	2.3	Crystal structure of the light-driven inward proton pump xenorhodopsin BcXeR in the ground state at pH 8.2 at room temperature, 500-mks-long snapshots	LFA;OLA;PO4	False	2023
+7ZNH	X-RAY DIFFRACTION	2.3	Crystal structure of the light-driven inward proton pump xenorhodopsin BcXeR in the activated state at pH 8.2 at room temperature, 250-750-mks-snapshot	LFA;OLA;PO4	False	2023
+7ZNI	X-RAY DIFFRACTION	2.2	Crystal structure of the light-driven inward proton pump xenorhodopsin BcXeR in the activated state at pH 8.2 at room temperature, 7.5-15-ms-snapshot	LFA;OLA;PO4	False	2023
+7ZOU	X-RAY DIFFRACTION	1.58	Crystal structure of Synechocystis halorhodopsin (SyHR), Cl-pumping mode, ground state	CL;LFA;OLA;OLC	False	2022
+7ZOV	X-RAY DIFFRACTION	1.7	Crystal structure of Synechocystis halorhodopsin (SyHR), Cl-pumping mode, K state	CL;LFA;OLA;OLC	False	2022
+7ZOW	X-RAY DIFFRACTION	1.6	Crystal structure of Synechocystis halorhodopsin (SyHR), Cl-pumping mode, O state	LFA;OLA;OLC	False	2022
+7ZOY	X-RAY DIFFRACTION	1.91	Crystal structure of Synechocystis halorhodopsin (SyHR), SO4-bound form, ground state	CL;GOL;LFA;OLA;SO4	False	2022
+7ZY3	X-RAY DIFFRACTION	1.8	Room temperature structure of Archaerhodopsin-3 obtained 110 ns after photoexcitation	CA;CL;DD9;MG;NA;PLM;R16;RET	True	2023
+8ANQ	X-RAY DIFFRACTION	2.8	Crystal structure of the microbial rhodopsin from Sphingomonas paucimobilis (SpaR)	LFA	False	2023
+8CL7	X-RAY DIFFRACTION	1.76	Krokinobacter eikastus rhodopsin 2 (KR2) in dark state	LFA;RET	True	2023
+8CL8	X-RAY DIFFRACTION	2.4	Krokinobacter eikastus rhodopsin 2 (KR2) extrapolated map 1us after light activation	LFA;RET	True	2023
+8CNK	ELECTRON MICROSCOPY	2.97	Cryo-EM structure of retinal-free proteoopsin bound to decanoate	DKA	False	2024
+8CQC	ELECTRON MICROSCOPY	2.82	Cryo-EM structure of pentameric proteorhodopsin A18L mutant	RET	True	2024
+8CQD	ELECTRON MICROSCOPY	3.54	Cryo-EM structure of hexameric proteorhodopsin A18L mutant	RET	True	2024
+8H79	X-RAY DIFFRACTION	2.07	The crystal structure of cyanorhodopsin-II (CyR-II) P7104R from Nodosilinea nodulosa PCC 7104	C14;CL;HEX;OCT;PG4;R16;RET;SO4	True	2023
+8I2Z	ELECTRON MICROSCOPY	2.3	Cryo-EM structure of the zeaxanthin-bound kin4B8	K3I;RET	True	2023
+8JH0	X-RAY DIFFRACTION	2.79	Crystal structure of the light-driven sodium pump IaNaR	RET	True	2023
+8PWG	X-RAY DIFFRACTION	1.94	Light structure of sensory rhodopsin-II solved by serial millisecond crystallography 90-120 milliseconds time-bin	CL;RET	True	2025
+8PWI	X-RAY DIFFRACTION	1.96	Light structure of sensory rhodopsin-II solved by serial millisecond crystallography 60-90 milliseconds time-bin	CL;RET	True	2025
+8PWJ	X-RAY DIFFRACTION	2.14	Light structure of sensory rhodopsin-II solved by serial millisecond crystallography. 30-60 milliseconds time-bin	CL;RET	True	2025
+8PWP	X-RAY DIFFRACTION	2.08	Light structure of sensory rhodopsin-II solved by serial millisecond crystallography 0-30 milliseconds time-bin	CL;RET	True	2025
+8PWQ	X-RAY DIFFRACTION	1.95	Light structure of sensory rhodopsin-II solved by serial millisecond crystallography 120-150 milliseconds time-bin	CL;RET	True	2025
+8R0K	ELECTRON MICROSCOPY	2.94	Cryo-EM structure of the microbial rhodopsin CryoR1 at pH 4.3 in detergent	LFA;RET	True	2025
+8R0L	ELECTRON MICROSCOPY	2.43	Cryo-EM structure of the microbial rhodopsin CryoR1 at pH 8.0 in nanodisc	LFA;RET	True	2025
+8R0M	ELECTRON MICROSCOPY	2.87	Cryo-EM structure of the microbial rhodopsin CryoR1 at pH 8.0 in detergent	LFA;LMT;RET	True	2025
+8R0N	ELECTRON MICROSCOPY	2.7	Cryo-EM structure of the microbial rhodopsin CryoR1 at pH 10.5 in detergent in the ground state	LFA;LMT;RET	True	2025
+8R0O	ELECTRON MICROSCOPY	2.3	Cryo-EM structure of the microbial rhodopsin CryoR1 at pH 10.5 in detergent in the M state	LMT;RET	True	2025
+8R0P	ELECTRON MICROSCOPY	2.44	Cryo-EM structure of the microbial rhodopsin CryoR2 at pH 8.0 in detergent	LFA;RET	True	2025
+8R96	X-RAY DIFFRACTION	2.46	Crystal structure of the cryorhodopsin CryoR2 at pH 4.6, type A crystals	LFA;OLA;PO4;RET	True	2024
+8R97	X-RAY DIFFRACTION	3.0	Crystal structure of the cryorhodopsin CryoR2 at pH 4.6, type B crystals, non-illuminated state	LFA;OLA;PO4;RET	True	2024
+8R98	X-RAY DIFFRACTION	3.0	Crystal structure of the cryorhodopsin CryoR2 at pH 4.6, type B crystals, illuminated state	LFA;OLA;PO4;RET	True	2024
+8RQ5	ELECTRON MICROSCOPY	2.32	Cryo-EM structure of the light-driven sodium-pumping rhodopsin KR2	LFA;NA;OLA;OLC;RET	True	2025
+8RSO	X-RAY DIFFRACTION	1.25	Crystal structure of marine actinobacteria clade rhodopsin (MAR) in the ground state	GOL;LFA;OLC;PO4;RET	True	2025
+8RSP	X-RAY DIFFRACTION	1.41	Crystal structure of marine actinobacteria clade rhodopsin (MAR) in the P596 state	GOL;LFA;OLC;PO4;RET	True	2025
+8RSS	X-RAY DIFFRACTION	1.41	Crystal structure of marine actinobacteria clade rhodopsin (MAR) in the O* state	LFA;OLA;RET	True	2025
+8W7R	X-RAY DIFFRACTION	2.503	H. walsbyi bacteriorhodopsin mutant - W94F	1PE;GOL;OLC;RET	True	2024
+8XHW	X-RAY DIFFRACTION	2.94	Haloquadratum walsbyi middle rhodopsin mutant - D84N	RET	True	2024
+8XX8	X-RAY DIFFRACTION	2.63	Structure of Glycilhalorhodopsin from Salinarimonas soli	CL;LFA;OLA;RET	True	2024
+8Y9Z	ELECTRON MICROSCOPY	3.41	Structure of the SecA-SecY complex with the substrate HmBRI-3TM	ADP;BEF;MG	False	2025
+8YEJ	ELECTRON MICROSCOPY	2.86	Cryo-EM structure of the channelrhodopsin GtCCR2 focused on the monomer	RET	True	2024
+8YEK	ELECTRON MICROSCOPY	2.73	Cryo-EM structure of the channelrhodopsin GtCCR2	PC1;RET	True	2024
+8YEL	ELECTRON MICROSCOPY	2.71	Cryo-EM structure of the channelrhodopsin GtCCR4	PC1;RET	True	2024
+8ZAM	ELECTRON MICROSCOPY	2.5	EndoChR2 channelrhodopsin	L9Q	False	2024
+8ZAN	ELECTRON MICROSCOPY	2.4	ExoChR2 channelrhodopsin	RET	True	2024
+8ZAO	ELECTRON MICROSCOPY	2.6	ExoKCR1 channelrhodopsin	K;RET	True	2024
+8ZAP	ELECTRON MICROSCOPY	2.6	ExoC110T class 1 channelrhodopsin	K;RET	True	2024
+8ZAQ	ELECTRON MICROSCOPY	2.6	ExoC110T class 2 channelrhodopsin	K;RET	True	2024
+9CDC	ELECTRON MICROSCOPY	3.08	Kalium channelrhodopsin 1 C110A mutant from Hyphochytrium catenoides, Dark State	CLR;PEE;RET	True	2025
+9CDD	ELECTRON MICROSCOPY	3.05	Kalium channelrhodopsin 1 C110A mutant from Hyphochytrium catenoides, Laser-Flash-Illuminated	CLR;PEE;RET	True	2025
+9CDE	ELECTRON MICROSCOPY	3.44	Kalium channelrhodopsin 1 C110A mutant from Hyphochytrium catenoides, Continuous Illumination State	CLR;PEE;RET	True	2025
+9F9B	X-RAY DIFFRACTION	2.0	Laser excitation effects on BR: reprocessed dark dataset recorded from Nango et al.	LI1;OLC;RET	True	2025
+9F9C	X-RAY DIFFRACTION	2.0	Laser excitation effects on BR: Reprocessed Extrapolated 16 ns Light dataset recorded at 0.04 GW/cm2 from Nango et al.	LI1;OLC;RET	True	2025
+9F9D	X-RAY DIFFRACTION	1.7	Laser excitation effects on BR: Dark dataset recorded at SwissFEL	LI1;OLC;RET	True	2025
+9F9E	X-RAY DIFFRACTION	1.8	Laser excitation effects on BR: Extrapolated 6 ps Light dataset recorded at 342 GW/cm2 at SwissFEL	LI1;OLC;RET	True	2025
+9F9F	X-RAY DIFFRACTION	1.8	Laser excitation effects on BR: Extrapolated 6 ps Light dataset recorded at 2493 GW/cm2 at SwissFEL	LI1;OLC;RET	True	2025
+9F9G	X-RAY DIFFRACTION	1.44	Laser excitation effects on BR: Reprocessed Dark from Nogly et al.	LI1;OLC;RET	True	2025
+9F9H	X-RAY DIFFRACTION	1.66	Laser excitation effects on BR: Reprocessed Extrapolated 10ps Light dataset recorded at 525 GW/cm2 from Nogly et al.	LI1;OLC;RET	True	2025
+9F9I	X-RAY DIFFRACTION	1.6	Laser excitation effects on BR: Dark dataset recorded at SACLA	LI1;OLC;RET	True	2025
+9F9J	X-RAY DIFFRACTION	1.76	Laser excitation effects on BR: Extrapolated 10ps Light dataset recorded at 1281 GW/cm2 at SACLA (+100ps, 1ns, 10ns)	LI1;OLC;RET	True	2025
+9G15	X-RAY DIFFRACTION	2.0	Crystal structure of marine actinobacteria clade rhodopsin (MAR) in the O* state, pH 8.8	LFA;OLA;RET	True	2025
+9G16	X-RAY DIFFRACTION	1.51	Crystal structure of marine actinobacteria clade rhodopsin (MAR) in the O state obtained by cryotrapping	LFA;OLA;RET	True	2025
+9GO1	X-RAY DIFFRACTION	2.59	C1C2 Channelrhodopsin - SMX Dark structure	OLC;RET	True	2025
+9GO2	X-RAY DIFFRACTION	2.7	C1C2 Channelrhodopsin - SMX Light activated structure	OLC;RET	True	2025
+9H1W	X-RAY DIFFRACTION	2.2	Grouped 150-240 ms dark structure of sensory rhodopsin-II solved by serial millisecond crystallography	BOG;CL;MPG;RET	True	2025
+9H1X	X-RAY DIFFRACTION	1.85	Continuously illuminated structure of Sensory Rhodopsin II solved by serial millisecond crystallography	CL;RET	True	2025
+9H20	X-RAY DIFFRACTION	2.2	Continuous dark state structure of Sensory Rhodopsin II solved by serial millisecond crystallography	BOG;CL;MPG;RET	True	2025
+9I6H	X-RAY DIFFRACTION	3.0	Room temperature structure of KR2 rhodopsin in pentameric form at 95% relative humidity	LFA;NA;OLC;RET	True	2025
+9I6I	X-RAY DIFFRACTION	3.0	Room-temperature structure of KR2 rhodopsin in pentameric form at 85% relative humidity	LFA;NA;OLC;RET	True	2025
+9J7W	ELECTRON MICROSCOPY	2.69	Channel Rhodospin from Klebsormidium nitens (KnChR)	PC1;RET	True	2025
+9JOU	ELECTRON MICROSCOPY	2.46	Cryo-EM structure of the zeaxanthin-bound light-driven proton pumping rhodopsin, NM-R1	D12;K3I;R16;RET	True	2025
+9JOV	ELECTRON MICROSCOPY	2.27	Cryo-EM structure of the myxol-bound light-driven proton pumping rhodopsin, NM-R1	A1L4O;D12;R16;RET	True	2025
+9JOW	ELECTRON MICROSCOPY	2.48	Cryo-EM structure of the myxol-bound light-driven chloride ion-pumping rhodopsin, NM-R3	8K6;A1L4O;C14;CL;D10;D12;PC1;PLC;R16;RET	True	2025
+9JOX	ELECTRON MICROSCOPY	2.5	Cryo-EM structure of the light-driven chloride ion-pumping rhodopsin, NM-R3	8K6;C14;CL;D12;PC1;PLC;R16;RET	True	2025
+9JWS	X-RAY DIFFRACTION	2.5	Haloquadratum walsbyi middle rhodopsin	MG;RET	True	2025
+9LJJ	ELECTRON MICROSCOPY	3.23	cryo-EM structure of a nanobody bound heliorhodopsin	ACT;PLM;PX2;RET	True	2025
+9R22	ELECTRON MICROSCOPY	2.48	Cryo-EM structure of the light-driven proton pump PsPR in detergent micelle	LFA;LMT;RET	True	2025

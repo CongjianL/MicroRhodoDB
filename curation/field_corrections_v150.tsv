@@ -1,0 +1,66 @@
+target_table	source_acc	assertion_id	field	new_value	decision_rows	note
+tier_a_assertion	W8VZW3	10	assay_type	light-induced pH change in E. coli cells + X-ray crystallography (no electrophysiology)	4;5	
+tier_a_assertion	A0ACD6B968	13	assay_type	X-ray crystallography (2.0 A) + photochromic spectroscopy	7	
+tier_a_evidence	W8VZW3	10	assay_type	light-induced pH change in E. coli cells + X-ray crystallography (no electrophysiology)	4;5	
+tier_a_evidence	A0ACD6B968	13	assay_type	X-ray crystallography (2.0 A) + photochromic spectroscopy	7	
+characterized_protein	W8VZW3	10	assay_type	light-induced pH change in E. coli cells + X-ray crystallography (no electrophysiology)	4;5	
+characterized_protein	A0ACD6B968	13	assay_type	X-ray crystallography (2.0 A) + photochromic spectroscopy	7	
+tier_a_assertion	A0ACD6B968	13	assertion	sensory rhodopsin (Anabaena; signals via soluble 14-kDa transducer)	7	'transducer-free' qualifier contradicted by the paper
+tier_a_evidence	A0ACD6B968	13	supported_assertion	sensory rhodopsin (Anabaena; signals via soluble 14-kDa transducer)	7	
+tier_a_evidence	A0ACD6B968	13	evidence_ref	Vogeley 2004 Science (ASR)	7	journal corrected (Science, not Biophys J)
+tier_a_evidence	P42196	5	evidence_ref	Luttenberg 1998 FEBS Lett doi:10.1016/s0014-5793(98)00322-6	1;2	replaces H. salinarum SRII papers (wrong ortholog)
+tier_a_evidence	Q9F7P4	6	evidence_ref	Beja 2000 Science doi:10.1126/science.289.5486.1902	3	Man 2003 dropped for this assertion (spectral tuning only)
+tier_a_evidence	A0A060H1D7	14	evidence_ref	Scheib 2015 Sci Signal doi:10.1126/scisignal.aab0611	8;9	replaces review + unrelated MastR paper
+tier_a_evidence	A0A060H1D7	15	evidence_ref	Kumar 2017 JBC doi:10.1074/jbc.M117.812685	10	replaces unrelated MastR paper
+tier_a_assertion	A0ABF7PQA2	50	transport_direction	passive K+ flux, outward/hyperpolarizing (channel); PK/PNa = 23	22	
+tier_a_evidence	A0ABF7PQA2	50	transport_direction	passive K+ flux, outward/hyperpolarizing (channel); PK/PNa = 23	22	
+characterized_protein	A0ABF7PQA2	50	direction	passive K+ flux, outward/hyperpolarizing (channel); PK/PNa = 23	22	
+tier_a_assertion	A0ABF7PQ03	61	assertion	UV-sensing photoswitch (cryorhodopsin CryoR2); no ion transport detected	30;39	inward H+ transport shown only for CryoR1; not transferable
+tier_a_evidence	A0ABF7PQ03	61	supported_assertion	UV-sensing photoswitch (cryorhodopsin CryoR2); no ion transport detected	30;39	
+tier_a_assertion	A0ABF7PQ03	61	transported_ion		30;39	
+tier_a_assertion	A0ABF7PQ03	61	transport_direction		30;39	
+tier_a_evidence	A0ABF7PQ03	61	transported_ion		30;39	
+tier_a_evidence	A0ABF7PQ03	61	transport_direction		30;39	
+characterized_protein	A0ABF7PQ03	61	ion		30;39	
+characterized_protein	A0ABF7PQ03	61	direction		30;39	
+tier_a_assertion	A0ABF7PQ03	61	assay_type	UV photoswitching: spectroscopy, X-ray, cryo-EM; E. coli pH assay found no transport	30;39	
+tier_a_evidence	A0ABF7PQ03	61	assay_type	UV photoswitching: spectroscopy, X-ray, cryo-EM; E. coli pH assay found no transport	30;39	
+characterized_protein	A0ABF7PQ03	61	assay_type	UV photoswitching: spectroscopy, X-ray, cryo-EM; E. coli pH assay found no transport	30;39	
+tier_a_assertion	A0ABF7PQ05	62	assertion	UV-sensing photoswitch (cryorhodopsin CryoR2); no ion transport detected	31	inward H+ transport shown only for CryoR1; not transferable
+tier_a_evidence	A0ABF7PQ05	62	supported_assertion	UV-sensing photoswitch (cryorhodopsin CryoR2); no ion transport detected	31	
+tier_a_assertion	A0ABF7PQ05	62	transported_ion		31	
+tier_a_assertion	A0ABF7PQ05	62	transport_direction		31	
+tier_a_evidence	A0ABF7PQ05	62	transported_ion		31	
+tier_a_evidence	A0ABF7PQ05	62	transport_direction		31	
+characterized_protein	A0ABF7PQ05	62	ion		31	
+characterized_protein	A0ABF7PQ05	62	direction		31	
+tier_a_assertion	A0ABF7PQ05	62	assay_type	UV photoswitching: spectroscopy, X-ray, cryo-EM; E. coli pH assay found no transport	31	
+tier_a_evidence	A0ABF7PQ05	62	assay_type	UV photoswitching: spectroscopy, X-ray, cryo-EM; E. coli pH assay found no transport	31	
+characterized_protein	A0ABF7PQ05	62	assay_type	UV photoswitching: spectroscopy, X-ray, cryo-EM; E. coli pH assay found no transport	31	
+tier_a_assertion	A0AC62AE26	63	assertion	UV-sensing photoswitch (cryorhodopsin CryoR2); no ion transport detected	32	inward H+ transport shown only for CryoR1; not transferable
+tier_a_evidence	A0AC62AE26	63	supported_assertion	UV-sensing photoswitch (cryorhodopsin CryoR2); no ion transport detected	32	
+tier_a_assertion	A0AC62AE26	63	transported_ion		32	
+tier_a_assertion	A0AC62AE26	63	transport_direction		32	
+tier_a_evidence	A0AC62AE26	63	transported_ion		32	
+tier_a_evidence	A0AC62AE26	63	transport_direction		32	
+characterized_protein	A0AC62AE26	63	ion		32	
+characterized_protein	A0AC62AE26	63	direction		32	
+tier_a_assertion	A0AC62AE26	63	assay_type	UV photoswitching: spectroscopy, X-ray, cryo-EM; E. coli pH assay found no transport	32	
+tier_a_evidence	A0AC62AE26	63	assay_type	UV photoswitching: spectroscopy, X-ray, cryo-EM; E. coli pH assay found no transport	32	
+characterized_protein	A0AC62AE26	63	assay_type	UV photoswitching: spectroscopy, X-ray, cryo-EM; E. coli pH assay found no transport	32	
+tier_a_assertion	H2EZZ6	12	v150_curation_note	E1 removed in v1.5.0: publication_id 15 characterises Platymonas subcordiformis PsChR2 (name collision); no primary functional paper found for the Pleodorina starrii protein (Zhang 2011 Cell reports the sequence only)	6	
+tier_a_evidence	H2EZZ6	12	v150_curation_note	E1 removed in v1.5.0: publication_id 15 characterises Platymonas subcordiformis PsChR2 (name collision); no primary functional paper found for the Pleodorina starrii protein (Zhang 2011 Cell reports the sequence only)	6	
+tier_a_assertion	F2TZN0	58	v150_curation_note	Conflicting evidence on 'light-regulated': publication_id 67 (Lamarche 2017) reports cGMP PDE activity without light modulation; E1 retained via publication_id 65 and 66	29	
+tier_a_evidence	F2TZN0	58	v150_curation_note	Conflicting evidence on 'light-regulated': publication_id 67 (Lamarche 2017) reports cGMP PDE activity without light modulation; E1 retained via publication_id 65 and 66	29	
+tier_a_assertion	P02945	1	v150_curation_note	publication_id 1 unresolvable (no abstract/full text); kept but not counted as support; E1 rests on assertion 2	0	
+tier_a_evidence	P02945	1	v150_curation_note	publication_id 1 unresolvable (no abstract/full text); kept but not counted as support; E1 rests on assertion 2	0	
+tier_a_assertion	A0A060H1D7	15	v150_curation_note	Structure (PDB 6AO9) covers the guanylyl cyclase domain only, not the rhodopsin domain	10	
+tier_a_evidence	A0A060H1D7	15	v150_curation_note	Structure (PDB 6AO9) covers the guanylyl cyclase domain only, not the rhodopsin domain	10	
+tier_a_assertion	A0ABF7PQ03	61	v150_curation_note	exp class photoreceptor_no_transport (func class photoreceptor_unassigned); identical-sequence trio with A0ABF7PQ05/A0AC62AE26	30;39	
+tier_a_evidence	A0ABF7PQ03	61	v150_curation_note	exp class photoreceptor_no_transport (func class photoreceptor_unassigned); identical-sequence trio with A0ABF7PQ05/A0AC62AE26	30;39	
+tier_a_assertion	A0ABF7PQ05	62	v150_curation_note	exp class photoreceptor_no_transport (func class photoreceptor_unassigned); identical-sequence trio	31	
+tier_a_evidence	A0ABF7PQ05	62	v150_curation_note	exp class photoreceptor_no_transport (func class photoreceptor_unassigned); identical-sequence trio	31	
+tier_a_assertion	A0AC62AE26	63	v150_curation_note	exp class photoreceptor_no_transport (func class photoreceptor_unassigned); identical-sequence trio	32	
+tier_a_evidence	A0AC62AE26	63	v150_curation_note	exp class photoreceptor_no_transport (func class photoreceptor_unassigned); identical-sequence trio	32	
+characterized_protein	H2EZZ6	12	v150_curation_note	E1 removed in v1.5.0: publication_id 15 characterises Platymonas subcordiformis PsChR2 (name collision); no primary functional paper found for the Pleodorina starrii protein (Zhang 2011 Cell reports the sequence only)	6	
+characterized_protein	F2TZN0	58	v150_curation_note	Conflicting evidence on 'light-regulated': publication_id 67 (Lamarche 2017) reports cGMP PDE activity without light modulation; E1 retained via publication_id 65 and 66	29	

@@ -1,0 +1,279 @@
+source_acc	membership_category	membership_score	hmm_cov	has_retinal_lysine	seed_best_subfamily	seed_best_id	tax_domain	length	arch_primary	protein_name	organism	reviewed	pdb	is_seed	seed_subfamily_curated	seed_func_curated
+P02945	confirmed_type_I	0.9918	0.9821	True	bacteriorhodopsin	1.0	Archaea	262	single_domain_core	Bacteriorhodopsin (BR) (Bacterioopsin) (BO)	Halobacterium salinarum (strain ATCC 700922 / JCM 11081 / NRC-1) (Halobacterium halobium)	True	1AP9;1AT9;1BCT;1BHA;1BHB;1BM1;1BRD;1BRR;1BRX;1C3W;1C8R;1C8S;1CWQ;1DZE;1E0P;1F4Z;1F50;1FBB;1FBK;1IW6;1IW9;1IXF;1JV6;1JV7;1KG8;1KG9;1KGB;1KME;1L0M;1M0K;1M0L;1M0M;1MGY;1O0A;1P8H;1P8I;1P8U;1PXR;1PXS;1PY6;1Q5I;1Q5J;1QHJ;1QKO;1QKP;1QM8;1R2N;1R84;1S51;1S52;1S53;1S54;1S8J;1S8L;1TN0;1TN5;1UCQ;1VJM;1X0I;1X0K;1X0S;1XJI;2AT9;2BRD;2I1X;2I20;2I21;2NTU;2NTW;2WJK;2WJL;2ZFE;2ZZL;3COC;3COD;3HAN;3HAO;3HAP;3HAQ;3HAR;3HAS;3MBV;3NS0;3NSB;3T45;3UTV;3UTW;3UTX;3UTY;3VHZ;3VI0;4FPD;4HWL;4HYX;4MD1;4MD2;4OV0;4X31;4X32;4XXJ;5A44;5A45;5B34;5B35;5B6V;5B6W;5B6X;5B6Y;5B6Z;5BR2;5BR5;5H2H;5H2I;5H2J;5H2K;5H2L;5H2M;5H2N;5H2O;5H2P;5J7A;5VN7;5VN9;5ZIL;5ZIM;5ZIN;6G7H;6G7I;6G7J;6G7K;6G7L;6GA1;6GA2;6GA3;6GA4;6GA5;6GA6;6GA7;6GA8;6GA9;6GAA;6GAB;6GAC;6GAD;6GAE;6GAF;6GAG;6GAH;6GAI;6RMK;6RNJ;6RPH;6RQO;6RQP;7Q35;7Q38;7VSO;7XJC;7XJD;7XJE;7Z09;7Z0A;7Z0C;7Z0D;7Z0E;9F9B;9F9C;9F9D;9F9E;9F9F;9F9G;9F9H;9F9I;9F9J	True	bacteriorhodopsin	proton_pump
+A0A5N6KXX2	high_confidence_type_I	0.8826	0.9509	True	sensory_rhodopsin_II	0.26	Eukaryota	1508	fusion	Bifunctional lycopene cyclase/phytoene synthase (EC 5.5.1.19) (Phytoene desaturase) (Phytoene desaturase (3,4-didehydrolycopene-forming))	Carpinus fangiana	False		False		
+B0R2U4	confirmed_type_I	0.9907	0.9821	True	halorhodopsin	1.0	Archaea	274	single_domain_core	Halorhodopsin (HR)	Halobacterium salinarum (strain ATCC 29341 / DSM 671 / R1)	True	1E12;2JAF;2JAG;5AHY;5AHZ;5G36	False		
+P42196	confirmed_type_I	0.9937	0.9866	True	sensory_rhodopsin_II	1.0	Archaea	239	single_domain_core	Sensory rhodopsin-2 (Sensory rhodopsin II) (SR-II)	Natronomonas pharaonis (Natronobacterium pharaonis)	True	1GU8;1GUE;1H2S;1H68;1JGJ;2F93;2F95;3QAP;3QDC;4GYC;5JJE;5JJF;5JJJ;5JJN;7ZCM;8PWG;8PWI;8PWJ;8PWP;8PWQ;9H1W;9H1X;9H20	True	sensory_rhodopsin_II	sensory
+Q5V4H7	high_confidence_type_I	0.905	0.9598	True	sensory_rhodopsin_II	0.31	Archaea	232	single_domain_core	Sensory rhodopsin III (HmSRIII) (Opsin) (Sensory-like rhodopsin) (HmSMR)	Haloarcula marismortui (strain ATCC 43049 / DSM 3752 / JCM 8966 / VKM B-1809) (Halobacterium marismortui)	True		False		
+Q9F7P4	confirmed_type_I	0.9897	0.9866	True	proteorhodopsin	1.0	Bacteria	249	single_domain_core	Green-light absorbing proteorhodopsin (GPR)	Gamma-proteobacterium EBAC31A08	True	2L6X;5ABB	True	proteorhodopsin	proton_pump
+Q9UW81	high_confidence_type_I	0.9088	0.9643	True	halorhodopsin	0.333	Eukaryota	304	single_domain_core	Opsin-1 (NR)	Neurospora crassa (strain ATCC 24698 / 74-OR23-1A / CBS 708.71 / DSM 1257 / FGSC 987)	True		False		
+A0A0K3CUU3	rhodopsin_like	0.5435	0.8214	False		0.0	Eukaryota	1428	fusion	DNA 3'-5' helicase (EC 5.6.2.4)	Rhodotorula toruloides (Yeast) (Rhodosporidium toruloides)	False		False		
+A0A135LS53	rhodopsin_like	0.5939	0.9554	False		0.0	Eukaryota	1276	fusion	Isoleucine--tRNA ligase, mitochondrial (EC 6.1.1.5) (Isoleucyl-tRNA synthetase)	Penicillium patulum (Penicillium griseofulvum)	False		False		
+A0A150GZA7	putative_type_I	0.7912	0.8348	True		0.0	Eukaryota	2650	fusion	Bromo domain-containing protein	Gonium pectorale (Green alga)	False		False		
+A0A250XI73	high_confidence_type_I	0.9113	0.9821	True	channelrhodopsin	0.53	Eukaryota	1032	fusion	DNA topoisomerase (ATP-hydrolyzing) (EC 5.6.2.2) (Meiotic recombination protein SPO11-3)	Chlamydomonas eustigma	False		False		
+A0A317XNV2	high_confidence_type_I	0.8882	0.9688	True	sensory_rhodopsin_II	0.298	Eukaryota	1401	fusion	Pyridoxal phosphate homeostasis protein (PLP homeostasis protein)	Testicularia cyperi	False		False		
+A0A428S121	high_confidence_type_I	0.8913	0.9598	True	sensory_rhodopsin_II	0.292	Eukaryota	856	fusion	Opsin-like protein carO (Carotenoid biosynthesis cluster protein B) (Carotenoid biosynthesis cluster protein O) (Phytoene desaturase) (Phytoene desaturase (3,4-didehydrolycopene-forming))	Fusarium floridanum	False		False		
+A0A553HJD1	high_confidence_type_I	0.8955	0.9598	True	halorhodopsin	0.325	Eukaryota	640	fusion	Opsin-1	Xylaria flabelliformis	False		False		
+A0A8H8QNY0	high_confidence_type_I	0.8806	0.9598	True	sensory_rhodopsin_II	0.304	Eukaryota	2100	fusion	Phospholipase D1 (EC 3.1.4.4) (Choline phosphatase 1) (Phosphatidylcholine-hydrolyzing phospholipase D1)	Ustilago bromivora	False		False		
+A0A9W6F055	putative_type_I	0.8307	0.9018	True	enzyme_rhodopsin	0.377	Eukaryota	2205	fusion	histidine kinase (EC 2.7.13.3)	Pleodorina starrii	False		False		
+A0ABR3S6G8	high_confidence_type_I	0.8896	0.9554	True	sensory_rhodopsin_II	0.254	Eukaryota	809	fusion	Bifunctional lycopene cyclase/phytoene synthase (EC 5.5.1.19)	Paraconiothyrium brasiliense	False		False		
+B0R633	high_confidence_type_I	0.9803	0.9464	True	sensory_rhodopsin_I	1.0	Archaea	239	single_domain_core	Sensory rhodopsin-1 (Sensory rhodopsin I) (SR-I)	Halobacterium salinarum (strain ATCC 29341 / DSM 671 / R1)	True		False		
+P42197	high_confidence_type_I	0.9367	0.9911	True	sensory_rhodopsin_II	0.436	Archaea	236	single_domain_core	Sensory rhodopsin-2 (Sensory rhodopsin II) (SR-II)	Haloarcula vallismortis (Halobacterium vallismortis)	True		False		
+Q12117	rhodopsin_like	0.4685	0.9062	False		0.0	Eukaryota	320	extended	Protein MRH1 (Membrane protein related to HSP30)	Saccharomyces cerevisiae (strain ATCC 204508 / S288c) (Baker's yeast)	True		False		
+Q53461	high_confidence_type_I	0.8827	0.6116	True	halorhodopsin	0.72	Archaea	131	single_domain_core	Cruxhalorhodopsin-1 (CHR-1)	Haloarcula argentinensis	True		False		
+Q70LL3	high_confidence_type_I	0.9063	0.9598	True	sensory_rhodopsin_II	0.306	Eukaryota	307	single_domain_core	Opsin-like protein carO (Carotenoid biosynthesis cluster protein O)	Fusarium fujikuroi (Bakanae and foot rot disease fungus) (Gibberella fujikuroi)	True		False		
+A0A060H1D7	confirmed_type_I	0.9721	0.9821	True	enzyme_rhodopsin	1.0	Eukaryota	626	fusion	Bacterio-rhodopsin/guanylyl cyclase 1 fusion protein	Blastocladiella emersonii (Aquatic fungus)	False	6AO9;6AOA;6AOB	True	enzyme_rhodopsin	enzyme
+A0A084B629	high_confidence_type_I	0.8911	0.9598	True	sensory_rhodopsin_II	0.286	Eukaryota	798	fusion	Opsin-like protein carO (Carotenoid biosynthesis cluster protein O)	Stachybotrys chartarum (strain CBS 109288 / IBT 7711) (Toxic black mold) (Stilbospora chartarum)	False		False		
+A0A0C3TEH9	confirmed_type_I	0.8946	0.9911	True		0.0	Eukaryota	438	extended	Uncharacterized protein	Guillardia theta (strain CCMP2712) (Cryptophyte)	False	6CSM;6EDQ;7L1E	False		
+A0A0D2M2L8	putative_type_I	0.8301	0.8348	True		0.0	Eukaryota	348	fusion	histidine kinase (EC 2.7.13.3)	Monoraphidium neglectum	False		False		
+A0A0E9NKB4	high_confidence_type_I	0.907	0.9643	True	bacteriorhodopsin	0.346	Eukaryota	320	single_domain_core	Opsin	Saitoella complicata (strain BCRC 22490 / CBS 7301 / JCM 7358 / NBRC 10748 / NRRL Y-17804)	False		False		
+A0A0E9NMN4	putative_type_I	0.8537	0.8438	True	halorhodopsin	0.344	Eukaryota	322	extended	G-protein coupled receptors family 1 profile domain-containing protein	Saitoella complicata (strain BCRC 22490 / CBS 7301 / JCM 7358 / NBRC 10748 / NRRL Y-17804)	False		False		
+A0A0J0XEG0	rhodopsin_like	0.5502	0.9732	False		0.0	Eukaryota	362	extended	Family A G protein-coupled receptor-like protein	Cutaneotrichosporon oleaginosum	False		False		
+A0A0K0MNL8	putative_type_I	0.7744	0.933	True		0.0	Eukaryota	233	single_domain_core	histidine kinase (EC 2.7.13.3)	Chlamydomonas reinhardtii (Chlamydomonas smithii)	False		False		
+A0A0L0D2C1	putative_type_I	0.858	0.9643	True		0.0	Eukaryota	971	fusion	Response regulatory domain-containing protein	Thecamonas trahens ATCC 50062	False		False		
+A0A0L0DQZ0	putative_type_I	0.8355	0.8839	True		0.0	Eukaryota	340	extended	Bacteriorhodopsin	Thecamonas trahens ATCC 50062	False		False		
+A0A0L0URT3	putative_type_I	0.8449	0.9464	True	xanthorhodopsin	0.256	Eukaryota	247	single_domain_core	Opsin	Puccinia striiformis f. sp. tritici PST-78	False		False		
+A0A150G0K5	putative_type_I	0.7561	0.8348	True		0.0	Eukaryota	305	extended	histidine kinase (EC 2.7.13.3)	Gonium pectorale (Green alga)	False		False		
+A0A150GD09	putative_type_I	0.8346	0.9107	True	enzyme_rhodopsin	0.311	Eukaryota	1162	fusion	histidine kinase (EC 2.7.13.3)	Gonium pectorale (Green alga)	False		False		
+A0A1A6A1S0	high_confidence_type_I	0.9133	0.9777	True	bacteriorhodopsin	0.355	Eukaryota	331	single_domain_core	Opsin 1	Kwoniella dejecticola CBS 10117	False		False		
+A0A1L7TJ50	rhodopsin_like	0.6105	0.9598	False		0.0	Eukaryota	537	fusion	Uncharacterized protein	Fusarium mangiferae (Mango malformation disease fungus)	False		False		
+A0A1Q9CDC8	ambiguous	0.6784	0.8393	True	enzyme_rhodopsin	0.247	Eukaryota	1022	fusion	Ankyrin repeat domain-containing protein 50	Symbiodinium microadriaticum (Dinoflagellate) (Zooxanthella microadriatica)	False		False		
+A0A1Q9DPH8	high_confidence_type_I	0.8806	0.9286	True	bacteriorhodopsin	0.319	Eukaryota	1579	fusion	Putative PKHD-type hydroxylase	Symbiodinium microadriaticum (Dinoflagellate) (Zooxanthella microadriatica)	False		False		
+A0A1V8SNI6	high_confidence_type_I	0.892	0.9554	True	sensory_rhodopsin_II	0.279	Eukaryota	564	extended	BTB domain-containing protein	Cryoendolithus antarcticus	False		False		
+A0A1Y1HT90	confirmed_type_I	0.8798	0.9286	True	channelrhodopsin	0.388	Eukaryota	829	extended	Uncharacterized protein	Klebsormidium nitens (Green alga) (Ulothrix nitens)	False	9J7W	False		
+A0A1Y1I5V9	high_confidence_type_I	0.8649	0.933	True	enzyme_rhodopsin	0.429	Eukaryota	2095	fusion	histidine kinase (EC 2.7.13.3)	Klebsormidium nitens (Green alga) (Ulothrix nitens)	False		False		
+A0A1Y1I8I9	high_confidence_type_I	0.874	0.9821	True		0.0	Eukaryota	510	extended	Rhodopsin	Klebsormidium nitens (Green alga) (Ulothrix nitens)	False		False		
+A0A1Y1IBK3	putative_type_I	0.8212	0.875	True	enzyme_rhodopsin	0.424	Eukaryota	1419	fusion	histidine kinase (EC 2.7.13.3)	Klebsormidium nitens (Green alga) (Ulothrix nitens)	False		False		
+A0A250WZH3	putative_type_I	0.8428	0.9554	True		0.0	Eukaryota	1001	fusion	histidine kinase (EC 2.7.13.3)	Chlamydomonas eustigma	False		False		
+A0A250X1L5	putative_type_I	0.8538	0.9598	True		0.0	Eukaryota	1438	fusion	histidine kinase (EC 2.7.13.3)	Chlamydomonas eustigma	False		False		
+A0A250X6R1	putative_type_I	0.8504	0.8839	True		0.0	Eukaryota	1014	fusion	histidine kinase (EC 2.7.13.3)	Chlamydomonas eustigma	False		False		
+A0A2J8A2M5	rhodopsin_like	0.4608	0.5848	False		0.0	Eukaryota	307	truncated_core	Transmembrane protein	Tetrabaena socialis	False		False		
+A0A2K3CWZ0	putative_type_I	0.7593	0.9509	True		0.0	Eukaryota	2544	fusion	histidine kinase (EC 2.7.13.3)	Chlamydomonas reinhardtii (Chlamydomonas smithii)	False		False		
+A0A2P6NFY1	putative_type_I	0.8148	0.9241	True		0.0	Eukaryota	1172	fusion	Putative two-component hybrid sensor and regulator	Planoprotostelium fungivorum	False		False		
+A0A2P6NRH4	high_confidence_type_I	0.8877	0.9598	True	anabaena_sensory	0.313	Eukaryota	1314	fusion	Amino acid transporter	Planoprotostelium fungivorum	False		False		
+A0A2P6UZS6	high_confidence_type_I	0.8759	0.9732	True	bacteriorhodopsin	0.331	Eukaryota	878	fusion	histidine kinase (EC 2.7.13.3)	Micractinium conductrix	False		False		
+A0A2R5G0B6	putative_type_I	0.8484	0.9196	True	channelrhodopsin	0.241	Eukaryota	680	fusion	Programmed cell death protein 2	Hondaea fermentalgiana	False		False		
+A0A317WFA6	rhodopsin_like	0.5017	0.8393	False	anabaena_sensory	0.263	Eukaryota	1013	fusion	C2H2-type domain-containing protein	Aspergillus heteromorphus CBS 117.55	False		False		
+A0A383WHH1	putative_type_I	0.7049	0.8438	True		0.0	Eukaryota	963	fusion	histidine kinase (EC 2.7.13.3)	Tetradesmus obliquus (Green alga) (Acutodesmus obliquus)	False		False		
+A0A428SP68	high_confidence_type_I	0.8875	0.9598	True	halorhodopsin	0.277	Eukaryota	999	fusion	Opsin-like protein carO (Carotenoid biosynthesis cluster protein O)	Fusarium floridanum	False		False		
+A0A4T0FUL7	high_confidence_type_I	0.8671	0.9598	True		0.0	Eukaryota	522	fusion	SAP domain-containing protein	Wallemia hederae	False		False		
+A0A4U0WH68	high_confidence_type_I	0.8688	0.7902	True	sensory_rhodopsin_II	0.287	Eukaryota	241	single_domain_core	Opsin-1	Cryomyces minteri	False		False		
+A0A507FRN6	high_confidence_type_I	0.9144	0.9821	True	enzyme_rhodopsin	0.49	Eukaryota	553	fusion	Guanylate cyclase domain-containing protein	Chytriomyces confervae	False		False		
+A0A513ZS48	high_confidence_type_I	0.8837	0.9732	True	sensory_rhodopsin_II	0.269	Eukaryota	678	fusion	Rhodopsin-phosphodiesterase fusion protein 4	Choanoeca flexa	False		False		
+A0A513ZS49	high_confidence_type_I	0.8748	0.9732	True		0.0	Eukaryota	652	fusion	Rhodopsin-phosphodiesterase fusion protein 1	Choanoeca flexa	False		False		
+A0A5A8CNY9	putative_type_I	0.7261	0.7098	True		0.0	Eukaryota	815	fusion	C-CAP/cofactor C-like domain-containing protein	Cafeteria roenbergensis (Marine flagellate)	False		False		
+A0A7S4E2D3	ambiguous	0.6744	0.9152	True		0.0	Eukaryota	797	fusion	histidine kinase (EC 2.7.13.3)	Pelagomonas calceolata	False		False		
+A0A812HP79	putative_type_I	0.8417	0.9196	True		0.0	Eukaryota	866	extended	Hop protein	Symbiodinium natans	False		False		
+A0A812RSB1	putative_type_I	0.8072	0.8929	True		0.0	Eukaryota	398	extended	Hop protein	Symbiodinium natans	False		False		
+A0A813BNP7	putative_type_I	0.8088	0.9152	True		0.0	Eukaryota	1481	fusion	CHLG protein	Symbiodinium necroappetens	False		False		
+A0A813E275	ambiguous	0.6274	0.8304	True		0.0	Eukaryota	892	fusion	histidine kinase (EC 2.7.13.3)	Polarella glacialis (Dinoflagellate)	False		False		
+A0A813FLD5	ambiguous	0.6034	0.8125	True		0.0	Eukaryota	1508	fusion	histidine kinase (EC 2.7.13.3)	Polarella glacialis (Dinoflagellate)	False		False		
+A0A813GTT4	ambiguous	0.6006	0.7054	True		0.0	Eukaryota	1312	fusion	histidine kinase (EC 2.7.13.3)	Polarella glacialis (Dinoflagellate)	False		False		
+A0A813H5L3	high_confidence_type_I	0.9036	0.8795	True	xanthorhodopsin	0.4	Eukaryota	212	single_domain_core	Rhodopsin	Polarella glacialis (Dinoflagellate)	False		False		
+A0A813HLR5	high_confidence_type_I	0.9201	0.933	True	xanthorhodopsin	0.427	Eukaryota	238	single_domain_core	Rhodopsin	Polarella glacialis (Dinoflagellate)	False		False		
+A0A830HRR5	high_confidence_type_I	0.8891	0.9598	True	channelrhodopsin	0.325	Eukaryota	498	extended	Transmembrane protein	Pycnococcus provasolii	False		False		
+A0A835T5E0	putative_type_I	0.7891	0.7321	True		0.0	Eukaryota	1062	fusion	histidine kinase (EC 2.7.13.3)	Chlamydomonas incerta	False		False		
+A0A835Y4T1	putative_type_I	0.826	0.8482	True	sensory_rhodopsin_II	0.281	Eukaryota	1931	fusion	histidine kinase (EC 2.7.13.3)	Edaphochlamys debaryana	False		False		
+A0A836B651	putative_type_I	0.7451	0.7009	True		0.0	Eukaryota	2362	fusion	histidine kinase (EC 2.7.13.3)	Chlamydomonas schloesseri	False		False		
+A0A836BCE5	putative_type_I	0.7996	0.7857	True		0.0	Eukaryota	2017	fusion	histidine kinase (EC 2.7.13.3)	Chlamydomonas schloesseri	False		False		
+A0A8B2P212	rhodopsin_like	0.574	0.9509	False		0.0	Bacteria	355	extended	Bacteriorhodopsin	Acuticoccus sediminis	False		False		
+A0A8H3TVB8	high_confidence_type_I	0.8997	0.9777	True	sensory_rhodopsin_II	0.26	Eukaryota	339	extended	Rhodopsin	Naganishia liquefaciens	False		False		
+A0A8H6RGB0	high_confidence_type_I	0.9057	0.9688	True	bacteriorhodopsin	0.333	Eukaryota	321	single_domain_core	Bacteriorhodopsin	Pseudocercospora fuligena	False		False		
+A0A8J4BVH9	putative_type_I	0.7793	0.9509	True		0.0	Eukaryota	1459	fusion	histidine kinase (EC 2.7.13.3)	Volvox africanus	False		False		
+A0A8J5XMT6	ambiguous	0.6654	0.9196	True		0.0	Eukaryota	1133	fusion	histidine kinase (EC 2.7.13.3)	Diacronema lutheri (Unicellular marine alga) (Monochrysis lutheri)	False		False		
+A0A9P1CCW4	ambiguous	0.6534	0.8304	True		0.0	Eukaryota	1950	fusion	Structural maintenance of chromosomes protein 4	Cladocopium goreaui	False		False		
+A0A9P9Y756	high_confidence_type_I	0.8893	0.9732	True	sensory_rhodopsin_II	0.273	Eukaryota	735	fusion	Opsin-like protein carO (Carotenoid biosynthesis cluster protein O)	Emericellopsis cladophorae	False		False		
+A0AA36I5B5	putative_type_I	0.8419	0.9241	True	bacteriorhodopsin	0.282	Eukaryota	2046	fusion	Non-specific serine/threonine protein kinase	Effrenium voratum	False		False		
+A0AAD5H3U4	putative_type_I	0.8434	0.9643	True		0.0	Eukaryota	522	fusion	histidine kinase (EC 2.7.13.3)	Chlorella ohadii	False		False		
+A0AAD5Y6J2	high_confidence_type_I	0.8796	0.9554	True	enzyme_rhodopsin	0.437	Eukaryota	1154	fusion	Guanylate cyclase domain-containing protein	Boothiomyces macroporosus	False		False		
+A0AAD6NN00	high_confidence_type_I	0.8866	0.9643	True	bacteriorhodopsin	0.287	Eukaryota	906	fusion	N-acetyltransferase domain-containing protein	Drechslerella dactyloides (Nematode-trapping fungus) (Arthrobotrys dactyloides)	False		False		
+A0AAE0LFC4	putative_type_I	0.8385	0.8259	True	channelrhodopsin	0.372	Eukaryota	289	extended	Response regulatory domain-containing protein	Cymbomonas tetramitiformis	False		False		
+A0AAJ0GHX9	high_confidence_type_I	0.8919	0.9688	True	sensory_rhodopsin_II	0.291	Eukaryota	1477	fusion	Family A G protein-coupled receptor-like protein	Extremus antarcticus	False		False		
+A0AAW1P688	putative_type_I	0.8444	0.942	True	bacteriorhodopsin	0.301	Eukaryota	900	fusion	histidine kinase (EC 2.7.13.3)	[Myrmecia] bisecta	False		False		
+A0AAW1PHQ5	high_confidence_type_I	0.884	0.8839	True	channelrhodopsin	0.438	Eukaryota	997	fusion	D-serine dehydratase-like domain-containing protein	[Myrmecia] bisecta	False		False		
+A0AAW1R4K6	high_confidence_type_I	0.8634	0.9152	True	enzyme_rhodopsin	0.325	Eukaryota	1300	fusion	histidine kinase (EC 2.7.13.3)	[Myrmecia] bisecta	False		False		
+A0ABN9WHV2	ambiguous	0.618	0.7054	True		0.0	Eukaryota	1749	extended	RNase H type-1 domain-containing protein	Prorocentrum cordatum	False		False		
+A0ABP0HK09	high_confidence_type_I	0.8824	0.9241	True	bacteriorhodopsin	0.309	Eukaryota	1076	fusion	glutamine--fructose-6-phosphate transaminase (isomerizing) (EC 2.6.1.16)	Durusdinium trenchii	False		False		
+A0ABP0LAR9	ambiguous	0.6196	0.6964	True		0.0	Eukaryota	867	extended	LIM zinc-binding domain-containing protein	Durusdinium trenchii	False		False		
+A0ABP0M833	ambiguous	0.5899	0.6161	True		0.0	Eukaryota	487	extended	Intimal thickness related receptor IRP domain-containing protein	Durusdinium trenchii	False		False		
+A0ABP0MV24	putative_type_I	0.8183	0.9241	True		0.0	Eukaryota	1574	extended	Uncharacterized protein	Durusdinium trenchii	False		False		
+A0ABP0R9C5	high_confidence_type_I	0.8902	0.942	True	sensory_rhodopsin_II	0.292	Eukaryota	535	fusion	Pre-mRNA-splicing factor 38	Durusdinium trenchii	False		False		
+A0ABP0S7I2	putative_type_I	0.8322	0.8259	True	sensory_rhodopsin_II	0.276	Eukaryota	627	extended	Response regulatory domain-containing protein	Durusdinium trenchii	False		False		
+A0ABP8ZIA9	high_confidence_type_I	0.8946	0.9598	True	xanthorhodopsin	0.28	Bacteria	290	single_domain_core	Rhodopsin	Amnibacterium soli	False		False		
+A0ABQ6MPT4	ambiguous	0.6049	0.808	True		0.0	Eukaryota	797	fusion	Histidine kinase	Tetraparma gracilis	False		False		
+A0ABQ7GWT0	putative_type_I	0.841	0.9152	True		0.0	Eukaryota	532	fusion	histidine kinase (EC 2.7.13.3)	Dunaliella salina (Green alga) (Protococcus salinus)	False		False		
+A0ABR1FMU0	ambiguous	0.6296	0.7946	True	enzyme_rhodopsin	0.288	Eukaryota	1326	fusion	histidine kinase (EC 2.7.13.3)	Aureococcus anophagefferens (Harmful bloom alga)	False		False		
+A0ABY8TL62	putative_type_I	0.8337	0.8616	True		0.0	Eukaryota	1155	fusion	histidine kinase (EC 2.7.13.3)	Tetradesmus obliquus (Green alga) (Acutodesmus obliquus)	False		False		
+A0ABY8TQA0	putative_type_I	0.8291	0.8304	True	bacteriorhodopsin	0.3	Eukaryota	1105	fusion	histidine kinase (EC 2.7.13.3)	Tetradesmus obliquus (Green alga) (Acutodesmus obliquus)	False		False		
+B1YFV8	confirmed_type_I	0.925	0.9911	True	proteorhodopsin	0.38	Bacteria	252	single_domain_core	Rhodopsin	Exiguobacterium sibiricum (strain DSM 17290 / CCUG 55495 / CIP 109462 / JCM 13490 / 255-15)	False	4HYJ	False		
+C1EC80	putative_type_I	0.7901	0.9196	True		0.0	Eukaryota	1127	fusion	Response regulatory domain-containing protein	Micromonas commoda (strain RCC299 / NOUM17 / CCMP2709) (Picoplanktonic green alga)	False		False		
+C1MVP6	putative_type_I	0.7221	0.9196	True		0.0	Eukaryota	1152	fusion	Predicted protein	Micromonas pusilla (strain CCMP1545) (Picoplanktonic green alga)	False		False		
+C1MYB7	putative_type_I	0.8502	0.9286	True		0.0	Eukaryota	1007	fusion	Predicted protein	Micromonas pusilla (strain CCMP1545) (Picoplanktonic green alga)	False		False		
+F2TZN0	confirmed_type_I	0.8951	0.9911	True		0.0	Eukaryota	704	fusion	Phosphodiesterase (EC 3.1.4.-)	Salpingoeca rosetta (Choanoflagellate)	False	5VYD;7CJ3;7D7P;7D7Q	False		
+G3CEP6	confirmed_type_I	0.9008	0.933	True	bacteriorhodopsin	0.313	Eukaryota	246	single_domain_core	Rhodopsin I	Acetabularia acetabulum (Mermaid's wine glass) (Acetabularia mediterranea)	False	5AWZ;5AX0;5AX1	False		
+I0YUS5	confirmed_type_I	0.906	0.9464	True	bacteriorhodopsin	0.355	Eukaryota	304	extended	Family A G protein-coupled receptor-like protein	Coccomyxa subellipsoidea (strain C-169) (Green microalga)	False	6GYH	False		
+K1Y8S4	high_confidence_type_I	0.8892	0.9643	True	sensory_rhodopsin_II	0.277	Eukaryota	611	extended	Opsin-like protein	Marssonina brunnea f. sp. multigermtubi (strain MB_m1) (Marssonina leaf spot fungus)	False		False		
+K8F6P9	putative_type_I	0.7977	0.8929	True		0.0	Eukaryota	1128	fusion	Sensor histidine kinase	Bathycoccus prasinos	False		False		
+L1I6C2	putative_type_I	0.8378	0.9509	True		0.0	Eukaryota	998	fusion	Histidine kinase	Guillardia theta (strain CCMP2712) (Cryptophyte)	False		False		
+L1IA60	rhodopsin_like	0.5157	0.9107	False		0.0	Eukaryota	534	extended	Intimal thickness related receptor IRP domain-containing protein	Guillardia theta (strain CCMP2712) (Cryptophyte)	False		False		
+L1J1F0	rhodopsin_like	0.5122	0.8482	False		0.0	Eukaryota	577	extended	Integral membrane protein	Guillardia theta (strain CCMP2712) (Cryptophyte)	False		False		
+L1K3E3	putative_type_I	0.8491	0.8393	True	bacteriorhodopsin	0.251	Eukaryota	602	extended	G-protein coupled receptors family 2 profile 2 domain-containing protein	Guillardia theta (strain CCMP2712) (Cryptophyte)	False		False		
+L8GFI6	putative_type_I	0.8465	0.9375	True		0.0	Eukaryota	530	extended	Bacteriorhodopsin subfamily protein	Acanthamoeba castellanii (strain ATCC 30010 / Neff)	False		False		
+O74870	rhodopsin_like	0.5263	0.9375	False		0.0	Eukaryota	306	extended	Meiotically up-regulated gene 73 protein	Schizosaccharomyces pombe (strain 972 / ATCC 24843) (Fission yeast)	True		False		
+Q2S2F8	confirmed_type_I	0.9784	0.9688	True	xanthorhodopsin	1.0	Bacteria	273	single_domain_core	Xanthorhodopsin	Salinibacter ruber (strain DSM 13855 / M31)	False	3DDL	True	xanthorhodopsin	proton_pump
+Q8RUT8	confirmed_type_I	0.9904	0.9866	True	channelrhodopsin	1.0	Eukaryota	737	extended	Archaeal-type opsin 2 (Retinal binding protein) (Sensory opsin B)	Chlamydomonas reinhardtii (Chlamydomonas smithii)	False	3UG9;4YZI;6EID;6EIG;7C86;7E6X;7E6Y;7E6Z;7E70;7E71;8ZAM;8ZAN;9GO1;9GO2	True	channelrhodopsin	cation_channel
+Q9HGT7	confirmed_type_I	0.9109	0.9688	True	halorhodopsin	0.333	Eukaryota	313	single_domain_core	Opsin	Leptosphaeria maculans (Blackleg fungus) (Phoma lingam)	False	7BMH	False		
+A0A081CPB0	high_confidence_type_I	0.8957	0.9643	True	sensory_rhodopsin_II	0.269	Eukaryota	351	extended	Family A G protein-coupled receptor-like protein	Moesziomyces antarcticus (Yeast) (Pseudozyma antarctica)	False		False		
+A0A0A1TEI9	putative_type_I	0.8131	0.9509	True	bacteriorhodopsin	0.235	Eukaryota	287	single_domain_core	Opsin-1	[Torrubiella] hemipterigena	False		False		
+A0A0B4P4Z1	high_confidence_type_I	0.9111	0.9598	True	halorhodopsin	0.312	Eukaryota	253	single_domain_core	Rhodopsin-like 2a (Rhodopsin-like 2b)	Oxyrrhis marina (Dinoflagellate)	False		False		
+A0A0C3UE61	putative_type_I	0.7976	0.8438	True		0.0	Eukaryota	433	extended	Uncharacterized protein	Guillardia theta (strain CCMP2712) (Cryptophyte)	False	8YEJ;8YEK	False		
+A0A0G4E9A8	ambiguous	0.6586	0.933	True		0.0	Eukaryota	720	extended	Transmembrane protein	Vitrella brassicaformis (strain CCMP3155)	False		False		
+A0A0G4EH05	putative_type_I	0.7951	0.8482	True	xanthorhodopsin	0.265	Eukaryota	540	extended	Uncharacterized protein	Vitrella brassicaformis (strain CCMP3155)	False		False		
+A0A0G4GF51	putative_type_I	0.8275	0.7857	True	channelrhodopsin	0.266	Eukaryota	506	extended	Uncharacterized protein	Vitrella brassicaformis (strain CCMP3155)	False		False		
+A0A0G4H294	high_confidence_type_I	0.8682	0.9509	True	bacteriorhodopsin	0.368	Eukaryota	436	extended	Uncharacterized protein	Vitrella brassicaformis (strain CCMP3155)	False		False		
+A0A0P9GJH2	putative_type_I	0.8139	0.9509	True		0.0	Eukaryota	752	fusion	Carbohydrate esterase family 16 protein	Rhodotorula graminis (strain WP1)	False		False		
+A0A139AMK5	high_confidence_type_I	0.8987	0.942	True	sensory_rhodopsin_II	0.281	Eukaryota	263	single_domain_core	Family A G protein-coupled receptor-like protein	Gonapodya prolifera (strain JEL478) (Monoblepharis prolifera)	False		False		
+A0A150GCU3	high_confidence_type_I	0.9077	0.9777	True	channelrhodopsin	0.619	Eukaryota	603	extended	Uncharacterized protein	Gonium pectorale (Green alga)	False		False		
+A0A164TIQ7	rhodopsin_like	0.6201	0.9598	False		0.0	Eukaryota	648	single_domain_core	Family A G protein-coupled receptor-like protein	Sistotremastrum niveocremeum HHB9708	False		False		
+A0A166G513	high_confidence_type_I	0.8714	0.9688	True		0.0	Eukaryota	275	single_domain_core	Family A G protein-coupled receptor-like protein	Sistotremastrum suecicum HHB10207 ss-3	False		False		
+A0A167J0W1	high_confidence_type_I	0.9068	0.9643	True	sensory_rhodopsin_II	0.298	Eukaryota	302	single_domain_core	Family A G protein-coupled receptor-like protein	Calocera viscosa (strain TUFC12733)	False		False		
+A0A167VJJ2	rhodopsin_like	0.5555	0.9509	False		0.0	Eukaryota	327	single_domain_core	Opsin 1 protein	Ascosphaera apis ARSEF 7405	False		False		
+A0A1E3QGV8	rhodopsin_like	0.5948	0.9062	False		0.0	Eukaryota	903	fusion	Major facilitator superfamily (MFS) profile domain-containing protein	Lipomyces starkeyi NRRL Y-11557	False		False		
+A0A1G7GXJ2	rhodopsin_like	0.5781	0.8438	False		0.0	Archaea	216	single_domain_core	Bacteriorhodopsin/sensory rhodopsin	Halorientalis regularis	False		False		
+A0A1H1FRT4	rhodopsin_like	0.47	0.9732	False		0.0	Archaea	253	single_domain_core	Bacteriorhodopsin-like protein	Natronobacterium texcoconense	False		False		
+A0A1H6G2Z8	rhodopsin_like	0.6028	0.9688	False		0.0	Archaea	261	single_domain_core	Bacteriorhodopsin	Natronorubrum sediminis	False		False		
+A0A1H6XB79	high_confidence_type_I	0.9347	0.9688	True	anabaena_sensory	0.473	Bacteria	234	single_domain_core	Bacteriorhodopsin	Micromonospora phaseoli	False		False		
+A0A1I2WTE4	high_confidence_type_I	0.9153	0.9732	True	bacteriorhodopsin	0.317	Bacteria	250	single_domain_core	Bacteriorhodopsin	Methylobacterium gossipiicola	False		False		
+A0A1Q9C2T4	ambiguous	0.5572	0.558	True		0.0	Eukaryota	984	truncated_core	Uncharacterized protein	Symbiodinium microadriaticum (Dinoflagellate) (Zooxanthella microadriatica)	False		False		
+A0A1Q9CKQ6	high_confidence_type_I	0.8983	0.9732	True	bacteriorhodopsin	0.318	Eukaryota	392	extended	Sensory rhodopsin-2	Symbiodinium microadriaticum (Dinoflagellate) (Zooxanthella microadriatica)	False		False		
+A0A1Q9CRJ3	high_confidence_type_I	0.8675	0.9464	True		0.0	Eukaryota	1103	fusion	Protein Rf1, mitochondrial	Symbiodinium microadriaticum (Dinoflagellate) (Zooxanthella microadriatica)	False		False		
+A0A1U7EZK0	rhodopsin_like	0.4762	0.9643	False	sensory_rhodopsin_II	0.3	Archaea	218	single_domain_core	Homolog to rhodopsin	Natronomonas pharaonis (strain ATCC 35678 / DSM 2160 / CIP 103997 / JCM 8858 / NBRC 14720 / NCIMB 2260 / Gabara) (Halobacterium pharaonis)	False		False		
+A0A1W1VCM2	high_confidence_type_I	0.9395	0.9821	True	anabaena_sensory	0.489	Bacteria	232	single_domain_core	Rhodopsin	Hymenobacter roseosalivarius DSM 11622	False		False		
+A0A2I9CVS5	rhodopsin_like	0.4863	0.5045	False	xanthorhodopsin	0.379	Bacteria	122	truncated_core	Rhodopsin	Deinococcus aerius	False		False		
+A0A2J8A9R5	high_confidence_type_I	0.916	0.9688	True	channelrhodopsin	0.561	Eukaryota	536	extended	Sensory rhodopsin-1	Tetrabaena socialis	False		False		
+A0A2P6MQ02	rhodopsin_like	0.4316	0.9375	False		0.0	Eukaryota	259	single_domain_core	Uncharacterized protein	Planoprotostelium fungivorum	False		False		
+A0A2P6NAG6	rhodopsin_like	0.5887	0.9732	False	sensory_rhodopsin_II	0.261	Eukaryota	235	single_domain_core	Rhodopsin	Planoprotostelium fungivorum	False		False		
+A0A2P6NAM3	putative_type_I	0.8241	0.9464	True		0.0	Eukaryota	297	single_domain_core	Sensory rhodopsin (SRI)	Planoprotostelium fungivorum	False		False		
+A0A2P6NFX8	rhodopsin_like	0.4354	0.8973	False		0.0	Eukaryota	254	single_domain_core	Uncharacterized protein	Planoprotostelium fungivorum	False		False		
+A0A2P6NS35	high_confidence_type_I	0.8979	0.9643	True	anabaena_sensory	0.343	Eukaryota	452	extended	Opsin-1	Planoprotostelium fungivorum	False		False		
+A0A2P6P0M2	putative_type_I	0.8017	0.9643	True		0.0	Eukaryota	250	single_domain_core	Opsin	Planoprotostelium fungivorum	False		False		
+A0A2W0HUG2	high_confidence_type_I	0.9151	0.9866	True	chloride_pump_NTQ	0.373	Bacteria	284	single_domain_core	Rhodopsin	Alteribacter lacisalsi	False		False		
+A0A316VHF9	high_confidence_type_I	0.9137	0.9643	True	bacteriorhodopsin	0.342	Eukaryota	289	single_domain_core	Family A G protein-coupled receptor-like protein	Meira miltonrushii	False		False		
+A0A3G1I4H9	putative_type_I	0.7726	0.8393	True	bacteriorhodopsin	0.23	Eukaryota	367	extended	Cation channel rhodopsin 4	Guillardia theta (Cryptophyte) (Cryptomonas phi)	False	8YEL	False		
+A0A3N4LDD8	putative_type_I	0.8211	0.9688	True		0.0	Eukaryota	354	extended	Family A G protein-coupled receptor-like protein	Terfezia boudieri ATCC MYA-4762	False		False		
+A0A3P3RCT8	high_confidence_type_I	0.9234	0.9688	True	bacteriorhodopsin	0.382	Archaea	253	single_domain_core	Rhodopsin	Halocatena pleomorpha	False		False		
+A0A411LJN5	confirmed_type_I	0.903	0.9598	True	channelrhodopsin	0.271	Bacteria	237	single_domain_core	Bacteriorhodopsin	Sphingomonas paucimobilis (Pseudomonas paucimobilis)	False	8ANQ	False		
+A0A4P9VW20	rhodopsin_like	0.5239	0.6964	False		0.0	Eukaryota	223	single_domain_core	Uncharacterized protein	Blyttiomyces helicus	False		False		
+A0A4R5USH4	high_confidence_type_I	0.9324	0.9866	True	proteorhodopsin	0.491	Bacteria	249	single_domain_core	Rhodopsin	Algoriphagus formosus	False		False		
+A0A4V6S1I2	rhodopsin_like	0.5682	0.9241	False	channelrhodopsin	0.231	Eukaryota	258	single_domain_core	Rhodopsin	Bondarzewia mesenterica	False		False		
+A0A507C3K5	putative_type_I	0.8239	0.9732	True		0.0	Eukaryota	331	extended	Uncharacterized protein	Synchytrium microbalum	False		False		
+A0A517QXI7	confirmed_type_I	0.8873	0.9688	True		0.0	Bacteria	259	single_domain_core	Green-light absorbing proteorhodopsin	Stratiformator vulcanicus	False	8RSO;8RSP;8RSS;9G15;9G16	False		
+A0A545V9N2	putative_type_I	0.7341	0.9688	True		0.0	Eukaryota	291	single_domain_core	Bacteriorhodopsin-like protein domain-containing protein	Cordyceps javanica	False		False		
+A0A5A8CBR1	putative_type_I	0.8012	0.942	True	enzyme_rhodopsin	0.255	Eukaryota	642	extended	Histidine kinase domain-containing protein	Cafeteria roenbergensis (Marine flagellate)	False		False		
+A0A5A8CSF6	putative_type_I	0.8596	0.9688	True	bacteriorhodopsin	0.25	Eukaryota	931	extended	Uncharacterized protein	Cafeteria roenbergensis (Marine flagellate)	False		False		
+A0A5A8CW29	high_confidence_type_I	0.8792	0.9643	True	channelrhodopsin	0.277	Eukaryota	965	extended	Uncharacterized protein	Cafeteria roenbergensis (Marine flagellate)	False		False		
+A0A5A8CWN5	high_confidence_type_I	0.8875	0.9732	True	channelrhodopsin	0.374	Eukaryota	738	extended	Uncharacterized protein	Cafeteria roenbergensis (Marine flagellate)	False		False		
+A0A5A8CXC5	putative_type_I	0.749	0.7098	True		0.0	Eukaryota	272	single_domain_core	Uncharacterized protein	Cafeteria roenbergensis (Marine flagellate)	False		False		
+A0A5B1CMS2	high_confidence_type_I	0.9053	0.9821	True	sodium_pump	0.322	Bacteria	333	single_domain_core	Green-light absorbing proteorhodopsin	Rubripirellula obstinata	False		False		
+A0A5B2VFD4	confirmed_type_I	0.9183	0.9777	True	bacteriorhodopsin	0.316	Bacteria	263	single_domain_core	Rhodopsin	Salinarimonas soli	False	8XX8	False		
+A0A5J6MTG1	rhodopsin_like	0.5119	0.9732	False		0.0	Bacteria	229	single_domain_core	Xanthorhodopsin	Hypericibacter adhaerens	False		False		
+A0A5J6N178	rhodopsin_like	0.6667	0.9732	False	proteorhodopsin	0.386	Bacteria	233	single_domain_core	Xanthorhodopsin	Hypericibacter adhaerens	False		False		
+A0A5P3XBS8	high_confidence_type_I	0.8629	0.9777	True	anabaena_sensory	0.3	Bacteria	229	single_domain_core	Rhodopsin	Paraclostridium bifermentans (Clostridium bifermentans)	False		False		
+A0A699Z5H1	putative_type_I	0.8213	0.5848	True	channelrhodopsin	0.485	Eukaryota	313	truncated_core	Channelopsin 1	Haematococcus lacustris (Green alga) (Haematococcus pluvialis)	False		False		
+A0A699ZFJ2	putative_type_I	0.8407	0.6027	True	channelrhodopsin	0.602	Eukaryota	300	extended	Putative channel rhodopsin	Haematococcus lacustris (Green alga) (Haematococcus pluvialis)	False		False		
+A0A6P1DUB9	high_confidence_type_I	0.8672	0.9866	True		0.0	Bacteria	254	single_domain_core	Bacteriorhodopsin	Thiorhodococcus mannitoliphagus	False		False		
+A0A7D3SP32	high_confidence_type_I	0.9028	0.9732	True	channelrhodopsin	0.476	Eukaryota	630	extended	Cation channelrhodopsin 1	Tetraselmis subcordiformis (Marine green alga) (Carteria subcordiformis)	False		False		
+A0A7D3SQP7	high_confidence_type_I	0.9117	0.9688	True	channelrhodopsin	0.49	Eukaryota	511	extended	Cation channelrhodopsin 3	Tetraselmis subcordiformis (Marine green alga) (Carteria subcordiformis)	False		False		
+A0A7D3SUK4	putative_type_I	0.8568	0.8482	True	channelrhodopsin	0.268	Eukaryota	461	extended	Anion channelrhodopsin 3	Guillardia theta (Cryptophyte) (Cryptomonas phi)	False		False		
+A0A7J6KWM7	putative_type_I	0.7713	0.8884	True		0.0	Eukaryota	284	extended	Rhodopsin	Perkinsus chesapeaki (Clam parasite) (Perkinsus andrewsi)	False		False		
+A0A7J6S5A1	putative_type_I	0.7763	0.933	True		0.0	Eukaryota	596	extended	Ion channel activity	Perkinsus olseni (Perkinsus atlanticus)	False		False		
+A0A7L5E652	high_confidence_type_I	0.8978	0.9821	True	sensory_rhodopsin_I	0.242	Bacteria	279	single_domain_core	Bacteriorhodopsin	Mucilaginibacter robiniae	False		False		
+A0A812K756	ambiguous	0.6089	0.6875	True		0.0	Eukaryota	317	extended	Uncharacterized protein	Symbiodinium pilosum (Dinoflagellate)	False		False		
+A0A812PMT3	putative_type_I	0.7367	0.6295	True		0.0	Eukaryota	159	single_domain_core	Sop2 protein	Symbiodinium pilosum (Dinoflagellate)	False		False		
+A0A812RS72	high_confidence_type_I	0.8949	0.9241	True	sensory_rhodopsin_II	0.316	Eukaryota	305	extended	Bop2 protein	Symbiodinium natans	False		False		
+A0A812UJ52	rhodopsin_like	0.5813	0.7946	False		0.0	Eukaryota	403	extended	Aop3 protein	Symbiodinium natans	False		False		
+A0A812VAP8	ambiguous	0.6068	0.6786	True		0.0	Eukaryota	701	extended	Pentatricopeptide repeat-containing protein, chloroplastic	Symbiodinium natans	False		False		
+A0A813C039	high_confidence_type_I	0.8676	0.942	True		0.0	Eukaryota	400	extended	Aop3 protein	Symbiodinium necroappetens	False		False		
+A0A813ES95	ambiguous	0.6142	0.7277	True		0.0	Eukaryota	246	single_domain_core	Uncharacterized protein	Polarella glacialis (Dinoflagellate)	False		False		
+A0A815J0L9	high_confidence_type_I	0.9	0.9509	True	anabaena_sensory	0.328	Eukaryota	273	single_domain_core	Uncharacterized protein	Didymodactylos carnosus	False		False		
+A0A830H4C8	high_confidence_type_I	0.8752	0.9688	True	channelrhodopsin	0.292	Eukaryota	525	extended	Uncharacterized protein	Pycnococcus provasolii	False		False		
+A0A830HGR1	high_confidence_type_I	0.9042	0.9688	True	channelrhodopsin	0.495	Eukaryota	550	extended	Uncharacterized protein	Pycnococcus provasolii	False		False		
+A0A835W2F1	putative_type_I	0.7181	0.8795	True	channelrhodopsin	0.41	Eukaryota	555	extended	Uncharacterized protein	Chlamydomonas schloesseri	False		False		
+A0A8H5ZYN9	rhodopsin_like	0.5985	0.9196	False		0.0	Eukaryota	552	extended	Uncharacterized protein	Petromyces alliaceus (Aspergillus alliaceus)	False		False		
+A0A8J5V580	rhodopsin_like	0.567	0.9375	False		0.0	Eukaryota	329	single_domain_core	HSP31	[Candida] subhashii	False		False		
+A0A934IPV9	rhodopsin_like	0.6076	0.9643	False		0.0	Bacteria	321	extended	Bacteriorhodopsin	Acuticoccus mangrovi	False		False		
+A0A9P1BGR9	ambiguous	0.605	0.7991	True		0.0	Eukaryota	728	extended	Uncharacterized protein	Cladocopium goreaui	False		False		
+A0A9P1FXY8	putative_type_I	0.7733	0.9062	True		0.0	Eukaryota	654	extended	Ankyrin repeat domain-containing protein 50	Cladocopium goreaui	False		False		
+A0A9P1GQ35	ambiguous	0.5863	0.6875	True		0.0	Eukaryota	694	extended	Sensory rhodopsin-2 (Sensory rhodopsin II) (SR-II)	Cladocopium goreaui	False		False		
+A0A9P3GTZ4	rhodopsin_like	0.5556	0.9598	False		0.0	Eukaryota	285	single_domain_core	Family A G protein-coupled receptor-like protein	Phanerochaete sordida	False		False		
+A0A9W7ST28	high_confidence_type_I	0.8906	0.9509	True	sensory_rhodopsin_II	0.26	Eukaryota	645	extended	Family A G protein-coupled receptor-like protein	Teratosphaeria destructans	False		False		
+A0A9W9XHZ8	rhodopsin_like	0.629	0.9732	False	anabaena_sensory	0.237	Eukaryota	264	single_domain_core	Family A G protein-coupled receptor-like protein	Penicillium diatomitis	False		False		
+A0A9X2L7U0	high_confidence_type_I	0.9171	0.9821	True	chloride_pump_NTQ	0.394	Bacteria	293	single_domain_core	Bacteriorhodopsin-like	Parvularcula maris	False		False		
+A0A9X9ZA75	confirmed_type_I	0.9224	0.9866	True	bacteriorhodopsin	0.347	Bacteria	234	single_domain_core	Synechocystis halorhodopsin	Synechocystis sp. PCC 7509	False	7ZOU;7ZOV;7ZOW;7ZOY	False		
+A0AA36IVJ1	ambiguous	0.6899	0.7768	True		0.0	Eukaryota	728	extended	Uncharacterized protein	Effrenium voratum	False		False		
+A0AA36JGB0	ambiguous	0.6068	0.692	True		0.0	Eukaryota	1223	extended	Uncharacterized protein	Effrenium voratum	False		False		
+A0AA48QXY1	ambiguous	0.6435	0.8839	True		0.0	Eukaryota	371	extended	Family A G protein-coupled receptor-like protein	Cutaneotrichosporon cavernicola	False		False		
+A0AA82WP37	confirmed_type_I	0.9357	0.9821	True	anabaena_sensory	0.453	Bacteria	230	single_domain_core	Xenorhodopsin	Bacillus coahuilensis	False	7ZNG	False		
+A0AAD5S6T7	rhodopsin_like	0.4189	0.9062	False		0.0	Eukaryota	238	single_domain_core	Uncharacterized protein	Rhizophlyctis rosea	False		False		
+A0AAE0BCA2	high_confidence_type_I	0.9007	0.9732	True	channelrhodopsin	0.326	Eukaryota	366	extended	Uncharacterized protein	Cymbomonas tetramitiformis	False		False		
+A0AAE0BYX5	high_confidence_type_I	0.8865	0.9598	True	channelrhodopsin	0.354	Eukaryota	507	extended	Uncharacterized protein	Cymbomonas tetramitiformis	False		False		
+A0AAE0C9L8	putative_type_I	0.7002	0.7991	True		0.0	Eukaryota	902	fusion	Uncharacterized protein	Cymbomonas tetramitiformis	False		False		
+A0AAE0FQI2	high_confidence_type_I	0.8889	0.9107	True	channelrhodopsin	0.509	Eukaryota	615	extended	Uncharacterized protein	Cymbomonas tetramitiformis	False		False		
+A0AAE0KUF1	putative_type_I	0.841	0.9018	True		0.0	Eukaryota	654	extended	Uncharacterized protein	Cymbomonas tetramitiformis	False		False		
+A0AAE0LD25	high_confidence_type_I	0.9006	0.9554	True	channelrhodopsin	0.491	Eukaryota	519	extended	Uncharacterized protein	Cymbomonas tetramitiformis	False		False		
+A0AAJ6N6B2	confirmed_type_I	0.917	0.9777	True	bacteriorhodopsin	0.309	Bacteria	256	single_domain_core	cyanorhodopsin-II (CyR-II) P7104R	Nodosilinea nodulosa PCC 7104	False	8H79	False		
+A0AAV5A703	rhodopsin_like	0.4345	0.5938	False		0.0	Eukaryota	271	truncated_core	Uncharacterized protein	Clathrus columnatus	False		False		
+A0AAW2Z5U0	putative_type_I	0.8024	0.7232	True		0.0	Eukaryota	748	fusion	NIK1	Acrasis kona	False		False		
+A0AB34FWC1	rhodopsin_like	0.4874	0.7991	False		0.0	Eukaryota	564	fusion	Thaumatin, pathogenesis-related protein	Purpureocillium lavendulum	False		False		
+A0ABD5XPT5	rhodopsin_like	0.5871	0.625	False	sensory_rhodopsin_II	0.44	Archaea	168	single_domain_core	Bacteriorhodopsin	Halobaculum litoreum	False		False		
+A0ABD6C724	rhodopsin_like	0.4769	0.9554	False		0.0	Archaea	251	single_domain_core	Bacteriorhodopsin	Halorientalis brevis	False		False		
+A0ABF7PQ03	confirmed_type_I	0.865	0.942	True	xanthorhodopsin	0.253	Bacteria	327	extended	Cryorhodopsin	Subtercola endophyticus	False	8R96	False		
+A0ABF7PQ84	putative_type_I	0.7886	0.7143	True	bacteriorhodopsin	0.237	Eukaryota	259	single_domain_core	C110T class2 (C110T-class1)	Hyphochytrium catenoides	False	8ZAP;8ZAQ	False		
+A0ABM8AJS7	high_confidence_type_I	0.9256	0.9732	True	bacteriorhodopsin	0.39	Bacteria	245	single_domain_core	Rhodopsin	Deinococcus aetherius	False		False		
+A0ABM9RL04	high_confidence_type_I	0.9003	0.9241	True	anabaena_sensory	0.354	Bacteria	232	single_domain_core	Bacteriorhodopsin-like family protein	Paraclostridium sordellii (Clostridium sordellii)	False		False		
+A0ABN9RTI9	ambiguous	0.613	0.7054	True		0.0	Eukaryota	1309	extended	Uncharacterized protein	Prorocentrum cordatum	False		False		
+A0ABN9TZ86	ambiguous	0.6528	0.9241	True		0.0	Eukaryota	744	extended	Uncharacterized protein	Prorocentrum cordatum	False		False		
+A0ABN9UR13	high_confidence_type_I	0.8753	0.8839	True	sensory_rhodopsin_II	0.283	Eukaryota	416	extended	Uncharacterized protein	Prorocentrum cordatum	False		False		
+A0ABN9VZP5	ambiguous	0.6197	0.7054	True		0.0	Eukaryota	441	extended	Glycerophosphocholine acyltransferase 1	Prorocentrum cordatum	False		False		
+A0ABP0HHM1	high_confidence_type_I	0.8985	0.9732	True	sensory_rhodopsin_II	0.307	Eukaryota	246	single_domain_core	Archaerhodopsin-1 (AR 1) (Bacterio-opsin)	Durusdinium trenchii	False		False		
+A0ABP0JS20	ambiguous	0.6653	0.7098	True		0.0	Eukaryota	370	extended	Transmembrane protein	Durusdinium trenchii	False		False		
+A0ABP0K2F5	ambiguous	0.597	0.7768	True		0.0	Eukaryota	1730	extended	Transporter AQR1	Durusdinium trenchii	False		False		
+A0ABP0N122	ambiguous	0.6727	0.8304	True		0.0	Eukaryota	685	extended	Uncharacterized protein	Durusdinium trenchii	False		False		
+A0ABP0QRZ5	ambiguous	0.6061	0.7857	True		0.0	Eukaryota	769	extended	Intimal thickness related receptor IRP domain-containing protein	Durusdinium trenchii	False		False		
+A0ABQ3FJ61	high_confidence_type_I	0.9269	0.9821	True	bacteriorhodopsin	0.381	Bacteria	225	single_domain_core	Rhodopsin	Kushneria pakistanensis	False		False		
+A0ABQ7G5D3	putative_type_I	0.8227	0.9554	True		0.0	Eukaryota	399	extended	Uncharacterized protein	Dunaliella salina (Green alga) (Protococcus salinus)	False		False		
+A0ABQ7GQX6	putative_type_I	0.7825	0.808	True		0.0	Eukaryota	280	extended	Uncharacterized protein	Dunaliella salina (Green alga) (Protococcus salinus)	False		False		
+A0ABR7K021	high_confidence_type_I	0.905	0.9598	True	anabaena_sensory	0.326	Bacteria	228	single_domain_core	Bacteriorhodopsin	Paeniclostridium hominis	False		False		
+A0ABT8M6U9	high_confidence_type_I	0.887	0.9509	True	channelrhodopsin	0.229	Archaea	215	single_domain_core	Bacteriorhodopsin	Methanoculleus frigidifontis	False		False		
+A0ABV4I333	high_confidence_type_I	0.9003	0.9688	True	xanthorhodopsin	0.323	Bacteria	327	extended	Bacteriorhodopsin	Kineococcus mangrovi	False		False		
+A0ABW4LD18	high_confidence_type_I	0.9008	0.9732	True	xanthorhodopsin	0.305	Bacteria	311	single_domain_core	Bacteriorhodopsin	Amnibacterium endophyticum	False		False		
+A0ABY0HHR4	rhodopsin_like	0.5083	0.5357	False	anabaena_sensory	0.308	Eukaryota	159	truncated_core	Uncharacterized protein	Monosporascus cannonballus	False		False		
+A0ABY8TPA0	high_confidence_type_I	0.9223	0.9688	True	channelrhodopsin	0.486	Eukaryota	346	extended	Uncharacterized protein	Tetradesmus obliquus (Green alga) (Acutodesmus obliquus)	False		False		
+A0AC59EXE7	high_confidence_type_I	0.889	0.9911	True		0.0	Viruses	225	single_domain_core	Uncharacterized protein	Phaeocystis globosa virus PgV-16T	False		False		
+A0ACB6RBA3	high_confidence_type_I	0.9144	0.9777	True	bacteriorhodopsin	0.375	Eukaryota	306	single_domain_core	Family A G protein-coupled receptor-like protein	Lindgomyces ingoldianus	False		False		
+A0ACB8SAL4	rhodopsin_like	0.5529	0.8348	False	anabaena_sensory	0.248	Eukaryota	254	single_domain_core	Family A G protein-coupled receptor-like protein	Auriscalpium vulgare	False		False		
+A0ACB8SS56	rhodopsin_like	0.5844	0.9286	False		0.0	Eukaryota	237	single_domain_core	Family A G protein-coupled receptor-like protein	Artomyces pyxidatus	False		False		
+A0ACC1MV21	rhodopsin_like	0.5372	0.6205	False	channelrhodopsin	0.368	Eukaryota	284	extended	Uncharacterized protein	Trametes sanguinea	False		False		
+C8CHH8	high_confidence_type_I	0.9045	0.9732	True	anabaena_sensory	0.294	Eukaryota	334	extended	Opsin	Cyanophora paradoxa	False		False		
+D1MER6	high_confidence_type_I	0.8975	0.9509	True	halorhodopsin	0.324	Eukaryota	282	single_domain_core	Opsin 2	Cyanophora paradoxa	False		False		
+D7CVU5	high_confidence_type_I	0.9065	0.9821	True	channelrhodopsin	0.329	Bacteria	251	single_domain_core	Rhodopsin	Truepera radiovictrix (strain DSM 17093 / CIP 108686 / LMG 22925 / RQ-24)	False		False		
+F8UVI5	high_confidence_type_I	0.8978	0.9688	True	channelrhodopsin	0.443	Eukaryota	593	extended	Channelopsin 1	Mesostigma viride (Green alga)	False		False		
+G4XT38	high_confidence_type_I	0.9172	0.9554	True	xanthorhodopsin	0.404	Eukaryota	258	single_domain_core	Rhodopsin 2	Phaeocystis globosa	False		False		
+H2EZZ6	high_confidence_type_I	0.9833	0.9554	True	channelrhodopsin	1.0	Eukaryota	227	single_domain_core	Channelrhodopsin-2 PsChR2	Pleodorina starrii	False		True	channelrhodopsin	cation_channel
+H2EZZ7	ambiguous	0.6918	0.6607	True		0.0	Eukaryota	148	single_domain_core	Sensory rhodopsin-5 PsCop5	Pleodorina starrii	False		False		
+H2EZZ8	putative_type_I	0.7108	0.6607	True	sensory_rhodopsin_II	0.265	Eukaryota	143	single_domain_core	Sensory rhodopsin-6 PsCop6	Pleodorina starrii	False		False		
+H3JSC1	rhodopsin_like	0.5953	0.6339	False	proteorhodopsin	0.472	Bacteria	145	single_domain_core	Proteorhodopsin	Tenacibaculum sp. SG-21	False		False		
+I0IGJ9	high_confidence_type_I	0.8952	0.9777	True	sodium_pump	0.343	Bacteria	315	single_domain_core	Bacterial rhodopsin family protein	Phycisphaera mikurensis (strain DSM 103959 / KCTC 22515 / NBRC 102666 / FYK2301M01)	False		False		
+L1IFJ7	putative_type_I	0.7609	0.9509	True		0.0	Eukaryota	953	extended	Uncharacterized protein	Guillardia theta (strain CCMP2712) (Cryptophyte)	False		False		
+L1JA23	putative_type_I	0.8571	0.8214	True	halorhodopsin	0.331	Eukaryota	230	single_domain_core	Uncharacterized protein	Guillardia theta (strain CCMP2712) (Cryptophyte)	False		False		
+L1JGN9	high_confidence_type_I	0.9073	0.9777	True	bacteriorhodopsin	0.278	Eukaryota	275	single_domain_core	Rhodopsin	Guillardia theta (strain CCMP2712) (Cryptophyte)	False		False		
+L1JQI7	putative_type_I	0.8037	0.7545	True		0.0	Eukaryota	263	single_domain_core	Opsin	Guillardia theta (strain CCMP2712) (Cryptophyte)	False		False		
+L1K1N6	high_confidence_type_I	0.9064	0.9643	True	sensory_rhodopsin_II	0.252	Eukaryota	254	single_domain_core	Bacteriorhodopsin	Guillardia theta (strain CCMP2712) (Cryptophyte)	False		False		
+M0E6A6	high_confidence_type_I	0.8625	0.9375	True		0.0	Archaea	217	single_domain_core	Sensory rhodopsin 1	Halorubrum coriense DSM 10284	False		False		
+M0LQQ4	high_confidence_type_I	0.9342	0.933	True	bacteriorhodopsin	0.536	Archaea	223	single_domain_core	Bacteriorhodopsin	Natronobacterium lacisalsi AJ5	False		False		
+M1PFK4	high_confidence_type_I	0.9098	0.9643	True	channelrhodopsin	0.406	Eukaryota	660	extended	Channelopsin	Tetraselmis subcordiformis (Marine green alga) (Carteria subcordiformis)	False		False		
+M5G4F1	putative_type_I	0.8372	0.9554	True		0.0	Eukaryota	331	single_domain_core	Family A G protein-coupled receptor-like protein	Dacryopinax primogenitus (Brown rot fungus)	False		False		
+N0DKS8	confirmed_type_I	0.9934	0.9955	True	sodium_pump	1.0	Bacteria	280	single_domain_core	Sodium pumping rhodopsin	Dokdonia eikasta	False	3X3B;3X3C;4XTL;4XTN;4XTO;5JRF;6REX;6REZ;6RF0;6RF1;6RF3;6RF4;6RF5;6RF6;6RF7;6RF9;6RFA;6RFB;6RFC;6TK1;6TK2;6TK3;6TK4;6TK5;6TK6;6TK7;6XYT;6YBY;6YBZ;6YC0;6YC1;6YC2;6YC3;6YC4;6YT4;7Q36;8CL7;8CL8;8RQ5;9I6H;9I6I	True	sodium_pump	ion_pump_cation
+Q00TF7	putative_type_I	0.825	0.9509	True	enzyme_rhodopsin	0.206	Eukaryota	912	fusion	Signal transduction histidine kinase-related protein, C-terminal	Ostreococcus tauri (Marine green alga)	False		False		
+Q2QCJ4	high_confidence_type_I	0.9111	0.9598	True	sensory_rhodopsin_II	0.314	Eukaryota	249	single_domain_core	Opsin 1	Guillardia theta (Cryptophyte) (Cryptomonas phi)	False		False		
+R9AD72	high_confidence_type_I	0.8709	0.9598	True		0.0	Eukaryota	301	single_domain_core	Opsin-1	Wallemia ichthyophaga (strain EXF-994 / CBS 113033)	False		False		
+S5DM51	confirmed_type_I	0.9054	0.9643	True	proteorhodopsin	0.324	Bacteria	220	single_domain_core	Bacteriorhodopsin	Candidatus Actinomarina minuta	False	5JSI;7AVN;7AVO;7AVP;7Q37	False		

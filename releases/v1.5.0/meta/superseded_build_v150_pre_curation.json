@@ -1,0 +1,17 @@
+{
+ "label": "v1.5.0 pre-curation build (never tagged or published)",
+ "superseded_on": "2026-10-06",
+ "reason": "rebuilt in place after the curator spot-check sign-off (65/65 items): publication links replaced/dropped, field corrections, E1 eligibility rule, CryoR2 photoreceptor_unassigned class, clade cache recount, tentative clade layer. Tree, placements and WP3 outputs unchanged.",
+ "db_sha256": "1e8160df867e62a9f6a1c9f039be4ca223cc57ccf0d28b30b34017a4e6dd0eab",
+ "db_bytes": 30883840,
+ "env_pilot_db_sha256": "e23913b03db09fbf50c67fe8881703e4d0cedb3eb942bde827698787e76d0e79",
+ "SHA256SUMS_sha256": "2cd546e6773f1e04c46777baf33330a27f7146fb0f3f743f038a371e10b233bc",
+ "evidence_ladder_old": {
+  "E1": 86,
+  "E2": 120,
+  "E3": 1387,
+  "E4": 1358,
+  "E5": 2515
+ },
+ "replacement_db_sha256": "d715baf8af951cb5a78aa2f5db042c03b8fff788d2627fc6df2d97b67e88e33a"
+}

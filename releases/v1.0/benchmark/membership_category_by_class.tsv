@@ -1,0 +1,8 @@
+provenance	high_confidence_type_I	putative_type_I	rejected	rhodopsin_like
+N1_animal_typeII_opsin	0	0	60	0
+N2_heliorhodopsin_PF18761	0	0	50	0
+N3_nonopsin_7TM_GPCR	0	0	60	0
+N4_fragment_synthetic	1	5	4	10
+N5_frameshift_synthetic	0	0	3	17
+N6_hsp30_pfam_clan	0	0	0	5
+PF01036_reviewed_typeI	42	0	0	4

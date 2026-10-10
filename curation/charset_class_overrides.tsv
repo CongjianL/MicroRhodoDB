@@ -1,0 +1,10 @@
+source_acc	exp_class	reason
+P42197	sensory_transducer	UniProt P42197 is sensory rhodopsin II; source regex labelled anion_pump
+W8VZ79	sodium_pump	NmNaR (Nonlabens marinus NM-R2) is a light-driven Na+ pump; source regex labelled anion_pump
+W8VZ92	proton_pump_outward	NmPR (Nonlabens marinus NM-R1) is an outward H+ pump; source regex labelled anion_pump
+N0DLS5	proton_pump_outward	KR1 (Krokinobacter eikastus rhodopsin 1) is an outward H+ pump; KR2 is the Na+ pump
+S0ELR6	proton_pump_outward	CarO (Fusarium fujikuroi) shown to pump H+ (Garcia-Martinez 2015); source labelled sensory_transducer
+Q9UW81	unknown	NOP-1 (Neurospora): photochemistry characterised; signalling role inferred, not assayed
+A0ABF7PQ03	photoreceptor_no_transport	CryoR2 (identical sequence trio): UV photoswitching characterised; no ion transport in E. coli assay; inward H+ shown only for CryoR1 (curator spot-check rows 30-32, 39)
+A0ABF7PQ05	photoreceptor_no_transport	CryoR2 (identical sequence trio): UV photoswitching characterised; no ion transport in E. coli assay; inward H+ shown only for CryoR1 (curator spot-check rows 30-32, 39)
+A0AC62AE26	photoreceptor_no_transport	CryoR2 (identical sequence trio): UV photoswitching characterised; no ion transport in E. coli assay; inward H+ shown only for CryoR1 (curator spot-check rows 30-32, 39)

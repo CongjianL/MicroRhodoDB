@@ -1,0 +1,66 @@
+row_id	batch	item_type	source_acc	assertion_id	publication_id	sheet_verdict	decision	field	new_value	curator_note	decided_by	decided_at	approval
+0	4	publication_link_non_verified	P02945	1.0	1.0	unresolvable	keep_unresolvable			Link kept but not counted as support; P02945 retains E1 via assertion 2/pub 2 (verified).	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+1	4	publication_link_non_verified	P42196	5.0	6.0	not_supported	replace_link	publication	Luttenberg, Wolff & Engelhard 1998 FEBS Lett; doi:10.1016/s0014-5793(98)00322-6; PMID 9598990	Wrong ortholog (H. salinarum SRII). Replacement verified: psRII/pHtrII restores negative phototaxis in Pho81/w.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+2	4	publication_link_non_verified	P42196	5.0	7.0	not_supported	replace_link	publication	Luttenberg, Wolff & Engelhard 1998 FEBS Lett; doi:10.1016/s0014-5793(98)00322-6; PMID 9598990	Wrong ortholog (H. halobium phoborhodopsin); drop and use the same verified replacement.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+3	4	publication_link_random_sample+non_verified	Q9F7P4	6.0	9.0	not_supported	drop_link			Man 2003 is spectral tuning only; assertion 6 still supported by pub 8 (verified); pub 9 kept for assertion 7.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+4	3	publication_link_non_verified	W8VZW3	10.0	12.0	verified_with_correction	approve_with_correction	assay_type	light-induced pH change in E. coli cells + X-ray crystallography	NM-R3 ClR.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+5	3	publication_link_non_verified	W8VZW3	10.0	13.0	verified_with_correction	approve_with_correction	assay_type	light-induced pH change in E. coli cells + X-ray crystallography	NM-R3 ClR.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+6	4	publication_link_non_verified	H2EZZ6	12.0	15.0	not_supported	downgrade_E1	E1	removed; publication link 15 dropped	Pub 15 concerns Platymonas subcordiformis PsChR2 (name collision). Bounded search: no primary functional paper for Pleodorina starrii H2EZZ6 (Zhang 2011 Cell reports sequence only). Drop link; remove E1.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+7	3	publication_link_non_verified	A0ACD6B968	13.0	16.0	verified_with_correction	approve_with_correction	assay_type;qualifier;journal	X-ray 2.0 A + photochromic spectroscopy;remove 'transducer-free' (soluble 14-kDa transducer described);Science	Anabaena SR.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+8	4	publication_link_non_verified	A0A060H1D7	14.0	17.0	verified_with_correction	replace_link	publication	Scheib et al. 2015 Sci Signal; doi:10.1126/scisignal.aab0611; PMID 26268609	Pub 17 is a 2019 review; replaced with primary RhGC cGMP-generation paper (verified).	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+9	4	publication_link_non_verified	A0A060H1D7	14.0	18.0	not_supported	drop_link			Besaw 2020 is a MastR chloride-pump paper; unrelated to RhGC.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+10	4	publication_link_non_verified	A0A060H1D7	15.0	18.0	not_supported	replace_link	publication	Kumar et al. 2017 JBC; doi:10.1074/jbc.M117.812685; PMID 29118188	Pub 18 unrelated; replaced with RhGC GC-domain crystal structure (verified).	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+11	2	publication_link_random_sample	Q5UXM9	16.0	19.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+12	2	publication_link_random_sample	Q5UXM9	16.0	20.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+13	2	publication_link_random_sample	P29563	25.0	26.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+14	2	publication_link_random_sample	P96787	27.0	27.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+15	3	publication_link_non_verified	P15647	29.0	30.0	verified_with_correction	approve_with_correction	assay_type	transient absorption/FTIR only (part I); Cl- kinetics in part II doi:10.1021/bi00044a028		CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+16	2	publication_link_random_sample	Q7NP59	37.0	40.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+17	2	publication_link_random_sample	Q9AFF7	41.0	45.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+18	2	publication_link_random_sample	Q9AFF7	42.0	46.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+19	2	publication_link_random_sample	A0A6P3CW41	45.0	49.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+20	3	publication_link_non_verified	Q93WP2	48.0	52.0	verified_with_correction	approve_with_correction	transported_ion	H+ (this paper); Na+/K+/Ca2+ from Berthold 2008		CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+21	2	publication_link_random_sample	Q93WP2	48.0	53.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+22	3	publication_link_non_verified	A0ABF7PQA2	50.0	56.0	verified_with_correction	approve_with_correction	transport_direction	passive K+ flux, outward/hyperpolarizing; PK/PNa = 23		CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+23	2	publication_link_random_sample	Q9UW81	52.0	59.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+24	2	publication_link_random_sample	G1K3Q0	54.0	61.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+25	2	publication_link_random_sample	G1K3Q0	54.0	62.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+26	2	publication_link_random_sample	G1K3Q0	55.0	61.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+27	2	publication_link_random_sample	I0YUS5	56.0	63.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+28	2	publication_link_random_sample	F2TZN0	58.0	65.0	verified	approve			Verified against retrieved text.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+29	4	publication_link_non_verified	F2TZN0	58.0	67.0	not_supported	annotate_conflict	note	conflicting evidence on 'light-regulated' (pub 67 reports no light modulation of RhoPDE activity)	F2TZN0 keeps E1 via pubs 65 and 66 (verified).	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+30	3	publication_link_non_verified	A0ABF7PQ03	61.0	69.0	verified_with_correction	approve_with_correction	exp_class	photoreceptor_no_transport	CryoR2: UV photoswitching supported; inward H+ pumping belongs to CryoR1 and is not transferable. func class photoreceptor_unassigned.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+31	3	publication_link_non_verified	A0ABF7PQ05	62.0	69.0	verified_with_correction	approve_with_correction	exp_class	photoreceptor_no_transport	CryoR2: UV photoswitching supported; inward H+ pumping belongs to CryoR1 and is not transferable. func class photoreceptor_unassigned.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+32	3	publication_link_non_verified	A0AC62AE26	63.0	69.0	verified_with_correction	approve_with_correction	exp_class	photoreceptor_no_transport	CryoR2: UV photoswitching supported; inward H+ pumping belongs to CryoR1 and is not transferable. func class photoreceptor_unassigned.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+33	5	E1_class_override	P42197			curator_override_proposed	approve			Class override already applied; confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+34	5	E1_class_override	W8VZ79			curator_override_proposed	approve			Class override already applied; confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+35	5	E1_class_override	W8VZ92			curator_override_proposed	approve			Class override already applied; confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+36	5	E1_class_override	N0DLS5			curator_override_proposed	approve			Class override already applied; confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+37	5	E1_class_override	S0ELR6			curator_override_proposed	approve			Class override already applied; confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+38	5	E1_class_override	Q9UW81			curator_override_proposed	approve			Class override already applied; confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+39	5	E1_class_override	A0ABF7PQ03			curator_override_proposed	approve_with_correction	exp_class	photoreceptor_no_transport	Applies to all three identical CryoR2 sequences (A0ABF7PQ03, A0ABF7PQ05, A0AC62AE26).	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+40	5	membership_conflict	D2RRQ8			conflict	annotate_only	E1	removed; accession_mapping_conflict flag; 547 nm HtdR annotation kept	D2RRQ8 stays boundary_family.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+41	1	function_rule_DTK	A0A1G1SUC6			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+42	1	function_rule_DTK	A0A243WAM4			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+43	1	function_rule_DTK	A0A2K8Z7L7			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+44	1	function_rule_DTK	A0A3S9MUF4			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+45	1	function_rule_DTK	A0A558BW15			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+46	1	function_rule_DTK	A0AAN7YFU3			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+47	1	function_rule_DTK	A0A5S9IPH6			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+48	1	function_rule_DTK	A0A6M0IG11			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+49	1	function_rule_DTK	A0A6M5YC09			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+50	1	function_rule_DTK	A0A7L5DT13			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+51	1	function_rule_DTK	A0A7L5DXE8			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+52	1	function_rule_DTK	A0A7L5E652			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+53	1	function_rule_DTK	A0A7Y0AF94			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+54	1	function_rule_DTK	A0A939GCX2			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+55	1	function_rule_DTK	A0A939K0M9			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+56	1	function_rule_DTK	A0ABS6WYA7			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+57	1	function_rule_DTK	A0ABT0HFP5			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+58	1	function_rule_DTK	A0ABT2KW02			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+59	1	function_rule_DTK	A0ABT6R5R1			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+60	1	function_rule_DTK	A0ABW5M4U0			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+61	1	function_rule_DTK	A0ABX2VCW4			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+62	1	function_rule_DTK	A0ABX8GD89			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+63	1	function_rule_DTK	C4L4S1			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions
+64	1	function_rule_DTK	T1QF29			curated_rule_proposed	approve			DTK rule assignment confirmed.	CongJian Li	2026-10-06T02:44Z	batch_approved_no_exceptions

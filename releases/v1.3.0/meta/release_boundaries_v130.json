@@ -1,0 +1,42 @@
+{
+  "database_release": "1.3.0",
+  "schema_revision": "v130.1",
+  "base_release": "1.2.0 (immutable; membership table byte-identical, verified by release test X6b)",
+  "uniprot_release": "2026_02",
+  "uniprot_release_date": "10-June-2026",
+  "pfam_typeI": "PF01036.25",
+  "pfam_helio": "PF18761.8",
+  "scope_taxonomic": "Bacteria, Archaea, microbial Eukaryota, Viruses",
+  "scope_provenance": "cultured isolates + metagenomic/environmental (flagged separately); v1.3.0 adds a controlled MGnify environmental pilot (marine + soil), isolated from membership",
+  "families": "type_I core (PF01036) + heliorhodopsin companion (PF18761)",
+  "membership_authority": "membership.membership_status (legacy module column deprecated)",
+  "feature_status": {
+    "implemented": [
+      "everything in v1.2.0 (see release_boundaries_v120.json)",
+      "independent external validation set (106 records; exposure-audited, ever_exposed_flag=0; specificity 1.000 on 100 negatives)",
+      "leakage-controlled holdout benchmarks (6 regimes; primary reference_clade_msc: sensitivity 0.891 @0.86 / 0.652 @0.90; specificity @0.90 = 1.000 in all regimes)",
+      "reference-tree provenance (reference_tree/tree_node/tree_edge/reference_clade_tip; MR_RT_001: 185 tips, 367 edges, 60 clades)",
+      "structured evidence ingestion (69 publications, all with DOI/PMID; gates G1-G4; 11 raw-only refs resolved and cross-verified)",
+      "sequence_source provenance for all 6,713 proteins (UniProt backfill + MGnify pilot)",
+      "environmental_admission pilot: 1,352 MGnify candidates (976 marine, 376 soil), frozen v1.2.0 scores, source-aware states, fully isolated from membership/active_population",
+      "pilot error analysis + distribution-shift metrics (dimensions A-H) + epa-ng phylogenetic placement onto MR_RT_001",
+      "release-wide validation suite: 52 tests (33 legacy incl. 2 documented v1.3.0 adjustments + 19 new invariants)"
+    ],
+    "planned": [
+      "GEM source-domain replication (gate for any full environmental expansion)",
+      "medium marine-first MGnify expansion behind measurable gates (PR13.8 memo)",
+      "environmental confidence tiers (env_candidate_confirmed / env_candidate / env_candidate_fragment / env_unresolved) - PROPOSED in PR13.8, NOT applied; v1.4 candidate",
+      "MR_RT_002 orphan tree (278 tips) promotion - v1.4 territory",
+      "broader domain-panel retrieval so fusion becomes assessable for environmental records"
+    ],
+    "experimental": [
+      "ESMFold predicted structures (2 records; illustrative only)"
+    ]
+  },
+  "frozen_invariants": {
+    "thresholds": "confirmed 0.90, high 0.86, candidate 0.70, rhodopsin_like 0.40 - unchanged from v1.2.0, never retuned on external/environmental data",
+    "membership": "5,361 rows, byte-identical to v1.2.0",
+    "environmental_isolation": "no environmentally-sourced protein in membership/active_population"
+  },
+  "note": "v1.3.0 adds validation, provenance, and a controlled environmental pilot around the frozen v1.2.0 core. It does NOT change any membership decision and does NOT claim global environmental completeness (pilot is Pfam-pre-screened; prevalence not estimable)."
+}

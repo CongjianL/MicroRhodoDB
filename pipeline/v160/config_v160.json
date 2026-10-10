@@ -1,0 +1,31 @@
+{
+  "base_db": "releases/v1.5.0/db/microrhododb_v1.5.0.sqlite",
+  "out_db": "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite",
+  "curation_dir": "curation/v160",
+  "work_dir": "work/v160",
+  "log_file": "releases/v1.6.0/meta/build_log_v160.txt",
+  "mmseqs": "mmseqs",
+  "threads": 8,
+  "curator": "CongJian Li",
+  "decision_date": "2026-10-09",
+  "release_metadata": {
+    "version": "1.6.0",
+    "release_date": "2026-10-10",
+    "database_release": "1.6.0",
+    "schema_revision": "v160.1",
+    "base_release": "1.5.0 (immutable; opened read-only with ?mode=ro and copied)",
+    "curator_signoff": "All v1.6.0 sign-off rows decided by CongJian Li on 2026-10-09 (curation_v160_decision table); HcKCR1 mutants Option B; 6 compilation-only records RETIER (E1 removed); referee follow-up (R2) 25/25 rows approved by CongJian Li on 2026-10-10 (curation_v160_r2_signed.tsv)",
+    "function_conflict_rule": "compatibility-aware: motif unassigned = untestable; sensory_like motif conflicts only with pump calls; pump motif conflicts with any other call. E3/E4 (non curated_rule) conflicts -> E5 'unassigned'; E1/E2/curated_rule conflicts flagged only (function_evidence.call_conflict*)",
+    "engineered_policy": "is_engineered=1 + wild_type_acc; excluded from counts, coverage, E2 transfer references and benchmarks; E1 extended to the wild-type entry (HcKCR1 mutants keep their own E1, Option B)",
+    "clade_function": "recomputed from the v1.6.0 non-engineered E1 set with the unchanged v1.5.0 rule (>=2 E1, >=80% agreement; subclade first, then clade); per-group results in clade_function_consensus",
+    "scorer": "membership scorer, HMMs and thresholds unchanged from v1.5.0; 4 E1 records promoted by signed curated override to typeI_member_curated (score kept, reason in membership.status_reason); family-HMM flag added (novel_family_flag; tools/family_flag.py), not used for membership",
+    "deprecations_removed": "membership.alias_v14 and compatibility views v_typeI_core, v_typeI_candidates, v_typeI_active, v_rejected_or_decoy removed",
+    "accession_map_note": "5,466 source accessions map to 5,299 MRDB accessions (sequence-identity based); 129 MRDB accessions carry >1 source accession",
+    "source_release_note": "sequence_source.source_release backfilled: 'v1.2.0-corpus' -> UniProtKB_2026_02 (retrieved 2026-07-29; UniProt release 10-June-2026); '2026_03' -> UniProtKB_2026_03",
+    "license": "CC BY 4.0 (data); MIT (code)",
+    "scope": "UniProt-derived Type-I microbial rhodopsin corpus",
+    "ci_method": "Wilson score interval for all proportions",
+    "audit_rules": "R2 blind-audit rules: MR_CLD3_009.03 E4 sensory/sensory_like with DTA/DSA -> E5 unresolved; MR_CLD3_017.06 E4 proton_pump with DSE -> E5 unresolved; schizorhodopsins A0AAP2RB57, A0ABT8M6U9 light_gated_channel E4 -> E5 unresolved",
+    "foldseek_watchlist": "Foldseek web search (afdb50, mgnify_esm30) of family representatives; 786 funnel survivors in foldseek_hit; 181 watchlist rows in novel_family_candidate; web-server hit lists capped at 1000 per query and database (cap reached for 9 of 10 queries; bestrhodopsin surrogate 632/557)"
+  }
+}

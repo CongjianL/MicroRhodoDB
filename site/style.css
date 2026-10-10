@@ -1,0 +1,27 @@
+body{font-family:"Liberation Sans",Arial,Helvetica,sans-serif;margin:0;color:#111;background:#FAF9F3}
+header{background:#000;color:#fff;padding:10px 18px;display:flex;flex-wrap:wrap;align-items:baseline;gap:14px}
+header h1{font-size:20px;margin:0}header h1 a{color:#fff;text-decoration:none}
+header span{font-size:13px;color:#ECE9E2}
+nav a{color:#E9ED4C;margin-right:14px;font-size:14px;text-decoration:none}nav a.on{text-decoration:underline}
+#ctl{padding:10px 18px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:#ECE9E2;font-size:13px}
+input,select,button,textarea{font-size:13px;padding:4px 6px}#q{width:280px}
+textarea{width:100%;max-width:900px;font-family:monospace}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{padding:4px 6px;border-bottom:1px solid #ddd;text-align:left;vertical-align:top}
+th{position:sticky;top:0;background:#fff;cursor:pointer}
+#tb tr,#search-tb tr{cursor:pointer}#tb tr:hover,#search-tb tr:hover{background:#fff6e0}
+#wrap{padding:0 18px 18px}#info{font-size:13px;margin:6px 0}
+.view{padding:0 18px 18px}#view-browse{padding:0}
+.note{font-size:13px;max-width:900px;color:#333}
+#detail{position:fixed;right:0;top:0;bottom:0;width:480px;max-width:100%;background:#fff;border-left:2px solid #000;
+  padding:14px;overflow:auto;font-size:13px;box-shadow:-4px 0 10px rgba(0,0,0,.15)}
+#detail h2{font-size:16px;margin:6px 0}#detail h3{font-size:14px;margin:12px 0 4px}
+.k{color:#555}.badge{display:inline-block;padding:1px 6px;border-radius:3px;color:#fff;font-size:11px}
+.E1{background:#75A025}.E2{background:#0279EE}.E3{background:#FF9400}.E4{background:#777}.E5{background:#ccc;color:#000}
+.flag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:11px;margin-right:4px}
+.flag.conflict{background:#FF9400;color:#000}.flag.eng{background:#FD9BED;color:#000}.flag.tent{background:#ECE9E2;color:#000;border:1px dashed #000}.flag.cur{background:#75A025;color:#fff}.flag.fam{background:#E9ED4C;color:#000}
+.pub{margin:4px 0 8px;padding-left:8px;border-left:3px solid #0279EE}.pub.compilation,.pub.context{border-left-color:#999}
+.pub.unresolvable_not_counted{border-left-color:#ccc;color:#666}
+dl.kv{display:grid;grid-template-columns:170px 1fr;gap:2px 8px;margin:0}dl.kv dt{color:#555}dl.kv dd{margin:0;word-break:break-word}
+pre.seq{font-size:11px;white-space:pre-wrap;word-break:break-all;background:#FAF9F3;padding:6px}
+a{color:#0279EE}

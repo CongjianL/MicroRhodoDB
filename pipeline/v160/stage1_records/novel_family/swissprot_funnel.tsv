@@ -1,0 +1,6 @@
+family	n_sprot_hits	n_novel_excl_known	n_length_pass	n_retinalK_pass
+viral_rhodopsin	0	0	0	0
+schizorhodopsin	29	0	0	0
+xenorhodopsin	43	0	0	0
+bestrhodopsin	9	9	0	0
+MerMAID	0	0	0	0

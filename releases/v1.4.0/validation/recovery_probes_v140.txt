@@ -1,0 +1,20 @@
+[P1] PASS: {"precursor_seqs": 5361, "frozen_uniprot": 5361, "accessions_identical": true, "sequences_identical": 5361}
+[P2] PASS: {"membership_byte_carry": true, "active_population": 5361, "active": 4881, "core": 3033, "candidate": 1848, "active_derivable": true}
+[P3] PASS: {"cluster_ids_match": true, "rep_flags_match": true, "n_clusters": 5200}
+[P4] MATCH-WITH-DIFFERENCES: {"std_90": {"frozen_clusters": 3344, "derived_clusters": 3341, "mean_purity": 0.9987, "rep_flag_match": 0.9103}, "intermediate": {"frozen_clusters": 1270, "derived_clusters": 1280, "mean_purity": 0.9929, "rep_flag_match": 0.9433}, "backbone": {"frozen_clusters": 510, "derived_clusters": 510, "mean_purity": 0.9821, "rep_flag_match": 0.9683}, "cause": "MMseqs2 version + input order unrecorded; rep re-ranking partially specified"}
+[P5] PASS: {"nodes": 368, "edges": 367, "connected": true, "clades_monophyletic": "60/60", "preserved_treefile_is": "MR_RT_002", "mr_rt_001_source": "LOST (v1.1 WS3 backbone_iqtree.treefile; documented in build_provenance)"}
+[P6] PASS: {"metrics_exact": "18/18", "ci_method": "clopper_pearson"}
+[P7] PASS: {"fold_level": "138/138", "pooled": "126/126", "note": "pooled: positives=held-out fold score, negatives=full-model score; CIs Clopper-Pearson; 'adequate' flag rule only partially recoverable (QC annotation, not a metric)"}
+[P8] MATCH-WITH-DIFFERENCES: {"hmm_cov_exact": "4947/5351", "hits": "5351/5361", "complete_core_rule_exact": true, "cause": "HMMER 3.3 (frozen build) vs 3.4 (probe) domain-resolution drift; PF01036.25 HMM version confirmed identical"}
+[P9] PASS: {"split": {"environmental_unresolved": 851, "environmental_candidate": 501}, "membership_isolation": true, "active_isolation": true, "admission_rule_from_score": true, "sequence_sha256_backfill": true}
+
+=== SUMMARY ===
+  P1: PASS
+  P2: PASS
+  P3: PASS
+  P4: MATCH-WITH-DIFFERENCES
+  P5: PASS
+  P6: PASS
+  P7: PASS
+  P8: MATCH-WITH-DIFFERENCES
+  P9: PASS

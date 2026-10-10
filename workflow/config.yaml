@@ -1,0 +1,11 @@
+# MicroRhodoDB workflow configuration. All paths are relative to the repository root (run snakemake from there);
+# override any of them with --config key=value.
+repo_dir: "."
+# v1.6.0 default target
+v160_out: "work/v160_rebuild"
+mmseqs: "mmseqs"          # MMseqs2 binary (pinned env: 18.8cc5c)
+# v1.5.0 historical target (all_v150) - needs the unshipped v1.5.0 work directory
+work_dir: "work/v150"
+shared_dir: "work/v150_shared"
+micrhode_map: "work/v150_shared/micrhode_to_mrdb_mapping.tsv"
+threads: 4

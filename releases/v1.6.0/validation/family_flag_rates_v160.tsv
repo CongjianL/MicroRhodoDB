@@ -1,0 +1,27 @@
+set	subset	n	flagged
+external	positives all	21	16
+external	positives that are family-HMM seeds (circular)	14	14
+external	positives not seeds	7	2
+external	bestrhodopsin (all seeds)	4	4
+external	negatives (false flags)	345	1
+external	heliorhodopsin negatives	25	0
+external	positives detected @0.70 OR flagged	21	20
+external	positives detected @0.70 OR flagged, non-seed only	7	6
+external	positives detected @0.70 alone	21	16
+corpus	all records (source accessions)	5466	139
+corpus	boundary_family	509	6
+corpus	decoy_or_rejected	103	1
+corpus	heliorhodopsin	386	0
+corpus	typeI_candidate	210	10
+corpus	typeI_candidate_architecture_supported	276	6
+corpus	typeI_candidate_unresolved	897	13
+corpus	typeI_member_architecture_supported	381	4
+corpus	typeI_member_core	2704	99
+corpus_by_family	MerMAID	139	9
+corpus_by_family	bestrhodopsin	139	2
+corpus_by_family	schizorhodopsin	139	3
+corpus_by_family	xenorhodopsin	139	125
+corpus_by_clade		139	21
+corpus_by_clade	MR_CLD3_001	139	3
+corpus_by_clade	MR_CLD3_003	139	5
+corpus_by_clade	MR_CLD3_009	139	110

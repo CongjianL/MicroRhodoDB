@@ -1,0 +1,11 @@
+{
+  "uniprot_release": "2026_02",
+  "uniprot_release_date": "10-June-2026",
+  "retrieval_date": "2026-07-29T16:57:49.967818Z",
+  "pfam_typeI": "PF01036.25",
+  "pfam_helio": "PF18761.8",
+  "scope_taxonomic": "Bacteria, Archaea, microbial Eukaryota, Viruses",
+  "scope_provenance": "cultured isolates + metagenomic/environmental (flagged separately)",
+  "families": "type_I core (PF01036) + heliorhodopsin companion (PF18761)",
+  "note": "v1.0 harvests UniProtKB via Pfam membership. RefSeq/InterPro cross-refs captured. Dedicated environmental catalogues (MGnify/GEM) are v1.1. Does NOT claim global completeness."
+}

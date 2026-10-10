@@ -1,0 +1,13 @@
+source	stage	count	note
+PF01036_typeI	raw_downloaded	4984	3s
+PF18761_helio	raw_downloaded	377	0s
+PF01036_typeI	parsed	4984	
+PF18761_helio	parsed	377	
+PF01036_typeI	parsed	4984	
+PF18761_helio	parsed	377	
+seed_homology_L3	seeds_recovered	15	all present
+PF01036_typeI	interpro_reported	5076	canonical InterPro count
+PF01036_typeI	reconciliation_diff	92	obsolete/merged accessions (not downloadable)
+PF18761_helio	interpro_reported	386	canonical InterPro count
+PF18761_helio	reconciliation_diff	9	obsolete/merged accessions
+ALL	unified_candidate_pool	5361	union L1(Pfam)+L3(seed anchors)

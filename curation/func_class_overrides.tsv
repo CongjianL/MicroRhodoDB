@@ -1,0 +1,25 @@
+source_acc	func_class_v150	rule_id	note
+A0A1G1SUC6	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 23.5% id to EsR
+A0A243WAM4	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 28.0% id to EsR
+A0A2K8Z7L7	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 28.9% id to EsR
+A0A3S9MUF4	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 27.0% id to EsR
+A0A558BW15	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 26.0% id to EsR
+A0AAN7YFU3	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 27.8% id to EsR
+A0A5S9IPH6	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 39.3% id to EsR
+A0A6M0IG11	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 28.4% id to EsR
+A0A6M5YC09	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 30.9% id to EsR
+A0A7L5DT13	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 30.2% id to EsR
+A0A7L5DXE8	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 28.6% id to EsR
+A0A7L5E652	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 26.6% id to EsR
+A0A7Y0AF94	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 26.1% id to EsR
+A0A939GCX2	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 32.4% id to EsR
+A0A939K0M9	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 28.1% id to EsR
+A0ABS6WYA7	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 29.0% id to EsR
+A0ABT0HFP5	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 30.8% id to EsR
+A0ABT2KW02	proton_pump	DTK_EsR_group	DTK motif; 84.4% id / 100% cov to EsR B1YFV8 (E1 outward H+ pump, Lys96 donor)
+A0ABT6R5R1	proton_pump	DTK_EsR_group	DTK motif; 97.2% id / 100% cov to EsR B1YFV8 (E1 outward H+ pump, Lys96 donor)
+A0ABW5M4U0	sensory_like	DTK_Bacteroidota_SRI_like	DTK motif; Bacteroidota SRI-like lineage, no characterized member; 29.6% id to EsR
+A0ABX2VCW4	proton_pump	DTK_EsR_group	DTK motif; 97.2% id / 100% cov to EsR B1YFV8 (E1 outward H+ pump, Lys96 donor)
+A0ABX8GD89	proton_pump	DTK_EsR_group	DTK motif; 87.8% id / 99% cov to EsR B1YFV8 (E1 outward H+ pump, Lys96 donor)
+C4L4S1	proton_pump	DTK_EsR_group	DTK motif; 84.1% id / 94% cov to EsR B1YFV8 (E1 outward H+ pump, Lys96 donor)
+T1QF29	proton_pump	DTK_EsR_group	DTK motif; 88.6% id / 99% cov to EsR B1YFV8 (E1 outward H+ pump, Lys96 donor)

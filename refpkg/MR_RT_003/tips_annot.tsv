@@ -1,0 +1,473 @@
+source_acc	tip_role	subfamily_v14	helixC_motif	func_class_v14	tax_domain	protein_name	phylum	organism	protein_label	exp_class
+A0A6A6UC61	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Family A G protein-coupled receptor-like protein	Ascomycota	Microthyrium microscopicum		
+A0A6A6UWB9	cl0.6_representative	anabaena_sensory	DTD	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Ascomycota	Sporormia fimetaria CBS 119925		
+A0A6C2YMB8	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Xanthorhodopsin	Planctomycetota	Tuwongella immobilis		
+A0A6F8T163	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Xanthorhodopsin	Pseudomonadota	Legionella antarctica		
+A0A812J1Q6	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Rhodopsin		Symbiodinium pilosum (Dinoflagellate)		
+A0A812RSB1	cl0.6_representative	enzyme_rhodopsin	ETK	enzyme_rhodopsin	Eukaryota	Hop protein		Symbiodinium natans		
+A0A812RXI0	cl0.6_representative		DTE	proton_pump	Eukaryota	Aop3 protein		Symbiodinium natans		
+A0AAV9X7P9	cl0.6_representative		ETN	proton_pump	Eukaryota	Opsin-1	Ascomycota	Orbilia ellipsospora		
+A0AAW1NX46	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Uncharacterized protein	Chlorophyta	Symbiochloris irregularis		
+A0AAW1P3D3	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Bacteriorhodopsin	Chlorophyta	Symbiochloris irregularis		
+A0AAW1QLK9	cl0.6_representative		DTD	proton_pump	Eukaryota	Opsin	Chlorophyta	Apatococcus lobatus		
+A0AAW1R3T5	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Uncharacterized protein	Chlorophyta	Apatococcus lobatus		
+A0AAW1S3R0	cl0.6_representative		DTD	proton_pump	Eukaryota	Bacteriorhodopsin	Chlorophyta	Apatococcus lobatus		
+A0ABN9Q8I1	cl0.6_representative		DTE	proton_pump	Eukaryota	Rhodopsin		Prorocentrum cordatum		
+A0ABP0R9C5	cl0.6_representative		DTE	sensory	Eukaryota	Pre-mRNA-splicing factor 38		Durusdinium trenchii		
+A0ABP8YZL1	cl0.6_representative	xanthorhodopsin	DSE	proton_pump	Bacteria	Rhodopsin	Actinomycetota	Amnibacterium soli		
+A0ABP8ZIA9	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Rhodopsin	Actinomycetota	Amnibacterium soli		
+A0ABQ7GWT0	cl0.6_representative	bacteriorhodopsin	QSM	proton_pump	Eukaryota	histidine kinase (EC 2.7.13.3)	Chlorophyta	Dunaliella salina (Green alga) (Protococcus salinus)		
+A0ABR0IVF2	cl0.6_representative		DTD	proton_pump	Eukaryota	Alpha/beta hydrolase fold-3 domain-containing protein	Ascomycota	Exophiala sideris		
+A0ABR1H522	cl0.6_representative	halorhodopsin	DTE	proton_pump	Eukaryota	Opsin-like protein carO (Carotenoid biosynthesis cluster protein O)	Ascomycota	Neonectria magnoliae		
+A0ABR4NLF2	cl0.6_representative	sensory_rhodopsin_II	ETL	sensory	Eukaryota	Guanylate cyclase domain-containing protein	Chytridiomycota	Polyrhizophydium stewartii		
+A0ABS1DGV3	cl0.6_representative	proteorhodopsin	DTM	proton_pump	Bacteria	Rhodopsin	Pseudomonadota	Rhodovibrio sodomensis		
+A0ABS9KB67	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin-like	Balneolota	Rhodohalobacter sulfatireducens		
+A0ABT1L4L3	cl0.6_representative	proteorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin-like	Pseudomonadota	Candidatus Synchoanobacter obligatus		
+A0ABY5DH19	cl0.6_representative	proteorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin-like	Pseudomonadota	Candidatus Comchoanobacter bicostacola		
+A0ABY6UCX2	cl0.6_representative		DTE	proton_pump	Eukaryota	Opsin-like protein carO (Carotenoid biosynthesis cluster protein O)	Ascomycota	Bionectria ochroleuca (Gliocladium roseum)		
+A0ACC0V464	cl0.6_representative	sensory_rhodopsin_II	DTD	sensory	Eukaryota	Opsin-like protein carO (Carotenoid biosynthesis cluster protein O)	Ascomycota	Trichothecium roseum		
+A6W8Z2	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Rhodopsin	Actinomycetota	Kineococcus radiotolerans (strain ATCC BAA-149 / DSM 14245 / SRS30216)	KrActR	proton_pump_outward
+B1YFV8	cl0.6_representative	proteorhodopsin	DTK	proton_pump	Bacteria	Rhodopsin	Bacillota	Exiguobacterium sibiricum (strain DSM 17290 / CCUG 55495 / CIP 109462 / JCM 13490 / 255-15)	Rhodopsin	proton_pump_outward
+E8QX23	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Rhodopsin	Planctomycetota	Isosphaera pallida (strain ATCC 43644 / DSM 9630 / IS1B)		
+F4S3M3	cl0.6_representative	xanthorhodopsin	DTD	proton_pump	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Melampsora larici-populina (strain 98AG31 / pathotype 3-4-7) (Poplar leaf rust fungus)		
+F4S423	cl0.6_representative	sensory_rhodopsin_II	DTT	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Melampsora larici-populina (strain 98AG31 / pathotype 3-4-7) (Poplar leaf rust fungus)		
+G3CEP6	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Rhodopsin I	Chlorophyta	Acetabularia acetabulum (Mermaid's wine glass) (Acetabularia mediterranea)	AcetR1	proton_pump_outward
+G7DX39	cl0.6_representative		DTD	proton_pump	Eukaryota	Opsin-1	Basidiomycota	Mixia osmundae (strain CBS 9802 / IAM 14324 / JCM 22182 / KY 12970)		
+G7E689	cl0.6_representative	sensory_rhodopsin_II	DTT	sensory	Eukaryota	Uncharacterized protein	Basidiomycota	Mixia osmundae (strain CBS 9802 / IAM 14324 / JCM 22182 / KY 12970)		
+H2F487	cl0.6_representative		DTD	proton_pump	Eukaryota	Rhodopsin-like protein CvRh	Chlorophyta	Chlorella vulgaris (Green alga)		
+K1Y8S4	cl0.6_representative	sensory_rhodopsin_II	DTD	sensory	Eukaryota	Opsin-like protein	Ascomycota	Marssonina brunnea f. sp. multigermtubi (strain MB_m1) (Marssonina leaf spot fungus)		
+L1K1C9	cl0.6_representative		DTD	proton_pump	Eukaryota	Rhodopsin		Guillardia theta (strain CCMP2712) (Cryptophyte)		
+L8GFI6	cl0.6_representative		QTL	unassigned	Eukaryota	Bacteriorhodopsin subfamily protein	Discosea	Acanthamoeba castellanii (strain ATCC 30010 / Neff)		
+Q2S2F8	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Xanthorhodopsin	Rhodothermota	Salinibacter ruber (strain DSM 13855 / M31)	Xanthorhodopsin	proton_pump_outward
+R4X8C7	cl0.6_representative	sensory_rhodopsin_II	DTD	sensory	Eukaryota	Opsin-1	Ascomycota	Taphrina deformans (strain PYCC 5710 / ATCC 11124 / CBS 356.35 / IMI 108563 / JCM 9778 / NBRC 8474) (Peach leaf curl fungus) (Lalaria deformans)		
+R7YZA4	cl0.6_representative		DTE	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Ascomycota	Coniosporium apollinis (strain CBS 100218) (Rock-inhabiting black yeast)		
+S8ATN8	cl0.6_representative	sensory_rhodopsin_II	DTD	sensory	Eukaryota	Uncharacterized protein	Ascomycota	Penicillium oxalicum (strain 114-2 / CGMCC 5302) (Penicillium decumbens)		
+U2WRE0	cl0.6_representative	proteorhodopsin	DTE	proton_pump	Bacteria	LPP20 lipoprotein	Pseudomonadota	Candidatus Micropelagius thuwalensis		
+A0A066VZ31	cl0.6_representative	unclassified_typeI	DTL	sensory_like	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Tilletiaria anomala (strain ATCC 24038 / CBS 436.72 / UBC 951)		
+A0A0A1TEI9	cl0.6_representative		ETN	proton_pump	Eukaryota	Opsin-1	Ascomycota	[Torrubiella] hemipterigena		
+A0A0B4P477	cl0.6_representative	halorhodopsin	DTD	proton_pump	Eukaryota	Rhodopsin-like 1		Oxyrrhis marina (Dinoflagellate)		
+A0A0B4P4Z1	cl0.6_representative	halorhodopsin	STD	anion_pump	Eukaryota	Rhodopsin-like 2a (Rhodopsin-like 2b)		Oxyrrhis marina (Dinoflagellate)		
+A0A0B4P501	cl0.6_representative		STD	anion_pump	Eukaryota	Rhodopsin-like 3		Oxyrrhis marina (Dinoflagellate)		
+A0A0E9ND03	cl0.6_representative	sensory_rhodopsin_II	DTE	sensory	Eukaryota	Uncharacterized protein	Ascomycota	Saitoella complicata (strain BCRC 22490 / CBS 7301 / JCM 7358 / NBRC 10748 / NRRL Y-17804)		
+A0A0G4H2B3	cl0.6_representative		DTD	proton_pump	Eukaryota	Uncharacterized protein		Vitrella brassicaformis (strain CCMP3155)		
+A0A0M3DJN5	cl0.6_representative		DII	unassigned	Bacteria	Bacteriorhodopsin-like family protein	Bacillota	Paraclostridium benzoelyticum		
+A0A0M7BDG0	cl0.6_representative	sodium_pump	NDQ	sodium_pump	Bacteria	Green-light absorbing proteorhodopsin	Pseudomonadota	Jannaschia seosinensis	JsNaR	sodium_pump
+A0A0P6XBM7	cl0.6_representative	sodium_pump	NDQ	sodium_pump	Bacteria	Rhodopsin	Chloroflexota	Bellilinea caldifistulae	BcNaR	sodium_pump
+A0A0U5H3H0	cl0.6_representative	sensory_rhodopsin_II	DTY	sensory	Archaea	Sensory rhodopsin II	Methanobacteriota	Halobacterium hubeiense		
+A0A139AI58	cl0.6_representative		DTD	proton_pump	Eukaryota	Family A G protein-coupled receptor-like protein	Chytridiomycota	Gonapodya prolifera (strain JEL478) (Monoblepharis prolifera)		
+A0A139AMK5	cl0.6_representative		DSS	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Chytridiomycota	Gonapodya prolifera (strain JEL478) (Monoblepharis prolifera)		
+A0A150GCU3	cl0.6_representative	channelrhodopsin	ETH	light_gated_channel	Eukaryota	Uncharacterized protein	Chlorophyta	Gonium pectorale (Green alga)		
+A0A164RFM6	cl0.6_representative		DTQ	sensory_like	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Sistotremastrum niveocremeum HHB9708		
+A0A164TIS9	cl0.6_representative		DAQ	unassigned	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Sistotremastrum niveocremeum HHB9708		
+A0A165I1G2	cl0.6_representative	halorhodopsin	DTD	proton_pump	Eukaryota	Family A G protein-coupled receptor-like protein	Ascomycota	Xylona heveae (strain CBS 132557 / TC161)		
+A0A165ZWW3	cl0.6_representative	unclassified_typeI	DTD	proton_pump	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Sistotremastrum suecicum HHB10207 ss-3		
+A0A166G536	cl0.6_representative	unclassified_typeI	DGQ	unassigned	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Sistotremastrum suecicum HHB10207 ss-3		
+A0A167J115	cl0.6_representative		VTK	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Calocera viscosa (strain TUFC12733)		
+A0A1C4Y292	cl0.6_representative	anabaena_sensory	DSA	sensory	Bacteria	Bacteriorhodopsin	Actinomycetota	Micromonospora mirobrigensis		
+A0A1C6VFL1	cl0.6_representative	anabaena_sensory	DTA	sensory	Bacteria	Bacteriorhodopsin	Actinomycetota	Micromonospora citrea		
+A0A1E3IU86	cl0.6_representative		DTT	sensory_like	Eukaryota	Opsin 1	Basidiomycota	Cryptococcus wingfieldii CBS 7118		
+A0A1G6KX45	cl0.6_representative		DTD	proton_pump	Archaea	Bacteriorhodopsin	Methanobacteriota	Natrinema hispanicum		
+A0A1G6VL71	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Geodermatophilus telluris		
+A0A1H0HX60	cl0.6_representative	channelrhodopsin	DTG	light_gated_channel	Bacteria	Bacteriorhodopsin	Pseudomonadota	Aureimonas jatrophae		
+A0A1H1AHN6	cl0.6_representative	halorhodopsin	TSV	anion_pump	Archaea	Halorhodopsin	Methanobacteriota	Natronobacterium texcoconense		
+A0A1H2LSK4	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Microlunatus sagamiharensis		
+A0A1H3DR58	cl0.6_representative	proteorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin	Bacteroidota	Hymenobacter psychrophilus		
+A0A1H9MFN8	cl0.6_representative	channelrhodopsin	DTG	light_gated_channel	Bacteria	Bacteriorhodopsin	Pseudomonadota	Rosenbergiella nectarea		
+A0A1I2SYD3	cl0.6_representative	sensory_rhodopsin_II	DTY	sensory	Archaea	Sensory rhodopsin	Methanobacteriota	Halopelagius inordinatus		
+A0A2J8A9R5	cl0.6_representative	channelrhodopsin	ETH	light_gated_channel	Eukaryota	Sensory rhodopsin-1	Chlorophyta	Tetrabaena socialis		
+A0A2P6NAM3	cl0.6_representative		QCV	unassigned	Eukaryota	Sensory rhodopsin (SRI)	Evosea	Planoprotostelium fungivorum		
+A0A2P6NS35	cl0.6_representative		DTE	sensory	Eukaryota	Opsin-1	Evosea	Planoprotostelium fungivorum		
+A0A2P6P0M2	cl0.6_representative		SFR	unassigned	Eukaryota	Opsin	Evosea	Planoprotostelium fungivorum		
+A0A2R5G2M3	cl0.6_representative		FCN	sensory	Eukaryota	Uncharacterized protein		Hondaea fermentalgiana		
+A0A2S4UYC7	cl0.6_representative		QTE	unassigned	Eukaryota	Uncharacterized protein	Basidiomycota	Puccinia striiformis		
+A0A2S7XS63	cl0.6_representative		YTM	unassigned	Bacteria	Rhodopsin	Pseudomonadota	Chromatium okenii		
+A0A2S9WQT4	cl0.6_representative	chloride_pump_NTQ	NTQ	anion_pump	Bacteria	Rhodopsin	Bacteroidota	Nonlabens agnitus		
+A0A2T0T873	cl0.6_representative	sensory_rhodopsin_I	DTT	sensory	Bacteria	Bacteriorhodopsin	Bacteroidota	Spirosoma oryzae		
+A0A2T0WPG8	cl0.6_representative	proteorhodopsin	NTQ	anion_pump	Bacteria	Bacteriorhodopsin	Bacteroidota	Mongoliibacter ruber		
+A0A2W0HIA8	cl0.6_representative	anabaena_sensory	DTA	sensory	Bacteria	Lactococcin	Bacillota	Alteribacter lacisalsi		
+A0A316V3M8	cl0.6_representative	sensory_rhodopsin_II	DTD	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Jaminaea rosea		
+A0A316VWF9	cl0.6_representative		DTE	proton_pump	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Ceraceosorus guamensis		
+A0A316ZC52	cl0.6_representative		DTD	proton_pump	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Tilletiopsis washingtonensis		
+A0A317XXK4	cl0.6_representative	sensory_rhodopsin_II	DTD	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Testicularia cyperi		
+A0A344TPP2	cl0.6_representative		DTE	proton_pump	Bacteria	Rhodopsin	Bacteroidota	Runella rosea		
+A0A345UIE9	cl0.6_representative	sodium_pump	NDQ	sodium_pump	Bacteria	Bacteriorhodopsin	Balneolota	Cyclonatronum proteinivorum		
+A0A368NBE5	cl0.6_representative	bacteriorhodopsin	DTV	proton_pump	Archaea	Rhodopsin	Methanobacteriota	Haloplanus salinus		
+A0A370TLN9	cl0.6_representative		DTN	anion_pump	Eukaryota	Putative opsin-1	Ascomycota	Venustampulla echinocandica		
+A0A3A1U445	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Rhodopsin	Actinomycetota	Amnibacterium setariae		
+A0A3A6QF82	cl0.6_representative	sensory_rhodopsin_II	DTY	sensory	Archaea	Sensory rhodopsin-2	Methanobacteriota	Halonotius aquaticus		
+A0A3M0DRX9	cl0.6_representative	sensory_rhodopsin_II	DTF	sensory	Archaea	Sensory rhodopsin-2	Methanobacteriota	Haloplanus aerogenes		
+A0A3M0G769	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Xanthorhodopsin	Actinomycetota	Tessaracoccus antarcticus		
+A0A3M7TXC9	cl0.6_representative	chloride_pump_NTQ	NTQ	anion_pump	Bacteria	Rhodopsin	Bacillota	Alteribacter keqinensis		
+A0A3N4LDD8	cl0.6_representative	sensory_rhodopsin_II	ETA	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Ascomycota	Terfezia boudieri ATCC MYA-4762		
+A0A3P3RCT8	cl0.6_representative	bacteriorhodopsin	DTA	proton_pump	Archaea	Rhodopsin	Methanobacteriota	Halocatena pleomorpha		
+A0A3R7HZW8	cl0.6_representative	sensory_rhodopsin_II	DTY	sensory	Archaea	Sensory rhodopsin	Methanobacteriota	Halopiger aswanensis		
+A0A401ZCY9	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Bacteria	Rhodopsin	Chloroflexota	Dictyobacter aurantiacus		
+A0A402BK77	cl0.6_representative	unclassified_typeI	DTD	proton_pump	Bacteria	Rhodopsin	Chloroflexota	Dictyobacter alpinus		
+A0A418MFJ7	cl0.6_representative	sodium_pump	NDQ	sodium_pump	Bacteria	Rhodopsin	Bacteroidota	Fibrisoma montanum		
+A0A418MHC2	cl0.6_representative	proteorhodopsin	DTE	proton_pump	Bacteria	Rhodopsin	Bacteroidota	Fibrisoma montanum		
+A0A419RVP0	cl0.6_representative	sodium_pump	NDQ	sodium_pump	Bacteria	Rhodopsin	Pseudomonadota	Aurantiacibacter aquimixticola		
+A0A433NPX7	cl0.6_representative	anabaena_sensory	DTA	sensory	Bacteria	Rhodopsin	Cyanobacteriota	Chlorogloeopsis fritschii PCC 6912		
+A0A495R541	cl0.6_representative		DSY	sensory_like	Archaea	Sensory rhodopsin	Methanobacteriota	Haloarcula quadrata		
+A0A498KU55	cl0.6_representative	sensory_rhodopsin_I	DTY	sensory	Archaea	Rhodopsin	Methanobacteriota	Halorientalis pallida		
+A0A4P8XNV2	cl0.6_representative	anabaena_sensory	DTA	sensory	Bacteria	Rhodopsin	Bacillota	Paenibacillus algicola		
+A0A4Q2RG75	cl0.6_representative		DTG	proton_pump	Bacteria	Rhodopsin	Pseudomonadota	Lichenibacterium ramalinae		
+A0A4Q2U3N5	cl0.6_representative	bacteriorhodopsin	DTG	proton_pump	Bacteria	Rhodopsin	Pseudomonadota	Lichenibacterium minor		
+A0A4Z0PQC2	cl0.6_representative	proteorhodopsin	DTQ	proton_pump	Bacteria	Rhodopsin	Bacteroidota	Hymenobacter elongatus		
+A0A4Z0PQJ0	cl0.6_representative		DSA	sensory_like	Bacteria	Lactococcin	Bacteroidota	Hymenobacter elongatus		
+A0A507C3K5	cl0.6_representative		ECV	unassigned	Eukaryota	Uncharacterized protein	Chytridiomycota	Synchytrium microbalum		
+A0A517QXI7	cl0.6_representative	proteorhodopsin	DTK	proton_pump	Bacteria	Green-light absorbing proteorhodopsin	Planctomycetota	Stratiformator vulcanicus		
+A0A518EPB9	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Green-light absorbing proteorhodopsin	Planctomycetota	Saltatorellus ferox		
+A0A542E5U8	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Lapillicoccus jejuensis		
+A0A5A8CBR1	cl0.6_representative		ETL	enzyme_rhodopsin	Eukaryota	Histidine kinase domain-containing protein		Cafeteria roenbergensis (Marine flagellate)		
+A0A5B1CMS2	cl0.6_representative	sodium_pump	NDQ	sodium_pump	Bacteria	Green-light absorbing proteorhodopsin	Planctomycetota	Rubripirellula obstinata		
+A0A5B2VFD4	cl0.6_representative	bacteriorhodopsin	TTG	proton_pump	Bacteria	Rhodopsin	Pseudomonadota	Salinarimonas soli		
+A0A5C6VX47	cl0.6_representative	anabaena_sensory	DTA	sensory	Bacteria	Lactococcin	Bacillota	Metabacillus litoralis		
+A0A5R9JAM4	cl0.6_representative	bacteriorhodopsin	DTT	proton_pump	Bacteria	Rhodopsin	Pseudomonadota	Lichenicoccus roseus		
+A0A5S9IPH6	cl0.6_representative	proteorhodopsin	DTK	proton_pump	Bacteria	Xanthorhodopsin	Planctomycetota	Uabimicrobium amorphum		
+A0A699YQR3	cl0.6_representative		ESH	light_gated_channel	Eukaryota	Channelopsin 1	Chlorophyta	Haematococcus lacustris (Green alga) (Haematococcus pluvialis)		
+A0A6A6U0X7	cl0.6_representative	bacteriorhodopsin	DTN	proton_pump	Eukaryota	Bacteriorhodopsin	Ascomycota	Microthyrium microscopicum		
+A0A6B0TBA9	cl0.6_representative	sensory_rhodopsin_II	DTY	sensory	Archaea	Bacteriorhodopsin	Methanobacteriota	Halovenus carboxidivorans		
+A0A6B9F3Z3	cl0.6_representative	bacteriorhodopsin	DTG	proton_pump	Archaea	Rhodopsin	Methanobacteriota	Haloplanus rallus		
+A0A6G1I320	cl0.6_representative	halorhodopsin	DTQ	anion_pump	Eukaryota	Family A G protein-coupled receptor-like protein	Ascomycota	Trichodelitschia bisporula		
+A0A6G8PUX7	cl0.6_representative		DTD	proton_pump	Bacteria	Rhodopsin	Actinomycetota	Rubrobacter marinus		
+A0A6G8QCE4	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Bacteria	Rhodopsin	Actinomycetota	Rubrobacter tropicus		
+A0A6G9AW70	cl0.6_representative	sensory_rhodopsin_I	ETN	sensory	Bacteria	Bacteriorhodopsin	Bacteroidota	Spirosoma aureum		
+A0A6I1MRX8	cl0.6_representative	anabaena_sensory	DTS	sensory	Bacteria	Lactococcin	Bacillota	Clostridium tarantellae		
+A0A6N8FSK0	cl0.6_representative	sodium_pump	NDQ	sodium_pump	Bacteria	Rhodopsin	Cyanobacteriota	Gloeocapsopsis dulcis AAB1 = 1H9		
+A0A7D3SP32	cl0.6_representative	channelrhodopsin	ETQ	light_gated_channel	Eukaryota	Cation channelrhodopsin 1	Chlorophyta	Tetraselmis subcordiformis (Marine green alga) (Carteria subcordiformis)		
+A0A7D3SQP7	cl0.6_representative	channelrhodopsin	ETH	light_gated_channel	Eukaryota	Cation channelrhodopsin 3	Chlorophyta	Tetraselmis subcordiformis (Marine green alga) (Carteria subcordiformis)		
+A0A7J6KWM7	cl0.6_representative	unclassified_typeI	ESN	unassigned	Eukaryota	Rhodopsin	Perkinsozoa	Perkinsus chesapeaki (Clam parasite) (Perkinsus andrewsi)		
+A0A7J6TLT2	cl0.6_representative	unclassified_typeI	ESN	unassigned	Eukaryota	Ion channel activity	Perkinsozoa	Perkinsus olseni (Perkinsus atlanticus)		
+A0A7J6U8X5	cl0.6_representative		ESN	unassigned	Eukaryota	Ion channel activity	Perkinsozoa	Perkinsus olseni (Perkinsus atlanticus)		
+A0A7L5DT13	cl0.6_representative		DTK	sensory	Bacteria	Bacteriorhodopsin	Bacteroidota	Spirosoma rhododendri		
+A0A7L5E652	cl0.6_representative	sensory_rhodopsin_I	DTK	sensory	Bacteria	Bacteriorhodopsin	Bacteroidota	Mucilaginibacter robiniae		
+A0A7S8CD58	cl0.6_representative	anabaena_sensory	DTA	sensory	Bacteria	Bacteriorhodopsin	Bacillota	Mangrovibacillus cuniculi		
+A0A7T3FYM9	cl0.6_representative		DTD	proton_pump	Archaea	Bacteriorhodopsin	Methanobacteriota	Halosimplex litoreum		
+A0A7V7TUE7	cl0.6_representative		DTG	sensory_like	Bacteria	Rhodopsin	Pseudomonadota	Plantimonas leprariae		
+A0A7W3PNF2	cl0.6_representative	proteorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Alpinimonas psychrophila		
+A0A7W7PWL5	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Streptomyces griseomycini		
+A0A7Y3RLU6	cl0.6_representative	chloride_pump_NTQ	NTQ	anion_pump	Bacteria	Bacteriorhodopsin	Pseudomonadota	Parvularcula mediterranea		
+A0A7Y9DX62	cl0.6_representative		DTE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Actinomycetospora corticicola		
+A0A812P3D1	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Sop2 protein		Symbiodinium pilosum (Dinoflagellate)		
+A0A812QNS0	cl0.6_representative	enzyme_rhodopsin	ETK	enzyme_rhodopsin	Eukaryota	HisS protein		Symbiodinium natans		
+A0A812ZF79	cl0.6_representative		ETK	enzyme_rhodopsin	Eukaryota	Hop protein		Symbiodinium necroappetens		
+A0A813C039	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Aop3 protein		Symbiodinium necroappetens		
+A0A815J0L9	cl0.6_representative		DTD	sensory	Eukaryota	Uncharacterized protein	Rotifera	Didymodactylos carnosus		
+A0A830ES07	cl0.6_representative	sensory_rhodopsin_I	DTY	sensory	Archaea	Rhodopsin	Methanobacteriota	Halobellus salinus		
+A0A830H4C8	cl0.6_representative		GSH	light_gated_channel	Eukaryota	Uncharacterized protein	Chlorophyta	Pycnococcus provasolii		
+A0A830HGR1	cl0.6_representative	channelrhodopsin	ETH	light_gated_channel	Eukaryota	Uncharacterized protein	Chlorophyta	Pycnococcus provasolii		
+A0A835SIX0	cl0.6_representative	channelrhodopsin	ESH	light_gated_channel	Eukaryota	Uncharacterized protein	Chlorophyta	Chlamydomonas incerta		
+A0A835W2F1	cl0.6_representative		QAL	light_gated_channel	Eukaryota	Uncharacterized protein	Chlorophyta	Chlamydomonas schloesseri		
+A0A840I3S2	cl0.6_representative	sodium_pump	NDQ	sodium_pump	Bacteria	Bacteriorhodopsin	Pseudomonadota	Parvularcula dongshanensis		
+A0A844YF64	cl0.6_representative	chloride_pump_NTQ	NTQ	anion_pump	Bacteria	Bacteriorhodopsin	Pseudomonadota	Qipengyuania oceanensis		
+A0A846LRN5	cl0.6_representative	sodium_pump	NDQ	sodium_pump	Bacteria	Xanthorhodopsin	Actinomycetota	Modestobacter marinus		
+A0A850H4I0	cl0.6_representative	anabaena_sensory	DTV	sensory	Bacteria	Bacteriorhodopsin	Pseudomonadota	Qipengyuania atrilutea		
+A0A897N9M2	cl0.6_representative	sensory_rhodopsin_II	DTY	sensory	Archaea	Bacteriorhodopsin	Methanobacteriota	Halapricum desulfuricans		
+A0A8A2U5A2	cl0.6_representative	sensory_rhodopsin_II	QAY	sensory	Archaea	Bacteriorhodopsin	Methanobacteriota	Natrinema longum		
+A0A8S9SVI8	cl0.6_representative		DTE	proton_pump	Bacteria	Bacteriorhodopsin	Cyanobacteriota	Tolypothrix bouteillei VB521301		
+A0A8U0IKM4	cl0.6_representative		DTY	sensory_like	Archaea	Bacteriorhodopsin	Methanobacteriota	Halorussus gelatinilyticus		
+A0A917Q779	cl0.6_representative	sodium_pump	NDQ	sodium_pump	Bacteria	Xanthorhodopsin	Pseudomonadota	Salinarimonas ramus		
+A0A927GGI4	cl0.6_representative		DTQ	proton_pump	Bacteria	Bacteriorhodopsin	Bacteroidota	Spirosoma validum		
+A0A939K0M9	cl0.6_representative	sensory_rhodopsin_I	DTK	sensory	Bacteria	Bacteriorhodopsin	Bacteroidota	Fibrella aquatilis		
+A0A977XLG0	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Xanthorhodopsin	Bdellovibrionota	uncultured Bdellovibrionales bacterium		
+A0A9P1FXY8	cl0.6_representative	enzyme_rhodopsin	ETA	enzyme_rhodopsin	Eukaryota	Ankyrin repeat domain-containing protein 50		Cladocopium goreaui		
+A0A9P1G2H7	cl0.6_representative	sensory_rhodopsin_II	DTE	sensory	Eukaryota	Sensory rhodopsin-2 (Sensory rhodopsin II) (SR-II)		Cladocopium goreaui		
+A0A9P6VY39	cl0.6_representative		DVM	sensory	Eukaryota	Uncharacterized protein	Basidiomycota	Rhodotorula mucilaginosa (Yeast) (Rhodotorula rubra)		
+A0A9Q4C304	cl0.6_representative	unclassified_typeI	DTL	sensory_like	Archaea	Bacteriorhodopsin	Methanobacteriota	Halorutilus salinus		
+A0A9Q4C3E6	cl0.6_representative	sensory_rhodopsin_II	DTF	sensory	Archaea	Bacteriorhodopsin	Methanobacteriota	Halorutilus salinus		
+A0A9Q4C5B5	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Archaea	Bacteriorhodopsin	Methanobacteriota	Halorutilus salinus		
+A0A9R1CVJ5	cl0.6_representative	sensory_rhodopsin_I	DTY	sensory	Archaea	Bacteriorhodopsin	Methanobacteriota	Natronomonas aquatica		
+A0A9W7ST28	cl0.6_representative	sensory_rhodopsin_II	DTD	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Ascomycota	Teratosphaeria destructans		
+A0A9X2RH94	cl0.6_representative		NDQ	sodium_pump	Bacteria	Bacteriorhodopsin-like	Pseudomonadota	Parvularcula maris		
+A0A9X9ZA75	cl0.6_representative		TSD	proton_pump	Bacteria	Synechocystis halorhodopsin	Cyanobacteriota	Synechocystis sp. PCC 7509	Synechocystis halorhodopsin	anion_pump
+A0AA41UMI2	cl0.6_representative		EAE	unassigned	Bacteria	Bacteriorhodopsin	Actinomycetota	Cryobacterium zhongshanensis		
+A0AA48QXY1	cl0.6_representative		YSM	light_gated_channel	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Cutaneotrichosporon cavernicola		
+A0AAE0BCA2	cl0.6_representative		GTH	light_gated_channel	Eukaryota	Uncharacterized protein	Chlorophyta	Cymbomonas tetramitiformis		
+A0AAE0BYX5	cl0.6_representative	channelrhodopsin	GTH	light_gated_channel	Eukaryota	Uncharacterized protein	Chlorophyta	Cymbomonas tetramitiformis		
+A0AAE0FQI2	cl0.6_representative	channelrhodopsin	ETA	light_gated_channel	Eukaryota	Uncharacterized protein	Chlorophyta	Cymbomonas tetramitiformis		
+A0AAE0KUF1	cl0.6_representative		ETL	unassigned	Eukaryota	Uncharacterized protein	Chlorophyta	Cymbomonas tetramitiformis		
+A0AAE0LD25	cl0.6_representative	channelrhodopsin	ETA	light_gated_channel	Eukaryota	Uncharacterized protein	Chlorophyta	Cymbomonas tetramitiformis		
+A0AAE3FWI5	cl0.6_representative	sensory_rhodopsin_II	DTY	sensory	Archaea	Bacteriorhodopsin	Methanobacteriota	Natronocalculus amylovorans		
+A0AAJ6N6B2	cl0.6_representative		DTS	proton_pump	Bacteria	cyanorhodopsin-II (CyR-II) P7104R	Cyanobacteriota	Nodosilinea nodulosa PCC 7104		
+A0AAP2RB57	cl0.6_representative	channelrhodopsin	FSE	light_gated_channel	Archaea	Bacteriorhodopsin	Methanobacteriota	Methanooceanicella nereidis		
+A0AAV9GVW7	cl0.6_representative	anabaena_sensory	ETA	sensory	Eukaryota	Uncharacterized protein	Ascomycota	Podospora aff. communis PSN243		
+A0ABD5LYH2	cl0.6_representative		DTY	sensory	Archaea	Bacteriorhodopsin	Methanobacteriota	Halorubrum miltondacostae		
+A0ABD5SED7	cl0.6_representative	halorhodopsin	TSA	anion_pump	Archaea	Bacteriorhodopsin	Methanobacteriota	Halorubrum tibetense		
+A0ABD5XSM4	cl0.6_representative	sensory_rhodopsin_I	DTY	sensory	Archaea	Bacteriorhodopsin	Methanobacteriota	Halobaculum litoreum		
+A0ABD6ALW2	cl0.6_representative		DTH	sensory_like	Archaea	Bacteriorhodopsin	Methanobacteriota	Halorubrum rutilum		
+A0ABD6CFL9	cl0.6_representative	sensory_rhodopsin_II	DTY	sensory	Archaea	Bacteriorhodopsin	Methanobacteriota	Halorientalis brevis		
+A0ABD6CM12	cl0.6_representative		DTY	sensory_like	Archaea	Bacteriorhodopsin	Methanobacteriota	Halobellus rarus		
+A0ABM8AE35	cl0.6_representative	xanthorhodopsin	DTA	proton_pump	Bacteria	Xanthorhodopsin	Deinococcota	Deinococcus aetherius		
+A0ABM8AJS7	cl0.6_representative		TTQ	proton_pump	Bacteria	Rhodopsin	Deinococcota	Deinococcus aetherius		
+Q6J4G7	cl0.6_representative		DTE	proton_pump	Bacteria	Green-light absorbing proteorhodopsin (GPR)		Unknown prokaryotic organism	Green-light absorbing proteorhodopsin	proton_pump_outward
+Q18DH5	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Archaea	Bacteriorhodopsin-II-like protein (Bacteriorhodopsin-II) (Middle rhodopsin) (HwMR)	Methanobacteriota	Haloquadratum walsbyi (strain DSM 16790 / HBSQ001)	Bacteriorhodopsin-II-like protein	sensory_transducer
+A0A553HJD1	cl0.6_representative		DTD	proton_pump	Eukaryota	Opsin-1	Ascomycota	Xylaria flabelliformis		
+O93743	cl0.6_representative	sensory_rhodopsin_I	DTF	sensory	Archaea	Sensory rhodopsin (SR)	Methanobacteriota	Halorubrum sodomense		
+P42197	cl0.6_representative		DTF	sensory	Archaea	Sensory rhodopsin-2 (Sensory rhodopsin II) (SR-II)	Methanobacteriota	Haloarcula vallismortis (Halobacterium vallismortis)	HmSRII	sensory_transducer
+P69051	cl0.6_representative		DTD	proton_pump	Archaea	Archaerhodopsin-1 (AR 1)	Methanobacteriota	Halorubrum ezzemoulense (Halorubrum chaoviator)	Archaerhodopsin-1	proton_pump_outward
+Q53496	cl0.6_representative		DTD	proton_pump	Archaea	Cruxrhodopsin-2 (COP-2) (CR-2)	Methanobacteriota	Haloarcula sp. (strain arg-2 / Andes heights)	Cruxrhodopsin-2	proton_pump_outward
+A0A021VV84	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Xanthorhodopsin	Actinomycetota	Actinotalea ferrariae CF5-4		
+A0A060H1D7	cl0.6_representative	enzyme_rhodopsin	ETL	enzyme_rhodopsin	Eukaryota	Bacterio-rhodopsin/guanylyl cyclase 1 fusion protein	Blastocladiomycota	Blastocladiella emersonii (Aquatic fungus)	Bacterio-rhodopsin/guanylyl cyclase 1 fusion protein	enzyme
+A0A066X7B3	cl0.6_representative		DTD	proton_pump	Eukaryota	Opsin-like protein carO (Carotenoid biosynthesis cluster protein O)	Ascomycota	Colletotrichum sublineola (Sorghum anthracnose fungus)		
+A0A0C3GTX8	cl0.6_representative	bacteriorhodopsin	DTN	proton_pump	Eukaryota	Opsin	Ascomycota	Oidiodendron maius (strain Zn)		
+A0A0C3TEH9	cl0.6_representative	unclassified_typeI	STL	unassigned	Eukaryota	Uncharacterized protein		Guillardia theta (strain CCMP2712) (Cryptophyte)	GtACR1	anion_channel
+A0A0C9UI41	cl0.6_representative	sensory_rhodopsin_II	DTM	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Sphaerobolus stellatus (strain SS14)		
+A0A0D2GJG4	cl0.6_representative	halorhodopsin	DTD	proton_pump	Eukaryota	Opsin-1	Ascomycota	Phialophora macrospora		
+A0A0D6EKB3	cl0.6_representative	sensory_rhodopsin_II	DTE	sensory	Eukaryota	SPOSA6832_02054-mRNA-1:cds	Basidiomycota	Sporidiobolus salmonicolor (Yeast-like fungus) (Sporobolomyces salmonicolor)		
+A0A0E9NKB4	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Opsin	Ascomycota	Saitoella complicata (strain BCRC 22490 / CBS 7301 / JCM 7358 / NBRC 10748 / NRRL Y-17804)		
+A0A397Q9Z5	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin	Pseudomonadota	Dichotomicrobium thermohalophilum		
+A0A3A5MJY4	cl0.6_representative		DTE	proton_pump	Bacteria	Rhodopsin	Actinomycetota	Cryobacterium melibiosiphilum		
+A0A3E2H811	cl0.6_representative	anabaena_sensory	DTN	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Ascomycota	Scytalidium lignicola (Hyphomycete)		
+A0A3S9MUF4	cl0.6_representative	sensory_rhodopsin_I	DTK	sensory	Bacteria	Rhodopsin	Bacteroidota	Nonlabens ponticola		
+A0A427XK24	cl0.6_representative	channelrhodopsin	NTE	light_gated_channel	Eukaryota	Ion channel activity	Basidiomycota	Apiotrichum porosum		
+A0A4Q7E4T5	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Xanthorhodopsin	Cyanobacteriota	Leptolyngbya iicbica LK		
+A0A4T0FUL7	cl0.6_representative		ETS	proton_pump	Eukaryota	SAP domain-containing protein	Basidiomycota	Wallemia hederae		
+A0A507C357	cl0.6_representative		ECL	unassigned	Eukaryota	Guanylate cyclase domain-containing protein	Chytridiomycota	Synchytrium microbalum		
+A0A507C566	cl0.6_representative	unclassified_typeI	ECV	unassigned	Eukaryota	Guanylate cyclase domain-containing protein	Chytridiomycota	Synchytrium microbalum		
+A0A507F303	cl0.6_representative	enzyme_rhodopsin	ETL	enzyme_rhodopsin	Eukaryota	Guanylate cyclase domain-containing protein	Chytridiomycota	Chytriomyces confervae		
+A0A507F3A5	cl0.6_representative	unclassified_typeI	ADV	unassigned	Eukaryota	Guanylate cyclase domain-containing protein	Chytridiomycota	Chytriomyces confervae		
+A0AAD5H3U4	cl0.6_representative	bacteriorhodopsin	MAT	proton_pump	Eukaryota	histidine kinase (EC 2.7.13.3)	Chlorophyta	Chlorella ohadii		
+A0AAE0ITE1	cl0.6_representative	anabaena_sensory	DTG	sensory	Eukaryota	FDD123 protein	Ascomycota	Apodospora peruviana		
+A0AAE1CGV7	cl0.6_representative	sensory_rhodopsin_II	DTA	sensory	Eukaryota	Bacteriorhodopsin	Ascomycota	Podospora appendiculata		
+A0AAJ0C278	cl0.6_representative	halorhodopsin	DGA	anion_pump	Eukaryota	Opsin	Ascomycota	Phialemonium atrogriseum		
+A0AAN4R3L6	cl0.6_representative	bacteriorhodopsin	DTG	proton_pump	Bacteria	Rhodopsin	Pseudomonadota	Asaia bogorensis NBRC 16594		
+A0AAV1INW7	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Uncharacterized protein	Chlorophyta	Coccomyxa viridis		
+A0A1M4T7S7	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Ferrithrix thermotolerans DSM 19514		
+A0A1M5IT15	cl0.6_representative	proteorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin	Bacteroidota	Cnuella takakiae		
+A0A1M5MCT4	cl0.6_representative	sensory_rhodopsin_II	DTY	sensory	Archaea	Sensory rhodopsin	Methanobacteriota	Halobaculum gomorrense		
+A0A1N6YNK0	cl0.6_representative	halorhodopsin	TSA	anion_pump	Archaea	Halorhodopsin	Methanobacteriota	Haladaptatus litoreus		
+A0A1Q9CKQ6	cl0.6_representative		DTE	proton_pump	Eukaryota	Sensory rhodopsin-2		Symbiodinium microadriaticum (Dinoflagellate) (Zooxanthella microadriatica)		
+A0A1W2TMJ1	cl0.6_representative	halorhodopsin	DTD	proton_pump	Eukaryota	Opsin 1 protein	Ascomycota	Rosellinia necatrix (White root-rot fungus)		
+A0A218YXL1	cl0.6_representative		DTD	proton_pump	Eukaryota	Uncharacterized protein	Ascomycota	Diplocarpon coronariae		
+A0A249L5J3	cl0.6_representative		DTE	proton_pump	Bacteria	Actinorhodopsin	Actinomycetota	Candidatus Nanopelagicus abundans		
+A0A259U296	cl0.6_representative	channelrhodopsin	TSA	light_gated_channel	Bacteria	Rhodopsin	Rhodothermota	Rubricoccus marinus		
+A0A2A2FLP1	cl0.6_representative	sensory_rhodopsin_II	DTY	sensory	Archaea	Sensory rhodopsin-2	Methanobacteriota	Halorubrum salipaludis		
+A0A2A2SI75	cl0.6_representative	sodium_pump	NDQ	sodium_pump	Bacteria	Rhodopsin	Pseudomonadota	Sphingomonas lenta		
+A0A2H4ZEW1	cl0.6_representative	enzyme_rhodopsin	ETV	enzyme_rhodopsin	Eukaryota	Opsin-GC	Blastocladiomycota	Allomyces arbusculus (Aquatic fungus)		
+A0A0G4FEK1	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Rhodopsin		Vitrella brassicaformis (strain CCMP3155)		
+A0A0G4GGE1	cl0.6_representative		DTD	proton_pump	Eukaryota	Bacteriorhodopsin		Vitrella brassicaformis (strain CCMP3155)		
+A0A0K0MNL8	cl0.6_representative		LTI	unassigned	Eukaryota	histidine kinase (EC 2.7.13.3)	Chlorophyta	Chlamydomonas reinhardtii (Chlamydomonas smithii)		
+A0A0L0DQZ0	cl0.6_representative		DAQ	unassigned	Eukaryota	Bacteriorhodopsin		Thecamonas trahens ATCC 50062		
+A0A0P9F0Z2	cl0.6_representative	sensory_rhodopsin_II	QTM	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Rhodotorula graminis (strain WP1)		
+A0A139HEK5	cl0.6_representative	bacteriorhodopsin	DTT	proton_pump	Eukaryota	Rhodopsin	Ascomycota	Pseudocercospora musae		
+A0A139HP61	cl0.6_representative	sensory_rhodopsin_II	DTD	sensory	Eukaryota	Opsin-1	Ascomycota	Pseudocercospora eumusae		
+A0A177VAV2	cl0.6_representative	sensory_rhodopsin_II	DTE	sensory	Eukaryota	Opsin-1	Basidiomycota	Tilletia caries (wheat bunt fungus)		
+A0A1B9I4X5	cl0.6_representative	bacteriorhodopsin	DTS	proton_pump	Eukaryota	Opsin 1	Basidiomycota	Kwoniella pini CBS 10737		
+A0A1C3YMJ9	cl0.6_representative	sensory_rhodopsin_II	DTD	sensory	Eukaryota	Opsin-like protein carO (Carotenoid biosynthesis cluster protein O)	Ascomycota	Gibberella zeae (strain ATCC MYA-4620 / CBS 123657 / FGSC 9075 / NRRL 31084 / PH-1) (Wheat head blight fungus) (Fusarium graminearum)		
+A0A1G1SUC6	cl0.6_representative	sensory_rhodopsin_I	DTK	sensory	Bacteria	Rhodopsin	Bacteroidota	Hymenobacter coccineus		
+A0A1P9WTB2	cl0.6_representative	anabaena_sensory	DTS	sensory	Bacteria	Rhodopsin	Bacteroidota	Spirosoma montaniterrae		
+A0A1U7EZ03	cl0.6_representative		DTF	sensory_like	Archaea	Sensory rhodopsin II	Methanobacteriota	Natronomonas pharaonis (strain ATCC 35678 / DSM 2160 / CIP 103997 / JCM 8858 / NBRC 14720 / NCIMB 2260 / Gabara) (Halobacterium pharaonis)	NpSRII	sensory_transducer
+A0A1U7NV99	cl0.6_representative		DTE	proton_pump	Bacteria	Proteorhodopsin	Deinococcota	Deinococcus marmoris		
+A0A1V8SNI6	cl0.6_representative	sensory_rhodopsin_II	DTD	sensory	Eukaryota	BTB domain-containing protein	Ascomycota	Cryoendolithus antarcticus		
+A0A1Y1HL70	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Bacteriorhodopsin-like protein	Streptophyta	Klebsormidium nitens (Green alga) (Ulothrix nitens)		
+A0A1Y1I8I9	cl0.6_representative		ETA	unassigned	Eukaryota	Rhodopsin	Streptophyta	Klebsormidium nitens (Green alga) (Ulothrix nitens)		
+A0A1Y1UDK0	cl0.6_representative	channelrhodopsin	DTT	light_gated_channel	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Kockovaella imperatae		
+A0A1Y1UJB4	cl0.6_representative		DTS	proton_pump	Eukaryota	Uncharacterized protein	Basidiomycota	Kockovaella imperatae		
+A0A1Y2CSJ0	cl0.6_representative		EDF	enzyme_rhodopsin	Eukaryota	Adenylyl cyclase	Chytridiomycota	Rhizoclosmatium globosum		
+A0A218ZH68	cl0.6_representative	halorhodopsin	DTD	proton_pump	Eukaryota	Opsin-1	Ascomycota	Diplocarpon coronariae		
+A0A250X8V8	cl0.6_representative	unclassified_typeI	LTI	unassigned	Eukaryota	histidine kinase (EC 2.7.13.3)	Chlorophyta	Chlamydomonas eustigma		
+A0A271IX38	cl0.6_representative	anabaena_sensory	DTA	sensory	Bacteria	Lactococcin	Rhodothermota	Rubrivirga marina		
+A0A2A2SBC3	cl0.6_representative		TTG	proton_pump	Bacteria	Rhodopsin	Pseudomonadota	Sphingomonas lenta		
+A0A2J8A9T1	cl0.6_representative	channelrhodopsin	ETH	light_gated_channel	Eukaryota	Channelopsin 1	Chlorophyta	Tetrabaena socialis		
+A0A2P6NND8	cl0.6_representative	anabaena_sensory	DTE	sensory	Eukaryota	Opsin-1	Evosea	Planoprotostelium fungivorum		
+A0A2R5G0B6	cl0.6_representative		VTF	light_gated_channel	Eukaryota	Programmed cell death protein 2		Hondaea fermentalgiana		
+A0A2R8CJ36	cl0.6_representative	bacteriorhodopsin	DTS	proton_pump	Bacteria	Bacteriorhodopsin	Pseudomonadota	Kushneria phyllosphaerae		
+A0A2T3AUM2	cl0.6_representative	anabaena_sensory	DTN	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Ascomycota	Amorphotheca resinae ATCC 22711		
+A0A2X0PLK4	cl0.6_representative		DTE	proton_pump	Eukaryota	BQ5605_C025g09972 protein	Basidiomycota	Microbotryum silenes-dioicae		
+A0A316UQS6	cl0.6_representative	sensory_rhodopsin_II	DTE	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Jaminaea rosea		
+A0A830HRR5	cl0.6_representative		GTH	light_gated_channel	Eukaryota	Transmembrane protein	Chlorophyta	Pycnococcus provasolii		
+A0A836C3T9	cl0.6_representative	channelrhodopsin	ESH	light_gated_channel	Eukaryota	Channelopsin 1	Chlorophyta	Edaphochlamys debaryana		
+A0A8H3F0J4	cl0.6_representative	halorhodopsin	DTD	proton_pump	Eukaryota	Opsin-1	Ascomycota	Gomphillus americanus		
+A0A8H3TVB8	cl0.6_representative	sensory_rhodopsin_II	DTV	sensory	Eukaryota	Rhodopsin	Basidiomycota	Naganishia liquefaciens		
+A0A8H7T9E0	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Bacteriorhodopsin	Ascomycota	Cadophora malorum		
+A0A8J4CXL9	cl0.6_representative	unclassified_typeI	LTI	unassigned	Eukaryota	histidine kinase (EC 2.7.13.3)	Chlorophyta	Volvox reticuliferus		
+A0A8J5XG16	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Rhodopsin	Haptophyta	Diacronema lutheri (Unicellular marine alga) (Monochrysis lutheri)		
+A0A8T9MZ73	cl0.6_representative	sensory_rhodopsin_II	DTE	sensory	Eukaryota	YRO2-like protein	Basidiomycota	Thecaphora frezii		
+A0A917EVA4	cl0.6_representative	xanthorhodopsin	ESE	proton_pump	Bacteria	Rhodopsin	Actinomycetota	Subtercola lobariae		
+A0A9E8ZCC3	cl0.6_representative	anabaena_sensory	DTA	sensory	Bacteria	Bacteriorhodopsin	Cyanobacteriota	Thermocoleostomius sinensis A174		
+A0A9P7Z2R9	cl0.6_representative		DTT	proton_pump	Eukaryota	Opsin-1	Ascomycota	Calycina marina		
+A0A9P9GRI7	cl0.6_representative	halorhodopsin	DSE	proton_pump	Eukaryota	Opsin-like protein carO (Carotenoid biosynthesis cluster protein O)	Ascomycota	Fusarium solani (Filamentous fungus)		
+A0A9Q8PHB6	cl0.6_representative	anabaena_sensory	DST	sensory	Eukaryota	Opsin-1	Ascomycota	Fulvia fulva (Tomato leaf mold) (Passalora fulva)		
+A0A9Q8TYU3	cl0.6_representative	proteorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin-like	Pseudomonadota	SAR86 cluster bacterium		
+A0AA39CI59	cl0.6_representative	sensory_rhodopsin_II	DTQ	sensory	Eukaryota	Family A G protein-coupled receptor-like protein	Ascomycota	Cladophialophora chaetospira		
+A0A513ZS31	cl0.6_representative	sensory_rhodopsin_II	ETW	sensory	Eukaryota	Phosphodiesterase (EC 3.1.4.-)		Choanoeca flexa		
+A0A513ZS42	cl0.6_representative		ETW	sensory	Eukaryota	Rhodopsin-phosphodiesterase fusion protein 2		Choanoeca flexa		
+A0A513ZS48	cl0.6_representative	sensory_rhodopsin_II	ETW	sensory	Eukaryota	Rhodopsin-phosphodiesterase fusion protein 4		Choanoeca flexa		
+A0A513ZS49	cl0.6_representative		ETV	unassigned	Eukaryota	Rhodopsin-phosphodiesterase fusion protein 1		Choanoeca flexa		
+A0A5C3EFI1	cl0.6_representative	sensory_rhodopsin_II	DTS	sensory	Eukaryota	Related to YRO2 - strong similarity to HSP30 heat shock protein Yro1p	Basidiomycota	Ustilago trichophora		
+A0A5C3F6M7	cl0.6_representative	sensory_rhodopsin_II	DTS	sensory	Eukaryota	Related to YRO2 - putative plasma membrane protein, transcriptionally regulated by Haa1p	Basidiomycota	Pseudozyma flocculosa		
+A0A5N6KJ15	cl0.6_representative		DTD	proton_pump	Eukaryota	Opsin-1	Ascomycota	Monilinia laxa (Brown rot fungus) (Sclerotinia laxa)		
+A0A699YRI6	cl0.6_representative	unclassified_typeI	MTL	unassigned	Eukaryota	histidine kinase (EC 2.7.13.3)	Chlorophyta	Haematococcus lacustris (Green alga) (Haematococcus pluvialis)		
+A0A6A6NS17	cl0.6_representative	halorhodopsin	DSD	proton_pump	Eukaryota	Opsin-1	Ascomycota	Lineolata rhizophorae		
+A0ABM9RL04	cl0.6_representative		DTM	sensory	Bacteria	Bacteriorhodopsin-like family protein	Bacillota	Paraclostridium sordellii (Clostridium sordellii)		
+A0ABN9Q5I1	cl0.6_representative		DTE	proton_pump	Eukaryota	Uncharacterized protein		Prorocentrum cordatum		
+A0ABP0HY01	cl0.6_representative		DTE	proton_pump	Eukaryota	Uncharacterized protein		Durusdinium trenchii		
+A0ABP0IP57	cl0.6_representative	bacteriorhodopsin	DTE	proton_pump	Eukaryota	Sensory rhodopsin-2 (Sensory rhodopsin II) (SR-II)		Durusdinium trenchii		
+A0ABP0P8M8	cl0.6_representative	enzyme_rhodopsin	ETA	enzyme_rhodopsin	Eukaryota	Uncharacterized protein		Durusdinium trenchii		
+A0ABP0S708	cl0.6_representative		DTE	proton_pump	Eukaryota	Uncharacterized protein		Durusdinium trenchii		
+A0ABP6XK90	cl0.6_representative		DTG	sensory_like	Bacteria	Sensory rhodopsin II	Actinomycetota	Microlunatus spumicola		
+A0ABP8W210	cl0.6_representative	xanthorhodopsin	ETE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Frondihabitans cladoniiphilus		
+A0ABP8Z7N0	cl0.6_representative	xanthorhodopsin	DSE	proton_pump	Bacteria	Bacteriorhodopsin-like	Actinomycetota	Amnibacterium soli		
+A0ABQ4EQK3	cl0.6_representative	anabaena_sensory	DTA	sensory	Bacteria	Bacteriorhodopsin	Actinomycetota	Plantactinospora mayteni		
+A0ABQ7G5D3	cl0.6_representative		QST	enzyme_rhodopsin	Eukaryota	Uncharacterized protein	Chlorophyta	Dunaliella salina (Green alga) (Protococcus salinus)		
+A0ABR5HG14	cl0.6_representative		DTG	sensory_like	Bacteria	Rhodopsin	Pseudomonadota	Methylobacterium indicum		
+A0ABR7K021	cl0.6_representative		DTL	sensory	Bacteria	Bacteriorhodopsin	Bacillota	Paeniclostridium hominis		
+A0ABR7MNE7	cl0.6_representative		DTK	sensory_like	Bacteria	Bacteriorhodopsin	Bacteroidota	Hymenobacter citatus		
+A0ABR9BWN3	cl0.6_representative	channelrhodopsin	DTG	light_gated_channel	Bacteria	Bacteriorhodopsin	Pseudomonadota	Pseudomonas coleopterorum		
+A0ABR9UUA4	cl0.6_representative	sodium_pump	NDQ	sodium_pump	Bacteria	Bacteriorhodopsin	Cyanobacteriota	Gloeocapsopsis crepidinum LEGE 06123		
+A0ABS2QRU6	cl0.6_representative	anabaena_sensory	DTA	sensory	Bacteria	Bacteriorhodopsin	Bacillota	Priestia iocasae		
+A0ABT1VT19	cl0.6_representative	bacteriorhodopsin	DTS	proton_pump	Bacteria	Bacteriorhodopsin	Pseudomonadota	Rhizosaccharibacter radicis		
+A0ABT3JDE1	cl0.6_representative		DTG	proton_pump	Bacteria	Bacteriorhodopsin	Pseudomonadota	Sphingomonas arvum		
+A0ABT8M6U9	cl0.6_representative		YSD	light_gated_channel	Archaea	Bacteriorhodopsin	Methanobacteriota	Methanoculleus frigidifontis		
+A0ABU5KE82	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Nocardioides renjunii		
+A0ABU5LJT3	cl0.6_representative	channelrhodopsin	DTG	light_gated_channel	Bacteria	Bacteriorhodopsin	Pseudomonadota	Pantoea eucrina		
+A0ABU8M976	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Actinomycetospora flava		
+A0ABV4GXJ7	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Kineococcus halophytocola		
+A0ABW4LD18	cl0.6_representative	xanthorhodopsin	DTQ	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Amnibacterium endophyticum		
+A0ABW4LEU0	cl0.6_representative		DTE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Amnibacterium endophyticum		
+A0ABW4Q5W9	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin-like	Actinomycetota	Arthrobacter flavus		
+A0ABW6ADJ1	cl0.6_representative	sensory_rhodopsin_I	DTQ	sensory	Bacteria	Bacteriorhodopsin	Bacteroidota	Spirosoma flavum		
+A0ABX2FPZ3	cl0.6_representative	proteorhodopsin	DTQ	proton_pump	Bacteria	Bacteriorhodopsin	Bacteroidota	Hymenobacter caeli		
+A0ABX5VSN1	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Xanthorhodopsin	Pseudomonadota	Candidatus Methylopumilus universalis		
+A0ABY1EHF9	cl0.6_representative		EAE	unassigned	Bacteria	Bacteriorhodopsin	Actinomycetota	Cryobacterium levicorallinum		
+A0ABY5SZY8	cl0.6_representative	channelrhodopsin	DTG	light_gated_channel	Bacteria	Bacteriorhodopsin	Pseudomonadota	Qipengyuania spongiae		
+A0ABY6P2U6	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin-like	Actinomycetota	Rhodococcus antarcticus		
+A0ABY8TPA0	cl0.6_representative	channelrhodopsin	ETR	light_gated_channel	Eukaryota	Uncharacterized protein	Chlorophyta	Tetradesmus obliquus (Green alga) (Acutodesmus obliquus)		
+A0AC59EXE7	cl0.6_representative		DTS	sensory_like		Uncharacterized protein	Nucleocytoviricota	Phaeocystis globosa virus PgV-16T		
+A0ACB5PST1	cl0.6_representative		DTA	sensory_like	Bacteria	Rhodopsin	Bacteroidota	Hymenobacter qilianensis		
+A0ACC1R549	cl0.6_representative		DTQ	sensory_like	Eukaryota	Uncharacterized protein	Ascomycota	Lecanicillium saksenae		
+A0ACC2V3V0	cl0.6_representative	sensory_rhodopsin_II	DTE	sensory	Eukaryota	Uncharacterized protein	Basidiomycota	Naganishia adeliensis		
+A0ACC2VHJ0	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Uncharacterized protein	Basidiomycota	Naganishia friedmannii		
+A0ACC2WFR0	cl0.6_representative	bacteriorhodopsin	DTD	proton_pump	Eukaryota	Uncharacterized protein	Basidiomycota	Naganishia cerealis		
+A0ACC3S8D6	cl0.6_representative	sensory_rhodopsin_II	DTD	sensory	Eukaryota	Uncharacterized protein	Ascomycota	Zalaria obscura		
+A0ACC7E1Y1	cl0.6_representative	sensory_rhodopsin_II	DTY	sensory	Archaea	Bacteriorhodopsin	Methanobacteriota	Halovenus rubra		
+A0ACD1E2V6	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Curtobacterium aetherium		
+C0K2L2	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Bacteria	Putative actinorhodopsin	Actinomycetota	Candidatus Aquiluna rubra		
+C8CHH8	cl0.6_representative		DTN	sensory	Eukaryota	Opsin		Cyanophora paradoxa		
+D1MER6	cl0.6_representative		ETS	anion_pump	Eukaryota	Opsin 2		Cyanophora paradoxa		
+D6U1J0	cl0.6_representative		DTN	sensory_like	Bacteria	Rhodopsin, a chromoprotein	Chloroflexota	Ktedonobacter racemifer DSM 44963		
+D7CSE2	cl0.6_representative	sodium_pump	NDQ	sodium_pump	Bacteria	Rhodopsin	Deinococcota	Truepera radiovictrix (strain DSM 17093 / CIP 108686 / LMG 22925 / RQ-24)		
+D7CVU5	cl0.6_representative		ASL	light_gated_channel	Bacteria	Rhodopsin	Deinococcota	Truepera radiovictrix (strain DSM 17093 / CIP 108686 / LMG 22925 / RQ-24)		
+D8TM14	cl0.6_representative		ETH	unassigned	Eukaryota	Channelopsin 1	Chlorophyta	Volvox carteri f. nagariensis		
+F2XWZ4	cl0.6_representative		DTD	proton_pump	Eukaryota	Rhodopsin		Oxyrrhis marina (Dinoflagellate)		
+F7PPX8	cl0.6_representative	sensory_rhodopsin_II	DTF	sensory	Archaea	Sensory rhodopsin	Methanobacteriota	Halorhabdus tiamatea SARL4B		
+F8UVI5	cl0.6_representative	channelrhodopsin	ETA	light_gated_channel	Eukaryota	Channelopsin 1	Streptophyta	Mesostigma viride (Green alga)		
+G1K3Q0	cl0.6_representative		DTD	proton_pump	Eukaryota	Rhodopsin-2	Chlorophyta	Acetabularia acetabulum (Mermaid's wine glass) (Acetabularia mediterranea)	Rhodopsin-2	proton_pump_outward
+G4XT37	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Eukaryota	Rhodopsin 1	Haptophyta	Phaeocystis globosa		
+G8HK99	cl0.6_representative		ETH	light_gated_channel	Eukaryota	Channelopsin 2	Chlorophyta	Chlamydomonas raudensis		
+H2BW50	cl0.6_representative		NDQ	sodium_pump	Bacteria	Rhodopsin	Bacteroidota	Gillisia limnaea (strain DSM 15749 / LMG 21470 / R-8282)	GlNaR	sodium_pump
+H2EZZ5	cl0.6_representative	channelrhodopsin	ETH	light_gated_channel	Eukaryota	Channelrhodopsin-1 PsChR1	Chlorophyta	Pleodorina starrii		
+H2EZZ6	cl0.6_representative		ETH	light_gated_channel	Eukaryota	Channelrhodopsin-2 PsChR2	Chlorophyta	Pleodorina starrii	Channelrhodopsin-2 PsChR2	cation_channel
+I0IBH0	cl0.6_representative	sodium_pump	NDS	sodium_pump	Bacteria	Hypothetical membrane protein	Planctomycetota	Phycisphaera mikurensis (strain DSM 103959 / KCTC 22515 / NBRC 102666 / FYK2301M01)		
+I0IGJ9	cl0.6_representative		NTT	sodium_pump	Bacteria	Bacterial rhodopsin family protein	Planctomycetota	Phycisphaera mikurensis (strain DSM 103959 / KCTC 22515 / NBRC 102666 / FYK2301M01)		
+I2G4K9	cl0.6_representative		DTD	proton_pump	Eukaryota	Related to Opsin-1	Basidiomycota	Ustilago hordei (Barley covered smut fungus)		
+I4Y6X6	cl0.6_representative		ETT	unassigned	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Wallemia mellicola (strain ATCC MYA-4683 / CBS 633.66) (Wallemia sebi (CBS 633.66))		
+J3NUV6	cl0.6_representative	sensory_rhodopsin_II	NLA	sensory	Eukaryota	Uncharacterized protein	Ascomycota	Gaeumannomyces tritici (strain R3-111a-1) (Wheat and barley take-all root rot fungus) (Gaeumannomyces graminis var. tritici)		
+K7QVE5	cl0.6_representative		DTE	proton_pump	Bacteria	Bacteriorhodopsin	Deinococcota	Thermus oshimai JL-2		
+L1I4V2	cl0.6_representative	sensory_rhodopsin_II	DTL	sensory	Eukaryota	Uncharacterized protein		Guillardia theta (strain CCMP2712) (Cryptophyte)		
+L1IFZ3	cl0.6_representative	unclassified_typeI	STQ	unassigned	Eukaryota	Uncharacterized protein		Guillardia theta (strain CCMP2712) (Cryptophyte)	GtACR2	anion_channel
+L1IMK0	cl0.6_representative	sensory_rhodopsin_II	DTL	sensory	Eukaryota	Uncharacterized protein		Guillardia theta (strain CCMP2712) (Cryptophyte)		
+L1J9S4	cl0.6_representative		DTD	proton_pump	Eukaryota	Bacteriorhodopsin		Guillardia theta (strain CCMP2712) (Cryptophyte)		
+L1JDD0	cl0.6_representative	sensory_rhodopsin_II	DTQ	sensory	Eukaryota	Uncharacterized protein		Guillardia theta (strain CCMP2712) (Cryptophyte)		
+L1JGN9	cl0.6_representative		ETS	proton_pump	Eukaryota	Rhodopsin		Guillardia theta (strain CCMP2712) (Cryptophyte)		
+L1JQN0	cl0.6_representative	sensory_rhodopsin_II	DTN	sensory	Eukaryota	Uncharacterized protein		Guillardia theta (strain CCMP2712) (Cryptophyte)		
+L1JSE8	cl0.6_representative	sensory_rhodopsin_II	ETS	sensory	Eukaryota	Uncharacterized protein		Guillardia theta (strain CCMP2712) (Cryptophyte)		
+L1K4I3	cl0.6_representative	sensory_rhodopsin_II	DTW	sensory	Eukaryota	Rhodopsin		Guillardia theta (strain CCMP2712) (Cryptophyte)		
+M0E6A6	cl0.6_representative		EGG	unassigned	Archaea	Sensory rhodopsin 1	Methanobacteriota	Halorubrum coriense DSM 10284		
+M1PA51	cl0.6_representative	channelrhodopsin	ASH	light_gated_channel	Eukaryota	Channelopsin 1	Chlorophyta	Dunaliella salina (Green alga) (Protococcus salinus)		
+M1PFK4	cl0.6_representative	channelrhodopsin	ETH	light_gated_channel	Eukaryota	Channelopsin	Chlorophyta	Tetraselmis subcordiformis (Marine green alga) (Carteria subcordiformis)		
+M5G4F1	cl0.6_representative		QTT	unassigned	Eukaryota	Family A G protein-coupled receptor-like protein	Basidiomycota	Dacryopinax primogenitus (Brown rot fungus)		
+M7SL81	cl0.6_representative	halorhodopsin	DTD	proton_pump	Eukaryota	Putative opsin 1 protein	Ascomycota	Eutypa lata (strain UCR-EL1) (Grapevine dieback disease fungus) (Eutypa armeniacae)		
+M7WZX8	cl0.6_representative	sensory_rhodopsin_II	DTE	sensory	Eukaryota	Heat shock protein 30	Basidiomycota	Rhodotorula toruloides (strain NP11) (Yeast) (Rhodosporidium toruloides)		
+N1JJI1	cl0.6_representative		DTN	proton_pump	Eukaryota	Opsin like protein	Ascomycota	Blumeria graminis f. sp. hordei (strain DH14) (Barley powdery mildew) (Oidium monilioides f. sp. hordei)		
+Q104L4	cl0.6_representative	channelrhodopsin	ETH	light_gated_channel	Eukaryota	Channelopsin 1/2	Chlorophyta	Volvox carteri (Green alga)		
+Q2QCJ2	cl0.6_representative	sensory_rhodopsin_II	DTN	sensory	Eukaryota	Opsin		Cryptomonas sp. S2		
+Q2QCJ3	cl0.6_representative	sensory_rhodopsin_II	DTN	sensory	Eukaryota	Opsin 2		Guillardia theta (Cryptophyte) (Cryptomonas phi)		
+Q2RZF4	cl0.6_representative	sensory_rhodopsin_I	DTY	sensory	Bacteria	Sensory rhodopsin (SRI)	Rhodothermota	Salinibacter ruber (strain DSM 13855 / M31)		
+Q2RZM2	cl0.6_representative		DTY	sensory	Bacteria	Sensory rhodopsin (SRI)	Rhodothermota	Salinibacter ruber (strain DSM 13855 / M31)	SrSRI	sensory_transducer
+Q8GZE7	cl0.6_representative	xanthorhodopsin	DTE	proton_pump	Eukaryota	Rhodopsin		Pyrocystis lunula (Dinoflagellate) (Gymnodinium lunula)		
+R4XB45	cl0.6_representative		DTD	proton_pump	Eukaryota	Opsin-1	Ascomycota	Taphrina deformans (strain PYCC 5710 / ATCC 11124 / CBS 356.35 / IMI 108563 / JCM 9778 / NBRC 8474) (Peach leaf curl fungus) (Lalaria deformans)		
+S5DM51	cl0.6_representative		DTE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Candidatus Actinomarina minuta		
+W3VSK1	cl0.6_representative	sensory_rhodopsin_II	DTS	sensory	Eukaryota	Uncharacterized protein	Basidiomycota	Moesziomyces aphidis (Pseudozyma aphidis)		
+A0ACE2KNW0	cl0.6_representative				Bacteria	Bacteriorhodopsin	Deinococcota	Deinococcus saxicola		
+A0ACE2LP12	cl0.6_representative				Bacteria	Bacteriorhodopsin	Deinococcota	Deinococcus saxicola		
+A0ACG2HDS8	cl0.6_representative				Bacteria	Bacteriorhodopsin	Cyanobacteriota	Nodularia sphaerocarpa CS-585		
+A0ACH3LEE6	cl0.6_representative				Bacteria	Bacteriorhodopsin	Deinococcota	Deinococcus altitudinis		
+A0A6P3CW41	anchor_characterized	bacteriorhodopsin	TSD	proton_pump	Bacteria	Cyanobacterial chloride importer	Cyanobacteriota	Mastigocladopsis repens	Cyanobacterial chloride importer	anion_pump
+A0AA82WPB4	anchor_characterized	anabaena_sensory	DSA	sensory	Bacteria	Xenorhodopsin	Bacillota	Bacillus coahuilensis	Xenorhodopsin	proton_pump_inward
+A0ABF7PQ03	anchor_characterized		ESE	proton_pump	Bacteria	Cryorhodopsin	Actinomycetota	Subtercola endophyticus		
+H9ZSC3	anchor_characterized		DTE	proton_pump	Bacteria	Bacteriorhodopsin	Deinococcota	Thermus thermophilus JL-18	Bacteriorhodopsin	proton_pump_outward
+I0YUS5	anchor_characterized		DTD	proton_pump	Eukaryota	Family A G protein-coupled receptor-like protein	Chlorophyta	Coccomyxa subellipsoidea (strain C-169) (Green microalga)	Family A G protein-coupled receptor-like protein	proton_pump_outward
+P15647	anchor_characterized	halorhodopsin	TSA	anion_pump	Archaea	Halorhodopsin (HR) (NpHR)	Methanobacteriota	Natronomonas pharaonis (Natronobacterium pharaonis)	Halorhodopsin	anion_pump
+P94854	anchor_characterized		DTD	proton_pump	Archaea	Cruxrhodopsin-3 (COP-3) (CR-3)	Methanobacteriota	Haloarcula vallismortis (Halobacterium vallismortis)	Cruxrhodopsin-3	proton_pump_outward
+Q18DH8	anchor_characterized		DTD	proton_pump	Archaea	Bacteriorhodopsin-I (HwBR) (Squarebop I)	Methanobacteriota	Haloquadratum walsbyi (strain DSM 16790 / HBSQ001)	Bacteriorhodopsin-I	proton_pump_outward
+Q1AUE6	anchor_characterized		DTD	sensory	Bacteria	Rhodopsin	Actinomycetota	Rubrobacter xylanophilus (strain DSM 9941 / JCM 11954 / NBRC 16129 / PRD-1)	Rhodopsin	proton_pump_outward
+Q5V1N0	anchor_characterized		TSA	unassigned	Archaea	Halorhodopsin (HmHR)	Methanobacteriota	Haloarcula marismortui (strain ATCC 43049 / DSM 3752 / JCM 8966 / VKM B-1809) (Halobacterium marismortui)	Halorhodopsin	anion_pump
+Q5V4H7	anchor_characterized		DSY	sensory	Archaea	Sensory rhodopsin III (HmSRIII) (Opsin) (Sensory-like rhodopsin) (HmSMR)	Methanobacteriota	Haloarcula marismortui (strain ATCC 43049 / DSM 3752 / JCM 8966 / VKM B-1809) (Halobacterium marismortui)	Sensory rhodopsin III	sensory_transducer
+Q7NP59	anchor_characterized		DTE	proton_pump	Bacteria	Gll0198 protein	Cyanobacteriota	Gloeobacter violaceus (strain ATCC 29082 / PCC 7421)	Gll0198 protein	proton_pump_outward
+Q9AFF7	anchor_characterized		DTE	proton_pump	Bacteria	Blue-light absorbing proteorhodopsin (BPR)	Pseudomonadota	Gamma-proteobacterium Hot 75m4	Blue-light absorbing proteorhodopsin	proton_pump_outward
+Q9UW81	anchor_characterized		DTE	proton_pump	Eukaryota	Opsin-1 (NR)	Ascomycota	Neurospora crassa (strain ATCC 24698 / 74-OR23-1A / CBS 708.71 / DSM 1257 / FGSC 987)		
+W8VZW3	anchor_characterized	chloride_pump_NTQ	NTQ	anion_pump	Bacteria	Chloride pumping rhodopsin	Bacteroidota	Nonlabens marinus S1-08	Chloride pumping rhodopsin	anion_pump
+A0A075VNF2	anchor_characterized		DTE	proton_pump	Bacteria	Proteorhodopsin	Bacteroidota	Flavobacterium sp. TAK38		
+A0A0G9MK34	anchor_characterized	chloride_pump_NTQ	NTQ	anion_pump	Bacteria	Rhodopsin	Pseudomonadota	Aurantiacibacter gangjinensis	EgClR	anion_pump
+A0A0H3VWA0	anchor_characterized	xanthorhodopsin	DTE	proton_pump	Eukaryota	Rhodopsin		Prorocentrum donghaiense		
+A0A1C7DB83	anchor_characterized	chloride_pump_NTQ	NTQ	anion_pump	Bacteria	Green-light absorbing proteorhodopsin	Pseudomonadota	Paraurantiacibacter namhicola	AnClR	anion_pump
+A0A1D9E0H1	anchor_characterized	xanthorhodopsin	DTE	proton_pump	Bacteria	Actinorhodopsin	Actinomycetota	Candidatus Rhodoluna planktonica		
+A0A1I3DJQ0	anchor_characterized	xanthorhodopsin	EAE	proton_pump	Bacteria	Rhodopsin	Actinomycetota	Cryobacterium levicorallinum		
+A0A2H4ZEW7	anchor_characterized		ETL	enzyme_rhodopsin	Eukaryota	Opsin-GC isoform 3	Blastocladiomycota	Allomyces reticulatus		
+A0A2H4ZEW8	anchor_characterized	enzyme_rhodopsin	ETL	enzyme_rhodopsin	Eukaryota	Opsin-GC isoform 2	Blastocladiomycota	Allomyces reticulatus		
+A0A411LJN5	anchor_characterized	channelrhodopsin	DTS	light_gated_channel	Bacteria	Bacteriorhodopsin	Pseudomonadota	Sphingomonas paucimobilis (Pseudomonas paucimobilis)		
+A0A498H310	anchor_characterized		YSD	unassigned	Archaea	Rhodopsin	Methanobacteriota	Methanoculleus taiwanensis		
+I4DST7	anchor_characterized		DTD	proton_pump	Archaea	Deltarhodopsin	Methanobacteriota	Natrinema thermotolerans	Deltarhodopsin	proton_pump_outward
+A0A7D4UK75	anchor_characterized	xanthorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin	Actinomycetota	Aquiluna borgnonia		
+A0A7U2HUJ7	anchor_characterized	sensory_rhodopsin_II	DTD	sensory	Eukaryota	Uncharacterized protein	Ascomycota	Phaeosphaeria nodorum (strain SN15 / ATCC MYA-4574 / FGSC 10173) (Glume blotch fungus) (Parastagonospora nodorum)		
+A0A7U2HUL1	anchor_characterized		DTD	proton_pump	Eukaryota	Opsin-1	Ascomycota	Phaeosphaeria nodorum (strain SN15 / ATCC MYA-4574 / FGSC 10173) (Glume blotch fungus) (Parastagonospora nodorum)		
+A0A840I7T6	anchor_characterized	chloride_pump_NTQ	NTQ	anion_pump	Bacteria	Bacteriorhodopsin	Pseudomonadota	Parvularcula dongshanensis	PoClR2	anion_pump
+A0A8X6EH36	anchor_characterized	channelrhodopsin	DTG	light_gated_channel	Bacteria	Bacteriorhodopsin-like protein	Pseudomonadota	Pseudomonas putida (Arthrobacter siderocapsulatus)	DTG_PspR	proton_pump_outward
+A0ACD6B968	anchor_characterized		DTS	sensory_like	Bacteria	Bacteriorhodopsin	Cyanobacteriota	Nostoc sp. (strain PCC 7120 / SAG 25.82 / UTEX 2576)	Bacteriorhodopsin	sensory_transducer
+A0ABW8X909	anchor_characterized		DTE	proton_pump	Bacteria	Bacteriorhodopsin	Cyanobacteriota	Tolypothrix campylonemoides VB511288_2		
+A0ABX5PZH6	anchor_characterized	proteorhodopsin	DTE	proton_pump	Bacteria	Bacteriorhodopsin-like protein	Bacteroidota	Nonlabens dokdonensis	NdR1	proton_pump_outward
+A0ABY3LD08	anchor_characterized		DTG	sensory_like	Bacteria	Bacteriorhodopsin	Pseudomonadota	Pantoea vagans	DTG_PvR	proton_pump_outward
+A4UHT4	anchor_characterized		DTE	proton_pump	Bacteria	Proteorhodopsin	Pseudomonadota	gamma proteobacterium HTCC6124		
+A7WQE1	anchor_characterized		DTE	proton_pump	Eukaryota	Rhodopsin		Oxyrrhis marina (Dinoflagellate)		
+P0DMH7	anchor_characterized		TSA	unassigned	Archaea	Halorhodopsin (HR)	Methanobacteriota	Halobacterium salinarum (strain ATCC 700922 / JCM 11081 / NRC-1) (Halobacterium halobium)	Halorhodopsin	anion_pump
+P02945	anchor_characterized		DTD	proton_pump	Archaea	Bacteriorhodopsin (BR) (Bacterioopsin) (BO)	Methanobacteriota	Halobacterium salinarum (strain ATCC 700922 / JCM 11081 / NRC-1) (Halobacterium halobium)	Bacteriorhodopsin	proton_pump_outward
+P0DMH8	anchor_characterized		DTY	sensory_like	Archaea	Sensory rhodopsin-1 (Sensory rhodopsin I) (SR-I)	Methanobacteriota	Halobacterium salinarum (strain ATCC 700922 / JCM 11081 / NRC-1) (Halobacterium halobium)	Sensory rhodopsin-1	sensory_transducer
+B6ETT0	anchor_characterized		DSE	proton_pump	Eukaryota	Opsin-like protein carO (Carotenoid biosynthesis cluster protein O)	Ascomycota	Fusarium fujikuroi (Bakanae and foot rot disease fungus) (Gibberella fujikuroi)		
+D3SYH0	anchor_characterized		TSV	unassigned	Archaea	Halorhodopsin	Methanobacteriota	Natrialba magadii (strain ATCC 43099 / DSM 3394 / CCM 3739 / CIP 104546 / IAM 13178 / JCM 8861 / NBRC 102185 / NCIMB 2190 / MS3) (Natronobacterium magadii)		
+E0WCL9	anchor_characterized	proteorhodopsin	DTE	proton_pump	Bacteria	Proteorhodopsin	Pseudomonadota	Vibrio campbellii		
+E9M2D0	anchor_characterized		YTM	unassigned	Bacteria	Sensory rhodopsin	Pseudomonadota	Thermochromatium tepidum (Chromatium tepidum)		
+F1D6U4	anchor_characterized		DTD	proton_pump	Eukaryota	Rhodopsin type II		Oxyrrhis marina (Dinoflagellate)		
+M9RHM7	anchor_characterized		DTE	proton_pump	Bacteria	Xanthorhodopsin-like rhodopsin-precursor	Pseudomonadota	Octadecabacter antarcticus 307		
+O93741	anchor_characterized	halorhodopsin	TSA	anion_pump	Archaea	Halorhodopsin (HR)	Methanobacteriota	Haloterrigena sp. (strain arg-4)		
+O93742	anchor_characterized	halorhodopsin	TSA	anion_pump	Archaea	Halorhodopsin (HR)	Methanobacteriota	Halorubrum sodomense		
+P71411	anchor_characterized	sensory_rhodopsin_II	DTY	sensory	Archaea	Sensory rhodopsin-2 (Sensory rhodopsin II) (SR-II)	Methanobacteriota	Halobacterium salinarum (strain ATCC 700922 / JCM 11081 / NRC-1) (Halobacterium halobium)		
+Q0FYH0	anchor_characterized	chloride_pump_NTQ	NTQ	anion_pump	Bacteria	Rhodopsin	Pseudomonadota	Fulvimarina pelagi HTCC2506	FR	anion_pump
+Q2QCJ4	anchor_characterized	sensory_rhodopsin_II	DTE	sensory	Eukaryota	Opsin 1		Guillardia theta (Cryptophyte) (Cryptomonas phi)		
+Q5UXM9	anchor_characterized		DTF	sensory_like	Archaea	Sensory rhodopsin I (HmSRI)	Methanobacteriota	Haloarcula marismortui (strain ATCC 43049 / DSM 3752 / JCM 8966 / VKM B-1809) (Halobacterium marismortui)	Sensory rhodopsin I	sensory_transducer
+Q9HGT7	anchor_characterized	halorhodopsin	DTD	proton_pump	Eukaryota	Opsin	Ascomycota	Leptosphaeria maculans (Blackleg fungus) (Phoma lingam)	LR	proton_pump_outward
+Q70LL3	anchor_characterized	sensory_rhodopsin_II	DTD	sensory	Eukaryota	Opsin-like protein carO (Carotenoid biosynthesis cluster protein O)	Ascomycota	Fusarium fujikuroi (Bakanae and foot rot disease fungus) (Gibberella fujikuroi)	Opsin-like protein carO	proton_pump_outward
+S2D2R9	anchor_characterized		DTE	proton_pump	Bacteria	Proteorhodopsin	Bacteroidota	Indibacter alkaliphilus (strain CCUG 57479 / KCTC 22604 / LW1)		
+S2D3K4	anchor_characterized	sodium_pump	NDQ	sodium_pump	Bacteria	Xanthorhodopsin	Bacteroidota	Indibacter alkaliphilus (strain CCUG 57479 / KCTC 22604 / LW1)	IaNaR	sodium_pump
+A0A075VQ34	anchor_characterized		DTE	proton_pump	Bacteria	Proteorhodopsin	Bacteroidota	Dokdonia sp. HJK127		
+P42196	seed		DTF	sensory	Archaea	Sensory rhodopsin-2 (Sensory rhodopsin II) (SR-II)	Methanobacteriota	Natronomonas pharaonis (Natronobacterium pharaonis)	Sensory rhodopsin-2	sensory_transducer
+Q9F7P4	seed	proteorhodopsin	DTE	proton_pump	Bacteria	Green-light absorbing proteorhodopsin (GPR)	Pseudomonadota	Gamma-proteobacterium EBAC31A08	Green-light absorbing proteorhodopsin	proton_pump_outward
+N0DKS8	seed		NDQ	sodium_pump	Bacteria	Sodium pumping rhodopsin	Bacteroidota	Dokdonia eikasta	Sodium pumping rhodopsin	sodium_pump
+Q8RUT8	seed		ETH	light_gated_channel	Eukaryota	Archaeal-type opsin 2 (Retinal binding protein) (Sensory opsin B)	Chlorophyta	Chlamydomonas reinhardtii (Chlamydomonas smithii)	Archaeal-type opsin 2	cation_channel
+A0A089ZH82	outgroup_heliorhodopsin		ESI	unassigned	Archaea	Heliorhodopsin HeR		Methanobacterium formicicum		
+A0A0W0GG67	outgroup_heliorhodopsin		ESL	unassigned	Bacteria	Heliorhodopsin HeR		Dehalogenimonas alkenigignens		
+A0A143YUX7	outgroup_heliorhodopsin		---	insufficient_data	Bacteria	Heliorhodopsin		Trichococcus palustris		
+A0ABU4B2X0	outgroup_heliorhodopsin		ESL	unassigned	Bacteria	Heliorhodopsin HeR		Rhodococcus cercidiphylli		
+A0AB38BLM1	outgroup_heliorhodopsin		ESL	unassigned	Bacteria	Heliorhodopsin		Trichococcus flocculiformis		
+A0A2P6V4I5	outgroup_heliorhodopsin		---	insufficient_data	Eukaryota	Uncharacterized protein		Micractinium conductrix		
+A0A9E8S8N4	outgroup_heliorhodopsin		---	insufficient_data	Bacteria	Uncharacterized protein		Microcella daejeonensis		
+B5Y4Q4	outgroup_heliorhodopsin		--M	insufficient_data	Eukaryota	Uncharacterized protein		Phaeodactylum tricornutum (strain CCAP 1055/1)		
+A0A3A5MKG8	outgroup_heliorhodopsin		DSV	sensory_like	Bacteria	Uncharacterized protein		Cryobacterium melibiosiphilum		
+A0A4R8X1F9	outgroup_heliorhodopsin		---	insufficient_data	Bacteria	Uncharacterized protein		Cryobacterium algoritolerans		
+A0A2R5GFT6	outgroup_heliorhodopsin		ESI	unassigned	Eukaryota	Uncharacterized protein		Hondaea fermentalgiana		
+A0A0L0D3S9	outgroup_heliorhodopsin		-GY	insufficient_data	Eukaryota	Uncharacterized protein		Thecamonas trahens ATCC 50062		
+A0A0M0JPF9	outgroup_heliorhodopsin		---	insufficient_data	Eukaryota	Membrane protein		Chrysochromulina tobinii		
+A0ABP0LPA7	outgroup_heliorhodopsin		ESI	unassigned	Eukaryota	Uncharacterized protein		Durusdinium trenchii		
+A0AAE0BL41	outgroup_heliorhodopsin		DTV	sensory_like	Eukaryota	Uncharacterized protein		Cymbomonas tetramitiformis		
+QBQ84358	boundary_schizorhodopsin	schizorhodopsin			Archaea					
+QBQ84355	boundary_schizorhodopsin	schizorhodopsin			Archaea					

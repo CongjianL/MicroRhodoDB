@@ -1,0 +1,367 @@
+source_acc	y	stratum	full_gated	id_seeds	nn_seeds	id_bench	nn_bench	id_corpus	nn_corpus	nn_corpus_status_v150	id_tips	nn_tips	id_dev	id_any
+UOK93384.1	1	kalium_channelrhodopsin	0.7717	23.7	Q8RUT8	25.6	Q5V0R5	100.0	A0ABF7PQ82	typeI_candidate	28.1	A0A6A6UC61	28.1	100.0
+UOK93385.1	1	kalium_channelrhodopsin	0.789	23.7	Q8RUT8	24.2	P69052	84.2	A0ABF7PQ82	typeI_candidate	26.4	Q104L4	26.4	84.2
+WP_051881467.1	1	xenorhodopsin	0.9378	52.7	A0ACD6B968	36.6	P33969	58.3	A0A2A2SIC3	typeI_member_core	56.1	A0A2W0HIA8	56.1	58.3
+6EYU_A	1	xenorhodopsin	0.919	32.1	P0DMH7	32.1	B0R2U4	36.4	A0ABP8I0Q3	typeI_member_core	35.5	A0A4Z0PQJ0	35.5	36.4
+7W9W_A	1	cation_channelrhodopsin	0.8609	26.8	P42196	28.3	Q5UXY6	33.2	L1JBP1	decoy_or_rejected	28.0	A0AAW1NX46	28.3	33.2
+QJF54416.1	1	anion_channelrhodopsin_RubyACR	0.824	0.0		0.0		62.8	A0A2R5G461	typeI_candidate_architecture_supported	45.7	A0A2R5G2M3	45.7	62.8
+QJF54412.1	1	anion_channelrhodopsin_RubyACR	0.8559	29.8	Q8RUT8	27.2	Q57101	38.7	A0A2R5G461	typeI_candidate_architecture_supported	33.4	A0A2R5G0B6	33.4	38.7
+USH44359.1	1	bestrhodopsin	0.6752	0.0		0.0		41.8	A0AAE0C9L8	typeI_candidate	0.0		0.0	41.8
+USH44360.1	1	bestrhodopsin	0.6932	0.0		0.0		42.2	A0AAE0C9L8	typeI_candidate	0.0		0.0	42.2
+USH44362.1	1	bestrhodopsin	0.6951	0.0		0.0		40.4	A0AAE0C9L8	typeI_candidate	0.0		0.0	40.4
+USH44363.1	1	bestrhodopsin	0.0	0.0		0.0		40.9	A0AAE0C9L8	typeI_candidate	0.0		0.0	40.9
+7AKX_A	1	viral_rhodopsin	0.8371	23.3	W8VZW3	0.0		45.2	MGP_ERZ8868561__ERZ8868561.298054-NODE-298054-length-595-cov-1.442593_1		40.7	A0AC59EXE7	40.7	45.2
+6EDQ_A	1	anion_channelrhodopsin	0.8946	27.7	Q8RUT8	26.1	B0R633	100.0	L1J207	typeI_member_architecture_supported	100.0	A0A0C3TEH9	100.0	100.0
+7E4G_A	1	schizorhodopsin	0.8692	26.3	A0ACD6B968	28.4	P33742	42.8	MGP_ERZ16028321__ERZ16028321.20273-NODE-20273-length-3346-cov-3.739982_1		72.9	QBQ84358	72.9	72.9
+QCW06519.1	1	anion_channelrhodopsin_MerMAID	0.9022	32.6	H2EZZ6	26.3	Q5V5V3	31.8	A0ABP0S7I2	typeI_candidate_architecture_supported	32.6	H2EZZ6	32.6	32.6
+QCW06520.1	1	anion_channelrhodopsin_MerMAID	0.8591	27.5	H2EZZ6	27.0	Q5UXY6	32.3	F8UVI5	typeI_member_architecture_supported	32.3	F8UVI5	32.3	32.3
+QCW06521.1	1	anion_channelrhodopsin_MerMAID	0.8954	32.0	H2EZZ6	24.8	P42197	32.9	A0A2J8A9T1	typeI_member_architecture_supported	32.9	A0A2J8A9T1	32.9	32.9
+QCW06522.1	1	anion_channelrhodopsin_MerMAID	0.8938	32.3	H2EZZ6	24.8	Q5V5V3	32.4	A0A2J8A9T1	typeI_member_architecture_supported	32.4	A0A2J8A9T1	32.4	32.4
+QCW06523.1	1	anion_channelrhodopsin_MerMAID	0.8982	32.3	H2EZZ6	25.2	P42197	31.9	A0A2J8A9T1	typeI_member_architecture_supported	32.3	H2EZZ6	32.3	32.3
+QCW06524.1	1	anion_channelrhodopsin_MerMAID	0.8695	30.5	Q8RUT8	28.7	O93740	34.1	A0AAE0LD25	typeI_member_architecture_supported	34.1	A0AAE0LD25	34.1	34.1
+A0A507FHL0	1	fungal_rhodopsin_NIR	0.0	41.8	A0A060H1D7	0.0		69.7	A0A1Y2CSJ0	typeI_candidate_architecture_supported	69.7	A0A1Y2CSJ0	69.7	69.7
+P28684	0	animal_typeII_opsin	0.0	0.0		100.0	P28684	0.0			0.0		100.0	100.0
+O35478	0	animal_typeII_opsin	0.0	0.0		92.3	O18914	0.0			0.0		92.3	92.3
+P87367	0	animal_typeII_opsin	0.0	0.0		100.0	P87367	0.0			0.0		100.0	100.0
+P87368	0	animal_typeII_opsin	0.0	0.0		100.0	P87368	0.0			0.0		100.0	100.0
+P51490	0	animal_typeII_opsin	0.0	0.0		96.0	D5H3X0	0.0			0.0		96.0	96.0
+P32313	0	animal_typeII_opsin	0.0	0.0		91.3	Q8AYN0	0.0			0.0		91.3	91.3
+P28683	0	animal_typeII_opsin	0.0	0.0		82.3	P35357	0.0			0.0		82.3	82.3
+P60015	0	animal_typeII_opsin	0.0	0.0		100.0	P03999	0.0			0.0		100.0	100.0
+P35357	0	animal_typeII_opsin	0.0	0.0		100.0	P35357	0.0			0.0		100.0	100.0
+P90680	0	animal_typeII_opsin	0.0	0.0		62.9	Q26495	0.0			0.0		62.9	62.9
+Q8R456	0	animal_typeII_opsin	0.0	0.0		100.0	Q8R456	0.0			0.0		100.0	100.0
+P28679	0	animal_typeII_opsin	0.0	0.0		100.0	P28679	0.0			0.0		100.0	100.0
+Q4R1I4	0	animal_typeII_opsin	0.0	0.0		100.0	Q4R1I4	0.0			0.0		100.0	100.0
+P0DN78	0	animal_typeII_opsin	0.0	0.0		100.0	P0DN77	0.0			0.0		100.0	100.0
+O13092	0	animal_typeII_opsin	0.0	0.0		100.0	O13092	0.0			0.0		100.0	100.0
+Q6XL69	0	animal_typeII_opsin	0.0	0.0		100.0	Q6XL69	0.0			0.0		100.0	100.0
+P17646	0	animal_typeII_opsin	0.0	0.0		100.0	P17646	0.0			0.0		100.0	100.0
+Q9W6A5	0	animal_typeII_opsin	0.0	0.0		100.0	Q9W6A5	0.0			0.0		100.0	100.0
+P29404	0	animal_typeII_opsin	0.0	0.0		92.0	P17646	0.0			0.0		92.0	92.0
+P51491	0	animal_typeII_opsin	0.0	0.0		100.0	P51491	0.0			0.0		100.0	100.0
+P35360	0	animal_typeII_opsin	0.0	0.0		98.7	P35361	0.0			0.0		98.7	98.7
+Q9W6A9	0	animal_typeII_opsin	0.0	0.0		87.2	Q90309	0.0			0.0		87.2	87.2
+O01668	0	animal_typeII_opsin	0.0	0.0		100.0	O01668	0.0			0.0		100.0	100.0
+Q94741	0	animal_typeII_opsin	0.0	0.0		100.0	Q94741	0.0			0.0		100.0	100.0
+P04001	0	animal_typeII_opsin	0.0	0.0		100.0	P0DN77	0.0			0.0		100.0	100.0
+O57605	0	animal_typeII_opsin	0.0	0.0		100.0	O57605	0.0			0.0		100.0	100.0
+P08255	0	animal_typeII_opsin	0.0	0.0		94.1	P17646	0.0			0.0		94.1	94.1
+P35362	0	animal_typeII_opsin	0.0	0.0		100.0	P35362	0.0			0.0		100.0	100.0
+Q7T3Q7	0	animal_typeII_opsin	0.0	0.0		100.0	Q7T3Q7	0.0			0.0		100.0	100.0
+Q1JPS6	0	animal_typeII_opsin	0.0	0.0		100.0	Q1JPS6	0.0			0.0		100.0	100.0
+Q804Q2	0	animal_typeII_opsin	0.0	0.0		100.0	Q804Q2	0.0			0.0		100.0	100.0
+Q26495	0	animal_typeII_opsin	0.0	0.0		100.0	Q26495	0.0			0.0		100.0	100.0
+P22331	0	animal_typeII_opsin	0.0	0.0		93.8	P22330	0.0			0.0		93.8	93.8
+O96107	0	animal_typeII_opsin	0.0	0.0		61.5	Q26495	0.0			0.0		61.5	61.5
+O42490	0	animal_typeII_opsin	0.0	0.0		66.3	O13018	0.0			0.0		66.3	66.3
+P91657	0	animal_typeII_opsin	0.0	0.0		100.0	P91657	0.0			0.0		100.0	100.0
+P51474	0	animal_typeII_opsin	0.0	0.0		100.0	P51474	0.0			0.0		100.0	100.0
+O57422	0	animal_typeII_opsin	0.0	0.0		73.2	Q4U4D2	0.0			0.0		73.2	73.2
+O18910	0	animal_typeII_opsin	0.0	0.0		100.0	O18910	0.0			0.0		100.0	100.0
+P32310	0	animal_typeII_opsin	0.0	0.0		81.4	Q9W6A8	0.0			0.0		81.4	81.4
+O12948	0	animal_typeII_opsin	0.0	0.0		100.0	O12948	0.0			0.0		100.0	100.0
+P60573	0	animal_typeII_opsin	0.0	0.0		100.0	P03999	0.0			0.0		100.0	100.0
+P04950	0	animal_typeII_opsin	0.0	0.0		76.3	P17646	0.0			0.0		76.3	76.3
+O02465	0	animal_typeII_opsin	0.0	0.0		100.0	O02465	0.0			0.0		100.0	100.0
+Q95170	0	animal_typeII_opsin	0.0	0.0		100.0	Q95170	0.0			0.0		100.0	100.0
+Q804X9	0	animal_typeII_opsin	0.0	0.0		100.0	Q804X9	0.0			0.0		100.0	100.0
+Q25158	0	animal_typeII_opsin	0.0	0.0		100.0	Q25158	0.0			0.0		100.0	100.0
+Q8AYN0	0	animal_typeII_opsin	0.0	0.0		100.0	Q8AYN0	0.0			0.0		100.0	100.0
+Q9H1Y3	0	animal_typeII_opsin	0.0	0.0		34.7	P28682	0.0			0.0		34.7	34.7
+O13018	0	animal_typeII_opsin	0.0	0.0		100.0	O13018	0.0			0.0		100.0	100.0
+P51471	0	animal_typeII_opsin	0.0	0.0		83.9	P35357	0.0			0.0		83.9	83.9
+P22330	0	animal_typeII_opsin	0.0	0.0		100.0	P22330	0.0			0.0		100.0	100.0
+P32312	0	animal_typeII_opsin	0.0	0.0		93.7	Q9W6A6	0.0			0.0		93.7	93.7
+P87365	0	animal_typeII_opsin	0.0	0.0		70.6	Q9W6A8	0.0			0.0		70.6	70.6
+P28682	0	animal_typeII_opsin	0.0	0.0		100.0	P28682	0.0			0.0		100.0	100.0
+Q9W6A6	0	animal_typeII_opsin	0.0	0.0		100.0	Q9W6A6	0.0			0.0		100.0	100.0
+O61303	0	animal_typeII_opsin	0.0	0.0		64.1	P17646	0.0			0.0		64.1	64.1
+Q9Z2B3	0	animal_typeII_opsin	0.0	0.0		100.0	Q9Z2B3	0.0			0.0		100.0	100.0
+P34989	0	animal_typeII_opsin	0.0	0.0		100.0	P34989	0.0			0.0		100.0	100.0
+P35361	0	animal_typeII_opsin	0.0	0.0		100.0	P35361	0.0			0.0		100.0	100.0
+P22329	0	animal_typeII_opsin	0.0	0.0		87.0	P34989	0.0			0.0		87.0	87.0
+P06002	0	animal_typeII_opsin	0.0	0.0		100.0	P06002	0.0			0.0		100.0	100.0
+P03999	0	animal_typeII_opsin	0.0	0.0		100.0	P03999	0.0			0.0		100.0	100.0
+O13227	0	animal_typeII_opsin	0.0	0.0		83.5	Q28886	0.0			0.0		83.5	83.5
+O18914	0	animal_typeII_opsin	0.0	0.0		100.0	O18914	0.0			0.0		100.0	100.0
+O18912	0	animal_typeII_opsin	0.0	0.0		100.0	O18912	0.0			0.0		100.0	100.0
+Q8AYM7	0	animal_typeII_opsin	0.0	0.0		100.0	Q8AYM7	0.0			0.0		100.0	100.0
+Q5YKK9	0	animal_typeII_opsin	0.0	0.0		100.0	Q5YKK9	0.0			0.0		100.0	100.0
+P22332	0	animal_typeII_opsin	0.0	0.0		88.4	Q8AYN0	0.0			0.0		88.4	88.4
+P51472	0	animal_typeII_opsin	0.0	0.0		100.0	P51472	0.0			0.0		100.0	100.0
+D4A6L0	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q24738	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q8TE23	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q2YDG0	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q75JT4	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A3QP07	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q9NZD1	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P31423	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q5T848	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q54SW3	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q9NQ84	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A3QP00	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q1ZZH1	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P41594	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q3UVX5	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P97772	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q9Z0R8	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q55AP1	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+O00222	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q5RAL3	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q8K3J9	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q863I4	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q80T41	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q99PG6	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q9Z0R7	0	classC_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q9WU81	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+O15427	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q7RTY0	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q5NC32	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q08777	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+F1NCD6	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P23586	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q8VHD6	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P39398	0	MFS_transporter_7TM	0.0	0.0		0.0		24.1	MGP_ERZ841449__ERZ841449.364642-NODE-891596-length-1344-cov-7.0000_2		0.0		0.0	24.1
+O17444	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+B8MKZ1	0	MFS_transporter_7TM	0.0	0.0		0.0		21.2	A0A1E3QGV8	typeI_candidate_unresolved	0.0		0.0	21.2
+Q59Q30	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q8TED4	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P43581	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q5RBM3	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+F1PZV2	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+G7KDA1	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A1D8PQG0	0	MFS_transporter_7TM	0.0	0.0		0.0		33.2	A0A1E3QGV8	typeI_candidate_unresolved	0.0		0.0	33.2
+Q8NDX2	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q56ZZ7	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q9N1F2	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q94AZ2	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A254TZW7	0	MFS_transporter_7TM	0.0	0.0		0.0		21.8	A0A1E3QGV8	typeI_candidate_unresolved	0.0		0.0	21.8
+Q6FRT5	0	MFS_transporter_7TM	0.0	0.0		0.0		28.9	A0A1E3QGV8	typeI_candidate_unresolved	0.0		0.0	28.9
+Q3E9A0	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P28246	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q5SZA1	0	MFS_transporter_7TM	0.0	0.0		0.0		29.5	MGP_ERZ841449__ERZ841449.364642-NODE-891596-length-1344-cov-7.0000_2		0.0		0.0	29.5
+P0AEP1	0	MFS_transporter_7TM	0.0	0.0		0.0		23.7	A0A1E3QGV8	typeI_candidate_unresolved	0.0		0.0	23.7
+Q9XSC2	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P36021	0	MFS_transporter_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABZ1TM17	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABX5R1Q8	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABN6TAT9	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A2Z4J7Z2	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABX7ZUN0	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A7W8PRX5	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABY6B0M6	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABU4T879	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABU8JE77	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A9J6Q1D7	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABX6GRK7	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A158E0A7	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABT0RP53	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABT6ALT7	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABZ0JUY6	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A315ENM2	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABS2KA10	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0AAW6WZF8	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+M3E9Q7	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A0A3YUE9	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A6M4X349	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABX1FH61	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABP9IR80	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A8H9HG91	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABR9GEY5	0	bacterial_7TM_other	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+F8MZH5	0	fungal_Hsp30_named_nonhomolog	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A3D8QC85	0	fungal_Hsp30_named_nonhomolog	0.0	23.5	P0DMH7	39.4	Q70LL3_fs	61.5	A0A194XH90	typeI_candidate_unresolved	38.5	A0A0C9UI41	39.4	61.5
+A0A167IT12	0	fungal_Hsp30_named_nonhomolog	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A9P8VSB8	0	fungal_Hsp30_named_nonhomolog	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0AAW0Q8D5	0	fungal_Hsp30_named_nonhomolog	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABR1SXU5	0	fungal_Hsp30_named_nonhomolog	0.0	26.7	P02945	41.1	O74631_fs	88.3	A0ABR1RAU5	typeI_candidate_unresolved	39.3	A0A218YXL1	41.1	88.3
+A0AAE8MMR6	0	fungal_Hsp30_named_nonhomolog	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A179UC60	0	fungal_Hsp30_named_nonhomolog	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0AA39ZWR8	0	fungal_Hsp30_named_nonhomolog	0.0	23.8	P02945	34.8	Q70LL3_fs	69.3	A0AA39WEC4	typeI_candidate_unresolved	37.6	A0ACC2V3V0	37.6	69.3
+A0A167YS77	0	fungal_Hsp30_named_nonhomolog	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A8G0PGX1	0	fungal_Hsp30_named_nonhomolog	0.0	24.7	P42196	32.4	P25619	65.9	A0AAX6MTT3	typeI_candidate_unresolved	38.7	R4X8C7	38.7	65.9
+A0A9P9E9Q6	0	fungal_Hsp30_named_nonhomolog	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A9P7R3K7	0	fungal_Hsp30_named_nonhomolog	0.0	24.3	P42196	37.5	O74631	98.6	A0ABQ9P9P8	typeI_candidate_unresolved	35.7	A0ABR0IVF2	37.5	98.6
+A0AAE8MAY6	0	fungal_Hsp30_named_nonhomolog	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0A179EXP6	0	fungal_Hsp30_named_nonhomolog	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+F0XL58	0	fungal_Hsp30_named_nonhomolog	0.0	26.9	P0DMH8	38.1	O74631	64.5	A0ABP0APU7	typeI_candidate_unresolved	37.9	R4X8C7	38.1	64.5
+A0ACF2GFZ0	0	fungal_Hsp30_named_nonhomolog	0.0	26.0	P0DMH8	37.2	Q70LL3_fs	78.7	A0A553HXI6	typeI_candidate_unresolved	39.1	A0A1Y1UDK0	39.1	78.7
+A0A7C8IWY5	0	fungal_Hsp30_named_nonhomolog	0.0	24.6	P0DMH7	35.4	Q70LL3_fs	82.3	A0A553HXI6	typeI_candidate_unresolved	37.7	R4X8C7	37.7	82.3
+N1J621	0	fungal_Hsp30_named_nonhomolog	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+A0ABQ0D0R6	0	fungal_Hsp30_named_nonhomolog	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q8NGK1	0	classA_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P56485	0	classA_GPCR	0.0	0.0		31.8	P28646	0.0			0.0		31.8	31.8
+P35368	0	classA_GPCR	0.0	0.0		36.4	O42574	0.0			0.0		36.4	36.4
+Q8NGW1	0	classA_GPCR	0.0	0.0		23.6	P56450	0.0			0.0		23.6	23.6
+P04274	0	classA_GPCR	0.0	0.0		60.5	O42574	0.0			0.0		60.5	60.5
+Q8NGS0	0	classA_GPCR	0.0	0.0		24.4	Q864F7	0.0			0.0		24.4	24.4
+Q8NGF0	0	classA_GPCR	0.0	0.0		26.0	Q864J0	0.0			0.0		26.0	26.0
+Q7YS92	0	classA_GPCR	0.0	0.0		98.0	Q8HZU1	0.0			0.0		98.0	98.0
+P61815	0	classA_GPCR	0.0	0.0		98.6	O97881	0.0			0.0		98.6	98.6
+P10608	0	classA_GPCR	0.0	0.0		59.9	O42574	0.0			0.0		59.9	59.9
+Q96R09	0	classA_GPCR	0.0	0.0		23.6	Q4U4D2	0.0			0.0		23.6	23.6
+Q9UKL2	0	classA_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q28519	0	classA_GPCR	0.0	0.0		38.7	Q8HZU1	0.0			0.0		38.7	38.7
+Q8WZA6	0	classA_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q8NGI2	0	classA_GPCR	0.0	0.0		23.0	Q94741	0.0			0.0		23.0	23.0
+Q95NE8	0	classA_GPCR	0.0	0.0		98.3	Q9TV45	0.0			0.0		98.3	98.3
+Q8VF13	0	classA_GPCR	0.0	0.0		20.4	Q9PU16	0.0			0.0		20.4	20.4
+O77721	0	classA_GPCR	0.0	0.0		82.3	O19014	0.0			0.0		82.3	82.3
+Q6UXT6	0	classA_GPCR	0.0	0.0		25.3	Q5QD09	0.0			0.0		25.3	25.3
+Q8NGI3	0	classA_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q95LF7	0	classA_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q8NH63	0	classA_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q9H342	0	classA_GPCR	0.0	0.0		19.7	P79945	0.0			0.0		19.7	19.7
+Q95LF2	0	classA_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q8NH74	0	classA_GPCR	0.0	0.0		25.9	Q6TLI7	0.0			0.0		25.9	25.9
+P49578	0	classA_GPCR	0.0	0.0		25.3	Q25322	0.0			0.0		25.3	25.3
+P61814	0	classA_GPCR	0.0	0.0		98.6	O97881	0.0			0.0		98.6	98.6
+Q8NGE0	0	classA_GPCR	0.0	0.0		23.3	P51491	0.0			0.0		23.3	23.3
+P0C623	0	classA_GPCR	0.0	0.0		25.3	P32238	0.0			0.0		25.3	25.3
+Q8NGH8	0	classA_GPCR	0.0	0.0		23.7	O02667	0.0			0.0		23.7	23.7
+O76001	0	classA_GPCR	0.0	0.0		26.5	P28682	0.0			0.0		26.5	26.5
+P61072	0	classA_GPCR	0.0	0.0		98.3	Q8HZU1	0.0			0.0		98.3	98.3
+P0C604	0	classA_GPCR	0.0	0.0		23.6	P51475	0.0			0.0		23.6	23.6
+O19024	0	classA_GPCR	0.0	0.0		97.4	O18983	0.0			0.0		97.4	97.4
+Q01337	0	classA_GPCR	0.0	0.0		56.4	P08913	0.0			0.0		56.4	56.4
+P18130	0	classA_GPCR	0.0	0.0		36.5	Q28524	0.0			0.0		36.5	36.5
+Q96R54	0	classA_GPCR	0.0	0.0		26.5	Q5YKK9	0.0			0.0		26.5	26.5
+Q3UYH7	0	classA_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P51686	0	classA_GPCR	0.0	0.0		39.1	Q2HJ17	0.0			0.0		39.1	39.1
+P47888	0	classA_GPCR	0.0	0.0		21.3	O57605	0.0			0.0		21.3	21.3
+P41597	0	classA_GPCR	0.0	0.0		78.8	O97881	0.0			0.0		78.8	78.8
+P15823	0	classA_GPCR	0.0	0.0		36.9	Q28524	0.0			0.0		36.9	36.9
+O60404	0	classA_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+O77700	0	classA_GPCR	0.0	0.0		85.5	O19014	0.0			0.0		85.5	85.5
+Q8NG85	0	classA_GPCR	0.0	0.0		27.7	P35357	0.0			0.0		27.7	27.7
+P22909	0	classA_GPCR	0.0	0.0		90.8	P08913	0.0			0.0		90.8	90.8
+Q2YEG0	0	classA_GPCR	0.0	0.0		38.2	Q8HZU1	0.0			0.0		38.2	38.2
+Q96RD3	0	classA_GPCR	0.0	0.0		23.7	Q6TLI7	0.0			0.0		23.7	23.7
+Q8NGF6	0	classA_GPCR	0.0	0.0		26.1	Q9TV45	0.0			0.0		26.1	26.1
+Q8NGH7	0	classA_GPCR	0.0	0.0		23.2	Q5YKK9	0.0			0.0		23.2	23.2
+Q8NGI4	0	classA_GPCR	0.0	0.0		29.6	Q5YKK9	0.0			0.0		29.6	29.6
+O95918	0	classA_GPCR	0.0	0.0		26.0	P28682	0.0			0.0		26.0	26.0
+Q8NGE9	0	classA_GPCR	0.0	0.0		25.8	Q28524	0.0			0.0		25.8	25.8
+Q8NGT1	0	classA_GPCR	0.0	0.0		24.0	O02667	0.0			0.0		24.0	24.0
+Q9H208	0	classA_GPCR	0.0	0.0		26.7	O97881	0.0			0.0		26.7	26.7
+Q9GZM6	0	classA_GPCR	0.0	0.0		24.1	P32238	0.0			0.0		24.1	24.1
+O76100	0	classA_GPCR	0.0	0.0		24.2	P28682	0.0			0.0		24.2	24.2
+Q8NGS2	0	classA_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q96RA2	0	classA_GPCR	0.0	0.0		25.5	Q8R456	0.0			0.0		25.5	25.5
+Q28524	0	classA_GPCR	0.0	0.0		100.0	Q28524	0.0			0.0		100.0	100.0
+Q8NG97	0	classA_GPCR	0.0	0.0		26.7	D5H3X0	0.0			0.0		26.7	26.7
+Q96R69	0	classA_GPCR	0.0	0.0		26.2	Q6TLI7	0.0			0.0		26.2	26.2
+Q6IEZ7	0	classA_GPCR	0.0	0.0		24.4	P51491	0.0			0.0		24.4	24.4
+P56489	0	classA_GPCR	0.0	0.0		27.3	Q6TLI9	0.0			0.0		27.3	27.3
+O18983	0	classA_GPCR	0.0	0.0		100.0	O18983	0.0			0.0		100.0	100.0
+Q8NGN8	0	classA_GPCR	0.0	0.0		25.3	P28682	0.0			0.0		25.3	25.3
+Q64H34	0	classA_GPCR	0.0	0.0		58.9	Q2HJ17	0.0			0.0		58.9	58.9
+Q90WY6	0	classA_GPCR	0.0	0.0		55.9	P08913	0.0			0.0		55.9	55.9
+P68269	0	classA_GPCR	0.0	0.0		98.9	O97881	0.0			0.0		98.9	98.9
+Q6IEY1	0	classA_GPCR	0.0	0.0		24.2	Q804X9	0.0			0.0		24.2	24.2
+Q9VRN2	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q6F3F9	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q2Q426	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q9VGG8	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q5T601	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+O60242	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P30082	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P41586	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q86Y34	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q50DM6	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q8IZF3	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q9ESC1	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q5RAQ1	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P70205	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q76LL8	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q96K78	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q5FVG1	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q9R0M0	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+O08893	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P47871	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P47866	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q8IZF4	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P35353	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+O46502	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q58Y75	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P30988	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q95NQ0	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q54MC6	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P47872	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q90812	0	classB_GPCR	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q9NXK6	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q96A54	0	PAQR_7TM	0.0	0.0		0.0		25.0	A0A5A8CNY9	typeI_candidate	0.0		0.0	25.0
+Q8IY49	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q94177	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q6DC77	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q86WK9	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q865K8	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q9CQY7	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q7ZVH1	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q8BQS5	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q8TEZ7	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+P54175	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q8R189	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q719N3	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q6ZVX9	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q9JJE4	0	PAQR_7TM	0.0	0.0		0.0		34.7	A0A5A8CNY9	typeI_candidate	0.0		0.0	34.7
+Q6TCH7	0	PAQR_7TM	0.0	0.0		0.0		25.0	A0A5A8CNY9	typeI_candidate	0.0		0.0	25.0
+A8WZU4	0	PAQR_7TM	0.0	0.0		0.0		23.4	A0A5A8CNY9	typeI_candidate	0.0		0.0	23.4
+P54176	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+Q6TCG5	0	PAQR_7TM	0.0	0.0		0.0		0.0			0.0		0.0	0.0
+WP_318814284.1	0	heliorhodopsin	0.0	43.9	A0A0W0GG67	88.0	A0ABV5EDJ5	96.9	A0ABT5FTK5	heliorhodopsin	59.5	A0ABU4B2X0	88.0	96.9
+GAB4404819.1	0	heliorhodopsin	0.0	52.3	A0A0W0GG67	72.1	B5YBS3	72.9	E8N334	heliorhodopsin	52.3	A0A0W0GG67	72.1	72.9
+WP_377054989.1	0	heliorhodopsin	0.0	51.4	A0A0W0GG67	88.5	A0AAE3IBF9	88.5	A0AAE3IBF9	heliorhodopsin	51.4	A0A0W0GG67	88.5	88.5
+USN97343.1	0	heliorhodopsin	0.0	59.0	A0A0W0GG67	52.1	A0A7T3FVB8	59.0	A0A0W0GG67	heliorhodopsin	59.0	A0A0W0GG67	59.0	59.0
+WP_350821674.1	0	heliorhodopsin	0.0	46.4	A0A0W0GG67	89.2	A0ABW7ZUR1	96.1	A0A1C5GES0	heliorhodopsin	48.1	A0ABU4B2X0	89.2	96.1
+WP_347875884.1	0	heliorhodopsin	0.0	45.8	A0A0W0GG67	67.1	A0A239HPT1	95.0	A0ABU9D2G0	heliorhodopsin	94.6	A0ABU4B2X0	94.6	95.0
+WP_297885672.1	0	heliorhodopsin	0.0	50.2	A0A0W0GG67	86.7	A0AAE3IBF9	87.6	A0A5N5UG73	heliorhodopsin	50.2	A0A0W0GG67	86.7	87.6
+CAN5400793.1	0	heliorhodopsin	0.0	55.2	A0A0W0GG67	51.4	A0A7T3FVB8	55.2	A0A0W0GG67	heliorhodopsin	55.2	A0A0W0GG67	55.2	55.2
+WP_121551066.1	0	heliorhodopsin	0.0	56.3	A0A0W0GG67	53.4	B5YBS3	96.9	I2F692	heliorhodopsin	56.3	A0A0W0GG67	56.3	96.9
+WP_512332483.1	0	heliorhodopsin	0.0	45.2	A0A0W0GG67	87.8	A0ABW7ZUR1	88.6	A0ACG3LGW9	heliorhodopsin	48.8	A0ABU4B2X0	87.8	88.6
+WP_360450431.1	0	heliorhodopsin	0.0	41.7	A0A0W0GG67	87.2	A0A7G7BG75	92.3	A0AAU8JPF1	heliorhodopsin	56.5	A0ABU4B2X0	87.2	92.3
+WP_505218625.1	0	heliorhodopsin	0.0	44.7	A0A143YUX7	46.5	A0A941D8Y1	47.5	A0A143Z1K4	heliorhodopsin	44.7	A0A143YUX7	46.5	47.5
+WP_103430830.1	0	heliorhodopsin	0.0	44.2	A0A143YUX7	98.1	A0A1B1BQ24	99.6	A0A2S3ZH28	heliorhodopsin	45.7	A0ABU4B2X0	98.1	99.6
+WP_435148839.1	0	heliorhodopsin	0.0	45.2	A0A0W0GG67	94.5	A0ABW7ZUR1	96.5	A0A1C4XCD1	heliorhodopsin	50.6	A0ABU4B2X0	94.5	96.5
+WP_292755210.1	0	heliorhodopsin	0.0	91.2	A0A089ZH82	77.3	D9PXH0	96.3	K2R1S8	heliorhodopsin	91.2	A0A089ZH82	91.2	96.3
+WP_283273949.1	0	heliorhodopsin	0.0	44.6	A0A0W0GG67	67.2	A0A1I3PGL5	98.5	A0ABU4B7X8	heliorhodopsin	88.8	A0ABU4B2X0	88.8	98.5
+WP_459304753.1	0	heliorhodopsin	0.0	44.4	A0A0W0GG67	76.3	A0ABY2JAN2	94.4	A0ABW4QAU0	heliorhodopsin	45.8	A0ABU4B2X0	76.3	94.4
+WP_448335111.1	0	heliorhodopsin	0.0	48.8	A0A0W0GG67	67.6	B5YBS3	93.2	A0A0P6X2C8	heliorhodopsin	48.8	A0A0W0GG67	67.6	93.2
+WP_068324853.1	0	heliorhodopsin	0.0	50.4	A0A0W0GG67	77.2	A0A930VPW1	99.6	A0ABQ3HHP2	heliorhodopsin	53.7	A0ABU4B2X0	77.2	99.6
+WP_280793941.1	0	heliorhodopsin	0.0	45.7	A0A143YUX7	71.9	A0ABY2JAN2	96.6	A0A2Z3S0A5	heliorhodopsin	45.7	A0A143YUX7	71.9	96.6
+WP_300600331.1	0	heliorhodopsin	0.0	44.1	A0A0W0GG67	71.2	A0A7G9R9Z0	92.5	A0A7Y9YFT6	heliorhodopsin	65.3	A0ABU4B2X0	71.2	92.5
+WP_261599449.1	0	heliorhodopsin	0.0	73.6	A0A089ZH82	90.1	D9PXH0	90.1	A0A371ND26	heliorhodopsin	73.6	A0A089ZH82	90.1	90.1
+WP_475302696.1	0	heliorhodopsin	0.0	85.9	A0A143YUX7	97.7	A0A1W1IHM2	97.7	A0A5C5E7R1	heliorhodopsin	89.5	A0AB38BLM1	97.7	97.7
+WP_095693386.1	0	heliorhodopsin	0.0	44.9	A0A0W0GG67	60.2	A0A021VMW3	98.4	A0ABM6MDK1	heliorhodopsin	46.5	A0ABU4B2X0	60.2	98.4
+WP_463179150.1	0	heliorhodopsin	0.0	45.1	A0A143YUX7	86.9	A0A4R8UU61	89.9	A0ABY5FTZ7	heliorhodopsin	45.1	A0A143YUX7	86.9	89.9
+EER40098.1	0	retinal_site_lacking_PF01036_homolog	0.62	25.9	Q9F7P4	43.2	Q9UW81	99.3	C0NVX7	boundary_family	46.2	A0A218ZH68	46.2	99.3
+KAF7596104.1	0	retinal_site_lacking_PF01036_homolog	0.5547	25.8	P42196	40.0	O74631_fs	78.9	A0A319EU50	typeI_candidate_unresolved	40.8	R4X8C7	40.8	78.9
+KAH8178336.1	0	retinal_site_lacking_PF01036_homolog	0.4609	25.1	P42196	34.8	Q70LL3	69.2	A0A9P7ZIJ5	boundary_family	39.2	A0A0E9ND03	39.2	69.2
+KAJ5632047.1	0	retinal_site_lacking_PF01036_homolog	0.6054	27.2	P0DMH7	39.5	Q9UW81	80.5	A0AAD6CNA0	typeI_candidate_unresolved	41.3	A0A0C3GTX8	41.3	80.5
+KAN3008493.1	0	retinal_site_lacking_PF01036_homolog	0.5245	27.5	A0ACD6B968	36.6	Q70LL3_fs	92.7	A0A9W9Q0U9	boundary_family	39.4	F4S423	39.4	92.7
+KEY79347.1	0	retinal_site_lacking_PF01036_homolog	0.6148	27.3	P02945	40.8	Q9UW81	99.3	Q4WAI5	boundary_family	43.6	A0A370TLN9	43.6	99.3
+OOQ84743.1	0	retinal_site_lacking_PF01036_homolog	0.5522	25.9	P42196	38.2	O74631_fs	95.0	A0A0F7U214	typeI_candidate_unresolved	38.2	R4X8C7	38.2	95.0
+QHS71933.1	0	retinal_site_lacking_PF01036_homolog	0.4403	23.3	H2EZZ6	94.6	P25619	95.5	B5LYR7	typeI_candidate_unresolved	40.8	A0A6A6UC61	94.6	95.5
+RMJ25441.1	0	retinal_site_lacking_PF01036_homolog	0.6275	27.9	P02945	36.3	Q9UW81	58.6	A1CG98	typeI_candidate_unresolved	42.8	A0A218ZH68	42.8	58.6
+XP_001217277.1	0	retinal_site_lacking_PF01036_homolog	0.5965	27.6	W8VZW3	39.3	Q9UW81	97.6	A0A5M3Z9D2	typeI_candidate_unresolved	42.3	M7SL81	42.3	97.6
+XP_004178532.1	0	retinal_site_lacking_PF01036_homolog	0.3374	0.0		50.5	P25619	67.8	I2GZF0	decoy_or_rejected	37.1	A0A218YXL1	50.5	67.8
+XP_031903314.1	0	retinal_site_lacking_PF01036_homolog	0.6003	25.3	P02945	40.1	Q9UW81	99.0	A0A8H5ZYN9	typeI_candidate_unresolved	40.8	A0A139HP61	40.8	99.0
+XP_033424735.1	0	retinal_site_lacking_PF01036_homolog	0.6176	28.1	P02945	38.2	Q9UW81	100.0	A0A4S3JX27	typeI_candidate_unresolved	40.4	A0A218ZH68	40.4	100.0
+XP_040753491.1	0	retinal_site_lacking_PF01036_homolog	0.5996	28.1	P0DMH7	40.4	Q9UW81	100.0	A0A0F8V4Z1	typeI_candidate_unresolved	41.3	A0A370TLN9	41.3	100.0
+XP_040809937.2	0	retinal_site_lacking_PF01036_homolog	0.6001	27.0	P0DMH7	39.5	Q9UW81	99.7	A0A1V6QTB2	boundary_family	44.6	A0ACC3S8D6	44.6	99.7
+XP_056745087.1	0	retinal_site_lacking_PF01036_homolog	0.5294	25.8	P42196	37.8	Q70LL3_fs	100.0	A0A9W9Q0U9	boundary_family	38.8	F4S423	38.8	100.0
+XP_056777844.1	0	retinal_site_lacking_PF01036_homolog	0.6379	27.4	P0DMH7	40.1	Q9UW81	95.0	A0A9W9KL86	boundary_family	42.7	A0A370TLN9	42.7	95.0
+XP_056825897.1	0	retinal_site_lacking_PF01036_homolog	0.5523	25.6	P0DMH7	32.5	Q9UW81	85.2	A0A9W9L8P5	boundary_family	36.6	A0A0D2GJG4	36.6	85.2
+XP_056918926.1	0	retinal_site_lacking_PF01036_homolog	0.5386	26.4	Q2S2F8	41.1	O74631_fs	98.5	A0AAD6CVM0	typeI_candidate_unresolved	39.0	R4X8C7	41.1	98.5
+XP_056948648.1	0	retinal_site_lacking_PF01036_homolog	0.6187	26.8	Q8RUT8	36.6	Q9UW81	96.3	A0AAD6HTL4	typeI_candidate_unresolved	39.4	A0ACC3S8D6	39.4	96.3
+XP_056952678.1	0	retinal_site_lacking_PF01036_homolog	0.5297	29.4	P0DMH7	35.6	S0ELR6_frag	96.8	A0ACD9LX48	boundary_family	37.7	R4X8C7	37.7	96.8
+XP_056972200.1	0	retinal_site_lacking_PF01036_homolog	0.5413	27.0	Q2S2F8	39.7	O74631_fs	92.4	A0AAD6CVM0	typeI_candidate_unresolved	39.4	R4X8C7	39.7	92.4
+XP_056982866.1	0	retinal_site_lacking_PF01036_homolog	0.6155	28.5	P0DMH7	39.9	Q9UW81	90.1	A0A1V6Q1P2	boundary_family	44.4	A0A0C3GTX8	44.4	90.1
+XP_057001850.1	0	retinal_site_lacking_PF01036_homolog	0.6025	27.6	P0DMH7	39.3	Q9UW81	80.5	A0AAD6CNA0	typeI_candidate_unresolved	41.2	A0A0C3GTX8	41.2	80.5
+XP_057048023.1	0	retinal_site_lacking_PF01036_homolog	0.6211	28.7	P0DMH7	40.4	Q9UW81	82.2	A0ACE1C1J1	boundary_family	43.6	A0A0C3GTX8	43.6	82.2
+XP_057063768.1	0	retinal_site_lacking_PF01036_homolog	0.6218	27.5	P0DMH7	35.6	Q9UW81	72.2	A0AAD6CNA0	typeI_candidate_unresolved	41.4	A0A218ZH68	41.4	72.2
+XP_057102155.1	0	retinal_site_lacking_PF01036_homolog	0.6154	29.3	P0DMH7	37.4	Q9UW81	88.3	A0A9W4HA39	boundary_family	43.3	A0A0D2GJG4	43.3	88.3
+XP_062810716.1	0	retinal_site_lacking_PF01036_homolog	0.4399	21.3	A0ACD6B968	40.1	P25619	63.8	A0A1E4RRI2	typeI_candidate_unresolved	38.0	K1Y8S4	40.1	63.8
+XP_073572220.1	0	retinal_site_lacking_PF01036_homolog	0.6096	27.0	P02945	37.9	Q9UW81	83.8	A0ABR4HLB6	typeI_candidate_unresolved	41.4	A0A5N6KJ15	41.4	83.8
+XP_083095198.1	0	retinal_site_lacking_PF01036_homolog	0.4927	21.1	P42196	50.3	Q70LL3_fs	97.7	A0ACC0RCP1	typeI_candidate_unresolved	47.4	A0A9W7ST28	50.3	97.7

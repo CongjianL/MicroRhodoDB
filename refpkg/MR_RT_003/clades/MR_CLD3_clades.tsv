@@ -1,0 +1,18 @@
+clade_id	n_tips	ufboot	sh_alrt	dominant_subfamily_v14	subfamily_fraction	dominant_helixC_motif	motif_fraction	dominant_domain	domain_fraction	dominant_phylum	phylum_fraction	e1_classes	clade_function_e1_consensus	n_anchors	anchors
+MR_CLD3_001	5	100.0	96.8	schizorhodopsin	0.667	YSD	0.667	Archaea	1.0	Methanobacteriota	1.0			1	A0A498H310
+MR_CLD3_002	5	100.0	100.0	enzyme_rhodopsin	1.0	ETK	0.6	Eukaryota	1.0		0.0			0	
+MR_CLD3_003	31	100.0	93.8	channelrhodopsin	0.895	ETH	0.387	Eukaryota	1.0	Chlorophyta	0.926	cation_channelx2;anion_channelx2		4	H2EZZ6;Q8RUT8;A0A0C3TEH9;L1IFZ3
+MR_CLD3_004	25	100.0	99.9	unclassified_typeI	0.357	ETL	0.28	Eukaryota	1.0	Chlorophyta	0.4	enzymex1	enzyme	3	A0A060H1D7;A0A2H4ZEW8;A0A2H4ZEW7
+MR_CLD3_005	11	100.0	100.0	sensory_rhodopsin_I	1.0	DTK	0.6	Bacteria	1.0	Bacteroidota	0.909			0	
+MR_CLD3_006	20	100.0	100.0	proteorhodopsin	1.0	DTE	0.85	Bacteria	1.0	Bacteroidota	0.579	proton_pump_outwardx4	proton_pump_outward	9	Q6J4G7;Q9F7P4;Q9AFF7;E0WCL9;A4UHT4;S2D2R9;A0A075VNF2;A0A075VQ34;A0ABX5PZH6
+MR_CLD3_007	83	99.0	95.1	xanthorhodopsin	0.619	DTE	0.531	Bacteria	0.94	Actinomycetota	0.418	sodium_pumpx5;anion_pumpx5;proton_pump_outwardx4		21	A0A0H3VWA0;A7WQE1;M9RHM7;Q2S2F8;H9ZSC3;A0A1D9E0H1;A0A7D4UK75;Q7NP59;A0ABF7PQ03;A0A1I3DJQ0;A6W8Z2;A0A0M7BDG0;A0A0P6XBM7;S2D3K4;H2BW50;N0DKS8;W8VZW3;A0A840I7T6;A0A0G9MK34;A0A1C7DB83;Q0FYH0
+MR_CLD3_008	5	100.0	99.9	bacteriorhodopsin	1.0	DTE	1.0	Eukaryota	1.0		0.0			0	
+MR_CLD3_009	50	96.0	84.1	anabaena_sensory	0.5	DTG	0.286	Bacteria	1.0	Pseudomonadota	0.4	proton_pump_outwardx2;anion_pumpx2;proton_pump_inwardx1;sensory_transducerx1		8	A0AA82WPB4;A0ACD6B968;A0ABY3LD08;A0A411LJN5;A0A8X6EH36;A0ABW8X909;A0A9X9ZA75;A0A6P3CW41
+MR_CLD3_010	6	100.0	97.7	bacteriorhodopsin	0.667	DTD	0.833	Bacteria	1.0	Chloroflexota	0.5	proton_pump_outwardx1	proton_pump_outward	1	Q1AUE6
+MR_CLD3_011	5	96.0	96.8	bacteriorhodopsin	1.0	DTD	1.0	Archaea	1.0	Methanobacteriota	1.0	proton_pump_outwardx3	proton_pump_outward	3	I4DST7;Q53496;P94854
+MR_CLD3_012	9	100.0	100.0	halorhodopsin	1.0	TSA	0.778	Archaea	1.0	Methanobacteriota	1.0	anion_pumpx3	anion_pump	6	D3SYH0;Q5V1N0;P0DMH7;O93741;O93742;P15647
+MR_CLD3_013	38	95.0	86.3	sensory_rhodopsin_II	0.64	DTY	0.579	Archaea	0.868	Methanobacteriota	0.868	sensory_transducerx7	sensory_transducer	8	P71411;A0A1U7EZ03;P42196;P42197;Q5V4H7;Q5UXM9;P0DMH8;Q2RZM2
+MR_CLD3_014	14	97.0	86.8	bacteriorhodopsin	0.571	DTD	0.643	Eukaryota	1.0		0.0			1	F1D6U4
+MR_CLD3_015	10	100.0	99.6	sensory_rhodopsin_II	1.0	DTN	0.3	Eukaryota	1.0		0.0			1	Q2QCJ4
+MR_CLD3_016	5	100.0	99.3	bacteriorhodopsin	1.0	DTD	1.0	Eukaryota	1.0	Chlorophyta	1.0	proton_pump_outwardx1	proton_pump_outward	1	I0YUS5
+MR_CLD3_017	100	100.0	100.0	sensory_rhodopsin_II	0.492	DTD	0.4	Eukaryota	1.0	Ascomycota	0.57	proton_pump_outwardx2	proton_pump_outward	6	B6ETT0;Q9UW81;A0A7U2HUL1;Q9HGT7;A0A7U2HUJ7;Q70LL3

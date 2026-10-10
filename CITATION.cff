@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: >-
+  If you use MicroRhodoDB, please cite it using the metadata in this file.
+  A companion data-descriptor manuscript is in preparation for submission to
+  Database (Oxford) or Scientific Data; this file will be updated with the
+  paper citation once it is published.
+title: >-
+  MicroRhodoDB: a versioned, evidence-aware knowledgebase of Type-I microbial
+  rhodopsins
+type: dataset
+version: 1.6.0
+date-released: "2026-10-09"
+authors:
+  - given-names: CongJian
+    family-names: Li
+repository-code: "https://github.com/CongjianL/MicroRhodoDB"
+license: CC-BY-4.0
+keywords:
+  - microbial rhodopsins
+  - Type-I rhodopsin
+  - bacteriorhodopsin
+  - phylogenomics
+  - protein family database
+  - UniProt
+  - retinal-binding protein
+  - xenorhodopsin
+abstract: >-
+  MicroRhodoDB curates Type-I microbial rhodopsin proteins from UniProtKB with
+  explicit, evidence-graded membership decisions (member/candidate status
+  vocabulary), QC features, redundancy handling, a phylogenetically placed
+  reference tree (MR_RT_003, ~472 tips) with 19 named subfamilies, a
+  five-level function evidence ladder (E1-E5) backed by literature-verified
+  assertions, a frozen post-cutoff external validation set, and an isolated
+  environmental (MGnify) pilot layer kept separate from the core, evidence-
+  graded corpus. Version 1.6.0 adds function-call conflict flags (conflicting
+  E3/E4 calls downgraded), an expanded E1 set with labelled publication links,
+  engineered-construct flags, a curated membership override for 4
+  experimentally characterised E1 proteins, a blind audit of E2-E4 calls, a
+  family-HMM flag and Foldseek watchlist for novel families, a full data
+  dictionary and a static browser with in-browser sequence search. Releases are
+  immutable, versioned SQLite databases; the current release is rebuilt from the
+  previous one by a pinned Snakemake workflow.

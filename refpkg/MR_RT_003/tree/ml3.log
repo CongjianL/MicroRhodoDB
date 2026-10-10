@@ -1,0 +1,18 @@
+IQ-TREE multicore version 2.3.6 for Linux x86 64-bit built Dec 11 2024
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor, Heiko Schmidt,
+Dominik Schrempf, Michael Woodhams, Ly Trong Nhan, Thomas Wong
+
+Host:    sandbox-ee441f908698 (AVX512, FMA3, 16 GB RAM)
+Command: iqtree2 -rf_all ml3.trees --prefix ml3 -quiet
+Seed:    635062 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Sat Oct  3 17:58:51 2026
+Kernel:  AVX+FMA - 1 threads (16 CPU cores detected)
+
+HINT: Use -nt option to specify number of threads because your CPU has 16 cores!
+HINT: -nt AUTO will automatically determine the best number of threads to use.
+
+Reading tree(s) file ml3.trees ...
+3 tree(s) loaded (0 rooted and 3 unrooted)
+Computing Robinson-Foulds distance...
+Robinson-Foulds distances printed to ml3.rfdist
+Date and Time: Sat Oct  3 17:58:51 2026

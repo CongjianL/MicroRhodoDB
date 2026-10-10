@@ -1,0 +1,9 @@
+tier	min_seq_id	coverage	cov_mode	sensitivity	n_input	n_clusters	reduction_pct	n_singletons	singleton_frac	mean_cluster_size	module
+exact_nr	1.0	1.0	1	default	4886	4632	5.2	4441	0.9588	1.055	type_I
+std_90	0.9	0.8	0	default	4886	2968	39.26	2314	0.7796	1.646	type_I
+intermediate	0.65	0.8	0	6.0	4886	1071	78.08	638	0.5957	4.562	type_I
+backbone	0.4	0.6	0	7.5	4886	298	93.9	169	0.5671	16.396	type_I
+exact_nr	1.0	1.0	1	default	377	372	1.33	369	0.9919	1.013	heliorhodopsin
+std_90	0.9	0.8	0	default	377	294	22.02	250	0.8503	1.282	heliorhodopsin
+intermediate	0.65	0.8	0	6.0	377	106	71.88	63	0.5943	3.557	heliorhodopsin
+backbone	0.4	0.6	0	7.5	377	38	89.92	20	0.5263	9.921	heliorhodopsin

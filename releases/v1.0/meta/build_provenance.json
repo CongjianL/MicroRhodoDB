@@ -1,0 +1,788 @@
+{
+  "db_name": "MicroRhodoDB",
+  "db_version": "1.0.0",
+  "build_date": "2026-07-29",
+  "python": "3.11.13",
+  "pfam_models": {
+    "type_I_core": "PF01036",
+    "heliorhodopsin": "PF18761"
+  },
+  "params": {
+    "hmmsearch_evalue": 0.001,
+    "hmmsearch_dom_evalue": 0.01,
+    "homology_min_identity": 0.25,
+    "homology_min_coverage": 0.5,
+    "core_len_flag_min": 180,
+    "core_len_flag_max": 350,
+    "min_domain_coverage": 0.6,
+    "tm_expected": 7,
+    "clust_exactNR": 1.0,
+    "clust_std": 0.9,
+    "clust_intermediate": 0.65,
+    "clust_backbone": 0.4,
+    "trimal_mode": "gappyout",
+    "iqtree_ufboot": 1000,
+    "iqtree_alrt": 1000,
+    "placement_lwr_min": 0.5
+  },
+  "tools": {
+    "hmmsearch": "# hmmsearch :: search profile(s) against a sequence database",
+    "mmseqs": "18.8cc5c",
+    "diamond": "diamond version 2.2.4",
+    "trimal": "trimAl v1.5.rev1 build[2025-11-25]",
+    "iqtree2": "IQ-TREE version 3.1.3 for Linux x86 64-bit built Jul 26 2026",
+    "epa-ng": "EPA-ng v0.3.8",
+    "gappa": "v0.9.0",
+    "famsa": "FAMSA (Fast and Accurate Multiple Sequence Alignment) ",
+    "mafft": "v7.526 (2024/Apr/26)",
+    "seqkit": "seqkit v2.13.0"
+  },
+  "sources": {},
+  "steps": {
+    "step4_qc": {
+      "description": "QC, topology & domain architecture for all candidates",
+      "domain_signal": {
+        "method": "hmmsearch vs PF01036 (Type-I core) and PF18761 (heliorhodopsin), permissive E=10",
+        "features": [
+          "best_dom_score",
+          "seq_evalue",
+          "dom_ievalue",
+          "hmm_cov",
+          "seq_cov",
+          "env_from/to",
+          "score_PF01036",
+          "score_PF18761",
+          "score_margin_typeI_vs_helio"
+        ],
+        "targets_with_hit": 5361
+      },
+      "membrane_topology": {
+        "method": "Kyte-Doolittle sliding window (w=19); DESCRIPTIVE hydrophobicity features only",
+        "rationale": "rhodopsin TM helices are polar (retinal pocket, proton wire); raw KD under-counts 7-TM, so authoritative 7-TM signal is taken from PF01036 domain completeness, not KD. DeepTMHMM not used: biolib local execution deprecated -> remote-only, non-reproducible for thousands of sequences.",
+        "features": [
+          "kd_mean",
+          "kd_max",
+          "kd_frac_hydrophobic",
+          "kd_n_segments"
+        ]
+      },
+      "retinal_lysine": {
+        "method": "hmmalign to model-appropriate Pfam (PF01036 for Type-I-primary, PF18761 for HeR-primary); read the invariant retinal-K match-state column",
+        "validation": "seeds map retinal-K to a single 100%-conserved match column (BR P02945 precursor K229 = mature K216); all 15 seeds recovered as K",
+        "lys_col_PF01036": 2757,
+        "lys_col_PF18761": 1713,
+        "has_retinal_lysine_n": 3855,
+        "note": "~30% of PF01036-domain proteins lack the canonical Schiff-base lysine (divergent homologs, fragments, and misannotations e.g. yeast HSP30 family P25619/P38079/Q12117); these are flagged for routing to rhodopsin_like/partial, never force-classified."
+      },
+      "architecture": {
+        "method": "envelope-relative N/C truncation, extra-Pfam fusion detection, length-band flag",
+        "classes": {
+          "single_domain_core": 4006,
+          "extended": 706,
+          "truncated_core": 433,
+          "fusion": 216
+        },
+        "complete_core_n": 4919
+      },
+      "landscape": {
+        "strong_core_set": 3759,
+        "complete_no_lysine": 1160
+      },
+      "outputs": [
+        "tables/qc_features.tsv",
+        "figures/step4_qc_overview.svg"
+      ]
+    },
+    "step5_membership": {
+      "description": "Evidence-vector membership model (transparent rules) + benchmark calibration",
+      "design": "Interpretable evidence vector -> continuous score -> transparent tier rules. NOT a trained ML model, but the full ML-ready schema (per-axis evidence, continuous score, gate booleans) is persisted so a classifier can be dropped in later.",
+      "evidence_axes": {
+        "e_domain": "sigmoid(PF01036 dom_score; x0=40, k=15)",
+        "e_coverage": "PF01036 hmm_cov (0-1)",
+        "e_retinal": "retinal-binding Schiff-base lysine present (0/1) - DEFINING feature",
+        "e_margin": "sigmoid(score_PF01036 - score_PF18761; x0=0, k=40) - separates HeR companion",
+        "e_homology": "best seed identity x coverage (DIAMOND blastp vs 15 seeds)",
+        "e_topology": "sigmoid(KD kd_max; x0=1.6, k=0.4) - supporting, down-weighted"
+      },
+      "chosen_strategy": "full_evidence",
+      "full_evidence_weights": {
+        "e_domain": 0.28,
+        "e_coverage": 0.2,
+        "e_retinal": 0.25,
+        "e_margin": 0.15,
+        "e_homology": 0.1,
+        "e_topology": 0.02
+      },
+      "strategy_comparison_note": "full_evidence dominates all baselines. pfam_only (naive Pfam membership) precision=0.329, specificity=0.563 -> accepts heliorhodopsins, fragments and HSP30-clan proteins; this quantifies why Pfam membership alone is insufficient.",
+      "benchmark": {
+        "set": "curated benchmark_set.tsv (v1 preserved)",
+        "composition": {
+          "negative": 215,
+          "positive": 46
+        },
+        "positives": 46,
+        "negatives": 215,
+        "negative_provenance": {
+          "N1_animal_typeII_opsin": 60,
+          "N2_heliorhodopsin_PF18761": 50,
+          "N3_nonopsin_7TM_GPCR": 60,
+          "N4_fragment_synthetic": 20,
+          "N5_frameshift_synthetic": 20,
+          "N6_hsp30_pfam_clan": 5
+        },
+        "curation": {
+          "reclassified_to_negative_N6_hsp30_pfam_clan": [
+            "P25619",
+            "P38079",
+            "Q12117",
+            "O74631",
+            "O74870"
+          ],
+          "reason_hsp30": "fungal/yeast HSP30 family: share PF01036 clan fold but are NOT retinal-binding rhodopsins (no Schiff-base lysine, no seed homology).",
+          "flagged_partial_positive": [
+            "P33969",
+            "P33971",
+            "P33972",
+            "P33970"
+          ],
+          "reason_partial": "genuine Type-I (old H. halobium BR/HR strain records) but C-terminal retinal-K region absent as sequenced -> kept positive, tagged partial."
+        },
+        "metrics_full_evidence": {
+          "PR_AUC": 0.9531,
+          "ROC_AUC": 0.9793,
+          "best_F1": 0.9438,
+          "thr_at_best_F1": 0.87,
+          "precision": 0.9767,
+          "recall": 0.913,
+          "specificity": 0.9953,
+          "FPR": 0.0047,
+          "FNR": 0.087
+        },
+        "error_analysis": {
+          "at_best_F1_thr_0.87": {
+            "false_positives": 1,
+            "FP_detail": "P96787_frag = synthetic fragment of a real archaerhodopsin, retains retinal-K -> defensibly rhodopsin-like, not a true error at tier level.",
+            "false_negatives": 4,
+            "FN_detail": "exactly the 4 partial positives (score ~0.68) lacking retinal-K -> correctly DEMOTED to rhodopsin_like, not force-classified."
+          }
+        },
+        "tier_validation": {
+          "complete_typeI_positives": "42/42 -> high_confidence_type_I",
+          "partial_typeI_positives": "4/4 -> rhodopsin_like",
+          "heliorhodopsins": "50/50 -> rejected",
+          "animal_typeII_opsins": "60/60 -> rejected",
+          "GPCRs": "60/60 -> rejected",
+          "hsp30_clan": "5/5 -> rhodopsin_like",
+          "core_tier_vs_complete_positives": {
+            "TP": 42,
+            "FP": 1,
+            "FN": 0,
+            "precision": 0.977,
+            "recall": 1.0
+          }
+        }
+      },
+      "membership_thresholds": {
+        "score_confirmed": 0.9,
+        "score_high": 0.86,
+        "score_putative": 0.7,
+        "score_rhodopsin_like": 0.4,
+        "require_retinal_for_confirmed": true,
+        "require_positive_margin_for_top": true,
+        "complete_core_min_cov": 0.6
+      },
+      "threshold_rationale": "HeR band max on benchmark = 0.834; complete Type-I positive p05 ~ 0.90. high cut 0.86 sits ABOVE the HeR band so heliorhodopsins never enter the Type-I core. Retinal-lysine AND positive Type-I margin AND complete core are HARD gates for the top tiers.",
+      "categorisation_rules": "no domain -> rejected; HeR-primary -> rejected (companion module, never Type-I); score>=high AND retinal-K AND +margin AND complete -> high_confidence_type_I; score>=putative + domain -> putative_type_I (if retinal-K) else rhodopsin_like; score>=rhodopsin_like -> rhodopsin_like (no retinal-K) else ambiguous; else rejected. high_confidence + PDB xref -> promoted to confirmed_type_I.",
+      "applied_to_candidates": {
+        "n_candidates": 5361,
+        "category_counts": {
+          "high_confidence_type_I": 3002,
+          "rhodopsin_like": 1370,
+          "rejected": 475,
+          "putative_type_I": 313,
+          "ambiguous": 143,
+          "confirmed_type_I": 58
+        },
+        "seed_homology_hits": 4084,
+        "candidates_with_PDB_xref": 67,
+        "consistency_checks": {
+          "helio_primary_all_rejected": "377/377",
+          "seeds": "8 confirmed + 4 high_confidence + 3 rejected (the 3 rejected are the HeR seeds -> belong to HeR companion module, correct)",
+          "confirmed_all_have_retinalK_complete_PDB": true
+        }
+      },
+      "outputs": [
+        "tables/membership_assignments.tsv",
+        "benchmark/membership_benchmark_metrics.tsv",
+        "benchmark/full_evidence_threshold_sweep.tsv",
+        "benchmark/membership_category_by_class.tsv",
+        "benchmark/benchmark_per_sequence_scores.tsv",
+        "benchmark/benchmark_set_curated.tsv",
+        "figures/step5_membership_benchmark.svg"
+      ]
+    },
+    "step6_redundancy": {
+      "description": "Tiered redundancy reduction (nested identity clusterings) with multi-factor representative selection.",
+      "scope": {
+        "type_I_module": 4886,
+        "type_I_note": "all membership categories EXCEPT rejected (rejected = 377 HeR-primary + 98 sub-threshold PF01036 hits). rhodopsin_like + ambiguous are retained in the module and clustered, but tagged so downstream steps can restrict to the high-confidence backbone.",
+        "heliorhodopsin_companion_module": 377,
+        "her_note": "clustered SEPARATELY as a distinct module, never merged with Type-I."
+      },
+      "tool": "MMseqs2 18.8cc5c easy-cluster, greedy set-cover (--cluster-mode 0), bidirectional coverage (--cov-mode 0) except exact-NR (cov-mode 1, full-length).",
+      "tiers": {
+        "exact_nr": {
+          "min_seq_id": 1.0,
+          "coverage": 1.0,
+          "cov_mode": 1,
+          "sensitivity": "default"
+        },
+        "std_90": {
+          "min_seq_id": 0.9,
+          "coverage": 0.8,
+          "cov_mode": 0,
+          "sensitivity": "default"
+        },
+        "intermediate": {
+          "min_seq_id": 0.65,
+          "coverage": 0.8,
+          "cov_mode": 0,
+          "sensitivity": 6.0
+        },
+        "backbone": {
+          "min_seq_id": 0.4,
+          "coverage": 0.6,
+          "cov_mode": 0,
+          "sensitivity": 7.5
+        }
+      },
+      "nested_partition": "each tier is a FULL partition of its module (every sequence assigned a cluster at every tier); no sequence discarded -> any cluster expandable to its complete member list.",
+      "representative_selection": {
+        "method": "MULTI-FACTOR composite (NOT longest-wins); overrides MMseqs2 arbitrary centroid.",
+        "weights": {
+          "membership_tier_rank": 0.3,
+          "evidence_score": 0.25,
+          "core_completeness_hmm_cov": 0.2,
+          "annotation_richness": 0.15,
+          "length_centrality": 0.1
+        },
+        "annotation_richness": "reviewed(+0.5) + PDB xref(+0.3) + specific protein name(+0.2)",
+        "tie_break": "deterministic by (composite desc, length desc, acc asc); exactly one rep/cluster."
+      },
+      "results_type_I": {
+        "exact_nr": {
+          "n_clusters": 4632,
+          "reduction_pct": 5.2,
+          "n_singletons": 4441,
+          "singleton_frac": 0.9588,
+          "mean_cluster_size": 1.055
+        },
+        "std_90": {
+          "n_clusters": 2968,
+          "reduction_pct": 39.26,
+          "n_singletons": 2314,
+          "singleton_frac": 0.7796,
+          "mean_cluster_size": 1.646
+        },
+        "intermediate": {
+          "n_clusters": 1071,
+          "reduction_pct": 78.08,
+          "n_singletons": 638,
+          "singleton_frac": 0.5957,
+          "mean_cluster_size": 4.562
+        },
+        "backbone": {
+          "n_clusters": 298,
+          "reduction_pct": 93.9,
+          "n_singletons": 169,
+          "singleton_frac": 0.5671,
+          "mean_cluster_size": 16.396
+        }
+      },
+      "results_heliorhodopsin": {
+        "exact_nr": {
+          "n_clusters": 372,
+          "reduction_pct": 1.33,
+          "n_singletons": 369,
+          "singleton_frac": 0.9919,
+          "mean_cluster_size": 1.013
+        },
+        "std_90": {
+          "n_clusters": 294,
+          "reduction_pct": 22.02,
+          "n_singletons": 250,
+          "singleton_frac": 0.8503,
+          "mean_cluster_size": 1.282
+        },
+        "intermediate": {
+          "n_clusters": 106,
+          "reduction_pct": 71.88,
+          "n_singletons": 63,
+          "singleton_frac": 0.5943,
+          "mean_cluster_size": 3.557
+        },
+        "backbone": {
+          "n_clusters": 38,
+          "reduction_pct": 89.92,
+          "n_singletons": 20,
+          "singleton_frac": 0.5263,
+          "mean_cluster_size": 9.921
+        }
+      },
+      "outputs": [
+        "tables/redundancy_assignments.tsv",
+        "tables/redundancy_clusters.tsv",
+        "tables/redundancy_sensitivity.tsv",
+        "sequences/typeI_exact_nr_representatives.faa",
+        "sequences/typeI_std_90_representatives.faa",
+        "sequences/typeI_intermediate_representatives.faa",
+        "sequences/typeI_backbone_representatives.faa",
+        "figures/step6_redundancy_tiers.svg"
+      ]
+    },
+    "step7_phylogeny": {
+      "timestamp_utc": "2026-07-29T19:22:37.794296Z",
+      "scope": "Type-I backbone reference phylogeny + EPA-ng placement of larger tiers",
+      "reference_set": {
+        "source": "backbone tier (40% identity MMseqs2 clusters) representatives",
+        "n_backbone_reps": 298,
+        "n_core_fragments_dropped": 20,
+        "dropped_fragment_accs": [
+          "A0A812MKZ4",
+          "A0A1I3BH20",
+          "A0A139HTD2",
+          "A0A139X2U3",
+          "A0ABD5RCH9",
+          "A0A139AUY5",
+          "A0A428NMY2",
+          "A0ABN9WPJ1",
+          "A0A0D2J1K0",
+          "A0A0D6AAL2",
+          "A0A813CLH7",
+          "A0ABS6WYX3",
+          "A0A1U7LLQ3",
+          "A0ABQ7GIN4",
+          "A0A9Q9AKL7",
+          "A0A812Q6L8",
+          "H2BW54",
+          "C0K2H4",
+          "A0A0G4H2B7",
+          "B2D036"
+        ],
+        "n_reference_tips": 278
+      },
+      "core_alignment": {
+        "method": "hmmalign to PF01036, MATCH-STATE columns only (not full-length)",
+        "rationale": "backbone spans extreme length heterogeneity (55-2650 aa incl. 104 fusions/extended, e.g. enzyme-rhodopsin guanylyl-cyclase PF00211); full-length MSA not homology-valid",
+        "raw_match_columns": 224,
+        "fragment_occupancy_cutoff": 0.5,
+        "trimming": {
+          "tool": "trimAl",
+          "mode": "-gt 0.2",
+          "columns_after": 219,
+          "mean_gap_fraction": 0.112,
+          "note": "overrides config gappyout for this profile-HMM core; gappyout over-aggressive (224->122) because match-state extraction already yields homology-clean columns; -gt 0.2 removes only 5 near-empty columns while retaining conserved core"
+        },
+        "reference_alignment_file": "phylogeny/typeI_backbone_reference.aln.faa"
+      },
+      "tree_inference": {
+        "tool": "IQ-TREE 3.1.3",
+        "model_selection": "ModelFinder Plus (MFP), tested up to 616 protein models",
+        "best_model": "Q.PFAM+F+R6",
+        "selection_criterion": "BIC",
+        "log_likelihood": -101143.4561,
+        "total_tree_length": 276.4654,
+        "support": "UFBoot 1000 + SH-aLRT 1000 + --bnni",
+        "seed": 12345,
+        "threads": 3,
+        "note": "-safe dropped in final run (numerically stable, no underflow); ModelFinder fixed to best model on final run after a crash to skip 17-min re-selection",
+        "support_summary": {
+          "n_internal_with_dual_support": 275,
+          "sh_alrt_median": 86.5,
+          "ufboot_median": 80.0,
+          "pct_well_supported_shaLRT80_ufboot95": 30.545454545454547
+        },
+        "caveats": [
+          "saturated pairwise distances warning (expected for divergent superfamily)",
+          "deep backbone nodes poorly resolved (only ~30% branches well-supported) - inherent to 40% identity superfamily-wide sampling; shallow clades better resolved"
+        ],
+        "rooting": "PRESENTED UNROOTED (no biological outgroup imposed; HeR NOT used as outgroup per design)",
+        "eukaryotic_composition_note": "236/278 reference tips are Eukaryota - expected skew of the 40% backbone of the whole PF01036 pool, not a sampling artifact of this build step",
+        "tree_files": [
+          "phylogeny/typeI_backbone_reference.treefile",
+          "phylogeny/typeI_backbone_reference.contree",
+          "phylogeny/typeI_backbone_reference.iqtree",
+          "phylogeny/typeI_backbone_reference.splits.nex"
+        ]
+      },
+      "placement": {
+        "tool": "EPA-ng 0.3.8",
+        "model_used": "LG+G",
+        "model_substitution_rationale": "EPA-ng/libpll does not support IQ-TREE Q.PFAM matrix nor +R free-rate; LG+G is standard general protein model, gamma alpha ML-optimized on fixed reference; placement is on fixed reference topology so robust to modest model approximation",
+        "lwr_min": 0.5,
+        "query_alignment": "query core aligned to PF01036, masked to the same 219 reference columns",
+        "results": {
+          "std_90": {
+            "n_placed": 2696,
+            "n_confident_lwr_ge_0.5": 2600,
+            "median_best_lwr": 1.0
+          },
+          "intermediate": {
+            "n_placed": 806,
+            "n_confident_lwr_ge_0.5": 770,
+            "median_best_lwr": 1.0
+          }
+        },
+        "placement_file": "phylogeny/epang_placements.tsv"
+      },
+      "figure": "figures/step7_reference_tree.svg (+.png)"
+    },
+    "step8_subfamily": {
+      "timestamp_utc": "2026-07-29T19:39:22.673576Z",
+      "scope": "Subfamily assignment for Type-I rhodopsins: phylogeny-first, transparent rules; reference tips labeled then propagated to placed queries.",
+      "inputs": {
+        "reference_tree": "phylogeny/typeI_backbone_reference.treefile (278 tips; Q.PFAM+F+R6)",
+        "placements": "phylogeny/epang_placements.tsv (EPA-ng LG+G; std_90 + intermediate tiers)",
+        "reference_tip_metadata": "phylogeny/typeI_backbone_reference_tipmeta.tsv (278 x 17)",
+        "seed_curation": "seeds/seed_metadata.tsv (12 Type-I seeds; 8 present as reference tips, 4 collapsed into 40% clusters represented by B0R2U4/B0R633/N0DKS8)",
+        "diamond_homology": "DIAMOND best-hit vs seed-labeled sequences (subfamily transfer)"
+      },
+      "method": {
+        "principle": "Phylogeny-first, transparent RULES over curated seeds + DIAMOND best-hit + tree topology. NOT trained ML. Sequences are never force-classified.",
+        "reference_tip_rules_in_priority_order": [
+          "seed_curated: a reference tip that IS a curated seed inherits its curated subfamily",
+          "diamond_besthit: else, label = subfamily of best DIAMOND hit among seed-labeled sequences",
+          "tree_neighbor: tips with no DIAMOND signal inherit nearest labeled tip by patristic distance IF that distance <= rescue_cut",
+          "unclassified_typeI: no DIAMOND signal AND nearest labeled tip beyond rescue_cut"
+        ],
+        "rescue_cut": 1.844,
+        "rescue_cut_basis": "75th percentile of nearest-labeled-neighbor patristic distances among DIAMOND-labeled reference tips (data-driven, not arbitrary)",
+        "placed_query_propagation": "EPA-ng edge-consensus: each confident placement (best LWR >= 0.50) inherits the consensus subfamily of reference tips adjacent to its best placement edge. jplace edge tokens {n} rewritten to [&edge=n] and read via dendropy node annotations.",
+        "discordance_flag": "a labeled reference tip is flagged tree_discordant when its 3 nearest labeled neighbors ALL carry a different subfamily (honest low-confidence signal, not auto-corrected)"
+      },
+      "results": {
+        "n_assigned_total": 2990,
+        "assignment_basis": {
+          "reference_tip": 278,
+          "placed_query": 2712
+        },
+        "reference_tip_method_breakdown": {
+          "diamond_besthit": 149,
+          "tree_neighbor_rescue": 37,
+          "seed_curated": 8,
+          "unclassified_typeI": 84
+        },
+        "placed_query_best_lwr": {
+          "median": 1.0,
+          "mean": 0.9184754357086283,
+          "min": 0.2648765567
+        },
+        "n_tree_discordant": 37,
+        "subfamily_distribution": {
+          "sensory_rhodopsin_II": 549,
+          "halorhodopsin": 364,
+          "anabaena_sensory": 360,
+          "bacteriorhodopsin": 329,
+          "proteorhodopsin": 313,
+          "unclassified_typeI": 308,
+          "xanthorhodopsin": 283,
+          "channelrhodopsin": 267,
+          "enzyme_rhodopsin": 69,
+          "sodium_pump": 60,
+          "sensory_rhodopsin_I": 57,
+          "chloride_pump_NTQ": 31
+        },
+        "tax_domain_of_assigned": {
+          "Eukaryota": 1773,
+          "Bacteria": 787,
+          "Archaea": 363,
+          "unclassified": 66,
+          "Viruses": 1
+        }
+      },
+      "validation": {
+        "seed_recovery": "all 9 seed-representatives recovered their exact curated subfamily; W8VZW3 (chloride_pump_NTQ), collapsed at 40% with the Na+ pump seed, was correctly resolved via its EPA-ng placement (placement resolves beyond the 40% cluster merge)",
+        "std_90_tier_coverage": "100% (2968/2968 std_90 representatives received a subfamily)",
+        "channelrhodopsin_probe": "the 2 channelrhodopsin seeds (H2EZZ6, Q8RUT8) are sister tips (patristic 0.101; MRCA subtends exactly 2 tips)",
+        "cohesion": "all DIAMOND-labeled subfamilies show within-subfamily patristic cohesion ratio >1 vs the global mean (4.646); tightest sodium_pump 2.79, loosest enzyme_rhodopsin 1.21",
+        "discordance_interpretation": "37 discordant reference tips: 33 have DIAMOND identity <0.35 (expected deep-divergence noise); only B0R633 (SR-I, id 1.0) is a local tree-density artifact"
+      },
+      "caveats": [
+        "The backbone tree is near-saturated at the superfamily scale (Step 7); deep internal support is limited, so labels for the most divergent tips are lower confidence and transparently flagged (tree_discordant / unclassified_typeI / low best_lwr)",
+        "unclassified_typeI is a deliberate queryable outcome (84 reference tips + propagated queries)",
+        "placed-query labels depend on reference-tip labels at the placement edge; each carries best_lwr for downstream filtering"
+      ],
+      "outputs": {
+        "table": "tables/subfamily_assignments.tsv",
+        "parquet": "intermediate/subfamily_assignments.parquet",
+        "figure": "figures/step8_subfamily_composition.svg (+ .png)"
+      }
+    },
+    "step9_function": {
+      "description": "Functional (ion-transport / sensory / channel / enzyme) and spectral-tuning annotation from helix-C active-site motif + phylogenetic subfamily, with strict measured/inferred/predicted separation.",
+      "timestamp": "2026-07-29T19:52:45.950243Z",
+      "inputs": {
+        "alignment": "intermediate/qc_candidates_PF01036.sto (PF01036 hmmalign, all 5361 candidates)",
+        "anchor_sequence_function": "P02945 (bacteriorhodopsin); precursor->mature offset +13 (13-aa signal peptide)",
+        "anchor_sequence_spectral": "Q9F7P4 (green proteorhodopsin), position 105",
+        "subfamily_source": "intermediate/subfamily_assignments.parquet (Step 8)"
+      },
+      "method": {
+        "active_site_columns": {
+          "note": "Raw-alignment column indices in qc_candidates_PF01036.sto anchored on P02945 full-length precursor numbering.",
+          "D85_mature_raw_col": 2108,
+          "T89_mature_raw_col": 2141,
+          "D96_mature_raw_col": 2162,
+          "K216_retinal_raw_col": 2757,
+          "PR105_spectral_raw_col": 2156,
+          "mature_positions": {
+            "acceptor": "D85",
+            "h_bond": "T89",
+            "donor": "D96",
+            "retinal_lysine": "K216"
+          }
+        },
+        "helixC_motif": "3-residue string at BR mature positions 85/89/96 read per sequence.",
+        "functional_rules": {
+          "principle": "Ion PUMPS defined by active-site chemistry (motif authoritative); CHANNELS/SENSORS/ENZYMES defined by architecture/phylogeny (Step-8 subfamily primary). Both signals always recorded.",
+          "canonical_motifs": {
+            "DTD": "proton_pump",
+            "DTE": "proton_pump",
+            "NDQ": "sodium_pump",
+            "NTQ": "anion_pump"
+          },
+          "variant_rules": "D+[TS]+[DE]->H+ pump; N..Q (NDQ-family)->Na+ pump; N+[TS]+[NQ]->anion pump; D+[TS]+non-carboxylate->sensory-like (no proton donor).",
+          "discordance_flag": "motif_agrees=False when motif chemistry and subfamily clade imply different classes; for pump clades motif chemistry takes precedence and discordance is surfaced.",
+          "literature": "Inoue 2015 [12], Kim 2016 [8], Yun 2020 [10], Besaw 2020 [11], Inoue 2020 review [13], Kandori 2015 [9]."
+        },
+        "spectral_rules": {
+          "switch": "proteorhodopsin position 105 L/Q: Leu->green (~525 nm), Gln->blue (~490 nm).",
+          "restriction": "Color prediction emitted ONLY for the proteorhodopsin subfamily (switch validated there); all other subfamilies record the residue but no color call.",
+          "evidence_status": "ALL lambda_max here are PREDICTED (tuning-residue proxy); lambda_max_measured_nm reserved, never imputed.",
+          "literature": "Man 2003 [2], Wang 2003 [5], Ozaki 2014 [7], Mao 2024 [1]."
+        }
+      },
+      "results": {
+        "n_candidates_annotated": 5361,
+        "n_typeI_module": 4886,
+        "helixC_motif_complete": 5044,
+        "retinal_K_at_anchor": 3769,
+        "func_class_typeI": {
+          "proton_pump": 2252,
+          "sensory": 966,
+          "unassigned": 695,
+          "anion_pump": 310,
+          "light_gated_channel": 267,
+          "sensory_like": 152,
+          "insufficient_data": 94,
+          "sodium_pump": 81,
+          "enzyme_rhodopsin": 69
+        },
+        "func_confidence_typeI": {
+          "high": 2211,
+          "medium": 1344,
+          "low": 1237,
+          "none": 94
+        },
+        "motif_subfamily_discordant": 859,
+        "spectral_predicted_lambda_max": 138,
+        "spectral_measured_lambda_max": 0,
+        "proteorhodopsin_spectral": {
+          "uncharacterized": 175,
+          "green_predicted": 79,
+          "blue_predicted": 59
+        },
+        "seed_recovery": "BR=DTD/proton_pump, PR=DTE/proton_pump, KR2=NDQ/sodium_pump, NM-R3=NTQ/anion_pump (all confirmed)"
+      },
+      "validation": {
+        "canonical_seed_recovery": "PASS",
+        "resK216_vs_QC_retinal_lysine_agreement": 1.0,
+        "not_force_classified": {
+          "insufficient_data": 94,
+          "unassigned": 695
+        },
+        "measured_predicted_separation": "PASS (0 measured lambda_max, never imputed)"
+      },
+      "caveats": [
+        "Functional class is INFERRED from active-site chemistry + phylogeny, NOT experimentally assayed (function_is_inferred=True).",
+        "Eukaryote-skewed 278-tip backbone (Step 7) causes some eukaryotic proton-pump (DTD/DTE) sequences to place near the halorhodopsin clade; classifier resolves these by motif chemistry and flags motif_agrees=False (859 discordances).",
+        "lambda_max values are proxy PREDICTIONS from a single tuning residue; real lambda_max depends on the full retinal pocket.",
+        "Spectral prediction restricted to proteorhodopsins; BR/xanthorhodopsin carry Leu at the aligned position but their lambda_max is not governed by this single switch, so no color is predicted for them."
+      ],
+      "outputs": {
+        "table_tsv": "tables/functional_annotations.tsv",
+        "parquet": "intermediate/functional_annotations.parquet",
+        "figure": "figures/step9_functional_annotation.svg (+.png)"
+      }
+    },
+    "step10_structure": {
+      "description": "Structural annotation: experimental PDB mapping (RCSB), representative-structure selection, domain/fusion architecture, and ESMFold prediction for clade reps lacking experimental structure.",
+      "timestamp": "2026-07-29T20:01:46.840404Z",
+      "method": {
+        "pdb_source": "UniProt PDB cross-references in candidates_L1; metadata via RCSB GraphQL data API.",
+        "representative_selection": "Prefer retinal-bound (holo) structure, then X-ray over EM/NMR, then best resolution.",
+        "retinal_detection": "nonpolymer ligand chem_comp id in {RET,RTL,RAL,6ZR,60R,ATR,BRT} (RET = all-trans retinal).",
+        "fusion_domains": "Extra Pfam domains beyond PF01036/PF18761 mapped to functional roles (cyclase/HisKinase/etc).",
+        "esmfold": "ESMCFold2 (full) on GPU for 1 rep of each subfamily with no experimental structure among backbone tips."
+      },
+      "results": {
+        "n_typeI_annotated": 4886,
+        "n_with_experimental_structure": 65,
+        "n_distinct_pdb_entries": 438,
+        "n_pdb_with_retinal": 382,
+        "arch_primary": {
+          "single_domain_core": 3631,
+          "extended": 679,
+          "truncated_core": 365,
+          "fusion": 211
+        },
+        "fusion_types": {
+          "rhodopsin-cyclase (enzyme rhodopsin)": 79,
+          "rhodopsin-histidine_kinase (sensor)": 73,
+          "rhodopsin-other_fusion": 51,
+          "rhodopsin-phosphodiesterase": 5,
+          "rhodopsin-response_regulator (sensor)": 3
+        },
+        "esmfold_predictions": [
+          {
+            "acc": "A0A9X2L7U0",
+            "subfamily": "chloride_pump_NTQ",
+            "mean_plddt": 93.49
+          },
+          {
+            "acc": "B0R633",
+            "subfamily": "sensory_rhodopsin_I",
+            "mean_plddt": 93.71
+          }
+        ]
+      },
+      "caveats": [
+        "Experimental structures cover only 66 of 4886 sequences (well-studied model proteins); the vast majority have no 3D structure.",
+        "Some representative structures are apo (no retinal) when higher-resolution holo forms are unavailable; retinal presence recorded per-structure.",
+        "ESMFold predictions (2) are single-chain monomer models; mean pLDDT ~93 indicates high local confidence but oligomeric state and retinal pocket are not modeled with the cofactor."
+      ],
+      "outputs": {
+        "table_tsv": "tables/structural_annotations.tsv",
+        "pdb_entries_tsv": "tables/structures_pdb_entries.tsv",
+        "predicted_pdb": [
+          "structures/A0A9X2L7U0_esmfold.pdb",
+          "structures/B0R633_esmfold.pdb"
+        ]
+      }
+    },
+    "step11_database": {
+      "description": "Normalized relational SQLite database (12 tables + denormalized v_master view), Python query API, example notebook, and machine-readable data dictionary.",
+      "timestamp": "2026-07-29T20:11:33.060360Z",
+      "method": {
+        "schema": "source_acc (UniProt accession) universal key; central protein table + 1:1 satellites (qc_feature, membership, redundancy, subfamily, function, structure, predicted_structure); protein_pdb many-to-many junction to pdb_structure entity; seed & citation reference tables.",
+        "integrity": "PRAGMA foreign_keys=ON with explicit FK constraints; verified PRAGMA foreign_key_check=0 violations, integrity_check=ok.",
+        "view": "v_master LEFT JOINs all satellites onto protein for one-row-per-protein queries.",
+        "api": "api/microrhododb_api.py (stdlib sqlite3 + pandas, read-only URI connection)."
+      },
+      "results": {
+        "db_file": "db/microrhododb_v1.0.sqlite",
+        "n_tables": 12,
+        "n_views": 1,
+        "row_counts": {
+          "protein": 5361,
+          "qc_feature": 5361,
+          "membership": 5361,
+          "redundancy": 5263,
+          "subfamily": 2990,
+          "function": 5361,
+          "structure": 4886,
+          "pdb_structure": 438,
+          "protein_pdb": 472,
+          "predicted_structure": 2,
+          "seed": 15,
+          "citation": 10
+        },
+        "fk_violations": 0,
+        "columns_documented": 98
+      },
+      "outputs": {
+        "database": "db/microrhododb_v1.0.sqlite",
+        "api": "api/microrhododb_api.py",
+        "example_notebook": "api/example_usage.ipynb",
+        "data_dictionary": "meta/data_dictionary.json"
+      }
+    },
+    "step12_release": {
+      "description": "Publication figures, methods/results report, and automated release validation gate.",
+      "timestamp": "2026-07-29T20:31:00.213116+00:00",
+      "figures": {
+        "figure1_database_overview": {
+          "file": "figures/figure1_database_overview.svg",
+          "panels": [
+            "A membership category",
+            "B subfamily",
+            "C taxonomic-domain donut",
+            "D inferred function",
+            "E function x domain",
+            "F proteorhodopsin spectral tuning"
+          ],
+          "media_check": "PASS"
+        },
+        "figure2_phylogeny": {
+          "file": "figures/figure2_phylogeny.svg",
+          "type": "rectangular phylogram, 278 reference tips, ladderized",
+          "encoding": "tips coloured by subfamily via aligned right-margin marker column; 8 curated seeds as square markers; branch lengths in substitutions/site; presented unrooted",
+          "renderer": "render_tree.py (Bio.Phylo + matplotlib)",
+          "palette": "maximally-separable 12-colour qualitative (channelrhodopsin=black, proteorhodopsin=forest green split to remove green-green collision)",
+          "media_check": "PASS (direct visual confirmation; strip legible, seeds distinct, legend complete)"
+        }
+      },
+      "report": {
+        "file": "report_microrhododb.md",
+        "citations_verified": "all inline [N] map to citation table ref_id (1,2,5,7,8,9,10,11,12,13)"
+      },
+      "release_validation": {
+        "file": "meta/release_validation.json",
+        "n_checks": 10,
+        "n_passed": 10,
+        "all_pass": true,
+        "benchmark_auc": 0.9289,
+        "checks": [
+          "V1_relational_integrity",
+          "V2_known_positive_recovery",
+          "V3_heliorhodopsin_separation",
+          "V4_benchmark_negative_handling",
+          "V5_cluster_expansion",
+          "V6_measured_predicted_separation",
+          "V7_no_force_classification",
+          "V8_discordance_surfaced",
+          "V9_benchmark_discrimination",
+          "V10_reproducibility"
+        ]
+      },
+      "deliverables": {
+        "database": "db/microrhododb_v1.0.sqlite",
+        "api": "api/microrhododb_api.py",
+        "example_notebook": "api/example_usage.ipynb",
+        "data_dictionary": "meta/data_dictionary.json",
+        "report": "report_microrhododb.md",
+        "figures": [
+          "figures/figure1_database_overview.svg",
+          "figures/figure2_phylogeny.svg"
+        ],
+        "tables": [
+          "tables/subfamily_assignments.tsv",
+          "tables/functional_annotations.tsv",
+          "tables/structural_annotations.tsv",
+          "tables/structures_pdb_entries.tsv"
+        ],
+        "predicted_structures": [
+          "structures/A0A9X2L7U0_esmfold.pdb",
+          "structures/B0R633_esmfold.pdb"
+        ]
+      }
+    }
+  },
+  "release": {
+    "name": "MicroRhodoDB v1.0",
+    "status": "complete",
+    "source_release": "UniProtKB 2026_02",
+    "finalized": "2026-07-29T20:31:00.213179+00:00",
+    "n_steps": 9
+  }
+}

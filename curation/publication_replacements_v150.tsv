@@ -1,0 +1,4 @@
+publication_id	doi	pmid	title	journal	year	raw_ref	ingestion
+70	10.1016/s0014-5793(98)00322-6	9598990	Heterologous coexpression of the blue light receptor psRII and its transducer pHtrII from Natronobacterium pharaonis in the Halobacterium salinarium strain Pho81/w restores negative phototaxis	FEBS Letters	1998	Luttenberg B, Wolff EK, Engelhard M. FEBS Lett 1998	curator_replacement_verified
+71	10.1126/scisignal.aab0611	26268609	The rhodopsin-guanylyl cyclase of the aquatic fungus Blastocladiella emersonii enables fast optical control of cGMP signaling	Science Signaling	2015	Scheib U, Stehfest K, Gee CE, et al. Sci Signal 2015	curator_replacement_verified
+72	10.1074/jbc.M117.812685	29118188	Structure and monomer/dimer equilibrium for the guanylyl cyclase domain of the optogenetics protein RhoGC	Journal of Biological Chemistry	2017	Kumar RP, Morehouse BR, Fofana J, et al. J Biol Chem 2017	curator_replacement_verified

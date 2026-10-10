@@ -1,0 +1,451 @@
+IQ-TREE version 3.1.3 for Linux x86 64-bit built Jul 26 2026
+Developed by Bui Quang Minh, Thomas Wong, Nhan Ly-Trong, Huaiyan Ren
+Contributed by Lam-Tung Nguyen, Dominik Schrempf, Chris Bielow,
+Olga Chernomor, Michael Woodhams, Diep Thi Hoang, Heiko Schmidt
+
+Host:    modal (AVX512, FMA3, 64 GB RAM)
+Command: iqtree -s /workspace/microrhododb/intermediate/phylo/backbone_core.trimal.faa --prefix /workspace/microrhododb/intermediate/phylo/backbone_iqtree_v2 -m Q.PFAM+F+R6 -B 1000 --alrt 1000 --bnni -T 3 -ntmax 16 --seed 12345 --boot-trees -redo
+Seed:    12345 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Wed Jul 29 18:27:55 2026
+Kernel:  AVX+FMA - 3 threads (16 CPU cores detected)
+
+Reading alignment file /workspace/microrhododb/intermediate/phylo/backbone_core.trimal.faa ... Fasta format detected
+Reading fasta file: done in 0.000933886 secs
+Alignment most likely contains protein sequences
+Constructing alignment: done in 0.000845909 secs
+Alignment has 278 sequences with 219 columns, 219 distinct patterns
+219 parsimony-informative, 0 singleton sites, 0 constant sites
+            Gap/Ambiguity  Composition  p-value
+Analyzing sequences: done in 0.000104904 secs
+   1  A0A060H1D7    3.65%    passed     75.15%
+   2  A0A081CPB0    5.48%    passed     81.90%
+   3  A0A084B629    4.57%    passed     28.65%
+   4  A0A0A1TEI9    5.48%    passed     22.31%
+   5  A0A0B4P4Z1    6.85%    passed     11.68%
+   6  A0A0C3TEH9    2.74%    passed     21.86%
+   7  A0A0C3UE61   17.35%    failed      4.58%
+   8  A0A0D2M2L8   16.89%    passed     74.36%
+   9  A0A0E9NKB4    5.02%    passed     60.99%
+  10  A0A0E9NMN4   15.53%    passed     73.09%
+  11  A0A0G4E9A8    7.31%    passed     54.88%
+  12  A0A0G4EH05   15.53%    passed     79.66%
+  13  A0A0G4GF51   21.46%    passed     17.20%
+  14  A0A0G4H294   26.03%    passed      8.95%
+  15  A0A0J0XEG0    1.37%    failed      0.06%
+  16  A0A0K0MNL8    8.22%    passed     26.81%
+  17  A0A0K3CUU3   20.55%    passed     19.96%
+  18  A0A0L0D2C1    5.48%    failed      4.32%
+  19  A0A0L0DQZ0   14.16%    passed      7.48%
+  20  A0A0L0URT3   10.05%    passed     19.07%
+  21  A0A0P9GJH2    6.85%    failed      3.19%
+  22  A0A135LS53    5.02%    passed     22.75%
+  23  A0A139AMK5    6.39%    passed     98.61%
+  24  A0A150G0K5   17.35%    passed     11.64%
+  25  A0A150GCU3    0.91%    passed     20.66%
+  26  A0A150GD09   10.50%    passed     75.24%
+  27  A0A150GZA7   18.72%    passed     53.63%
+  28  A0A164TIQ7    5.02%    passed     84.42%
+  29  A0A166G513    3.65%    passed     33.91%
+  30  A0A167J0W1    5.48%    passed     22.25%
+  31  A0A167VJJ2    6.39%    passed     93.85%
+  32  A0A1A6A1S0    3.65%    passed     77.99%
+  33  A0A1E3QGV8   10.50%    passed     50.83%
+  34  A0A1G7GXJ2   17.35%    failed      0.00%
+  35  A0A1H1FRT4    3.20%    failed      0.10%
+  36  A0A1H6G2Z8    3.65%    failed      2.93%
+  37  A0A1H6XB79    1.83%    failed      0.45%
+  38  A0A1I2WTE4    1.83%    passed     66.48%
+  39  A0A1L7TJ50    5.94%    passed     46.99%
+  40  A0A1Q9C2T4   35.16%    passed     53.07%
+  41  A0A1Q9CDC8   17.35%    passed     33.20%
+  42  A0A1Q9CKQ6    4.11%    passed      9.86%
+  43  A0A1Q9CRJ3    7.76%    passed     30.35%
+  44  A0A1Q9DPH8    6.39%    passed     79.75%
+  45  A0A1U7EZK0    6.39%    passed     30.35%
+  46  A0A1V8SNI6    5.48%    passed     37.02%
+  47  A0A1W1VCM2    2.74%    passed     75.58%
+  48  A0A1Y1HT90    8.68%    failed      0.31%
+  49  A0A1Y1I5V9    7.76%    passed     55.61%
+  50  A0A1Y1I8I9    3.20%    failed      3.22%
+  51  A0A1Y1IBK3   12.79%    passed     22.41%
+  52  A0A250WZH3    5.48%    passed     43.72%
+  53  A0A250X1L5    4.57%    passed     29.92%
+  54  A0A250X6R1   12.33%    failed      0.00%
+  55  A0A250XI73    0.91%    passed     12.11%
+  56  A0A2I9CVS5   48.40%    failed      0.90%
+  57  A0A2J8A2M5   42.47%    passed     86.79%
+  58  A0A2J8A9R5    1.83%    passed     45.83%
+  59  A0A2K3CWZ0    6.39%    passed     14.37%
+  60  A0A2P6MQ02    7.76%    passed     57.27%
+  61  A0A2P6NAG6    5.02%    passed     65.92%
+  62  A0A2P6NAM3    5.94%    passed     38.36%
+  63  A0A2P6NFX8   12.79%    failed      1.01%
+  64  A0A2P6NFY1   10.05%    passed     29.79%
+  65  A0A2P6NRH4    5.94%    passed     19.34%
+  66  A0A2P6NS35    5.48%    passed     98.65%
+  67  A0A2P6P0M2    5.48%    passed     63.49%
+  68  A0A2P6UZS6    4.11%    passed     90.02%
+  69  A0A2R5G0B6    7.31%    passed     12.76%
+  70  A0A2W0HUG2    1.83%    passed     16.64%
+  71  A0A316VHF9    4.11%    passed     60.97%
+  72  A0A317WFA6   18.26%    passed     58.96%
+  73  A0A317XNV2    5.02%    passed     66.69%
+  74  A0A383WHH1   18.26%    passed     11.84%
+  75  A0A3G1I4H9   20.55%    passed     29.51%
+  76  A0A3N4LDD8    6.39%    passed     83.56%
+  77  A0A3P3RCT8    3.65%    failed      0.02%
+  78  A0A411LJN5    3.65%    passed     81.13%
+  79  A0A428S121    5.94%    passed     26.25%
+  80  A0A428SP68    5.02%    passed      9.05%
+  81  A0A4P9VW20   31.05%    passed     22.00%
+  82  A0A4R5USH4    2.28%    passed     14.03%
+  83  A0A4T0FUL7    4.57%    passed     22.92%
+  84  A0A4U0WH68   23.29%    passed     92.89%
+  85  A0A4V6S1I2    8.22%    passed     83.21%
+  86  A0A507C3K5    4.11%    failed      0.34%
+  87  A0A507FRN6    3.65%    failed      4.28%
+  88  A0A513ZS48    3.65%    passed     91.13%
+  89  A0A513ZS49    3.65%    passed     69.46%
+  90  A0A517QXI7    5.02%    passed     43.32%
+  91  A0A545V9N2    4.11%    passed     42.37%
+  92  A0A553HJD1    4.57%    passed     98.16%
+  93  A0A5A8CBR1    7.76%    passed     42.79%
+  94  A0A5A8CNY9   31.96%    failed      1.44%
+  95  A0A5A8CSF6    3.20%    passed     63.66%
+  96  A0A5A8CW29    3.65%    passed     73.55%
+  97  A0A5A8CWN5    4.57%    passed     67.65%
+  98  A0A5A8CXC5   31.05%    passed     36.52%
+  99  A0A5B1CMS2    1.83%    passed     13.45%
+ 100  A0A5B2VFD4    1.83%    passed     64.14%
+ 101  A0A5J6MTG1    3.65%    passed     53.36%
+ 102  A0A5J6N178    3.65%    passed     46.97%
+ 103  A0A5N6KXX2    6.85%    passed     97.60%
+ 104  A0A5P3XBS8    1.83%    failed      0.00%
+ 105  A0A699Z5H1   41.10%    passed     32.17%
+ 106  A0A699ZFJ2   39.73%    failed      2.11%
+ 107  A0A6P1DUB9    1.83%    passed     87.13%
+ 108  A0A7D3SP32    1.83%    passed     30.12%
+ 109  A0A7D3SQP7    1.83%    passed     13.26%
+ 110  A0A7D3SUK4   14.16%    passed     97.78%
+ 111  A0A7J6KWM7   13.24%    passed      7.34%
+ 112  A0A7J6S5A1    7.76%    passed     68.81%
+ 113  A0A7L5E652    2.28%    passed     24.14%
+ 114  A0A7S4E2D3    9.13%    passed     37.35%
+ 115  A0A812HP79    9.59%    passed     42.52%
+ 116  A0A812K756   30.59%    passed     34.51%
+ 117  A0A812PMT3   39.27%    failed      2.62%
+ 118  A0A812RS72    8.68%    passed     84.25%
+ 119  A0A812RSB1   10.05%    passed     13.85%
+ 120  A0A812UJ52   21.92%    passed     10.79%
+ 121  A0A812VAP8   34.25%    passed     59.90%
+ 122  A0A813BNP7    8.22%    passed     65.76%
+ 123  A0A813C039    7.76%    passed     33.33%
+ 124  A0A813E275   20.55%    passed     89.03%
+ 125  A0A813ES95   27.40%    passed     18.96%
+ 126  A0A813FLD5   20.55%    passed     90.78%
+ 127  A0A813GTT4   30.59%    passed     47.67%
+ 128  A0A813H5L3   10.05%    passed     71.02%
+ 129  A0A813HLR5    4.57%    passed     87.12%
+ 130  A0A815J0L9    5.94%    passed     34.41%
+ 131  A0A830H4C8    4.11%    failed      3.90%
+ 132  A0A830HGR1    2.28%    passed     19.53%
+ 133  A0A830HRR5    4.57%    failed      4.76%
+ 134  A0A835T5E0   28.77%    passed      6.58%
+ 135  A0A835W2F1   10.50%    passed     34.89%
+ 136  A0A835Y4T1   15.98%    failed      0.49%
+ 137  A0A836B651   31.05%    failed      3.16%
+ 138  A0A836BCE5   21.92%    passed     10.22%
+ 139  A0A8B2P212    4.57%    failed      0.00%
+ 140  A0A8H3TVB8    3.65%    passed     81.61%
+ 141  A0A8H5ZYN9    9.13%    passed     53.90%
+ 142  A0A8H6RGB0    5.48%    passed     88.09%
+ 143  A0A8H8QNY0    4.57%    passed     89.20%
+ 144  A0A8J4BVH9    6.39%    passed     15.81%
+ 145  A0A8J5V580    9.13%    passed     24.18%
+ 146  A0A8J5XMT6   12.33%    failed      4.89%
+ 147  A0A934IPV9    3.65%    failed      0.00%
+ 148  A0A9P1BGR9   20.55%    passed     75.13%
+ 149  A0A9P1CCW4   19.18%    passed     85.18%
+ 150  A0A9P1FXY8   10.50%    passed     32.33%
+ 151  A0A9P1GQ35   31.96%    passed     98.99%
+ 152  A0A9P3GTZ4    5.02%    failed      0.48%
+ 153  A0A9P9Y756    4.11%    passed     97.64%
+ 154  A0A9W6F055   11.87%    passed     85.83%
+ 155  A0A9W7ST28    6.39%    passed     91.68%
+ 156  A0A9W9XHZ8    4.11%    passed     80.82%
+ 157  A0A9X2L7U0    0.91%    passed     47.51%
+ 158  A0A9X9ZA75    2.28%    passed     52.45%
+ 159  A0AA36I5B5    9.13%    passed     41.97%
+ 160  A0AA36IVJ1   23.29%    passed     97.54%
+ 161  A0AA36JGB0   32.88%    passed     94.26%
+ 162  A0AA48QXY1   17.35%    passed     95.39%
+ 163  A0AA82WP37    1.37%    passed     36.09%
+ 164  A0AAD5H3U4    3.65%    passed     40.47%
+ 165  A0AAD5S6T7   10.50%    passed     33.07%
+ 166  A0AAD5Y6J2    5.94%    failed      4.72%
+ 167  A0AAD6NN00    5.02%    passed     46.75%
+ 168  A0AAE0BCA2    1.37%    passed     16.83%
+ 169  A0AAE0BYX5    2.74%    passed     66.30%
+ 170  A0AAE0C9L8   21.46%    passed     88.26%
+ 171  A0AAE0FQI2    9.13%    passed     62.81%
+ 172  A0AAE0KUF1    9.59%    passed      7.07%
+ 173  A0AAE0LD25    3.65%    passed     15.44%
+ 174  A0AAE0LFC4   16.44%    passed     90.19%
+ 175  A0AAJ0GHX9    3.65%    passed     62.99%
+ 176  A0AAJ6N6B2    3.65%    passed     94.93%
+ 177  A0AAV5A703   42.47%    passed     54.27%
+ 178  A0AAW1P688    8.68%    failed      3.47%
+ 179  A0AAW1PHQ5   10.96%    passed     12.02%
+ 180  A0AAW1R4K6    9.13%    passed     23.17%
+ 181  A0AAW2Z5U0   31.96%    passed      9.45%
+ 182  A0AB34FWC1   22.37%    passed     56.97%
+ 183  A0ABD5XPT5   39.27%    failed      0.00%
+ 184  A0ABD6C724    4.57%    failed      3.55%
+ 185  A0ABF7PQ03    5.94%    passed     17.93%
+ 186  A0ABF7PQ84   30.59%    failed      0.96%
+ 187  A0ABM8AJS7    3.65%    failed      4.56%
+ 188  A0ABM9RL04    6.39%    failed      0.00%
+ 189  A0ABN9RTI9   29.22%    passed     49.97%
+ 190  A0ABN9TZ86   14.61%    passed      5.14%
+ 191  A0ABN9UR13   13.24%    passed     11.32%
+ 192  A0ABN9VZP5   29.22%    passed     42.70%
+ 193  A0ABN9WHV2   28.31%    passed     33.66%
+ 194  A0ABP0HHM1    4.57%    passed     26.46%
+ 195  A0ABP0HK09    8.68%    passed     29.73%
+ 196  A0ABP0JS20   30.59%    passed     37.20%
+ 197  A0ABP0K2F5   25.57%    passed      6.64%
+ 198  A0ABP0LAR9   31.96%    failed      2.90%
+ 199  A0ABP0M833   42.47%    passed     11.68%
+ 200  A0ABP0MV24    6.85%    passed     45.16%
+ 201  A0ABP0N122   19.18%    passed     80.84%
+ 202  A0ABP0QRZ5   24.66%    passed      7.10%
+ 203  A0ABP0R9C5    5.94%    passed     35.07%
+ 204  A0ABP0S7I2   15.53%    passed     15.19%
+ 205  A0ABP8ZIA9    2.28%    failed      0.17%
+ 206  A0ABQ3FJ61    1.83%    passed     93.57%
+ 207  A0ABQ6MPT4   20.09%    failed      0.16%
+ 208  A0ABQ7G5D3    5.48%    passed     88.65%
+ 209  A0ABQ7GQX6   19.63%    passed     69.30%
+ 210  A0ABQ7GWT0    9.13%    failed      2.87%
+ 211  A0ABR1FMU0   21.92%    failed      0.42%
+ 212  A0ABR3S6G8    5.48%    passed     78.52%
+ 213  A0ABR7K021    2.74%    failed      0.00%
+ 214  A0ABT8M6U9    9.59%    passed     42.16%
+ 215  A0ABV4I333    3.20%    failed      0.11%
+ 216  A0ABW4LD18    1.37%    passed     14.54%
+ 217  A0ABY0HHR4   47.49%    passed     51.43%
+ 218  A0ABY8TL62   14.61%    passed     24.83%
+ 219  A0ABY8TPA0    1.83%    passed     46.96%
+ 220  A0ABY8TQA0   17.35%    failed      2.26%
+ 221  A0AC59EXE7   10.50%    failed      0.00%
+ 222  A0ACB6RBA3    4.11%    passed     24.71%
+ 223  A0ACB8SAL4   14.61%    passed     17.71%
+ 224  A0ACB8SS56    8.68%    passed     71.65%
+ 225  A0ACC1MV21   39.73%    passed     88.67%
+ 226  B0R2U4        3.20%    passed     16.38%
+ 227  B0R633        5.94%    passed      6.56%
+ 228  B1YFV8        0.91%    passed     59.46%
+ 229  C1EC80       10.96%    failed      0.75%
+ 230  C1MVP6        6.85%    failed      2.08%
+ 231  C1MYB7        6.39%    passed     62.03%
+ 232  C8CHH8        3.65%    passed     89.22%
+ 233  D1MER6        5.48%    passed     38.39%
+ 234  D7CVU5        2.74%    failed      0.14%
+ 235  F2TZN0        3.20%    passed     74.37%
+ 236  F8UVI5        2.28%    passed     71.66%
+ 237  G3CEP6        7.76%    passed     10.10%
+ 238  G4XT38        3.20%    passed     96.40%
+ 239  H2EZZ6        5.02%    passed     84.21%
+ 240  H2EZZ7       38.36%    failed      3.24%
+ 241  H2EZZ8       38.81%    passed     52.20%
+ 242  H3JSC1       37.44%    passed     42.92%
+ 243  I0IGJ9        0.46%    passed     62.35%
+ 244  I0YUS5        5.94%    passed     25.83%
+ 245  K1Y8S4        5.48%    passed     87.96%
+ 246  K8F6P9        8.68%    passed      9.17%
+ 247  L1I6C2        6.39%    passed     13.20%
+ 248  L1IA60       10.96%    passed     13.72%
+ 249  L1IFJ7        7.31%    passed     12.12%
+ 250  L1J1F0       15.53%    passed     20.82%
+ 251  L1JA23       18.26%    passed     91.29%
+ 252  L1JGN9        4.11%    passed      9.23%
+ 253  L1JQI7       25.11%    passed     13.60%
+ 254  L1K1N6        6.39%    passed     78.78%
+ 255  L1K3E3       16.89%    passed     89.45%
+ 256  L8GFI6        8.68%    passed     20.42%
+ 257  M0E6A6       10.05%    failed      0.02%
+ 258  M0LQQ4        6.85%    passed     34.46%
+ 259  M1PFK4        2.28%    passed     37.81%
+ 260  M5G4F1        5.02%    failed      0.47%
+ 261  N0DKS8        1.83%    failed      1.54%
+ 262  O74870        8.68%    failed      2.16%
+ 263  P02945        2.28%    passed     63.22%
+ 264  P42196        2.74%    passed      9.82%
+ 265  P42197        2.28%    failed      4.29%
+ 266  Q00TF7        5.48%    failed      0.97%
+ 267  Q12117       10.96%    failed      0.75%
+ 268  Q2QCJ4        5.02%    passed     81.84%
+ 269  Q2S2F8        2.28%    passed     82.40%
+ 270  Q53461       40.64%    passed     79.59%
+ 271  Q5V4H7        4.57%    passed     30.58%
+ 272  Q70LL3        5.94%    passed     76.12%
+ 273  Q8RUT8        0.91%    passed     78.20%
+ 274  Q9F7P4        2.74%    passed     81.53%
+ 275  Q9HGT7        3.65%    passed     26.66%
+ 276  Q9UW81        5.02%    passed     31.14%
+ 277  R9AD72        4.57%    passed     19.49%
+ 278  S5DM51        7.31%    passed      7.49%
+****  TOTAL        11.23%  55 sequences failed composition chi2 test (p-value<5%; df=19)
+Checking for duplicate sequences: done in 0.000691891 secs
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.119 seconds
+Generating 1000 samples for ultrafast bootstrap (seed: 12345)...
+
+NOTE: 62 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -103751.581
+2. Current log-likelihood: -102182.302
+3. Current log-likelihood: -102160.627
+4. Current log-likelihood: -102152.621
+5. Current log-likelihood: -102145.788
+6. Current log-likelihood: -102142.105
+7. Current log-likelihood: -102141.626
+Optimal log-likelihood: -102141.523
+Site proportion and rates:  (0.048,0.188) (0.051,0.321) (0.162,0.503) (0.249,0.786) (0.239,1.083) (0.251,1.747)
+Parameters optimization took 7 rounds (14.962 sec)
+Wrote distance file to... 
+Computing ML distances based on estimated model parameters...
+Calculating distance matrix: done in 5.59589 secs using 296.5% CPU
+Computing ML distances took 5.596978 sec (of wall-clock time) 16.590000 sec (of CPU time)
+WARNING: Some pairwise ML distances are too long (saturated)
+Setting up auxiliary I and S matrices: done in 0.00110912 secs
+Constructing RapidNJ tree: done in 0.0132711 secs using 602.8% CPU
+Computing RapidNJ tree took 0.014538 sec (of wall-clock time) 0.080000 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -101666.428
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 11.310 second
+Computing log-likelihood of 98 initial trees ... 18.927 seconds
+Current best score: -101666.428
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -101221.065
+Iteration 10 / LogL: -101360.379 / Time: 0h:2m:22s
+Iteration 20 / LogL: -101360.851 / Time: 0h:3m:49s
+Finish initializing candidate tree set (20)
+Current best tree score: -101221.065 / CPU time: 207.580
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 22: -101215.247
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 23: -101199.708
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 24: -101184.637
+Iteration 30 / LogL: -101213.769 / Time: 0h:4m:48s (0h:15m:33s left)
+Iteration 40 / LogL: -101193.320 / Time: 0h:5m:35s (0h:12m:1s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 42: -101183.000
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 43: -101179.428
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 50: -101174.254
+Iteration 50 / LogL: -101174.254 / Time: 0h:6m:29s (0h:13m:14s left)
+Iteration 60 / LogL: -101178.293 / Time: 0h:7m:18s (0h:11m:8s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 65: -101168.225
+Iteration 70 / LogL: -101174.834 / Time: 0h:8m:9s (0h:11m:14s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 72: -101163.014
+Iteration 80 / LogL: -101165.524 / Time: 0h:9m:0s (0h:10m:29s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 81: -101161.227
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 83: -101154.194
+Iteration 90 / LogL: -101167.767 / Time: 0h:9m:56s (0h:10m:23s left)
+Iteration 100 / LogL: -101159.346 / Time: 0h:10m:45s (0h:9m:0s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 103: -101151.837
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 106: -101150.714
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 109: -101144.069
+Iteration 110 / LogL: -101186.813 / Time: 0h:11m:38s (0h:10m:34s left)
+Iteration 120 / LogL: -101149.677 / Time: 0h:12m:27s (0h:9m:18s left)
+Iteration 130 / LogL: -101166.805 / Time: 0h:13m:15s (0h:8m:7s left)
+Iteration 140 / LogL: -101155.483 / Time: 0h:14m:7s (0h:7m:0s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 147: -101143.456
+Iteration 150 / LogL: -101149.480 / Time: 0h:14m:58s (0h:9m:44s left)
+Iteration 160 / LogL: -101163.602 / Time: 0h:15m:48s (0h:8m:38s left)
+Iteration 170 / LogL: -101156.342 / Time: 0h:16m:37s (0h:7m:34s left)
+Iteration 180 / LogL: -101150.277 / Time: 0h:17m:29s (0h:6m:32s left)
+Iteration 190 / LogL: -101153.161 / Time: 0h:18m:20s (0h:5m:31s left)
+Iteration 200 / LogL: -101163.518 / Time: 0h:19m:13s (0h:4m:32s left)
+Iteration 210 / LogL: -101155.392 / Time: 0h:20m:5s (0h:3m:33s left)
+Iteration 220 / LogL: -101155.605 / Time: 0h:20m:56s (0h:2m:34s left)
+Iteration 230 / LogL: -101145.824 / Time: 0h:21m:48s (0h:1m:37s left)
+Iteration 240 / LogL: -101146.847 / Time: 0h:22m:36s (0h:0m:39s left)
+Refining ufboot trees with NNI 1 branch...
+100 samples done
+200 samples done
+300 samples done
+400 samples done
+500 samples done
+600 samples done
+700 samples done
+800 samples done
+900 samples done
+1000 samples done
+Total 1000 ufboot trees refined
+TREE SEARCH COMPLETED AFTER 248 ITERATIONS / Time: 0h:46m:25s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -101143.456
+Optimal log-likelihood: -101143.456
+Site proportion and rates:  (0.047,0.185) (0.055,0.328) (0.158,0.504) (0.236,0.769) (0.243,1.059) (0.262,1.739)
+Parameters optimization took 1 rounds (0.832 sec)
+BEST SCORE FOUND : -101143.456
+
+Testing tree branches by SH-like aLRT with 1000 replicates...
+Alternative NNI shows better log-likelihood -101143.425 > -101143.456
+Alternative NNI shows better log-likelihood -101143.453 > -101143.456
+1.085 sec.
+Creating bootstrap support values...
+Split supports printed to NEXUS file /workspace/microrhododb/intermediate/phylo/backbone_iqtree_v2.splits.nex
+Total tree length: 276.465
+
+Total number of iterations: 248
+CPU time used for tree search: 7844.770 sec (2h:10m:44s)
+Wall-clock time used for tree search: 2763.493 sec (0h:46m:3s)
+Total CPU time used: 7916.310 sec (2h:11m:56s)
+Total wall-clock time used: 2788.658 sec (0h:46m:28s)
+UFBoot trees printed to /workspace/microrhododb/intermediate/phylo/backbone_iqtree_v2.ufboot
+
+Computing bootstrap consensus tree...
+Reading input file /workspace/microrhododb/intermediate/phylo/backbone_iqtree_v2.splits.nex...
+278 taxa and 4719 splits.
+Consensus tree written to /workspace/microrhododb/intermediate/phylo/backbone_iqtree_v2.contree
+Reading input trees file /workspace/microrhododb/intermediate/phylo/backbone_iqtree_v2.contree
+Log-likelihood of consensus tree: -101145.126
+
+Analysis results written to: 
+  IQ-TREE report:                /workspace/microrhododb/intermediate/phylo/backbone_iqtree_v2.iqtree
+  Maximum-likelihood tree:       /workspace/microrhododb/intermediate/phylo/backbone_iqtree_v2.treefile
+  Likelihood distances:          /workspace/microrhododb/intermediate/phylo/backbone_iqtree_v2.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          /workspace/microrhododb/intermediate/phylo/backbone_iqtree_v2.splits.nex
+  Consensus tree:                /workspace/microrhododb/intermediate/phylo/backbone_iqtree_v2.contree
+  UFBoot trees:                  /workspace/microrhododb/intermediate/phylo/backbone_iqtree_v2.ufboot
+  Screen log file:               /workspace/microrhododb/intermediate/phylo/backbone_iqtree_v2.log
+
+Date and Time: Wed Jul 29 19:14:26 2026

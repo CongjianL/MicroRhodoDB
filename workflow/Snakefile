@@ -1,0 +1,470 @@
+"""
+MicroRhodoDB build workflow (v1.6.0; v1.5.0 rules retained as historical targets).
+
+DEFAULT TARGET `all` (v1.6.0, fully re-executable from the release archive):
+  rebuild_v160 -> data_dictionary_v160 -> export_tables_v160 + site_data_v160 + scorer_validation_v160 -> compare_release_v160 + test_v160
+  Inputs shipped in the archive: releases/v1.5.0/db/microrhododb_v1.5.0.sqlite (immutable base, opened
+  read-only), curation/v160/*.tsv (signed curator decisions + PubMed metadata), pipeline/v160/*.py.
+  Outputs go to work/v160_rebuild/ - the shipped releases/v1.6.0/ files are never overwritten;
+  compare_release_v160 checks that the rebuilt database is content-identical to the shipped one.
+  Runtime: a few minutes (MMseqs2 E2 re-search is the only non-trivial step).
+
+  snakemake -n -s workflow/Snakefile                     # dry run (succeeds from the extracted archive)
+  snakemake -c 4 -s workflow/Snakefile                   # rebuild v1.6.0 + dictionary + exports + tests
+
+HISTORICAL TARGET `all_v150` (v1.5.0 build, documented below; NOT re-executable from the archive -
+see workflow/README.md, "Re-executability"): requires the v1.5.0 work directory (corpus FASTA,
+HMMs, tree/placement intermediates) which is not shipped.
+"""
+"""
+MicroRhodoDB v1.5.0 build workflow.
+
+Encodes the pipeline referee comment 6 asks for: corpus -> features -> scorer -> membership ->
+MSA/tree -> placement -> clades/naming -> function evidence -> structures/taxonomy -> DB build ->
+validation -> release checksums. Every rule calls a checked-in script under pipeline/v150/
+(reusing pipeline/v140/*.py where the v1.4.0 convention is still correct, per each script's
+docstring) so the DAG below *is* the record of what produced each release table, not a
+paraphrase of it.
+
+Conda: one pinned environment, workflow/envs/mrdb.lock.yml (bioconda + conda-forge, no Docker
+base image required to run it; see workflow/Dockerfile for a container that is written but not
+built in the agent sandbox, and workflow/README.md for the DIAMOND 2.1.10-vs-2.2.8 note).
+
+Honesty note on provenance: build_tree.sh, place_queries.sh, define_clades.py and
+export_tree_tables.py below reproduce the exact commands that produced MR_RT_003 (verified
+against refpkg/MR_RT_003/README.md and the IQ-TREE/EPA-ng logs checked into that refpkg). The
+WP2/WP3/WP5/WP6/structure rules call the exact scripts and required flags (verified with
+--help against this release); a few optional intermediate file *names* for those rules were
+reconstructed from each script's own usage docstring and the on-disk work-directory layout
+rather than from a verbatim shell transcript (no command logger ran during WP2-WP7) - consult
+the target script's docstring/--help before relying on an exact historical flag value.
+
+Usage:
+  snakemake -n -s workflow/Snakefile --configfile workflow/config.yaml      # dry run / DAG check
+  snakemake -c 16 -s workflow/Snakefile --configfile workflow/config.yaml \\
+      --use-conda <target>                # real run
+Most WP4 (tree/placement) and WP7-structure (AFDB/GTDB fetch) rules are expensive (hours,
+or thousands of network calls) and are guarded by `ifexists`-style checkpoints: on a fresh
+checkout they run for real. In the archived v1.5.0 work directory the tree/placement outputs
+are frozen (their SHA-256 sums are recorded in refpkg/MR_RT_003/SHA256SUMS), but sandbox
+restores reset some mtimes, so a dry run there still schedules place_queries; do NOT re-run it.
+Rebuild the curated release with explicit targets instead, e.g.
+  snakemake -c 4 ... --allowed-rules wp5_pass1 record_clades wp5_evidence prepare_build_inputs \
+      build_v150 test_release
+v1.5.0 curator sign-off (2026-10-06): wp5_pass1/wp5_evidence consume the signed decisions in
+curation/spotcheck_decisions_v150.tsv plus the publication/link/field-correction tables;
+assemble_tips reads the frozen pre-curation anchor set so that the tree stays byte-identical.
+"""
+import os
+
+configfile: "workflow/config.yaml"
+
+REPO   = os.path.normpath(config.get("repo_dir", "."))
+RP     = "" if REPO == "." else REPO + "/"   # path prefix; avoids "./x" paths
+WORK   = config.get("work_dir", "work/v150")
+SHARED = config.get("shared_dir", "work/v150_shared")
+BUILD  = f"{WORK}/build/db"
+SRC    = f"{RP}pipeline/v150"
+V140   = f"{RP}pipeline/v140"
+V140_DB = f"{RP}releases/v1.4.0/db/microrhododb_v1.4.0.sqlite"
+HMM1, HMM2 = f"{WORK}/hmm/PF01036.25.hmm", f"{WORK}/hmm/PF18761.8.hmm"
+THREADS = config.get("threads", 16)
+
+# ================================================================ v1.6.0 (default target)
+V160_OUT = config.get("v160_out", "work/v160_rebuild")
+V160_CUR = f"{RP}curation/v160"
+V160_SRC = f"{RP}pipeline/v160"
+V150_DB  = f"{RP}releases/v1.5.0/db/microrhododb_v1.5.0.sqlite"
+V160_REL = f"{RP}releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"
+MMSEQS   = config.get("mmseqs", "mmseqs")
+
+rule all:
+    input:
+        f"{V160_OUT}/compare_to_release_v160.tsv",
+        f"{V160_OUT}/tables/records_v160.tsv",
+        f"{V160_OUT}/site/data.js",
+        f"{V160_OUT}/validation/scorer_validation_v160.tsv",
+        f"{V160_OUT}/.tests_v160_passed"
+
+rule rebuild_v160:
+    """Apply the signed v1.6.0 curation decisions to a read-only copy of the immutable v1.5.0 DB."""
+    input:
+        base=V150_DB, config=f"{V160_SRC}/config_v160.json",
+        scripts=[f"{V160_SRC}/build_v160.py", f"{V160_SRC}/mrdb_v160_lib.py"],
+        signed=expand(f"{V160_CUR}/curation_v160_{{n}}_signed.tsv", n=["groups", "records", "policy_clarifications"]),
+        addendum=f"{V160_CUR}/curation_v160_addendum_citations_signed.tsv",
+        meta=[f"{V160_CUR}/{n}" for n in ["link_labelling_spec_v160.tsv", "pmid_metadata_v160.tsv",
+              "loco_sensitivity_v160.tsv", "loco_validation_stage1_v160.tsv", "novel_family_funnel_v160.tsv",
+              "novel_family_candidates_v160.tsv", "curation_v160_r2_signed.tsv", "audit_sample_v160_seed160.tsv",
+              "audit_blind_calls_v160.tsv", "novel_family_flag_v160.tsv", "foldseek_hits_v160.tsv",
+              "foldseek_funnel_v160.tsv", "foldseek_queries_v160.tsv"]]
+    output:
+        db=f"{V160_OUT}/stage/microrhododb_v1.6.0.sqlite", log=f"{V160_OUT}/build_log_v160.txt"
+    shell:
+        "python {V160_SRC}/build_v160.py {input.config} --out-db {output.db} --log {output.log} "
+        "--work-dir {V160_OUT}/tmp --mmseqs {MMSEQS}"
+
+rule data_dictionary_v160:
+    """Add the data_dictionary table (100% column coverage enforced) and export it as TSV."""
+    input:
+        db=rules.rebuild_v160.output.db,
+        tdefs=f"{V160_CUR}/table_definitions_v160.tsv", cdefs=f"{V160_CUR}/column_definitions_v160.tsv"
+    output:
+        db=f"{V160_OUT}/db/microrhododb_v1.6.0.sqlite", tsv=f"{V160_OUT}/data_dictionary_v160.tsv"
+    shell:
+        "cp {input.db} {output.db} && python {V160_SRC}/data_dictionary_v160.py {output.db} build "
+        "{input.tdefs} {input.cdefs} {output.tsv}"
+
+rule export_tables_v160:
+    """Flat TSV/FASTA exports; tentative clades marked (clade_confidence / clade_display)."""
+    input:
+        db=rules.data_dictionary_v160.output.db
+    output:
+        f"{V160_OUT}/tables/records_v160.tsv", f"{V160_OUT}/tables/sequences_v160.fasta"
+    shell:
+        "python {RP}tools/export_tables_v160.py {input.db} {V160_OUT}/tables"
+
+rule site_data_v160:
+    """Static browser payload (site/data.js); the shipped site/ uses the same generator on the release DB."""
+    input:
+        db=rules.data_dictionary_v160.output.db
+    output:
+        f"{V160_OUT}/site/data.js"
+    shell:
+        "python {RP}tools/build_site_v160.py {input.db} {V160_OUT}/site"
+
+rule scorer_validation_v160:
+    """Collect the (unchanged-scorer) validation results: rule baseline, ablations, clade-root holdout,
+    identity-stratified external set incl. the >=90% stratum, family recall, InterPro retrieval counts."""
+    input:
+        db=rules.data_dictionary_v160.output.db, audit=f"{V160_CUR}/audit_v150/auditA_per_record_identity.tsv"
+    output:
+        f"{V160_OUT}/validation/scorer_validation_v160.tsv"
+    shell:
+        "python {V160_SRC}/scorer_validation_v160.py {input.db} {V160_CUR}/audit_v150 {output}"
+
+rule compare_release_v160:
+    """Content comparison (all tables/views, build timestamps excluded) against the shipped release DB."""
+    input:
+        rebuilt=rules.data_dictionary_v160.output.db, shipped=V160_REL
+    output:
+        f"{V160_OUT}/compare_to_release_v160.tsv"
+    shell:
+        "python {V160_SRC}/compare_db_content.py {input.shipped} {input.rebuilt} {output}"
+
+rule test_v160:
+    """v1.6.0 release tests against the rebuilt DB (the workflow dry-run test is skipped inside Snakemake)."""
+    input:
+        db=rules.data_dictionary_v160.output.db
+    output:
+        touch(f"{V160_OUT}/.tests_v160_passed")
+    shell:
+        "MRDB_DB={input.db} MRDB_IN_SNAKEMAKE=1 python -m pytest -q {RP}tests/test_v160_release.py"
+
+# ================================================================ v1.5.0 (historical target)
+
+rule all_v150:
+    input:
+        f"{BUILD}/microrhododb_v1.5.0.sqlite",
+        f"{BUILD}/microrhododb_v1.5.0_env_pilot.sqlite",
+        f"{RP}refpkg/MR_RT_003/SHA256SUMS",
+        f"{WORK}/.tests_passed"
+
+# ---------------------------------------------------------------- WP2: status vocabulary, boundary families
+rule wp2_status:
+    """Membership-status vocabulary (8 statuses), boundary-family rules, resolvability of the
+    1,406 v1.4 unresolved candidates."""
+    input:
+        db=V140_DB,
+        retcol=f"{WORK}/wp2/members_retinal_column.tsv",   # hmmalign --trim vs PF01036.25, residue at match state 210
+        faa=f"{WORK}/wp2/members.faa",
+    output:
+        status_definition=f"{WORK}/wp2/out/status_definition.tsv",
+        membership=f"{WORK}/wp2/out/membership_v150.tsv",
+        resolvability=f"{WORK}/wp2/out/resolvability.tsv",
+    params:
+        outdir=f"{WORK}/wp2/out", threads=THREADS
+    shell:
+        "python {SRC}/wp2_status.py --db {input.db} --retcol {input.retcol} --faa {input.faa} "
+        "--outdir {params.outdir} --threads {params.threads}"
+
+# ---------------------------------------------------------------- WP4: MR_RT_003 tree + clades + placement
+rule assemble_tips:
+    """Assemble the ~472 MR_RT_003 reference tips: cl0.6 representatives + Tier-A/characterized
+    anchors + Type-I seeds + boundary exemplars (schizorhodopsins) + heliorhodopsin outgroup."""
+    input:
+        db=V140_DB,
+        allfaa=f"{WORK}/wp6/membership_seqs.faa",             # whole corpus, 5,466 sequences
+        # Frozen copy of the characterized set used as tree anchors when MR_RT_003 was built
+        # (pre-curation WP5 pass-2 output). Pointing this at the live wp5_pass2 output would make
+        # the DAG circular (WP5 -> clades -> WP5) and would invalidate the frozen tree; curator
+        # decisions in v1.5.0 change function labels only, never the anchor sequence set.
+        charset=f"{WORK}/tree/anchor_charset_pre_curation_v150.tsv",
+        boundary_faa=f"{WORK}/seeds/schizorhodopsin.tsv",
+    output:
+        faa=f"{WORK}/tree/tips.faa", tsv=f"{WORK}/tree/tips.tsv"
+    params:
+        treedir=f"{WORK}/tree", n_helio=15, threads=THREADS
+    shell:
+        "python {SRC}/assemble_tips.py --db {input.db} --treedir {params.treedir} "
+        "--allfaa {input.allfaa} --charset {input.charset} --boundary_faa {input.boundary_faa} "
+        "--n_helio {params.n_helio} --threads {params.threads}"
+
+rule build_tree:
+    """Domain-trim -> MAFFT L-INS-i -> ClipKIT kpic-smart-gap -> IQ-TREE2 ModelFinder (run1) ->
+    2 replicate IQ-TREE searches (run2/run3, seeds 1502/1503) -> pairwise RF distances.
+    Expensive (hours on 16 threads); checkpoints every stage to SHARED_DIR."""
+    input:
+        tips=f"{WORK}/tree/tips.faa", hmm1=HMM1, hmm2=HMM2
+    output:
+        run1=f"{WORK}/tree/run1.treefile", run2=f"{WORK}/tree/run2.treefile",
+        run3=f"{WORK}/tree/run3.treefile", rfdist=f"{WORK}/tree/ml3.rfdist"
+    shell:
+        "bash {SRC}/build_tree.sh {WORK}/tree {SHARED}/tree"
+
+rule define_clades_grid:
+    """Cross-replicate clade-robustness grid (rooting x size window x support threshold) over
+    run1/run2/run3, used for the adjusted-Rand / per-clade Jaccard numbers in the refpkg README."""
+    input:
+        trees=[f"{WORK}/tree/run{i}.treefile" for i in (1, 2, 3)],
+        tips_annot=f"{WORK}/tree/tips_annot.tsv"
+    output:
+        grid=f"{WORK}/clades/clade_robustness_grid_replicates.tsv",
+        stab=f"{WORK}/clades/clade_stability_primary_replicates.tsv"
+    params:
+        trees_csv=lambda w, input: ",".join(input.trees), outdir=f"{WORK}/clades/replicates"
+    shell:
+        "python {SRC}/define_clades.py grid {params.trees_csv} {input.tips_annot} {params.outdir}"
+
+rule define_clades_final:
+    """Primary clade definition (outgroup rooting, 5-100 tips, UFBoot>=95, SH-aLRT>=80) + naming
+    on run1 (the IQ-TREE run used as the MR_RT_003 canonical topology)."""
+    input:
+        tree=f"{WORK}/tree/run1.treefile", tips_annot=f"{WORK}/tree/tips_annot.tsv"
+    output:
+        clades=f"{BUILD}/clade_v150.tsv", tips=f"{BUILD}/clade_tip_v150.tsv"
+    params:
+        outdir=f"{WORK}/clades"
+    shell:
+        "python {SRC}/define_clades.py final {input.tree} {input.tips_annot} {params.outdir}"
+
+rule place_queries:
+    """EPA-ng placement of all in-scope corpus + external + boundary sequences on the fixed
+    MR_RT_003 topology, under the ModelFinder-chosen model (reused verbatim, no train/apply
+    mismatch) plus LG+G4 and LG+R4 as sensitivity models. Expensive (network-free but CPU-bound;
+    <1h per the plan's compute estimate)."""
+    input:
+        queries=f"{WORK}/wp6/membership_seqs.faa", run1=f"{WORK}/tree/run1.treefile"
+    output:
+        placements=f"{WORK}/place/mr_rt_003_placements_all_models.tsv"
+    shell:
+        "bash {SRC}/place_queries.sh {input.queries} {WORK}/place run1 && "
+        "python {SRC}/placement_assign.py {WORK}/tree/tips_annot.tsv {BUILD}/clade_tip_v150.tsv "
+        "{WORK}/place/mr_rt_003 run1={WORK}/place/placements_run1.jplace"
+
+rule record_clades:
+    """Per-record MR_CLD3 clade assignment (reference tip or QC-passed placement) + clade E1
+    functional consensus, feeding WP5 pass 2. Uses the WP5 pass-1 characterized set, restricted
+    inside record_clades.py to e1_eligible rows (curator sign-off, v1.5.0)."""
+    input:
+        tips=f"{WORK}/clades/MR_CLD3_tips.tsv",
+        placements=f"{WORK}/place/mr_rt_003_placements_all_models.tsv",
+        charset=f"{WORK}/wp5/characterized_v150.tsv",
+        overrides=f"{RP}curation/func_class_overrides.tsv"
+    output:
+        records=f"{WORK}/clades/record_clades.tsv", clade_function=f"{WORK}/clades/clade_function_consensus.tsv"
+    params:
+        model="Q_pfam_F_R9"
+    shell:
+        "python {SRC}/record_clades.py {input.tips} {input.placements} {params.model} {input.charset} "
+        "{input.overrides} {output.records} {output.clade_function}"
+
+rule build_crosswalk:
+    """MR_CLD3 <-> MR_CLD2 <-> MicRhoDE cluster crosswalk, at both the clade and the finer
+    subclade level (e.g. the two Proteorhodopsin subclades MR_CLD3_006.01/.02) - the crosswalk
+    granularity the plan's WP4 explicitly asks for."""
+    input:
+        record_clade=f"{BUILD}/record_clade_v150.tsv"
+    params:
+        micrhode_map=config.get("micrhode_map", "work/v150_shared/micrhode_to_mrdb_mapping.tsv")
+    output:
+        f"{WORK}/clades/clade_crosswalk.tsv"
+    shell:
+        "python {SRC}/build_crosswalk.py --record_clade {input.record_clade} --v140_db {V140_DB} "
+        "--micrhode_map {params.micrhode_map} --out {output}"
+
+# ---------------------------------------------------------------- WP3: classifier validation
+rule wp3_holdout_eval:
+    """Baselines (Pfam GA/bitscore, NN label transfer, retinal-Lys rule), 6-way score-component
+    ablation, PR/AUPRC, calibration (Brier, ECE) and 2,000x bootstrap CIs on benchmark_v2 +
+    clade/taxon holdouts."""
+    input:
+        db=V140_DB, feat=f"{WORK}/wp3/bench_scores_v150.tsv",
+        bench_faa=f"{WORK}/wp3/hardneg.faa", seeds_faa=f"{WORK}/wp3/helio_neg.faa"
+    output:
+        metrics=f"{WORK}/wp3/wp3_holdout_metrics.tsv", ops=f"{WORK}/wp3/wp3_holdout_operating_points.tsv"
+    params:
+        outdir=f"{WORK}/wp3", nboot=2000
+    shell:
+        "python {SRC}/wp3_eval.py --db {input.db} --feat {input.feat} --bench_faa {input.bench_faa} "
+        "--seeds_faa {input.seeds_faa} --outdir {params.outdir} --nboot {params.nboot}"
+
+rule wp3_external_eval:
+    """Same methods on the frozen post-cutoff external set v2 (21 positives / 345 negatives,
+    SHA256 frozen in FREEZE_SHA256.txt before any scoring)."""
+    input:
+        scores=f"{WORK}/wp3/ext/ext_scores_v150.tsv",
+        pos=f"{SHARED}/extset/external_positives_new.tsv", neg=f"{SHARED}/extset/external_negatives_new.tsv",
+        faa=f"{WORK}/wp3/ext/ext_all.faa", freeze=f"{SHARED}/extset/FREEZE_SHA256.txt",
+        corpus=f"{WORK}/wp3/corpus.dmnd", membership=f"{WORK}/wp2/out/membership_v150.tsv"
+    output:
+        metrics=f"{WORK}/wp3/ext/out/wp3_external_metrics.tsv", ops=f"{WORK}/wp3/ext/out/wp3_external_operating_points.tsv"
+    params:
+        outdir=f"{WORK}/wp3/ext/out", nboot=2000
+    shell:
+        "python {SRC}/wp3_external.py --scores {input.scores} --pos {input.pos} --neg {input.neg} "
+        "--faa {input.faa} --freeze {input.freeze} --corpus {input.corpus} --membership {input.membership} "
+        "--outdir {params.outdir} --nboot {params.nboot}"
+
+rule wp3_figures:
+    input:
+        holdout=f"{WORK}/wp3/wp3_holdout_metrics.tsv", external=f"{WORK}/wp3/ext/out/wp3_external_metrics.tsv"
+    output:
+        f"{WORK}/fig/fig_wp3_holdout_benchmark.svg", f"{WORK}/fig/fig_wp3_external_benchmark.svg"
+    shell:
+        "python {SRC}/wp3_figures.py {WORK}/wp3 {WORK}/fig/fig_wp3_holdout_benchmark && "
+        "python {SRC}/wp3_external_figure.py {WORK}/fig {WORK}/fig/fig_wp3_external_benchmark"
+
+# ---------------------------------------------------------------- WP5: function evidence ladder
+WP5_CUR = dict(
+    decisions=f"{RP}curation/spotcheck_decisions_v150.tsv",
+    pub_replacements=f"{RP}curation/publication_replacements_v150.tsv",
+    link_replacements=f"{RP}curation/assertion_link_replacements_v150.tsv",
+    field_corrections=f"{RP}curation/field_corrections_v150.tsv",
+    charset_override=f"{RP}curation/charset_class_overrides.tsv",
+)
+WP5_COMMON = ("--db {input.db} --membership {input.membership} --charset {input.charset} "
+              "--charset_override {input.charset_override} --pubverify {params.pubverify} --faa {input.faa} "
+              "--decisions {input.decisions} --pub_replacements {input.pub_replacements} "
+              "--link_replacements {input.link_replacements} --field_corrections {input.field_corrections}")
+
+rule wp5_pass1:
+    """WP5 pass 1: E1-E5 ladder without clade evidence. Applies the signed curator spot-check
+    decisions (link activate/drop/replace, field corrections, E1 eligibility). Its characterized
+    set feeds record_clades."""
+    input:
+        db=V140_DB, membership=f"{WORK}/wp2/out/membership_v150.tsv",
+        charset=f"{SHARED}/charset/characterized_set.tsv",
+        faa=f"{SHARED}/inputs/mrdb_v140_all.faa",
+        **WP5_CUR
+    output:
+        characterized=f"{WORK}/wp5/characterized_v150.tsv"
+    params:
+        pubverify=f"{SHARED}/pubverify", outdir=f"{WORK}/wp5"
+    shell:
+        "python {SRC}/wp5_evidence.py " + WP5_COMMON + " --outdir {params.outdir}"
+
+rule wp5_evidence:
+    """WP5 pass 2: final E1-E5 ladder with MR_CLD3 clade consensus, publication-verification
+    integration + curator decisions, motif-call confusion matrix with Wilson CIs (E1-eligible
+    records only), spectral audit (E1-eligible only)."""
+    input:
+        db=V140_DB, membership=f"{WORK}/wp2/out/membership_v150.tsv",
+        charset=f"{SHARED}/charset/characterized_set.tsv",
+        faa=f"{SHARED}/inputs/mrdb_v140_all.faa",
+        clades=f"{WORK}/clades/record_clades.tsv",
+        func_override=f"{RP}curation/func_class_overrides.tsv",
+        **WP5_CUR
+    output:
+        function_evidence=f"{WORK}/wp5_pass2/function_evidence_v150.tsv",
+        characterized=f"{WORK}/wp5_pass2/characterized_v150.tsv",
+        motif_summary=f"{WORK}/wp5_pass2/motif_benchmark_summary.tsv",
+        spectral=f"{WORK}/wp5_pass2/spectral_audit.tsv"
+    params:
+        pubverify=f"{SHARED}/pubverify", outdir=f"{WORK}/wp5_pass2"
+    shell:
+        "python {SRC}/wp5_evidence.py " + WP5_COMMON +
+        " --func_override {input.func_override} --clades {input.clades} --outdir {params.outdir}"
+
+# ---------------------------------------------------------------- WP6/WP7: structures + taxonomy
+rule fetch_afdb_gtdb:
+    """AlphaFold DB model metadata + per-residue pLDDT for every corpus accession, plus the GTDB
+    r220 bac120/ar53 metadata tables. Expensive: thousands of network calls."""
+    input:
+        db=V140_DB
+    output:
+        afdb=f"{WORK}/ext/afdb_models.tsv", gtdb_version=f"{WORK}/ext/gtdb/VERSION.txt"
+    params:
+        outdir=f"{WORK}/ext"
+    shell:
+        "python {SRC}/fetch_afdb_gtdb.py {input.db} {params.outdir}"
+
+rule gtdb_map:
+    """Map protein.organism_id (NCBI taxid) to GTDB r220 taxonomy (strain-exact, else species-taxid)."""
+    input:
+        db=V140_DB, gtdb_dir=f"{WORK}/ext/gtdb"
+    output:
+        f"{WORK}/wp6/gtdb_taxonomy.tsv"
+    shell:
+        "python {SRC}/gtdb_map.py {input.db} {input.gtdb_dir} {output}"
+
+rule pocket_map:
+    """Retinal-pocket residues in BR (P02945/1C3W) numbering - 19 within-4.5-A contacts + D85 -
+    for every record, annotated with AlphaFold DB per-residue pLDDT."""
+    input:
+        faa=f"{WORK}/wp6/membership_seqs.faa", hmm=HMM1,
+        afdb=f"{WORK}/ext/afdb_models.tsv", plddt_dir=f"{WORK}/ext/afdb_plddt"
+    output:
+        long=f"{WORK}/wp6/retinal_pocket_long.tsv", summary=f"{WORK}/wp6/retinal_pocket_summary.tsv"
+    shell:
+        "python {SRC}/pocket_map.py {input.faa} {input.hmm} {input.afdb} {input.plddt_dir} "
+        "{output.long} {output.summary}"
+
+# ---------------------------------------------------------------- DB build + release validation
+rule prepare_build_inputs:
+    """Assemble every v1.5 work product + config.json for build_v150.py: merges cross-replicate
+    Jaccard onto the clade table, generates the route3_candidate_support annotation table, and
+    resolves every path in the Usage block of prepare_build_inputs.py."""
+    input:
+        clade_names=f"{RP}curation/clade_names.tsv",
+        status_definition=f"{WORK}/wp2/out/status_definition.tsv",
+        membership=f"{WORK}/wp2/out/membership_v150.tsv",
+        clade_stability=f"{WORK}/clades/clade_stability_primary_replicates.tsv",
+        route3_proposal=f"{WORK}/clades/route3_proposal.tsv",
+        clade_crosswalk=f"{WORK}/clades/clade_crosswalk.tsv",
+        function_evidence=f"{WORK}/wp5_pass2/function_evidence_v150.tsv",
+        pocket_summary=f"{WORK}/wp6/retinal_pocket_summary.tsv",
+        gtdb=f"{WORK}/wp6/gtdb_taxonomy.tsv",
+    output:
+        config=f"{BUILD}/config.json"
+    shell:
+        "python {SRC}/prepare_build_inputs.py {WORK} {SHARED} {REPO} {BUILD} {input.clade_names}"
+
+rule build_v150:
+    """Build microrhododb_v1.5.0.sqlite (release, 5,466 records) and _env_pilot.sqlite (MGnify,
+    supplementary) from the immutable v1.4.0 DB + config.json. v1.4.0 file is opened read-only."""
+    input:
+        config=f"{BUILD}/config.json", v140_db=V140_DB
+    output:
+        db=f"{BUILD}/microrhododb_v1.5.0.sqlite", env_db=f"{BUILD}/microrhododb_v1.5.0_env_pilot.sqlite"
+    shell:
+        "python {SRC}/build_v150.py {input.config}"
+
+rule test_release:
+    """Release test suite: zero FK violations, one status/evidence-level per record, 100%
+    monophyly on MR_RT_003, alias resolution, checksum presence."""
+    input:
+        db=f"{BUILD}/microrhododb_v1.5.0.sqlite"
+    output:
+        touch(f"{WORK}/.tests_passed")
+    shell:
+        "MRDB_DB={input.db} MRDB_REPO={REPO} python -m pytest -q {RP}tests/test_v150_release.py"
+
+rule refpkg_checksums:
+    """SHA256SUMS for the archived MR_RT_003 reference package (alignment, model, treefile,
+    EPA-ng inputs, robustness grids)."""
+    output:
+        f"{RP}refpkg/MR_RT_003/SHA256SUMS"
+    shell:
+        "cd {RP}refpkg/MR_RT_003 && find . -type f ! -name SHA256SUMS | sed 's|^\\./||' | "
+        "sort | xargs sha256sum > SHA256SUMS"

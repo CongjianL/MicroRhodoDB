@@ -1,0 +1,84 @@
+{
+ "database_release": "1.5.0",
+ "schema_revision": "v150.1",
+ "base_release": "1.4.0 (immutable; opened read-only and copied; superseded tables kept as legacy_*)",
+ "uniprot_release": "unchanged from v1.4.0: UniProtKB 2026_02 base corpus + 2026_03 delta harvested 2026-10-01; no new harvest in v1.5.0",
+ "pfam_typeI": "PF01036.25",
+ "pfam_helio": "PF18761.8",
+ "scope_taxonomic": "Bacteria (n=1455), Archaea (n=699), Eukaryota (n=3120); 192 protein rows have tax_domain=NULL. NOTE: v1.4.0 text also listed \"Viruses\" but a live query found zero Viruses-labelled rows in v1.5.0 protein.tax_domain.",
+ "scope_provenance": "PR13.6 2026-09-24: 976 marine + 376 soil MGnify candidates; frozen v1.2.0 scores; source-aware admission only | microrhododb_v1.5.0_env_pilot.sqlite (supplementary)",
+ "families": "type_I core (PF01036.25) + heliorhodopsin companion (PF18761.8)",
+ "membership_authority": "membership.membership_status (deprecated: membership.module)",
+ "append_only_contract": "v1.5.0 is a restructuring release, not strictly additive over v1.4.0: v1.4 tables are retained read-only under legacy_* names (legacy external metrics partially recomputed under Wilson CIs: sensitivity/specificity only); curator corrections to tier_a_assertion/tier_a_evidence/characterized_protein are applied in place with the original values preserved in v150_original_values and the curated fields listed in v150_corrected_fields. The v1.4.0 release file is immutable and unchanged (its SHA256SUMS verify).",
+ "feature_status": {
+  "implemented": [
+   "status_definition: 8-way status vocabulary (typeI_member_core, typeI_member_architecture_supported, typeI_candidate, typeI_candidate_architecture_supported, typeI_candidate_unresolved, boundary_family, heliorhodopsin, decoy_or_rejected), sums to 5466/5466 records",
+   "retinal_pocket/retinal_pocket_summary: 20 BR-numbered pocket positions (confirmed: pocket_string_br length=20 for all 5466 records; distinct br_position=20 in retinal_pocket table)",
+   "gtdb_taxonomy: GTDB release v232 uniformly across 2154 rows",
+   "reference_tree MR_RT_003: 472 tips (per refpkg/MR_RT_003/README.md composition table), tree_node/tree_edge populated",
+   "clade_robustness: 54-row cross-replicate grid; release_metadata.clade_robustness reports cross-replicate ARI=0.921 at primary setting (3x IQ-TREE, seeds 1501-1503, plus midpoint rooting)",
+   "route3_candidate_support: 267 annotation-only rows (154-row strict_subset_154); does NOT change membership_status (release_metadata.route3_candidate_support)",
+   "environmental layer fully externalized to microrhododb_v1.5.0_env_pilot.sqlite (sequence_source.source_database='MGnify' count is 0 in the main db)",
+   "mrdb_accession/accession_map: 5299 stable mrdb_acc identifiers for 5466 protein records",
+   "curator spot-check sign-off: 65/65 items signed (CongJian Li, 2026-10-06); decisions stored in curator_spotcheck_decision and applied to assertion_publication (is_active, counts_as_support, link_role) and to the E1 eligibility rule",
+   "func_class_definition: controlled func_class vocabulary incl. photoreceptor_unassigned (experimentally photoactive, no ion transport demonstrated; CryoR2-type)",
+   "tentative clade layer: v_master.tentative_clade_id/name for records without a confident clade whose placement is clade_call='assigned' with clade_call_qc='distant_assigned' (browser: 'distant placement, low confidence', opt-in filter; CLI: nn_tentative_clade_*). Not written to record_clade."
+  ],
+  "not_in_scope": [
+   "re-computation of any frozen nondeterministic layer (MMseqs2 clusters, MR_RT_003 tree and placements, v1.2 scores, WP3 external/holdout evaluation) - these are byte-identical to the pre-curation build",
+   "backfilling record_clade from distant (low-confidence) placements; these are exposed only as the tentative clade layer",
+   "functional/spectral annotation of new accessions beyond seed-homology, motif and clade evidence"
+  ]
+ },
+ "known_limitations": [
+  "GTDB taxonomy release: planned r220, implemented r232 (confirmed live: gtdb_taxonomy.gtdb_release='v232' uniformly, 2154 rows). Per RESPONSE_TO_REVIEWERS.md: 'dynamic latest at fetch time'.",
+  "Retinal-pocket positions: planned 24 (BR numbering), implemented 20 (19 within-4.5A contacts + D85), per RESPONSE_TO_REVIEWERS.md and confirmed live (retinal_pocket: 20 distinct br_position; retinal_pocket_summary.pocket_string_br length=20 for all 5466 records).",
+  "DIAMOND version: planned 2.2.8 (matching v1.4.0 frozen scorer), implemented 2.1.10 because 2.2.8 is unavailable on bioconda/conda-forge for this release (workflow/envs/mrdb.lock.yml header; RESPONSE_TO_REVIEWERS.md Comment 6). Versions not guaranteed bit-identical.",
+  "Named-clade coverage (v_master.clade_id, confident assignments only): members 3024/3085 (98.0%); members + candidates 3821/4468 (85.5%), with a further 497 records carrying only a tentative (distant, low-confidence) clade. An earlier draft figure of 96.8% and the claim that 727 records were wrongly unassigned are retracted: those records' placements are QC-flagged distant_assigned, and record_clade correctly withholds a confident clade.",
+  "clade.n_records_assigned is recomputed from corpus record_clade at build time; the earlier cached counts also included non-corpus placements (5 level-1 clades differed).",
+  "E1 is withheld from H2EZZ6 (no primary functional publication for the Pleodorina starrii sequence; now E3) and D2RRQ8 (accession-mapping conflict; annotate-only, now E5). The CryoR2-type trio (A0ABF7PQ03, A0ABF7PQ05, A0AC62AE26) is classed photoreceptor_unassigned and kept in the motif benchmark, where a pump call is scored as incorrect.",
+  "Spectral audit restricted to E1-eligible records (n=72)."
+ ],
+ "clade_coverage": {
+  "members": {
+   "n": 3085,
+   "confident_clade": 3024,
+   "confident_pct": 98.0,
+   "tentative_only": 4,
+   "neither": 57
+  },
+  "members_plus_candidates": {
+   "n": 4468,
+   "confident_clade": 3821,
+   "confident_pct": 85.5,
+   "tentative_only": 497,
+   "neither": 150
+  },
+  "all_records": {
+   "n": 5466,
+   "confident_clade": 4139,
+   "confident_pct": 75.7,
+   "tentative_only": 720,
+   "neither": 607
+  }
+ },
+ "curator_signoff": {
+  "curator": "CongJian Li",
+  "date": "2026-10-06",
+  "items_reviewed": 65,
+  "items_signed": 65,
+  "decision_counts": {
+   "annotate_conflict": 1,
+   "annotate_only": 1,
+   "approve": 45,
+   "approve_with_correction": 10,
+   "downgrade_E1": 1,
+   "drop_link": 2,
+   "keep_unresolvable": 1,
+   "replace_link": 4
+  },
+  "approval": "five review batches approved, no exceptions",
+  "decision_table": "curator_spotcheck_decision (also curation/spotcheck_decisions_v150.tsv)",
+  "signed_sheet": "curation/spotcheck_sheet_v150_signed.tsv"
+ }
+}

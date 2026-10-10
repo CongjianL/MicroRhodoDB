@@ -1,0 +1,50 @@
+level	group_id	n_records	n_E1	top_frac	consensus_status	clade_function	E1_classes
+subclade	MR_CLD3_001.01	3	0	0.0	no_E1		
+subclade	MR_CLD3_002.01	31	0	0.0	no_E1		
+subclade	MR_CLD3_003.01	65	3	1.0	consensus	light_gated_channel	light_gated_channel:3
+subclade	MR_CLD3_004.01	84	0	0.0	no_E1		
+subclade	MR_CLD3_004.02	26	2	1.0	consensus	enzyme_rhodopsin	enzyme_rhodopsin:2
+subclade	MR_CLD3_005.01	36	0	0.0	no_E1		
+subclade	MR_CLD3_006.01	202	4	1.0	consensus	proton_pump	proton_pump:4
+subclade	MR_CLD3_006.02	381	2	1.0	consensus	proton_pump	proton_pump:2
+subclade	MR_CLD3_007.01	112	7	0.714	mixed		sodium_pump:5;anion_pump:2
+subclade	MR_CLD3_007.02	82	4	0.75	mixed		photoreceptor_unassigned:3;proton_pump_inward:1
+subclade	MR_CLD3_007.03	513	5	1.0	consensus	proton_pump	proton_pump:5
+subclade	MR_CLD3_009.01	32	3	0.667	mixed		anion_pump:2;proton_pump:1
+subclade	MR_CLD3_009.02	82	5	0.8	consensus	proton_pump	proton_pump:4;anion_pump:1
+subclade	MR_CLD3_009.03	107	3	0.667	mixed		sensory:2;proton_pump_inward:1
+subclade	MR_CLD3_010.01	7	0	0.0	no_E1		
+subclade	MR_CLD3_010.02	3	1	1.0	single_E1		proton_pump:1
+subclade	MR_CLD3_012.01	159	6	1.0	consensus	anion_pump	anion_pump:6
+subclade	MR_CLD3_013.01	6	0	0.0	no_E1		
+subclade	MR_CLD3_013.02	7	1	1.0	single_E1		sensory:1
+subclade	MR_CLD3_013.03	46	4	1.0	consensus	sensory	sensory:4
+subclade	MR_CLD3_013.04	111	4	1.0	consensus	sensory	sensory:4
+subclade	MR_CLD3_014.01	5	0	0.0	no_E1		
+subclade	MR_CLD3_014.02	24	0	0.0	no_E1		
+subclade	MR_CLD3_015.01	12	0	0.0	no_E1		
+subclade	MR_CLD3_017.01	553	0	0.0	no_E1		
+subclade	MR_CLD3_017.02	311	1	1.0	single_E1		proton_pump:1
+subclade	MR_CLD3_017.03	21	1	1.0	single_E1		proton_pump:1
+subclade	MR_CLD3_017.04	12	0	0.0	no_E1		
+subclade	MR_CLD3_017.05	31	0	0.0	no_E1		
+subclade	MR_CLD3_017.06	646	2	0.5	mixed		photoreceptor_unassigned:1;proton_pump:1
+clade	MR_CLD3_001	3	0	0.0	no_E1		
+clade	MR_CLD3_002	43	0	0.0	no_E1		
+clade	MR_CLD3_003	72	6	1.0	consensus	light_gated_channel	light_gated_channel:6
+clade	MR_CLD3_004	113	2	1.0	consensus	enzyme_rhodopsin	enzyme_rhodopsin:2
+clade	MR_CLD3_005	39	0	0.0	no_E1		
+clade	MR_CLD3_006	583	6	1.0	consensus	proton_pump	proton_pump:6
+clade	MR_CLD3_007	707	16	0.312	mixed		proton_pump:5;sodium_pump:5;photoreceptor_unassigned:3;anion_pump:2;proton_pump_inward:1
+clade	MR_CLD3_008	31	0	0.0	no_E1		
+clade	MR_CLD3_009	229	11	0.455	mixed		proton_pump:5;anion_pump:3;sensory:2;proton_pump_inward:1
+clade	MR_CLD3_010	10	1	1.0	single_E1		proton_pump:1
+clade	MR_CLD3_011	165	6	1.0	consensus	proton_pump	proton_pump:6
+clade	MR_CLD3_012	163	6	1.0	consensus	anion_pump	anion_pump:6
+clade	MR_CLD3_013	172	9	1.0	consensus	sensory	sensory:9
+clade	MR_CLD3_014	34	0	0.0	no_E1		
+clade	MR_CLD3_015	15	0	0.0	no_E1		
+clade	MR_CLD3_016	12	1	1.0	single_E1		proton_pump:1
+clade	MR_CLD3_017	1646	4	0.75	mixed		proton_pump:3;photoreceptor_unassigned:1
+clade	MR_CLD3_B01	97	10	1.0	consensus	proton_pump	proton_pump:10
+clade	MR_CLD3_B02	5	0	0.0	no_E1		

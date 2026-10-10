@@ -1,0 +1,65 @@
+[15:02:09] PHASE 0: building exclusion sets
+[15:02:09]   corpus (protein.source_acc): n=5466
+[15:02:09]   external_validation (ext_acc): n=366
+[15:02:10]   external_positives_new.tsv has 21 ext_acc values; 21 of these are also present in the DB external_validation table (366 rows total); 0 are present only in the 21-row file ([]). Conclusion: external_positives_new.tsv is a SUBSET of external_validation (the 366-row table is the superset/canonical exclusion source).
+[15:02:10]   union(corpus, external_validation) for exclusion = 5832
+[15:02:10] PHASE 1: fetching EBI hmmsearch hits (all pages) per family
+[15:02:16]   viral_rhodopsin: job=7932ccc0-1157-4214-82b9-142817b10637 page_count=5 nhits=246 nincluded=155 fetched=246
+[15:03:43]   schizorhodopsin: job=346bed33-bfd8-4dbb-8847-a2a16bb93a09 page_count=71 nhits=3536 nincluded=3015 fetched=3536
+[15:07:44]   xenorhodopsin: job=bb94d069-693e-4da8-820f-3e71d0b7718c page_count=197 nhits=9820 nincluded=8179 fetched=9820
+[15:14:35]   bestrhodopsin: job=bda4d8ac-dccf-4220-a8a3-93412fb16c2b page_count=340 nhits=16979 nincluded=15864 fetched=16979
+[15:16:27]   MerMAID: job=24230917-4760-4457-8279-323707a0a0e8 page_count=93 nhits=4637 nincluded=2892 fetched=4637
+[15:16:27] PHASE 2: is_included -> architecture contains PF01036 -> evalue<=1e-10 -> exclude known accessions
+[15:16:27]   viral_rhodopsin: total=246 -> is_included=155 -> has_PF01036=155 -> evalue<=1e-10=124 -> novel(excl.known)=124
+[15:16:27]   schizorhodopsin: total=3536 -> is_included=3015 -> has_PF01036=3015 -> evalue<=1e-10=543 -> novel(excl.known)=261
+[15:16:27]   xenorhodopsin: total=9820 -> is_included=8179 -> has_PF01036=8093 -> evalue<=1e-10=3313 -> novel(excl.known)=1519
+[15:16:27]   bestrhodopsin: total=16979 -> is_included=15864 -> has_PF01036=189 -> evalue<=1e-10=8 -> novel(excl.known)=7
+[15:16:27]   MerMAID: total=4637 -> is_included=2892 -> has_PF01036=2892 -> evalue<=1e-10=232 -> novel(excl.known)=137
+[15:16:27]   funnel summary:
+         family  n_total_hits  n_included  n_has_opsin_domain  n_evalue_pass  n_novel_candidates
+viral_rhodopsin           246         155                 155            124                 124
+schizorhodopsin          3536        3015                3015            543                 261
+  xenorhodopsin          9820        8179                8093           3313                1519
+  bestrhodopsin         16979       15864                 189              8                   7
+        MerMAID          4637        2892                2892            232                 137
+[15:16:27] PHASE 3: batch-fetching UniProt sequences for surviving candidates
+[15:16:27]   total unique accessions to fetch across all families: 1796
+[15:16:43]     batch endpoint: requested=1796 resolved_active=2
+[15:16:43]   active via batch endpoint: 2  missing (needs individual lookup): 1794
+[15:16:43]   resolving 1794 missing accessions individually (classify active/merged/demerged/deleted)...
+[15:26:21]   resolution breakdown:
+resolution
+deleted_no_replacement    1787
+demerged_single_target       7
+[15:26:21]   fetching sequences for 7 merge/demerge replacement accessions...
+[15:26:22]     batch endpoint: requested=7 resolved_active=1
+[15:26:22]   TOTAL resolved (direct + merge/demerge-followed): accessions with a usable sequence
+[15:26:22]   viral_rhodopsin: 0/124 candidates have a usable current sequence
+[15:26:22]   schizorhodopsin: 0/261 candidates have a usable current sequence
+[15:26:22]   xenorhodopsin: 1/1519 candidates have a usable current sequence
+[15:26:22]   bestrhodopsin: 2/7 candidates have a usable current sequence
+[15:26:22]   MerMAID: 0/137 candidates have a usable current sequence
+[15:26:23] PHASE 4: empirical per-family length filter (seed-range x [0.6, 1.5] tolerance)
+[15:26:23]   viral_rhodopsin: seed_len=[223,231] -> filter=[133,347]  candidates_with_seq=0 pass_length=0
+[15:26:23]   schizorhodopsin: seed_len=[201,215] -> filter=[120,323]  candidates_with_seq=0 pass_length=0
+[15:26:23]   xenorhodopsin: seed_len=[229,248] -> filter=[137,372]  candidates_with_seq=1 pass_length=1
+[15:26:23]   bestrhodopsin: seed_len=[1153,1244] -> filter=[691,1866]  candidates_with_seq=2 pass_length=1
+[15:26:23]   MerMAID: seed_len=[262,404] -> filter=[157,606]  candidates_with_seq=0 pass_length=0
+[15:26:23] PHASE 5: hmmalign --mapali retinal-Schiff-base Lys confirmation
+[15:26:23]   viral_rhodopsin: 0 candidates after length filter, skipping hmmalign
+[15:26:23]   schizorhodopsin: 0 candidates after length filter, skipping hmmalign
+[15:26:23]   xenorhodopsin: mapali n_seed_rows=4 n_cand_rows=1 aln_len=259
+[15:26:23]   xenorhodopsin: 1/1 candidates retain K at retinal column (+/-2)
+[15:26:23]   bestrhodopsin: mapali n_seed_rows=4 n_cand_rows=1 aln_len=1309
+[15:26:23]   bestrhodopsin: 0/1 candidates retain K at retinal column (+/-2)
+[15:26:23]   MerMAID: 0 candidates after length filter, skipping hmmalign
+[15:26:23] PHASE 6: assembling final candidate tables
+[15:26:23] Final counts:
+         family  n_prefilter_novel  n_length_pass  n_retinalK_pass
+viral_rhodopsin                  0              0                0
+schizorhodopsin                  0              0                0
+  xenorhodopsin                  1              1                1
+  bestrhodopsin                  1              1                0
+        MerMAID                  0              0                0
+[15:26:23] Sample table rows: 1
+[15:26:23] DONE.

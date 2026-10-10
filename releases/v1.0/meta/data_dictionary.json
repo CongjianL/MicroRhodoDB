@@ -1,0 +1,462 @@
+{
+  "database": "MicroRhodoDB",
+  "version": "1.0",
+  "key": "source_acc (UniProt accession)",
+  "tables": {
+    "protein": {
+      "n_rows": 5361,
+      "columns": {
+        "source_acc": {
+          "type": "TEXT",
+          "description": "UniProt accession (PRIMARY KEY, universal join key)"
+        },
+        "sequence": {
+          "type": "TEXT",
+          "description": "amino-acid sequence"
+        },
+        "length": {
+          "type": "INTEGER",
+          "description": "sequence length (aa)"
+        },
+        "organism": {
+          "type": "TEXT",
+          "description": "source organism"
+        },
+        "organism_id": {
+          "type": "INTEGER",
+          "description": "NCBI taxon id"
+        },
+        "tax_domain": {
+          "type": "TEXT",
+          "description": "Bacteria/Archaea/Eukaryota/Viruses/unclassified"
+        },
+        "lineage": {
+          "type": "TEXT",
+          "description": "NCBI lineage string"
+        },
+        "protein_name": {
+          "type": "TEXT",
+          "description": "UniProt protein name"
+        },
+        "reviewed": {
+          "type": "INTEGER",
+          "description": "1=Swiss-Prot reviewed, 0=TrEMBL"
+        },
+        "is_seed": {
+          "type": "INTEGER",
+          "description": "1=curated seed protein"
+        },
+        "pfam": {
+          "type": "TEXT",
+          "description": "Pfam domain hits"
+        },
+        "pdb": {
+          "type": "TEXT",
+          "description": "PDB xrefs (raw from UniProt)"
+        },
+        "kegg": {
+          "type": "TEXT",
+          "description": "KEGG xref"
+        },
+        "refseq": {
+          "type": "TEXT",
+          "description": "RefSeq xref"
+        }
+      }
+    },
+    "qc_feature": {
+      "n_rows": 5361,
+      "columns": {
+        "source_acc": {
+          "type": "TEXT",
+          "description": "FK->protein"
+        },
+        "hmm_cov": {
+          "type": "REAL",
+          "description": "fraction of Pfam profile covered by the hit"
+        },
+        "has_retinal_lysine": {
+          "type": "INTEGER",
+          "description": "1=conserved retinal-binding Lys present at aligned K216"
+        },
+        "complete_core": {
+          "type": "INTEGER",
+          "description": "1=complete 7TM core"
+        },
+        "arch_primary": {
+          "type": "TEXT",
+          "description": "domain architecture class (single_domain_core/extended/truncated_core/fusion)"
+        },
+        "arch_flags": {
+          "type": "TEXT",
+          "description": "architecture detail flags"
+        }
+      }
+    },
+    "membership": {
+      "n_rows": 5361,
+      "columns": {
+        "source_acc": {
+          "type": "TEXT",
+          "description": "FK->protein"
+        },
+        "membership_category": {
+          "type": "TEXT",
+          "description": "evidence-vector class: confirmed_type_I/high_confidence_type_I/putative_type_I/rhodopsin_like/ambiguous/rejected"
+        },
+        "membership_score": {
+          "type": "REAL",
+          "description": "continuous evidence-vector score [0,1]"
+        },
+        "module": {
+          "type": "TEXT",
+          "description": "type_I / heliorhodopsin / rejected"
+        }
+      }
+    },
+    "redundancy": {
+      "n_rows": 5263,
+      "columns": {
+        "source_acc": {
+          "type": "TEXT",
+          "description": "FK->protein"
+        },
+        "module": {
+          "type": "TEXT",
+          "description": "type_I or heliorhodopsin"
+        },
+        "exact_nr_cluster": {
+          "type": "TEXT",
+          "description": "exact-NR (100%) cluster id"
+        },
+        "exact_nr_is_rep": {
+          "type": "INTEGER",
+          "description": "1=cluster representative"
+        },
+        "std_90_cluster": {
+          "type": "TEXT",
+          "description": "~90%-identity cluster id"
+        },
+        "std_90_is_rep": {
+          "type": "INTEGER",
+          "description": "1=representative"
+        },
+        "intermediate_cluster": {
+          "type": "TEXT",
+          "description": "intermediate-tier cluster id"
+        },
+        "intermediate_is_rep": {
+          "type": "INTEGER",
+          "description": "1=representative"
+        },
+        "backbone_cluster": {
+          "type": "TEXT",
+          "description": "phylogenetic-backbone cluster id"
+        },
+        "backbone_is_rep": {
+          "type": "INTEGER",
+          "description": "1=backbone representative"
+        }
+      }
+    },
+    "subfamily": {
+      "n_rows": 2990,
+      "columns": {
+        "source_acc": {
+          "type": "TEXT",
+          "description": "FK->protein"
+        },
+        "subfamily": {
+          "type": "TEXT",
+          "description": "phylogeny-based subfamily"
+        },
+        "assignment_method": {
+          "type": "TEXT",
+          "description": "epang_placement/diamond_besthit/tree_neighbor/seed_curated/unclassified"
+        },
+        "assignment_basis": {
+          "type": "TEXT",
+          "description": "human-readable basis"
+        },
+        "best_lwr": {
+          "type": "REAL",
+          "description": "EPA-ng best likelihood-weight ratio"
+        },
+        "edge_subfamily_purity": {
+          "type": "REAL",
+          "description": "purity of the placement edge"
+        },
+        "tree_discordant": {
+          "type": "INTEGER",
+          "description": "1=motif/tree discordance"
+        }
+      }
+    },
+    "function": {
+      "n_rows": 5361,
+      "columns": {
+        "source_acc": {
+          "type": "TEXT",
+          "description": "FK->protein"
+        },
+        "res_D85": {
+          "type": "TEXT",
+          "description": "residue at BR-D85 (H+ acceptor/counterion)"
+        },
+        "res_T89": {
+          "type": "TEXT",
+          "description": "residue at BR-T89"
+        },
+        "res_D96": {
+          "type": "TEXT",
+          "description": "residue at BR-D96 (H+ donor)"
+        },
+        "helixC_motif": {
+          "type": "TEXT",
+          "description": "3-residue helix-C motif (positions 85/89/96)"
+        },
+        "motif_complete": {
+          "type": "INTEGER",
+          "description": "1=all three positions resolved"
+        },
+        "res_K216": {
+          "type": "TEXT",
+          "description": "residue at retinal-binding K216"
+        },
+        "has_retinal_lysine_qc": {
+          "type": "INTEGER",
+          "description": "QC retinal-lysine flag"
+        },
+        "res_105": {
+          "type": "TEXT",
+          "description": "residue at proteorhodopsin position 105"
+        },
+        "func_class": {
+          "type": "TEXT",
+          "description": "inferred functional class"
+        },
+        "func_confidence": {
+          "type": "TEXT",
+          "description": "high/medium/low/none"
+        },
+        "func_evidence": {
+          "type": "TEXT",
+          "description": "evidence ladder tag"
+        },
+        "motif_class": {
+          "type": "TEXT",
+          "description": "functional class implied by motif alone"
+        },
+        "motif_agrees": {
+          "type": "INTEGER",
+          "description": "1=motif and subfamily agree; 0=discordant (function follows motif)"
+        },
+        "func_basis": {
+          "type": "TEXT",
+          "description": "human-readable basis"
+        },
+        "function_is_inferred": {
+          "type": "INTEGER",
+          "description": "1 for all (never a per-sequence measurement)"
+        },
+        "spectral_class": {
+          "type": "TEXT",
+          "description": "green_predicted/blue_predicted/uncharacterized"
+        },
+        "lambda_max_pred_nm": {
+          "type": "REAL",
+          "description": "predicted absorption max (nm), proteorhodopsins only"
+        },
+        "lambda_max_is_predicted": {
+          "type": "INTEGER",
+          "description": "1 where a prediction exists"
+        },
+        "lambda_max_measured_nm": {
+          "type": "REAL",
+          "description": "reserved for experimental values (all NULL; never imputed)"
+        },
+        "spectral_confidence": {
+          "type": "TEXT",
+          "description": "prediction confidence"
+        },
+        "spectral_basis": {
+          "type": "TEXT",
+          "description": "basis + citations"
+        }
+      }
+    },
+    "structure": {
+      "n_rows": 4886,
+      "columns": {
+        "source_acc": {
+          "type": "TEXT",
+          "description": "FK->protein"
+        },
+        "arch_primary": {
+          "type": "TEXT",
+          "description": "domain architecture class"
+        },
+        "fusion_type": {
+          "type": "TEXT",
+          "description": "functional fusion class (cyclase/histidine_kinase/etc)"
+        },
+        "fusion_partner_domains": {
+          "type": "TEXT",
+          "description": "Pfam fusion partners with roles"
+        },
+        "has_experimental_structure": {
+          "type": "INTEGER",
+          "description": "1=>=1 experimental PDB"
+        },
+        "n_pdb_structures": {
+          "type": "INTEGER",
+          "description": "number of mapped PDB entries"
+        },
+        "rep_pdb_id": {
+          "type": "TEXT",
+          "description": "representative PDB (retinal-bound & high-res preferred)"
+        },
+        "rep_method": {
+          "type": "TEXT",
+          "description": "experimental method of representative"
+        },
+        "rep_resolution_A": {
+          "type": "REAL",
+          "description": "representative resolution (A)"
+        },
+        "rep_has_retinal": {
+          "type": "INTEGER",
+          "description": "1=representative has bound retinal"
+        },
+        "n_structures_with_retinal": {
+          "type": "INTEGER",
+          "description": "PDB entries with bound retinal"
+        },
+        "highest_res_pdb_id": {
+          "type": "TEXT",
+          "description": "highest-resolution PDB"
+        },
+        "highest_res_A": {
+          "type": "REAL",
+          "description": "highest resolution (A)"
+        }
+      }
+    },
+    "pdb_structure": {
+      "n_rows": 438,
+      "columns": {
+        "pdb_id": {
+          "type": "TEXT",
+          "description": "PDB accession (PRIMARY KEY)"
+        },
+        "method": {
+          "type": "TEXT",
+          "description": "experimental method"
+        },
+        "resolution": {
+          "type": "REAL",
+          "description": "resolution (A; NULL for NMR)"
+        },
+        "title": {
+          "type": "TEXT",
+          "description": "structure title"
+        },
+        "ligands": {
+          "type": "TEXT",
+          "description": "non-polymer ligand codes"
+        },
+        "has_retinal": {
+          "type": "INTEGER",
+          "description": "1=bound retinal chromophore"
+        },
+        "year": {
+          "type": "TEXT",
+          "description": "initial release year"
+        }
+      }
+    },
+    "protein_pdb": {
+      "n_rows": 472,
+      "columns": {
+        "source_acc": {
+          "type": "TEXT",
+          "description": "FK->protein"
+        },
+        "pdb_id": {
+          "type": "TEXT",
+          "description": "FK->pdb_structure (many-to-many junction)"
+        }
+      }
+    },
+    "predicted_structure": {
+      "n_rows": 2,
+      "columns": {
+        "source_acc": {
+          "type": "TEXT",
+          "description": "FK->protein"
+        },
+        "method": {
+          "type": "TEXT",
+          "description": "ESMFold model"
+        },
+        "mean_plddt": {
+          "type": "REAL",
+          "description": "mean pLDDT (0-100)"
+        },
+        "pdb_file": {
+          "type": "TEXT",
+          "description": "relative path to predicted PDB"
+        },
+        "subfamily": {
+          "type": "TEXT",
+          "description": "subfamily of the modeled rep"
+        },
+        "note": {
+          "type": "TEXT",
+          "description": "context"
+        }
+      }
+    },
+    "seed": {
+      "n_rows": 15,
+      "columns": {
+        "acc": {
+          "type": "TEXT",
+          "description": "seed UniProt accession"
+        },
+        "subfamily": {
+          "type": "TEXT",
+          "description": "curated subfamily"
+        },
+        "func_class": {
+          "type": "TEXT",
+          "description": "functional class"
+        }
+      }
+    },
+    "citation": {
+      "n_rows": 10,
+      "columns": {
+        "ref_id": {
+          "type": "INTEGER",
+          "description": "internal reference id"
+        },
+        "citation": {
+          "type": "TEXT",
+          "description": "formatted citation"
+        },
+        "doi": {
+          "type": "TEXT",
+          "description": "DOI"
+        },
+        "context": {
+          "type": "TEXT",
+          "description": "what the reference supports"
+        }
+      }
+    }
+  },
+  "views": {
+    "v_master": "Denormalized one-row-per-protein LEFT JOIN of all satellite tables onto protein."
+  }
+}

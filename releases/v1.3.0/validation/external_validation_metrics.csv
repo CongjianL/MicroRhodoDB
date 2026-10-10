@@ -1,0 +1,19 @@
+metric_id,stratum,threshold,metric,value,ci_lo,ci_hi,ci_method,n_pos,n_neg,note
+1,E2,0.4,sensitivity,1.0,0.5407418735600995,1.0,clopper_pearson,6,100,"n=6 E2 positives (4 full-length clean, 2 partial/edge). Of 4 clean: 2 GHR anion pumps (0.914/0.917, confirmed) include 1 near-duplicate (96.1% id to corpus); 2 schizorhodopsins (36-37% id, genuinely distant) score 0.857/0.859, just below the 0.86 high-confidence threshold. Sensitivity at 0.86 on the DISTANT subset = 0/2; the frozen high-confidence threshold is conservative on deeply-divergent inward pumps. Specificity=1.0 on 100 fresh negatives at all thresholds."
+2,E2,0.4,specificity,1.0,0.9637833073548235,1.0,clopper_pearson,6,100,
+3,E2,0.4,precision,1.0,0.5407418735600995,1.0,clopper_pearson,6,100,
+4,E2,0.4,npv,1.0,0.9637833073548235,1.0,clopper_pearson,6,100,
+5,E2,0.7,sensitivity,0.8333333333333334,0.35876542100232517,0.9957892554855106,clopper_pearson,6,100,"n=6 E2 positives (4 full-length clean, 2 partial/edge). Of 4 clean: 2 GHR anion pumps (0.914/0.917, confirmed) include 1 near-duplicate (96.1% id to corpus); 2 schizorhodopsins (36-37% id, genuinely distant) score 0.857/0.859, just below the 0.86 high-confidence threshold. Sensitivity at 0.86 on the DISTANT subset = 0/2; the frozen high-confidence threshold is conservative on deeply-divergent inward pumps. Specificity=1.0 on 100 fresh negatives at all thresholds."
+6,E2,0.7,specificity,1.0,0.9637833073548235,1.0,clopper_pearson,6,100,
+7,E2,0.7,precision,1.0,0.4781762498950185,1.0,clopper_pearson,6,100,
+8,E2,0.7,npv,0.9900990099009901,0.9460676525732042,0.9997493600492607,clopper_pearson,6,100,
+9,E2,0.86,sensitivity,0.3333333333333333,0.043271868292741676,0.7772219044964879,clopper_pearson,6,100,"n=6 E2 positives (4 full-length clean, 2 partial/edge). Of 4 clean: 2 GHR anion pumps (0.914/0.917, confirmed) include 1 near-duplicate (96.1% id to corpus); 2 schizorhodopsins (36-37% id, genuinely distant) score 0.857/0.859, just below the 0.86 high-confidence threshold. Sensitivity at 0.86 on the DISTANT subset = 0/2; the frozen high-confidence threshold is conservative on deeply-divergent inward pumps. Specificity=1.0 on 100 fresh negatives at all thresholds."
+10,E2,0.86,specificity,1.0,0.9637833073548235,1.0,clopper_pearson,6,100,
+11,E2,0.86,precision,1.0,0.15811388300841897,1.0,clopper_pearson,6,100,
+12,E2,0.86,npv,0.9615384615384616,0.9044449246083279,0.9894227334689208,clopper_pearson,6,100,
+13,E2,0.9,sensitivity,0.3333333333333333,0.043271868292741676,0.7772219044964879,clopper_pearson,6,100,"n=6 E2 positives (4 full-length clean, 2 partial/edge). Of 4 clean: 2 GHR anion pumps (0.914/0.917, confirmed) include 1 near-duplicate (96.1% id to corpus); 2 schizorhodopsins (36-37% id, genuinely distant) score 0.857/0.859, just below the 0.86 high-confidence threshold. Sensitivity at 0.86 on the DISTANT subset = 0/2; the frozen high-confidence threshold is conservative on deeply-divergent inward pumps. Specificity=1.0 on 100 fresh negatives at all thresholds."
+14,E2,0.9,specificity,1.0,0.9637833073548235,1.0,clopper_pearson,6,100,
+15,E2,0.9,precision,1.0,0.15811388300841897,1.0,clopper_pearson,6,100,
+16,E2,0.9,npv,0.9615384615384616,0.9044449246083279,0.9894227334689208,clopper_pearson,6,100,
+17,E2,,roc_auc,1.0,,,NA,6,100,threshold-free ranking
+18,E2,,pr_auc,1.0,,,NA,6,100,threshold-free ranking (avg precision)

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MicroRhodoDB browser</title>
+<style>
+body{font-family:"Liberation Sans",Arial,Helvetica,sans-serif;margin:0;color:#111;background:#FAF9F3}
+header{background:#000;color:#fff;padding:10px 18px}header h1{font-size:20px;margin:0}header span{font-size:13px;color:#ECE9E2}
+#ctl{padding:10px 18px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:#ECE9E2}
+input,select,button{font-size:13px;padding:4px 6px}#q{width:320px}
+table{border-collapse:collapse;width:100%;font-size:12.5px}th,td{padding:4px 6px;border-bottom:1px solid #ddd;text-align:left;vertical-align:top}
+th{position:sticky;top:0;background:#fff;cursor:pointer}tr:hover{background:#fff6e0}
+#wrap{padding:0 18px 18px}#info{font-size:13px;margin:6px 0}
+#detail{position:fixed;right:0;top:0;bottom:0;width:440px;background:#fff;border-left:2px solid #000;padding:14px;overflow:auto;display:none;font-size:13px}
+#detail h2{font-size:16px;margin-top:0}.k{color:#555}.badge{display:inline-block;padding:1px 6px;border-radius:3px;background:#0279EE;color:#fff;font-size:11px}
+.E1{background:#75A025}.E2{background:#0279EE}.E3{background:#FF9400}.E4{background:#999}.E5{background:#ccc;color:#000}
+a{color:#0279EE}
+</style></head><body>
+<header><h1>MicroRhodoDB</h1><span id="ver"></span></header>
+<div id="ctl">
+<input id="q" placeholder="search accession, organism, protein name, motif">
+<select id="fs"><option value="">all statuses</option></select>
+<select id="fc"><option value="">all clades</option></select>
+<label style="font-size:13px"><input type="checkbox" id="ft"> include tentative (distant) placements in clade filter</label>
+<select id="fe"><option value="">all evidence levels</option><option>E1</option><option>E2</option><option>E3</option><option>E4</option><option>E5</option></select>
+<select id="fd"><option value="">all domains</option><option>Bacteria</option><option>Archaea</option><option>Eukaryota</option><option>Viruses</option></select>
+<button id="dl">download TSV of selection</button>
+</div>
+<div id="wrap"><div id="info"></div><table><thead><tr id="hd"></tr></thead><tbody id="tb"></tbody></table>
+<div><button id="prev">prev</button> <span id="pg"></span> <button id="next">next</button></div></div>
+<div id="detail"></div>
+<script>
+const SHOW=["mrdb_acc","source_acc","organism","length","membership_status","membership_score","func_class","evidence_level","clade_display","helixC_motif"];
+let D,R=[],F=[],page=0,PS=100,sortc=null,sortd=1;
+fetch("data.json").then(r=>r.json()).then(d=>{D=d;const C=d.columns;R=d.rows.map(r=>Object.fromEntries(C.map((c,i)=>[c,r[i]])));
+ document.getElementById("ver").textContent=` v${d.meta.version||""} | ${R.length} records | ${d.meta.license||""}`;
+ const fs=document.getElementById("fs");d.status.forEach(s=>fs.add(new Option(s.status,s.status)));
+ const fc=document.getElementById("fc");d.clades.filter(c=>c.level==1).forEach(c=>fc.add(new Option(`${c.clade_id} ${c.name||""}`,c.clade_id)));
+ document.getElementById("hd").innerHTML=SHOW.map(c=>`<th data-c="${c}">${c}</th>`).join("");
+ document.querySelectorAll("th").forEach(th=>th.onclick=()=>{const c=th.dataset.c;sortd=(sortc===c)?-sortd:1;sortc=c;apply()});
+ ["q","fs","fc","fe","fd","ft"].forEach(id=>document.getElementById(id).addEventListener("input",()=>{page=0;apply()}));
+ apply();});
+function apply(){const q=document.getElementById("q").value.toLowerCase().trim(),s=fsv("fs"),c=fsv("fc"),e=fsv("fe"),dm=fsv("fd");
+ const ft=document.getElementById("ft").checked;
+ F=R.filter(r=>(!s||r.membership_status===s)&&(!c||r.clade_id===c||(ft&&r.tentative_clade_id===c))&&(!e||r.evidence_level===e)&&(!dm||r.tax_domain===dm)&&
+  (!q||[r.mrdb_acc,r.source_acc,r.organism,r.protein_name,r.helixC_motif,r.clade_name].some(v=>v&&String(v).toLowerCase().includes(q))));
+ if(sortc)F.sort((a,b)=>(a[sortc]>b[sortc]?1:a[sortc]<b[sortc]?-1:0)*sortd);render();}
+function fsv(id){return document.getElementById(id).value}
+function render(){const n=Math.max(1,Math.ceil(F.length/PS));page=Math.min(page,n-1);
+ document.getElementById("info").textContent=`${F.length} records match`;document.getElementById("pg").textContent=`page ${page+1}/${n}`;
+ document.getElementById("tb").innerHTML=F.slice(page*PS,(page+1)*PS).map((r,i)=>`<tr data-i="${page*PS+i}">`+SHOW.map(c=>
+  c==="evidence_level"&&r[c]?`<td><span class="badge ${r[c]}">${r[c]}</span></td>`:c==="clade_display"&&!r.clade_id&&r.tentative_clade_id?`<td><i>${r[c]}</i></td>`:`<td>${r[c]??""}</td>`).join("")+"</tr>").join("");
+ document.querySelectorAll("#tb tr").forEach(tr=>tr.onclick=()=>detail(F[+tr.dataset.i]));}
+document.getElementById("prev").onclick=()=>{if(page>0){page--;render()}};document.getElementById("next").onclick=()=>{page++;render()};
+function detail(r){const el=document.getElementById("detail");const sd=D.status.find(s=>s.status===r.membership_status)||{};
+ el.innerHTML=`<button onclick="this.parentNode.style.display='none'">close</button><h2>${r.mrdb_acc} / ${r.source_acc}</h2>`+
+ Object.entries(r).map(([k,v])=>`<div><span class="k">${k}:</span> ${v??""}</div>`).join("")+
+ (!r.clade_id&&r.tentative_clade_id?`<p><b>Tentative clade:</b> ${r.tentative_clade_id} ${r.tentative_clade_name||""} (distant placement, low confidence: assigned by LWR but failed the pendant-length QC; not counted as a clade assignment)</p>`:"")+
+ `<p><b>Status definition:</b> ${sd.definition||""}</p>`+
+ `<p><a target="_blank" href="https://www.uniprot.org/uniprotkb/${r.source_acc}">UniProt</a>`+
+ (r.afdb_model_id?` | <a target="_blank" href="https://alphafold.ebi.ac.uk/entry/${r.source_acc}">AlphaFold DB</a>`:"")+`</p>`;
+ el.style.display="block";}
+document.getElementById("dl").onclick=()=>{const C=D.columns;const t=[C.join("\t")].concat(F.map(r=>C.map(c=>r[c]??"").join("\t"))).join("\n");
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([t],{type:"text/tab-separated-values"}));a.download="microrhododb_selection.tsv";a.click();};
+</script></body></html>

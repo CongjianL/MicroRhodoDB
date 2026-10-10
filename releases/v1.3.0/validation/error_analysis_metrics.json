@@ -1,0 +1,1012 @@
+[
+ {
+  "dimension": "A_score",
+  "group": "marine",
+  "metric": "n",
+  "value": 976
+ },
+ {
+  "dimension": "A_score",
+  "group": "marine",
+  "metric": "mean",
+  "value": 0.6058
+ },
+ {
+  "dimension": "A_score",
+  "group": "marine",
+  "metric": "median",
+  "value": 0.6414
+ },
+ {
+  "dimension": "A_score",
+  "group": "marine",
+  "metric": "share_below_0.40",
+  "value": 0.3125,
+  "ci_lo": 0.2842,
+  "ci_hi": 0.3423
+ },
+ {
+  "dimension": "A_score",
+  "group": "marine",
+  "metric": "share_0.40_0.70",
+  "value": 0.2449,
+  "ci_lo": 0.2189,
+  "ci_hi": 0.2728
+ },
+ {
+  "dimension": "A_score",
+  "group": "marine",
+  "metric": "share_0.70_0.86",
+  "value": 0.1107,
+  "ci_lo": 0.0925,
+  "ci_hi": 0.1319
+ },
+ {
+  "dimension": "A_score",
+  "group": "marine",
+  "metric": "share_0.86_0.90",
+  "value": 0.0369,
+  "ci_lo": 0.0268,
+  "ci_hi": 0.0506
+ },
+ {
+  "dimension": "A_score",
+  "group": "marine",
+  "metric": "share_ge_0.90",
+  "value": 0.2951,
+  "ci_lo": 0.2673,
+  "ci_hi": 0.3245
+ },
+ {
+  "dimension": "A_length",
+  "group": "marine",
+  "metric": "median",
+  "value": 189.5
+ },
+ {
+  "dimension": "A_length",
+  "group": "marine",
+  "metric": "q10",
+  "value": 82.0
+ },
+ {
+  "dimension": "A_length",
+  "group": "marine",
+  "metric": "q90",
+  "value": 267.0
+ },
+ {
+  "dimension": "A_hmm_cov",
+  "group": "marine",
+  "metric": "median",
+  "value": 0.621
+ },
+ {
+  "dimension": "A_hmm_cov",
+  "group": "marine",
+  "metric": "q10",
+  "value": 0.219
+ },
+ {
+  "dimension": "A_hmm_cov",
+  "group": "marine",
+  "metric": "q90",
+  "value": 0.982
+ },
+ {
+  "dimension": "A_retinal_lysine",
+  "group": "marine",
+  "metric": "share",
+  "value": 0.5154,
+  "ci_lo": 0.484,
+  "ci_hi": 0.5466
+ },
+ {
+  "dimension": "A_e_homology",
+  "group": "marine",
+  "metric": "median",
+  "value": 0.3821
+ },
+ {
+  "dimension": "A_e_homology",
+  "group": "marine",
+  "metric": "share_zero",
+  "value": 0.3555
+ },
+ {
+  "dimension": "A_score",
+  "group": "soil",
+  "metric": "n",
+  "value": 376
+ },
+ {
+  "dimension": "A_score",
+  "group": "soil",
+  "metric": "mean",
+  "value": 0.386
+ },
+ {
+  "dimension": "A_score",
+  "group": "soil",
+  "metric": "median",
+  "value": 0.2207
+ },
+ {
+  "dimension": "A_score",
+  "group": "soil",
+  "metric": "share_below_0.40",
+  "value": 0.6596,
+  "ci_lo": 0.6103,
+  "ci_hi": 0.7056
+ },
+ {
+  "dimension": "A_score",
+  "group": "soil",
+  "metric": "share_0.40_0.70",
+  "value": 0.1569,
+  "ci_lo": 0.1236,
+  "ci_hi": 0.1971
+ },
+ {
+  "dimension": "A_score",
+  "group": "soil",
+  "metric": "share_0.70_0.86",
+  "value": 0.0505,
+  "ci_lo": 0.0326,
+  "ci_hi": 0.0776
+ },
+ {
+  "dimension": "A_score",
+  "group": "soil",
+  "metric": "share_0.86_0.90",
+  "value": 0.0293,
+  "ci_lo": 0.0164,
+  "ci_hi": 0.0516
+ },
+ {
+  "dimension": "A_score",
+  "group": "soil",
+  "metric": "share_ge_0.90",
+  "value": 0.1037,
+  "ci_lo": 0.0768,
+  "ci_hi": 0.1387
+ },
+ {
+  "dimension": "A_length",
+  "group": "soil",
+  "metric": "median",
+  "value": 161.5
+ },
+ {
+  "dimension": "A_length",
+  "group": "soil",
+  "metric": "q10",
+  "value": 75.0
+ },
+ {
+  "dimension": "A_length",
+  "group": "soil",
+  "metric": "q90",
+  "value": 261.5
+ },
+ {
+  "dimension": "A_hmm_cov",
+  "group": "soil",
+  "metric": "median",
+  "value": 0.326
+ },
+ {
+  "dimension": "A_hmm_cov",
+  "group": "soil",
+  "metric": "q10",
+  "value": 0.176
+ },
+ {
+  "dimension": "A_hmm_cov",
+  "group": "soil",
+  "metric": "q90",
+  "value": 0.942
+ },
+ {
+  "dimension": "A_retinal_lysine",
+  "group": "soil",
+  "metric": "share",
+  "value": 0.2394,
+  "ci_lo": 0.199,
+  "ci_hi": 0.285
+ },
+ {
+  "dimension": "A_e_homology",
+  "group": "soil",
+  "metric": "median",
+  "value": 0.0
+ },
+ {
+  "dimension": "A_e_homology",
+  "group": "soil",
+  "metric": "share_zero",
+  "value": 0.6835
+ },
+ {
+  "dimension": "A_score",
+  "group": "corpus",
+  "metric": "n",
+  "value": 5361
+ },
+ {
+  "dimension": "A_score",
+  "group": "corpus",
+  "metric": "mean",
+  "value": 0.7863
+ },
+ {
+  "dimension": "A_score",
+  "group": "corpus",
+  "metric": "median",
+  "value": 0.8946
+ },
+ {
+  "dimension": "A_score",
+  "group": "corpus",
+  "metric": "share_below_0.40",
+  "value": 0.0211,
+  "ci_lo": 0.0176,
+  "ci_hi": 0.0253
+ },
+ {
+  "dimension": "A_score",
+  "group": "corpus",
+  "metric": "share_0.40_0.70",
+  "value": 0.2886,
+  "ci_lo": 0.2766,
+  "ci_hi": 0.3008
+ },
+ {
+  "dimension": "A_score",
+  "group": "corpus",
+  "metric": "share_0.70_0.86",
+  "value": 0.1194,
+  "ci_lo": 0.111,
+  "ci_hi": 0.1283
+ },
+ {
+  "dimension": "A_score",
+  "group": "corpus",
+  "metric": "share_0.86_0.90",
+  "value": 0.1115,
+  "ci_lo": 0.1034,
+  "ci_hi": 0.1203
+ },
+ {
+  "dimension": "A_score",
+  "group": "corpus",
+  "metric": "share_ge_0.90",
+  "value": 0.4594,
+  "ci_lo": 0.4461,
+  "ci_hi": 0.4728
+ },
+ {
+  "dimension": "A_length",
+  "group": "corpus",
+  "metric": "median",
+  "value": 280.0
+ },
+ {
+  "dimension": "A_length",
+  "group": "corpus",
+  "metric": "q10",
+  "value": 199.0
+ },
+ {
+  "dimension": "A_length",
+  "group": "corpus",
+  "metric": "q90",
+  "value": 347.0
+ },
+ {
+  "dimension": "A_hmm_cov",
+  "group": "corpus",
+  "metric": "median",
+  "value": 0.96
+ },
+ {
+  "dimension": "A_hmm_cov",
+  "group": "corpus",
+  "metric": "q10",
+  "value": 0.638
+ },
+ {
+  "dimension": "A_hmm_cov",
+  "group": "corpus",
+  "metric": "q90",
+  "value": 0.982
+ },
+ {
+  "dimension": "A_retinal_lysine",
+  "group": "corpus",
+  "metric": "share",
+  "value": 0.7191,
+  "ci_lo": 0.7069,
+  "ci_hi": 0.731
+ },
+ {
+  "dimension": "A_e_homology",
+  "group": "corpus",
+  "metric": "median",
+  "value": "n/a",
+  "note": "seed-homology features not stored for corpus (pilot-only axis)"
+ },
+ {
+  "dimension": "B_architecture",
+  "group": "marine",
+  "metric": "share_single_domain_core",
+  "value": 0.4959,
+  "ci_lo": 0.4646,
+  "ci_hi": 0.5272
+ },
+ {
+  "dimension": "B_architecture",
+  "group": "marine",
+  "metric": "share_extended",
+  "value": 0.0143,
+  "ci_lo": 0.0086,
+  "ci_hi": 0.0239
+ },
+ {
+  "dimension": "B_architecture",
+  "group": "marine",
+  "metric": "share_truncated_core",
+  "value": 0.4898,
+  "ci_lo": 0.4585,
+  "ci_hi": 0.5211
+ },
+ {
+  "dimension": "B_architecture",
+  "group": "marine",
+  "metric": "share_atypical_length",
+  "value": 0.4775
+ },
+ {
+  "dimension": "B_architecture",
+  "group": "soil",
+  "metric": "share_single_domain_core",
+  "value": 0.2074,
+  "ci_lo": 0.1695,
+  "ci_hi": 0.2513
+ },
+ {
+  "dimension": "B_architecture",
+  "group": "soil",
+  "metric": "share_extended",
+  "value": 0.008,
+  "ci_lo": 0.0027,
+  "ci_hi": 0.0232
+ },
+ {
+  "dimension": "B_architecture",
+  "group": "soil",
+  "metric": "share_truncated_core",
+  "value": 0.7846,
+  "ci_lo": 0.7403,
+  "ci_hi": 0.8231
+ },
+ {
+  "dimension": "B_architecture",
+  "group": "soil",
+  "metric": "share_atypical_length",
+  "value": 0.641
+ },
+ {
+  "dimension": "B_architecture",
+  "group": "corpus",
+  "metric": "share_single_domain_core",
+  "value": 0.7472
+ },
+ {
+  "dimension": "B_architecture",
+  "group": "corpus",
+  "metric": "share_extended",
+  "value": 0.1317
+ },
+ {
+  "dimension": "B_architecture",
+  "group": "corpus",
+  "metric": "share_truncated_core",
+  "value": 0.0808
+ },
+ {
+  "dimension": "B_architecture",
+  "group": "corpus",
+  "metric": "share_fusion",
+  "value": 0.0403
+ },
+ {
+  "dimension": "B_architecture",
+  "group": "ALL",
+  "metric": "fusion_assessable",
+  "value": 0,
+  "note": "fusion not assessable for pilot (PF01036-only retrieval); pilot fusion rate underestimated by construction"
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "marine",
+  "metric": "n_clusters_std_90",
+  "value": 814
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "marine",
+  "metric": "singleton_share_std_90",
+  "value": 0.8759
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "marine",
+  "metric": "largest_cluster_std_90",
+  "value": 13
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "marine",
+  "metric": "n_clusters_intermediate_65",
+  "value": 473
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "marine",
+  "metric": "singleton_share_intermediate_65",
+  "value": 0.759
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "marine",
+  "metric": "largest_cluster_intermediate_65",
+  "value": 47
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "soil",
+  "metric": "n_clusters_std_90",
+  "value": 365
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "soil",
+  "metric": "singleton_share_std_90",
+  "value": 0.9753
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "soil",
+  "metric": "largest_cluster_std_90",
+  "value": 3
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "soil",
+  "metric": "n_clusters_intermediate_65",
+  "value": 324
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "soil",
+  "metric": "singleton_share_intermediate_65",
+  "value": 0.9105
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "soil",
+  "metric": "largest_cluster_intermediate_65",
+  "value": 7
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "corpus",
+  "metric": "n_clusters_std_90",
+  "value": 3344
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "corpus",
+  "metric": "singleton_share_std_90",
+  "value": 0.7892
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "corpus",
+  "metric": "n_clusters_intermediate_65",
+  "value": 1270
+ },
+ {
+  "dimension": "C_redundancy",
+  "group": "corpus",
+  "metric": "singleton_share_intermediate_65",
+  "value": 0.6008
+ },
+ {
+  "dimension": "D_similarity",
+  "group": "marine",
+  "metric": "share_no_corpus_hit",
+  "value": 0.2695,
+  "ci_lo": 0.2426,
+  "ci_hi": 0.2982,
+  "note": "no DIAMOND hit vs corpus at default threshold"
+ },
+ {
+  "dimension": "D_similarity",
+  "group": "marine",
+  "metric": "median_max_pident",
+  "value": 63.8
+ },
+ {
+  "dimension": "D_similarity",
+  "group": "marine",
+  "metric": "share_ge90",
+  "value": 0.0184,
+  "ci_lo": 0.0117,
+  "ci_hi": 0.029
+ },
+ {
+  "dimension": "D_similarity",
+  "group": "marine",
+  "metric": "share_50_90",
+  "value": 0.54,
+  "ci_lo": 0.5086,
+  "ci_hi": 0.571
+ },
+ {
+  "dimension": "D_similarity",
+  "group": "marine",
+  "metric": "share_lt50",
+  "value": 0.1721,
+  "ci_lo": 0.1497,
+  "ci_hi": 0.1971
+ },
+ {
+  "dimension": "D_similarity",
+  "group": "soil",
+  "metric": "share_no_corpus_hit",
+  "value": 0.6117,
+  "ci_lo": 0.5615,
+  "ci_hi": 0.6596,
+  "note": "no DIAMOND hit vs corpus at default threshold"
+ },
+ {
+  "dimension": "D_similarity",
+  "group": "soil",
+  "metric": "median_max_pident",
+  "value": 69.3
+ },
+ {
+  "dimension": "D_similarity",
+  "group": "soil",
+  "metric": "share_ge90",
+  "value": 0.0213,
+  "ci_lo": 0.0108,
+  "ci_hi": 0.0414
+ },
+ {
+  "dimension": "D_similarity",
+  "group": "soil",
+  "metric": "share_50_90",
+  "value": 0.2926,
+  "ci_lo": 0.2489,
+  "ci_hi": 0.3405
+ },
+ {
+  "dimension": "D_similarity",
+  "group": "soil",
+  "metric": "share_lt50",
+  "value": 0.0745,
+  "ci_lo": 0.052,
+  "ci_hi": 0.1055
+ },
+ {
+  "dimension": "F_subfamily",
+  "group": "marine",
+  "metric": "share_assignable(id>=0.40,cov>=0.50)",
+  "value": 0.5277,
+  "ci_lo": 0.4963,
+  "ci_hi": 0.5588
+ },
+ {
+  "dimension": "F_subfamily",
+  "group": "marine",
+  "metric": "top_subfamilies",
+  "value": "xanthorhodopsin:172; proteorhodopsin:165; sensory_rhodopsin_I:47; anabaena_sensory:40; sensory_rhodopsin_II:37"
+ },
+ {
+  "dimension": "F_subfamily",
+  "group": "soil",
+  "metric": "share_assignable(id>=0.40,cov>=0.50)",
+  "value": 0.2739,
+  "ci_lo": 0.2313,
+  "ci_hi": 0.3211
+ },
+ {
+  "dimension": "F_subfamily",
+  "group": "soil",
+  "metric": "top_subfamilies",
+  "value": "anabaena_sensory:23; bacteriorhodopsin:18; halorhodopsin:17; xanthorhodopsin:12; channelrhodopsin:10"
+ },
+ {
+  "dimension": "G_artifacts",
+  "group": "marine",
+  "metric": "share_score_lt_0.40",
+  "value": 0.3125
+ },
+ {
+  "dimension": "G_artifacts",
+  "group": "marine",
+  "metric": "share_truncated_core",
+  "value": 0.4898
+ },
+ {
+  "dimension": "G_artifacts",
+  "group": "marine",
+  "metric": "share_no_retinal_lysine",
+  "value": 0.4846
+ },
+ {
+  "dimension": "G_artifacts",
+  "group": "marine",
+  "metric": "share_len_lt_100",
+  "value": 0.1721
+ },
+ {
+  "dimension": "G_fp_like",
+  "group": "marine",
+  "metric": "n_fp_like",
+  "value": 92
+ },
+ {
+  "dimension": "G_fp_like",
+  "group": "marine",
+  "metric": "share_fp_like",
+  "value": 0.0943,
+  "ci_lo": 0.0775,
+  "ci_hi": 0.1142
+ },
+ {
+  "dimension": "G_reverse",
+  "group": "marine",
+  "metric": "n_weakE_highScore",
+  "value": 0
+ },
+ {
+  "dimension": "G_artifacts",
+  "group": "soil",
+  "metric": "share_score_lt_0.40",
+  "value": 0.6596
+ },
+ {
+  "dimension": "G_artifacts",
+  "group": "soil",
+  "metric": "share_truncated_core",
+  "value": 0.7846
+ },
+ {
+  "dimension": "G_artifacts",
+  "group": "soil",
+  "metric": "share_no_retinal_lysine",
+  "value": 0.7606
+ },
+ {
+  "dimension": "G_artifacts",
+  "group": "soil",
+  "metric": "share_len_lt_100",
+  "value": 0.2367
+ },
+ {
+  "dimension": "G_fp_like",
+  "group": "soil",
+  "metric": "n_fp_like",
+  "value": 19
+ },
+ {
+  "dimension": "G_fp_like",
+  "group": "soil",
+  "metric": "share_fp_like",
+  "value": 0.0505,
+  "ci_lo": 0.0326,
+  "ci_hi": 0.0776
+ },
+ {
+  "dimension": "G_reverse",
+  "group": "soil",
+  "metric": "n_weakE_highScore",
+  "value": 0
+ },
+ {
+  "dimension": "G_fp_like",
+  "group": "corpus",
+  "metric": "share_fp_like",
+  "value": 0.009
+ },
+ {
+  "dimension": "H_missingness",
+  "group": "marine",
+  "metric": "sample_latitude_present",
+  "value": 1.0
+ },
+ {
+  "dimension": "H_missingness",
+  "group": "marine",
+  "metric": "sample_collection-date_present",
+  "value": 0.84
+ },
+ {
+  "dimension": "H_missingness",
+  "group": "marine",
+  "metric": "sample_environment-material_present",
+  "value": 0.52
+ },
+ {
+  "dimension": "H_missingness",
+  "group": "soil",
+  "metric": "sample_latitude_present",
+  "value": 1.0
+ },
+ {
+  "dimension": "H_missingness",
+  "group": "soil",
+  "metric": "sample_collection-date_present",
+  "value": 0.5455
+ },
+ {
+  "dimension": "H_missingness",
+  "group": "soil",
+  "metric": "sample_environment-material_present",
+  "value": 1.0
+ },
+ {
+  "dimension": "stats",
+  "comparison": "marine_vs_corpus",
+  "metric": "KS_score",
+  "statistic": 0.2969,
+  "pvalue": 7.303e-65,
+  "qvalue_BH": 1.388e-64
+ },
+ {
+  "dimension": "stats",
+  "comparison": "soil_vs_corpus",
+  "metric": "KS_score",
+  "statistic": 0.6547,
+  "pvalue": 1.329e-146,
+  "qvalue_BH": 2.806e-146
+ },
+ {
+  "dimension": "stats",
+  "comparison": "marine_vs_soil",
+  "metric": "KS_score",
+  "statistic": 0.3655,
+  "pvalue": 8.284e-33,
+  "qvalue_BH": 1.312e-32
+ },
+ {
+  "dimension": "stats",
+  "comparison": "marine_vs_corpus",
+  "metric": "KS_length",
+  "statistic": 0.5807,
+  "pvalue": 2.591e-261,
+  "qvalue_BH": 1.641e-260
+ },
+ {
+  "dimension": "stats",
+  "comparison": "soil_vs_corpus",
+  "metric": "KS_length",
+  "statistic": 0.6641,
+  "pvalue": 1.869e-151,
+  "qvalue_BH": 4.438e-151
+ },
+ {
+  "dimension": "stats",
+  "comparison": "marine_vs_soil",
+  "metric": "KS_length",
+  "statistic": 0.1819,
+  "pvalue": 2.472e-08,
+  "qvalue_BH": 2.609e-08
+ },
+ {
+  "dimension": "stats",
+  "comparison": "marine_vs_corpus",
+  "metric": "KS_hmm_cov",
+  "statistic": 0.499,
+  "pvalue": 7.239e-189,
+  "qvalue_BH": 1.965e-188
+ },
+ {
+  "dimension": "stats",
+  "comparison": "soil_vs_corpus",
+  "metric": "KS_hmm_cov",
+  "statistic": 0.73,
+  "pvalue": 5.07e-189,
+  "qvalue_BH": 1.605e-188
+ },
+ {
+  "dimension": "stats",
+  "comparison": "marine_vs_soil",
+  "metric": "KS_hmm_cov",
+  "statistic": 0.3342,
+  "pvalue": 2.084e-27,
+  "qvalue_BH": 2.828e-27
+ },
+ {
+  "dimension": "stats",
+  "comparison": "marine_vs_soil",
+  "metric": "KS_identity_to_corpus",
+  "statistic": 0.1699,
+  "pvalue": 0.001566,
+  "qvalue_BH": 0.001566
+ },
+ {
+  "dimension": "stats",
+  "comparison": "marine_vs_corpus",
+  "metric": "share_ge_0.90",
+  "statistic": NaN,
+  "pvalue": 1.603e-21,
+  "qvalue_BH": 1.904e-21
+ },
+ {
+  "dimension": "stats",
+  "comparison": "soil_vs_corpus",
+  "metric": "share_ge_0.90",
+  "statistic": NaN,
+  "pvalue": 3.282e-41,
+  "qvalue_BH": 5.669e-41
+ },
+ {
+  "dimension": "stats",
+  "comparison": "marine_vs_soil",
+  "metric": "share_ge_0.90",
+  "statistic": NaN,
+  "pvalue": 1.806e-13,
+  "qvalue_BH": 2.019e-13
+ },
+ {
+  "dimension": "stats",
+  "comparison": "marine_vs_corpus",
+  "metric": "share_lt_0.40",
+  "statistic": NaN,
+  "pvalue": 1.689e-249,
+  "qvalue_BH": 8.023e-249
+ },
+ {
+  "dimension": "stats",
+  "comparison": "soil_vs_corpus",
+  "metric": "share_lt_0.40",
+  "statistic": NaN,
+  "pvalue": 0.0,
+  "qvalue_BH": 0.0
+ },
+ {
+  "dimension": "stats",
+  "comparison": "marine_vs_soil",
+  "metric": "share_lt_0.40",
+  "statistic": NaN,
+  "pvalue": 2.888e-31,
+  "qvalue_BH": 4.221e-31
+ },
+ {
+  "dimension": "stats",
+  "comparison": "marine_vs_corpus",
+  "metric": "share_truncated",
+  "statistic": NaN,
+  "pvalue": 5.432e-246,
+  "qvalue_BH": 2.064e-245
+ },
+ {
+  "dimension": "stats",
+  "comparison": "soil_vs_corpus",
+  "metric": "share_truncated",
+  "statistic": NaN,
+  "pvalue": 0.0,
+  "qvalue_BH": 0.0
+ },
+ {
+  "dimension": "stats",
+  "comparison": "marine_vs_soil",
+  "metric": "share_truncated",
+  "statistic": NaN,
+  "pvalue": 9.606e-23,
+  "qvalue_BH": 1.217e-22
+ },
+ {
+  "dimension": "E_placement",
+  "group": "marine",
+  "metric": "n_placed",
+  "value": 976
+ },
+ {
+  "dimension": "E_placement",
+  "group": "marine",
+  "metric": "median_best_lwr",
+  "value": 0.9948
+ },
+ {
+  "dimension": "E_placement",
+  "group": "marine",
+  "metric": "share_lwr_ge_0.9",
+  "value": 0.6127
+ },
+ {
+  "dimension": "E_placement",
+  "group": "marine",
+  "metric": "share_novel_clade",
+  "value": 0.0307
+ },
+ {
+  "dimension": "E_placement",
+  "group": "marine",
+  "metric": "median_novel_lwr",
+  "value": 0.0
+ },
+ {
+  "dimension": "E_placement",
+  "group": "marine",
+  "metric": "top_clades",
+  "value": "MR_CLD_033:534; MR_CLD_014:103; MR_CLD_056:41; MR_CLD_046:29; MR_CLD_025:27; MR_CLD_021:21; MR_CLD_030:21; MR_CLD_036:17"
+ },
+ {
+  "dimension": "E_placement",
+  "group": "marine",
+  "metric": "n_distinct_clades",
+  "value": 38
+ },
+ {
+  "dimension": "E_placement",
+  "group": "soil",
+  "metric": "n_placed",
+  "value": 376
+ },
+ {
+  "dimension": "E_placement",
+  "group": "soil",
+  "metric": "median_best_lwr",
+  "value": 0.6454
+ },
+ {
+  "dimension": "E_placement",
+  "group": "soil",
+  "metric": "share_lwr_ge_0.9",
+  "value": 0.3271
+ },
+ {
+  "dimension": "E_placement",
+  "group": "soil",
+  "metric": "share_novel_clade",
+  "value": 0.0505
+ },
+ {
+  "dimension": "E_placement",
+  "group": "soil",
+  "metric": "median_novel_lwr",
+  "value": 0.0
+ },
+ {
+  "dimension": "E_placement",
+  "group": "soil",
+  "metric": "top_clades",
+  "value": "MR_CLD_099:36; MR_CLD_026:29; MR_CLD_030:22; MR_CLD_014:22; MR_CLD_036:21; MR_CLD_025:19; MR_CLD_033:17; MR_CLD_046:15"
+ },
+ {
+  "dimension": "E_placement",
+  "group": "soil",
+  "metric": "n_distinct_clades",
+  "value": 41
+ },
+ {
+  "dimension": "E_placement",
+  "group": "ALL",
+  "metric": "edge2clade_gate_agreement",
+  "value": 1.0,
+  "note": "367/367 shared edges agree with PR13.3 map"
+ },
+ {
+  "dimension": "E_placement",
+  "group": "ALL",
+  "metric": "model_deviation",
+  "value": "FreeRate weights uniform (1/6); Q.PFAM matrix, empirical backbone freqs, and R6 rate ratios exact",
+  "note": "epa-ng 0.3.8 cannot pin FreeRate weights; frozen weights were 0.016/0.057/0.158/0.282/0.242/0.245"
+ }
+]

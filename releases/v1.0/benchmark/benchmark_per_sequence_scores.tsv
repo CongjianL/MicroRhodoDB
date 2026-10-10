@@ -1,0 +1,262 @@
+source_acc	provenance	is_positive	partial_positive	score_full	membership_category	gate_retinal_lysine	gate_complete_core	gate_positive_typeI_margin	has_retinal_lysine	hmm_cov	dom_score	score_margin_typeI_vs_helio	seed_best_id
+P02945	PF01036_reviewed_typeI	1	0	0.9918144225394074	high_confidence_type_I	True	True	True	True	0.9821	250.1		1.0
+Q6J4G7	PF01036_reviewed_typeI	1	0	0.9889451796621842	high_confidence_type_I	True	True	True	True	0.9866	150.7		1.0
+B0R2U4	PF01036_reviewed_typeI	1	0	0.9906990714776178	high_confidence_type_I	True	True	True	True	0.9821	161.9		1.0
+P42196	PF01036_reviewed_typeI	1	0	0.9936670308352192	high_confidence_type_I	True	True	True	True	0.9866	221.5		1.0
+P94854	PF01036_reviewed_typeI	1	0	0.9436021793139205	high_confidence_type_I	True	True	True	True	0.9777	246.1		0.536
+Q18DH5	PF01036_reviewed_typeI	1	0	0.932217503677358	high_confidence_type_I	True	True	True	True	0.9732	204.0		0.455
+Q18DH8	PF01036_reviewed_typeI	1	0	0.9453365219239684	high_confidence_type_I	True	True	True	True	0.9821	225.6		0.559
+Q5V4H7	PF01036_reviewed_typeI	1	0	0.9049756152367322	high_confidence_type_I	True	True	True	True	0.9598	115.6		0.31
+Q9AFF7	PF01036_reviewed_typeI	1	0	0.9675883146047997	high_confidence_type_I	True	True	True	True	0.9866	151.2		0.791
+Q9F7P4	PF01036_reviewed_typeI	1	0	0.9897451796621841	high_confidence_type_I	True	True	True	True	0.9866	150.7		1.0
+Q9UW81	PF01036_reviewed_typeI	1	0	0.9088282709332741	high_confidence_type_I	True	True	True	True	0.9643	141.5	121.9	0.333
+B0R633	PF01036_reviewed_typeI	1	0	0.9802701071674078	high_confidence_type_I	True	True	True	True	0.9464	132.6		1.0
+G0LFX8	PF01036_reviewed_typeI	1	0	0.9453365219239684	high_confidence_type_I	True	True	True	True	0.9821	225.6		0.559
+O93740	PF01036_reviewed_typeI	1	0	0.939905494900046	high_confidence_type_I	True	True	True	True	0.9777	226.5		0.543
+O93741	PF01036_reviewed_typeI	1	0	0.9516608213655026	high_confidence_type_I	True	True	True	True	0.9821	152.2		0.713
+O93742	PF01036_reviewed_typeI	1	0	0.952793960725245	high_confidence_type_I	True	True	True	True	0.9821	179.8		0.648
+O93743	PF01036_reviewed_typeI	1	0	0.9412495194674424	high_confidence_type_I	True	True	True	True	0.9509	134.4		0.697
+P0DMH7	PF01036_reviewed_typeI	1	0	0.9906990714776178	high_confidence_type_I	True	True	True	True	0.9821	161.9		1.0
+P0DMH8	PF01036_reviewed_typeI	1	0	0.9802701071674078	high_confidence_type_I	True	True	True	True	0.9464	132.6		1.0
+P15647	PF01036_reviewed_typeI	1	0	0.9423363281209751	high_confidence_type_I	True	True	True	True	0.9777	198.6		0.586
+P25619	N6_hsp30_pfam_clan	0	0	0.4456822981957867	rhodopsin_like	False	True	True	False	0.9062	39.2		0.0
+P29563	PF01036_reviewed_typeI	1	0	0.945951017660939	high_confidence_type_I	True	True	True	True	0.9821	238.9		0.557
+P33742	PF01036_reviewed_typeI	1	0	0.9522307352714439	high_confidence_type_I	True	True	True	True	0.9821	180.3		0.649
+P33743	PF01036_reviewed_typeI	1	0	0.9419462524215254	high_confidence_type_I	True	True	True	True	0.9509	136.1		0.705
+P33969	PF01036_reviewed_typeI	1	1	0.6788344147868767	rhodopsin_like	False	True	True	False	0.8973	212.4		0.547
+P33971	PF01036_reviewed_typeI	1	1	0.6825450983400804	rhodopsin_like	False	True	True	False	0.9152	223.4		0.54
+P33972	PF01036_reviewed_typeI	1	1	0.6797093713137591	rhodopsin_like	False	True	True	False	0.9062	215.6		0.536
+P38079	N6_hsp30_pfam_clan	0	0	0.4732971836866574	rhodopsin_like	False	True	True	False	0.9107	44.4		0.0
+P42197	PF01036_reviewed_typeI	1	0	0.9366877330642894	high_confidence_type_I	True	True	True	True	0.9911	224.8		0.436
+P69051	PF01036_reviewed_typeI	1	0	0.947595295366645	high_confidence_type_I	True	True	True	True	0.9821	247.0		0.606
+P69052	PF01036_reviewed_typeI	1	0	0.947595295366645	high_confidence_type_I	True	True	True	True	0.9821	247.0		0.606
+P71411	PF01036_reviewed_typeI	1	0	0.9270573646333727	high_confidence_type_I	True	True	True	True	0.9821	214.6		0.357
+P94853	PF01036_reviewed_typeI	1	0	0.9515949103601639	high_confidence_type_I	True	True	True	True	0.9777	166.2		0.676
+P96787	PF01036_reviewed_typeI	1	0	0.9490590150168046	high_confidence_type_I	True	True	True	True	0.9821	243.9		0.598
+Q12117	N6_hsp30_pfam_clan	0	0	0.46849656768638337	rhodopsin_like	False	True	True	False	0.9062	43.7		0.0
+Q48314	PF01036_reviewed_typeI	1	0	0.9511403914851724	high_confidence_type_I	True	True	True	True	0.9777	165.7		0.672
+Q48315	PF01036_reviewed_typeI	1	0	0.9511209703467366	high_confidence_type_I	True	True	True	True	0.9777	165.0		0.675
+Q53461	PF01036_reviewed_typeI	1	0	0.882705264320858	high_confidence_type_I	True	True	True	True	0.6116	115.5		0.72
+Q53496	PF01036_reviewed_typeI	1	0	0.9397440313191818	high_confidence_type_I	True	True	True	True	0.9821	228.6		0.519
+Q57101	PF01036_reviewed_typeI	1	0	0.9409368781453424	high_confidence_type_I	True	True	True	True	0.9777	248.2		0.528
+Q5UXM9	PF01036_reviewed_typeI	1	0	0.9307577136462323	high_confidence_type_I	True	True	True	True	0.9062	120.2		0.667
+Q5UXY6	PF01036_reviewed_typeI	1	0	0.9408914389564089	high_confidence_type_I	True	True	True	True	0.9777	242.6		0.528
+Q5V0R5	PF01036_reviewed_typeI	1	0	0.9429899281248209	high_confidence_type_I	True	True	True	True	0.9821	225.0		0.541
+Q5V1N0	PF01036_reviewed_typeI	1	0	0.9511403914851724	high_confidence_type_I	True	True	True	True	0.9777	165.7		0.672
+Q5V5V3	PF01036_reviewed_typeI	1	0	0.9366877330642894	high_confidence_type_I	True	True	True	True	0.9911	224.8		0.436
+Q70LL3	PF01036_reviewed_typeI	1	0	0.9063022492886084	high_confidence_type_I	True	True	True	True	0.9598	146.3		0.306
+S0ELR6	PF01036_reviewed_typeI	1	0	0.9063022492886084	high_confidence_type_I	True	True	True	True	0.9598	146.3		0.306
+O74631	N6_hsp30_pfam_clan	0	0	0.6228454162787963	rhodopsin_like	False	True	True	False	0.9375	88.9		0.261
+O74870	N6_hsp30_pfam_clan	0	0	0.5262813274415831	rhodopsin_like	False	True	True	False	0.9375	53.9		0.0
+P33970	PF01036_reviewed_typeI	1	1	0.6789042693067786	rhodopsin_like	False	True	True	False	0.8527	150.3		0.654
+Q48334	PF01036_reviewed_typeI	1	0	0.9441216077202452	high_confidence_type_I	True	True	True	True	0.942	125.8		0.661
+A0A840X4S0	N2_heliorhodopsin_PF18761	0	0	0.787125560023015	rejected	True	True	False	True	0.9959	311.1		0.424
+A0A7G7BG75	N2_heliorhodopsin_PF18761	0	0	0.7838519510555566	rejected	True	True	False	True	1.0	317.7		0.407
+A0A4P7UDI0	N2_heliorhodopsin_PF18761	0	0	0.7936199621432036	rejected	True	True	False	True	1.0	340.0		0.482
+A0ABV5EDJ5	N2_heliorhodopsin_PF18761	0	0	0.7842449501224357	rejected	True	True	False	True	1.0	319.1		0.407
+A0A511FBI6	N2_heliorhodopsin_PF18761	0	0	0.7784295796507742	rejected	True	True	False	True	0.9256	295.6		0.456
+A0AAX4PDI4	N2_heliorhodopsin_PF18761	0	0	0.7629713567682337	rejected	True	True	False	True	0.9669	119.2		0.34
+C1FJA5	N2_heliorhodopsin_PF18761	0	0	0.5836891631241026	rejected	True	True	False	True	0.7025	39.2		0.0
+A0AAE4SYN2	N2_heliorhodopsin_PF18761	0	0	0.4540040744307314	rejected	True	False	False	True	0.1198	38.3		0.0
+A0ABW1T0J0	N2_heliorhodopsin_PF18761	0	0	0.7971082545551464	rejected	True	True	False	True	1.0	344.0	-332.0	0.526
+A0A239HPT1	N2_heliorhodopsin_PF18761	0	0	0.7875396185476539	rejected	True	True	False	True	1.0	333.8		0.439
+A0A941D8Y1	N2_heliorhodopsin_PF18761	0	0	0.7898915324580856	rejected	True	True	False	True	1.0	314.0		0.452
+A0A1M6K806	N2_heliorhodopsin_PF18761	0	0	0.8032496662282425	rejected	True	True	False	True	1.0	337.6		0.564
+A0AAW6UAL7	N2_heliorhodopsin_PF18761	0	0	0.8248138903859958	rejected	True	True	False	True	1.0	321.5		0.785
+A0A9K3PXY3	N2_heliorhodopsin_PF18761	0	0	0.7628796051208206	rejected	True	True	False	True	0.9793	165.1		0.316
+D9PXH0	N2_heliorhodopsin_PF18761	0	0	0.8221529310165685	rejected	True	True	False	True	0.9959	313.4		0.758
+A0A927EY07	N2_heliorhodopsin_PF18761	0	0	0.7832807907920913	rejected	True	True	False	True	1.0	317.9		0.402
+A0A2R5GFT6	N2_heliorhodopsin_PF18761	0	0	0.7390479842803904	rejected	True	True	False	True	0.8223	92.3		0.323
+A0ABT1KU33	N2_heliorhodopsin_PF18761	0	0	0.7890780773809987	rejected	True	True	False	True	1.0	333.1		0.433
+A0A1P8F8J5	N2_heliorhodopsin_PF18761	0	0	0.7948935166802568	rejected	True	True	False	True	1.0	323.5		0.482
+A0A4R8UU61	N2_heliorhodopsin_PF18761	0	0	0.7886646385631149	rejected	True	True	False	True	0.9959	310.3		0.435
+A0A7Z0CKR1	N2_heliorhodopsin_PF18761	0	0	0.7901583498191118	rejected	True	True	False	True	1.0	309.6		0.442
+A0A4R8WVM4	N2_heliorhodopsin_PF18761	0	0	0.2039556721183622	rejected	False	False	False	False	0.1446	34.4		0.0
+A0A1I3PGL5	N2_heliorhodopsin_PF18761	0	0	0.7878001219203667	rejected	True	True	False	True	1.0	337.3		0.459
+A0ABY2JAN2	N2_heliorhodopsin_PF18761	0	0	0.7910676249430517	rejected	True	True	False	True	0.9959	319.1		0.458
+A0A7G9R9Z0	N2_heliorhodopsin_PF18761	0	0	0.7912384064095749	rejected	True	True	False	True	1.0	331.5		0.463
+B5YBS3	N2_heliorhodopsin_PF18761	0	0	0.8000425980221748	rejected	True	True	False	True	1.0	326.0		0.528
+A0ABV5V2L2	N2_heliorhodopsin_PF18761	0	0	0.7922022912057035	rejected	True	True	False	True	1.0	342.1		0.47
+A0ABW7ZUR1	N2_heliorhodopsin_PF18761	0	0	0.7926125595935388	rejected	True	True	False	True	1.0	290.3		0.468
+A0AAE3IBF9	N2_heliorhodopsin_PF18761	0	0	0.7934181068716314	rejected	True	True	False	True	1.0	322.0		0.51
+A0A3G8ZKU3	N2_heliorhodopsin_PF18761	0	0	0.7847904589710656	rejected	True	True	False	True	1.0	323.8		0.393
+A0AAE0EUF5	N2_heliorhodopsin_PF18761	0	0	0.6871296918077423	rejected	True	True	False	True	0.9463	53.6		0.0
+A0A4Q2RNI4	N2_heliorhodopsin_PF18761	0	0	0.7898203980696934	rejected	True	True	False	True	1.0	336.9		0.448
+A0ABS6BY13	N2_heliorhodopsin_PF18761	0	0	0.8035433400851139	rejected	True	True	False	True	1.0	340.2		0.573
+A0A5Q2RIU4	N2_heliorhodopsin_PF18761	0	0	0.7941828643789354	rejected	True	True	False	True	1.0	318.2		0.492
+A0A7T3FVB8	N2_heliorhodopsin_PF18761	0	0	0.7975917936349188	rejected	True	True	False	True	1.0	336.5		0.508
+A0A1I6UR39	N2_heliorhodopsin_PF18761	0	0	0.8258319969305776	rejected	True	True	False	True	1.0	333.8		0.801
+A0A511X245	N2_heliorhodopsin_PF18761	0	0	0.8239686895488185	rejected	True	True	False	True	1.0	330.7		0.775
+A0A930VPW1	N2_heliorhodopsin_PF18761	0	0	0.7948711050464127	rejected	True	True	False	True	1.0	346.1		0.516
+A0A6C7E2E1	N2_heliorhodopsin_PF18761	0	0	0.7870564953832635	rejected	True	True	False	True	1.0	326.3		0.417
+A0A4V1RJF2	N2_heliorhodopsin_PF18761	0	0	0.7878906814251396	rejected	True	True	False	True	1.0	331.9		0.443
+A0A1W1IHM2	N2_heliorhodopsin_PF18761	0	0	0.8337804103838093	rejected	True	True	False	True	1.0	331.6		0.863
+Q4A378	N2_heliorhodopsin_PF18761	0	0	0.7070861695965626	rejected	True	True	False	True	0.9669	59.5		0.0
+A0AAE0L925	N2_heliorhodopsin_PF18761	0	0	0.344888164292364	rejected	False	True	False	False	0.7273	36.7	-21.000000000000004	0.288
+C6A581	N2_heliorhodopsin_PF18761	0	0	0.8049335442807394	rejected	True	True	False	True	0.9959	295.0		0.593
+G0X3D7	N2_heliorhodopsin_PF18761	0	0	0.6756702286756922	rejected	True	False	False	True	0.2562	103.8		0.75
+A0A1X7MQ41	N2_heliorhodopsin_PF18761	0	0	0.8032974110545601	rejected	True	True	False	True	1.0	340.2		0.565
+A0A021VMW3	N2_heliorhodopsin_PF18761	0	0	0.791699131558161	rejected	True	True	False	True	1.0	338.9		0.472
+E1ZG21	N2_heliorhodopsin_PF18761	0	0	0.7492307994417525	rejected	True	True	False	True	0.9876	125.8		0.0
+A0ABD5ZQF2	N2_heliorhodopsin_PF18761	0	0	0.7981274341817846	rejected	True	True	False	True	1.0	329.5		0.514
+A0A1B1BQ24	N2_heliorhodopsin_PF18761	0	0	0.7887212020319788	rejected	True	True	False	True	0.9959	315.2		0.434
+Q25158	N1_animal_typeII_opsin	0	0	0.11012809304072421	rejected	False	False	False	False				0.0
+P22330	N1_animal_typeII_opsin	0	0	0.11208996137442592	rejected	False	False	False	False				0.0
+Q90309	N1_animal_typeII_opsin	0	0	0.10878049072879088	rejected	False	False	False	False				0.0
+P35362	N1_animal_typeII_opsin	0	0	0.10796836747771092	rejected	False	False	False	False				0.0
+O57605	N1_animal_typeII_opsin	0	0	0.11139360209094676	rejected	False	False	False	False				0.0
+Q9Z2B3	N1_animal_typeII_opsin	0	0	0.10934495092448149	rejected	False	False	False	False				0.0
+Q4R1I4	N1_animal_typeII_opsin	0	0	0.10806426519115118	rejected	False	False	False	False				0.0
+O18911	N1_animal_typeII_opsin	0	0	0.11221769119530103	rejected	False	False	False	False				0.0
+P47803	N1_animal_typeII_opsin	0	0	0.10966066186044361	rejected	False	False	False	False				0.0
+Q9W6A5	N1_animal_typeII_opsin	0	0	0.110549327711959	rejected	False	False	False	False				0.0
+P35361	N1_animal_typeII_opsin	0	0	0.11150102875294296	rejected	False	False	False	False				0.0
+Q8AYM7	N1_animal_typeII_opsin	0	0	0.10934495092448149	rejected	False	False	False	False				0.0
+Q1JPS6	N1_animal_typeII_opsin	0	0	0.1113058337391239	rejected	False	False	False	False				0.0
+P28682	N1_animal_typeII_opsin	0	0	0.11135227635740585	rejected	False	False	False	False				0.0
+P51491	N1_animal_typeII_opsin	0	0	0.1104562495524327	rejected	False	False	False	False				0.0
+Q4U4D2	N1_animal_typeII_opsin	0	0	0.11159893612254847	rejected	False	False	False	False				0.0
+P28684	N1_animal_typeII_opsin	0	0	0.11072202640472147	rejected	False	False	False	False				0.0
+Q9W6A6	N1_animal_typeII_opsin	0	0	0.10966066186044361	rejected	False	False	False	False				0.0
+P28678	N1_animal_typeII_opsin	0	0	0.1071711970262069	rejected	False	False	False	False				0.0
+Q804Q2	N1_animal_typeII_opsin	0	0	0.11089003271511494	rejected	False	False	False	False				0.0
+Q8R456	N1_animal_typeII_opsin	0	0	0.1126274615966231	rejected	False	False	False	False				0.0
+P87367	N1_animal_typeII_opsin	0	0	0.11266841416226578	rejected	False	False	False	False				0.0
+P91657	N1_animal_typeII_opsin	0	0	0.10934495092448149	rejected	False	False	False	False				0.0
+O12948	N1_animal_typeII_opsin	0	0	0.11262057097004183	rejected	False	False	False	False				0.0
+O13018	N1_animal_typeII_opsin	0	0	0.10998940980161727	rejected	False	False	False	False				0.0
+P17646	N1_animal_typeII_opsin	0	0	0.11023042339539216	rejected	False	False	False	False				0.0
+O13092	N1_animal_typeII_opsin	0	0	0.11074895504402098	rejected	False	False	False	False				0.0
+P51475	N1_animal_typeII_opsin	0	0	0.11101913142262151	rejected	False	False	False	False				0.0
+Q8AYN0	N1_animal_typeII_opsin	0	0	0.11258192669073305	rejected	False	False	False	False				0.0
+Q804X9	N1_animal_typeII_opsin	0	0	0.11051474218669191	rejected	False	False	False	False				0.0
+Q7T3Q7	N1_animal_typeII_opsin	0	0	0.11248165687440004	rejected	False	False	False	False				0.0
+P17645	N1_animal_typeII_opsin	0	0	0.09355109155526778	rejected	False	False	False	False				0.0
+Q9W6A8	N1_animal_typeII_opsin	0	0	0.11086445337413148	rejected	False	False	False	False				0.0
+P34989	N1_animal_typeII_opsin	0	0	0.11221769119530103	rejected	False	False	False	False				0.0
+Q26495	N1_animal_typeII_opsin	0	0	0.1085529623334684	rejected	False	False	False	False				0.0
+O02464	N1_animal_typeII_opsin	0	0	0.1109702480217978	rejected	False	False	False	False				0.0
+O18914	N1_animal_typeII_opsin	0	0	0.11174619310476669	rejected	False	False	False	False				0.0
+O02465	N1_animal_typeII_opsin	0	0	0.10938363502292951	rejected	False	False	False	False				0.0
+P0DN77	N1_animal_typeII_opsin	0	0	0.11169163703048048	rejected	False	False	False	False				0.0
+Q94741	N1_animal_typeII_opsin	0	0	0.10962417215352153	rejected	False	False	False	False				0.0
+O18912	N1_animal_typeII_opsin	0	0	0.11240616914237374	rejected	False	False	False	False				0.0
+P28679	N1_animal_typeII_opsin	0	0	0.11012809304072421	rejected	False	False	False	False				0.0
+P87368	N1_animal_typeII_opsin	0	0	0.10954285687989881	rejected	False	False	False	False				0.0
+O18910	N1_animal_typeII_opsin	0	0	0.11206098803643352	rejected	False	False	False	False				0.0
+Q17053	N1_animal_typeII_opsin	0	0	0.10821528300064316	rejected	False	False	False	False				0.0
+P35358	N1_animal_typeII_opsin	0	0	0.11203402825049873	rejected	False	False	False	False				0.0
+P51472	N1_animal_typeII_opsin	0	0	0.1111187182887803	rejected	False	False	False	False				0.0
+O01668	N1_animal_typeII_opsin	0	0	0.10840893045744454	rejected	False	False	False	False				0.0
+P22269	N1_animal_typeII_opsin	0	0	0.10672034602299553	rejected	False	False	False	False				0.0
+P51473	N1_animal_typeII_opsin	0	0	0.11032991288642433	rejected	False	False	False	False				0.0
+P06002	N1_animal_typeII_opsin	0	0	0.10711846595250263	rejected	False	False	False	False				0.0
+P03999	N1_animal_typeII_opsin	0	0	0.11009552612443403	rejected	False	False	False	False				0.0
+Q9BGI7	N1_animal_typeII_opsin	0	0	0.11225408037833577	rejected	False	False	False	False				0.0
+Q6XL69	N1_animal_typeII_opsin	0	0	0.11215568627266931	rejected	False	False	False	False				0.0
+Q5YKK9	N1_animal_typeII_opsin	0	0	0.11216789333768411	rejected	False	False	False	False				0.0
+P51474	N1_animal_typeII_opsin	0	0	0.11042660189257605	rejected	False	False	False	False				0.0
+Q95170	N1_animal_typeII_opsin	0	0	0.11225408037833577	rejected	False	False	False	False				0.0
+P35357	N1_animal_typeII_opsin	0	0	0.10957999558054826	rejected	False	False	False	False				0.0
+P47804	N1_animal_typeII_opsin	0	0	0.1071711970262069	rejected	False	False	False	False				0.0
+D5H3X0	N1_animal_typeII_opsin	0	0	0.10957999558054826	rejected	False	False	False	False				0.0
+Q8HZP3	N3_nonopsin_7TM_GPCR	0	0	0.11094045801900995	rejected	False	False	False	False				0.0
+Q9QYC5	N3_nonopsin_7TM_GPCR	0	0	0.11141799409093128	rejected	False	False	False	False				0.0
+P51052	N3_nonopsin_7TM_GPCR	0	0	0.11063413602964431	rejected	False	False	False	False				0.0
+Q864F7	N3_nonopsin_7TM_GPCR	0	0	0.11282720077193975	rejected	False	False	False	False				0.0
+Q91V45	N3_nonopsin_7TM_GPCR	0	0	0.11006267693483109	rejected	False	False	False	False				0.0
+P97266	N3_nonopsin_7TM_GPCR	0	0	0.1005551190013039	rejected	False	False	False	False				0.0
+O00398	N3_nonopsin_7TM_GPCR	0	0	0.11057785889551205	rejected	False	False	False	False				0.0
+Q6QMG1	N3_nonopsin_7TM_GPCR	0	0	0.11249016394333833	rejected	False	False	False	False				0.0
+Q5QD16	N3_nonopsin_7TM_GPCR	0	0	0.1117826327381696	rejected	False	False	False	False				0.0
+P56486	N3_nonopsin_7TM_GPCR	0	0	0.11172934388757838	rejected	False	False	False	False				0.0
+Q28886	N3_nonopsin_7TM_GPCR	0	0	0.11109537976776945	rejected	False	False	False	False				0.0
+O19014	N3_nonopsin_7TM_GPCR	0	0	0.11198963435254579	rejected	False	False	False	False				0.0
+P32238	N3_nonopsin_7TM_GPCR	0	0	0.11195819404657667	rejected	False	False	False	False				0.0
+O97881	N3_nonopsin_7TM_GPCR	0	0	0.11194365032842606	rejected	False	False	False	False				0.0
+P30557	N3_nonopsin_7TM_GPCR	0	0	0.11086445337413148	rejected	False	False	False	False				0.0
+Q5QD09	N3_nonopsin_7TM_GPCR	0	0	0.11039066904347049	rejected	False	False	False	False				0.0
+P32309	N3_nonopsin_7TM_GPCR	0	0	0.1122428498924746	rejected	False	False	False	False				0.0
+P79748	N3_nonopsin_7TM_GPCR	0	0	0.11195819404657667	rejected	False	False	False	False				0.0
+O18983	N3_nonopsin_7TM_GPCR	0	0	0.11159893612254847	rejected	False	False	False	False				0.0
+P79960	N3_nonopsin_7TM_GPCR	0	0	0.1117826327381696	rejected	False	False	False	False				0.0
+P43142	N3_nonopsin_7TM_GPCR	0	0	0.11133129488550508	rejected	False	False	False	False				0.0
+Q9TV45	N3_nonopsin_7TM_GPCR	0	0	0.11225408037833577	rejected	False	False	False	False				0.0
+P30730	N3_nonopsin_7TM_GPCR	0	0	0.11188080229601619	rejected	False	False	False	False				0.0
+Q16581	N3_nonopsin_7TM_GPCR	0	0	0.1113058337391239	rejected	False	False	False	False				0.0
+P97288	N3_nonopsin_7TM_GPCR	0	0	0.11236559245982383	rejected	False	False	False	False				0.0
+Q9H244	N3_nonopsin_7TM_GPCR	0	0	0.11145798404580859	rejected	False	False	False	False				0.0
+Q2HJ17	N3_nonopsin_7TM_GPCR	0	0	0.11192894662378329	rejected	False	False	False	False				0.0
+P28646	N3_nonopsin_7TM_GPCR	0	0	0.11181502093077175	rejected	False	False	False	False				0.0
+O93361	N3_nonopsin_7TM_GPCR	0	0	0.11104321709199465	rejected	False	False	False	False				0.0
+Q91ZB7	N3_nonopsin_7TM_GPCR	0	0	0.11216789333768411	rejected	False	False	False	False				0.0
+P56447	N3_nonopsin_7TM_GPCR	0	0	0.11262057097004183	rejected	False	False	False	False				0.0
+O02667	N3_nonopsin_7TM_GPCR	0	0	0.111865410328982	rejected	False	False	False	False				0.0
+G4WMX4	N3_nonopsin_7TM_GPCR	0	0	0.11141799409093128	rejected	False	False	False	False				0.0
+O42574	N3_nonopsin_7TM_GPCR	0	0	0.11237543190946817	rejected	False	False	False	False				0.0
+Q28585	N3_nonopsin_7TM_GPCR	0	0	0.11237543190946817	rejected	False	False	False	False				0.0
+P56450	N3_nonopsin_7TM_GPCR	0	0	0.11184985056623631	rejected	False	False	False	False				0.0
+P79756	N3_nonopsin_7TM_GPCR	0	0	0.11158051909368236	rejected	False	False	False	False				0.0
+P97520	N3_nonopsin_7TM_GPCR	0	0	0.11072202640472147	rejected	False	False	False	False				0.0
+Q9PU16	N3_nonopsin_7TM_GPCR	0	0	0.11227834394033706	rejected	False	False	False	False				0.0
+Q8HZU1	N3_nonopsin_7TM_GPCR	0	0	0.11163519416593226	rejected	False	False	False	False				0.0
+P43115	N3_nonopsin_7TM_GPCR	0	0	0.111865410328982	rejected	False	False	False	False				0.0
+Q9WVD0	N3_nonopsin_7TM_GPCR	0	0	0.11150102875294296	rejected	False	False	False	False				0.0
+Q99677	N3_nonopsin_7TM_GPCR	0	0	0.360549327711959	rejected	True	False	False	True				0.0
+P30548	N3_nonopsin_7TM_GPCR	0	0	0.11192894662378329	rejected	False	False	False	False				0.0
+Q6TLI9	N3_nonopsin_7TM_GPCR	0	0	0.11214334165374257	rejected	False	False	False	False				0.0
+O62791	N3_nonopsin_7TM_GPCR	0	0	0.11133129488550508	rejected	False	False	False	False				0.0
+Q8K1Z6	N3_nonopsin_7TM_GPCR	0	0	0.11246434356826117	rejected	False	False	False	False				0.0
+Q5R4Q6	N3_nonopsin_7TM_GPCR	0	0	0.11191408144595902	rejected	False	False	False	False				0.0
+P30993	N3_nonopsin_7TM_GPCR	0	0	0.10981071825368818	rejected	False	False	False	False				0.0
+Q864J0	N3_nonopsin_7TM_GPCR	0	0	0.11292428858213817	rejected	False	False	False	False				0.0
+Q5ZI82	N3_nonopsin_7TM_GPCR	0	0	0.11241554466682122	rejected	False	False	False	False				0.0
+Q1RMI1	N3_nonopsin_7TM_GPCR	0	0	0.11236559245982383	rejected	False	False	False	False				0.0
+P79176	N3_nonopsin_7TM_GPCR	0	0	0.11042660189257605	rejected	False	False	False	False				0.0
+Q25322	N3_nonopsin_7TM_GPCR	0	0	0.11206098803643352	rejected	False	False	False	False				0.0
+P30994	N3_nonopsin_7TM_GPCR	0	0	0.11152027201642085	rejected	False	False	False	False				0.0
+A0T2N3	N3_nonopsin_7TM_GPCR	0	0	0.10966066186044361	rejected	False	False	False	False				0.0
+P79945	N3_nonopsin_7TM_GPCR	0	0	0.1122428498924746	rejected	False	False	False	False				0.0
+Q6TLI7	N3_nonopsin_7TM_GPCR	0	0	0.11101913142262151	rejected	False	False	False	False				0.0
+P08913	N3_nonopsin_7TM_GPCR	0	0	0.1120475827555169	rejected	False	False	False	False				0.0
+Q28524	N3_nonopsin_7TM_GPCR	0	0	0.11116925526781685	rejected	False	False	False	False				0.0
+P71411_frag	N4_fragment_synthetic	0	0	0.7792969071571493	putative_type_I	True	False	True	True	0.4821	105.2		0.0
+P94853_frag	N4_fragment_synthetic	0	0	0.6356032319755643	rhodopsin_like	False	True	True	False	0.6295	125.0		0.688
+P96787_frag	N4_fragment_synthetic	0	0	0.8845103487956957	high_confidence_type_I	True	True	True	True	0.6562	173.4		0.613
+Q12117_frag	N4_fragment_synthetic	0	0	0.24155550715975868	rejected	False	False	True	False	0.4152	17.1		0.0
+Q48314_frag	N4_fragment_synthetic	0	0	0.5824999053463015	rhodopsin_like	False	False	True	False	0.5625	75.9		0.679
+Q48315_frag	N4_fragment_synthetic	0	0	0.8681244460264653	putative_type_I	True	False	True	True	0.5893	109.3		0.676
+Q53461_frag	N4_fragment_synthetic	0	0	0.39188640481454484	rejected	False	False	True	False	0.2455	43.0		0.648
+Q53496_frag	N4_fragment_synthetic	0	0	0.6011887468960961	rhodopsin_like	False	False	True	False	0.5625	125.1		0.519
+Q57101_frag	N4_fragment_synthetic	0	0	0.5933240122032853	rhodopsin_like	False	False	True	False	0.5045	121.5		0.558
+Q5UXM9_frag	N4_fragment_synthetic	0	0	0.6003066751152792	rhodopsin_like	False	False	True	False	0.5938	80.5		0.714
+Q5UXY6_frag	N4_fragment_synthetic	0	0	0.850232512056164	putative_type_I	True	False	True	True	0.558	130.2		0.489
+Q5V0R5_frag	N4_fragment_synthetic	0	0	0.5977679591501152	rhodopsin_like	False	False	True	False	0.558	115.5		0.496
+Q5V1N0_frag	N4_fragment_synthetic	0	0	0.8598256263386729	putative_type_I	True	False	True	True	0.5268	105.4		0.705
+Q5V5V3_frag	N4_fragment_synthetic	0	0	0.7772273454613084	putative_type_I	True	False	True	True	0.3527	88.0		0.571
+Q70LL3_frag	N4_fragment_synthetic	0	0	0.5583208998832443	rhodopsin_like	False	False	True	False	0.5223	90.7		0.327
+S0ELR6_frag	N4_fragment_synthetic	0	0	0.6129711873928689	rhodopsin_like	False	True	True	False	0.7411	113.1		0.327
+O74631_frag	N4_fragment_synthetic	0	0	0.10642143054008499	rejected	False	False	False	False				0.0
+O74870_frag	N4_fragment_synthetic	0	0	0.323856974963894	rejected	False	False	True	False	0.4152	34.8		0.0
+P33970_frag	N4_fragment_synthetic	0	0	0.5669825211918569	rhodopsin_like	False	False	True	False	0.442	80.3		0.67
+Q48334_frag	N4_fragment_synthetic	0	0	0.5554760467775655	rhodopsin_like	False	False	True	False	0.442	72.6		0.711
+P71411_fs	N5_frameshift_synthetic	0	0	0.5896868724919626	rhodopsin_like	False	True	True	False	0.6205	124.9		0.422
+P94853_fs	N5_frameshift_synthetic	0	0	0.38333143094672883	rejected	False	False	True	False	0.3661	42.0		0.646
+P96787_fs	N5_frameshift_synthetic	0	0	0.6059072283955744	rhodopsin_like	False	True	True	False	0.6384	148.1		0.563
+Q12117_fs	N5_frameshift_synthetic	0	0	0.32342206372293836	rejected	False	True	True	False	0.6205	27.3		0.0
+Q48314_fs	N5_frameshift_synthetic	0	0	0.6138193992709657	rhodopsin_like	False	True	True	False	0.6964	103.2		0.557
+Q48315_fs	N5_frameshift_synthetic	0	0	0.49463161391244187	rhodopsin_like	False	False	True	False	0.4955	59.8		0.643
+Q53461_fs	N5_frameshift_synthetic	0	0	0.45594598589855045	rhodopsin_like	False	False	True	False	0.3348	55.3		0.734
+Q53496_fs	N5_frameshift_synthetic	0	0	0.5745468677569079	rhodopsin_like	False	False	True	False	0.5357	123.2		0.551
+Q57101_fs	N5_frameshift_synthetic	0	0	0.5598590133514095	rhodopsin_like	False	False	True	False	0.4375	106.0		0.635
+Q5UXM9_fs	N5_frameshift_synthetic	0	0	0.5851509798055009	rhodopsin_like	False	True	True	False	0.6964	79.1		0.622
+Q5UXY6_fs	N5_frameshift_synthetic	0	0	0.572732823909302	rhodopsin_like	False	False	True	False	0.5089	124.6		0.617
+Q5V0R5_fs	N5_frameshift_synthetic	0	0	0.5852631909561683	rhodopsin_like	False	True	True	False	0.6027	130.8		0.526
+Q5V1N0_fs	N5_frameshift_synthetic	0	0	0.44356194438346647	rhodopsin_like	False	False	True	False	0.3973	51.9		0.663
+Q5V5V3_fs	N5_frameshift_synthetic	0	0	0.600912004035514	rhodopsin_like	False	True	True	False	0.6741	136.7		0.418
+Q70LL3_fs	N5_frameshift_synthetic	0	0	0.5356621586707518	rhodopsin_like	False	False	True	False	0.5402	82.3		0.347
+S0ELR6_fs	N5_frameshift_synthetic	0	0	0.5478003028299315	rhodopsin_like	False	False	True	False	0.567	83.8		0.347
+O74631_fs	N5_frameshift_synthetic	0	0	0.48094271425209406	rhodopsin_like	False	False	True	False	0.5089	65.2		0.0
+O74870_fs	N5_frameshift_synthetic	0	0	0.3767393922954888	rejected	False	False	True	False	0.5938	38.0		0.0
+P33970_fs	N5_frameshift_synthetic	0	0	0.5424182001291585	rhodopsin_like	False	False	True	False	0.5045	74.6		0.659
+Q48334_fs	N5_frameshift_synthetic	0	0	0.5930812292574206	rhodopsin_like	False	True	True	False	0.6875	84.1		0.634

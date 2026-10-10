@@ -1,0 +1,7 @@
+regime	n_heldout	seeds_in_heldout	score_changed	seed_id>=90	trainpos_id>=90	seed_id>=70	trainpos_id>=70	seed_id>=50	trainpos_id>=50	median_id_available_seed	median_id_training_positive
+intermediate_65	46	5	20	0	3	1	14	18	29	36.099999999999994	56.5
+random5	46	5	15	3	27	6	37	26	40	53.2	91.75
+reference_clade_msc	46	5	30	0	0	0	0	12	17	34.65	36.75
+reference_clade_root	46	5	43	0	0	0	0	0	0	28.6	32.85
+std_90	46	5	8	0	3	4	35	30	38	54.2	73.55
+taxonomic_phylum	45	5	42	0	1	0	2	0	2	29.2	33.2

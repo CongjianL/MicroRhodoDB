@@ -1,0 +1,98 @@
+{
+ "release": "1.4.0",
+ "db": "MicroRhodoDB/releases/v1.4.0/db/microrhododb_v1.4.0.sqlite",
+ "n_pass": 18,
+ "n_total": 18,
+ "results": [
+  {
+   "test": "F_frozen_layer_row_hashes",
+   "status": "PASS",
+   "detail": "35/35 frozen tables byte-identical; failures=[]"
+  },
+  {
+   "test": "F_reference_tree_status_only",
+   "status": "PASS",
+   "detail": "diffs=[('MR_RT_002', 'status', 'orphaned_candidate', 'canonical_release')]"
+  },
+  {
+   "test": "F_release_metadata",
+   "status": "PASS",
+   "detail": "common_ok=True, added=['canonical_tree_id', 'extension', 'mr_rt_002_promotion']"
+  },
+  {
+   "test": "E1_membership_extension",
+   "status": "PASS",
+   "detail": "membership=5466 (5361+105), new=105 all admitted, demoted=6 logged-only"
+  },
+  {
+   "test": "E2_protein_sequence_source",
+   "status": "PASS",
+   "detail": "protein=6818, sequence_source=6818 (6713+105)"
+  },
+  {
+   "test": "E3_qc_feature_complete",
+   "status": "PASS",
+   "detail": "qc_feature=5466, membership rows missing qc=0"
+  },
+  {
+   "test": "E4_active_population_policy",
+   "status": "PASS",
+   "detail": "rows=5466, policy violations=0"
+  },
+  {
+   "test": "E5_vocab_and_score_range",
+   "status": "PASS",
+   "detail": "bad_status=0, score_out_of_range=0"
+  },
+  {
+   "test": "E6_sqlite_integrity_fk",
+   "status": "PASS",
+   "detail": "integrity=ok, fk_violations=0"
+  },
+  {
+   "test": "E7_new_helio_routing",
+   "status": "PASS",
+   "detail": "new heliorhodopsin-status rows=9 (expect 9)"
+  },
+  {
+   "test": "E8_redundancy_extension",
+   "status": "PASS",
+   "detail": "rows=105, EXNR prefix ok=True"
+  },
+  {
+   "test": "S1_scorer_gate_frozen",
+   "status": "PASS",
+   "detail": "rosetta->scorer->frozen: score diffs 0/5361, category diffs 0/5361"
+  },
+  {
+   "test": "S2_scorer_gate_extension",
+   "status": "PASS",
+   "detail": "105-row artifact: score diffs=0, category diffs=0, DB agrees=True"
+  },
+  {
+   "test": "T1_tree_counts",
+   "status": "PASS",
+   "detail": "nodes=554, edges=553, tips=278, internal=276, root=['N001'], degree=3"
+  },
+  {
+   "test": "T2_tree_id_conventions",
+   "status": "PASS",
+   "detail": "DFS preorder T/N counters + edges-at-parent-visit sequential (MR_RT_001 conventions)"
+  },
+  {
+   "test": "T3_clade_monophyly",
+   "status": "PASS",
+   "detail": "clades=55, monophyletic=55, edge=incoming=55, parentage_ok=55"
+  },
+  {
+   "test": "T4_placement_v140",
+   "status": "PASS",
+   "detail": "rows=4335, eligible=4335 (coverage 1.0000), lwr_ok=True, status_rule=True, refs_ok=True"
+  },
+  {
+   "test": "T5_canonical_tree_recorded",
+   "status": "PASS",
+   "detail": "status={'MR_RT_001': 'canonical_release', 'MR_RT_002': 'canonical_release'}, canonical_tree_id recorded=True"
+  }
+ ]
+}

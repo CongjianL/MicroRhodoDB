@@ -1,0 +1,16 @@
+acc	subfamily	func_class
+P02945	bacteriorhodopsin	proton_pump
+P0DMH7	halorhodopsin	unassigned
+P0DMH8	sensory_rhodopsin_I	sensory_like
+P42196	sensory_rhodopsin_II	sensory
+Q9F7P4	proteorhodopsin	proton_pump
+Q2S2F8	xanthorhodopsin	proton_pump
+N0DKS8	sodium_pump	sodium_pump
+W8VZW3	chloride_pump_NTQ	anion_pump
+Q8RUT8	channelrhodopsin	light_gated_channel
+H2EZZ6	channelrhodopsin	light_gated_channel
+A0ACD6B968	anabaena_sensory	sensory_like
+A0A060H1D7	enzyme_rhodopsin	enzyme_rhodopsin
+A0A089ZH82	heliorhodopsin	unassigned
+A0A0W0GG67	heliorhodopsin	unassigned
+A0A143YUX7	heliorhodopsin	insufficient_data

@@ -1,0 +1,182 @@
+family	source_db	query_accession	resolved_accession	identifier	description	species	taxonomy_id	architecture	score	evalue	seq_length	has_retinalK	mapali_window
+bestrhodopsin	foldseek_web:afdb50	BestR_A0AAE0C9L8	A0A0G4E9T7	AF:A0A0G4E9T7	structure_only_no_PF01036	Vitrella brassicaformis		single_domain	403.0	5.702e-09	352	0	
+bestrhodopsin	foldseek_web:afdb50	BestR_A0AAE0C9L8	A0A0G4FF70	AF:A0A0G4FF70	underrepresented_family	Vitrella brassicaformis		single_domain	365.0	8.317e-08	400	1	
+bestrhodopsin	foldseek_web:afdb50	BestR_A0AAE0C9L8	A0A0G4HDQ8	AF:A0A0G4HDQ8	structure_only_no_PF01036	Chromera velia CCMP2878		single_domain	322.0	1.12e-07	344	0	
+bestrhodopsin	foldseek_web:afdb50	BestR_A0AAE0C9L8	A0A0G4I4A1	AF:A0A0G4I4A1	underrepresented_family	Chromera velia CCMP2878		single_domain	408.0	1.913e-09	331	1	
+structure_only	foldseek_web:afdb50	BR_1C3W	A0A0J0XST7	AF:A0A0J0XST7	structure_only_no_PF01036	Cutaneotrichosporon oleaginosum		multidomain_or_extended(len454; rhodopsin-like aligned region 121-318)	364.0	1.278e-07	454	0	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A1L2YWA3	AF:A0A1L2YWA3	underrepresented_family	uncultured bacterium		single_domain	515.0	2.538e-09	287	1	
+structure_only	foldseek_web:afdb50	HR_1E12	A0A1V6PSF1	AF:A0A1V6PSF1	structure_only_no_PF01036	Penicillium antarcticum		multidomain_or_extended(len720; rhodopsin-like aligned region 483-689)	374.0	7.091e-07	720	0	
+structure_only	foldseek_web:afdb50	BestR_A0AAE0C9L8	A0A1Z5J6R1	AF:A0A1Z5J6R1	structure_only_no_PF01036	Fistulifera solaris (Oleaginous diatom)		multidomain_or_extended(len954; rhodopsin-like aligned region 42-285)	176.0	0.0004034	954	0	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A2E1MZC8	AF:A0A2E1MZC8	underrepresented_family	Fidelibacterota bacterium		single_domain	716.0	9.673e-13	224	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A424HUA2	AF:A0A424HUA2	underrepresented_family	Rhodothermaceae bacterium TMED105		single_domain	551.0	5.402e-10	221	1	
+structure_only	foldseek_web:afdb50	BestR_A0AAE0C9L8	A0A507C5A5	AF:A0A507C5A5	structure_only_no_PF01036	Synchytrium microbalum		single_domain	203.0	0.0002995	300	0	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0BAU2	AF:A0A6C0BAU2	underrepresented_family	viral metagenome		single_domain	457.0	2.47e-08	217	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0BIP1	AF:A0A6C0BIP1	underrepresented_family	viral metagenome		single_domain	664.0	8.593e-12	218	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0BPY1	AF:A0A6C0BPY1	underrepresented_family	viral metagenome		single_domain	615.0	4.225e-11	222	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0BYE5	AF:A0A6C0BYE5	underrepresented_family	viral metagenome		single_domain	652.0	2.04e-11	220	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0C522	AF:A0A6C0C522	underrepresented_family	viral metagenome		single_domain	661.0	5.209e-12	231	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0CLM4	AF:A0A6C0CLM4	underrepresented_family	viral metagenome		single_domain	749.0	1.796e-13	223	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0CM46	AF:A0A6C0CM46	underrepresented_family	viral metagenome		single_domain	779.0	2.78e-14	231	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0CSE2	AF:A0A6C0CSE2	underrepresented_family	viral metagenome		single_domain	612.0	6.081e-11	227	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0D051	AF:A0A6C0D051	underrepresented_family	viral metagenome		single_domain	553.0	3.587e-10	224	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0DUT2	AF:A0A6C0DUT2	underrepresented_family	viral metagenome		single_domain	674.0	3.62e-12	226	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0DWM8	AF:A0A6C0DWM8	underrepresented_family	viral metagenome		single_domain	618.0	6.081e-11	222	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0DX15	AF:A0A6C0DX15	underrepresented_family	viral metagenome		single_domain	627.0	3.216e-11	228	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0F1L8	AF:A0A6C0F1L8	underrepresented_family	viral metagenome		single_domain	619.0	3.686e-11	231	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0F525	AF:A0A6C0F525	underrepresented_family	viral metagenome		single_domain	646.0	1.418e-11	239	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0H107	AF:A0A6C0H107	underrepresented_family	viral metagenome		single_domain	634.0	1.625e-11	227	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0HDN7	AF:A0A6C0HDN7	underrepresented_family	viral metagenome		single_domain	612.0	6.081e-11	234	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0HI93	AF:A0A6C0HI93	underrepresented_family	viral metagenome		single_domain	555.0	6.481e-10	251	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0HPG2	AF:A0A6C0HPG2	underrepresented_family	viral metagenome		single_domain	623.0	1.625e-11	264	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0HY03	AF:A0A6C0HY03	underrepresented_family	viral metagenome		single_domain	687.0	1.914e-12	258	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0IMP6	AF:A0A6C0IMP6	underrepresented_family	viral metagenome		single_domain	523.0	1.539e-09	254	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0INZ6	AF:A0A6C0INZ6	underrepresented_family	viral metagenome		single_domain	631.0	1.418e-11	229	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0K4F8	AF:A0A6C0K4F8	underrepresented_family	viral metagenome		single_domain	656.0	8.211e-12	234	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0K9Y4	AF:A0A6C0K9Y4	underrepresented_family	viral metagenome		single_domain	668.0	6.54e-12	223	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0KI41	AF:A0A6C0KI41	underrepresented_family	viral metagenome		single_domain	633.0	1.701e-11	237	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0KIP7	AF:A0A6C0KIP7	underrepresented_family	viral metagenome		single_domain	554.0	3.754e-10	238	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0LD75	AF:A0A6C0LD75	underrepresented_family	viral metagenome		single_domain	645.0	1.031e-11	246	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0M1Z2	AF:A0A6C0M1Z2	underrepresented_family	viral metagenome		single_domain	610.0	5.305e-11	227	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A6C0M278	AF:A0A6C0M278	underrepresented_family	viral metagenome		single_domain	610.0	4.037e-11	239	1	
+structure_only	foldseek_web:afdb50	BR_1C3W	A0A7S1LIW9	AF:A0A7S1LIW9	structure_only_no_PF01036	Alexandrium catenella		single_domain	248.0	0.0004472	237	0	
+structure_only	foldseek_web:afdb50	BR_1C3W	A0A7S3SLS9	AF:A0A7S3SLS9	structure_only_no_PF01036	Strombidinopsis acuminata		single_domain	214.0	0.0005944	234	0	
+structure_only	foldseek_web:afdb50	BR_1C3W	A0A7S4PXG0	AF:A0A7S4PXG0	structure_only_no_PF01036	Alexandrium monilatum		multidomain_or_extended(len620; rhodopsin-like aligned region 41-263)	282.0	3.978e-05	620	0	
+structure_only	foldseek_web:afdb50	BR_1C3W	A0A7S4T972	AF:A0A7S4T972	structure_only_no_PF01036	Alexandrium monilatum		multidomain_or_extended(len444; rhodopsin-like aligned region 97-330)	187.0	0.0003364	444	0	
+structure_only	foldseek_web:afdb50	BestR_A0AAE0C9L8	A0A7S4UIQ5	AF:A0A7S4UIQ5	structure_only_no_PF01036	Alexandrium monilatum		multidomain_or_extended(len702; rhodopsin-like aligned region 43-285)	273.0	5.938e-06	702	0	
+bestrhodopsin	foldseek_web:afdb50	BestR_A0AAE0C9L8	A0A812MYL3	AF:A0A812MYL3	structure_only_no_PF01036	Symbiodinium natans		multidomain_or_extended(len931; rhodopsin-like aligned region 6-271)	242.0	1.954e-05	931	0	
+structure_only	foldseek_web:afdb50	BestR_A0AAE0C9L8	A0A812N265	AF:A0A812N265	structure_only_no_PF01036	Symbiodinium necroappetens		multidomain_or_extended(len862; rhodopsin-like aligned region 121-379)	242.0	2.383e-05	862	0	
+structure_only	foldseek_web:afdb50	HR_1E12	A0A812YP19	AF:A0A812YP19	structure_only_no_PF01036	Symbiodinium pilosum (Dinoflagellate)		single_domain	264.0	9.887e-05	300	0	
+structure_only	foldseek_web:afdb50	BestR_A0AAE0C9L8	A0A813D352	AF:A0A813D352	structure_only_no_PF01036	Polarella glacialis (Dinoflagellate)		multidomain_or_extended(len432; rhodopsin-like aligned region 2-246)	241.0	0.0001423	432	0	
+structure_only	foldseek_web:afdb50	BestR_A0AAE0C9L8	A0A813EG16	AF:A0A813EG16	structure_only_no_PF01036	Polarella glacialis (Dinoflagellate)		single_domain	255.0	7.611e-06	350	0	
+schizorhodopsin	foldseek_web:afdb50	SzR_7E4G	A0A842R1L9	AF:A0A842R1L9	underrepresented_family	Candidatus Bathyarchaeota archaeon		single_domain	840.0	2.482e-16	202	1	
+schizorhodopsin	foldseek_web:afdb50	SzR_7E4G	A0A842SG39	AF:A0A842SG39	underrepresented_family	Candidatus Bathyarchaeota archaeon		single_domain	540.0	1.441e-10	202	1	
+structure_only	foldseek_web:afdb50	BR_1C3W	A0A8T9BJE3	AF:A0A8T9BJE3	structure_only_no_PF01036	Lachnellula arida		single_domain	459.0	1.311e-08	304	0	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A965DQF4	AF:A0A965DQF4	underrepresented_family	Flavobacteriia bacterium		single_domain	677.0	6.845e-12	226	1	
+viral_rhodopsin	foldseek_web:afdb50	VR1_7AKX	A0A965IQR7	AF:A0A965IQR7	underrepresented_family	bacterium		single_domain	655.0	9.412e-12	220	1	
+schizorhodopsin	foldseek_web:afdb50	SzR_7E4G	A0A967V6F7	AF:A0A967V6F7	underrepresented_family	Phycisphaerae bacterium		single_domain	622.0	2.002e-12	212	1	
+structure_only	foldseek_web:afdb50	HR_1E12	A0A9P1FJ38	AF:A0A9P1FJ38	structure_only_no_PF01036	Cladocopium goreaui		single_domain	253.0	0.0001362	312	0	
+structure_only	foldseek_web:afdb50	BestR_A0AAE0C9L8	A0AA36IG25	AF:A0AA36IG25	structure_only_no_PF01036	Effrenium voratum		multidomain_or_extended(len614; rhodopsin-like aligned region 7-258)	256.0	2.505e-05	614	0	
+structure_only	foldseek_web:afdb50	BestR_A0AAE0C9L8	A0AAD2FPF8	AF:A0AAD2FPF8	structure_only_no_PF01036	Cylindrotheca closterium		multidomain_or_extended(len1134; rhodopsin-like aligned region 4-259)	177.0	0.000938	1134	0	
+structure_only	foldseek_web:afdb50	BR_1C3W	A0AAE0BLA6	AF:A0AAE0BLA6	structure_only_no_PF01036	Cymbomonas tetramitiformis		multidomain_or_extended(len1153; rhodopsin-like aligned region 70-286)	243.0	0.0003527	1153	0	
+structure_only	foldseek_web:afdb50	BR_1C3W	A0AAE0BX91	AF:A0AAE0BX91	structure_only_no_PF01036	Cymbomonas tetramitiformis		multidomain_or_extended(len887; rhodopsin-like aligned region 67-289)	222.0	0.0004917	887	0	
+structure_only	foldseek_web:afdb50	BR_1C3W	A0AAE0GMU5	AF:A0AAE0GMU5	structure_only_no_PF01036	Cymbomonas tetramitiformis		multidomain_or_extended(len515; rhodopsin-like aligned region 70-286)	225.0	0.0003364	515	0	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000049780957	MG:MGYP000049780957	underrepresented_family			single_domain	508.0	1.905e-09	239	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000058606807	MG:MGYP000058606807	underrepresented_family			single_domain	634.0	1.017e-11	221	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000078432527	MG:MGYP000078432527	underrepresented_family			single_domain	626.0	1.603e-11	227	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000141262260	MG:MGYP000141262260	underrepresented_family			single_domain	583.0	1.035e-10	234	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000188662303	MG:MGYP000188662303	underrepresented_family			single_domain	564.0	2.049e-10	233	1	
+schizorhodopsin	foldseek_web:mgnify_esm30	SzR_7E4G	MGYP000218142622	MG:MGYP000218142622	underrepresented_family			single_domain	454.0	6.09e-09	233	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000271028784	MG:MGYP000271028784	underrepresented_family			single_domain	661.0	4.092e-12	243	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000338984023	MG:MGYP000338984023	underrepresented_family			single_domain	613.0	2.012e-11	256	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000359577624	MG:MGYP000359577624	underrepresented_family			single_domain	625.0	2.644e-11	232	1	
+schizorhodopsin	foldseek_web:mgnify_esm30	SzR_7E4G	MGYP000379545219	MG:MGYP000379545219	underrepresented_family			single_domain	496.0	5.753e-10	200	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000418447136	MG:MGYP000418447136	underrepresented_family			single_domain	514.0	1.385e-09	237	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000433411070	MG:MGYP000433411070	underrepresented_family			single_domain	612.0	2.204e-11	237	1	
+structure_only	foldseek_web:mgnify_esm30	HR_1E12	MGYP000484873887	MG:MGYP000484873887	structure_only_no_PF01036			single_domain	237.0	0.0002925	236	0	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000626900720	MG:MGYP000626900720	underrepresented_family			single_domain	664.0	2.265e-12	238	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000657428666	MG:MGYP000657428666	underrepresented_family			single_domain	629.0	1.531e-11	244	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000665580352	MG:MGYP000665580352	underrepresented_family			single_domain	636.0	9.715e-12	230	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000734090836	MG:MGYP000734090836	underrepresented_family			single_domain	646.0	8.87e-12	227	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP000853736417	MG:MGYP000853736417	underrepresented_family			single_domain	640.0	6.45e-12	226	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001005549118	MG:MGYP001005549118	underrepresented_family			single_domain	612.0	4.167e-11	224	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001013605311	MG:MGYP001013605311	underrepresented_family			single_domain	594.0	5.73e-11	228	1	
+schizorhodopsin	foldseek_web:mgnify_esm30	SzR_7E4G	MGYP001041970526	MG:MGYP001041970526	underrepresented_family			single_domain	591.0	7.243e-12	200	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001064242738	MG:MGYP001064242738	underrepresented_family			single_domain	658.0	5.138e-12	226	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001069402886	MG:MGYP001069402886	underrepresented_family			single_domain	937.0	2.37e-17	219	1	
+schizorhodopsin	foldseek_web:mgnify_esm30	SzR_7E4G	MGYP001071916124	MG:MGYP001071916124	underrepresented_family			single_domain	531.0	4.69e-11	201	1	
+schizorhodopsin	foldseek_web:mgnify_esm30	SzR_7E4G	MGYP001082193329	MG:MGYP001082193329	underrepresented_family			single_domain	560.0	1.843e-11	201	1	
+schizorhodopsin	foldseek_web:mgnify_esm30	SzR_7E4G	MGYP001087922422	MG:MGYP001087922422	underrepresented_family			single_domain	614.0	2.339e-12	235	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001105545991	MG:MGYP001105545991	underrepresented_family			single_domain	623.0	1.165e-11	260	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001161137267	MG:MGYP001161137267	underrepresented_family			single_domain	647.0	8.098e-12	228	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001161478868	MG:MGYP001161478868	underrepresented_family			single_domain	596.0	4.777e-11	229	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001166273383	MG:MGYP001166273383	underrepresented_family			single_domain	495.0	6.22e-09	228	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001166277048	MG:MGYP001166277048	underrepresented_family			single_domain	702.0	5.783e-13	225	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001184170733	MG:MGYP001184170733	underrepresented_family			single_domain	503.0	3.289e-09	252	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001184447194	MG:MGYP001184447194	underrepresented_family			single_domain	521.0	6.392e-10	220	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001198042468	MG:MGYP001198042468	underrepresented_family			single_domain	624.0	8.098e-12	224	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001200304036	MG:MGYP001200304036	underrepresented_family			single_domain	716.0	5.28e-13	229	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001204700227	MG:MGYP001204700227	underrepresented_family			single_domain	550.0	3.23e-10	219	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001211460034	MG:MGYP001211460034	underrepresented_family			single_domain	675.0	2.481e-12	243	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001211784405	MG:MGYP001211784405	underrepresented_family			single_domain	530.0	5.091e-10	206	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001215010095	MG:MGYP001215010095	underrepresented_family			single_domain	631.0	8.475e-12	224	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001217641071	MG:MGYP001217641071	underrepresented_family			single_domain	570.0	1.559e-10	257	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001219246342	MG:MGYP001219246342	underrepresented_family			single_domain	643.0	1.064e-11	219	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001228521720	MG:MGYP001228521720	underrepresented_family			single_domain	596.0	6.277e-11	233	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001232877799	MG:MGYP001232877799	underrepresented_family			single_domain	443.0	1.693e-08	214	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001235410411	MG:MGYP001235410411	underrepresented_family			single_domain	686.0	1.504e-12	261	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001242736611	MG:MGYP001242736611	underrepresented_family			single_domain	487.0	5.426e-09	215	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001243868868	MG:MGYP001243868868	underrepresented_family			single_domain	473.0	7.129e-09	242	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001251990433	MG:MGYP001251990433	underrepresented_family			single_domain	627.0	1.463e-11	244	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001252945008	MG:MGYP001252945008	underrepresented_family			single_domain	407.0	5.526e-08	213	1	
+schizorhodopsin	foldseek_web:mgnify_esm30	SzR_7E4G	MGYP001258113886	MG:MGYP001258113886	underrepresented_family			single_domain	583.0	4.888e-12	207	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001268316301	MG:MGYP001268316301	underrepresented_family			single_domain	652.0	5.138e-12	231	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001270517295	MG:MGYP001270517295	underrepresented_family			single_domain	516.0	1.209e-09	235	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001275421081	MG:MGYP001275421081	underrepresented_family			single_domain	484.0	5.426e-09	218	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001291355305	MG:MGYP001291355305	underrepresented_family			single_domain	547.0	3.38e-10	224	1	
+MerMAID	foldseek_web:mgnify_esm30	SzR_7E4G	MGYP001292058144	MG:MGYP001292058144	underrepresented_family			single_domain	300.0	6.232e-06	313	1	
+schizorhodopsin	foldseek_web:mgnify_esm30	SzR_7E4G	MGYP001308638101	MG:MGYP001308638101	underrepresented_family			single_domain	404.0	3.574e-08	203	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001313148733	MG:MGYP001313148733	underrepresented_family			single_domain	670.0	3.114e-12	226	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001313175471	MG:MGYP001313175471	underrepresented_family			single_domain	543.0	4.055e-10	225	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001314665303	MG:MGYP001314665303	underrepresented_family			single_domain	812.0	4.244e-15	227	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001319138196	MG:MGYP001319138196	underrepresented_family			single_domain	601.0	4.564e-11	259	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001323922071	MG:MGYP001323922071	underrepresented_family			single_domain	644.0	6.751e-12	218	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001326332951	MG:MGYP001326332951	underrepresented_family			single_domain	665.0	2.596e-12	234	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001333258216	MG:MGYP001333258216	underrepresented_family			single_domain	569.0	1.788e-10	252	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001340307450	MG:MGYP001340307450	underrepresented_family			single_domain	456.0	2.031e-08	213	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001340881914	MG:MGYP001340881914	underrepresented_family			single_domain	291.0	6.875e-06	276	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001345420679	MG:MGYP001345420679	underrepresented_family			single_domain	613.0	5.476e-11	220	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001349262230	MG:MGYP001349262230	underrepresented_family			single_domain	618.0	2.012e-11	230	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001379538041	MG:MGYP001379538041	underrepresented_family			single_domain	666.0	3.57e-12	236	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001380733033	MG:MGYP001380733033	underrepresented_family			single_domain	693.0	5.28e-13	241	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001394080533	MG:MGYP001394080533	underrepresented_family			single_domain	677.0	1.724e-12	228	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001396447627	MG:MGYP001396447627	underrepresented_family			single_domain	748.0	1.124e-13	227	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001402230792	MG:MGYP001402230792	underrepresented_family			single_domain	425.0	5.045e-08	220	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001406270408	MG:MGYP001406270408	underrepresented_family			single_domain	507.0	1.994e-09	238	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001426258635	MG:MGYP001426258635	underrepresented_family			single_domain	582.0	8.247e-11	236	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001431908166	MG:MGYP001431908166	underrepresented_family			single_domain	595.0	3.635e-11	230	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001442512697	MG:MGYP001442512697	underrepresented_family			single_domain	632.0	1.064e-11	245	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001443007294	MG:MGYP001443007294	underrepresented_family			single_domain	712.0	5.783e-13	232	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001444092829	MG:MGYP001444092829	underrepresented_family			single_domain	672.0	2.265e-12	231	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001447094538	MG:MGYP001447094538	underrepresented_family			single_domain	619.0	2.414e-11	239	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001448233146	MG:MGYP001448233146	underrepresented_family			single_domain	666.0	3.411e-12	239	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001453336959	MG:MGYP001453336959	underrepresented_family			single_domain	647.0	8.098e-12	225	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001456051569	MG:MGYP001456051569	underrepresented_family			single_domain	670.0	1.724e-12	239	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001456347106	MG:MGYP001456347106	underrepresented_family			single_domain	565.0	1.788e-10	234	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001462103410	MG:MGYP001462103410	underrepresented_family			single_domain	479.0	5.943e-09	213	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001464804702	MG:MGYP001464804702	underrepresented_family			single_domain	538.0	6.689e-10	234	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	PR_4JQ6	MGYP001469591589	MG:MGYP001469591589	underrepresented_family			single_domain	258.0	0.0001915	260	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001479093065	MG:MGYP001479093065	underrepresented_family			single_domain	666.0	7.952e-13	233	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001490501041	MG:MGYP001490501041	underrepresented_family			single_domain	583.0	9.893e-11	234	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001493942675	MG:MGYP001493942675	underrepresented_family			single_domain	536.0	7.001e-10	230	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001495531217	MG:MGYP001495531217	underrepresented_family			single_domain	642.0	6.163e-12	226	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001561163202	MG:MGYP001561163202	underrepresented_family			single_domain	570.0	1.187e-10	259	1	
+schizorhodopsin	foldseek_web:mgnify_esm30	SzR_7E4G	MGYP001818428486	MG:MGYP001818428486	underrepresented_family			single_domain	342.0	9.164e-07	312	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001965195756	MG:MGYP001965195756	underrepresented_family			single_domain	584.0	7.195e-11	248	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP001970103346	MG:MGYP001970103346	underrepresented_family			single_domain	461.0	1.693e-08	217	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP002005471671	MG:MGYP002005471671	underrepresented_family			single_domain	302.0	6.875e-06	252	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP002011483838	MG:MGYP002011483838	underrepresented_family			single_domain	357.0	6.45e-07	246	1	
+structure_only	foldseek_web:mgnify_esm30	KR2_3X3C	MGYP002021565001	MG:MGYP002021565001	structure_only_no_PF01036			single_domain	198.0	0.0005831	346	0	
+viral_rhodopsin	foldseek_web:mgnify_esm30	PR_4JQ6	MGYP002063966273	MG:MGYP002063966273	underrepresented_family			single_domain	311.0	1.036e-05	226	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP002634144448	MG:MGYP002634144448	underrepresented_family			single_domain	656.0	2.37e-12	242	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP002634487866	MG:MGYP002634487866	underrepresented_family			single_domain	605.0	3.03e-11	247	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP002636490982	MG:MGYP002636490982	underrepresented_family			single_domain	703.0	4.401e-13	229	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP002655264555	MG:MGYP002655264555	underrepresented_family			single_domain	650.0	1.336e-11	240	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP002655322185	MG:MGYP002655322185	underrepresented_family			single_domain	583.0	1.36e-10	213	1	
+MerMAID	foldseek_web:mgnify_esm30	SzR_7E4G	MGYP002819724179	MG:MGYP002819724179	underrepresented_family			single_domain	241.0	0.0001078	312	1	
+MerMAID	foldseek_web:mgnify_esm30	BR_1C3W	MGYP002829717270	MG:MGYP002829717270	underrepresented_family			single_domain	342.0	9.809e-07	306	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP002855767812	MG:MGYP002855767812	underrepresented_family			single_domain	324.0	3.805e-06	255	1	
+structure_only	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP002875846605	MG:MGYP002875846605	structure_only_no_PF01036			single_domain	210.0	0.0007809	326	0	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP003325976840	MG:MGYP003325976840	underrepresented_family			single_domain	706.0	6.334e-13	223	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP003328431998	MG:MGYP003328431998	underrepresented_family			single_domain	593.0	4.999e-11	230	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP003338398589	MG:MGYP003338398589	underrepresented_family			single_domain	636.0	3.736e-12	237	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP003569133927	MG:MGYP003569133927	underrepresented_family			single_domain	612.0	2.306e-11	230	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP003643155499	MG:MGYP003643155499	underrepresented_family			single_domain	696.0	6.629e-13	227	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP003646180231	MG:MGYP003646180231	underrepresented_family			single_domain	686.0	8.71e-13	229	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP003648705795	MG:MGYP003648705795	underrepresented_family			single_domain	579.0	1.3e-10	224	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP003705834327	MG:MGYP003705834327	underrepresented_family			single_domain	679.0	1.724e-12	239	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP003705924099	MG:MGYP003705924099	underrepresented_family			single_domain	662.0	2.717e-12	244	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP003706601965	MG:MGYP003706601965	underrepresented_family			single_domain	743.0	8.172e-14	230	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP003706758393	MG:MGYP003706758393	underrepresented_family			single_domain	731.0	2.327e-13	249	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP003842238553	MG:MGYP003842238553	underrepresented_family			single_domain	625.0	1.755e-11	232	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP003974603999	MG:MGYP003974603999	underrepresented_family			single_domain	664.0	3.57e-12	249	1	
+viral_rhodopsin	foldseek_web:mgnify_esm30	VR1_7AKX	MGYP003982821893	MG:MGYP003982821893	underrepresented_family			single_domain	585.0	1.36e-10	237	1	

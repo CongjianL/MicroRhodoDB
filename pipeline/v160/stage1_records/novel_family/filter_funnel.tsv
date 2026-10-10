@@ -1,0 +1,6 @@
+family	n_total_hits	n_included	n_has_opsin_domain	n_evalue_pass	n_novel_candidates
+viral_rhodopsin	246	155	155	124	124
+schizorhodopsin	3536	3015	3015	543	261
+xenorhodopsin	9820	8179	8093	3313	1519
+bestrhodopsin	16979	15864	189	8	7
+MerMAID	4637	2892	2892	232	137

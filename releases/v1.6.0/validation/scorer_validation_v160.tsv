@@ -1,0 +1,135 @@
+section	set	method	threshold	metric	k	n	value	ci_lo	ci_hi	source
+A_external_auprc	all (21/345)	full_gated		auprc		21+345	0.91	0.795	1.0	external_validation_metric
+A_external_auprc	all (21/345)	B4b_ga_retK		auprc		21+345	0.91	0.795	1.0	external_validation_metric
+A_external_auprc	all (21/345)	abl_e_domain		auprc		21+345	0.91	0.795	1.0	external_validation_metric
+A_external_auprc	all (21/345)	abl_e_coverage		auprc		21+345	0.91	0.795	1.0	external_validation_metric
+A_external_auprc	all (21/345)	abl_e_retinal		auprc		21+345	0.608	0.335	0.952	external_validation_metric
+A_external_auprc	all (21/345)	abl_e_margin		auprc		21+345	0.91	0.795	1.0	external_validation_metric
+A_external_auprc	all (21/345)	abl_e_homology		auprc		21+345	0.91	0.795	1.0	external_validation_metric
+A_external_auprc	all (21/345)	abl_e_topology		auprc		21+345	0.91	0.795	1.0	external_validation_metric
+A_external_auprc	all (21/345)	full_raw		auprc		21+345	0.763	0.56	0.953	external_validation_metric
+A_external_auprc	all (21/345)	B2b_margin		auprc		21+345	0.589	0.314	0.958	external_validation_metric
+B_clade_root_auprc	reference_clade_root (46/215)	full_gated		auprc		46+215	0.987	0.93	1.0	holdout_metric
+B_clade_root_auprc	reference_clade_root (46/215)	B4b_ga_retK		auprc		46+215	0.814	0.545	0.94	holdout_metric
+B_clade_root_auprc	reference_clade_root (46/215)	abl_e_domain		auprc		46+215	0.987	0.93	1.0	holdout_metric
+B_clade_root_auprc	reference_clade_root (46/215)	abl_e_coverage		auprc		46+215	0.775	0.482	0.993	holdout_metric
+B_clade_root_auprc	reference_clade_root (46/215)	abl_e_retinal		auprc		46+215	0.992	0.908	1.0	holdout_metric
+B_clade_root_auprc	reference_clade_root (46/215)	abl_e_margin		auprc		46+215	0.987	0.925	1.0	holdout_metric
+B_clade_root_auprc	reference_clade_root (46/215)	abl_e_homology		auprc		46+215	0.989	0.95	1.0	holdout_metric
+B_clade_root_auprc	reference_clade_root (46/215)	abl_e_topology		auprc		46+215	0.987	0.93	1.0	holdout_metric
+B_clade_root_auprc	reference_clade_root (46/215)	full_raw		auprc		46+215	0.949	0.856	1.0	holdout_metric
+B_clade_root_auprc	reference_clade_root (46/215)	B2b_margin		auprc		46+215	0.964	0.725	0.996	holdout_metric
+B_clade_root_operating_point	reference_clade_root	full_gated	0.70	sensitivity	42	46	0.913	0.797	0.966	holdout_operating_point
+B_clade_root_operating_point	reference_clade_root	full_gated	0.70	specificity	209	215	0.972	0.94	0.987	holdout_operating_point
+B_clade_root_operating_point	reference_clade_root	full_gated	0.70	precision	42	48	0.875	0.753	0.941	holdout_operating_point
+B_clade_root_operating_point	reference_clade_root	full_gated	0.86	sensitivity	41	46	0.891	0.77	0.953	holdout_operating_point
+B_clade_root_operating_point	reference_clade_root	full_gated	0.86	specificity	214	215	0.995	0.974	0.999	holdout_operating_point
+B_clade_root_operating_point	reference_clade_root	full_gated	0.86	precision	41	42	0.976	0.877	0.996	holdout_operating_point
+B_clade_root_operating_point	reference_clade_root	full_gated	0.90	sensitivity	18	46	0.391	0.264	0.535	holdout_operating_point
+B_clade_root_operating_point	reference_clade_root	full_gated	0.90	specificity	215	215	1.0	0.982	1.0	holdout_operating_point
+B_clade_root_operating_point	reference_clade_root	full_gated	0.90	precision	18	18	1.0	0.824	1.0	holdout_operating_point
+B_clade_root_operating_point	reference_clade_root	B4b_ga_retK	rule	sensitivity	42	46	0.913	0.797	0.966	holdout_operating_point
+B_clade_root_operating_point	reference_clade_root	B4b_ga_retK	rule	specificity	209	215	0.972	0.94	0.987	holdout_operating_point
+B_clade_root_operating_point	reference_clade_root	B4b_ga_retK	rule	precision	42	48	0.875	0.753	0.941	holdout_operating_point
+C_holdout_leakage	intermediate_65	heldout positives with a training positive >=90% id		trainpos_id>=90	3	46				auditA_holdout_contamination_summary
+C_holdout_leakage	intermediate_65	heldout positives with a training positive >=50% id		trainpos_id>=50	29	46				auditA_holdout_contamination_summary
+C_holdout_leakage	random5	heldout positives with a training positive >=90% id		trainpos_id>=90	27	46				auditA_holdout_contamination_summary
+C_holdout_leakage	random5	heldout positives with a training positive >=50% id		trainpos_id>=50	40	46				auditA_holdout_contamination_summary
+C_holdout_leakage	reference_clade_msc	heldout positives with a training positive >=90% id		trainpos_id>=90	0	46				auditA_holdout_contamination_summary
+C_holdout_leakage	reference_clade_msc	heldout positives with a training positive >=50% id		trainpos_id>=50	17	46				auditA_holdout_contamination_summary
+C_holdout_leakage	reference_clade_root	heldout positives with a training positive >=90% id		trainpos_id>=90	0	46				auditA_holdout_contamination_summary
+C_holdout_leakage	reference_clade_root	heldout positives with a training positive >=50% id		trainpos_id>=50	0	46				auditA_holdout_contamination_summary
+C_holdout_leakage	std_90	heldout positives with a training positive >=90% id		trainpos_id>=90	3	46				auditA_holdout_contamination_summary
+C_holdout_leakage	std_90	heldout positives with a training positive >=50% id		trainpos_id>=50	38	46				auditA_holdout_contamination_summary
+C_holdout_leakage	taxonomic_phylum	heldout positives with a training positive >=90% id		trainpos_id>=90	1	45				auditA_holdout_contamination_summary
+C_holdout_leakage	taxonomic_phylum	heldout positives with a training positive >=50% id		trainpos_id>=50	2	45				auditA_holdout_contamination_summary
+D_identity_filtered_auprc	none (21/345)	full_gated		auprc		21+345	0.91	0.795	1.0	auditA_identity_filtered_metrics
+D_identity_filtered_auprc	none (21/345)	B4b_ga_retK		auprc		21+345	0.91	0.795	1.0	auditA_identity_filtered_metrics
+D_identity_filtered_auprc	none (21/345)	B3_nn_bits		auprc		21+345	0.328	0.17	0.825	auditA_identity_filtered_metrics
+D_identity_filtered_operating_point	none	full_gated	0.70	sensitivity	16	21	0.762	0.549	0.894	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	none	full_gated	0.70	specificity	345	345	1.0	0.989	1.0	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	none	full_gated	0.86	sensitivity	10	21	0.476	0.283	0.676	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	none	full_gated	0.86	specificity	345	345	1.0	0.989	1.0	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	none	full_gated	0.90	sensitivity	3	21	0.143	0.05	0.346	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	none	full_gated	0.90	specificity	345	345	1.0	0.989	1.0	auditA_identity_filtered_operating_points
+D_identity_filtered_auprc	any<90 (19/244)	full_gated		auprc		19+244	0.902	0.779	1.0	auditA_identity_filtered_metrics
+D_identity_filtered_auprc	any<90 (19/244)	B4b_ga_retK		auprc		19+244	0.902	0.779	1.0	auditA_identity_filtered_metrics
+D_identity_filtered_auprc	any<90 (19/244)	B3_nn_bits		auprc		19+244	0.419	0.23	0.939	auditA_identity_filtered_metrics
+D_identity_filtered_operating_point	any<90	full_gated	0.70	sensitivity	14	19	0.737	0.512	0.882	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<90	full_gated	0.70	specificity	244	244	1.0	0.985	1.0	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<90	full_gated	0.86	sensitivity	9	19	0.474	0.273	0.683	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<90	full_gated	0.86	specificity	244	244	1.0	0.985	1.0	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<90	full_gated	0.90	sensitivity	3	19	0.158	0.055	0.376	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<90	full_gated	0.90	specificity	244	244	1.0	0.985	1.0	auditA_identity_filtered_operating_points
+D_identity_filtered_auprc	any<70 (17/215)	full_gated		auprc		17+215	0.891	0.752	1.0	auditA_identity_filtered_metrics
+D_identity_filtered_auprc	any<70 (17/215)	B4b_ga_retK		auprc		17+215	0.891	0.752	1.0	auditA_identity_filtered_metrics
+D_identity_filtered_auprc	any<70 (17/215)	B3_nn_bits		auprc		17+215	0.584	0.379	0.928	auditA_identity_filtered_metrics
+D_identity_filtered_operating_point	any<70	full_gated	0.70	sensitivity	12	17	0.706	0.469	0.867	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<70	full_gated	0.70	specificity	215	215	1.0	0.982	1.0	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<70	full_gated	0.86	sensitivity	8	17	0.471	0.262	0.69	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<70	full_gated	0.86	specificity	215	215	1.0	0.982	1.0	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<70	full_gated	0.90	sensitivity	3	17	0.176	0.062	0.41	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<70	full_gated	0.90	specificity	215	215	1.0	0.982	1.0	auditA_identity_filtered_operating_points
+D_identity_filtered_auprc	any<50 (14/196)	full_gated		auprc		14+196	0.933	0.826	1.0	auditA_identity_filtered_metrics
+D_identity_filtered_auprc	any<50 (14/196)	B4b_ga_retK		auprc		14+196	0.933	0.826	1.0	auditA_identity_filtered_metrics
+D_identity_filtered_auprc	any<50 (14/196)	B3_nn_bits		auprc		14+196	0.995	0.98	1.0	auditA_identity_filtered_metrics
+D_identity_filtered_operating_point	any<50	full_gated	0.70	sensitivity	10	14	0.714	0.454	0.883	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<50	full_gated	0.70	specificity	196	196	1.0	0.981	1.0	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<50	full_gated	0.86	sensitivity	7	14	0.5	0.268	0.732	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<50	full_gated	0.86	specificity	196	196	1.0	0.981	1.0	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<50	full_gated	0.90	sensitivity	2	14	0.143	0.04	0.399	auditA_identity_filtered_operating_points
+D_identity_filtered_operating_point	any<50	full_gated	0.90	specificity	196	196	1.0	0.981	1.0	auditA_identity_filtered_operating_points
+E_identity_ge90_stratum	id_any>=90	count		positives	2	21				auditA_per_record_identity
+E_identity_ge90_stratum	id_any>=90	count		negatives	101	345				auditA_per_record_identity
+E_identity_ge90_stratum	id_any>=90 positive	full_gated		6EDQ_A (anion_channelrhodopsin; nearest corpus L1J207 at 100.0%)			0.8946			auditA_per_record_identity
+E_identity_ge90_stratum	id_any>=90 positive	full_gated		UOK93384.1 (kalium_channelrhodopsin; nearest corpus A0ABF7PQ82 at 100.0%)			0.7717			auditA_per_record_identity
+E_identity_ge90_stratum	id_any>=90	full_gated	0.70	sensitivity	2	2	1.0			auditA_per_record_identity
+E_identity_ge90_stratum	id_any>=90	full_gated	0.70	false_positives	0	101				auditA_per_record_identity
+E_identity_ge90_stratum	id_any>=90	full_gated	0.86	sensitivity	1	2	0.5			auditA_per_record_identity
+E_identity_ge90_stratum	id_any>=90	full_gated	0.86	false_positives	0	101				auditA_per_record_identity
+E_identity_ge90_stratum	id_any>=90	full_gated	0.90	sensitivity	0	2	0.0			auditA_per_record_identity
+E_identity_ge90_stratum	id_any>=90	full_gated	0.90	false_positives	0	101				auditA_per_record_identity
+F_family_recall	anion_channelrhodopsin	full_gated	0.70	recall	1	1	1.0	0.207	1.0	external_validation_stratum
+F_family_recall	anion_channelrhodopsin	full_gated	0.86	recall	1	1	1.0	0.207	1.0	external_validation_stratum
+F_family_recall	anion_channelrhodopsin	full_gated	0.90	recall	0	1	0.0	0.0	0.793	external_validation_stratum
+F_family_recall	anion_channelrhodopsin_MerMAID	full_gated	0.70	recall	6	6	1.0	0.61	1.0	external_validation_stratum
+F_family_recall	anion_channelrhodopsin_MerMAID	full_gated	0.86	recall	5	6	0.833	0.436	0.97	external_validation_stratum
+F_family_recall	anion_channelrhodopsin_MerMAID	full_gated	0.90	recall	1	6	0.167	0.03	0.564	external_validation_stratum
+F_family_recall	anion_channelrhodopsin_RubyACR	full_gated	0.70	recall	2	2	1.0	0.342	1.0	external_validation_stratum
+F_family_recall	anion_channelrhodopsin_RubyACR	full_gated	0.86	recall	0	2	0.0	0.0	0.658	external_validation_stratum
+F_family_recall	anion_channelrhodopsin_RubyACR	full_gated	0.90	recall	0	2	0.0	0.0	0.658	external_validation_stratum
+F_family_recall	bestrhodopsin	full_gated	0.70	recall	0	4	0.0	0.0	0.49	external_validation_stratum
+F_family_recall	bestrhodopsin	full_gated	0.86	recall	0	4	0.0	0.0	0.49	external_validation_stratum
+F_family_recall	bestrhodopsin	full_gated	0.90	recall	0	4	0.0	0.0	0.49	external_validation_stratum
+F_family_recall	cation_channelrhodopsin	full_gated	0.70	recall	1	1	1.0	0.207	1.0	external_validation_stratum
+F_family_recall	cation_channelrhodopsin	full_gated	0.86	recall	1	1	1.0	0.207	1.0	external_validation_stratum
+F_family_recall	cation_channelrhodopsin	full_gated	0.90	recall	0	1	0.0	0.0	0.793	external_validation_stratum
+F_family_recall	fungal_rhodopsin_NIR	full_gated	0.70	recall	0	1	0.0	0.0	0.793	external_validation_stratum
+F_family_recall	fungal_rhodopsin_NIR	full_gated	0.86	recall	0	1	0.0	0.0	0.793	external_validation_stratum
+F_family_recall	fungal_rhodopsin_NIR	full_gated	0.90	recall	0	1	0.0	0.0	0.793	external_validation_stratum
+F_family_recall	kalium_channelrhodopsin	full_gated	0.70	recall	2	2	1.0	0.342	1.0	external_validation_stratum
+F_family_recall	kalium_channelrhodopsin	full_gated	0.86	recall	0	2	0.0	0.0	0.658	external_validation_stratum
+F_family_recall	kalium_channelrhodopsin	full_gated	0.90	recall	0	2	0.0	0.0	0.658	external_validation_stratum
+F_family_recall	schizorhodopsin	full_gated	0.70	recall	1	1	1.0	0.207	1.0	external_validation_stratum
+F_family_recall	schizorhodopsin	full_gated	0.86	recall	1	1	1.0	0.207	1.0	external_validation_stratum
+F_family_recall	schizorhodopsin	full_gated	0.90	recall	0	1	0.0	0.0	0.793	external_validation_stratum
+F_family_recall	viral_rhodopsin	full_gated	0.70	recall	1	1	1.0	0.207	1.0	external_validation_stratum
+F_family_recall	viral_rhodopsin	full_gated	0.86	recall	0	1	0.0	0.0	0.793	external_validation_stratum
+F_family_recall	viral_rhodopsin	full_gated	0.90	recall	0	1	0.0	0.0	0.793	external_validation_stratum
+F_family_recall	xenorhodopsin	full_gated	0.70	recall	2	2	1.0	0.342	1.0	external_validation_stratum
+F_family_recall	xenorhodopsin	full_gated	0.86	recall	2	2	1.0	0.342	1.0	external_validation_stratum
+F_family_recall	xenorhodopsin	full_gated	0.90	recall	2	2	1.0	0.342	1.0	external_validation_stratum
+G_interpro_retrieval	PF01036	retrieved 2026-10-07 02:20:07 UTC		api_count_field			5076			auditC_interpro_fetch_log
+G_interpro_retrieval	PF01036	retrieved 2026-10-07 02:20:07 UTC		records_retrieved			5088			auditC_interpro_fetch_log
+G_interpro_retrieval	PF18761	retrieved 2026-10-07 02:20:38 UTC		api_count_field			386			auditC_interpro_fetch_log
+G_interpro_retrieval	PF18761	retrieved 2026-10-07 02:20:38 UTC		records_retrieved			386			auditC_interpro_fetch_log
+G_interpro_overlap	InterPro PF01036 UniProt proteins (retrieved)			n	5088		92.95			auditC_interpro_overlap_summary
+G_interpro_overlap	InterPro PF18761 UniProt proteins (retrieved)			n	386		7.05			auditC_interpro_overlap_summary
+G_interpro_overlap	InterPro union (unique accessions)			n	5474		100.0			auditC_interpro_overlap_summary
+G_interpro_overlap	MicroRhodoDB v1.5.0 protein records			n	5466		99.85			auditC_interpro_overlap_summary
+G_interpro_overlap	overlap (accession)			n	5460		99.74			auditC_interpro_overlap_summary
+G_interpro_overlap	InterPro-only			n	14		0.26			auditC_interpro_overlap_summary
+G_interpro_overlap	MicroRhodoDB-only			n	6		0.11			auditC_interpro_overlap_summary
+G_interpro_overlap	InterPro-only: created_after_2026_03_snapshot (>=2026-06-01)			n	14		0.26			auditC_interpro_overlap_summary
+G_interpro_overlap	MicroRhodoDB-only: obsolete_or_merged_in_UniProt			n	6		0.11			auditC_interpro_overlap_summary
+G_interpro_overlap	InterPro-only pre-snapshot full-length, reviewed			n	0		0.0			auditC_interpro_overlap_summary

@@ -1,0 +1,20 @@
+clade_id	proposed_name	naming_basis
+MR_CLD3_001	Schizorhodopsins	contains SzR seeds QBQ84358/QBQ84355 (Inoue 2020); Asgard archaea; YSD motif
+MR_CLD3_002	Eukaryotic ETK rhodopsins (enzyme-rhodopsin-like)	v1.4 enzyme_rhodopsin 5/5; ETK motif; no characterized member
+MR_CLD3_003	Chlorophyte channelrhodopsins	E1 ChR members (cation + anion channels); Chlorophyta 93%
+MR_CLD3_004	Eukaryotic enzyme rhodopsins (Rh-GC and relatives)	E1 BeGC1 (A0A060H1D7) in subclade .02; Chlorophyta/Chytridiomycota
+MR_CLD3_005	Bacteroidota DTK SRI-like rhodopsins	DTK motif 60%; Bacteroidota 91%; no characterized member
+MR_CLD3_006	Proteorhodopsins	E1 GPR/BPR (Q6J4G7, Q9AFF7, Q9F7P4) and NdR1; DTE 85%
+MR_CLD3_007	Xanthorhodopsin / NDQ-NTQ ion-pump superclade	E1 Na+ pumps (KR2-type NDQ), Cl- pumps (NTQ), xanthorhodopsin, actinorhodopsin; mixed function at level 1 - use subclades
+MR_CLD3_008	Eukaryotic DTE BR-like group A	v1.4 bacteriorhodopsin 5/5; no characterized member
+MR_CLD3_009	Bacterial DTG/DTA/cyanobacterial assemblage (incl. xenorhodopsins, ASR, cyanobacterial Cl- pumps)	E1 PvR/PspR (DTG), SyHR, xenorhodopsin, ASR; mixed function at level 1 - use subclades
+MR_CLD3_010	Chloroflexota/Actinomycetota DTD pumps	E1 Q1AUE6 (Rubrobacter) outward H+ pump
+MR_CLD3_011	Archaeal BR-like pumps (non-Halobacterium)	E1 proton pumps x3; DTD
+MR_CLD3_012	Halorhodopsins	E1 HsHR, NpHR, HR (Cl- pumps); TSA motif
+MR_CLD3_013	Archaeal sensory rhodopsins (SRI/SRII/SRIII)	E1 SRI, SRII, SRIII; DTY motif
+MR_CLD3_014	Eukaryotic DTD BR-like group B	no characterized member
+MR_CLD3_015	Eukaryotic DTN rhodopsins	no characterized member
+MR_CLD3_016	Chlorophyte DTD pumps	E1 outward H+ pump x1
+MR_CLD3_017	Fungal rhodopsins (CarO / LR / NOP-1-like)	E1 CarO (Q70LL3), LR (Q9HGT7); Ascomycota/Basidiomycota
+MR_CLD3_B01	Haloarchaeal bacteriorhodopsins / archaerhodopsins (backbone group)	E1 BR (P02945), AR-1 (P69051), HwBR-I (Q18DH8); supported 4-tip group below level-1 size window
+MR_CLD3_B02	Amoebozoan (Evosea) DTE rhodopsins (backbone group)	no characterized member

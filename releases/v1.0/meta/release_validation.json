@@ -1,0 +1,93 @@
+{
+  "database": "MicroRhodoDB v1.0",
+  "validation_timestamp": "2026-07-29T20:13:55.221866+00:00",
+  "n_checks": 10,
+  "n_passed": 10,
+  "all_pass": true,
+  "checks": {
+    "V1_relational_integrity": {
+      "fk_violations": 0,
+      "integrity_check": "ok",
+      "pass": true
+    },
+    "V2_known_positive_recovery": {
+      "n_typeI_seeds": 12,
+      "n_found": 12,
+      "missing": [],
+      "all_in_typeI_module": true,
+      "none_rejected": true,
+      "pass": true
+    },
+    "V3_heliorhodopsin_separation": {
+      "her_seeds_module": {
+        "A0A089ZH82": "heliorhodopsin",
+        "A0A0W0GG67": "heliorhodopsin",
+        "A0A143YUX7": "heliorhodopsin"
+      },
+      "all_her_module": true,
+      "heliorhodopsin_in_typeI_subfamily_table": 0,
+      "pass": "True"
+    },
+    "V5_cluster_expansion": {
+      "std_90_members": 4886,
+      "std_90_clusters": 2968,
+      "std_90_reps": 2968,
+      "reps_equal_clusters": true,
+      "every_cluster_one_rep": true,
+      "pass": true
+    },
+    "V6_measured_predicted_separation": {
+      "measured_lambda_max": 0,
+      "predicted_lambda_max": 138,
+      "predicted_flag_count": 138,
+      "functions_not_inferred": 0,
+      "pass": "True"
+    },
+    "V7_no_force_classification": {
+      "insufficient_data": 228,
+      "unassigned_function": 1014,
+      "ambiguous_membership": 143,
+      "pass": "True"
+    },
+    "V8_discordance_surfaced": {
+      "n_motif_subfamily_discordant": 859,
+      "pass": "True"
+    },
+    "V4_benchmark_negative_handling": {
+      "n_positives": 46,
+      "positives_in_db": 46,
+      "positives_not_rejected": 46,
+      "n_negatives": 215,
+      "negatives_leaked_into_db": 55,
+      "negatives_misclassified_as_confirmed_or_high": 0,
+      "pass": true,
+      "note_positives_in_rhodopsin_like": "P33969/P33970/P33971/P33972 = Halobacterium bacterio-opsin/halo-opsin-related paralogs (Bop/Hop family); conservative scoring, genuine opsin family but not classified confirmed \u2014 appropriate."
+    },
+    "V9_benchmark_discrimination": {
+      "positives_median_score": 0.9439,
+      "negatives_median_score": 0.7887,
+      "negatives_max_score": 0.8338,
+      "auc": 0.9289,
+      "pass": true,
+      "mannwhitney_p": "7.03e-14",
+      "confirmed_threshold": 0.9,
+      "high_threshold": 0.86,
+      "interpretation": "No benchmark negative reaches the high-confidence threshold (0.86); max negative = 0.834. Positives median 0.944. Clean separation at the decision boundary."
+    },
+    "V10_reproducibility": {
+      "n_steps_documented": 8,
+      "steps": [
+        "step4_qc",
+        "step5_membership",
+        "step6_redundancy",
+        "step7_phylogeny",
+        "step8_subfamily",
+        "step9_function",
+        "step10_structure",
+        "step11_database"
+      ],
+      "has_top_level_provenance": true,
+      "pass": true
+    }
+  }
+}

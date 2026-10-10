@@ -1,0 +1,267 @@
+{
+ "db": "/workspace/microrhododb/v13/release_staging/db/microrhododb_v1.3.0.sqlite",
+ "n_pass": 52,
+ "n_fail": 0,
+ "results": [
+  {
+   "test": "X1a_external_zero_hash_collisions",
+   "status": "PASS",
+   "detail": "105 external hashes; collisions: corpus=0, dev=0"
+  },
+  {
+   "test": "X1b_external_never_exposed",
+   "status": "PASS",
+   "detail": "106 external records, 0 with ever_exposed_flag != 0"
+  },
+  {
+   "test": "X2a_cluster_regimes_no_shared_cluster",
+   "status": "PASS",
+   "detail": "violations: [] (n=0)"
+  },
+  {
+   "test": "X2b_clade_regimes_no_shared_clade",
+   "status": "PASS",
+   "detail": "violations: [] (n=0)"
+  },
+  {
+   "test": "X2c_random5_disjoint_and_dependency_audit",
+   "status": "PASS",
+   "detail": "random5 overlap=False; provenance missing=[]; deps_ok=True"
+  },
+  {
+   "test": "X3a_clade_tree_links_complete",
+   "status": "PASS",
+   "detail": "NULL tree_node_id=0, NULL edge_id=0, bad tree link=0"
+  },
+  {
+   "test": "X3b_tree_internal_consistency",
+   "status": "PASS",
+   "detail": "edges=367 nodes=368 tips=185 dangling=0"
+  },
+  {
+   "test": "X4_evidence_provenance_gates",
+   "status": "PASS",
+   "detail": "0 violations: []"
+  },
+  {
+   "test": "X5b_one_sequence_source_per_protein",
+   "status": "PASS",
+   "detail": "protein=6713 sequence_source=6713 dup=0 missing=0"
+  },
+  {
+   "test": "X5c_env_records_complete",
+   "status": "PASS",
+   "detail": "incomplete env rows=0, admissions=1352, bad admission links=0"
+  },
+  {
+   "test": "X6a_shift_report_emitted",
+   "status": "PASS",
+   "detail": "149 rows; groups=['ALL', 'corpus', 'marine', 'soil']; dims complete=True"
+  },
+  {
+   "test": "X6b_membership_identical_to_v120",
+   "status": "PASS",
+   "detail": "v1.2.0 rows=5361, v1.3.0 rows=5361, identical=True"
+  },
+  {
+   "test": "X6c_active_population_frozen",
+   "status": "PASS",
+   "detail": "active v1.3.0=4881 vs v1.2.0=4881; env in membership=0"
+  },
+  {
+   "test": "R_api_v130",
+   "status": "PASS",
+   "detail": "api=1.3.0, env rows=1352, version={'api': '1.3.0', 'schema_revision': 'v130.1', 'database_release': '1.3.0'}"
+  },
+  {
+   "test": "legacy_V1_protein_pk_unique",
+   "status": "PASS",
+   "detail": "protein PK unique"
+  },
+  {
+   "test": "legacy_V2_membership_1to1(adjusted_v130)",
+   "status": "PASS",
+   "detail": "membership=5361 uniprot_proteins=5361 uncovered=0 env_in_membership=0"
+  },
+  {
+   "test": "legacy_V3_fk_membership",
+   "status": "PASS",
+   "detail": "no orphan membership rows"
+  },
+  {
+   "test": "legacy_V4_score_range",
+   "status": "PASS",
+   "detail": "membership_score in [0,1]"
+  },
+  {
+   "test": "legacy_V5_lwr_range",
+   "status": "PASS",
+   "detail": "placement best_lwr in [0,1]"
+  },
+  {
+   "test": "legacy_V6_seed_present",
+   "status": "PASS",
+   "detail": "seed table populated"
+  },
+  {
+   "test": "legacy_V7_status_controlled",
+   "status": "PASS",
+   "detail": "membership_status in controlled vocabulary"
+  },
+  {
+   "test": "legacy_V8_boolean_domain",
+   "status": "PASS",
+   "detail": "qc booleans in {0,1}"
+  },
+  {
+   "test": "legacy_V9_views_exist",
+   "status": "PASS",
+   "detail": "all 6 public views present"
+  },
+  {
+   "test": "legacy_V10_provenance_complete",
+   "status": "PASS",
+   "detail": "per-table provenance recorded"
+  },
+  {
+   "test": "legacy_V11_hsp30_not_active",
+   "status": "PASS",
+   "detail": "HSP30 in active view: 0 (must be 0)"
+  },
+  {
+   "test": "legacy_V12_active_from_status",
+   "status": "PASS",
+   "detail": "active view count == status-derived count"
+  },
+  {
+   "test": "legacy_V13_exact_nr_true",
+   "status": "PASS",
+   "detail": "exact-NR clusters with >1 distinct sequence: 0"
+  },
+  {
+   "test": "legacy_V14_no_exploratory_active_subfamily",
+   "status": "PASS",
+   "detail": "active subfamily labels from exploratory/prohibited placement: 0"
+  },
+  {
+   "test": "legacy_V15_function_active_requires_active_protein",
+   "status": "PASS",
+   "detail": "active function labels on non-active proteins: 0"
+  },
+  {
+   "test": "legacy_V16_rejected_view",
+   "status": "PASS",
+   "detail": "rejected view == decoy_or_rejected count"
+  },
+  {
+   "test": "legacy_V17_clade_member_fk",
+   "status": "PASS",
+   "detail": "orphan clade members: 0"
+  },
+  {
+   "test": "legacy_V18_assertion_pub_fk",
+   "status": "PASS",
+   "detail": "orphan assertion-publication links: 0"
+  },
+  {
+   "test": "legacy_V19_assignment_boolean",
+   "status": "PASS",
+   "detail": "is_active boolean domain on assignment tables"
+  },
+  {
+   "test": "legacy_V20_release_version(adjusted)",
+   "status": "PASS",
+   "detail": "database_release=1.3.0 (expect 1.3.0)"
+  },
+  {
+   "test": "legacy_N1_method_no_parens",
+   "status": "PASS",
+   "detail": "assignment_method free text fully split"
+  },
+  {
+   "test": "legacy_N2_arch_flags_normalized",
+   "status": "PASS",
+   "detail": "arch_flags normalized to controlled vocabulary"
+  },
+  {
+   "test": "legacy_N3_func_assign_structured",
+   "status": "PASS",
+   "detail": "function_assignment has structured rule_id"
+  },
+  {
+   "test": "legacy_N4_publication_parsed",
+   "status": "PASS",
+   "detail": "publications carry doi/pmid"
+  },
+  {
+   "test": "legacy_N5_assertion_pub_link",
+   "status": "PASS",
+   "detail": "every assertion linked to >=1 publication"
+  },
+  {
+   "test": "legacy_N6_clade_member_covers",
+   "status": "PASS",
+   "detail": "clade membership normalized"
+  },
+  {
+   "test": "legacy_A1_version",
+   "status": "PASS",
+   "detail": "api __version__=1.2.0"
+  },
+  {
+   "test": "legacy_A2_active_excludes_hsp30",
+   "status": "PASS",
+   "detail": "no HSP30 in active"
+  },
+  {
+   "test": "legacy_A3_rejected_has_hsp30",
+   "status": "PASS",
+   "detail": "HSP30 present in rejected"
+  },
+  {
+   "test": "legacy_A4_master_typeI_hsp30_decoy",
+   "status": "PASS",
+   "detail": "query_master(module='type_I') returns HSP30 only as decoy_or_rejected"
+  },
+  {
+   "test": "legacy_A5_active_eq_core_plus_cand",
+   "status": "PASS",
+   "detail": "active == core + candidates"
+  },
+  {
+   "test": "legacy_A6_subfamily_active_only",
+   "status": "PASS",
+   "detail": "active_only subfamily all is_active=1"
+  },
+  {
+   "test": "legacy_A7_exploratory_no_active_label",
+   "status": "PASS",
+   "detail": "exploratory placements all can_generate_active_label=0"
+  },
+  {
+   "test": "X5_test_backfill_completeness",
+   "status": "PASS",
+   "detail": "backfill completeness (1:1 protein:source, length match): missing=0 length_mismatch=0"
+  },
+  {
+   "test": "X5_test_sha256_format",
+   "status": "PASS",
+   "detail": "sequence_sha256 format (64 lowercase hex): malformed=0"
+  },
+  {
+   "test": "X5_test_env_integrity",
+   "status": "PASS",
+   "detail": "environmental integrity (sha256+biome+source_database): env_rows=1352 bad=0"
+  },
+  {
+   "test": "X5_test_isolation",
+   "status": "PASS",
+   "detail": "isolation (no env protein in membership/active_population): in_membership=0 in_active=0"
+  },
+  {
+   "test": "X5_test_admission_states",
+   "status": "PASS",
+   "detail": "admission states (source-aware enum, env-sourced, band consistent): bad_state=0 bad_source=0 bad_band=0"
+  }
+ ]
+}

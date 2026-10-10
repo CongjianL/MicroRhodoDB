@@ -1,0 +1,13 @@
+query	length	membership_score	membership_category	provisional_status
+UOK93384.1	265	0.7717	putative_type_I	candidate_like
+UOK93385.1	265	0.789	putative_type_I	candidate_like
+WP_051881467.1	248	0.9378	high_confidence_type_I	member_like
+6EYU_A	232	0.919	high_confidence_type_I	member_like
+7W9W_A	312	0.8609	high_confidence_type_I	member_like
+QJF54416.1	696	0.824	putative_type_I	candidate_like
+QJF54412.1	300	0.8559	putative_type_I	candidate_like
+USH44359.1	1187	0.6752	ambiguous	candidate_like
+USH44360.1	1244	0.6932	ambiguous	candidate_like
+USH44362.1	1153	0.6951	ambiguous	candidate_like
+USH44363.1	1241	0.0	rejected	not_rhodopsin
+7AKX_A	231	0.8371	putative_type_I	candidate_like

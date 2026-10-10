@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MicroRhodoDB - Type-I microbial rhodopsin knowledgebase</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1><a href="#/">MicroRhodoDB</a></h1>
+  <span id="ver"></span>
+  <nav>
+    <a href="#/" id="nav-browse">Browse</a>
+    <a href="#/search" id="nav-search">Sequence search</a>
+    <a href="#/novel" id="nav-novel">Novel-family candidates</a>
+    <a href="#/about" id="nav-about">About</a>
+  </nav>
+</header>
+
+<section id="view-browse" class="view">
+  <div id="ctl">
+    <input id="q" placeholder="accession, organism, protein name, motif" aria-label="text filter">
+    <select id="fs" aria-label="membership status"><option value="">all statuses</option></select>
+    <select id="fc" aria-label="clade"><option value="">all clades</option></select>
+    <label><input type="checkbox" id="ft"> include tentative placements in clade filter</label>
+    <select id="fe" aria-label="evidence level"><option value="">all evidence levels</option>
+      <option>E1</option><option>E2</option><option>E3</option><option>E4</option><option>E5</option></select>
+    <select id="ff" aria-label="functional class"><option value="">all functional classes</option></select>
+    <select id="fd" aria-label="domain"><option value="">all domains</option><option>Bacteria</option>
+      <option>Archaea</option><option>Eukaryota</option><option>Viruses</option></select>
+    <label><input type="checkbox" id="fx"> call conflicts only</label>
+    <label><input type="checkbox" id="fg" checked> include engineered constructs</label>
+    <button id="dl-tsv">Download TSV</button>
+    <button id="dl-fasta">Download FASTA</button>
+  </div>
+  <div id="wrap">
+    <div id="info"></div>
+    <table><thead><tr id="hd"></tr></thead><tbody id="tb"></tbody></table>
+    <div class="pager"><button id="prev">prev</button> <span id="pg"></span> <button id="next">next</button></div>
+  </div>
+</section>
+
+<section id="view-search" class="view" hidden>
+  <h2>Sequence search</h2>
+  <p class="note">Paste one protein sequence (FASTA or plain). The query is compared with every MicroRhodoDB record by
+    a 3-mer prefilter followed by Smith-Waterman local alignment (BLOSUM62, gap open 11, gap extend 1), entirely in
+    your browser. The ten best hits are listed with identity and coverage. This is a similarity search only:
+    <b>the full membership score (HMM domains, retinal lysine, scorer gates) requires the command-line tool
+    <code>tools/mrdb_search.py</code></b> shipped with the release.</p>
+  <textarea id="sq" rows="8" placeholder=">query&#10;MLELLPTAVEGVSQAQ..."></textarea>
+  <div><button id="run-search">Search</button> <button id="example-search">Load example (bacteriorhodopsin)</button>
+    <span id="search-status"></span></div>
+  <table id="search-results" hidden><thead><tr><th>rank</th><th>MRDB</th><th>source</th><th>protein</th>
+    <th>organism</th><th>SW score</th><th>identity</th><th>query cov.</th><th>subject cov.</th><th>evidence</th>
+    <th>functional class</th></tr></thead><tbody id="search-tb"></tbody></table>
+</section>
+
+<section id="view-novel" class="view" hidden>
+  <h2>Novel-family candidate layer</h2>
+  <p class="note">Profile-HMM searches for published rhodopsin families that the membership scorer may miss
+    (MerMAID, bestrhodopsin, schizorhodopsin, xenorhodopsin, viral rhodopsins) found no new candidates (funnel below).
+    The candidate table is a structure-based watchlist: Foldseek hits (AlphaFold DB afdb50, MGnify ESM) of family
+    representatives that are absent from the corpus and either carry a family-HMM flag for an under-represented family
+    or lack PF01036 support. Candidates are kept in a separate table and never change membership or counts.
+    Web-search hit lists were capped at 1000 per query and database, so the watchlist is not exhaustive.</p>
+  <div id="novel-summary"></div>
+  <h3>Search funnel per family</h3>
+  <table id="novel-funnel"></table>
+  <h3>Candidates</h3>
+  <div id="novel-candidates"></div>
+</section>
+
+<section id="view-about" class="view" hidden>
+  <h2>About this release</h2>
+  <div id="about"></div>
+</section>
+
+<aside id="detail" hidden></aside>
+<noscript>This browser needs JavaScript. The same data are available as TSV/FASTA in the release archive.</noscript>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
