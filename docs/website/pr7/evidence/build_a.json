@@ -1,0 +1,45 @@
+{
+  "build_info": {
+    "artifact_format": 1,
+    "base_path": "/MicroRhodoDB/site/",
+    "build_date_utc": "2026-10-11",
+    "content_sha256": "31bfa10d753c6f53451a7d2b8285210c16c81ed2eb66467a2a86a1893971cae7",
+    "dataset_release": "1.6.0",
+    "export_manifest": {
+      "exporter_git_commit": "23688479325370638bfdbb1e41e9d58011c59108",
+      "exporter_git_dirty": false,
+      "n_files": 5325,
+      "path": "site/data/v1.6.0/export_manifest.json",
+      "sha256": "693f54da28c0cd059e8a76ef8b06cedbe20387c02d73a5e3dd77afd1ecb85d2e",
+      "total_bytes": 29072543
+    },
+    "n_files": 5372,
+    "pages_url": "https://congjianl.github.io/MicroRhodoDB/site/",
+    "reference_tree": {
+      "artifact_path": "site/data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+      "path": "refpkg/MR_RT_003/tree/MR_RT_003.rooted.treefile",
+      "sha256": "c56196970698decea8384c1cad97545794268e6d8a2df2b195e7d35d5ded9aef"
+    },
+    "schema_version": "1.4.0",
+    "source_commit": "23688479325370638bfdbb1e41e9d58011c59108",
+    "source_date_epoch": 1791753647,
+    "source_db": {
+      "bytes": 33464320,
+      "path": "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite",
+      "sha256": "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f"
+    },
+    "source_tree_clean": true,
+    "toolchain": {
+      "node": "v22.21.1",
+      "npm": "10.9.4",
+      "package_lock_sha256": "1975f36e2741d8f80521072fa25e711acb58b966136019dfeb6f80512c23e8af",
+      "python": "3.11.16"
+    },
+    "verification": "python web/scripts/verify_site_artifact.py <artifact> --repo . --expect-commit <source_commit>",
+    "website_version": "2.0.0-pr7"
+  },
+  "out": "/workspace/scratch/pr7art/art_a",
+  "sha256sums_sha256": "9c88861af82c6fb52225f0f8bce4c1f8140478a15bb5bdb5bb5920bf684ac579",
+  "tarball": "/workspace/scratch/pr7art/out_a/mrdb-site.tar.gz",
+  "tarball_sha256": "b6549ad4c43f6cdac0ea9b890a1963f034bbae13a2623128bf60821d4cb8314e"
+}

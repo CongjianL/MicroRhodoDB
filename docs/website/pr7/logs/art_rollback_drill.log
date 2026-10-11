@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "stages": [
+    {
+      "stage": "deploy-new",
+      "served_files_checked": 5374,
+      "served_files_ok": 5374,
+      "failed": [],
+      "root_redirect": true,
+      "site_index_200": true,
+      "missing_path_404": true,
+      "build_info_commit": "23688479325370638bfdbb1e41e9d58011c59108"
+    },
+    {
+      "stage": "rollback-legacy",
+      "served_files_checked": 334,
+      "served_files_ok": 334,
+      "failed": [],
+      "root_redirect": true,
+      "site_index_200": true,
+      "missing_path_404": true,
+      "build_info_commit": null
+    },
+    {
+      "stage": "roll-forward-new",
+      "served_files_checked": 5374,
+      "served_files_ok": 5374,
+      "failed": [],
+      "root_redirect": true,
+      "site_index_200": true,
+      "missing_path_404": true,
+      "build_info_commit": "23688479325370638bfdbb1e41e9d58011c59108"
+    }
+  ]
+}
+ROLLBACK_DRILL_PASS

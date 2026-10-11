@@ -1,0 +1,14 @@
+{
+  "a": "/workspace/scratch/pr7art/art_a",
+  "b": "/workspace/scratch/pr7art/art_b",
+  "a_commit": "23688479325370638bfdbb1e41e9d58011c59108",
+  "b_commit": "23688479325370638bfdbb1e41e9d58011c59108",
+  "added": [],
+  "removed": [],
+  "changed": [],
+  "identical": true,
+  "scientific_data_changes": [],
+  "provenance_only_data_changes": [],
+  "same_dataset_release": true,
+  "unexpected_scientific_change": false
+}
