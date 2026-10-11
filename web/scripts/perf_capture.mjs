@@ -11,7 +11,12 @@
 // either answered from tests/fixtures/structures ("mocked") or fetched over the network ("live",
 // only when PERF_LIVE=1). Bytes of external responses are recorded from the response bodies.
 //
-// Usage: node scripts/perf_capture.mjs <baseURL> <runs> <out.json> [pr2|pr3]
+// PR-4 adds a route set ("pr4") for the phylogeny explorer and Clade Explorer pages, with timed
+// interactions (layout / colour / support / collapse / zoom): each step is clicked or selected
+// after the page is ready and timed until its "done" selector is attached (two animation frames
+// later, so the paint is included).
+//
+// Usage: node scripts/perf_capture.mjs <baseURL> <runs> <out.json> [pr2|pr3|pr4]
 import { chromium } from "@playwright/test";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
@@ -29,7 +34,8 @@ const PR2_ROUTES = [
   { id: "browse_clade017_tent", hash: "#/browse?group=all&eng=1&clade=MR_CLD3_017&tent=1", ready: '[data-testid="results-table"] tbody tr' },
   { id: "record_source", hash: "#/record/P02945", ready: '[data-testid="sequence"]' },
   { id: "record_mrdb", hash: "#/record/MRDB000001", ready: '[data-testid="sequence"]' },
-  { id: "planned_phylogeny", hash: "#/phylogeny", ready: '[data-testid="planned-notice"]' },
+  // PR-4: #/phylogeny is no longer a planned page
+  { id: "phylogeny", hash: "#/phylogeny", ready: '[data-testid="tree-canvas"] path' },
 ];
 
 const SEQ = '[data-testid="sequence"]';
@@ -47,7 +53,41 @@ const PR3_ROUTES = [
     { id: "viewer_live_afdb_P02945", hash: "#/record/MRDB000001?structure=afdb", ready: SEQ, viewer: "live" },
   ] : []),
 ];
-const ROUTES = SET === "pr3" ? PR3_ROUTES : PR2_ROUTES;
+const CANVAS = '[data-testid="tree-canvas"]';
+const PR4_ROUTES = [
+  PR2_ROUTES[0],
+  { id: "phylogeny", hash: "#/phylogeny", ready: `${CANVAS}[data-visible-leaves="472"] path`, interact: [
+    { name: "layout_radial", click: '[data-testid="layout-radial"]', done: `${CANVAS}[data-layout="radial"]` },
+    { name: "layout_rect", click: '[data-testid="layout-rect"]', done: `${CANVAS}[data-layout="rect"]` },
+    { name: "branch_uniform", click: '[data-testid="bl-uniform"]', done: `${CANVAS}[data-branch="uniform"]` },
+    { name: "color_function", select: ['[data-testid="tree-color"]', "function"], done: `${CANVAS}[data-color="function"]` },
+    { name: "color_phylum", select: ['[data-testid="tree-color"]', "phylum"], done: `${CANVAS}[data-color="phylum"]` },
+    { name: "support_on_469", click: '[data-testid="support-toggle"]', done: '[data-testid="tree-support"] > g:nth-child(469)' },
+    { name: "collapse_all", click: '[data-testid="collapse-all"]', done: `${CANVAS}:not([data-visible-leaves="472"])` },
+    { name: "expand_all", click: '[data-testid="expand-all"]', done: `${CANVAS}[data-visible-leaves="472"]` },
+    { name: "zoom_in", click: '[data-testid="zoom-in"]', done: `${CANVAS}[data-zoom="1.500"]` },
+  ] },
+  { id: "phylogeny_radial", hash: "#/phylogeny?layout=radial&support=1", ready: '[data-testid="tree-support"] > g:nth-child(469)' },
+  { id: "phylogeny_tip", hash: "#/phylogeny?tip=Q9UW81", ready: '[data-testid="info-tip"]' },
+  { id: "phylogeny_placement", hash: "#/phylogeny?placement=MRDB000101", ready: '[data-testid="tree-placement-edge"]' },
+  { id: "clade_017", hash: "#/clade/MR_CLD3_017", ready: '[data-testid="clade-tree-canvas"] path' },
+  { id: "clade_007", hash: "#/clade/MR_CLD3_007", ready: '[data-testid="clade-tree-canvas"] path' },
+  { id: "record_mrdb", hash: "#/record/MRDB000001", ready: SEQ },
+];
+const ROUTES = SET === "pr4" ? PR4_ROUTES : SET === "pr3" ? PR3_ROUTES : PR2_ROUTES;
+
+async function interact(page, steps) {
+  const out = [];
+  for (const st of steps) {
+    const t0 = await page.evaluate(() => performance.now());
+    if (st.click) await page.click(st.click);
+    else await page.selectOption(st.select[0], st.select[1]);
+    await page.waitForSelector(st.done, { state: "attached", timeout: 30000 });
+    const t1 = await page.evaluate(() => new Promise((res) => requestAnimationFrame(() => requestAnimationFrame(() => res(performance.now())))));
+    out.push({ name: st.name, ms: Math.round(t1 - t0) });
+  }
+  return out;
+}
 
 async function mock(page) {
   await page.route(EXTERNAL, async (route) => {
@@ -158,7 +198,8 @@ for (const r of ROUTES) {
       viewer = { mode: r.viewer, clickToReadyMs: Math.round(t1 - t0), phase, status, phases, requestsBeforeClick: before, external: [...external] };
     }
     if (i === 0 && !r.viewer) contrast = await page.evaluate(contrastScan);
-    runs.push({ readyMs, alsoMs, ...nav, requests: [...new Set(requests)], errors, viewer });
+    const interactions = r.interact ? await interact(page, r.interact) : null;
+    runs.push({ readyMs, alsoMs, ...nav, requests: [...new Set(requests)], errors, viewer, interactions });
     await ctx.close();
   }
   routes.push({ id: r.id, hash: r.hash, ready: r.ready, also: r.also ?? null, viewer: r.viewer ?? null, runs, contrast });

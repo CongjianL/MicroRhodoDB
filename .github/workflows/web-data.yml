@@ -1,4 +1,5 @@
 # PR-1: validate the deterministic web data export. PR-2/PR-3: build the website and run unit + browser tests.
+# PR-4: gate G4 (tests/test_web_phylogeny.py) reconciles the phylogeny explorer export with refpkg and the DB.
 # PR-3: structure requests (RCSB/AFDB) are mocked from committed fixtures; @live tests are excluded (E2E_LIVE unset).
 # Validation only - no Pages, no deploy (PR-7).
 # Data source: the official v1.6.0 GitHub Release asset, verified against BINARIES.md (SHA-256 + size).
@@ -12,6 +13,7 @@ on:
       - "web/**"
       - "tests/test_web_export.py"
       - "tests/test_fetch_release_db.py"
+      - "tests/test_web_phylogeny.py"
       - "docs/website/**"
       - ".github/workflows/web-data.yml"
   workflow_dispatch:
@@ -34,13 +36,13 @@ jobs:
         run: python web/scripts/fetch_release_db.py
       - name: Export web data
         run: python tools/export_web_data.py --out web/public/data
-      - name: Validate export (gate G1)
-        run: python -m pytest -q tests/test_web_export.py tests/test_fetch_release_db.py
+      - name: Validate export (gates G1 and G4)
+        run: python -m pytest -q tests/test_web_export.py tests/test_fetch_release_db.py tests/test_web_phylogeny.py
       - name: Check generated TypeScript types
         run: python web/scripts/schema_to_ts.py --check
       - name: Verify committed structure fixtures (PR-3, offline SHA-256 check)
         run: python web/scripts/fetch_structure_fixtures.py --check
-      # Frontend (added locally in PR-2, extended in PR-3; has not yet run on GitHub)
+      # Frontend (added locally in PR-2, extended in PR-3 and PR-4; has not yet run on GitHub)
       - uses: actions/setup-node@v4
         with:
           node-version: "22"

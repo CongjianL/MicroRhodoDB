@@ -28,16 +28,17 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-SCHEMA_VERSION = "1.1.0"
+SCHEMA_VERSION = "1.2.0"
 DATASET_RELEASE = "1.6.0"
-WEBSITE_VERSION = "2.0.0-pr2"
+WEBSITE_VERSION = "2.0.0-pr4"
 DB_REL = "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"
 EXPECTED_DB_SHA256 = "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f"
 TREE_ID = "MR_RT_003"
 REFPKG = "refpkg/MR_RT_003"
 TREE_REL = f"{REFPKG}/tree/MR_RT_003.rooted.treefile"
 EXPECTED_TREE_SHA256 = "c56196970698decea8384c1cad97545794268e6d8a2df2b195e7d35d5ded9aef"
-REFPKG_INPUTS = ["tree/MR_RT_003.rooted.treefile", "tree/run1.treefile", "tips.tsv", "clades/MR_CLD3_tips.tsv"]
+REFPKG_INPUTS = ["tree/MR_RT_003.rooted.treefile", "tree/run1.treefile", "tips.tsv", "clades/MR_CLD3_tips.tsv",
+                 "tips_annot.tsv"]  # tips_annot.tsv added in schema 1.2.0 (PR-4 explorer annotations)
 # predicted_structure.pdb_file is relative to a historical release directory (releases/v1.0/)
 PREDICTED_SHA256 = {
     "structures/A0A9X2L7U0_esmfold.pdb": "3089c414abb50907266fe397ca9cba925464a7129e72819194bdb2349f54198a",
@@ -179,11 +180,14 @@ class Node:
         self.name, self.length, self.children, self.parent = "", None, [], None
 
 
-def parse_newick(s):
-    s = s.strip()
-    require(s.endswith(";"), "Newick does not end with ';'")
+def parse_newick(s, spans=None):
+    """Parse Newick. If `spans` is a dict, spans[id(internal_node)] = (start, end) of the internal-node label in
+    `s` (end == start when unlabelled), so labels can be replaced without re-serialising branch lengths."""
+    require(s.strip().endswith(";"), "Newick does not end with ';'")
+    if spans is None:
+        s = s.strip()
     root = Node()
-    cur, i, n = root, 0, len(s) - 1
+    cur, i, n = root, 0, len(s.rstrip()) - 1
     stack = []
     while i < n:
         c = s[i]
@@ -196,6 +200,8 @@ def parse_newick(s):
             cur = child; i += 1
         elif c == ")":
             cur = stack.pop(); i += 1
+            if spans is not None:
+                spans[id(cur)] = (i, i)
         elif c == ":":
             j = i + 1
             while j < n and s[j] not in ",();":
@@ -205,7 +211,10 @@ def parse_newick(s):
             j = i
             while j < n and s[j] not in ",():;":
                 j += 1
-            cur.name = s[i:j].strip().strip("'"); i = j
+            cur.name = s[i:j].strip().strip("'")
+            if spans is not None and cur.children:
+                spans[id(cur)] = (i, j)
+            i = j
     require(not stack, "unbalanced Newick")
     return root
 
@@ -261,6 +270,35 @@ def support_audit(rooted, run1):
                     "is_root": x.parent is None, "rooted_label": x.name or None, "iqtree_run1_label": r1,
                     "agrees": (x.name or None) == r1})
     return out, run1_lab, ref, all_tips
+
+
+DERIVED_NWK = "MR_RT_003.rooted.run1-support.DERIVED.nwk"
+DERIVED_README = "MR_RT_003.rooted.run1-support.DERIVED.README.txt"
+REPRESENTATIVE_RULE = ("Up to 12 per group, deterministic: E1 records confidently assigned to the group "
+                       "(reference tips first, then by MRDB accession), then reference tips of the group by tip_role "
+                       "(anchor_characterized, seed, cl0.6_representative) and accession. Display aid only.")
+ROOT_SPLIT_RULE = ("The two root branches (outgroup | ingroup) are one bipartition of the unrooted IQ-TREE run1 tree "
+                   "and carry one support value. It is displayed once, on the outgroup branch; the root node "
+                   "itself has no support.")
+SUPPORT_DISPLAY_RULE = ("Support is the SH-aLRT/UFBoot label of the same bipartition in IQ-TREE run1.treefile (the "
+                        "release tree before rerooting). Topology and branch lengths are those of the frozen rooted "
+                        "file. Rooted-file labels are kept as audit fields only (17 of 470 are attached to a "
+                        "different bipartition because rerooting moved node-attached labels).")
+PLACEMENT_RULE = ("EPA-ng placements are not tips of the reference tree. A placement is shown only as its best "
+                  "reference branch (edge_map: DB tree_edge.edge_id = jplace edge_num on unrooted run1 -> rooted "
+                  "node whose parent branch has the same bipartition); the position along the branch is not stored "
+                  "in v1.6.0 and is never drawn. Statuses are shown exactly as stored (clade_call_qc, subclade_call).")
+
+
+def derived_newick(text, root, spans, new_label):
+    """`text` with every internal-node label replaced by new_label[id(node)] ('' = no label). Branch-length
+    strings, tip names and topology are copied byte-for-byte from `text`."""
+    edits = sorted(((spans[id(x)], new_label.get(id(x)) or "") for x in iter_nodes(root) if x.children), reverse=True)
+    require(len({sp for sp, _ in edits}) == len(edits), "overlapping label spans")
+    out = text
+    for (a, z), lab in edits:
+        out = out[:a] + lab + out[z:]
+    return out
 
 
 def tree_preview_svg(root, tip_level1):
@@ -535,7 +573,9 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
 
     # ---------------- tree
     tree_bytes = (repo / TREE_REL).read_bytes()
-    root = parse_newick(tree_bytes.decode("utf-8"))
+    tree_text = tree_bytes.decode("utf-8")
+    label_spans = {}
+    root = parse_newick(tree_text, label_spans)
     nodes = iter_nodes(root)
     tip_nodes = [x for x in nodes if not x.children]
     internal = [x for x in nodes if x.children]
@@ -614,6 +654,91 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
         "reference_file": f"{REFPKG}/tree/run1.treefile", "node_key": "first_tip,last_tip (Newick order)",
         "n_disagree": n_disagree, "nodes": audit}), len(audit))
     put(R + "phylogeny/preview.svg", tree_preview_svg(root, tip_level1), len(tip_nodes))
+
+    # ---------------- explorer structure (schema 1.2.0, PR-4)
+    pre = {id(x): k for k, x in enumerate(nodes)}
+    below = tip_sets(root)
+    node_by_tipset = {below[id(x)]: x for x in nodes}
+    require(len(node_by_tipset) == len(nodes), "duplicate tip sets in rooted tree")
+    outgroup_tips = frozenset(t for t, r in tip_roles.items() if r == "outgroup_heliorhodopsin")
+    og = [c for c in root.children if below[id(c)] == outgroup_tips]
+    require(len(root.children) == 2 and len(og) == 1, "heliorhodopsin outgroup is not one root child")
+    og = og[0]
+    ing = next(c for c in root.children if c is not og)
+    tn = dict(con.execute("SELECT node_id, source_acc FROM tree_node WHERE tree_id = ? AND kind = 'tip'", (TREE_ID,)))
+    te = rows(con, "SELECT edge_id, parent_node, child_node, length FROM tree_edge WHERE tree_id = ? ORDER BY edge_id",
+              TREE_ID)
+    kids = defaultdict(list)
+    for e in te:
+        kids[e["parent_node"]].append(e["child_node"])
+    db_top = set(kids) - {e["child_node"] for e in te}
+    require(len(db_top) == 1, "DB tree_edge does not form one tree")
+    order, st = [], [db_top.pop()]
+    while st:
+        x = st.pop(); order.append(x); st.extend(kids.get(x, []))
+    db_below = {}
+    for x in reversed(order):
+        db_below[x] = frozenset([tn[x]]) if x in tn else frozenset().union(*(db_below[k] for k in kids[x]))
+    rooted_by_split = defaultdict(list)
+    for x in nodes:
+        if x.parent is not None:
+            rooted_by_split[split_key(below[id(x)], all_tips, split_ref)].append(x)
+    edge_map, len_diff = {}, []
+    for e in te:
+        k = split_key(db_below[e["child_node"]], all_tips, split_ref)
+        require(k in rooted_by_split, f"DB edge {e['edge_id']} is not a bipartition of the rooted tree")
+        xs = rooted_by_split[k]
+        edge_map[e["edge_id"]] = sorted(pre[id(x)] for x in xs)
+        len_diff.append(abs(sum(x.length for x in xs) - e["length"]))
+    shared_edges = [k for k, v in edge_map.items() if len(v) > 1]
+    require(len(shared_edges) == 1 and edge_map[shared_edges[0]] == sorted([pre[id(og)], pre[id(ing)]]),
+            "expected exactly one DB edge for the root split")
+    require(sorted(i for v in edge_map.values() for i in v) == list(range(1, len(nodes))),
+            "edge_map does not cover every rooted branch exactly once")
+    plc_edges = {r[0] for r in con.execute("SELECT DISTINCT best_edge FROM placement WHERE tree_id = ? AND is_current = 1",
+                                           (TREE_ID,))}
+    require(plc_edges <= set(edge_map), "placement best_edge not in tree_edge")
+    run1_sha = hashlib.sha256(run1_bytes).hexdigest()
+    put(R + "phylogeny/run1.treefile", run1_bytes, len(tip_nodes))
+    new_label, changed = {}, []
+    for x, a in zip(internal, audit):
+        lab = None if (x.parent is None or x is ing) else a["iqtree_run1_label"]
+        new_label[id(x)] = lab
+        if (x.name or None) != lab:
+            changed.append({"preorder_index": a["preorder_index"], "n_tips": a["n_tips"], "first_tip": a["first_tip"],
+                            "last_tip": a["last_tip"], "rooted_label": x.name or None, "derived_label": lab})
+    derived = derived_newick(tree_text, root, label_spans, new_label)
+    derived_bytes = derived.encode("utf-8")
+    put(R + "phylogeny/" + DERIVED_NWK, derived_bytes, len(tip_nodes))
+    readme = "\n".join([
+        f"{DERIVED_NWK}",
+        "=" * len(DERIVED_NWK),
+        "DERIVED FILE - NOT A FROZEN RELEASE ARTEFACT. Generated by tools/export_web_data.py "
+        f"(schema {SCHEMA_VERSION}) for MicroRhodoDB v{DATASET_RELEASE}.",
+        "",
+        "What it is: the frozen rooted MR_RT_003 tree with its internal-node labels replaced by the IQ-TREE run1",
+        "SH-aLRT/UFBoot label of the same bipartition. Topology, tip names, tip order and every branch-length",
+        "string are copied byte-for-byte from the frozen file; only internal labels differ.",
+        "",
+        "Why: rerooting run1 on the heliorhodopsin outgroup moved node-attached labels on the path between the",
+        "original top node and the new root, so 17 of the 470 non-root internal nodes of the frozen rooted file",
+        "carry the label of a neighbouring bipartition (WEB_DATA_CONTRACT.md, phylogeny/support_audit.json).",
+        "",
+        "Rules: the root has no label. The two root branches are one unrooted bipartition; its single run1 label",
+        "is written on the outgroup child only (the ingroup child is unlabelled), so no support is counted twice.",
+        "No inference was run; no clade, topology, branch length or support value was re-estimated.",
+        "",
+        "Authoritative frozen files (unchanged):",
+        f"  {TREE_REL}  sha256 {tree_stats['sha256']}",
+        f"  {REFPKG}/tree/run1.treefile  sha256 {run1_sha}",
+        f"This derived file: sha256 {hashlib.sha256(derived_bytes).hexdigest()}",
+        "",
+        f"Internal labels that differ from the frozen rooted file ({len(changed)}), preorder index over internal nodes:",
+        *[f"  node {c['preorder_index']:>3} ({c['n_tips']} tips, {c['first_tip']}..{c['last_tip']}): "
+          f"{c['rooted_label'] or '(none)'} -> {c['derived_label'] or '(none)'}" for c in changed],
+        "",
+    ])
+    put(R + "phylogeny/" + DERIVED_README, readme, len(changed))
 
     # ---------------- per-record tables
     V = rows(con, "SELECT * FROM v_master ORDER BY mrdb_acc, source_acc")
@@ -874,6 +999,8 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
         if x.children and x.parent is not None:
             rooted_lab.setdefault(split_key(br_[id(x)], all_tips, split_ref), x.name)
     level1, sub = [], []
+    mrca_of = defaultdict(list)
+    vm_by_acc = {v["source_acc"]: v for v in V}
     for c in rows(con, "SELECT * FROM clade WHERE tree_id = ? ORDER BY level, clade_id", TREE_ID):
         k = split_key(frozenset(clade_tipset[c["clade_id"]]), all_tips, split_ref)
         require(len(clade_tipset[c["clade_id"]]) == c["n_tips"] and k in run1_lab, f"clade {c['clade_id']} tip set "
@@ -893,6 +1020,45 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
         d["function_consensus"] = {k: (ne(f[k], "clade_function_consensus", k) if k == "E1_classes" else f[k])
                                    for k in ("level", "n_records", "n_E1", "top_frac", "consensus_status",
                                              "clade_function", "E1_classes")}
+        # schema 1.2.0 (PR-4): position in the frozen rooted tree (MRCA of the frozen tip set) and display aids
+        mx = node_by_tipset.get(frozenset(clade_tipset[c["clade_id"]]))
+        require(mx is not None, f"clade {c['clade_id']} tip set is not a clade of the rooted tree")
+        d["mrca_node"] = pre[id(mx)]
+        mrca_of[pre[id(mx)]].append((c["level"], c["clade_id"], c["parent_clade_id"]))
+        is_bb = c["level"] == 1 and c["parent_clade_id"] == "backbone"
+        pc = Counter()
+        for pl in plc.values():
+            if c["level"] == 1 and not is_bb and pl["clade_id"] == c["clade_id"]:
+                pc[pl["clade_call_qc"]] += 1
+            elif (c["level"] == 2 or is_bb) and pl["subclade_id"] == c["clade_id"]:
+                pc[pl["subclade_call"]] += 1
+        d["placement_counts"] = {
+            "basis": ("current placements with placement.subclade_id = this group, by placement.subclade_call"
+                      if c["level"] == 2 or is_bb else
+                      "current placements with placement.clade_id = this clade, by placement.clade_call_qc"),
+            "counts": dict(sorted(pc.items()))}
+        d["n_reference_tips_in_corpus"] = sum(1 for t in clade_tipset[c["clade_id"]] if t in corpus_mrdb)
+        if c["level"] == 1:
+            e1 = sorted((v for v in V if v["clade_id"] == c["clade_id"] and v["evidence_level"] == "E1"),
+                        key=lambda v: (v["source_acc"] not in tip_roles, v["mrdb_acc"], v["source_acc"]))
+            d["e1_anchors"] = [{"source_acc": v["source_acc"], "mrdb_acc": v["mrdb_acc"], "func_class": v["func_class"],
+                                "protein_name": v["protein_name"], "organism": v["organism"],
+                                "counts_eligible": b(v["counts_eligible"]), "is_reference_tip": v["source_acc"] in tip_roles}
+                               for v in e1]
+            reps = [dict(a, reason="E1 record assigned to this group") for a in d["e1_anchors"]][:12]
+            seen = {r["source_acc"] for r in reps}
+            role_rank = {"anchor_characterized": 0, "seed": 1, "cl0.6_representative": 2}
+            for t in sorted(clade_tipset[c["clade_id"]], key=lambda t: (role_rank.get(tip_roles[t], 3), t)):
+                if len(reps) >= 12:
+                    break
+                if t in seen or t not in vm_by_acc:
+                    continue
+                v = vm_by_acc[t]
+                reps.append({"source_acc": t, "mrdb_acc": v["mrdb_acc"], "func_class": v["func_class"],
+                             "protein_name": v["protein_name"], "organism": v["organism"],
+                             "counts_eligible": b(v["counts_eligible"]), "is_reference_tip": True,
+                             "reason": f"reference tip ({tip_roles[t]})"})
+            d["representatives"] = reps
         if c["level"] == 1:
             kind = "backbone_group" if c["parent_clade_id"] == "backbone" else "clade"
             require(kind == "backbone_group" or LEVEL1_RE.match(c["clade_id"]), f"bad level-1 id {c['clade_id']}")
@@ -917,7 +1083,78 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
                                                      "sh_alrt/ufboot are the frozen v1.6.0 DB values; where they differ "
                                                      "from run1 (db_matches_iqtree_run1 = false) the assignment is a "
                                                      "legacy v1.6.0 assignment and is not changed here.",
+                                  "representative_rule": REPRESENTATIVE_RULE,
                                   "level1": level1, "subclades": sub}), len(level1) + len(sub))
+
+    # ---------------- explorer.json (schema 1.2.0, PR-4)
+    annot_lines = (repo / REFPKG / "tips_annot.tsv").read_text().splitlines()
+    ah = annot_lines[0].split("\t")
+    annot = {}
+    for l in annot_lines[1:]:
+        if l.strip():
+            r_ = dict(zip(ah, l.split("\t")))
+            annot[r_["source_acc"]] = {k: (v or None) for k, v in r_.items()}
+    require(set(annot) == set(tip_names), "tips_annot.tsv and treefile tip sets differ")
+    require(all(annot[t]["tip_role"] == tip_roles[t] for t in tip_names), "tips_annot.tsv tip_role differs from tips.tsv")
+    tj_by = {t["tip"]: t for t in tips_json}
+    ex_tips = {}
+    for t in tip_nodes:
+        a, v, tj = annot[t.name], vm_by_acc.get(t.name), tj_by[t.name]
+        ex_tips[t.name] = {
+            "pre": pre[id(t)], "length": t.length, "mrdb_acc": tj["mrdb_acc"], "in_corpus": tj["in_corpus"],
+            "tip_role": tj["tip_role"], "level1": tj["level1"], "subclade": tj["subclade"],
+            "backbone_group": tj["backbone_group"], "unclustered_backbone": tj["unclustered_backbone"],
+            "organism": v["organism"] if v else a["organism"],
+            "protein_name": v["protein_name"] if v else a["protein_name"],
+            "tax_domain": v["tax_domain"] if v else a["tax_domain"], "phylum": a["phylum"],
+            "helixC_motif": v["helixC_motif"] if v else a["helixC_motif"],
+            "func_class": v["func_class"] if v else None, "evidence_level": v["evidence_level"] if v else None,
+            "clade_state": cstate.get(t.name), "func_class_v14": a["func_class_v14"],
+            "subfamily_v14": a["subfamily_v14"],
+            "annotation_source": "v1.6.0 v_master (phylum, *_v14: refpkg tips_annot.tsv)" if v else
+                                 "refpkg tips_annot.tsv only (tip not in the v1.6.0 corpus)"}
+    ex_nodes = []
+    for x, a in zip(internal, audit):
+        lab = a["iqtree_run1_label"]
+        sh, uf = (float(z) for z in lab.split("/")) if lab else (None, None)
+        groups = sorted(mrca_of.get(pre[id(x)], []))
+        ex_nodes.append({
+            "pre": pre[id(x)], "internal_index": a["preorder_index"],
+            "parent": None if x.parent is None else pre[id(x.parent)], "length": x.length,
+            "n_tips": a["n_tips"], "first_tip": a["first_tip"], "last_tip": a["last_tip"], "is_root": a["is_root"],
+            "rooted_label": a["rooted_label"], "run1_label": lab, "sh_alrt": sh, "ufboot": uf,
+            "label_agrees": a["agrees"], "root_split_shared": x.parent is root,
+            "support_displayed": x.parent is not None and x is not ing,
+            "is_outgroup_root_child": x is og,
+            "clade_mrca": [g[1] for g in groups if g[0] == 1], "subclade_mrca": [g[1] for g in groups if g[0] == 2]})
+    plc_status = Counter(p_["clade_call_qc"] for p_ in plc.values())
+    put(R + "phylogeny/explorer.json", dumps({
+        "dataset_release": DATASET_RELEASE, "tree_id": TREE_ID,
+        "node_order": "rooted Newick preorder over all nodes (tips and internal); pre = position (root = 0)",
+        "n_nodes": len(nodes), "n_tips": len(tip_nodes), "n_internal_incl_root": len(internal),
+        "meta": {
+            "tree_id": TREE_ID, "status": ref_tree["status"], "method": ref_tree["method"], "model": ref_tree["model"],
+            "log_likelihood_run1": ref_tree["log_likelihood"], "release_run": "run1",
+            "rooting": "heliorhodopsin outgroup (15 tips); frozen rooted file = run1 rerooted on the outgroup",
+            "reference_tree_note": ref_tree["note"],
+            "tip_roles": dict(sorted(Counter(tip_roles.values()).items())),
+            "frozen_treefile": {"path": TREE_REL, "web_file": "phylogeny/MR_RT_003.rooted.treefile",
+                                "sha256": tree_stats["sha256"]},
+            "support_source": {"path": f"{REFPKG}/tree/run1.treefile", "web_file": "phylogeny/run1.treefile",
+                               "sha256": run1_sha, "md5": run1_md5},
+            "derived_newick": {"web_file": "phylogeny/" + DERIVED_NWK, "readme": "phylogeny/" + DERIVED_README,
+                               "sha256": hashlib.sha256(derived_bytes).hexdigest(), "n_labels_changed": len(changed)},
+            "support_display_rule": SUPPORT_DISPLAY_RULE, "root_split_rule": ROOT_SPLIT_RULE,
+            "placement_rule": PLACEMENT_RULE, "clade_rule": CLADE_RULE,
+            "n_label_disagreements": n_disagree,
+            "db_edge_length_max_abs_diff": round(max(len_diff), 10),
+            "db_edge_length_note": "DB tree_edge.length differs from the frozen rooted/run1 branch lengths by up to "
+                                   "this value (not used for display; recorded for scientific revision).",
+            "placement_status_counts": dict(sorted(plc_status.items())),
+        },
+        "root_split": {"edge_id": shared_edges[0], "nodes": edge_map[shared_edges[0]],
+                       "displayed_on": pre[id(og)], "run1_label": audit[internal.index(og)]["iqtree_run1_label"]},
+        "nodes": ex_nodes, "tips": dict(sorted(ex_tips.items())), "edge_map": edge_map}), len(nodes))
     rob = rows(con, "SELECT * FROM clade_robustness ORDER BY tree, rooting, min_size, max_size, ufb, alrt")
     put(R + "phylogeny/robustness.json", dumps({
         "dataset_release": DATASET_RELEASE, "tree_id": TREE_ID, "grid": rob,

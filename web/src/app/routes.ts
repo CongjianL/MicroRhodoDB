@@ -8,7 +8,6 @@
  */
 
 export type PlannedPage =
-  | "phylogeny"
   | "structures"
   | "search"
   | "downloads"
@@ -24,12 +23,12 @@ export type Route =
   | { name: "browse"; params: URLSearchParams }
   | { name: "record"; accession: string; params: URLSearchParams }
   | { name: "about" }
+  | { name: "phylogeny"; params: URLSearchParams }
   | { name: "clade"; cladeId: string }
   | { name: "planned"; page: PlannedPage }
   | { name: "not-found"; path: string };
 
 export const PLANNED_PAGES: Record<PlannedPage, { title: string; pr: string; summary: string }> = {
-  phylogeny: { title: "Phylogeny", pr: "PR-4", summary: "Interactive explorer for the 472-tip MR_RT_003 reference tree (rectangular/radial layouts, search, support values, clade pages)." },
   structures: { title: "Structures", pr: "PR-5", summary: "Structure browser for experimental PDB entries and predicted models." },
   search: { title: "Sequence search", pr: "PR-5", summary: "Sequence-similarity search running in a Web Worker, with explicit method limits." },
   downloads: { title: "Downloads", pr: "PR-5", summary: "Release files (TSV, FASTA, SQLite, reference tree) with checksums." },
@@ -62,8 +61,10 @@ export function parseHash(hash: string): Route {
       return arg ? { name: "record", accession: arg.trim().toUpperCase(), params: new URLSearchParams(query) } : { name: "not-found", path };
     case "about":
       return arg === undefined ? { name: "about" } : { name: "not-found", path };
+    case "phylogeny":
+      return arg === undefined ? { name: "phylogeny", params: new URLSearchParams(query) } : { name: "not-found", path };
     case "clade":
-      return arg ? { name: "clade", cladeId: arg } : { name: "planned", page: "phylogeny" };
+      return arg ? { name: "clade", cladeId: arg } : { name: "phylogeny", params: new URLSearchParams(query) };
     case "novel":
       return { name: "planned", page: "watchlist" };
     default:
@@ -99,6 +100,7 @@ export const href = {
   browse: (query = "") => (query ? `#/browse?${query.replace(/^\?/, "")}` : "#/browse"),
   record: (acc: string, query = "") => `#/record/${encodeURIComponent(acc)}${query ? `?${query.replace(/^\?/, "")}` : ""}`,
   about: () => "#/about",
+  phylogeny: (query = "") => (query ? `#/phylogeny?${query.replace(/^\?/, "")}` : "#/phylogeny"),
   clade: (id: string) => `#/clade/${encodeURIComponent(id)}`,
   planned: (p: PlannedPage) => `#/${p}`,
 };
@@ -109,6 +111,7 @@ export function routeTitle(r: Route): string {
     case "browse": return "Browse records - MicroRhodoDB";
     case "record": return `${r.accession} - MicroRhodoDB`;
     case "about": return "About - MicroRhodoDB";
+    case "phylogeny": return "Phylogeny - MicroRhodoDB";
     case "clade": return `${r.cladeId} - MicroRhodoDB`;
     case "planned": return `${PLANNED_PAGES[r.page].title} (planned) - MicroRhodoDB`;
     case "not-found": return "Page not found - MicroRhodoDB";

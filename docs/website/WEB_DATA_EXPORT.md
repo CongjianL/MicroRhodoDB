@@ -1,4 +1,4 @@
-# Web data export (PR-1; schema 1.1.0 since PR-2)
+# Web data export (PR-1; schema 1.1.0 since PR-2, 1.2.0 since PR-4)
 
 `tools/export_web_data.py` turns the official v1.6.0 SQLite database plus the frozen reference package into the
 static JSON/FASTA/Newick/PDB files the website reads. It uses the Python standard library only and opens the
@@ -51,8 +51,11 @@ v1.6.0/structures/predicted/*.pdb    byte copies of releases/v1.0/structures/{A0
 v1.6.0/evidence-index.json           E1 set, call conflicts, curated overrides, policies
 v1.6.0/clades.json                   17 level-1 clades + 2 backbone groups, 30 subclades, function consensus, support audit
                                      (+ IQ-TREE run1 SH-aLRT/UFBoot numbers, threshold flag, clade_rule; schema 1.1.0)
+                                     (+ mrca_node, placement_counts, e1_anchors, representatives; schema 1.2.0)
 v1.6.0/vocabulary.json               membership-status, function-class, E1-E5 and clade-state definitions (schema 1.1.0)
 v1.6.0/phylogeny/                    rooted Newick (byte copy), tips, clade_tips, tree_stats, support_audit, robustness, preview.svg
+                                     schema 1.2.0: explorer.json (943 nodes, 472 tips, run1 support, edge_map),
+                                     run1.treefile (byte copy), MR_RT_003.rooted.run1-support.DERIVED.nwk + .README.txt
 v1.6.0/publications.json             121 publications, 255 active links, 7 inactive links (audit only)
 v1.6.0/watchlist.json                181 candidates, isolated from the corpus
 v1.6.0/export_manifest.json          sha256/bytes/records of every other file
@@ -61,5 +64,5 @@ v1.6.0/export_manifest.json          sha256/bytes/records of every other file
 Determinism: sorted keys, compact separators, UTF-8, `allow_nan=False`, trailing newline, stable row order, full
 precision floats, no wall-clock timestamps. Two exports at the same commit are byte-identical (tested).
 
-Schema 1.1.0 (PR-2) is additive; see `WEB_DATA_CONTRACT.md` section 11. The website build (`web/`, `npm run build`)
+Schema 1.1.0 (PR-2) and 1.2.0 (PR-4) are additive; see `WEB_DATA_CONTRACT.md` sections 11 and 12. The website build (`web/`, `npm run build`)
 reads this export from `web/public/data/`; run the exporter before building or running the browser tests.

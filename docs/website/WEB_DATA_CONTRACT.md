@@ -268,7 +268,7 @@ These counts are recomputed at export time and validated, not typed in.
 
 - The Newick is the rooted file, byte-copied and verified by SHA-256. The root is the heliorhodopsin outgroup.
 - Node census of the rooted file: 472 tips, **471 internal nodes including the root**, **469 genuine support labels**. The 2 unlabelled internal nodes are the root and a non-root 25-tip node (the former top node of `run1.treefile`); both root children are labelled (corrected in PR-1; `WEB_BASELINE_AUDIT.md` section 10.1). DB `tree_node` stores the unrooted `run1` topology (470 internal nodes, the same 469-label multiset).
-- **Support provenance.** On 17 of 470 non-root internal nodes the rooted file attaches a label to a different bipartition than IQ-TREE `run1.treefile` (rerooting moved node-attached labels; `WEB_BASELINE_AUDIT.md` section 10.2). The exporter therefore also emits `phylogeny/support_audit.json` (keyed by first/last tip in Newick order) and `tree_stats.json` → `support_audit`. Which label is displayed is an owner decision for PR-4; until then no UI may present a rooted-file label on a disagreeing node without the audit caveat.
+- **Support provenance.** On 17 of 470 non-root internal nodes the rooted file attaches a label to a different bipartition than IQ-TREE `run1.treefile` (rerooting moved node-attached labels; `WEB_BASELINE_AUDIT.md` section 10.2). The exporter therefore also emits `phylogeny/support_audit.json` (keyed by first/last tip in Newick order) and `tree_stats.json` → `support_audit`. Which label is displayed is an owner decision for PR-4; until then no UI may present a rooted-file label on a disagreeing node without the audit caveat. **Decided in PR-4 (section 12.2): the website displays the IQ-TREE run1 label of the same bipartition on every node; rooted-file labels are audit fields only.**
 - A label is shown as statistical support **only** if it is a Newick internal-node label matching `^\d+(\.\d+)?/\d+(\.\d+)?$`; it is exported unchanged and displayed as "SH-aLRT x / UFBoot y". Unlabelled nodes show no support. Parser-generated names (phylotree 2.6.0 names the root `"root"`, which is why the PoC counted 470 "named" internal nodes) are never displayed as support. `phylogeny/tree_stats.json` records 471 / 469 / 2 and the tests check it.
 - Topology and branch lengths are never edited in the browser. Collapsing a clade is a display-only operation.
 
@@ -314,6 +314,7 @@ The PR-0 counts come from a read-only probe. The exporter recomputes them and ch
 Display rules:
 - Placed records (`record_clade.source='placement'`, 4,996) are never drawn as tips.
 - The tree may show them only as an aggregated "N placed records" annotation on a clade, with a link to filtered Browse.
+- PR-4 amendment (owner decision, section 12.3): for one record at a time (`#/phylogeny?placement=MRDB…`) the explorer may highlight the record's current `placement.best_edge` reference branch. No tip or branch is added and no position along the branch is drawn.
 - Only `placement.is_current=1` (MR_RT_003) is used.
 
 ### 7.4 `clades.json`
@@ -412,3 +413,54 @@ type or value, and no scientific value changed. `tests/test_web_export.py` (33 t
 
 Not changed: record files, `accessions.json`, `summary.json` metrics and distributions, sequences, structures,
 publications, watchlist, phylogeny files, `export_manifest.json` format, determinism rules, exit codes.
+
+## 12. Schema 1.2.0 (PR-4, additive)
+
+PR-4 (Phylogeny & Clade Explorer) needed the full node table of the rooted tree with corrected support, the mapping
+from DB edges to rooted branches, and per-clade display aids. All changes are additive; no 1.1.0 field changed name,
+type or value, and no scientific value changed. No inference was run and no clade was re-derived.
+`tests/test_web_phylogeny.py` (gate G4, 21 tests, independent Newick parser and bipartition code),
+`tests/test_web_export.py` (33 tests) and the JSON Schema enforce them.
+
+### 12.1 New and extended files
+
+| File / field | Content | Source |
+|---|---|---|
+| `phylogeny/explorer.json` | `nodes[]` (471 internal nodes incl. root, in rooted preorder over all 943 nodes: `pre`, `internal_index`, `parent`, `length`, `n_tips`, `first_tip`, `last_tip`, `is_root`, `rooted_label`, `run1_label`, `sh_alrt`, `ufboot`, `label_agrees`, `root_split_shared`, `support_displayed`, `is_outgroup_root_child`, `clade_mrca[]`, `subclade_mrca[]`); `tips{}` (472, keyed by accession: `pre`, `length`, `mrdb_acc`, `in_corpus`, `tip_role`, `level1`, `subclade`, `backbone_group`, `unclustered_backbone`, `organism`, `protein_name`, `tax_domain`, `phylum`, `helixC_motif`, `func_class`, `evidence_level`, `clade_state`, `func_class_v14`, `subfamily_v14`, `annotation_source`); `edge_map{}` (941 DB `tree_edge.edge_id` → rooted preorder indices); `root_split`; `meta` (tree id, method, model, run1 log-likelihood, rooting, tip-role counts, file SHA-256s, display rules, placement status counts, DB edge-length deviation) | frozen rooted treefile (topology, lengths), `run1.treefile` (support), `tips.tsv`, `tips_annot.tsv`, `MR_CLD3_tips.tsv`, DB `tree_node`/`tree_edge`/`placement`, `v_master` |
+| `phylogeny/run1.treefile` | byte copy of `refpkg/MR_RT_003/tree/run1.treefile` (SHA-256 `a7fe22920c6d663a8eeee04678ae5a336760c7d38b0ea4bd9af1f37a8913db0e`, also in `explorer.json` → `meta.support_source`; byte equality is tested) | refpkg |
+| `phylogeny/MR_RT_003.rooted.run1-support.DERIVED.nwk` | the frozen rooted Newick with internal-node labels replaced by the run1 label of the same bipartition. Topology, tip names, tip order and every branch-length string are copied byte-for-byte; the root and the ingroup root child are unlabelled. 17 labels differ from the frozen file | derived; never authoritative |
+| `phylogeny/MR_RT_003.rooted.run1-support.DERIVED.README.txt` | what the derived file is, why, the rules, both source SHA-256s, its own SHA-256 and the 17 changed nodes | derived |
+| `clades.json` → `level1[]` and `subclades[]` | `mrca_node` (preorder index of the MRCA of the frozen tip set; the exporter fails if the tip set is not a clade of the rooted tree), `placement_counts` (`basis` + counts of current placements by `clade_call_qc`, or by `subclade_call` for subclades and backbone groups), `n_reference_tips_in_corpus` | DB `placement`, refpkg TSVs |
+| `clades.json` → `level1[]` only | `e1_anchors[]` (E1 records with `v_master.clade_id` = this group; reference tips first, then MRDB accession), `representatives[]` (up to 12; deterministic rule in top-level `representative_rule`; display aid only) | `v_master`, `tips.tsv` |
+| `manifest.website_version` | `2.0.0-pr4` | release label |
+
+The refpkg input list now includes `tips_annot.tsv` (checked against the treefile tip set and `tips.tsv` roles).
+
+### 12.2 Support decision (owner-approved)
+
+- Displayed support for an internal node = the SH-aLRT/UFBoot label of the **same bipartition** in IQ-TREE
+  `run1.treefile` (the release tree before rerooting). Topology and branch lengths are those of the frozen rooted file.
+- On 17 of 470 non-root internal nodes the frozen rooted-file label belongs to a neighbouring bipartition (a one-step
+  shift along the path from the outgroup root to the former run1 top node). These labels are kept as audit fields
+  (`rooted_label`, `label_agrees = false`) and are never displayed as support.
+- The two root branches form one unrooted bipartition (DB edge `E0397`). Its run1 label (98.8/100) is displayed once,
+  on the outgroup root child (`support_displayed`); the ingroup root child and the root show no support.
+- MR_CLD3_017 (MRCA preorder 744, internal index 372, 100 tips): run1 SH-aLRT 50.3 / UFBoot 72, below the
+  SH-aLRT >= 80 / UFBoot >= 95 rule. The frozen DB and rooted-file label 100/100 is unchanged and shown as an audit
+  field. Membership is retained as a legacy v1.6.0 assignment; the rule is reported, never applied.
+- All 30 subclades meet the rule under run1 support (minimum SH-aLRT 82.2, MR_CLD3_009.01; minimum UFBoot 96,
+  MR_CLD3_006.02).
+
+### 12.3 Placements on the explorer
+
+- `edge_map` maps every DB `tree_edge.edge_id` (= jplace `edge_num` on unrooted run1) to the rooted node(s) whose
+  parent branch has the same bipartition: 941 entries, 0 missing, exactly one (the root split) mapping to two branches.
+- A placement is displayed only as the highlight of its `best_edge` branch, with its stored statuses unchanged
+  (`clade_call_qc`, `subclade_call`). The position along the branch (`distal_length`) is not stored in v1.6.0 and is
+  never drawn. Placements are never added as tips.
+- DB `tree_edge.length` differs from the frozen/run1 branch lengths by up to 0.0039705737
+  (`meta.db_edge_length_max_abs_diff`); DB lengths are not used for display.
+
+Not changed: record files, `accessions.json`, `records-index.json`, `summary.json`, `vocabulary.json`, sequences,
+structures, publications, watchlist, the existing phylogeny files, `export_manifest.json` format, determinism rules,
+exit codes.

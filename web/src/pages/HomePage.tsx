@@ -104,7 +104,7 @@ function HomeBody({ manifest, summary, clades, vocab, tree }: {
         </div>
         <div className="mt-5 flex flex-wrap gap-2">
           <a href={href.browse()} className="btn btn-primary">Browse proteins</a>
-          <a href={href.planned("phylogeny")} className="btn btn-secondary">Explore phylogeny <PlannedTag page="phylogeny" /></a>
+          <a href={href.phylogeny()} className="btn btn-secondary">Explore phylogeny</a>
           <a href={href.planned("search")} className="btn btn-secondary">Sequence search <PlannedTag page="search" /></a>
         </div>
         <p className="mt-4 text-sm text-ink-2" data-testid="release-line">
@@ -183,7 +183,7 @@ function HomeBody({ manifest, summary, clades, vocab, tree }: {
             {treeModel && "model" in treeModel ? <TreePreview model={treeModel.model} clades={clades} /> : null}
             {treeModel && "error" in treeModel ? <ErrorState error={treeModel.error} what="the reference tree" /> : null}
             <p className="mt-2 text-sm">
-              <a href={href.planned("phylogeny")}>Explore tree</a> <PlannedTag page="phylogeny" />
+              <a href={href.phylogeny()} data-testid="home-explore-tree">Explore tree</a>
             </p>
           </div>
           <div className="min-w-0 space-y-3">
@@ -228,7 +228,7 @@ function HomeBody({ manifest, summary, clades, vocab, tree }: {
         <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {[
             { h: href.browse(), t: "Browse", d: "Filter, sort and export source records by membership, function, evidence, clade, taxonomy and structure availability." },
-            { h: href.planned("phylogeny"), t: "Phylogeny", d: PLANNED_PAGES.phylogeny.summary, p: "phylogeny" as PlannedPage },
+            { h: href.phylogeny(), t: "Phylogeny", d: "Interactive explorer for the 472-tip MR_RT_003 reference tree: rectangular and radial layouts, search, corrected support values, placements and clade pages." },
             { h: href.planned("structures"), t: "Structures", d: PLANNED_PAGES.structures.summary, p: "structures" as PlannedPage },
             { h: href.planned("search"), t: "Search", d: PLANNED_PAGES.search.summary, p: "search" as PlannedPage },
             { h: href.planned("downloads"), t: "Downloads", d: PLANNED_PAGES.downloads.summary, p: "downloads" as PlannedPage },

@@ -1,0 +1,2456 @@
+{
+ "generated_by": "web/scripts/pr4_perf_audit.py",
+ "environment": {
+  "machine": "Linux x86_64, 16 logical CPUs (sandbox)",
+  "python": "3.11.16",
+  "browser": "Chromium 153.0.8010.12 (Playwright headless)",
+  "server": "scripts/serve_e2e.py (loopback, no compression, Cache-Control: no-store)",
+  "viewport": "1440x900",
+  "runs_per_route": 5,
+  "cache": "cold (new browser context per run)",
+  "throttling": "none"
+ },
+ "routes": [
+  {
+   "id": "home",
+   "hash": "#/",
+   "files": [
+    {
+     "file": "assets/echarts-core-0HeO-QSV.js",
+     "kind": "js",
+     "raw": 475468,
+     "gzip": 157390
+    },
+    {
+     "file": "assets/index-CGYw-5J5.js",
+     "kind": "js",
+     "raw": 169002,
+     "gzip": 54227
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 130118,
+     "gzip": 12860
+    },
+    {
+     "file": "data/v1.6.0/phylogeny/tips.json",
+     "kind": "data",
+     "raw": 91433,
+     "gzip": 5912
+    },
+    {
+     "file": "assets/index-XjbZOpPh.css",
+     "kind": "css",
+     "raw": 40530,
+     "gzip": 7974
+    },
+    {
+     "file": "assets/HomePage-CDtUlkJI.js",
+     "kind": "js",
+     "raw": 18615,
+     "gzip": 6134
+    },
+    {
+     "file": "data/v1.6.0/summary.json",
+     "kind": "data",
+     "raw": 17791,
+     "gzip": 3169
+    },
+    {
+     "file": "data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+     "kind": "data",
+     "raw": 17517,
+     "gzip": 8325
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/TreePreview-CYT06bGS.js",
+     "kind": "js",
+     "raw": 5157,
+     "gzip": 2147
+    },
+    {
+     "file": "assets/tslib.es6-MM1X6Oub.js",
+     "kind": "js",
+     "raw": 3740,
+     "gzip": 1529
+    },
+    {
+     "file": "assets/palette-CPFiN25S.js",
+     "kind": "js",
+     "raw": 2973,
+     "gzip": 1292
+    },
+    {
+     "file": "assets/CladeSupportNotice-zt-3BjO6.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 898
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 592
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 677519,
+     "gzip": 224047
+    },
+    "css": {
+     "raw": 40530,
+     "gzip": 7974
+    },
+    "data": {
+     "raw": 265300,
+     "gzip": 33757
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 782
+    },
+    "all": {
+     "raw": 984701,
+     "gzip": 266560
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [],
+   "timing_ms_median": {
+    "fcp": 284,
+    "dom_content_loaded": 132.9,
+    "load": 132.9,
+    "ready": 509
+   },
+   "timing_ms_ready_all_runs": [
+    525.4,
+    502.9,
+    506.7,
+    509,
+    668.8
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(8,127,120)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 4.65,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "MicroRhodoDB knowledgebase"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 5.17,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Methods"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 5.55,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "MR_CLD3_017"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "CC BY 4.0 (data); MIT (code)"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Search"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 64,
+     "sample": "P02945"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 5.95,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Fungal rhodopsins (CarO / LR / NOP-1-lik"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 21,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 109,
+     "sample": "UniProt source records, engineered const"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Home"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "fails thresholds"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 8.24,
+     "large": false,
+     "need": 4.5,
+     "count": 6,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 13.99,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Membership status is distinct from funct"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 14,
+     "sample": "Category"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 20,
+     "sample": "100"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 17,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Explore the diversity of microbial rhodo"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 153,
+     "sample": "Explore phylogeny"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": true,
+     "need": 3,
+     "count": 6,
+     "sample": "5,466"
+    }
+   ],
+   "contrast_failures": [],
+   "pr3_baseline": {
+    "total_gzip": 257584,
+    "ready_ms_median": 430
+   }
+  },
+  {
+   "id": "phylogeny",
+   "hash": "#/phylogeny",
+   "files": [
+    {
+     "file": "data/v1.6.0/phylogeny/explorer.json",
+     "kind": "data",
+     "raw": 460334,
+     "gzip": 47758
+    },
+    {
+     "file": "assets/index-CGYw-5J5.js",
+     "kind": "js",
+     "raw": 169002,
+     "gzip": 54227
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 130118,
+     "gzip": 12860
+    },
+    {
+     "file": "assets/index-XjbZOpPh.css",
+     "kind": "css",
+     "raw": 40530,
+     "gzip": 7974
+    },
+    {
+     "file": "assets/PhylogenyPage-BLg9fw2n.js",
+     "kind": "js",
+     "raw": 27567,
+     "gzip": 9107
+    },
+    {
+     "file": "assets/useExplorer-BfkJi_Mg.js",
+     "kind": "js",
+     "raw": 25255,
+     "gzip": 8555
+    },
+    {
+     "file": "data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+     "kind": "data",
+     "raw": 17517,
+     "gzip": 8325
+    },
+    {
+     "file": "assets/phyloQuery-B5sWNoLs.js",
+     "kind": "js",
+     "raw": 13850,
+     "gzip": 5219
+    },
+    {
+     "file": "assets/palette-CPFiN25S.js",
+     "kind": "js",
+     "raw": 2973,
+     "gzip": 1292
+    },
+    {
+     "file": "assets/CladeSupportNotice-zt-3BjO6.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 898
+    },
+    {
+     "file": "assets/Badges-CFtycx_K.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 691
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "assets/ui-DnM8rVNG.js",
+     "kind": "js",
+     "raw": 1587,
+     "gzip": 815
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 592
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 244565,
+     "gzip": 81234
+    },
+    "css": {
+     "raw": 40530,
+     "gzip": 7974
+    },
+    "data": {
+     "raw": 609797,
+     "gzip": 70061
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 782
+    },
+    "all": {
+     "raw": 896244,
+     "gzip": 160051
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [],
+   "timing_ms_median": {
+    "fcp": 288,
+    "dom_content_loaded": 129.2,
+    "load": 129.3,
+    "ready": 578.7
+   },
+   "timing_ms_ready_all_runs": [
+    614.7,
+    608.4,
+    520.4,
+    578.7,
+    534.4
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 57,
+     "sample": "MR_CLD3_001"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Rectangular"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "README"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 85,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 67,
+     "sample": "Select a node or tip to see its support,"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Phylogeny"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Phylogenetic uncertainty"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "Group"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 14,
+     "sample": "MR_CLD3_017"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 189,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Phylogeny"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 108,
+     "sample": "Layout"
+    }
+   ],
+   "contrast_failures": [],
+   "interactions_ms": {
+    "layout_radial": {
+     "median": 177,
+     "max": 181,
+     "all_runs": [
+      181,
+      181,
+      177,
+      161,
+      172
+     ]
+    },
+    "layout_rect": {
+     "median": 163,
+     "max": 164,
+     "all_runs": [
+      147,
+      148,
+      163,
+      164,
+      163
+     ]
+    },
+    "branch_uniform": {
+     "median": 131,
+     "max": 143,
+     "all_runs": [
+      143,
+      130,
+      129,
+      131,
+      131
+     ]
+    },
+    "color_function": {
+     "median": 77,
+     "max": 96,
+     "all_runs": [
+      77,
+      82,
+      96,
+      64,
+      62
+     ]
+    },
+    "color_phylum": {
+     "median": 80,
+     "max": 94,
+     "all_runs": [
+      77,
+      94,
+      80,
+      82,
+      80
+     ]
+    },
+    "support_on_469": {
+     "median": 145,
+     "max": 149,
+     "all_runs": [
+      149,
+      148,
+      130,
+      145,
+      131
+     ]
+    },
+    "collapse_all": {
+     "median": 131,
+     "max": 148,
+     "all_runs": [
+      148,
+      127,
+      130,
+      131,
+      147
+     ]
+    },
+    "expand_all": {
+     "median": 165,
+     "max": 179,
+     "all_runs": [
+      179,
+      165,
+      177,
+      147,
+      160
+     ]
+    },
+    "zoom_in": {
+     "median": 115,
+     "max": 129,
+     "all_runs": [
+      129,
+      113,
+      126,
+      98,
+      115
+     ]
+    }
+   }
+  },
+  {
+   "id": "phylogeny_radial",
+   "hash": "#/phylogeny?layout=radial&support=1",
+   "files": [
+    {
+     "file": "data/v1.6.0/phylogeny/explorer.json",
+     "kind": "data",
+     "raw": 460334,
+     "gzip": 47758
+    },
+    {
+     "file": "assets/index-CGYw-5J5.js",
+     "kind": "js",
+     "raw": 169002,
+     "gzip": 54227
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 130118,
+     "gzip": 12860
+    },
+    {
+     "file": "assets/index-XjbZOpPh.css",
+     "kind": "css",
+     "raw": 40530,
+     "gzip": 7974
+    },
+    {
+     "file": "assets/PhylogenyPage-BLg9fw2n.js",
+     "kind": "js",
+     "raw": 27567,
+     "gzip": 9107
+    },
+    {
+     "file": "assets/useExplorer-BfkJi_Mg.js",
+     "kind": "js",
+     "raw": 25255,
+     "gzip": 8555
+    },
+    {
+     "file": "data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+     "kind": "data",
+     "raw": 17517,
+     "gzip": 8325
+    },
+    {
+     "file": "assets/phyloQuery-B5sWNoLs.js",
+     "kind": "js",
+     "raw": 13850,
+     "gzip": 5219
+    },
+    {
+     "file": "assets/palette-CPFiN25S.js",
+     "kind": "js",
+     "raw": 2973,
+     "gzip": 1292
+    },
+    {
+     "file": "assets/CladeSupportNotice-zt-3BjO6.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 898
+    },
+    {
+     "file": "assets/Badges-CFtycx_K.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 691
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "assets/ui-DnM8rVNG.js",
+     "kind": "js",
+     "raw": 1587,
+     "gzip": 815
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 592
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 244565,
+     "gzip": 81234
+    },
+    "css": {
+     "raw": 40530,
+     "gzip": 7974
+    },
+    "data": {
+     "raw": 609797,
+     "gzip": 70061
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 782
+    },
+    "all": {
+     "raw": 896244,
+     "gzip": 160051
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [],
+   "timing_ms_median": {
+    "fcp": 256,
+    "dom_content_loaded": 112.5,
+    "load": 112.6,
+    "ready": 598.1
+   },
+   "timing_ms_ready_all_runs": [
+    562.4,
+    581.6,
+    622.7,
+    598.1,
+    607.3
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 57,
+     "sample": "MR_CLD3_001"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Radial"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "README"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 85,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 67,
+     "sample": "Select a node or tip to see its support,"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Phylogeny"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Phylogenetic uncertainty"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "Group"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 14,
+     "sample": "MR_CLD3_017"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 189,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Phylogeny"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 113,
+     "sample": "Layout"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "phylogeny_tip",
+   "hash": "#/phylogeny?tip=Q9UW81",
+   "files": [
+    {
+     "file": "data/v1.6.0/phylogeny/explorer.json",
+     "kind": "data",
+     "raw": 460334,
+     "gzip": 47758
+    },
+    {
+     "file": "assets/index-CGYw-5J5.js",
+     "kind": "js",
+     "raw": 169002,
+     "gzip": 54227
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 130118,
+     "gzip": 12860
+    },
+    {
+     "file": "assets/index-XjbZOpPh.css",
+     "kind": "css",
+     "raw": 40530,
+     "gzip": 7974
+    },
+    {
+     "file": "assets/PhylogenyPage-BLg9fw2n.js",
+     "kind": "js",
+     "raw": 27567,
+     "gzip": 9107
+    },
+    {
+     "file": "assets/useExplorer-BfkJi_Mg.js",
+     "kind": "js",
+     "raw": 25255,
+     "gzip": 8555
+    },
+    {
+     "file": "data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+     "kind": "data",
+     "raw": 17517,
+     "gzip": 8325
+    },
+    {
+     "file": "assets/phyloQuery-B5sWNoLs.js",
+     "kind": "js",
+     "raw": 13850,
+     "gzip": 5219
+    },
+    {
+     "file": "assets/palette-CPFiN25S.js",
+     "kind": "js",
+     "raw": 2973,
+     "gzip": 1292
+    },
+    {
+     "file": "assets/CladeSupportNotice-zt-3BjO6.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 898
+    },
+    {
+     "file": "assets/Badges-CFtycx_K.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 691
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "assets/ui-DnM8rVNG.js",
+     "kind": "js",
+     "raw": 1587,
+     "gzip": 815
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 592
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 244565,
+     "gzip": 81234
+    },
+    "css": {
+     "raw": 40530,
+     "gzip": 7974
+    },
+    "data": {
+     "raw": 609797,
+     "gzip": 70061
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 782
+    },
+    "all": {
+     "raw": 896244,
+     "gzip": 160051
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [],
+   "timing_ms_median": {
+    "fcp": 276,
+    "dom_content_loaded": 126.8,
+    "load": 126.8,
+    "ready": 643.8
+   },
+   "timing_ms_ready_all_runs": [
+    679.9,
+    643.8,
+    614.2,
+    653.5,
+    636.7
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 57,
+     "sample": "MR_CLD3_001"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Rectangular"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "MRDB000012"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 85,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 82,
+     "sample": "reference tip"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Phylogeny"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Phylogenetic uncertainty"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "Group"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 14,
+     "sample": "MR_CLD3_017"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 189,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Phylogeny"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 122,
+     "sample": "Layout"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "phylogeny_placement",
+   "hash": "#/phylogeny?placement=MRDB000101",
+   "files": [
+    {
+     "file": "data/v1.6.0/phylogeny/explorer.json",
+     "kind": "data",
+     "raw": 460334,
+     "gzip": 47758
+    },
+    {
+     "file": "assets/index-CGYw-5J5.js",
+     "kind": "js",
+     "raw": 169002,
+     "gzip": 54227
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 130118,
+     "gzip": 12860
+    },
+    {
+     "file": "assets/index-XjbZOpPh.css",
+     "kind": "css",
+     "raw": 40530,
+     "gzip": 7974
+    },
+    {
+     "file": "assets/PhylogenyPage-BLg9fw2n.js",
+     "kind": "js",
+     "raw": 27567,
+     "gzip": 9107
+    },
+    {
+     "file": "assets/useExplorer-BfkJi_Mg.js",
+     "kind": "js",
+     "raw": 25255,
+     "gzip": 8555
+    },
+    {
+     "file": "data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+     "kind": "data",
+     "raw": 17517,
+     "gzip": 8325
+    },
+    {
+     "file": "assets/phyloQuery-B5sWNoLs.js",
+     "kind": "js",
+     "raw": 13850,
+     "gzip": 5219
+    },
+    {
+     "file": "data/v1.6.0/records/MRDB000101.json",
+     "kind": "data",
+     "raw": 3662,
+     "gzip": 1825
+    },
+    {
+     "file": "assets/palette-CPFiN25S.js",
+     "kind": "js",
+     "raw": 2973,
+     "gzip": 1292
+    },
+    {
+     "file": "assets/CladeSupportNotice-zt-3BjO6.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 898
+    },
+    {
+     "file": "assets/Badges-CFtycx_K.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 691
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "assets/ui-DnM8rVNG.js",
+     "kind": "js",
+     "raw": 1587,
+     "gzip": 815
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 592
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 244565,
+     "gzip": 81234
+    },
+    "css": {
+     "raw": 40530,
+     "gzip": 7974
+    },
+    "data": {
+     "raw": 613459,
+     "gzip": 71886
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 782
+    },
+    "all": {
+     "raw": 899906,
+     "gzip": 161876
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [
+    "records/MRDB000101.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 272,
+    "dom_content_loaded": 118.4,
+    "load": 118.5,
+    "ready": 655.4
+   },
+   "timing_ms_ready_all_runs": [
+    641.4,
+    647.9,
+    690.6,
+    668.5,
+    655.4
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 57,
+     "sample": "MR_CLD3_001"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Rectangular"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 5,
+     "sample": "MRDB000101"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 85,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 91,
+     "sample": "Best edge"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Phylogeny"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Phylogenetic uncertainty"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "Group"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 14,
+     "sample": "MR_CLD3_017"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 189,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Phylogeny"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 131,
+     "sample": "Layout"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "clade_017",
+   "hash": "#/clade/MR_CLD3_017",
+   "files": [
+    {
+     "file": "data/v1.6.0/phylogeny/explorer.json",
+     "kind": "data",
+     "raw": 460334,
+     "gzip": 47758
+    },
+    {
+     "file": "assets/index-CGYw-5J5.js",
+     "kind": "js",
+     "raw": 169002,
+     "gzip": 54227
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 130118,
+     "gzip": 12860
+    },
+    {
+     "file": "assets/index-XjbZOpPh.css",
+     "kind": "css",
+     "raw": 40530,
+     "gzip": 7974
+    },
+    {
+     "file": "assets/useExplorer-BfkJi_Mg.js",
+     "kind": "js",
+     "raw": 25255,
+     "gzip": 8555
+    },
+    {
+     "file": "data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+     "kind": "data",
+     "raw": 17517,
+     "gzip": 8325
+    },
+    {
+     "file": "assets/CladePage-DPnbiQi9.js",
+     "kind": "js",
+     "raw": 17222,
+     "gzip": 4650
+    },
+    {
+     "file": "assets/phyloQuery-B5sWNoLs.js",
+     "kind": "js",
+     "raw": 13850,
+     "gzip": 5219
+    },
+    {
+     "file": "assets/palette-CPFiN25S.js",
+     "kind": "js",
+     "raw": 2973,
+     "gzip": 1292
+    },
+    {
+     "file": "assets/CladeSupportNotice-zt-3BjO6.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 898
+    },
+    {
+     "file": "assets/Badges-CFtycx_K.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 691
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "assets/PlaceholderPage-C5g2YdIQ.js",
+     "kind": "js",
+     "raw": 1113,
+     "gzip": 516
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 592
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 233746,
+     "gzip": 76478
+    },
+    "css": {
+     "raw": 40530,
+     "gzip": 7974
+    },
+    "data": {
+     "raw": 609797,
+     "gzip": 70061
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 782
+    },
+    "all": {
+     "raw": 885425,
+     "gzip": 155295
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [],
+   "timing_ms_median": {
+    "fcp": 292,
+    "dom_content_loaded": 135,
+    "load": 135.1,
+    "ready": 541.1
+   },
+   "timing_ms_ready_all_runs": [
+    541.1,
+    551.5,
+    572,
+    539.2,
+    526.7
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 214,
+     "sample": "Phylogeny"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 15,
+     "sample": "MRDB000012"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 64,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 91,
+     "sample": "Group"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Phylogeny"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 5,
+     "sample": "legacy assignment"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 22,
+     "sample": "Level-1 clade"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 15,
+     "sample": "MR_CLD3_017"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 645,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Fungal rhodopsins (CarO / LR / NOP-1-lik"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 75,
+     "sample": "Summary"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "clade_007",
+   "hash": "#/clade/MR_CLD3_007",
+   "files": [
+    {
+     "file": "data/v1.6.0/phylogeny/explorer.json",
+     "kind": "data",
+     "raw": 460334,
+     "gzip": 47758
+    },
+    {
+     "file": "assets/index-CGYw-5J5.js",
+     "kind": "js",
+     "raw": 169002,
+     "gzip": 54227
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 130118,
+     "gzip": 12860
+    },
+    {
+     "file": "assets/index-XjbZOpPh.css",
+     "kind": "css",
+     "raw": 40530,
+     "gzip": 7974
+    },
+    {
+     "file": "assets/useExplorer-BfkJi_Mg.js",
+     "kind": "js",
+     "raw": 25255,
+     "gzip": 8555
+    },
+    {
+     "file": "data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+     "kind": "data",
+     "raw": 17517,
+     "gzip": 8325
+    },
+    {
+     "file": "assets/CladePage-DPnbiQi9.js",
+     "kind": "js",
+     "raw": 17222,
+     "gzip": 4650
+    },
+    {
+     "file": "assets/phyloQuery-B5sWNoLs.js",
+     "kind": "js",
+     "raw": 13850,
+     "gzip": 5219
+    },
+    {
+     "file": "assets/palette-CPFiN25S.js",
+     "kind": "js",
+     "raw": 2973,
+     "gzip": 1292
+    },
+    {
+     "file": "assets/CladeSupportNotice-zt-3BjO6.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 898
+    },
+    {
+     "file": "assets/Badges-CFtycx_K.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 691
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "assets/PlaceholderPage-C5g2YdIQ.js",
+     "kind": "js",
+     "raw": 1113,
+     "gzip": 516
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 592
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 233746,
+     "gzip": 76478
+    },
+    "css": {
+     "raw": 40530,
+     "gzip": 7974
+    },
+    "data": {
+     "raw": 609797,
+     "gzip": 70061
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 782
+    },
+    "all": {
+     "raw": 885425,
+     "gzip": 155295
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [],
+   "timing_ms_median": {
+    "fcp": 280,
+    "dom_content_loaded": 126.7,
+    "load": 126.7,
+    "ready": 537.7
+   },
+   "timing_ms_ready_all_runs": [
+    532.4,
+    516.8,
+    542.4,
+    537.7,
+    572.7
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 198,
+     "sample": "Phylogeny"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 15,
+     "sample": "MRDB000238"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 38,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 88,
+     "sample": "Group"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Phylogeny"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "caveat"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 22,
+     "sample": "Level-1 clade"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 608,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Xanthorhodopsin / NDQ-NTQ ion-pump super"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 71,
+     "sample": "Summary"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "record_mrdb",
+   "hash": "#/record/MRDB000001",
+   "files": [
+    {
+     "file": "data/v1.6.0/accessions.json",
+     "kind": "data",
+     "raw": 1138955,
+     "gzip": 323365
+    },
+    {
+     "file": "assets/index-CGYw-5J5.js",
+     "kind": "js",
+     "raw": 169002,
+     "gzip": 54227
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 130118,
+     "gzip": 12860
+    },
+    {
+     "file": "assets/RecordPage-DvSWX33b.js",
+     "kind": "js",
+     "raw": 69441,
+     "gzip": 19268
+    },
+    {
+     "file": "data/v1.6.0/records/MRDB000001.json",
+     "kind": "data",
+     "raw": 58869,
+     "gzip": 9642
+    },
+    {
+     "file": "assets/index-XjbZOpPh.css",
+     "kind": "css",
+     "raw": 40530,
+     "gzip": 7974
+    },
+    {
+     "file": "data/v1.6.0/evidence-index.json",
+     "kind": "data",
+     "raw": 24516,
+     "gzip": 4985
+    },
+    {
+     "file": "assets/phyloQuery-B5sWNoLs.js",
+     "kind": "js",
+     "raw": 13850,
+     "gzip": 5219
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/TreePreview-CYT06bGS.js",
+     "kind": "js",
+     "raw": 5157,
+     "gzip": 2147
+    },
+    {
+     "file": "assets/palette-CPFiN25S.js",
+     "kind": "js",
+     "raw": 2973,
+     "gzip": 1292
+    },
+    {
+     "file": "assets/CladeSupportNotice-zt-3BjO6.js",
+     "kind": "js",
+     "raw": 1848,
+     "gzip": 898
+    },
+    {
+     "file": "assets/Badges-CFtycx_K.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 691
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "assets/ui-DnM8rVNG.js",
+     "kind": "js",
+     "raw": 1587,
+     "gzip": 815
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 592
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 266341,
+     "gzip": 84987
+    },
+    "css": {
+     "raw": 40530,
+     "gzip": 7974
+    },
+    "data": {
+     "raw": 1360899,
+     "gzip": 354343
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 782
+    },
+    "all": {
+     "raw": 1669122,
+     "gzip": 448086
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [
+    "accessions.json",
+    "evidence-index.json",
+    "records/MRDB000001.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 304,
+    "dom_content_loaded": 141.2,
+    "load": 141.3,
+    "ready": 604.7
+   },
+   "timing_ms_ready_all_runs": [
+    613.5,
+    604.7,
+    599.2,
+    648.2,
+    584.6
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 5.53,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "(shown)"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Home"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 5.76,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "planned"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 93,
+     "sample": "P02945"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "Load 3D viewer"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 43,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 179,
+     "sample": "MRDB accession"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(20,83,45)",
+     "bg": "rgb(231,245,238)",
+     "ratio": 8.11,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Member (core)"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(15,79,145)",
+     "ratio": 8.24,
+     "large": false,
+     "need": 4.5,
+     "count": 6,
+     "sample": "E1"
+    },
+    {
+     "fg": "rgb(15,61,110)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 9.62,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E3"
+    },
+    {
+     "fg": "rgb(30,47,69)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 12.97,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E4"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 13.99,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "P02945"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 21,
+     "sample": "Source accession"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 37,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Bacteriorhodopsin (BR) (Bacterioopsin) ("
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 319,
+     "sample": "Copy link"
+    }
+   ],
+   "contrast_failures": [],
+   "pr3_baseline": {
+    "total_gzip": 432704,
+    "ready_ms_median": 421.9
+   }
+  }
+ ],
+ "chunks": [
+  {
+   "file": "assets/AboutPage-CLhCZfxA.js",
+   "raw": 5581,
+   "gzip": 2131
+  },
+  {
+   "file": "assets/Badges-CFtycx_K.js",
+   "raw": 1767,
+   "gzip": 691
+  },
+  {
+   "file": "assets/BrowsePage-BKdmfqJh.js",
+   "raw": 83731,
+   "gzip": 23937
+  },
+  {
+   "file": "assets/CladePage-DPnbiQi9.js",
+   "raw": 17222,
+   "gzip": 4650
+  },
+  {
+   "file": "assets/CladeSupportNotice-zt-3BjO6.js",
+   "raw": 1848,
+   "gzip": 898
+  },
+  {
+   "file": "assets/HomePage-CDtUlkJI.js",
+   "raw": 18615,
+   "gzip": 6134
+  },
+  {
+   "file": "assets/PhylogenyPage-BLg9fw2n.js",
+   "raw": 27567,
+   "gzip": 9107
+  },
+  {
+   "file": "assets/PlaceholderPage-C5g2YdIQ.js",
+   "raw": 1113,
+   "gzip": 516
+  },
+  {
+   "file": "assets/RecordPage-DvSWX33b.js",
+   "raw": 69441,
+   "gzip": 19268
+  },
+  {
+   "file": "assets/TreePreview-CYT06bGS.js",
+   "raw": 5157,
+   "gzip": 2147
+  },
+  {
+   "file": "assets/echarts-core-0HeO-QSV.js",
+   "raw": 475468,
+   "gzip": 157390
+  },
+  {
+   "file": "assets/index-CGYw-5J5.js",
+   "raw": 169002,
+   "gzip": 54227
+  },
+  {
+   "file": "assets/index-XjbZOpPh.css",
+   "raw": 40530,
+   "gzip": 7974
+  },
+  {
+   "file": "assets/molstarViewer-D-7z9oDR.js",
+   "raw": 3177775,
+   "gzip": 873360
+  },
+  {
+   "file": "assets/palette-CPFiN25S.js",
+   "raw": 2973,
+   "gzip": 1292
+  },
+  {
+   "file": "assets/phyloQuery-B5sWNoLs.js",
+   "raw": 13850,
+   "gzip": 5219
+  },
+  {
+   "file": "assets/rolldown-runtime-hePW80VL.js",
+   "raw": 716,
+   "gzip": 430
+  },
+  {
+   "file": "assets/tslib.es6-MM1X6Oub.js",
+   "raw": 3740,
+   "gzip": 1529
+  },
+  {
+   "file": "assets/ui-DnM8rVNG.js",
+   "raw": 1587,
+   "gzip": 815
+  },
+  {
+   "file": "assets/useExplorer-BfkJi_Mg.js",
+   "raw": 25255,
+   "gzip": 8555
+  }
+ ]
+}

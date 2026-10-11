@@ -1,5 +1,6 @@
 /**
- * Static data loaders for the PR-1 export contract (WEB_DATA_CONTRACT.md, schema 1.1.0).
+ * Static data loaders for the export contract (WEB_DATA_CONTRACT.md, schema 1.2.0; PR-4 adds
+ * phylogeny/explorer.json, the IQ-TREE run1 support source and a clearly labelled DERIVED Newick).
  *
  * Every file is fetched lazily, at most once per page load, from the release-versioned
  * directory named by data/current.json (e.g. data/v1.6.0/). URLs contain the release, so
@@ -8,7 +9,7 @@
  */
 import { useEffect, useState } from "react";
 import type {
-  Accessions, Clades, CladeTips, Current, EvidenceIndex, Manifest, MrdbEntry, RecordsIndex, Summary, Tips, Vocabulary,
+  Accessions, Clades, CladeTips, Current, EvidenceIndex, Explorer, Manifest, MrdbEntry, RecordsIndex, Summary, Tips, Vocabulary,
 } from "./types";
 
 const BASE = import.meta.env.BASE_URL; // "/MicroRhodoDB/site/"
@@ -69,6 +70,8 @@ export const loadVocabulary = () => json<Vocabulary>("vocabulary.json");
 export const loadCladeTips = () => json<CladeTips>("phylogeny/clade_tips.json");
 export const loadTips = () => json<Tips>("phylogeny/tips.json");
 export const loadNewick = () => text("phylogeny/MR_RT_003.rooted.treefile");
+/* Phylogeny explorer / clade pages (PR-4): node table aligned to the rooted Newick by preorder. */
+export const loadExplorer = () => json<Explorer>("phylogeny/explorer.json");
 
 /* Heavy files: Browse / Record only. */
 export const loadRecordsIndex = () => json<RecordsIndex>("records-index.json");

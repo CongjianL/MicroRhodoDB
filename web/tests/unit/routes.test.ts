@@ -24,7 +24,18 @@ describe("parseHash", () => {
   it("routes About, clades, planned pages and unknown paths", () => {
     expect(parseHash("#/about")).toEqual({ name: "about" });
     expect(parseHash("#/clade/MR_CLD3_017")).toEqual({ name: "clade", cladeId: "MR_CLD3_017" });
-    for (const p of ["phylogeny", "structures", "search", "downloads", "statistics", "evidence", "watchlist", "methods", "citation", "help"]) {
+    // PR-4: Phylogeny is a real page now (no longer planned); #/clade without an id opens it.
+    const ph = parseHash("#/phylogeny?layout=radial&tip=QBQ84355");
+    expect(ph.name).toBe("phylogeny");
+    if (ph.name === "phylogeny") {
+      expect(ph.params.get("layout")).toBe("radial");
+      expect(ph.params.get("tip")).toBe("QBQ84355");
+    }
+    expect(parseHash("#/clade")).toMatchObject({ name: "phylogeny" });
+    expect(parseHash("#/phylogeny/x")).toMatchObject({ name: "not-found" });
+    expect(parseHash(href.phylogeny("clade=MR_CLD3_017"))).toMatchObject({ name: "phylogeny" });
+    expect(routeTitle({ name: "phylogeny", params: new URLSearchParams() })).toBe("Phylogeny - MicroRhodoDB");
+    for (const p of ["structures", "search", "downloads", "statistics", "evidence", "watchlist", "methods", "citation", "help"]) {
       expect(parseHash(`#/${p}`)).toEqual({ name: "planned", page: p });
     }
     expect(parseHash("#/novel")).toEqual({ name: "planned", page: "watchlist" });

@@ -11,7 +11,8 @@ interface NavItem {
 const PRIMARY: NavItem[] = [
   { key: "home", label: "Home", href: href.home() },
   { key: "browse", label: "Browse", href: href.browse() },
-  ...(["phylogeny", "structures", "search", "downloads"] as PlannedPage[]).map((p) => ({
+  { key: "phylogeny", label: "Phylogeny", href: href.phylogeny() },
+  ...(["structures", "search", "downloads"] as PlannedPage[]).map((p) => ({
     key: p, label: p === "search" ? "Search" : PLANNED_PAGES[p].title, href: href.planned(p), planned: PLANNED_PAGES[p].pr,
   })),
   { key: "about", label: "About", href: href.about() },

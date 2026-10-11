@@ -44,7 +44,10 @@ test.describe("Routing, history and static assets under /MicroRhodoDB/site/", ()
     await page.getByTestId("record-clade-link").click();
     await expect(page).toHaveURL(/#\/clade\/MR_CLD3_017$/);
     const cp = page.getByTestId("clade-page");
-    await expect(cp).toContainText("SH-aLRT 50.3 / UFBoot 72 (fails thresholds)");
+    // PR-4: the real Clade Explorer page replaces the placeholder; corrected run1 support + legacy flag
+    await expect(cp.getByTestId("clade-support")).toContainText("SH-aLRT 50.3 / UFBoot 72");
+    await expect(cp.getByTestId("clade-support")).toContainText("fails thresholds");
+    await expect(cp.getByTestId("clade-legacy-banner")).toBeVisible();
     await expect(cp.getByTestId("clade-support-notice")).toContainText("legacy v1.6.0 assignment");
     await page.goBack();
     await expect(page.getByTestId("record-page")).toBeVisible();
@@ -68,7 +71,7 @@ test.describe("Routing, history and static assets under /MicroRhodoDB/site/", ()
     await expect(page.getByTestId("planned-watchlist")).toBeVisible();
     await page.goBack();
     await expect(page).toHaveURL(/#\/about$/);
-    for (const p of ["phylogeny", "structures", "search", "downloads", "statistics", "evidence", "methods", "citation", "help"]) {
+    for (const p of ["structures", "search", "downloads", "statistics", "evidence", "methods", "citation", "help"]) {
       await page.goto(`#/${p}`);
       const n = page.getByTestId("planned-notice").first();
       await expect(n).toBeVisible();

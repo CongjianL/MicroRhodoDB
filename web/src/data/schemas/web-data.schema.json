@@ -160,6 +160,57 @@
       "null"
      ]
     },
+    "e1_anchors": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "source_acc": {
+        "type": "string"
+       },
+       "mrdb_acc": {
+        "$ref": "#/$defs/MrdbAcc"
+       },
+       "func_class": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "protein_name": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "organism": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "counts_eligible": {
+        "type": [
+         "boolean",
+         "null"
+        ]
+       },
+       "is_reference_tip": {
+        "type": "boolean"
+       }
+      },
+      "required": [
+       "source_acc",
+       "mrdb_acc",
+       "func_class",
+       "protein_name",
+       "organism",
+       "counts_eligible",
+       "is_reference_tip"
+      ],
+      "type": "object"
+     },
+     "type": "array"
+    },
     "e1_classes_records": {
      "type": [
       "string",
@@ -262,6 +313,10 @@
       "null"
      ]
     },
+    "mrca_node": {
+     "type": "integer",
+     "minimum": 1
+    },
     "n_E1": {
      "type": [
       "integer",
@@ -278,6 +333,9 @@
      "type": "integer"
     },
     "n_records_tentative": {
+     "type": "integer"
+    },
+    "n_reference_tips_in_corpus": {
      "type": "integer"
     },
     "n_tips": {
@@ -303,6 +361,81 @@
       "string",
       "null"
      ]
+    },
+    "placement_counts": {
+     "additionalProperties": false,
+     "properties": {
+      "basis": {
+       "type": "string"
+      },
+      "counts": {
+       "additionalProperties": {
+        "type": "integer"
+       },
+       "type": "object"
+      }
+     },
+     "required": [
+      "basis",
+      "counts"
+     ],
+     "type": "object"
+    },
+    "representatives": {
+     "items": {
+      "additionalProperties": false,
+      "properties": {
+       "source_acc": {
+        "type": "string"
+       },
+       "mrdb_acc": {
+        "$ref": "#/$defs/MrdbAcc"
+       },
+       "func_class": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "protein_name": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "organism": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "counts_eligible": {
+        "type": [
+         "boolean",
+         "null"
+        ]
+       },
+       "is_reference_tip": {
+        "type": "boolean"
+       },
+       "reason": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "source_acc",
+       "mrdb_acc",
+       "func_class",
+       "protein_name",
+       "organism",
+       "counts_eligible",
+       "is_reference_tip",
+       "reason"
+      ],
+      "type": "object"
+     },
+     "type": "array",
+     "maxItems": 12
     },
     "robustness_caveat": {
      "type": "boolean"
@@ -384,6 +517,7 @@
     "dominant_helixC_motif",
     "dominant_phylum",
     "dominant_subfamily_v14",
+    "e1_anchors",
     "e1_classes_records",
     "e1_classes_tips",
     "e1_function_consensus",
@@ -394,15 +528,19 @@
     "kind",
     "level",
     "min_cross_replicate_jaccard",
+    "mrca_node",
     "n_E1",
     "n_records_assigned",
     "n_records_confident",
     "n_records_tentative",
+    "n_reference_tips_in_corpus",
     "n_tips",
     "n_tips_in_tree",
     "name",
     "naming_basis",
     "parent_clade_id",
+    "placement_counts",
+    "representatives",
     "robustness_caveat",
     "robustness_caveat_reasons",
     "scheme",
@@ -575,6 +713,9 @@
      },
      "type": "array"
     },
+    "representative_rule": {
+     "type": "string"
+    },
     "robustness_caveat_rule": {
      "type": "string"
     },
@@ -599,6 +740,7 @@
     "dataset_release",
     "display",
     "level1",
+    "representative_rule",
     "robustness_caveat_rule",
     "scheme",
     "subclades",
@@ -617,7 +759,7 @@
      "const": "data/v1.6.0/"
     },
     "schema_version": {
-     "const": "1.1.0"
+     "const": "1.2.0"
     }
    },
    "required": [
@@ -758,6 +900,498 @@
     "E5"
    ]
   },
+  "Explorer": {
+   "additionalProperties": false,
+   "type": "object",
+   "required": [
+    "dataset_release",
+    "edge_map",
+    "meta",
+    "n_internal_incl_root",
+    "n_nodes",
+    "n_tips",
+    "node_order",
+    "nodes",
+    "root_split",
+    "tips",
+    "tree_id"
+   ],
+   "properties": {
+    "dataset_release": {
+     "const": "1.6.0"
+    },
+    "edge_map": {
+     "additionalProperties": {
+      "items": {
+       "type": "integer"
+      },
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 2
+     },
+     "type": "object"
+    },
+    "meta": {
+     "additionalProperties": false,
+     "type": "object",
+     "required": [
+      "clade_rule",
+      "db_edge_length_max_abs_diff",
+      "db_edge_length_note",
+      "derived_newick",
+      "frozen_treefile",
+      "log_likelihood_run1",
+      "method",
+      "model",
+      "n_label_disagreements",
+      "placement_rule",
+      "placement_status_counts",
+      "reference_tree_note",
+      "release_run",
+      "root_split_rule",
+      "rooting",
+      "status",
+      "support_display_rule",
+      "support_source",
+      "tip_roles",
+      "tree_id"
+     ],
+     "properties": {
+      "clade_rule": {
+       "$ref": "#/$defs/CladeRule"
+      },
+      "db_edge_length_max_abs_diff": {
+       "type": "number"
+      },
+      "db_edge_length_note": {
+       "type": "string"
+      },
+      "derived_newick": {
+       "additionalProperties": false,
+       "type": "object",
+       "required": [
+        "n_labels_changed",
+        "readme",
+        "sha256",
+        "web_file"
+       ],
+       "properties": {
+        "n_labels_changed": {
+         "type": "integer"
+        },
+        "readme": {
+         "type": "string"
+        },
+        "sha256": {
+         "pattern": "^[0-9a-f]{64}$",
+         "type": "string"
+        },
+        "web_file": {
+         "type": "string"
+        }
+       }
+      },
+      "frozen_treefile": {
+       "additionalProperties": false,
+       "type": "object",
+       "required": [
+        "path",
+        "sha256",
+        "web_file"
+       ],
+       "properties": {
+        "path": {
+         "type": "string"
+        },
+        "sha256": {
+         "pattern": "^[0-9a-f]{64}$",
+         "type": "string"
+        },
+        "web_file": {
+         "type": "string"
+        }
+       }
+      },
+      "log_likelihood_run1": {
+       "type": "number"
+      },
+      "method": {
+       "type": "string"
+      },
+      "model": {
+       "type": "string"
+      },
+      "n_label_disagreements": {
+       "type": "integer"
+      },
+      "placement_rule": {
+       "type": "string"
+      },
+      "placement_status_counts": {
+       "additionalProperties": {
+        "type": "integer"
+       },
+       "type": "object"
+      },
+      "reference_tree_note": {
+       "type": "string"
+      },
+      "release_run": {
+       "const": "run1"
+      },
+      "root_split_rule": {
+       "type": "string"
+      },
+      "rooting": {
+       "type": "string"
+      },
+      "status": {
+       "type": "string"
+      },
+      "support_display_rule": {
+       "type": "string"
+      },
+      "support_source": {
+       "additionalProperties": false,
+       "type": "object",
+       "required": [
+        "md5",
+        "path",
+        "sha256",
+        "web_file"
+       ],
+       "properties": {
+        "md5": {
+         "type": "string"
+        },
+        "path": {
+         "type": "string"
+        },
+        "sha256": {
+         "pattern": "^[0-9a-f]{64}$",
+         "type": "string"
+        },
+        "web_file": {
+         "type": "string"
+        }
+       }
+      },
+      "tip_roles": {
+       "additionalProperties": {
+        "type": "integer"
+       },
+       "type": "object"
+      },
+      "tree_id": {
+       "const": "MR_RT_003"
+      }
+     }
+    },
+    "n_internal_incl_root": {
+     "type": "integer"
+    },
+    "n_nodes": {
+     "type": "integer"
+    },
+    "n_tips": {
+     "type": "integer"
+    },
+    "node_order": {
+     "type": "string"
+    },
+    "nodes": {
+     "items": {
+      "$ref": "#/$defs/ExplorerNode"
+     },
+     "type": "array"
+    },
+    "root_split": {
+     "additionalProperties": false,
+     "type": "object",
+     "required": [
+      "displayed_on",
+      "edge_id",
+      "nodes",
+      "run1_label"
+     ],
+     "properties": {
+      "displayed_on": {
+       "type": "integer"
+      },
+      "edge_id": {
+       "type": "string"
+      },
+      "nodes": {
+       "items": {
+        "type": "integer"
+       },
+       "type": "array",
+       "minItems": 2,
+       "maxItems": 2
+      },
+      "run1_label": {
+       "type": "string"
+      }
+     }
+    },
+    "tips": {
+     "additionalProperties": {
+      "$ref": "#/$defs/ExplorerTip"
+     },
+     "type": "object"
+    },
+    "tree_id": {
+     "const": "MR_RT_003"
+    }
+   }
+  },
+  "ExplorerNode": {
+   "additionalProperties": false,
+   "properties": {
+    "clade_mrca": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "first_tip": {
+     "type": "string"
+    },
+    "internal_index": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "is_outgroup_root_child": {
+     "type": "boolean"
+    },
+    "is_root": {
+     "type": "boolean"
+    },
+    "label_agrees": {
+     "type": "boolean"
+    },
+    "last_tip": {
+     "type": "string"
+    },
+    "length": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "n_tips": {
+     "type": "integer",
+     "minimum": 2
+    },
+    "parent": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "pre": {
+     "type": "integer",
+     "minimum": 0
+    },
+    "root_split_shared": {
+     "type": "boolean"
+    },
+    "rooted_label": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "run1_label": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "sh_alrt": {
+     "type": [
+      "number",
+      "null"
+     ]
+    },
+    "subclade_mrca": {
+     "items": {
+      "type": "string"
+     },
+     "type": "array"
+    },
+    "support_displayed": {
+     "type": "boolean"
+    },
+    "ufboot": {
+     "type": [
+      "number",
+      "null"
+     ]
+    }
+   },
+   "type": "object",
+   "required": [
+    "clade_mrca",
+    "first_tip",
+    "internal_index",
+    "is_outgroup_root_child",
+    "is_root",
+    "label_agrees",
+    "last_tip",
+    "length",
+    "n_tips",
+    "parent",
+    "pre",
+    "root_split_shared",
+    "rooted_label",
+    "run1_label",
+    "sh_alrt",
+    "subclade_mrca",
+    "support_displayed",
+    "ufboot"
+   ]
+  },
+  "ExplorerTip": {
+   "additionalProperties": false,
+   "properties": {
+    "annotation_source": {
+     "type": "string"
+    },
+    "backbone_group": {
+     "enum": [
+      "MR_CLD3_B01",
+      "MR_CLD3_B02",
+      null
+     ]
+    },
+    "clade_state": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/CladeState"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "evidence_level": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "func_class": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "func_class_v14": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "helixC_motif": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "in_corpus": {
+     "type": "boolean"
+    },
+    "length": {
+     "type": "number"
+    },
+    "level1": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "mrdb_acc": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/MrdbAcc"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    },
+    "organism": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "phylum": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "pre": {
+     "type": "integer",
+     "minimum": 1
+    },
+    "protein_name": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "subclade": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "subfamily_v14": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "tax_domain": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "tip_role": {
+     "$ref": "#/$defs/TipRole"
+    },
+    "unclustered_backbone": {
+     "type": "boolean"
+    }
+   },
+   "type": "object",
+   "required": [
+    "annotation_source",
+    "backbone_group",
+    "clade_state",
+    "evidence_level",
+    "func_class",
+    "func_class_v14",
+    "helixC_motif",
+    "in_corpus",
+    "length",
+    "level1",
+    "mrdb_acc",
+    "organism",
+    "phylum",
+    "pre",
+    "protein_name",
+    "subclade",
+    "subfamily_v14",
+    "tax_domain",
+    "tip_role",
+    "unclustered_backbone"
+   ]
+  },
   "ExportManifest": {
    "additionalProperties": false,
    "properties": {
@@ -802,7 +1436,7 @@
      "type": "integer"
     },
     "schema_version": {
-     "const": "1.1.0"
+     "const": "1.2.0"
     },
     "source_db_sha256": {
      "pattern": "^[0-9a-f]{64}$",
@@ -986,7 +1620,7 @@
      "type": "string"
     },
     "schema_version": {
-     "const": "1.1.0"
+     "const": "1.2.0"
     },
     "source_db": {
      "additionalProperties": false,
@@ -2798,6 +3432,10 @@
       "null"
      ]
     },
+    "mrca_node": {
+     "type": "integer",
+     "minimum": 1
+    },
     "n_E1": {
      "type": [
       "integer",
@@ -2809,6 +3447,9 @@
       "integer",
       "null"
      ]
+    },
+    "n_reference_tips_in_corpus": {
+     "type": "integer"
     },
     "n_tips": {
      "type": "integer"
@@ -2830,6 +3471,25 @@
       "string",
       "null"
      ]
+    },
+    "placement_counts": {
+     "additionalProperties": false,
+     "properties": {
+      "basis": {
+       "type": "string"
+      },
+      "counts": {
+       "additionalProperties": {
+        "type": "integer"
+       },
+       "type": "object"
+      }
+     },
+     "required": [
+      "basis",
+      "counts"
+     ],
+     "type": "object"
     },
     "scheme": {
      "const": "MR_CLD3"
@@ -2911,12 +3571,15 @@
     "jaccard_run3",
     "level",
     "min_cross_replicate_jaccard",
+    "mrca_node",
     "n_E1",
     "n_records_assigned",
+    "n_reference_tips_in_corpus",
     "n_tips",
     "name",
     "naming_basis",
     "parent_clade_id",
+    "placement_counts",
     "scheme",
     "sh_alrt",
     "support_audit",
@@ -3125,7 +3788,7 @@
      "type": "array"
     },
     "schema_version": {
-     "const": "1.1.0"
+     "const": "1.2.0"
     }
    },
    "required": [
@@ -3681,6 +4344,7 @@
   "v1.6.0/export_manifest.json": "ExportManifest",
   "v1.6.0/manifest.json": "Manifest",
   "v1.6.0/phylogeny/clade_tips.json": "CladeTips",
+  "v1.6.0/phylogeny/explorer.json": "Explorer",
   "v1.6.0/phylogeny/robustness.json": "Robustness",
   "v1.6.0/phylogeny/support_audit.json": "SupportAudit",
   "v1.6.0/phylogeny/tips.json": "Tips",

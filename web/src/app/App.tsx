@@ -12,7 +12,8 @@ const BrowsePage = lazy(() => import("../pages/BrowsePage"));
 const RecordPage = lazy(() => import("../pages/RecordPage"));
 const AboutPage = lazy(() => import("../pages/AboutPage"));
 const PlaceholderPage = lazy(() => import("../pages/PlaceholderPage").then((m) => ({ default: m.PlaceholderPage })));
-const CladePage = lazy(() => import("../pages/PlaceholderPage").then((m) => ({ default: m.CladePage })));
+const PhylogenyPage = lazy(() => import("../pages/PhylogenyPage"));
+const CladePage = lazy(() => import("../pages/CladePage"));
 const NotFoundPage = lazy(() => import("../pages/PlaceholderPage").then((m) => ({ default: m.NotFoundPage })));
 
 class Boundary extends Component<{ children: ReactNode; resetKey: string }, { error: Error | null }> {
@@ -40,6 +41,7 @@ function pageKey(r: Route): string {
   switch (r.name) {
     case "browse": return "browse";
     case "record": return `record/${r.accession}`;
+    case "phylogeny": return "phylogeny";
     case "clade": return `clade/${r.cladeId}`;
     case "planned": return `planned/${r.page}`;
     case "not-found": return `nf/${r.path}`;
@@ -53,6 +55,7 @@ function page(r: Route) {
     case "browse": return <BrowsePage params={r.params} />;
     case "record": return <RecordPage key={r.accession} accession={r.accession} params={r.params} />;
     case "about": return <AboutPage />;
+    case "phylogeny": return <PhylogenyPage params={r.params} />;
     case "clade": return <CladePage key={r.cladeId} cladeId={r.cladeId} />;
     case "planned": return <PlaceholderPage key={r.page} page={r.page} />;
     case "not-found": return <NotFoundPage path={r.path} />;

@@ -2,16 +2,16 @@
  * Static preview of the real MR_RT_003 reference tree (472 tips), drawn from the exported rooted
  * Newick with branch lengths to scale. Ring segments mark level-1 clades and backbone groups using
  * phylogeny/tips.json; no tip labels (spec 4.3). Clades failing the corrected IQ-TREE run1 support
- * thresholds are hatched. The full interactive explorer is PR-4.
+ * thresholds are hatched. The full interactive explorer is #/phylogeny (PhylogenyPage).
  */
 import type { Clades, Tips } from "../../data/types";
 import { cladeShort, fmtInt } from "../../lib/format";
 import { parseNewick, radialLayout, sectorPath } from "./newick";
 import { boxExtent, clearLabelRadius, labelBox } from "./labelPlacement";
 
-export const CLADE_PALETTE = ["#0072B2", "#D55E00", "#009E73", "#CC79A7", "#E69F00", "#56B4E9", "#882255", "#117733", "#332288", "#AA4499"];
-const BACKBONE = "#9aa5b1";
-const OUTGROUP = "#526175";
+import { BACKBONE_COLOR as BACKBONE, CLADE_PALETTE, OUTGROUP_COLOR as OUTGROUP, assignGroupColors } from "./palette";
+
+export { CLADE_PALETTE };
 export const OUTGROUP_KEY = "outgroup";
 
 export interface TreeModel {
@@ -33,12 +33,9 @@ export function buildTreeModel(newick: string, tips: Tips, radius: number): Tree
   };
   const layout = radialLayout(root, groupOf, radius);
   if (layout.nTips !== tips.tips.length) throw new Error(`Tree has ${layout.nTips} tips; tips.json lists ${tips.tips.length}`);
-  const colorOf = new Map<string, string>();
-  let k = 0;
-  for (const a of layout.arcs) {
-    if (a.group === OUTGROUP_KEY) colorOf.set(a.group, OUTGROUP);
-    else if (!colorOf.has(a.group)) colorOf.set(a.group, CLADE_PALETTE[k++ % CLADE_PALETTE.length]);
-  }
+  // Same leaf-order rule as the phylogeny explorer (explorerModel.buildColorScheme "clade").
+  const colorOf = assignGroupColors(layout.arcs.map((a) => a.group).filter((g) => g !== OUTGROUP_KEY), CLADE_PALETTE);
+  if (layout.arcs.some((a) => a.group === OUTGROUP_KEY)) colorOf.set(OUTGROUP_KEY, OUTGROUP);
   return {
     layout,
     colorOf,

@@ -7,6 +7,7 @@ import { loadNewick, loadTips, useResource } from "../../data/loaders";
 import type { Clades, MrdbEntry, SourceRecord, Tips, Vocabulary } from "../../data/types";
 import { CLADE_STATE_LABEL } from "../../lib/format";
 import { thresholdText } from "../../lib/summary";
+import { phyloQueryString } from "../tree/phyloQuery";
 import { OUTGROUP_KEY, TREE_RADIUS, TreePreview, buildTreeModel, type TreeHighlight } from "../tree/TreePreview";
 import { Row, Section, fmtNum, na } from "./ui";
 
@@ -40,6 +41,15 @@ export function treeHighlight(entry: MrdbEntry, src: SourceRecord, tips: Tips): 
   return null;
 }
 
+/** Explorer deep link: the tip itself for reference tips, otherwise the placement's best branch. */
+export function explorerLink(entry: MrdbEntry, src: SourceRecord): string {
+  const ph = src.phylogeny;
+  if (ph.is_reference_tip) return href.phylogeny(phyloQueryString({ tip: src.source_acc }));
+  if (ph.placement) return href.phylogeny(phyloQueryString({ placement: entry.mrdb_acc, src: src.source_acc === entry.representative_source_acc ? null : src.source_acc }));
+  const g = ph.clade_state === "tentative" ? ph.tentative_clade_id : ph.clade_id;
+  return href.phylogeny(phyloQueryString(g ? { clade: g } : {}));
+}
+
 export function PhylogenySection({ entry, src, clades, vocab, caveats }: { entry: MrdbEntry; src: SourceRecord; clades: Clades; vocab: Vocabulary; caveats: Map<string, string> }) {
   const ph = src.phylogeny;
   const pl = ph.placement as Placement | null;
@@ -47,9 +57,10 @@ export function PhylogenySection({ entry, src, clades, vocab, caveats }: { entry
   const cladeKey = ph.clade_state === "tentative" ? ph.tentative_clade_id : ph.clade_id;
   const clade = cladeKey ? clades.level1.find((c) => c.clade_id === cladeKey) : undefined;
   const [showTree, setShowTree] = useState(false);
+  const explorerHref = explorerLink(entry, src);
 
   return (
-    <Section id="phylogeny" title="Phylogenetic placement" lead={<>Reference tree MR_RT_003 (472 tips). Clade scheme MR_CLD3. The interactive phylogeny explorer is planned (<a href={href.planned("phylogeny")}>PR-4</a>).</>}>
+    <Section id="phylogeny" title="Phylogenetic placement" lead={<>Reference tree MR_RT_003 (472 tips). Clade scheme MR_CLD3. Open it in the <a href={explorerHref} data-testid="record-explorer-link">phylogeny explorer</a>.</>}>
       {cladeKey && caveats.has(cladeKey) ? <div className="mb-4"><CladeSupportNotice clades={clades} only={[cladeKey]} /></div> : null}
       <div className="grid gap-6 xl:grid-cols-2">
         <div className="card p-4">
@@ -108,7 +119,10 @@ export function PhylogenySection({ entry, src, clades, vocab, caveats }: { entry
       <div className="card mt-4 p-4" data-testid="mini-tree">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h3 className="text-base">Position on the reference tree</h3>
-          {!showTree ? <button type="button" className="btn btn-secondary btn-sm" onClick={() => setShowTree(true)} data-testid="mini-tree-show">Show on reference tree</button> : null}
+          <span className="flex flex-wrap gap-2">
+            <a className="btn btn-secondary btn-sm" href={explorerHref} data-testid="mini-tree-explorer">View in reference tree</a>
+            {!showTree ? <button type="button" className="btn btn-secondary btn-sm" onClick={() => setShowTree(true)} data-testid="mini-tree-show">Show on reference tree</button> : null}
+          </span>
         </div>
         {showTree ? <MiniTree entry={entry} src={src} clades={clades} /> : <p className="mt-1 text-sm text-ink-2">Loads the 472-tip tree preview (about 15 KB compressed) on request.</p>}
       </div>

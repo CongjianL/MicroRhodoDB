@@ -34,6 +34,15 @@ export interface CladeLevel1 {
   readonly dominant_helixC_motif: string | null;
   readonly dominant_phylum: string | null;
   readonly dominant_subfamily_v14: string | null;
+  readonly e1_anchors: Array<{
+    readonly counts_eligible: boolean | null;
+    readonly func_class: string | null;
+    readonly is_reference_tip: boolean;
+    readonly mrdb_acc: MrdbAcc;
+    readonly organism: string | null;
+    readonly protein_name: string | null;
+    readonly source_acc: string;
+  }>;
   readonly e1_classes_records: string | null;
   readonly e1_classes_tips: string | null;
   readonly e1_function_consensus: string | null;
@@ -52,15 +61,31 @@ export interface CladeLevel1 {
   readonly kind: "clade" | "backbone_group";
   readonly level: 1 | 2;
   readonly min_cross_replicate_jaccard: number | null;
+  readonly mrca_node: number;
   readonly n_E1: number | null;
   readonly n_records_assigned: number | null;
   readonly n_records_confident: number;
   readonly n_records_tentative: number;
+  readonly n_reference_tips_in_corpus: number;
   readonly n_tips: number;
   readonly n_tips_in_tree: number;
   readonly name: string | null;
   readonly naming_basis: string | null;
   readonly parent_clade_id: string | null;
+  readonly placement_counts: {
+    readonly basis: string;
+    readonly counts: Record<string, number>;
+  };
+  readonly representatives: Array<{
+    readonly counts_eligible: boolean | null;
+    readonly func_class: string | null;
+    readonly is_reference_tip: boolean;
+    readonly mrdb_acc: MrdbAcc;
+    readonly organism: string | null;
+    readonly protein_name: string | null;
+    readonly reason: string;
+    readonly source_acc: string;
+  }>;
   readonly robustness_caveat: boolean;
   readonly robustness_caveat_reasons: Array<string>;
   readonly scheme: "MR_CLD3";
@@ -118,6 +143,7 @@ export interface Clades {
   readonly dataset_release: "1.6.0";
   readonly display: string;
   readonly level1: Array<CladeLevel1>;
+  readonly representative_rule: string;
   readonly robustness_caveat_rule: string;
   readonly scheme: "MR_CLD3";
   readonly subclades: Array<Subclade>;
@@ -128,7 +154,7 @@ export interface Clades {
 export interface Current {
   readonly dataset_release: "1.6.0";
   readonly path: "data/v1.6.0/";
-  readonly schema_version: "1.1.0";
+  readonly schema_version: "1.2.0";
 }
 
 export interface EvidenceIndex {
@@ -157,6 +183,104 @@ export interface EvidenceIndex {
 
 export type EvidenceLevel = "E1" | "E2" | "E3" | "E4" | "E5";
 
+export interface Explorer {
+  readonly dataset_release: "1.6.0";
+  readonly edge_map: Record<string, Array<number>>;
+  readonly meta: {
+    readonly clade_rule: CladeRule;
+    readonly db_edge_length_max_abs_diff: number;
+    readonly db_edge_length_note: string;
+    readonly derived_newick: {
+      readonly n_labels_changed: number;
+      readonly readme: string;
+      readonly sha256: string;
+      readonly web_file: string;
+    };
+    readonly frozen_treefile: {
+      readonly path: string;
+      readonly sha256: string;
+      readonly web_file: string;
+    };
+    readonly log_likelihood_run1: number;
+    readonly method: string;
+    readonly model: string;
+    readonly n_label_disagreements: number;
+    readonly placement_rule: string;
+    readonly placement_status_counts: Record<string, number>;
+    readonly reference_tree_note: string;
+    readonly release_run: "run1";
+    readonly root_split_rule: string;
+    readonly rooting: string;
+    readonly status: string;
+    readonly support_display_rule: string;
+    readonly support_source: {
+      readonly md5: string;
+      readonly path: string;
+      readonly sha256: string;
+      readonly web_file: string;
+    };
+    readonly tip_roles: Record<string, number>;
+    readonly tree_id: "MR_RT_003";
+  };
+  readonly n_internal_incl_root: number;
+  readonly n_nodes: number;
+  readonly n_tips: number;
+  readonly node_order: string;
+  readonly nodes: Array<ExplorerNode>;
+  readonly root_split: {
+    readonly displayed_on: number;
+    readonly edge_id: string;
+    readonly nodes: Array<number>;
+    readonly run1_label: string;
+  };
+  readonly tips: Record<string, ExplorerTip>;
+  readonly tree_id: "MR_RT_003";
+}
+
+export interface ExplorerNode {
+  readonly clade_mrca: Array<string>;
+  readonly first_tip: string;
+  readonly internal_index: number;
+  readonly is_outgroup_root_child: boolean;
+  readonly is_root: boolean;
+  readonly label_agrees: boolean;
+  readonly last_tip: string;
+  readonly length: number | null;
+  readonly n_tips: number;
+  readonly parent: number | null;
+  readonly pre: number;
+  readonly root_split_shared: boolean;
+  readonly rooted_label: string | null;
+  readonly run1_label: string | null;
+  readonly sh_alrt: number | null;
+  readonly subclade_mrca: Array<string>;
+  readonly support_displayed: boolean;
+  readonly ufboot: number | null;
+}
+
+export interface ExplorerTip {
+  readonly annotation_source: string;
+  readonly backbone_group: "MR_CLD3_B01" | "MR_CLD3_B02" | null;
+  readonly clade_state: CladeState | null;
+  readonly evidence_level: string | null;
+  readonly func_class: string | null;
+  readonly func_class_v14: string | null;
+  readonly helixC_motif: string | null;
+  readonly in_corpus: boolean;
+  readonly length: number;
+  readonly level1: string | null;
+  readonly mrdb_acc: MrdbAcc | null;
+  readonly organism: string | null;
+  readonly phylum: string | null;
+  readonly pre: number;
+  readonly protein_name: string | null;
+  readonly subclade: string | null;
+  readonly subfamily_v14: string | null;
+  readonly tax_domain: string | null;
+  readonly tip_role: TipRole;
+  readonly unclustered_backbone: boolean;
+}
+
 export interface ExportManifest {
   readonly dataset_release: "1.6.0";
   readonly exporter_git_commit: string;
@@ -168,7 +292,7 @@ export interface ExportManifest {
     readonly sha256: string;
   }>;
   readonly n_files: number;
-  readonly schema_version: "1.1.0";
+  readonly schema_version: "1.2.0";
   readonly source_db_sha256: string;
   readonly total_bytes: number;
 }
@@ -210,7 +334,7 @@ export interface Manifest {
   };
   readonly release_date: string;
   readonly schema_revision: string;
-  readonly schema_version: "1.1.0";
+  readonly schema_version: "1.2.0";
   readonly source_db: {
     readonly file: "microrhododb_v1.6.0.sqlite";
     readonly opened_read_only: true;
@@ -489,12 +613,18 @@ export interface Subclade {
   readonly jaccard_run3: number | null;
   readonly level: 1 | 2;
   readonly min_cross_replicate_jaccard: number | null;
+  readonly mrca_node: number;
   readonly n_E1: number | null;
   readonly n_records_assigned: number | null;
+  readonly n_reference_tips_in_corpus: number;
   readonly n_tips: number;
   readonly name: string | null;
   readonly naming_basis: string | null;
   readonly parent_clade_id: string | null;
+  readonly placement_counts: {
+    readonly basis: string;
+    readonly counts: Record<string, number>;
+  };
   readonly scheme: "MR_CLD3";
   readonly sh_alrt: number | null;
   readonly support_audit: {
@@ -551,7 +681,7 @@ export interface Summary {
     readonly value: number;
   }>;
   readonly notes: Array<string>;
-  readonly schema_version: "1.1.0";
+  readonly schema_version: "1.2.0";
 }
 
 export interface SupportAudit {
@@ -678,6 +808,7 @@ export interface DataFiles {
   "v1.6.0/export_manifest.json": ExportManifest;
   "v1.6.0/manifest.json": Manifest;
   "v1.6.0/phylogeny/clade_tips.json": CladeTips;
+  "v1.6.0/phylogeny/explorer.json": Explorer;
   "v1.6.0/phylogeny/robustness.json": Robustness;
   "v1.6.0/phylogeny/support_audit.json": SupportAudit;
   "v1.6.0/phylogeny/tips.json": Tips;

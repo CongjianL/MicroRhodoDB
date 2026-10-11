@@ -827,7 +827,7 @@ def test_json_schema_all_payloads(out):
         seen[pats[0]] += 1
     assert not errors, errors[:5]
     assert set(seen) == set(schema["x-files"])
-    assert len(files) == 5316  # 5,315 in schema 1.0.0 + vocabulary.json (1.1.0)
+    assert len(files) == 5317  # 5,315 in schema 1.0.0 + vocabulary.json (1.1.0) + phylogeny/explorer.json (1.2.0)
 
 
 def test_typescript_types_up_to_date():

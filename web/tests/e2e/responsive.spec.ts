@@ -26,7 +26,9 @@ const PAGES: { name: string; hash: string; ready: (p: Page) => Promise<void> }[]
   } },
   { name: "record_P02945", hash: "#/record/P02945", ready: async (p) => { await expect(p.getByTestId("sequence")).toBeVisible(); } },
   { name: "about", hash: "#/about", ready: async (p) => { await expect(p.getByTestId("clade-support-notice")).toBeVisible(); } },
-  { name: "planned_phylogeny", hash: "#/phylogeny", ready: async (p) => { await expect(p.getByTestId("planned-notice").first()).toBeVisible(); } },
+  // PR-4: Phylogeny is a real page now (was planned_phylogeny)
+  { name: "phylogeny", hash: "#/phylogeny", ready: async (p) => { await expect(p.getByTestId("tree-canvas")).toBeVisible(); } },
+  { name: "clade_017", hash: "#/clade/MR_CLD3_017", ready: async (p) => { await expect(p.getByTestId("clade-tree-canvas")).toBeVisible(); } },
 ];
 
 const audit: Record<string, unknown>[] = [];
