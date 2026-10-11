@@ -1,0 +1,42 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/workspace/web/gh/web[39m
+
+ [32m✓[39m tests/unit/loadControl.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32m✓[39m tests/unit/routes.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m tests/unit/cladeCounts.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m tests/unit/tree.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32m✓[39m tests/unit/labelPlacement.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 119[2mms[22m[39m
+ [32m✓[39m tests/unit/summary.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 161[2mms[22m[39m
+ [32m✓[39m tests/unit/phylogeny.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 173[2mms[22m[39m
+ [32m✓[39m tests/unit/browse.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 130[2mms[22m[39m
+ [32m✓[39m tests/unit/browse.legacy.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 232[2mms[22m[39m
+ [32m✓[39m tests/unit/exporters.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 196[2mms[22m[39m
+ [32m✓[39m tests/unit/pr5.test.ts [2m([22m[2m25 tests[22m[2m)[22m[33m 411[2mms[22m[39m
+ [32m✓[39m tests/unit/entry.test.ts [2m([22m[2m28 tests[22m[2m)[22m[33m 450[2mms[22m[39m
+   [32m✓[39m integrity sweep: every record file against records-index.json [2m(2)[22m
+     [33m[2m✓[22m[39m per-source PDB links, union, flags, AFDB and release models are consistent[33m 381[2mms[22m[39m
+ [32m✓[39m tests/unit/pr5a.test.ts [2m([22m[2m25 tests[22m[2m)[22m[33m 1122[2mms[22m[39m
+   [32m✓[39m D1/D4 Statistics and Home drilldowns return exactly the counted source records [2m(9)[22m
+     [33m[2m✓[22m[39m every drillable distribution category: Browse set = definition set, |set| = exported value[33m 472[2mms[22m[39m
+ [32m✓[39m tests/unit/seqsearch.test.ts [2m([22m[2m21 tests[22m[2m)[22m[33m 30069[2mms[22m[39m
+   [32m✓[39m legacy golden cases [2m(15)[22m
+     [33m[2m✓[22m[39m P02945: identical prefilter, ranking, scores, identity and coverage[33m 836[2mms[22m[39m
+     [33m[2m✓[22m[39m UOK93384.1: identical prefilter, ranking, scores, identity and coverage[33m 1035[2mms[22m[39m
+     [33m[2m✓[22m[39m UOK93385.1: identical prefilter, ranking, scores, identity and coverage[33m 987[2mms[22m[39m
+     [33m[2m✓[22m[39m WP_051881467.1: identical prefilter, ranking, scores, identity and coverage[33m 822[2mms[22m[39m
+     [33m[2m✓[22m[39m 6EYU_A: identical prefilter, ranking, scores, identity and coverage[33m 863[2mms[22m[39m
+     [33m[2m✓[22m[39m 7W9W_A: identical prefilter, ranking, scores, identity and coverage[33m 1248[2mms[22m[39m
+     [33m[2m✓[22m[39m QJF54416.1: identical prefilter, ranking, scores, identity and coverage[33m 2706[2mms[22m[39m
+     [33m[2m✓[22m[39m QJF54412.1: identical prefilter, ranking, scores, identity and coverage[33m 1121[2mms[22m[39m
+     [33m[2m✓[22m[39m USH44359.1: identical prefilter, ranking, scores, identity and coverage[33m 4588[2mms[22m[39m
+     [33m[2m✓[22m[39m USH44360.1: identical prefilter, ranking, scores, identity and coverage[33m 4843[2mms[22m[39m
+     [33m[2m✓[22m[39m USH44362.1: identical prefilter, ranking, scores, identity and coverage[33m 4507[2mms[22m[39m
+     [33m[2m✓[22m[39m USH44363.1: identical prefilter, ranking, scores, identity and coverage[33m 4921[2mms[22m[39m
+     [33m[2m✓[22m[39m 7AKX_A: identical prefilter, ranking, scores, identity and coverage[33m 785[2mms[22m[39m
+     [33m[2m✓[22m[39m P02945 example returns itself at 100% identity and full coverage[33m 775[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m14 passed[39m[22m[90m (14)[39m
+[2m      Tests [22m [1m[32m197 passed[39m[22m[90m (197)[39m
+[2m   Start at [22m 15:01:24
+[2m   Duration [22m 30.74s[2m (tests 91%, transform 5%, import 4%)[22m
+

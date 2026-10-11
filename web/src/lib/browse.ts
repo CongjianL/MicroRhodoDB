@@ -9,7 +9,7 @@
 import type {
   CladeState, EvidenceLevel, FuncClass, MembershipGroup, MembershipStatus, RecordsIndex,
 } from "../data/types";
-import { EVIDENCE_LEVELS, FUNC_ORDER, STATUS_GROUP, STATUS_ORDER } from "./format";
+import { EVIDENCE_LEVELS, FUNC_ORDER, GROUP_LABEL, STATUS_GROUP, STATUS_ORDER } from "./format";
 
 type Cols = RecordsIndex["columns"];
 type Row = RecordsIndex["rows"][number];
@@ -25,8 +25,23 @@ export function toRows(ri: RecordsIndex): IndexRow[] {
   });
 }
 
-export type GroupFilter = MembershipGroup | "all";
-export const GROUPS: GroupFilter[] = ["member", "candidate", "boundary", "outgroup", "rejected", "all"];
+/**
+ * Record population of the Browse view. "member_candidate" (PR-5a) is the union of the member and
+ * candidate groups: the official members_candidates denominator (4,468 source records, engineered
+ * constructs included when eng=1) used by the clade-state statistics.
+ */
+export type GroupFilter = MembershipGroup | "member_candidate" | "all";
+export const GROUPS: GroupFilter[] = ["member", "candidate", "member_candidate", "boundary", "outgroup", "rejected", "all"];
+export const GROUP_FILTER_LABEL: Record<GroupFilter, string> = {
+  ...GROUP_LABEL, member_candidate: "Members + candidates", all: "All records",
+};
+
+/** True when a record's membership group belongs to the selected population. */
+export function inGroup(g: GroupFilter, mg: MembershipGroup): boolean {
+  if (g === "all") return true;
+  if (g === "member_candidate") return mg === "member" || mg === "candidate";
+  return mg === g;
+}
 export const DOMAINS = ["Archaea", "Bacteria", "Eukaryota", "none"] as const;
 export type DomainFilter = (typeof DOMAINS)[number] | "";
 export const PAGE_SIZES = [25, 50, 100, 250] as const;
@@ -168,7 +183,7 @@ export function applyFilters(rows: IndexRow[], s: BrowseState): IndexRow[] {
     (!q || [r.mrdb_acc, r.source_acc, r.organism, r.protein_name, r.helixC_motif, r.clade_name]
       .some((v) => v !== null && v !== undefined && String(v).toLowerCase().includes(q))) &&
     // ---- PR-2 additions (spec section 5.2) ----
-    (s.group === "all" || r.membership_group === s.group) &&
+    inGroup(s.group, r.membership_group) &&
     (!s.sub || r.subclade_id === s.sub) &&
     (!s.state || r.clade_state === s.state) &&
     (!s.motif || r.helixC_motif === s.motif) &&
@@ -217,7 +232,7 @@ export function sortRows(rows: IndexRow[], key: SortKey | "", dir: "asc" | "desc
 }
 
 export function statusesForGroup(g: GroupFilter): MembershipStatus[] {
-  return g === "all" ? STATUS_ORDER : STATUS_ORDER.filter((s) => STATUS_GROUP[s] === g);
+  return STATUS_ORDER.filter((s) => inGroup(g, STATUS_GROUP[s]));
 }
 
 /** Filters differing from the defaults, excluding the population controls (group tabs, engineered toggle). */

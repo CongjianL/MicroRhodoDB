@@ -99,7 +99,7 @@ export function BarChart({ title, items, denominator, denominatorLabel, testId, 
           </thead>
           <tbody>
             {items.map((i) => (
-              <tr key={i.key}>
+              <tr key={i.key} data-key={i.key} data-value={i.value}>
                 <th scope="row" className="!static !bg-transparent !font-normal !whitespace-normal">
                   {i.href ? <a href={i.href}>{i.label}</a> : i.label}
                   {i.note ? <span className="block text-xs text-ink-2">{i.note}</span> : null}

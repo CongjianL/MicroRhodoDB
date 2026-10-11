@@ -14,6 +14,7 @@ import { loadRecordsIndex, loadSummary, loadVocabulary, useResource } from "../d
 import type { FuncClass, Summary, Vocabulary } from "../data/types";
 import { BarChart, type BarItem } from "../features/charts/BarChart";
 import { DEFAULT_STATE, filterQuery, toRows, type IndexRow } from "../lib/browse";
+import { crosstabCellHref, distItemHref } from "../lib/drilldown";
 import { CATEGORICAL, EV_COLOR, GROUP_COLOR, MISSING_COLOR, OTHER_COLOR, cat } from "../lib/chartColors";
 import {
   CLADE_STATE_LABEL, EVIDENCE_LEVELS, FUNC_LABEL, FUNC_ORDER, GROUP_LABEL, STATUS_GROUP, STATUS_LABEL, STATUS_ORDER, fmtInt, fmtPct,
@@ -94,14 +95,14 @@ function StatsBody({ summary, vocab }: { summary: Summary; vocab: Vocabulary }) 
     label: STATUS_LABEL[i.key as keyof typeof STATUS_LABEL] ?? String(i.key),
     value: i.value,
     color: GROUP_COLOR[STATUS_GROUP[i.key as keyof typeof STATUS_GROUP]] ?? OTHER_COLOR,
-    href: href.browse(`status=${i.key}${memberScope === "all" ? "&eng=1" : ""}`),
+    href: distItemHref(memberDist, i.key),
     note: `${GROUP_LABEL[STATUS_GROUP[i.key as keyof typeof STATUS_GROUP]]} · code ${i.key}`,
   }));
 
   const evDist = distribution(summary, evScope === "counted" ? "evidence_level_counted" : "evidence_level_all");
   const evItems: BarItem[] = ordered(evDist.items, EVIDENCE_LEVELS).map((i) => ({
     key: String(i.key), label: String(i.key), value: i.value, color: EV_COLOR[i.key as keyof typeof EV_COLOR],
-    href: href.browse(`group=all&evidence=${i.key}${evScope === "all" ? "&eng=1" : ""}`), note: evDef.get(i.key as never),
+    href: distItemHref(evDist, i.key), note: evDef.get(i.key as never),
   }));
 
   const funcDist = distribution(summary, "func_class_counted");
@@ -110,14 +111,14 @@ function StatsBody({ summary, vocab }: { summary: Summary; vocab: Vocabulary }) 
     label: FUNC_LABEL[i.key as FuncClass] ?? String(i.key),
     value: i.value,
     color: i.key === "unresolved" || i.key === "unassigned" ? MISSING_COLOR : cat(k),
-    href: href.browse(`group=all&func=${i.key}`),
+    href: distItemHref(funcDist, i.key),
     note: funcDef.get(i.key as FuncClass),
   }));
 
   const domDist = distribution(summary, "tax_domain_counted");
   const domItems: BarItem[] = ordered(domDist.items, ["Bacteria", "Archaea", "Eukaryota", null]).map((i, k) => ({
     key: i.key ?? NULL_KEY, label: i.key ?? "No domain assigned", value: i.value, color: i.key === null ? MISSING_COLOR : cat(k),
-    href: href.browse(`group=all&domain=${i.key ?? "none"}`),
+    href: distItemHref(domDist, i.key),
   }));
 
   const phylumDist = distribution(summary, "ncbi_phylum_counted");
@@ -127,7 +128,7 @@ function StatsBody({ summary, vocab }: { summary: Summary; vocab: Vocabulary }) 
     label: i.key === OTHER_KEY ? `Other phyla (${i.nOther})` : i.key === NULL_KEY ? "No phylum rank in NCBI lineage" : i.key,
     value: i.value,
     color: i.key === NULL_KEY ? MISSING_COLOR : i.key === OTHER_KEY ? OTHER_COLOR : cat(k),
-    href: i.rawKey ? href.browse(`group=all&lin=${encodeURIComponent(`${i.rawKey} (phylum)`)}`) : undefined,
+    href: i.key === OTHER_KEY ? undefined : distItemHref(phylumDist, i.rawKey ?? null),
   }));
 
   const cladeDist = distribution(summary, cladeScope === "mc" ? "clade_state_members_candidates" : "clade_state");
@@ -136,7 +137,7 @@ function StatsBody({ summary, vocab }: { summary: Summary; vocab: Vocabulary }) 
     label: CLADE_STATE_LABEL[i.key as keyof typeof CLADE_STATE_LABEL] ?? String(i.key),
     value: i.value,
     color: i.key === "confident" ? "#1b7f4b" : i.key === "tentative" ? "#E69F00" : i.key === "unassigned" ? MISSING_COLOR : CATEGORICAL[(k + 3) % CATEGORICAL.length],
-    href: href.browse(`group=${cladeScope === "mc" ? "all" : "all"}&state=${i.key}&eng=1`),
+    href: distItemHref(cladeDist, i.key),
     note: cladeDef.get(i.key as never),
   }));
 
@@ -155,7 +156,7 @@ function StatsBody({ summary, vocab }: { summary: Summary; vocab: Vocabulary }) 
     label: i.key === OTHER_KEY ? `Other motifs (${i.nOther})` : i.key === NULL_KEY ? "Motif not determined" : i.key,
     value: i.value,
     color: i.key === NULL_KEY ? MISSING_COLOR : i.key === OTHER_KEY ? OTHER_COLOR : cat(k),
-    href: i.rawKey && /^[A-Z-]{1,5}$/.test(i.rawKey) ? href.browse(`group=all&motif=${encodeURIComponent(i.rawKey)}`) : undefined,
+    href: i.key === OTHER_KEY ? undefined : distItemHref(motifDist, i.rawKey ?? null),
   }));
   const mclass = distribution(summary, "motif_class_counted");
   const mclassItems: BarItem[] = ordered(mclass.items, [...FUNC_ORDER, null]).map((i, k) => ({
@@ -318,7 +319,7 @@ function CrosstabTable({ summary, x }: { summary: Summary; x: Summary["crosstabs
             {m.rows.map((r) => (
               <tr key={String(r)}>
                 <th scope="row" className="!static !bg-transparent !font-normal">{GROUP_LABEL[r as keyof typeof GROUP_LABEL] ?? r}</th>
-                {m.cols.map((c) => <td key={String(c)} className="num">{m.value(r, c) ? <a href={href.browse(`group=${r}&evidence=${c}`)}>{fmtInt(m.value(r, c))}</a> : "0"}</td>)}
+                {m.cols.map((c) => <td key={String(c)} className="num">{m.value(r, c) ? <a href={crosstabCellHref(x, r as string, c as string)}>{fmtInt(m.value(r, c))}</a> : "0"}</td>)}
                 <td className="num font-semibold">{fmtInt(m.rowTotal(r))}</td>
               </tr>
             ))}
@@ -394,7 +395,7 @@ function RecountBody({ summary }: { summary: Summary }) {
                   <th scope="row" className="!static !bg-transparent !font-normal">{r.label}<code className="block text-xs text-ink-2">{r.id}</code></th>
                   <td className="num">{fmtInt(r.denominator)}</td>
                   <td className="num">{fmtInt(r.recounted)}</td>
-                  <td>{r.ok ? "match" : `MISMATCH (${r.mismatches.length} categories)`}</td>
+                  <td>{r.ok ? "match" : `MISMATCH (${r.mismatches.length} categories${r.duplicates.length ? `, ${r.duplicates.length} duplicate keys` : ""})`}</td>
                 </tr>
               ))}
             </tbody>

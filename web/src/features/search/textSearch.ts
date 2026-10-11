@@ -7,7 +7,7 @@
  * Ranking: exact identifier > exact PDB/clade/motif/function code > accession prefix > word-start
  * text match > other substring; ties keep records-index order (stable).
  */
-import type { IndexRow } from "../../lib/browse";
+import { applyFilters, parseBrowse, type IndexRow } from "../../lib/browse";
 import { FUNC_LABEL } from "../../lib/format";
 
 export type MatchField =
@@ -42,6 +42,8 @@ export interface TextResult {
   hits: TextHit[];
   total: number;
   truncated: boolean;
+  /** Source accessions of all hits (not only the displayed, truncated list). */
+  keys: Set<string>;
   /** Which kind of query this looked like (for explanations). */
   kind: "empty" | "too_short" | "identifier" | "text";
 }
@@ -106,8 +108,8 @@ export function matchRow(r: IndexRow, qRaw: string): Omit<TextHit, "row"> | null
 
 export function textSearch(rows: readonly IndexRow[], qRaw: string, limit = 200): TextResult {
   const q = qRaw.trim().slice(0, 200);
-  if (!q) return { query: q, hits: [], total: 0, truncated: false, kind: "empty" };
-  if (q.length < 2) return { query: q, hits: [], total: 0, truncated: false, kind: "too_short" };
+  if (!q) return { query: q, hits: [], total: 0, truncated: false, keys: new Set(), kind: "empty" };
+  if (q.length < 2) return { query: q, hits: [], total: 0, truncated: false, keys: new Set(), kind: "too_short" };
   const hits: TextHit[] = [];
   for (const row of rows) {
     const m = matchRow(row, q);
@@ -120,6 +122,7 @@ export function textSearch(rows: readonly IndexRow[], qRaw: string, limit = 200)
     hits: hits.slice(0, limit),
     total: hits.length,
     truncated: hits.length > limit,
+    keys: new Set(hits.map((h) => h.row.source_acc)),
     kind: ACC_RE.test(q) || PDB_RE.test(q) || CLADE_RE.test(q) ? "identifier" : "text",
   };
 }
@@ -129,4 +132,61 @@ export function fieldCounts(hits: readonly TextHit[]): [MatchField, number][] {
   const m = new Map<MatchField, number>();
   for (const h of hits) m.set(h.field, (m.get(h.field) ?? 0) + 1);
   return [...m.entries()].sort((a, b) => b[1] - a[1]);
+}
+
+/* ------------------------------------------------------------------ Search -> Browse (PR-5a) */
+
+export interface BrowseOption {
+  /** Browse filter query (always over all records, engineered constructs included). */
+  query: string;
+  /** What the Browse filter selects. */
+  label: string;
+  /** Number of source records Browse returns for `query`. */
+  n: number;
+  /** True only when the Browse accession set equals the full text-search hit set. */
+  same: boolean;
+  /** Search hits that Browse does not return / Browse records that are not search hits. */
+  onlySearch: number;
+  onlyBrowse: number;
+}
+
+const PDB_ID_RE = /^[0-9][A-Z0-9]{3}$/;
+const CLADE_ID_RE = /^MR_CLD3_(?:\d{3}|B\d{2})$/;
+const SUBCLADE_ID_RE = /^MR_CLD3_(?:\d{3}|B\d{2})\.\d{2}$/;
+const MOTIF_RE = /^[A-Z-]{2,5}$/;
+
+/**
+ * Structured Browse views corresponding to a text query, in order of specificity. Each candidate is
+ * evaluated with the real Browse filter (parseBrowse + applyFilters) and compared with the complete
+ * set of text-search hits, so the page never claims "the same records" unless the accession sets are
+ * identical. Structured fields (clade, subclade, PDB, motif, function) map to their exact Browse
+ * filters; the Browse free-text filter searches fewer fields than this page and is offered last.
+ */
+export function browseOptions(rows: readonly IndexRow[], qRaw: string, keys: ReadonlySet<string>): BrowseOption[] {
+  const q = qRaw.trim().slice(0, 200);
+  const qu = q.toUpperCase();
+  const ql = q.toLowerCase();
+  const cands: [string, string][] = [];
+  if (CLADE_ID_RE.test(qu)) {
+    cands.push([`clade=${qu}`, `Formal assignments to clade ${qu}`]);
+    cands.push([`clade=${qu}&tent=1`, `Clade ${qu} including tentative placements`]);
+  } else if (SUBCLADE_ID_RE.test(qu)) {
+    cands.push([`sub=${qu}`, `Subclade ${qu}`]);
+  }
+  if (PDB_ID_RE.test(qu)) cands.push([`pdbid=${qu}`, `Records linked to PDB entry ${qu}`]);
+  if (MOTIF_RE.test(qu) && rows.some((r) => r.helixC_motif === qu)) cands.push([`motif=${qu}`, `Helix-C motif ${qu}`]);
+  const func = rows.find((r) => r.func_class === ql || FUNC_LABEL[r.func_class].toLowerCase() === ql)?.func_class;
+  if (func) cands.push([`func=${func}`, `Functional class ${FUNC_LABEL[func]}`]);
+  cands.push([`q=${encodeURIComponent(q)}`, "Browse free-text filter (accession, protein, organism, motif, clade name)"]);
+  const out: BrowseOption[] = [];
+  for (const [filter, label] of cands) {
+    const query = `group=all&${filter}&eng=1`;
+    const { state, ignored } = parseBrowse(new URLSearchParams(query));
+    if (ignored.length) continue;
+    const sel = applyFilters(rows as IndexRow[], state);
+    let both = 0;
+    for (const r of sel) if (keys.has(r.source_acc)) both++;
+    out.push({ query, label, n: sel.length, same: both === keys.size && both === sel.length, onlySearch: keys.size - both, onlyBrowse: sel.length - both });
+  }
+  return out;
 }

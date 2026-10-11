@@ -1,0 +1,200 @@
+{
+ "all_killed": true,
+ "mutants": [
+  {
+   "defect": "D4",
+   "mutant": "clade-state population silently widened to all records (the PR-5 bug)",
+   "file": "web/src/lib/drilldown.ts",
+   "command": "npx vitest run tests/unit/pr5a.test.ts",
+   "status": "KILLED",
+   "seconds": 2.0,
+   "tail": [
+    "    \u001b[90m170|\u001b[39m     expect(drilldownQuery(\"members_candidates\", { group: \"boundary\" })\u2026",
+    "    \u001b[90m171|\u001b[39m     expect(drilldownQuery(\"counted_records\", { eng: true })).toBeUndef\u2026",
+    "\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[5/5]\u23af\u001b[22m\u001b[39m"
+   ]
+  },
+  {
+   "defect": "D4",
+   "mutant": "members+candidates group filter admits boundary records",
+   "file": "web/src/lib/browse.ts",
+   "command": "npx vitest run tests/unit/pr5a.test.ts",
+   "status": "KILLED",
+   "seconds": 1.9,
+   "tail": [
+    "    \u001b[90m182|\u001b[39m     expect(statusesForGroup(\"member_candidate\")).toEqual([...statusesF\u2026",
+    "    \u001b[90m183|\u001b[39m     expect(browse(\"group=member_candidate&eng=1\").length).toBe(4468);",
+    "\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[5/5]\u23af\u001b[22m\u001b[39m"
+   ]
+  },
+  {
+   "defect": "D1",
+   "mutant": "membership-status drilldown loses group=all (Browse member default; the PR-5 bug)",
+   "file": "web/src/lib/drilldown.ts",
+   "command": "npx vitest run tests/unit/pr5a.test.ts",
+   "status": "KILLED",
+   "seconds": 1.7,
+   "tail": [
+    "    \u001b[90m130|\u001b[39m         expect(q.includes(\"eng=1\"), `${id} ${q}`).toBe(d.denominator.i\u2026",
+    "    \u001b[90m131|\u001b[39m         expect(browse(q).length, `${id} ${it.key}`).toBe(it.value);",
+    "\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[3/3]\u23af\u001b[22m\u001b[39m"
+   ]
+  },
+  {
+   "defect": "D1",
+   "mutant": "all-records population drops engineered constructs",
+   "file": "web/src/lib/drilldown.ts",
+   "command": "npx vitest run tests/unit/pr5a.test.ts",
+   "status": "KILLED",
+   "seconds": 1.7,
+   "tail": [
+    "    \u001b[90m156|\u001b[39m   });",
+    "    \u001b[90m157|\u001b[39m",
+    "\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[5/5]\u23af\u001b[22m\u001b[39m"
+   ]
+  },
+  {
+   "defect": "D1",
+   "mutant": "counted population includes engineered constructs",
+   "file": "web/src/lib/drilldown.ts",
+   "command": "npx vitest run tests/unit/pr5a.test.ts",
+   "status": "KILLED",
+   "seconds": 1.7,
+   "tail": [
+    "    \u001b[90m172|\u001b[39m     expect(drilldownQuery(\"pdb_entries\", {})).toBeUndefined();",
+    "    \u001b[90m173|\u001b[39m     // group=member is the Browse default and is therefore omitted fro\u2026",
+    "\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[6/6]\u23af\u001b[22m\u001b[39m"
+   ]
+  },
+  {
+   "defect": "D1",
+   "mutant": "domain drilldown maps the null category to all domains",
+   "file": "web/src/lib/drilldown.ts",
+   "command": "npx vitest run tests/unit/pr5a.test.ts",
+   "status": "KILLED",
+   "seconds": 1.9,
+   "tail": [
+    "    \u001b[90m121|\u001b[39m     }",
+    "    \u001b[90m122|\u001b[39m   });",
+    "\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[2/2]\u23af\u001b[22m\u001b[39m"
+   ]
+  },
+  {
+   "defect": "D2",
+   "mutant": "clade ID searched with the Browse free-text filter (the PR-5 bug)",
+   "file": "web/src/features/search/textSearch.ts",
+   "command": "npx vitest run tests/unit/pr5a.test.ts",
+   "status": "KILLED",
+   "seconds": 2.5,
+   "tail": [
+    "    \u001b[90m222|\u001b[39m     expect(digest(browse(formal.query))).toEqual({ n: g.n, sha256: g.s\u2026",
+    "    \u001b[90m223|\u001b[39m     // the text search also matches tentative placements, so the forma\u2026",
+    "\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\u001b[22m\u001b[39m"
+   ]
+  },
+  {
+   "defect": "D2",
+   "mutant": "'same records' claimed on equal counts instead of equal sets",
+   "file": "web/src/features/search/textSearch.ts",
+   "command": "npx vitest run tests/unit/pr5a.test.ts",
+   "status": "KILLED",
+   "seconds": 2.4,
+   "tail": [
+    "    \u001b[90m280|\u001b[39m   });",
+    "    \u001b[90m281|\u001b[39m });",
+    "\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\u001b[22m\u001b[39m"
+   ]
+  },
+  {
+   "defect": "D2",
+   "mutant": "PDB ID mapped to free text",
+   "file": "web/src/features/search/textSearch.ts",
+   "command": "npx vitest run tests/unit/pr5a.test.ts",
+   "status": "KILLED",
+   "seconds": 2.4,
+   "tail": [
+    "    \u001b[90m252|\u001b[39m     expect(p.n).toBe(r.total);",
+    "    \u001b[90m253|\u001b[39m     expect(p.same).toBe(true);",
+    "\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\u001b[22m\u001b[39m"
+   ]
+  },
+  {
+   "defect": "D3",
+   "mutant": "browser reconcile ignores duplicate keys",
+   "file": "web/src/lib/stats.ts",
+   "command": "npx vitest run tests/unit/pr5a.test.ts",
+   "status": "KILLED",
+   "seconds": 2.4,
+   "tail": [
+    "    \u001b[90m315|\u001b[39m   });",
+    "    \u001b[90m316|\u001b[39m   it(\"an extra zero-valued category is detected\", () => {",
+    "\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\u001b[22m\u001b[39m"
+   ]
+  },
+  {
+   "defect": "D3",
+   "mutant": "browser reconcile treats a key missing on one side as 0",
+   "file": "web/src/lib/stats.ts",
+   "command": "npx vitest run tests/unit/pr5a.test.ts",
+   "status": "KILLED",
+   "seconds": 2.5,
+   "tail": [
+    "    \u001b[90m320|\u001b[39m   });",
+    "    \u001b[90m321|\u001b[39m   it(\"a missing distribution is reported, not skipped\", () => {",
+    "\u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\u001b[22m\u001b[39m"
+   ]
+  },
+  {
+   "defect": "D3",
+   "mutant": "Python reconcile compares sorted values (the PR-5 approach)",
+   "file": "web/scripts/summary_reconcile.py",
+   "command": "/workspace/.conda/mrdb/bin/python -m pytest -q -x tests/test_web_pr5a.py tests/test_web_pr5.py",
+   "status": "KILLED",
+   "seconds": 1.6,
+   "tail": [
+    "FAILED tests/test_web_pr5a.py::test_mutation_swapped_category_counts_detected",
+    "!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!",
+    "1 failed, 2 passed in 1.39s"
+   ]
+  },
+  {
+   "defect": "D3",
+   "mutant": "Python reconcile merges duplicate keys silently",
+   "file": "web/scripts/summary_reconcile.py",
+   "command": "/workspace/.conda/mrdb/bin/python -m pytest -q -x tests/test_web_pr5a.py tests/test_web_pr5.py",
+   "status": "KILLED",
+   "seconds": 10.0,
+   "tail": [
+    "FAILED tests/test_web_pr5a.py::test_duplicate_keys_in_replayed_rows_are_rejected",
+    "!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!",
+    "1 failed, 6 passed in 9.79s"
+   ]
+  },
+  {
+   "defect": "D3",
+   "mutant": "Python reconcile drops the null category",
+   "file": "web/scripts/summary_reconcile.py",
+   "command": "/workspace/.conda/mrdb/bin/python -m pytest -q -x tests/test_web_pr5a.py tests/test_web_pr5.py",
+   "status": "KILLED",
+   "seconds": 9.2,
+   "tail": [
+    "FAILED tests/test_web_pr5a.py::test_mutation_null_category_and_duplicates_detected",
+    "!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!",
+    "1 failed, 5 passed in 8.97s"
+   ]
+  },
+  {
+   "defect": "D3",
+   "mutant": "tip_role not derived (skipped)",
+   "file": "web/scripts/summary_reconcile.py",
+   "command": "/workspace/.conda/mrdb/bin/python -m pytest -q -x tests/test_web_pr5a.py tests/test_web_pr5.py",
+   "status": "KILLED",
+   "seconds": 0.9,
+   "tail": [
+    "FAILED tests/test_web_pr5a.py::test_keyed_reconciliation_57_sql_plus_1_derived",
+    "!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!",
+    "1 failed, 1 passed in 0.71s"
+   ]
+  }
+ ]
+}

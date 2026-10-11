@@ -146,6 +146,8 @@ export interface ReconRow {
   denominator: number;
   recounted: number;
   mismatches: { key: string | null; summary: number; index: number }[];
+  /** Keys that occur more than once in summary.json (always an error). */
+  duplicates: (string | null)[];
   ok: boolean;
 }
 
@@ -156,19 +158,30 @@ export function reconcile(summary: Summary, rows: readonly IndexRow[]): ReconRow
     counted: rows.filter((r) => r.counts_eligible),
     members_candidates: rows.filter((r) => r.membership_group === "member" || r.membership_group === "candidate"),
   };
-  return RECOUNTABLE.flatMap((spec) => {
+  return RECOUNTABLE.map((spec) => {
     const d = summary.distributions.find((x) => x.id === spec.id);
-    if (!d) return [];
     const src = scoped[spec.scope];
+    if (!d) return { id: spec.id, label: `${spec.id} (missing from summary.json)`, denominator: 0, recounted: src.length, mismatches: [], duplicates: [], ok: false };
     const got = countBy(src, spec.get);
-    const keys = new Set<string | null>([...d.items.map((i) => i.key), ...got.keys()]);
+    // Keyed comparison: a key present on only one side is a mismatch (even with value 0), and a key that
+    // occurs twice in summary.json is an error rather than being silently merged or shadowed.
+    const exp = new Map<string | null, number>();
+    const duplicates: (string | null)[] = [];
+    for (const i of d.items) {
+      if (exp.has(i.key)) duplicates.push(i.key);
+      exp.set(i.key, i.value);
+    }
+    const keys = new Set<string | null>([...exp.keys(), ...got.keys()]);
     const mismatches: ReconRow["mismatches"] = [];
     for (const key of keys) {
-      const a = d.items.find((i) => i.key === key)?.value ?? 0;
-      const b = got.get(key) ?? 0;
-      if (a !== b) mismatches.push({ key, summary: a, index: b });
+      const a = exp.get(key);
+      const b = got.get(key);
+      if (a === undefined || b === undefined || a !== b) mismatches.push({ key, summary: a ?? 0, index: b ?? 0 });
     }
-    return [{ id: d.id, label: d.label, denominator: d.denominator.value, recounted: src.length, mismatches, ok: mismatches.length === 0 && src.length === d.denominator.value }];
+    return {
+      id: d.id, label: d.label, denominator: d.denominator.value, recounted: src.length, mismatches, duplicates,
+      ok: mismatches.length === 0 && duplicates.length === 0 && src.length === d.denominator.value && d.total === d.denominator.value,
+    };
   });
 }
 

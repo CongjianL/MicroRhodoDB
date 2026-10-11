@@ -15,10 +15,10 @@ import { ExportMenu } from "../features/browse/ExportMenu";
 import { FilterPanel } from "../features/browse/FilterPanel";
 import { DEFAULT_VISIBILITY, ResultsTable, makeColumns, type ColumnMeta } from "../features/browse/ResultsTable";
 import {
-  DEFAULT_STATE, GROUPS, PAGE_SIZES, activeFilterKeys, applyFilters, filterQuery, parseBrowse, serializeBrowse, sortRows, toRows,
+  DEFAULT_STATE, GROUPS, GROUP_FILTER_LABEL, PAGE_SIZES, activeFilterKeys, applyFilters, filterQuery, parseBrowse, serializeBrowse, sortRows, toRows,
   type BrowseState, type GroupFilter, type SortKey,
 } from "../lib/browse";
-import { CLADE_STATE_LABEL, FUNC_LABEL, GROUP_LABEL, STATUS_LABEL, domainLabel, fmtInt } from "../lib/format";
+import { CLADE_STATE_LABEL, FUNC_LABEL, STATUS_LABEL, domainLabel, fmtInt } from "../lib/format";
 import { caveatMap } from "../lib/summary";
 
 export default function BrowsePage({ params }: { params: URLSearchParams }) {
@@ -116,6 +116,7 @@ function BrowseBody({ params, ri, clades, vocab, manifest }: { params: URLSearch
     const m = new Map<GroupFilter, number>();
     for (const r of rows) if (s.eng || !r.is_engineered) m.set(r.membership_group, (m.get(r.membership_group) ?? 0) + 1);
     m.set("all", [...m.values()].reduce((a, b) => a + b, 0));
+    m.set("member_candidate", (m.get("member") ?? 0) + (m.get("candidate") ?? 0));
     return m;
   }, [rows, s.eng]);
   const nEngineered = useMemo(() => rows.filter((r) => r.is_engineered).length, [rows]);
@@ -131,7 +132,7 @@ function BrowseBody({ params, ri, clades, vocab, manifest }: { params: URLSearch
   }, [filtered, cav]);
 
   const nMrdb = useMemo(() => new Set(filtered.map((r) => r.mrdb_acc)).size, [filtered]);
-  const scope = s.group === "all" ? "All records" : GROUP_LABEL[s.group];
+  const scope = GROUP_FILTER_LABEL[s.group];
   const active = activeFilterKeys(s);
 
   const onSort = (k: SortKey) => {
@@ -174,7 +175,7 @@ function BrowseBody({ params, ri, clades, vocab, manifest }: { params: URLSearch
               className={`btn btn-sm ${s.group === g ? "btn-primary" : "btn-secondary"}`}
               data-group={g}
             >
-              {g === "all" ? "All records" : GROUP_LABEL[g]}
+              {GROUP_FILTER_LABEL[g]}
               <span className={`tabular text-xs ${s.group === g ? "text-white/90" : "text-ink-2"}`}>{fmtInt(groupCounts.get(g) ?? 0)}</span>
             </button>
           ))}

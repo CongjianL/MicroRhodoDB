@@ -18,7 +18,7 @@ import { Ext } from "../features/entry/ui";
 import { SearchClient } from "../features/search/client";
 import type { Phase, WorkerResult } from "../features/search/protocol";
 import { METHOD, parseQuery, type QueryError } from "../features/search/swCore";
-import { FIELD_LABEL, fieldCounts, textSearch } from "../features/search/textSearch";
+import { FIELD_LABEL, browseOptions, fieldCounts, textSearch, type BrowseOption } from "../features/search/textSearch";
 import { toRows, type IndexRow } from "../lib/browse";
 import { fmtInt } from "../lib/format";
 
@@ -90,7 +90,7 @@ function TextResults({ q }: { q: string }) {
 
 function TextHits({ rows, q }: { rows: IndexRow[]; q: string }) {
   const r = useMemo(() => textSearch(rows, q), [rows, q]);
-  const browse = href.browse(new URLSearchParams({ group: "all", eng: "1", q }).toString());
+  const options = useMemo(() => (r.total ? browseOptions(rows, q, r.keys) : []), [rows, q, r]);
   if (r.kind === "too_short") return <p className="mt-6" data-testid="text-status">Enter at least 2 characters.</p>;
   if (!r.total) {
     return (
@@ -106,9 +106,10 @@ function TextHits({ rows, q }: { rows: IndexRow[]; q: string }) {
     <div className="mt-6">
       <p data-testid="text-status" className="text-sm">
         <strong data-testid="text-total">{fmtInt(r.total)}</strong> record{r.total === 1 ? "" : "s"} match “{r.query}” out of {fmtInt(rows.length)} corpus records
-        {r.truncated ? <> (showing the {fmtInt(r.hits.length)} best-ranked; <a href={browse}>open all text matches in Browse</a> for filtering and export)</> : null}.
+        {r.truncated ? <> (showing the {fmtInt(r.hits.length)} best-ranked; see “Open in Browse” below for filtering and export)</> : null}.
         {" "}Matched in: {fc.map(([f, n]) => `${FIELD_LABEL[f]} (${fmtInt(n)})`).join(", ")}{r.truncated ? " among those shown" : ""}.
       </p>
+      <BrowseOptions options={options} total={r.total} />
       <TableRegion label="Text search results" testId="text-results">
         <table className="data-table">
           <thead>
@@ -133,6 +134,34 @@ function TextHits({ rows, q }: { rows: IndexRow[]; q: string }) {
           </tbody>
         </table>
       </TableRegion>
+    </div>
+  );
+}
+
+/**
+ * Browse views related to the query. "Same records" is stated only when the Browse accession set equals
+ * the complete search hit set (computed with the real Browse filter); otherwise the overlap is reported.
+ */
+function BrowseOptions({ options, total }: { options: BrowseOption[]; total: number }) {
+  options = options.filter((o) => o.n > 0);
+  if (!options.length) return null;
+  return (
+    <div className="mt-2 mb-3 text-sm" data-testid="browse-options">
+      <p className="font-medium">Open in Browse (all records, engineered constructs included):</p>
+      <ul className="mt-1 list-disc space-y-0.5 pl-5">
+        {options.map((o) => (
+          <li key={o.query} data-testid="browse-option" data-query={o.query} data-same={o.same ? "1" : "0"} data-n={o.n}>
+            <a href={href.browse(o.query)}>{o.label}</a>{": "}
+            <span className="tabular">{fmtInt(o.n)}</span> record{o.n === 1 ? "" : "s"}
+            {o.same ? <>, the same records as this search</> : (
+              <span className="text-ink-2">
+                {", not the same set as this search"}
+                {o.onlySearch ? <> ({fmtInt(total - o.onlySearch)} of the {fmtInt(total)} search matches{o.onlyBrowse ? `, plus ${fmtInt(o.onlyBrowse)} other records` : ""})</> : o.onlyBrowse ? <> (all {fmtInt(total)} search matches plus {fmtInt(o.onlyBrowse)} other records)</> : null}
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

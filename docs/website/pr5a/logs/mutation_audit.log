@@ -1,0 +1,15 @@
+[KILLED] D4 clade-state population silently widened to all records (the PR-5 bug)
+[KILLED] D4 members+candidates group filter admits boundary records
+[KILLED] D1 membership-status drilldown loses group=all (Browse member default; the PR-5 bug)
+[KILLED] D1 all-records population drops engineered constructs
+[KILLED] D1 counted population includes engineered constructs
+[KILLED] D1 domain drilldown maps the null category to all domains
+[KILLED] D2 clade ID searched with the Browse free-text filter (the PR-5 bug)
+[KILLED] D2 'same records' claimed on equal counts instead of equal sets
+[KILLED] D2 PDB ID mapped to free text
+[KILLED] D3 browser reconcile ignores duplicate keys
+[KILLED] D3 browser reconcile treats a key missing on one side as 0
+[KILLED] D3 Python reconcile compares sorted values (the PR-5 approach)
+[KILLED] D3 Python reconcile merges duplicate keys silently
+[KILLED] D3 Python reconcile drops the null category
+[KILLED] D3 tip_role not derived (skipped)

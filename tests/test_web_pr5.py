@@ -16,6 +16,10 @@ import sqlite3
 from pathlib import Path
 
 import pytest
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "web/scripts"))
+import summary_reconcile as R  # noqa: E402
 
 REPO = Path(os.environ.get("MRDB_REPO", ".")).resolve()
 DB = Path(os.environ.get("MRDB_DB", REPO / "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"))
@@ -65,39 +69,16 @@ def test_frozen_g5_targets(con, summary):
     assert m["typeI_members"] + m["typeI_candidates"] == m["members_candidates"]
 
 
-@pytest.mark.parametrize("kind", ["metrics", "distributions", "crosstabs"])
-def test_every_stored_sql_reproduces_the_exported_value(con, summary, kind):
-    """The 'How this is counted' SQL shown on each chart reproduces the charted numbers exactly."""
-    checked = 0
-    for x in summary[kind]:
-        sql = x.get("sql")
-        if not sql:
-            continue
-        rows = con.execute(sql).fetchall()
-        if kind == "metrics":
-            assert rows[0][0] == x["value"], x["id"]
-        elif kind == "distributions" and x.get("derivation") and len(rows[0]) == 1:
-            # SQL returns the raw input; apply the stated derivation independently (NCBI phylum tag)
-            assert x["id"] == "ncbi_phylum_counted"
-            got = collections.Counter()
-            for (lin,) in rows:
-                m = re.findall(r"(?:^|, )([^,]+?) \(phylum\)", lin or "")
-                assert len(m) <= 1
-                got[m[0] if m else None] += 1
-            exp = {i["key"]: i["value"] for i in x["items"]}
-            assert dict(got) == exp and sum(got.values()) == x["total"] == 5460
-        elif kind == "distributions":
-            got = {str(r[0]) if r[0] is not None else None: r[-1] for r in rows}
-            exp = {i["key"]: i["value"] for i in x["items"]}
-            assert sum(got.values()) == sum(exp.values()) == x["total"], x["id"]
-            assert sorted(got.values()) == sorted(exp.values()), x["id"]
-        else:
-            got = collections.Counter({(str(r[0]), str(r[1])): r[2] for r in rows})
-            exp = collections.Counter({(c["row"], c["col"]): c["value"] for c in x["cells"]})
-            assert sum(got.values()) == sum(exp.values()) == x["denominator"]["value"], x["id"]
-            assert sorted(got.values()) == sorted(exp.values()), x["id"]
-        checked += 1
-    assert checked > 0
+def test_every_stored_sql_reproduces_the_exported_value(con, summary):
+    """The 'How this is counted' SQL shown on each chart reproduces the charted numbers exactly.
+
+    PR-5a: keyed comparison (web/scripts/summary_reconcile.py) -- exact key sets including null categories,
+    value per key, duplicate keys rejected; the former sorted-value comparison could not detect swapped
+    category counts (see tests/test_web_pr5a.py for the mutation tests)."""
+    res = R.reconcile(con, summary, REPO)
+    bad = [(r["id"], r["problems"]) for r in res if not r["ok"]]
+    assert bad == []
+    assert R.counts(res) == (57, 1)
 
 
 def test_distributions_sum_to_their_denominators(summary):

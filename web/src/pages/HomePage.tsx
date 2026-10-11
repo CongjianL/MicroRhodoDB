@@ -13,7 +13,8 @@ import { BarChart, type BarItem } from "../features/charts/BarChart";
 import { TREE_RADIUS, TreePreview, buildTreeModel, type TreeModel } from "../features/tree/TreePreview";
 import { CladeLegend } from "../features/tree/CladeLegend";
 import { FUNC_LABEL, FUNC_ORDER, GROUP_LABEL, STATUS_LABEL, STATUS_ORDER, STATUS_GROUP, fmtInt } from "../lib/format";
-import { distCount, distribution, mv } from "../lib/summary";
+import { distItemHref, drillHref as drill } from "../lib/drilldown";
+import { distCount, distribution, metric, mv } from "../lib/summary";
 
 const GROUP_COLOR = { member: "#1b7f4b", candidate: "#3b4fb8", boundary: "#6b3fb0", outgroup: "#526175", rejected: "#b42318" } as const;
 const EV_COLOR = { E1: "#0f4f91", E2: "#1665b5", E3: "#4a8fd6", E4: "#6b7f96", E5: "#a5b3c2" } as const;
@@ -53,14 +54,14 @@ function HomeBody({ manifest, summary, clades, vocab, tree }: {
       label: GROUP_LABEL[g],
       value: distCount(memberDist, g),
       color: GROUP_COLOR[g],
-      href: href.browse(`group=${g}&eng=1`),
+      href: distItemHref(memberDist, g),
       note: STATUS_ORDER.filter((s) => STATUS_GROUP[s] === g).map((s) => `${STATUS_LABEL[s]} ${fmtInt(distCount(statusDist, s))}`).join("; "),
     })),
     [memberDist, statusDist],
   );
   const evItems: BarItem[] = useMemo(
     () => (["E1", "E2", "E3", "E4", "E5"] as const).map((e) => ({
-      key: e, label: e, value: distCount(evDist, e), color: EV_COLOR[e], href: href.browse(`group=all&evidence=${e}`), note: evDef.get(e),
+      key: e, label: e, value: distCount(evDist, e), color: EV_COLOR[e], href: distItemHref(evDist, e), note: evDef.get(e),
     })),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [evDist],
@@ -117,11 +118,11 @@ function HomeBody({ manifest, summary, clades, vocab, tree }: {
       <section aria-labelledby="stats-h" className="mt-10">
         <h2 id="stats-h" className="text-xl">Release v{manifest.dataset_release} at a glance</h2>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3" data-testid="stat-cards">
-          <StatCard testId="stat-records" value={S("records_total")} label="Source records" href={href.browse("group=all&eng=1")}
+          <StatCard testId="stat-records" value={S("records_total")} label="Source records" href={drill(metric(summary, "records_total").denominator!.id, {})}
             detail={<>UniProt source records, engineered constructs included. {fmtInt(S("records_counted"))} counted ({fmtInt(S("records_engineered"))} engineered constructs excluded from counts).</>} />
-          <StatCard testId="stat-members" value={S("typeI_members")} label="Type-I members" href={href.browse("group=member&eng=1")}
+          <StatCard testId="stat-members" value={S("typeI_members")} label="Type-I members" href={drill(metric(summary, "typeI_members").denominator!.id, { group: "member" })}
             detail={<>of {fmtInt(S("records_total"))} source records (all member statuses). A further {fmtInt(S("typeI_candidates"))} are candidates.</>} />
-          <StatCard testId="stat-e1" value={S("e1_counted")} label="Experimentally characterized (E1)" href={href.browse("group=all&evidence=E1")}
+          <StatCard testId="stat-e1" value={S("e1_counted")} label="Experimentally characterized (E1)" href={drill(metric(summary, "e1_counted").denominator!.id, { evidence: "E1" })}
             detail={<>of {fmtInt(S("records_counted"))} counted records; {fmtInt(S("e1_total"))} including engineered constructs; {fmtInt(S("e1_unique_sequences"))} unique MRDB sequences.</>} />
           <StatCard testId="stat-tips" value={S("tree_tips")} label="Reference-tree tips (MR_RT_003)"
             detail={<>{S("level1_clades")} level-1 clades + {S("backbone_groups")} backbone groups. Tree tips are representatives, not a record count.</>} />
@@ -204,7 +205,7 @@ function HomeBody({ manifest, summary, clades, vocab, tree }: {
         <ul className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4" data-testid="func-links">
           {FUNC_ORDER.map((f: FuncClass) => (
             <li key={f}>
-              <a href={href.browse(`group=all&func=${f}`)} className="card flex items-baseline justify-between gap-3 px-3 py-2.5 no-underline hover:border-accent hover:no-underline" data-func={f}>
+              <a href={distItemHref(funcDist, f)} className="card flex items-baseline justify-between gap-3 px-3 py-2.5 no-underline hover:border-accent hover:no-underline" data-func={f}>
                 <span className={f === "unresolved" || f === "unassigned" ? "text-ink-2" : "font-medium text-ink"}>{FUNC_LABEL[f]}</span>
                 <span className="tabular text-sm text-ink-2" data-testid={`func-count-${f}`}>{fmtInt(distCount(funcDist, f))}</span>
               </a>

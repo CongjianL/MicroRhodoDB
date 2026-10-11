@@ -1,0 +1,3658 @@
+{
+ "db_sha256": "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f",
+ "description": "DB-derived golden accession sets for every Statistics/Home drilldown and the Search -> Browse clade",
+ "accession_hash": "sha256 of sorted source_acc joined by newline",
+ "items": [
+  {
+   "kind": "distribution",
+   "id": "membership_status",
+   "key": "boundary_family",
+   "population": "all_records",
+   "n": 509,
+   "sha256": "37c7caed1874d18f2959b09c6be022c682f2253f90e6a4aef763aaffe00af98b"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status",
+   "key": "decoy_or_rejected",
+   "population": "all_records",
+   "n": 103,
+   "sha256": "c9be0a6bd03c6ce9a1d35952727966706b4339c417443f73add61a9fdcc33e01"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status",
+   "key": "heliorhodopsin",
+   "population": "all_records",
+   "n": 386,
+   "sha256": "0d7bd2959f25bdfb58d0295c08da3ad4de5206bc9e9c488499a977d3a93e10c2"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status",
+   "key": "typeI_candidate",
+   "population": "all_records",
+   "n": 209,
+   "sha256": "343c8f8666d1b27aebe609136d768d012685587c20a4cfdee1ac4dfd6202b427"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status",
+   "key": "typeI_candidate_architecture_supported",
+   "population": "all_records",
+   "n": 273,
+   "sha256": "2d6b53b835b1ed01f41c38465d986fbede734df16fa17800be81cddb1a34099f"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status",
+   "key": "typeI_candidate_unresolved",
+   "population": "all_records",
+   "n": 897,
+   "sha256": "12459eaa2ba93718a89cdb5eaecaf62e3f30aa1d2dd9d3feb2cae00dade91db4"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status",
+   "key": "typeI_member_architecture_supported",
+   "population": "all_records",
+   "n": 381,
+   "sha256": "cfc49b27f39533db9a88889744348e834c8c38f56db6ccb23bb46fc47edc6b96"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status",
+   "key": "typeI_member_core",
+   "population": "all_records",
+   "n": 2704,
+   "sha256": "c5819e37a304381139e6e06c281f28e65507b8a652b2cae9751dbff17ad57eef"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status",
+   "key": "typeI_member_curated",
+   "population": "all_records",
+   "n": 4,
+   "sha256": "f606a519f3568151984381b32786e3ecdc28f46620e88bbf3cb68afb42e6487b"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status_counted",
+   "key": "boundary_family",
+   "population": "counted_records",
+   "n": 509,
+   "sha256": "37c7caed1874d18f2959b09c6be022c682f2253f90e6a4aef763aaffe00af98b"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status_counted",
+   "key": "decoy_or_rejected",
+   "population": "counted_records",
+   "n": 103,
+   "sha256": "c9be0a6bd03c6ce9a1d35952727966706b4339c417443f73add61a9fdcc33e01"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status_counted",
+   "key": "heliorhodopsin",
+   "population": "counted_records",
+   "n": 386,
+   "sha256": "0d7bd2959f25bdfb58d0295c08da3ad4de5206bc9e9c488499a977d3a93e10c2"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status_counted",
+   "key": "typeI_candidate",
+   "population": "counted_records",
+   "n": 207,
+   "sha256": "063fd5dfb7658c3809467c0ad1d36d3c260c594fcbc25f7fbdd91f026804bc6a"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status_counted",
+   "key": "typeI_candidate_architecture_supported",
+   "population": "counted_records",
+   "n": 273,
+   "sha256": "2d6b53b835b1ed01f41c38465d986fbede734df16fa17800be81cddb1a34099f"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status_counted",
+   "key": "typeI_candidate_unresolved",
+   "population": "counted_records",
+   "n": 897,
+   "sha256": "12459eaa2ba93718a89cdb5eaecaf62e3f30aa1d2dd9d3feb2cae00dade91db4"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status_counted",
+   "key": "typeI_member_architecture_supported",
+   "population": "counted_records",
+   "n": 381,
+   "sha256": "cfc49b27f39533db9a88889744348e834c8c38f56db6ccb23bb46fc47edc6b96"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status_counted",
+   "key": "typeI_member_core",
+   "population": "counted_records",
+   "n": 2700,
+   "sha256": "e2eb9f72cf49c5fac1328448a831a4334183cfe98a7885c442473ea87417fd5d"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status_counted",
+   "key": "typeI_member_curated",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "f606a519f3568151984381b32786e3ecdc28f46620e88bbf3cb68afb42e6487b"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_group",
+   "key": "boundary",
+   "population": "all_records",
+   "n": 509,
+   "sha256": "37c7caed1874d18f2959b09c6be022c682f2253f90e6a4aef763aaffe00af98b"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_group",
+   "key": "candidate",
+   "population": "all_records",
+   "n": 1379,
+   "sha256": "9ee3c27ae7358f78ed6727a5c067e64ad8442befdf76e677d79f903a8de36dd1"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_group",
+   "key": "member",
+   "population": "all_records",
+   "n": 3089,
+   "sha256": "df43220fc1a28e4f679bc5ae6358fdf220f102d4c7117ceadef79e8162445460"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_group",
+   "key": "outgroup",
+   "population": "all_records",
+   "n": 386,
+   "sha256": "0d7bd2959f25bdfb58d0295c08da3ad4de5206bc9e9c488499a977d3a93e10c2"
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_group",
+   "key": "rejected",
+   "population": "all_records",
+   "n": 103,
+   "sha256": "c9be0a6bd03c6ce9a1d35952727966706b4339c417443f73add61a9fdcc33e01"
+  },
+  {
+   "kind": "distribution",
+   "id": "evidence_level_counted",
+   "key": "E1",
+   "population": "counted_records",
+   "n": 88,
+   "sha256": "50fc65456398ce78d04b49232c3d0bea1052dd1a413849016475f694b57f532a"
+  },
+  {
+   "kind": "distribution",
+   "id": "evidence_level_counted",
+   "key": "E2",
+   "population": "counted_records",
+   "n": 109,
+   "sha256": "a19481a46c385919ffac1da7c9f39c1cbc397d846e42b110de1a31458862517a"
+  },
+  {
+   "kind": "distribution",
+   "id": "evidence_level_counted",
+   "key": "E3",
+   "population": "counted_records",
+   "n": 1143,
+   "sha256": "0e27284a84bdfab3e37c8990ad192f1bec48ce90b17b65a582d2ff02620ea383"
+  },
+  {
+   "kind": "distribution",
+   "id": "evidence_level_counted",
+   "key": "E4",
+   "population": "counted_records",
+   "n": 1050,
+   "sha256": "25d545773d31f24089492aab2be377eb46963c48a26ea7dd7d821f60a6cfd986"
+  },
+  {
+   "kind": "distribution",
+   "id": "evidence_level_counted",
+   "key": "E5",
+   "population": "counted_records",
+   "n": 3070,
+   "sha256": "c137fce25cdc6d547a02234213d8ba1313ab3d1f55b803938d594b51fe5ad750"
+  },
+  {
+   "kind": "distribution",
+   "id": "evidence_level_all",
+   "key": "E1",
+   "population": "all_records",
+   "n": 91,
+   "sha256": "209cd774f4f3146fb2d10352e2c7407d2ff1cf9103e9ecf0c747e6004d9f6b35"
+  },
+  {
+   "kind": "distribution",
+   "id": "evidence_level_all",
+   "key": "E2",
+   "population": "all_records",
+   "n": 112,
+   "sha256": "1788c2cba71ad05deb8fb9b2a5522a0d97e30317ff982c4787801fb617e8b513"
+  },
+  {
+   "kind": "distribution",
+   "id": "evidence_level_all",
+   "key": "E3",
+   "population": "all_records",
+   "n": 1143,
+   "sha256": "0e27284a84bdfab3e37c8990ad192f1bec48ce90b17b65a582d2ff02620ea383"
+  },
+  {
+   "kind": "distribution",
+   "id": "evidence_level_all",
+   "key": "E4",
+   "population": "all_records",
+   "n": 1050,
+   "sha256": "25d545773d31f24089492aab2be377eb46963c48a26ea7dd7d821f60a6cfd986"
+  },
+  {
+   "kind": "distribution",
+   "id": "evidence_level_all",
+   "key": "E5",
+   "population": "all_records",
+   "n": 3070,
+   "sha256": "c137fce25cdc6d547a02234213d8ba1313ab3d1f55b803938d594b51fe5ad750"
+  },
+  {
+   "kind": "distribution",
+   "id": "func_class_counted",
+   "key": "anion_pump",
+   "population": "counted_records",
+   "n": 154,
+   "sha256": "94bd729c0f3552facd4e4619934f5381ec6ae12361689348184ee7caa48f3933"
+  },
+  {
+   "kind": "distribution",
+   "id": "func_class_counted",
+   "key": "enzyme_rhodopsin",
+   "population": "counted_records",
+   "n": 14,
+   "sha256": "465dae74c17707beb37800c8b34dc99ba3cc546dfe9fd00e6f36d89ca4a38d32"
+  },
+  {
+   "kind": "distribution",
+   "id": "func_class_counted",
+   "key": "light_gated_channel",
+   "population": "counted_records",
+   "n": 94,
+   "sha256": "19329691be61dcc6d36b80bc2671d10aeb31931441f4499d06735c640ef2338b"
+  },
+  {
+   "kind": "distribution",
+   "id": "func_class_counted",
+   "key": "photoreceptor_unassigned",
+   "population": "counted_records",
+   "n": 8,
+   "sha256": "7c846474a50ae5dc9ffaae48b3ba41918cb35afe6e36743a5cadba5048afbe78"
+  },
+  {
+   "kind": "distribution",
+   "id": "func_class_counted",
+   "key": "proton_pump",
+   "population": "counted_records",
+   "n": 1716,
+   "sha256": "d042e6311ff27527a2e34a6790d56fd4013fbb75ef5bf71fa8be15c8128cee4f"
+  },
+  {
+   "kind": "distribution",
+   "id": "func_class_counted",
+   "key": "proton_pump_inward",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "4ba7f51c4879fe7a18f348a1738dc808743328dabab1dcf995c2d75ffe29e748"
+  },
+  {
+   "kind": "distribution",
+   "id": "func_class_counted",
+   "key": "sensory",
+   "population": "counted_records",
+   "n": 226,
+   "sha256": "abb5a797ffa3353393446b33be486d0c4ab6059b3b6702dff74d31f92789d48f"
+  },
+  {
+   "kind": "distribution",
+   "id": "func_class_counted",
+   "key": "sensory_like",
+   "population": "counted_records",
+   "n": 101,
+   "sha256": "8391e238112c19ccdd91b8deee8b56208543eceacd7030274af78fdc9a3edf13"
+  },
+  {
+   "kind": "distribution",
+   "id": "func_class_counted",
+   "key": "sodium_pump",
+   "population": "counted_records",
+   "n": 74,
+   "sha256": "5d53a2e0a0bcc789e2ef32147ef636ecd9614c5d07d7ac46a876fb6d0b50c87f"
+  },
+  {
+   "kind": "distribution",
+   "id": "func_class_counted",
+   "key": "unassigned",
+   "population": "counted_records",
+   "n": 439,
+   "sha256": "c7ba45a498e08bffbaa4c2f9bbe4065ea88fabe38ad33dfe828cb00da9f3094f"
+  },
+  {
+   "kind": "distribution",
+   "id": "func_class_counted",
+   "key": "unresolved",
+   "population": "counted_records",
+   "n": 2631,
+   "sha256": "1d2a61f3b33ec2b3f70843c1a7ebbadf8c8c8b1c24ad56eabd687f62937ed094"
+  },
+  {
+   "kind": "distribution",
+   "id": "tax_domain_counted",
+   "key": "Archaea",
+   "population": "counted_records",
+   "n": 699,
+   "sha256": "7e75fa9722955d8ab9d52c115b8b575e4f9474ab47204cb92124e897c588fa36"
+  },
+  {
+   "kind": "distribution",
+   "id": "tax_domain_counted",
+   "key": "Bacteria",
+   "population": "counted_records",
+   "n": 1451,
+   "sha256": "692422d6800ce5f53c54f8e6431354b23db5fc3ed14f06c50fda7c32064c72f0"
+  },
+  {
+   "kind": "distribution",
+   "id": "tax_domain_counted",
+   "key": "Eukaryota",
+   "population": "counted_records",
+   "n": 3118,
+   "sha256": "f40284382baf177e172798308c4947abddd8753dfd720065045dcb838322aa79"
+  },
+  {
+   "kind": "distribution",
+   "id": "tax_domain_counted",
+   "key": null,
+   "population": "counted_records",
+   "n": 192,
+   "sha256": "ed76ceafcaf4beb8141860515dbb4970db802b1575223e160eb52b8a5d850987"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Actinomycetota",
+   "population": "counted_records",
+   "n": 435,
+   "sha256": "b4121d232f088647640ff2f9f30e20a9ded10487b95a4ae82c78d35850df3120"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Ascomycota",
+   "population": "counted_records",
+   "n": 1818,
+   "sha256": "dedf0777f613c61de12c9eb227a14783b222175217c6502a8b340f9c12d0f178"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Bacillariophyta",
+   "population": "counted_records",
+   "n": 18,
+   "sha256": "c5b2b8e3ed9cc2cc8818539f6d4332986232453afaf0f199a0ca3c331b96248e"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Bacillota",
+   "population": "counted_records",
+   "n": 89,
+   "sha256": "d29affd01c764b67f8566ef198eee83c4eb3965a5bf48c3a612d560e8cbab1fe"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Bacteroidota",
+   "population": "counted_records",
+   "n": 413,
+   "sha256": "c9c9e174eddea13aa8d12049f3f720a7494c24cac24f914d53ac12895d111aa9"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Balneolota",
+   "population": "counted_records",
+   "n": 10,
+   "sha256": "1eca0a4157dc2596eb5fd6bf2de112d85939b52dbd62daa1f4b5fdce9ed65759"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Basidiomycota",
+   "population": "counted_records",
+   "n": 418,
+   "sha256": "114a93d92d60d430079eccd6782b578e44f9641691c0a1b1ae04b56c7b1ba295"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Bdellovibrionota",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "5a91bca8b1ec8aa423a3af078cabcf200fe406f487c2b505b83f473fff8fbc1f"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Blastocladiomycota",
+   "population": "counted_records",
+   "n": 7,
+   "sha256": "d4272424a05a8ffc3e5d7db803e28ec1f3622ce0710502be70c4555416be4265"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Candidatus Cryosericota",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "6dccd3280a401a73e1bbb8e45f1752fcca3837e2309e8a408fc532cb9b89f59b"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Candidatus Saccharimonadota",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "f50743492d4e9eef3154f8f56f69b08bbb0acb5371040ffbf95523e5b32703d9"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Chloroflexota",
+   "population": "counted_records",
+   "n": 20,
+   "sha256": "dca3bc38048a838f445d17447e8fb60045864bb15bdd1a57a762519b07d31469"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Chlorophyta",
+   "population": "counted_records",
+   "n": 235,
+   "sha256": "3cfcdd3339e1b4eada1e86a6a1ecbe1b07df02a2a9bdc73a1fc38f0994eca0e7"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Chytridiomycota",
+   "population": "counted_records",
+   "n": 21,
+   "sha256": "f9cabf4590f5db49276b709f3e219554ed6f2505c28081a12cdbbfe5a887152a"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Cyanobacteriota",
+   "population": "counted_records",
+   "n": 57,
+   "sha256": "2b2efe68660e860311703474fd3e21751cba3785310249cfd90067eef00d0aab"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Deinococcota",
+   "population": "counted_records",
+   "n": 30,
+   "sha256": "a44b73a7b00540249decccaa1fdae4bf8248219b3bfdd6a3169a1ad248906313"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Dictyoglomota",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "4e0c4964d0226f0427a83549f6f8bd0f4708359d2a097e64d953be406bee2551"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Discosea",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "9e1c85301a94ac741b6c0c45edded94437cb9d826d31e01e7c2c9f08e7ad3536"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Evosea",
+   "population": "counted_records",
+   "n": 9,
+   "sha256": "a862f4bce3706fee4a9a5b1075b262d4639574e76de7e08e498109147497a7cd"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Haptophyta",
+   "population": "counted_records",
+   "n": 6,
+   "sha256": "3839fda5f9e072f9472ef13de73a8848aacddcc5de10895e9174cb3937c4868f"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Heterolobosea",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "9d04a53822ea916cac008480a4136abab51c843bad6395b5fc015dce182ac395"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Methanobacteriota",
+   "population": "counted_records",
+   "n": 696,
+   "sha256": "0a84eb5cea3ee0ae1b4de76940ea3f39d3e0bbf37c33de2943e20b8cbffa7a0f"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Mycoplasmatota",
+   "population": "counted_records",
+   "n": 8,
+   "sha256": "93986a82d639def5969ef8565c9c691a12ea8c3443c1924a2dfb32474b109be8"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Nucleocytoviricota",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "e2200d26b0825b3e0548ca0341446e8ee9d619d1fbfa4d6c538226f379066530"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Perkinsozoa",
+   "population": "counted_records",
+   "n": 6,
+   "sha256": "9be16195d9b195825e39ee9d2bc2828423d633e364a570054e8c9a0c3eceb524"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Planctomycetota",
+   "population": "counted_records",
+   "n": 9,
+   "sha256": "28f203bfd79b05fc407af01ae9abb65495eb8d0f5db879ee1acee527f8a15dc1"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Promethearchaeota",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "5fc1f79d1dd0cfad0fbaeac3cac96f47304f882f9f3ec399b1c6963a18524d13"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Pseudomonadota",
+   "population": "counted_records",
+   "n": 311,
+   "sha256": "efec2898e31e4a18321da762ac51b8ceab16cf4e507a8be18977c2316ee5fb20"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Rhodothermota",
+   "population": "counted_records",
+   "n": 11,
+   "sha256": "30aa4827095488c595c62e4fe97d06a68bc3e6ed8eba73b2a192f76f0e7c3b61"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Rotifera",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "5b4b61c0e46aa107c90ee8d772f5b3adf1067ea8a53862e83be6e24d87f764f2"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Streptophyta",
+   "population": "counted_records",
+   "n": 9,
+   "sha256": "8b1a0cfa898269f4422f5ee59bbb8d053614015ea0b32a8d2251cc2df9ecaf61"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Thermoproteota",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "884508b6f5b6112464ab8df789a71b58d50208a4bda7310836a0bc15a72fed60"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Thermotogota",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "cb368a494d179ce80a0df293ed627f8816b5390ed8ca51af2850c37ee5e96a3d"
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "key": "Vulcanimicrobiota",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "b41f55ce814d0b93d7a6bcc07dc4f62c3c42f941223aa080e2ea6a009a4a0c83"
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state",
+   "key": "confident",
+   "population": "all_records",
+   "n": 4139,
+   "sha256": "d405352b777d18b63647b8c0ff61c499de4433734c5231d60806aaf5a187c6af"
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state",
+   "key": "distant",
+   "population": "all_records",
+   "n": 4,
+   "sha256": "3ff8a148afffcd966dfda11f6a1032c8222a67b4b42abaad38ee8fb73456ffdf"
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state",
+   "key": "outgroup_placed",
+   "population": "all_records",
+   "n": 456,
+   "sha256": "c038a88015e65647ce3a0678c1b08c1a2b471cd9256987f534bbd9e8fce4da11"
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state",
+   "key": "outgroup_reference_tip",
+   "population": "all_records",
+   "n": 15,
+   "sha256": "3d97b0954d22ba6eff56c50b3b66377c938b870507ef4d6766ecdb3c1a7d5266"
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state",
+   "key": "reference_tip_unclustered",
+   "population": "all_records",
+   "n": 27,
+   "sha256": "5bdc5819575aea2d372fc6cb36ade35c9bf8097417b3ccbe8d55d7db2fb6dd0b"
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state",
+   "key": "tentative",
+   "population": "all_records",
+   "n": 720,
+   "sha256": "6d95894f5dc239d8c52aaf678f408a37472ecb808fc2dd73a195717478c55c9a"
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state",
+   "key": "unassigned",
+   "population": "all_records",
+   "n": 105,
+   "sha256": "60045397731608437d839f252c273650afcbcc4661758167054cbf548f0874e2"
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state_members_candidates",
+   "key": "confident",
+   "population": "members_candidates",
+   "n": 3821,
+   "sha256": "86bacfd26d2f8f60afa8bf466bd84d237f88ddd0723722465ec49044ed4a6a49"
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state_members_candidates",
+   "key": "distant",
+   "population": "members_candidates",
+   "n": 2,
+   "sha256": "fc0f8c3033d4d2555d576b8af520354c26190487be2ce655b188c9179e39b574"
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state_members_candidates",
+   "key": "outgroup_placed",
+   "population": "members_candidates",
+   "n": 51,
+   "sha256": "88786f7059c9b78895a601e4ecffe65d29291cb156336e09099c988aff5fac2b"
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state_members_candidates",
+   "key": "reference_tip_unclustered",
+   "population": "members_candidates",
+   "n": 27,
+   "sha256": "5bdc5819575aea2d372fc6cb36ade35c9bf8097417b3ccbe8d55d7db2fb6dd0b"
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state_members_candidates",
+   "key": "tentative",
+   "population": "members_candidates",
+   "n": 497,
+   "sha256": "df007379a8bf7ba19a4a98d33f2ed36a5af02e3afd05399d5ac0ffd6e71575c5"
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state_members_candidates",
+   "key": "unassigned",
+   "population": "members_candidates",
+   "n": 70,
+   "sha256": "f259d3cfc65e0bc80f7c27425b898e852504ff2b78c74d678d36d1c34a0ed62e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "---",
+   "population": "counted_records",
+   "n": 201,
+   "sha256": "b4f1d0ea30c313cab25fe7141297c17c0758a554777d1bfd2521470e13efdac6"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "--A",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "3de45bdfde04718b9658debe959ff3570e14a5eb22ecdd0dd06910419926bd83"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "--D",
+   "population": "counted_records",
+   "n": 21,
+   "sha256": "14ca66d4bfe1049f8eecb2a6dcc58377bc6181d80be8ec2ccaf0da013b91df4f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "--E",
+   "population": "counted_records",
+   "n": 8,
+   "sha256": "d966572a91b9f61b3e23ba07f5cd34ebdb36e188d7e281f34962ddcbb88cecb8"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "--F",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "e98aef6b13dd1d66c7ca8687f891a030eeeb87cbfe54d3500cf40335a1694bfb"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "--I",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "5d054f0bb4c6026b38934081f10567e41fbc2f712042be49afaa4069d71eb0a7"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "--L",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "67bb2009a9b5579aab62bff42442d7075d21f1f29a480e385b4fcc282bf6985e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "--M",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "ecfc770919fba6f70feb13062b5f340a07bc1af9fc73df3bd24ceffcf3e827a5"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "--W",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "2894146c59188ef863d90a5edf2f0641cc764be0511d095b8d9f24fc592d9480"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "-GY",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "08bceed72c8b2378aaf82eb5094f55e7fc087662ab05c00b3ca7bf4d2d8f4f97"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "-SL",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "6644aeddea93182fa42d0d27f20505b9cc14d374b490ae1ef32b35eb4d28b9da"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "-T-",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "6791f7b6dc836cd08bab1ed7e3785cdc2cf3a93bfa21791996f56e064f9a24d8"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "-TD",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "54a1393c1425f694dc14f79140dd5cd88d57954e5660ccaf477d1b228c053f51"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "-TE",
+   "population": "counted_records",
+   "n": 50,
+   "sha256": "ecaf05397e885ce76d0e451caab8a5667849715dd198998fee27ce7c7217ee61"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "-TF",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "cf99c5567b8c5c92a97c4bc67bbd37a8e88a1d2f3d1cf96b68c24a2dff395fd4"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "-TI",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "22ea966f26c6bba6794caaf9c82b6e8abbcdd3bfe6708afe4d6955a116527968"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "-TK",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "0db6db04a2f51272b59f20d7eb9eb5cb2d1f8ebccb84a3b8cccc6471230f8547"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "A-V",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "ad8af1fde0ab6df5d2e4d4a658777918c2fb97d4f537504f0cc717fd787ff0ec"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "AAA",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "21b7dad158d317fb9afc681f56ddf3fff3c075a6d890427f4baa99f6be7d99e3"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "AAL",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "74f84f096712cf274c1a2a95429fd380f42ecf6fff22d79ffeddb645e72751c0"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "AAQ",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "3240fbb82a1c462d9008a11b259fe3303cb9ef2604ec26df3591a6cd8f99255b"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "AAS",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "dda2fbce646e04c73819fae2bf4bfaecf1a7bf4de6a278f9f9e198e26c0eb2b5"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "AAT",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "bab287b0ff1e65ce1d0c9e7edd42eacca42f6c0950ebb447052242c646fe83fb"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ACM",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "44448955b0dae4ecd78a3fdc93450497fd58dcf9c536c9c92cef0cc3ed896cb6"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ADV",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "1c92784d836e27580e244700c2becb3c82385cf62216b21108a3dcd1811e22f3"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "AGI",
+   "population": "counted_records",
+   "n": 9,
+   "sha256": "ac2f3a48bb2ea721732f6ec0d4aee9e046e78d3075c0c05022a1abbe98ac6c88"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "AGT",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "425f82b73c11eeaf2c67095bd935af37dd26b3f7795531bacb14eac87b8bff6b"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "AIQ",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "de78393af2d154e3f6e7505b019bb41fe025184df8ff792d953914cd1e8a96cc"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ASH",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "562980288c1f6522e07d845ddf84b2dbd25a8949f654e133b6e989bb04b1740a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ASL",
+   "population": "counted_records",
+   "n": 19,
+   "sha256": "02bc84aca5f9dabe0d5fab1705e1a3b9329dd243461dccec31c58d733733c819"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ATD",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "690f15f173c20a956e23239fd2bb8be1b0468baae7aa77f9ab84c5dccd0edf29"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ATM",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "811b0cc4761c200f16a738c053c3dbee6be6ebbeb8ed6e76070fbd40e8f19e52"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ATQ",
+   "population": "counted_records",
+   "n": 5,
+   "sha256": "1ce29da37b15f8f6884a71c0f6e3522cf124a43b81bc2d09649f24db537b7bc0"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ATS",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "acbbf397794cf3ad785d8812aad511c7667a4071c11e61768b8461a1fb8fcb7d"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ATT",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "5868d32b76b3a5d06953a890f74b20b797e35778ad5e00387d5006cb79fcc1d0"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "AVA",
+   "population": "counted_records",
+   "n": 6,
+   "sha256": "6b36bfcf883a42d43d0b8703949c34976ff27fe9a84c23afcf882b8621ffdd98"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "AVQ",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "2adb5519b6c78df1049c8c3abb715d756f8c2ea876b48af5ce3732df089e7278"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "AVS",
+   "population": "counted_records",
+   "n": 8,
+   "sha256": "b8ba11d499ec0bbcaff296c2437706d39b92d8ea4cc3062886fb4de399486b0c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "CST",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "917782e845356bfa8ae551185f0e78d3cc60970a13ac596a7f7386c3bbac4922"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "CTA",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "1ae39ac255df11af8f83a1cb0e51d899f360160c7404645d0a5fed757837f062"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "CTI",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "e36bd95e509c7ad5de55618d8dc873387eaa3896d8d091decd7072a7db1e4c96"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "CTL",
+   "population": "counted_records",
+   "n": 21,
+   "sha256": "c435c61a1d4ec0bac65c96ddef16eed9ebc18bdc36bd1339ba754fa80429ca24"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "D--",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "da51333f3df609c68abf3eac0edf5745f730440acc609a66096b07fc13574cfe"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "D-H",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "f781939d20dc18e04b21fde14b8ead3697ba3be90cadef253c296858aaf66d80"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DAE",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "6b2dc5fd66b3593826840a7d075604a2e68a5ae8f6f34f5080d90242cb5a2b03"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DAF",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "06386e71178ea4bee22745ee9c3f9ba9ee3aee6894627e86799fae64289fc0f2"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DAL",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "96410d92cff653f4e6f983470bd74f84235b5ac6fa8f4721404a874222fe364f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DAN",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "bb7adde8e4bdf772591b1ff449fd128314b96044d99e57818f7b5666cc25d1da"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DAQ",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "059868cba0e181520c4b5cc45b4624757280c9fe2254fd5b47ba684e73615be7"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DAV",
+   "population": "counted_records",
+   "n": 7,
+   "sha256": "db3ba3d56175dcbede5684832c8b9b15487db07f109e963eb3a7a27ed8dcd8e7"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DDD",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "a49da0314b536d7f12031a9bef6658fcf356a9dfcb3ca977d0abcf77f9dd0ca6"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DGA",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "2871cc8f63f557c329845730bb2fcbe682fd9abf112b559846bbdf77f2512c17"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DGQ",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "301fb2f3e171eec52e60502e149db096fe23174241f8744e208f19f37c32232c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DII",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "196fc6447735e78967b934f90a1ca0cb739d9c0aa13065e1f77e80acebf2c523"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DIM",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "bf75195c084edb1afe09f1d0ca5c964304f2438fbba39ef41b2f3a6d18e0cb4a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DIY",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "436f01640ff9bacc93ce174d41dd794a5c3ce74b02e8a1845c8189ddeae8444b"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DLD",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "0c8f4d7e9b4ec866ec7790845c6a087ea59b5334a236e17c1a39f3a05d32c904"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DNE",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "eeda7f01e48fd1a2e0cb95490b5376db617e7e34d163a80f2e9e7e4876ad016e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DPE",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "d36f809a74a2e9317833d0251b8bfb30dcb080991d1f925e0040a2df2ed3cd9c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DSA",
+   "population": "counted_records",
+   "n": 22,
+   "sha256": "daa6d54f16a2f6736ab78e7fba886ecca0cd67605c456f75e383dd0eb2f0053f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DSD",
+   "population": "counted_records",
+   "n": 6,
+   "sha256": "378263c3b75147cde4b7e94dc2e61900edbce23266a06a03345328abf22f5114"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DSE",
+   "population": "counted_records",
+   "n": 52,
+   "sha256": "e423cd1242fe9c5eef62ab90434b04f11d6a62b11ee537b2e81b378d13577104"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DSI",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "75e9bcfbccd2f06209309dc1d75d1b9c95195d79d621518633b461351f8929d6"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DSN",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "88ca7db55f4970b38b28b48550f35a9e01e949832e75084bb026dc0919a60114"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DSP",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "32f457fd8c79d16ca6bb933f9ae5e8fa4bcef8db06facf465d2c50e80524096b"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DSS",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "3f3185775c539dea6dbcc40a8c0961631a7d4dc86a6956175574ae61a9396e30"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DST",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "1947ff68a5aa16a587e9fb6a0c6a2dff9b0d28b436e843af47f94789032fbfad"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DSV",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "053f56dea46816d493e89f544375faeab5e42987e5cde8ca11abb3b031aab776"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DSY",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "e9967b3032e0ee136a9545c32f8ac77c6036c2b64ee025f7ec8cbebd3c1a68c4"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DT-",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "f472dd3bf3778c3ca0d9ab5b2e9e843a3dd581c9a0e118840d2c4786976f561a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTA",
+   "population": "counted_records",
+   "n": 89,
+   "sha256": "2b733aed6c9fd81537a5f783e537f63947282df5cd53b10c9c596dbcf657592a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTC",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "49f0de4cf704b041d5368ab356e2dc2fbbbe45da61cec45f52638cd4525f425c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTD",
+   "population": "counted_records",
+   "n": 1153,
+   "sha256": "4a1edc9b1516e28b41afd32972eea08a4848881f5f8a8453a2014bf6cf672844"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTE",
+   "population": "counted_records",
+   "n": 1191,
+   "sha256": "f74811f869e159822b8635175a038ea07a450ae2f66d5534dc9137e33a47a046"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTF",
+   "population": "counted_records",
+   "n": 60,
+   "sha256": "8dde808d3b65d9b8c89a32708e6929eba554654b28b2de1f41145711dfdfaf9e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTG",
+   "population": "counted_records",
+   "n": 59,
+   "sha256": "26973727dad199da913181cabe50ab75935b60d3fdccf42fadfb9074353d41f9"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTH",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "7b26ea84c7a0e119d6705b8b408b0810ff5611b55d86585a35db7c8d5d1881dc"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTI",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "af225e137e07990df7d62ea1c944cae0c2c37dbd43127219151235b1726c0558"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTK",
+   "population": "counted_records",
+   "n": 38,
+   "sha256": "040dcac8ce8fddd53477ca41a488854d54404e38db677a3b013e75f492cb887b"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTL",
+   "population": "counted_records",
+   "n": 19,
+   "sha256": "e919b8870ae0764ef296c8e62fac696776d4f548c12d156b94f051b94a428af6"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTM",
+   "population": "counted_records",
+   "n": 6,
+   "sha256": "097bf85b49cdd8add47da56644d7f0251b7f86e4c3bc33f2b58e47d9ab7eceaa"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTN",
+   "population": "counted_records",
+   "n": 45,
+   "sha256": "586a4da0790c295b9f827de78c6ebeeb4b72ef9a021b637aa96c792bd5d8ec3e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTQ",
+   "population": "counted_records",
+   "n": 21,
+   "sha256": "c442eb9e4600cbc6527de6a14a081112b676bae09f124f4575b4ba978cada41e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTS",
+   "population": "counted_records",
+   "n": 72,
+   "sha256": "60824163a0684d691c92311a6c9a7639e6fa0b0d3dcd04489a45a628a8bd5127"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTT",
+   "population": "counted_records",
+   "n": 36,
+   "sha256": "c370ddb00a2a3aa54b110326424b56817ae6c731967b148a74b9f2df8adac695"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTV",
+   "population": "counted_records",
+   "n": 15,
+   "sha256": "d1298a00270c2ba6876d1441606c7c36c2c96b0eb8d67d0e1d8300fab65eccb8"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTW",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "23fddccf6a0c722c66a36e7db7ad243af47d3d575dfca5f19549d60e53f3d63f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DTY",
+   "population": "counted_records",
+   "n": 91,
+   "sha256": "d06a88e95aeaef875c2ef6e2aa7de9a6dd0677296bdcbb03b3850299b78f1fa0"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DVI",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "dafd27dc28c9a8e1abc1e3f2e9f7099188b317fe8c3daebd83380264d17b1e9e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DVM",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "e8ed425d789f7897797b69486f5b980fffe3a5afb7b94bac87fb963a7e6c15be"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DVQ",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "705011e634d7577c76407a0d6e8ea6a72f29ac5c6778350ddd2db940eee04513"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DVY",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "3f83b7c46416b93d01680be27e297bf003cac53b79319e5b49929c168247c9ae"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "DYE",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "ab1b41b5ea60bb16b4ce762723b0d0e92c98ee31f02dc2cbd6d9e3616e1a57b1"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "EAE",
+   "population": "counted_records",
+   "n": 6,
+   "sha256": "602608da2bb7b73916f28fa7025b53b9c7324007bf169b006f134f68bb1cd1bf"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "EAL",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "d07182e94ade001b45e4db57377b16a73658f4c856016d1984b57fa256b4d048"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ECH",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "6b5c31258fd2ad2fb93f0369d0d6943f8f8826d3628ce2972d90237289cc1014"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ECI",
+   "population": "counted_records",
+   "n": 11,
+   "sha256": "a88a3216a590d82ae0a956d57f2b8ac55f55745dcbc2d854b81532347e5bcb79"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ECL",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "92b3300370cf4a9fe45711b3b369d59a1ffd1696b9d294bc7b2da3318803a14e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ECV",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "41f53fa28c588052202d1cc3a98b99252b69aadca857c3e8e77b619e84447c7e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "EDA",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "ebcbd30f38a974bc0ea744d6662d9e3a49faea2de81a81eec875846daa8f072a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "EDF",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "0ba232add5dd832d299831f9fa7ea7663f333575038f86235770e7f32c714792"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "EDL",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "3674e2e66ebd4487971f51ca41762f7a538261b31b4cf7f0bd516059a027d283"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "EGG",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "b207e9730e99516a024ca3bee3929b0e72da276250642765478238561473af6f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "EGL",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "8fda46d9c8c3164058a4484581868fe2c630eab9b4971d67a22dcaeae9824089"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ELL",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "a0d8fa19d38bc78f39281fdeaa9260521ae7b820faebedf1811744b031e2c8c9"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ENL",
+   "population": "counted_records",
+   "n": 44,
+   "sha256": "5bf609a6eb91df3a9f3d6241ec9f19d169359c10c8939d932b5b994a012d098e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ES-",
+   "population": "counted_records",
+   "n": 5,
+   "sha256": "cba8352f54de66097b05e58c916098502d5788bfaa493c1ee1fa43ce4b68eb93"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ESA",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "16e9722e74861438f054582754a56a437b8ecfc38f1fc516ec2a17b070aa60ab"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ESE",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "bb9097d0850f3664528bb4d91a4406b17465177e72300e8ab681f22758ef4701"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ESF",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "5fc1f79d1dd0cfad0fbaeac3cac96f47304f882f9f3ec399b1c6963a18524d13"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ESH",
+   "population": "counted_records",
+   "n": 12,
+   "sha256": "7d2cf005114d4a309bbd4277330b769f2c1752d51c14682cd19e9fea57946d00"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ESI",
+   "population": "counted_records",
+   "n": 29,
+   "sha256": "399f3d505c1b70f6b1ad0d26937673762cf7f04006064b139e3ea234eed160d6"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ESL",
+   "population": "counted_records",
+   "n": 183,
+   "sha256": "ef1fb84704eed0b84c7548b86f0e6584b2c1ae500edab0d37127f05245f36775"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ESM",
+   "population": "counted_records",
+   "n": 6,
+   "sha256": "5fa69ca3417d83f838623726338c4001ba21d38c5bf4bf8b40de446aaee1756a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ESN",
+   "population": "counted_records",
+   "n": 5,
+   "sha256": "399c1348b9192032a9d7cb32b9c71b98004663c4d12648b194aee425c5693afe"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ESV",
+   "population": "counted_records",
+   "n": 26,
+   "sha256": "258cbc30e7aa90ea455b3c5815de038c55bd157dac091a71324c97de1687003b"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ESW",
+   "population": "counted_records",
+   "n": 9,
+   "sha256": "1334f8f290958600716640046a453c6ce721cb78034b0210ee34da0d667cede6"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ET-",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "04cf39015186493fc6f186140465e87c25dee5b9d3e5a16a7614785c382d797c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETA",
+   "population": "counted_records",
+   "n": 12,
+   "sha256": "562e5bd674ab1b24786b92b4ff553c3ff939651d1297a4f6f1c7a56d862c9504"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETC",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "674d3a5c65d2971c2283cac028fa31dfb721ee7e5054f65d2ec40573d4ce8493"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETD",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "cfa687a0ac508aa948f36fbdf05535f32f02301a2cf44a11f7103425e7032311"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETE",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "ad6da608322303045ddf8409bfd4b3ff9a8816f1c34eef575b7e810f0cd16021"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETH",
+   "population": "counted_records",
+   "n": 40,
+   "sha256": "538efaa6041c062f45fcdc2bbbd29b5517f21557673b3e02f695d94503ca8079"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETI",
+   "population": "counted_records",
+   "n": 6,
+   "sha256": "3643296d11ecf37a9acc0940c59063a8d8e84e4ceb2357abeb2f6ee8aa220dde"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETK",
+   "population": "counted_records",
+   "n": 26,
+   "sha256": "fcfb9b66c27905ab32d9cc0edd279f512b7f95671def2229d374fa59c38c0fc7"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETL",
+   "population": "counted_records",
+   "n": 17,
+   "sha256": "83d586d9966adbfdc01a9550c085d22b915bb8c24cd5164c26d1ea195485adf6"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETM",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "f72a65043b867d15c351636ce117136821ba082a41059cd51be5b94c55df8e45"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETN",
+   "population": "counted_records",
+   "n": 8,
+   "sha256": "9d80673b77267964af09e2b7adc2ca72801473d14856eb5313fe0e2cfe822f1b"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETQ",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "4954baf06d7916bcb9a597796de4fb4b198f5356399dc3d0c24234d6aa7b0e9b"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETR",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "10defda1760c85b234e74d968044b0ac6f07399aa838c026a004502123a54cbd"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETS",
+   "population": "counted_records",
+   "n": 9,
+   "sha256": "5e2d03bb331d3c9288689b8a4db8d892ea3af28e782ef5f2b4af42d4f1fe6213"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETT",
+   "population": "counted_records",
+   "n": 6,
+   "sha256": "c9fde821e1ac0f89b363d7874acf133d9210bba90c68f83e7a6f44bfaac499c9"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETV",
+   "population": "counted_records",
+   "n": 7,
+   "sha256": "c73f2cae84a9382f7b48af77d0781de228d8aff9d47e4a10ea81e38c004dee8a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ETW",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "411a85a458063b5e2219d5e4ab93fcec8b26f06e8b8c477c28634dfe4ec2306f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "EVA",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "beb2b410c239bf25562186b75a898ad4f76c9958424815351e0c1fb5d562a44d"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "EVI",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "10d4b389fe4287cf8a5549c095a946ac1f59b638a67906ac96303273f770b9e8"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "FAA",
+   "population": "counted_records",
+   "n": 36,
+   "sha256": "d6fb637cdf8042e926dbaa76d7cfad930556dd68ff646e2175d266ba99c4db09"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "FCN",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "7518d62550c29e12784c451af504f62b7b945f04b291e6b315189f499500e4b7"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "FEA",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "b5dc69f8ed6b06094ff79af1795f8670bc8ad710edd06e4ac2458f7c0c72a7ff"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "FSA",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "68fd03327f338b8e17cc27abb1a78d74a0d88ece2a9784731175ebc8453a4259"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "FSE",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "b69c40d6ef1f547cf7d1f283ddddfbc96dbfd2aa1897c8c2a746450b7c0f23dc"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "FSI",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "570d06e6799e6c096ebdcdd29a78b5579512a22bedc02284b4c8da179282c3fd"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "FTN",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "03e46c92c001bf4d3bcf4144b05ca117c55b6b0612afd5584d47bfc01f037107"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "FVA",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "58bb7dfcac258b2417877de5d06ee81cc50117785ca3fc03182097196be2569d"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "FVM",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "51155950d255d4e52e771b3c0a8c740e4dbd0e7283d95a9fcb6570b7553afb85"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "G-A",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "390474f79c5240f662511b0b23c93992e6327ecb7a462ae47b08424037363d5a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "G-S",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "39c56df95d7159ae72fd53f7ccf7831112993a1fc2f4254edb8970b82a514eb7"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GAA",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "572cc152e0248b4a21fdaecba5aad1d497a41c13f43948896ca1a0a98c9a46c9"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GAC",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "61beac3893613257b41ffc22c09e6f5c8a68ce8f14b18d0891d9b65d018643b3"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GAE",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "4623206d7d54429fa4a314d807bd5edd997923de23480060f212b78ddfd80a90"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GAI",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "befcaf680de815a71e230341a80b92871be7bc3bb5b4c30614f5ead8cce676d3"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GAL",
+   "population": "counted_records",
+   "n": 5,
+   "sha256": "6b3996a71d971705afb7c074ad40cefbe07d8c55a442fdf87941ae15fc244d92"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GAM",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "d46aa365363bf1fadc5ce40f43db8c156206a8418c59358d23de654fde30b132"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GAN",
+   "population": "counted_records",
+   "n": 11,
+   "sha256": "5dc6cfa49127ffbc1638dc5932ca48f9a8e05f7f4c7e952c45747850c79d4629"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GAQ",
+   "population": "counted_records",
+   "n": 50,
+   "sha256": "3c260ec3bf4f4c21bea708645a49d5450bbc9e622d361bdbb23b8568938aec60"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GAS",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "cc996826b527166409504b5efefb131918f42c6cd08e79f9d9f65a92b914cb02"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GAT",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "28cc7292768e22a655ebb83798b0e7b75787e49f928e19b9ee163e92279b325c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GAV",
+   "population": "counted_records",
+   "n": 13,
+   "sha256": "67d0281b35e1a3ce254377f626587dbe8df7fa6507334aeb4cb19972917f9bd6"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GCA",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "ec6e148d866c71dd43427707594ea1fbe3ade1af8c26fc9e264d329c46f87b83"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GCI",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "c898ced2c80d4c85d4d824772aeb8e3a8896c221f28e70a9e12329325d8c3257"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GFA",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "02838ecee084418249dd9fcf1ae1054ac55b0bbc39365345846c7b895c5c56b1"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GGI",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "bdbd4e76e9f5d24dfb57aac662120a785bde05f3665a82123be81b051d7ae053"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GGV",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "3d6c6244c386b4b40e65f3ada0c2f607387c9626768e1db394587ef76b507a35"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GIA",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "771ed1baa955a2f40a963c99e90197e7c24841619bd0236951653842845c68db"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GIS",
+   "population": "counted_records",
+   "n": 6,
+   "sha256": "463bdef6edd32e00d64d5c96920895ebe95c7719a4ce2e656186818a207522be"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GIT",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "ce08a8adf9edac66b3b4eb1cbb0650845b64ac82f5b05188f48e08ce8c27c13b"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GIV",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "bce4d6e7d6121c6e029026490ec7c12e30ee37f45409d6801291e8b2ac2776af"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GMV",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "77356621dcb0787fb0e784095e05df4189584677f449d70737975f79d8a8636c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GNA",
+   "population": "counted_records",
+   "n": 5,
+   "sha256": "0aee1d86ee43d47f278d49f3b3514aca61df4d433548c6c73ff5362365f239b0"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GNS",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "c145c037270352a2a4faf4256bc38655d2b00dfa2f4fa722dde3b660fdd1ae15"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GSA",
+   "population": "counted_records",
+   "n": 13,
+   "sha256": "431069f6a82be4490eecccaef48647301ad913acc0716da0f470f4e27d25aa53"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GSD",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "486fa1a55539b016e0a4ea3b1188b59fb192944c7be4dbdfed11054d0b75268d"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GSE",
+   "population": "counted_records",
+   "n": 6,
+   "sha256": "cb3a21419b4f113a91326ee10e9246f5921e420d9e6f7b1b0f8e14b5f0dcabbe"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GSH",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "a59fa6de18f5ac2bec68f8a1fe8cfdd399aa2e7e247e47a866c0d7473926afc2"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GSI",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "73029dfd6ed9995ce0e9299dcaa7e37e5bf61b3f1feda7d52ba3af1ac8f7cfe9"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GSL",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "d8a1c2e3c2435b9294bd2d9ef7b1899b74d5e291cc3bafdb9612d0745d8c58a3"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GSN",
+   "population": "counted_records",
+   "n": 8,
+   "sha256": "adf921b51e6c1bb5706a7aa1954e1759f4ee0e5f0492ff87b10ed82498794ebb"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GSQ",
+   "population": "counted_records",
+   "n": 5,
+   "sha256": "e97cf9056e555d71b5f3904474d8e2bbdc2691901066914346028001f706579a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GST",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "c4c4aa12a190c7c1a70d750b529c56478f74b2145be39354c875fdcb7b960484"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GSV",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "2ba07f1b576b708899bccfc37867bfc31fe3701238d6a869a26c6ea0f7491c14"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GTA",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "8f76d93434acbc372bdcd54c4cd0d021ce4d9077b599d392f7efe119625122b4"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GTD",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "0868cf0a80a00a8c677a993b9c4bf943bd11ce66aff8d8c6c3b5f351821a5602"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GTE",
+   "population": "counted_records",
+   "n": 18,
+   "sha256": "4863fe607155a983ddd106f9d9bdcf0c00dee7df12f416ea34e385baeb858741"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GTG",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "e04ffb366b94af5d028f086bd9c74771766be2c15f975ec62c692a6baef9270b"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GTH",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "87448980ad21d474ea0ca848d745197f516b9c3537b543421e471d13110a5625"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GTL",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "fd8c6d15e742f6c3ebb783a64f499a92537f2b69cf317415284b236a55c87c7a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GTM",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "89cc664510b300aae186cf7e74c229e00f5d22b688f451b9a1baf23ecb57ee64"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GTN",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "1c2986a5a9d977d7ebc6e3e6e8dc4829a912413a048370ef9387875f59f7750c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GTQ",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "a085b4fa0102c8316f4b7a5660122f4e89a91eec76b48cd74860ecadeb4656e9"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GTT",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "c0f33ff3ed3fd6a9e907c658b31755055e33f2ee3bae35643311632a2849f2da"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GVA",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "25aa330ec7ac6f3866499f74ec3f1db29d8a959f54df3bb653cc2967b6ee982c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GVI",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "bf40ce14612a3ec982b732ecfda0be5e22eb499c5d941a15f8fa8252bf4ef232"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GVN",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "79695940dedc6349c78a4311d621505384e6bcddec0bc7b9522a43c0d8647023"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "GVV",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "cd296034b8b4a3fed57f5f8134d05ca505abce0343dd0b065b8e2e8f17928841"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "HAG",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "28f2441002b8b22932c1ce490998c3353be000ae76b061f0ad28806ce7551eb3"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "HAL",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "a34820bc88cab20f989278b26c71c95350b382f73c5001da163b4325b009ac74"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "HSK",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "1aaf5e3022da1490d9262fd09f4fc60b7f3092eba48c903bf97314e2aeeb6c1f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "HSL",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "ed171561412cea0aa37a7e9e0f569d3798e9bd72ec0b6bd4a1a02dcbce33bc8f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "HTE",
+   "population": "counted_records",
+   "n": 8,
+   "sha256": "97413beed47a64fb79a0da523aeaddd0785676971cf4e197a90234f98663f54f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "HTK",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "c18787b87327d37a74c388a6c75712905db70e851e40b240d9837c413f58f1a6"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "HTL",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "63a474a9d34736693b634f5ca892c068282ba1ce304b10a8b158c94fe3d3862e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "IIS",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "bddf60926f615cab504f7b011795b45e7ab453799eb364b4dcf482a7e9e601f9"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ITM",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "56d2e1ab9e9320c3cf069b56656a749ec41e210ba489c7b8923aaae8c2d67853"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "ITS",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "e05ca397b4095f3edefb85d29a6b42cf482003fb81fa2ddb54313e4bf79f78b7"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "KTI",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "4ad665dd0049e13e48791e13e1236a61b0e6a09f56c8f5c7bcd7c8cd69284873"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "LAA",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "e99faf71e72d17bfbde6056fdad08bc09f071feac3cbc96ed482124894db5c83"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "LAL",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "d6d14d2e5fe1d8ded4c1ad13061bbcd978c2e10a95f55d566afbe0a9c8723e10"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "LEA",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "709676538a3a23c16e4d7c8b612319a6cd69b57c70c5e929fe1298520af9dbcd"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "LL-",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "fe26b7fabd26d2b8ed2c960163940f59cf84ffbc4e9bf571735763aecb315c85"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "LLM",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "1253b7a60072587a813914a66b0539f0adacf0bd09dcc53ba60cc773739eabf8"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "LNA",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "cb542f6475b293b65f1efdaa235fbc3f3d8763e1e34e8f55dfef2351739a7c71"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "LSA",
+   "population": "counted_records",
+   "n": 8,
+   "sha256": "21260e1a89de6036521ef9ed0298d861406b4a1472532ec82aeba53be9993837"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "LSE",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "8b76cc430b0cbb7d7def666306f15159bc3033a852f5807120a629259b542a02"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "LTA",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "58ccc1a2ad0b8269d9bf35c68714b3cc9fbc1d611aa55d158186114c1962becc"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "LTI",
+   "population": "counted_records",
+   "n": 16,
+   "sha256": "9cc63a2977f8427f6cb964429d697b5f8fd111c12c1fca3d28e4f516765e7d27"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "LTL",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "11e1199e6217718fe439dd0f9687030a6984fb05add7105c251e1a6eff322058"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "LTQ",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "ebc79f4bbe77c9a7b916ad426166dd343eb24a36d0d9c76a29a427f1602d2e2f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "LTS",
+   "population": "counted_records",
+   "n": 28,
+   "sha256": "b3499b11c5bc86e8ab805d3e9ae7fe1ae43f1c6baabdc466ab26f92eae2488d1"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "M-V",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "ce74563529130ded954a5a10abfb11f85149b87d22e59826526c78b9dd7bf792"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "MAA",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "cb4762a48f39c5404a9b09ffe28b9cbfdaeb9529d56df8db78d8fbcf23e6a00f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "MAC",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "efe4710bb5c57da9f6b575e244f3985db1f1913b4e42c0fddd4d18279d35c119"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "MAT",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "c7114007f9bb16a545e3d4a11854e66853c837efb2cc9db0a2fddff1f6043dbc"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "MNS",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "41dfb38bc8010344c231881587af073e4f9ce85d40d8a56a991136c669e62f08"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "MNT",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "01cb5e2c9bfe37a119b5caa55f272a247704267347aa4487c0a8550cd10dfd28"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "MSE",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "3ec0e2b700b7d471774c759d772f1e6e6b4bb5111931c1bf19e093b0deec70e0"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "MTD",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "0855a7c93a28bf38861f71259d052cc448185a974d1845e62ddbb0a64c78ecde"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "MTE",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "92180e10c5fd3220d9d6a80626cf5184fd38e09b1dc92bbdb5f1ea9f6652e97f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "MTL",
+   "population": "counted_records",
+   "n": 22,
+   "sha256": "736c8452037478670bdc7f8564db0b0a3bddce4fa35d1f434843e7c527a16481"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "MTM",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "ccad64f844e177c8387c571c37e499fc50f6e83dd01501528334f68fc3f3d732"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NAA",
+   "population": "counted_records",
+   "n": 68,
+   "sha256": "9596698437229f8093d62257314f39ff5af9aa081b3cdca9749f18b395bd12e3"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NAC",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "0d202cda7dc04c326c44a9ddbbb88e4761a36ee74b865d7b4826572e47013852"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NAE",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "d51c31b760fadf90737d1e585933db1a983088c3938f2f633cc22e5060c938f9"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NAG",
+   "population": "counted_records",
+   "n": 17,
+   "sha256": "951f1a3fd2943feb4fbd4148703b88da68e7ca77785a97271163fabe2af503b4"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NAL",
+   "population": "counted_records",
+   "n": 17,
+   "sha256": "7278d04231843bbde06a04132da35d78d9e1a57abfdf11c0440e5327e8fca02a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NAN",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "43d96908f6bf855511dbbd811c94100d1647def78e3734cae161652e2c5172a4"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NAS",
+   "population": "counted_records",
+   "n": 5,
+   "sha256": "cfe861925f1d9c000120e83e53ec03c41956f65d173b2a647a14f3d5d5deafb0"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NCQ",
+   "population": "counted_records",
+   "n": 6,
+   "sha256": "9993544992cba759f9ba942146ef851563ee94a42cf5e57d7c4d15cc8d2bb468"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NCT",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "6b813e0a3533a0e29f67dde8ed3dd62caf057e23bc53fa67fcd61ee5f3146577"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NDQ",
+   "population": "counted_records",
+   "n": 72,
+   "sha256": "bd22157c51619cfdd3e81e531c974263c0e194b6e912e4aca1722e0992e02f72"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NDS",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "18a3c39331c040efe159de54c12ad9884f5cc773cf95133aeebd8391d6e01a6d"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NEA",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "2481460c62e66a5ef7a0e81f1cab6f565d9e31cbb4457b00d72ae4860d95e31e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NES",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "bc979b597a881040f6118060ceefc3b2f233f119247586e18d9207537dc0b0d6"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NGA",
+   "population": "counted_records",
+   "n": 5,
+   "sha256": "ce979d097004dc18cb2053bdcdd30c8b26178b9e57d4ff1bfecdc3e37af57eb9"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NGC",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "3bc25b782541b20206e029abb579f09b73bf2c4a741d3d805381323657bb1c2c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NLA",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "e2db50b9b8afe4455cd53a94436b921aa3fb9c9156d30064693d097b5143720e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NNR",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "eedf4c8be8dd3d27bdf65fe8c55f33b18477585e075b7a52f9a84c3a6912214d"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NNS",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "b09b3402dd0db8f4acb8f47a1d0b91a3aab0f2fb25405e4af5c7af817a870ccc"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NSA",
+   "population": "counted_records",
+   "n": 47,
+   "sha256": "23eca91d30184e980f181df3a74a652d91e886f96a349362af4caf56e8e5a5b5"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NSE",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "b73e0b981add5cb17f56540b957aa60804cc165555e1128b8ecd9dcb798be9de"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NSG",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "6cc158fb89713f9c9de453a8f1c13afb93babc083b52f35b6f5179bfb9aa56c7"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NSL",
+   "population": "counted_records",
+   "n": 12,
+   "sha256": "f1ad4653bc4bc18ea81804abb040196942b9229776686f920193d13aa82ba67b"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NSN",
+   "population": "counted_records",
+   "n": 14,
+   "sha256": "00c6f5328032f3fb31faabb030a19a44c094107c6bcfd4f98fcbc9cca87613a4"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NSS",
+   "population": "counted_records",
+   "n": 24,
+   "sha256": "004a0654768debef05958b8648437cd1cedfc9e242296797928264479ac02abf"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NST",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "a946d223946042252e84ce83bd8e9a4511b44a31f99ef986ee32a352b909d43c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NSV",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "b871b2f89369be4034e5200d47f77700bc49510e8b84c0275377cfdb5edcec2a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NTA",
+   "population": "counted_records",
+   "n": 17,
+   "sha256": "344b8587be8e15dd95fb3574df59e494af1bc9fecc4a34065d4c2c096ad570e6"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NTC",
+   "population": "counted_records",
+   "n": 11,
+   "sha256": "4224ce122470afa791443e07ca439585dff0dc0d7cb39809c96e9691caa62300"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NTD",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "6c8b0cb73b2a646f4fda2f5d42698e800bc0c1769e14704d0393b78129ad525c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NTE",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "8b3594b3175fcc7e5ebe650d2016f1e4cf865d4e4b150eecde7ff554203f9358"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NTG",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "61cb843cdaefa24bc4be0e11ad2a6b841763fae62379ad88a5deae39bdf937ce"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NTI",
+   "population": "counted_records",
+   "n": 11,
+   "sha256": "39753c7fa750538b8ca9b7a11a0c64740c7532b29e410d06d6eb7adc3076289a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NTL",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "bbdd2a970076e6c58b5dfb6aa7c8b342cb00095065a018ebe4c48517831bcd7f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NTN",
+   "population": "counted_records",
+   "n": 104,
+   "sha256": "432e587c7246963a9c932e7a16ac92a1870eeaf098d1a5ed5134875dcb6c856c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NTQ",
+   "population": "counted_records",
+   "n": 33,
+   "sha256": "7497f4fb90cfa74ebc7ca69c341ea43ab9beb9bd3b02bb6e1e6a3a48d8b9d015"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NTS",
+   "population": "counted_records",
+   "n": 13,
+   "sha256": "9fdbd6db3d8e41dfaa3b5e91a6f3c3e4e71def396fa90c60f7664ffd441ce03a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NTT",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "ecb0dbfb3e8d21d787fc7e97014ae770f85b24802a6b73d70cdd8e4aee812f8b"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NTV",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "706e7a8439a5b7c0c95214f42494190b8c05eba4f420f1f6f5f0615eeda58309"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "NVA",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "7afbe1c2610471a8666a7deef1beee751ebeab96ff1b2dd5c61ba396a7b11471"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "Q--",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "5a8fdf95f2573f2a3160b06ae954b11e8844ac2c8a1f00f0174a53f0fc1c5abc"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QAL",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "fdbb37942e09819fefc10e6ef0c0b5b049c726565638f2d3f19cdf727a74ef9d"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QAN",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "839461954c0c201f2921dfc0f053b29819b032c3c7b822d1e7e6dc9763dda058"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QAY",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "5c0168159621cdef1678607ec99b590d4579be1846a03bb34458a95d886dcde3"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QCE",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "f2b5991c303b43f43b632ef9a6c164b5df5b5d0d42747c3e05ae85dae2396624"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QCV",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "b83f72b224bba3e4f29a53afbde01fcf08c5d30e8da67d901112b51778a72642"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QNA",
+   "population": "counted_records",
+   "n": 7,
+   "sha256": "96dec11a8ee22048da2f644456713d2548818dc9c6b4a24a2bd546aebbf41d66"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QNE",
+   "population": "counted_records",
+   "n": 13,
+   "sha256": "4fe4dd7237e5149182eaca2439373d82f18d4932b40221516c4d85673b3b8b12"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QNG",
+   "population": "counted_records",
+   "n": 9,
+   "sha256": "f3eb253a1716e7e23de19d554d382c5b4b869d80b98903e8a4bcde6844bba123"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QNI",
+   "population": "counted_records",
+   "n": 6,
+   "sha256": "64ddcaa00c99cd3a4222cdd2a3a582635d580c3174aa268bf4e6b0c327e17450"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QNL",
+   "population": "counted_records",
+   "n": 21,
+   "sha256": "39fb49a7a0a3c4a258c460be3c8a7b02172dc908b82a761d288544edcea28f5f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QNM",
+   "population": "counted_records",
+   "n": 9,
+   "sha256": "3c0bfc2e538d1ec1aab2dafc16e50dd7f4e65c18917e71f2094c1b42e5bd53c4"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QNS",
+   "population": "counted_records",
+   "n": 9,
+   "sha256": "a9739d87f10042cb8c5ccd998dc00347726c0f195fcc80a7ff5e2383068b45b4"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QNT",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "d8825d41c5fb9bf90e5463976ae9a1998247c8632dbb69d5194b39a7a2c7a4f7"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QNV",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "5e249feb3db7476bd339649d71366671973f2a4253f1d7283a251026fe04bbd8"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QSE",
+   "population": "counted_records",
+   "n": 5,
+   "sha256": "a9a40eae001310a9ecdef0683f22ff9482252bbcffc02615b31831b183aba045"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QSL",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "f00b74913f2e6d4eb637fb97b45144810c48a2f1bfb311165dffeabe13b82f65"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QSM",
+   "population": "counted_records",
+   "n": 15,
+   "sha256": "7478f24b1cbb4571133cdb104f37385025a61b15056410b2166e927ab6a111e0"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QSS",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "2b08641b7cf12c4b2ecbace1d9e9d23739b4a17578bdf7fac446e71b0f9c5d84"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QST",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "f7382a298e82995a8d965fdac09a4189d2f23294ae1d9a68eecaff418c73a5b7"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QTA",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "d5fbe1b92c315996ca6d202a28e32f48d54b0b3559bff2ebe66f196cccaa304a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QTE",
+   "population": "counted_records",
+   "n": 58,
+   "sha256": "9418dac492f937af1ed48f9da48625b67e8f43c9fd7c7d07d496d09c6ebd6819"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QTG",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "a3ee225c4328a999b734e86f0a5e8de2e7534afb4b1e83c886c4d09fa8d68d57"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QTI",
+   "population": "counted_records",
+   "n": 15,
+   "sha256": "a8869c5c099f1ba3e80ca7a0f2f04bb2eb7459ffc694d43c5f68e64f229f1218"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QTL",
+   "population": "counted_records",
+   "n": 16,
+   "sha256": "f23518c998e60985d5f72f7fb48c82ace03511c4bf859f5ee4b69d4367638a22"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QTM",
+   "population": "counted_records",
+   "n": 5,
+   "sha256": "6a94972208cbeb5038faf758c5e53b3e33ecbf08f4bfce04a9d5e60198915d2c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QTN",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "e13866b7d6ddd46bae64f5f16ca64dc56b9e46e4d5e6821b51a55b13e94c6322"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QTQ",
+   "population": "counted_records",
+   "n": 5,
+   "sha256": "9311a44f1f6593d7eb4a02c005dca257d4d1d068c7247864516af349ca89035f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QTS",
+   "population": "counted_records",
+   "n": 9,
+   "sha256": "f9ca5b3509bbe21b5cdf4ffc2cc3fa051b27c9b1fef424f978736d7f25f28a28"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QTT",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "13a533016ad83ead76fe5484933be35efe3af8cae7bf737926a1332666f924e3"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "QTV",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "126e9432543284b2987671bf077e60c719680b76a1cc681cd113743952a5924c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "RSL",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "a76c0c4641b0d174526b12b6351a36f9b7ca5b61ef789058ee0abc3b2adbbaf0"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "SAE",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "e4dfb4cad699a6d3116469659605231e196c6d903846b15d54479156cad7e2fa"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "SAS",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "d172e4f49321769fcab2db84e8bc006759aac2961595c4ac5bd75c0d584bb31f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "SFR",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "88392302c432670a15724cd77fc82495d66d32098e126b8b957b0957ae0b44d5"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "SIA",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "c58a95245d66d18395bddcf0a9dd9ec4f6756b435e9b9778d11ee3781f8a6b4d"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "SSE",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "eadc803607d5db15f3594ff03345a12596c390a46aa52454ec46bffb7dafc64a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "SSI",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "2a4697a5fca2ac0d1b1feae45b9663c0cb78ac623f221678eba0eaa3840862d8"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "SSL",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "1c33144a88e5a994a87abe093a2f5b761a239ac66c2b9753387de4670d0eafb9"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "STD",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "fc663edf6c5505c0b264b38acb70b580fddcea57c64786b7180534e49b6e38b0"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "STE",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "5b618581946841e10555ffc7b4c2dfd8da36006d509b8a0dbe0235a82247bb39"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "STL",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "b68b78bd1e866c150301a97bf372c7b78146ec1b31aa6b0dba186aea175e58bf"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "STQ",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "d50458e1c7c18aa8ebe3d611d50e1c22d5f69d0e095141b5b44eb610b57f0f17"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "STT",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "eb8d443a25c752e1cd66d5fb95c41d3a961c5610cf1ac5ed27428083b630e6f1"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "SVE",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "8c49a252ec233bd4210a7c5beadbe70a247ab3965af0321e69efc16cd2c64b8a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "TPG",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "968840002f3deb01ec8ec31176a80e1b1e958062df906d2b50b15a2766c7511e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "TSA",
+   "population": "counted_records",
+   "n": 150,
+   "sha256": "f98e86d018f85014c858836a00c14178a51c190c2bb359f47c18df19952b5046"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "TSD",
+   "population": "counted_records",
+   "n": 10,
+   "sha256": "9d9b90de6c5b5eb5173ce15e8a1c7c415cfe62b8d5a195bbeb6398eaf55e8cc5"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "TSI",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "cceccaa11d158f5c4763a3fbef8ef0eef9994f40bcce4eb7d2d5bb25a39d723a"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "TSL",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "bbb17f5c24cbd3a4c73737eb5aec3fb80ead4b68fd2d2686ce7c7dd7199974d4"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "TSS",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "fca7527419aec9b42da6472631f77d460ec19af20f7abf94f7ae5281062f3c49"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "TST",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "3be628e6ebfece6fcce22d5772e6f43750e3a07b9094500add4780eb45e29dff"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "TSV",
+   "population": "counted_records",
+   "n": 10,
+   "sha256": "f97f5f0c07faab8e500ecf8591479a3c0a578a5543980112e8ab98390c6a434f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "TTD",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "45804c6f891f84abd6c89fff08a1fa7c88cc9ff6418eeec8b5800abf428994cc"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "TTG",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "ac2a6cdd6200c9040874509b13b7e5b6a24c30e04d5e9be6b2e931432dca369e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "TTI",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "ce008596ff445113689253514209e2d7de237a28eb91bcc6c9d31932ef76a338"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "TTL",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "13376290aea80fad4d4cff0a2f51b74ee904cc20337eaecbd186a2494b4f704e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "TTQ",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "17ce2e2babcbde057ed14b978474be442173f59cc1c7ab738529f4dfc97f9327"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "VDD",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "d8ec3c80b58e888537bb1564243a413045eb82d5a37f471f1b7ba4784ffbabca"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "VSL",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "ef250b16e9804561a13fdb8b26521346650023b4bc08da839c4511eb1310c7ed"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "VSY",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "717a00fd2363f0ec8f6322310b65273eac71981d4346d8200b4ece945129357c"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "VTE",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "fb3bc1bfa56f15952fe79a0cad23ffdb82780397a97b36ae0845f76140cdefa9"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "VTF",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "b5621572c109354c1ed37b69444bbeaf97820357600eb713da1e3f221b469b43"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "VTK",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "4ccd3c972a88a03e7a94ba95bfa4d31512bea9cecd429b91b86b54b9c76e21a6"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "VTL",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "f9f13150dc62d1166b7a98fd5b77805cda5e74f9043fd96c9fc15016c1469486"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "YAA",
+   "population": "counted_records",
+   "n": 4,
+   "sha256": "0c816309e8ad67bc1b2f3359b7b92c4c06e7794edc72727b236c40a73eb65c34"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "YEA",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "0fefad7c87b02a593db62e4a70af13f7e9cf5770e8bf30949745ae2cd9feed89"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "YES",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "4f0093210c39417532fcf454b486e00946b92083d03f5bb1c4a26cec9c71e921"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "YSA",
+   "population": "counted_records",
+   "n": 27,
+   "sha256": "a6335afb8a664e17c4f9c8c8a3d2ad76761baac1edcb1f9fa10f327abcdf8644"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "YSD",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "e47a75cccd4987bb0f237d5b32e0bfd40244f07652ceb4af05f7b18f588e4b9f"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "YSM",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "49e44d63e0d8f3c35fc8c6290e921e49fbe83e068be8609629d615dd02337ed0"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "YSN",
+   "population": "counted_records",
+   "n": 1,
+   "sha256": "0417c130b163bfc0fb1f1a33ecb75f28fb44dde2a126afbca6eedf9184eeee71"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "YSS",
+   "population": "counted_records",
+   "n": 3,
+   "sha256": "c1be6be44e51774cdc4aa89cf5d4a14f6e6a5f62c4010fb20c14d770ad81cae6"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "YTM",
+   "population": "counted_records",
+   "n": 6,
+   "sha256": "d69e1ca646416a0b958c340876c9d646c1670ae0d689af04190688ac2361530e"
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "key": "YTN",
+   "population": "counted_records",
+   "n": 2,
+   "sha256": "941d62832dbfcd6609a8cb26163881261ab6a7cc7049996b737b9613543d34a4"
+  },
+  {
+   "kind": "crosstab",
+   "id": "evidence_by_membership_group_counted",
+   "key": [
+    "boundary",
+    "E5"
+   ],
+   "population": "counted_records",
+   "n": 509,
+   "sha256": "37c7caed1874d18f2959b09c6be022c682f2253f90e6a4aef763aaffe00af98b"
+  },
+  {
+   "kind": "crosstab",
+   "id": "evidence_by_membership_group_counted",
+   "key": [
+    "candidate",
+    "E5"
+   ],
+   "population": "counted_records",
+   "n": 1377,
+   "sha256": "dc2e3a97e7303944409460a6d9ffd13a78a298f27f0fa87a3446e9b083d823aa"
+  },
+  {
+   "kind": "crosstab",
+   "id": "evidence_by_membership_group_counted",
+   "key": [
+    "member",
+    "E1"
+   ],
+   "population": "counted_records",
+   "n": 88,
+   "sha256": "50fc65456398ce78d04b49232c3d0bea1052dd1a413849016475f694b57f532a"
+  },
+  {
+   "kind": "crosstab",
+   "id": "evidence_by_membership_group_counted",
+   "key": [
+    "member",
+    "E2"
+   ],
+   "population": "counted_records",
+   "n": 109,
+   "sha256": "a19481a46c385919ffac1da7c9f39c1cbc397d846e42b110de1a31458862517a"
+  },
+  {
+   "kind": "crosstab",
+   "id": "evidence_by_membership_group_counted",
+   "key": [
+    "member",
+    "E3"
+   ],
+   "population": "counted_records",
+   "n": 1143,
+   "sha256": "0e27284a84bdfab3e37c8990ad192f1bec48ce90b17b65a582d2ff02620ea383"
+  },
+  {
+   "kind": "crosstab",
+   "id": "evidence_by_membership_group_counted",
+   "key": [
+    "member",
+    "E4"
+   ],
+   "population": "counted_records",
+   "n": 1050,
+   "sha256": "25d545773d31f24089492aab2be377eb46963c48a26ea7dd7d821f60a6cfd986"
+  },
+  {
+   "kind": "crosstab",
+   "id": "evidence_by_membership_group_counted",
+   "key": [
+    "member",
+    "E5"
+   ],
+   "population": "counted_records",
+   "n": 695,
+   "sha256": "4a49ca4f6b71f760b1a49f23088c28755cf3baa6e7412b1accdfdd4193d21a35"
+  },
+  {
+   "kind": "crosstab",
+   "id": "evidence_by_membership_group_counted",
+   "key": [
+    "outgroup",
+    "E5"
+   ],
+   "population": "counted_records",
+   "n": 386,
+   "sha256": "0d7bd2959f25bdfb58d0295c08da3ad4de5206bc9e9c488499a977d3a93e10c2"
+  },
+  {
+   "kind": "crosstab",
+   "id": "evidence_by_membership_group_counted",
+   "key": [
+    "rejected",
+    "E5"
+   ],
+   "population": "counted_records",
+   "n": 103,
+   "sha256": "c9be0a6bd03c6ce9a1d35952727966706b4339c417443f73add61a9fdcc33e01"
+  },
+  {
+   "kind": "metric",
+   "id": "records_total",
+   "key": null,
+   "population": "all_records",
+   "n": 5466,
+   "sha256": "dbd8cd58af9d1db1eb9beafba4ff10f4afbe43fef03ff794f58f5633cfce84b0"
+  },
+  {
+   "kind": "metric",
+   "id": "typeI_members",
+   "key": null,
+   "population": "all_records",
+   "n": 3089,
+   "sha256": "df43220fc1a28e4f679bc5ae6358fdf220f102d4c7117ceadef79e8162445460"
+  },
+  {
+   "kind": "metric",
+   "id": "e1_counted",
+   "key": null,
+   "population": "counted_records",
+   "n": 88,
+   "sha256": "50fc65456398ce78d04b49232c3d0bea1052dd1a413849016475f694b57f532a"
+  },
+  {
+   "kind": "search",
+   "id": "MR_CLD3_017",
+   "key": "formal",
+   "population": "all_records",
+   "n": 1646,
+   "sha256": "e031e27851eef97ed8c97ee3345cc04cdf27fb3174940f73dd3345108b3acf17"
+  },
+  {
+   "kind": "search",
+   "id": "MR_CLD3_017",
+   "key": "formal_or_tentative",
+   "population": "all_records",
+   "n": 2243,
+   "sha256": "19fc5ccf70b03c9ab7acef77e055c0953022e9413918ea858cd9a37b92d5b510"
+  },
+  {
+   "kind": "search",
+   "id": "MR_CLD3_017",
+   "key": "text_search_hits",
+   "population": "all_records",
+   "n": 2243,
+   "sha256": "19fc5ccf70b03c9ab7acef77e055c0953022e9413918ea858cd9a37b92d5b510"
+  }
+ ]
+}

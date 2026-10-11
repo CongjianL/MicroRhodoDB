@@ -544,3 +544,29 @@ The exporter fails if any distribution or crosstab does not sum to its denominat
 CC BY 4.0 and `CITATION.cff` says `CC-BY-4.0`. `release.release_date` (DB metadata) is 2026-10-10, while
 `CITATION.cff` `date-released` is 2026-10-09. The website shows both values with their sources and does not pick one;
 reconciling them is a maintainer decision.
+
+## 15. PR-5a corrections (no schema or data change)
+
+PR-5a changes no exported file, schema version, metric, distribution, denominator, evidence definition or membership
+classification. It corrects how the website links statistics and search results to Browse, and how statistics are
+reconciled.
+
+- **Browse population `group=member_candidate`.** New Browse group value "Members + candidates" = records whose
+  `membership_group` is `member` or `candidate` (4,468 with `eng=1`). It exists so that the
+  `clade_state_members_candidates` statistic (denominator `members_candidates`) has an exact Browse equivalent.
+- **Drilldown rule** (`web/src/lib/drilldown.ts`). A Statistics or Home link opens Browse with the category filter AND
+  the population of the statistic's own `denominator.id`: `all_records` -> `group=all&eng=1`; `counted_records` ->
+  `group=all` (engineered hidden; equals `counts_eligible = 1`); `members_candidates` -> `group=member_candidate&eng=1`.
+  Any other denominator, or a filter that would leave the population, produces no link.
+- **Search -> Browse** (`browseOptions` in `web/src/features/search/textSearch.ts`). Clade, subclade, PDB, motif and
+  function queries map to their structured Browse filters (`clade`, `clade`+`tent`, `sub`, `pdbid`, `motif`, `func`);
+  the Browse free-text filter is offered last. Each option is evaluated with the real Browse filter and compared with
+  the complete set of text-search hits; "the same records" is stated only when the accession sets are identical.
+  For MR_CLD3_017: formal assignments 1,646 (not the same set); including tentative placements 2,243 = the search set.
+- **Keyed reconciliation** (`web/scripts/summary_reconcile.py`, browser `reconcile()` in `web/src/lib/stats.ts`).
+  Distributions and crosstabs are compared as complete keyed mappings (null category included, duplicate keys
+  rejected, keys present on one side only rejected even with value 0). 57 items are SQL-replayed (34 metrics,
+  21 distributions incl. `ncbi_phylum_counted` with its stored derivation regex, 2 crosstabs) and 1 item (`tip_role`,
+  no SQL) is derived independently from `refpkg/MR_RT_003/tips.tsv`.
+- **Drilldown golden.** `tests/data/web_drilldown_golden_v160.json` (453 sets: n and SHA-256 of sorted source
+  accessions) is generated from the frozen SQLite by `web/scripts/pr5a_drilldown_golden.py`.
