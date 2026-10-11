@@ -6,6 +6,7 @@ import { ErrorState, LoadingSkeleton } from "../components/States";
 import { loadClades, loadManifest, loadSummary, loadVocabulary, useResource } from "../data/loaders";
 import { FUNC_LABEL, STATUS_LABEL, fmtInt } from "../lib/format";
 import { mv, thresholdText } from "../lib/summary";
+import { buildLabel, isReleaseBuild } from "../lib/buildInfo";
 
 export default function AboutPage() {
   const res = useResource(() => Promise.all([loadManifest(), loadSummary(), loadClades(), loadVocabulary()]));
@@ -81,7 +82,7 @@ export default function AboutPage() {
 
             <h2>This website</h2>
             <p>
-              This is a development build of the redesigned website (website {m.website_version}). Every page reads the same exported files for data
+              {isReleaseBuild() ? `This is website ${m.website_version}, ${buildLabel().toLowerCase()} of the redesigned website.` : `This is a development build of the redesigned website (website ${m.website_version}).`} Every page reads the same exported files for data
               release v{m.dataset_release}; the website computes no new classifications. See <a href={href.section("methods")}>Methods</a> for how each
               page is derived, <a href={href.section("downloads")}>Downloads</a> for checksummed release files and{" "}
               <a href={href.section("citation")}>Citation</a> for how to cite the data release.

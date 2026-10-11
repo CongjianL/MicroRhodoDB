@@ -15,5 +15,5 @@
     "skipLibCheck": true,
     "types": ["vite/client", "node"]
   },
-  "include": ["src", "tests", "vite.config.ts", "playwright.config.ts", "csp.config.ts"]
+  "include": ["src", "tests", "vite.config.ts", "playwright.config.ts", "playwright.smoke.config.ts", "csp.config.ts"]
 }

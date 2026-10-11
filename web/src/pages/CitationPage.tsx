@@ -55,7 +55,7 @@ function Body({ d }: { d: Downloads }) {
         <dt className="text-ink-2">Licence</dt><dd>{c.license ?? "not recorded"}</dd>
         <dt className="text-ink-2">DOI</dt><dd data-testid="cite-doi">{c.doi ?? "not supplied (pending confirmation by the maintainer)"}</dd>
         <dt className="text-ink-2">Repository</dt><dd>{c["repository-code"] ? <Ext href={c["repository-code"]}>{c["repository-code"]}</Ext> : "not recorded"}</dd>
-        <dt className="text-ink-2">Source</dt><dd>{cff ? <Ext href={cff.url}>{d.citation_source}</Ext> : d.citation_source} at {d.release.tag}</dd>
+        <dt className="text-ink-2">Source</dt><dd>{cff ? <Ext href={cff.url}>{d.citation_source}</Ext> : d.citation_source} (repository version used for this website build)</dd>
       </dl>
 
       {!c.doi ? (

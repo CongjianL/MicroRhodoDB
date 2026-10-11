@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "description": "Release-blocker checklist for the first production deployment of MicroRhodoDB website 2.0 (dataset v1.6.0). Read by web/scripts/release_gate.py. A blocker is resolved only when status is 'resolved' with a maintainer resolution record (decided_by, decided_at, reference) AND its automated check passes. Only the maintainer may change status; the gate and the deployment tooling never do. Blockers stop production deployment only; local development, tests and preview builds are not blocked.",
+  "resolution_template": {
+    "decided_by": "GitHub login of the maintainer",
+    "decided_at": "YYYY-MM-DD",
+    "reference": "URL of the issue, PR or commit recording the decision",
+    "notes": "optional"
+  },
+  "blockers": [
+    {
+      "id": "MD-1",
+      "category": "publication-metadata",
+      "blocks": [
+        "production"
+      ],
+      "status": "open",
+      "resolution": null,
+      "title": "Data/code licence statements are inconsistent",
+      "evidence": "LICENSE: CC BY 4.0 for database content, documentation and release artifacts, and source code under src/, pipeline/, workflow/, tools/ 'released under the same terms'. README.md: 'Data: CC BY 4.0. Code: MIT.' Website manifest/footer (from README): 'CC BY 4.0 (data); MIT (code)'. CITATION.cff and .zenodo.json: CC-BY-4.0. web/package.json: MIT.",
+      "required_decision": "Maintainer chooses the code licence (and whether web/ is covered) and updates LICENSE / README.md / web/package.json consistently. Legal choice; not made by the tooling."
+    },
+    {
+      "id": "MD-2",
+      "category": "publication-metadata",
+      "blocks": [
+        "production"
+      ],
+      "status": "open",
+      "resolution": null,
+      "title": "Conflicting v1.6.0 release dates",
+      "evidence": "CITATION.cff date-released 2026-10-09; .zenodo.json publication_date 2026-10-10; CHANGELOG.md [1.6.0] 2026-10-10; RELEASE_NOTES_v1.6.0.md 2026-10-10; GitHub Release v1.6.0 published 2026-10-10T10:16:26Z.",
+      "required_decision": "Maintainer confirms the authoritative release date and corrects the disagreeing file(s) (CITATION.cff is outside the frozen release directory)."
+    },
+    {
+      "id": "MD-3",
+      "category": "publication-metadata",
+      "blocks": [
+        "production"
+      ],
+      "status": "open",
+      "resolution": null,
+      "title": "No DOI and no approved alternative citation policy",
+      "evidence": "CITATION.cff has no doi; README.md says 'Zenodo DOI to be added on deposit'; the Citation page shows 'DOI: not supplied (pending confirmation by the maintainer)'.",
+      "required_decision": "Either mint/confirm a DOI (Zenodo) and add it to CITATION.cff, or approve a truthful alternative citation policy (record it as resolution.alternative_citation_policy with decided_by/decided_at/reference). The DOI may be deferred only under such an explicit policy."
+    },
+    {
+      "id": "MD-4",
+      "category": "publication-metadata",
+      "blocks": [
+        "production"
+      ],
+      "status": "open",
+      "resolution": null,
+      "title": "No public support/contact channel",
+      "evidence": "MAINTENANCE.md: 'Contact address: <<PLACEHOLDER: institutional e-mail>>'. GitHub issues are listed for data corrections.",
+      "required_decision": "Maintainer supplies the public contact (or states that GitHub issues are the only channel) in MAINTENANCE.md. Never invent an e-mail address."
+    },
+    {
+      "id": "MD-5",
+      "category": "publication-metadata",
+      "blocks": [
+        "production"
+      ],
+      "status": "open",
+      "resolution": null,
+      "title": "Maintenance cadence, hosting term, funding and succession are undecided",
+      "evidence": "MAINTENANCE.md placeholders: corpus-update cadence, GitHub Pages hosting term, Zenodo DOI, funding source/period, named successor or custodian.",
+      "required_decision": "Maintainer fills every <<PLACEHOLDER>> in MAINTENANCE.md with a truthful statement (\"no dedicated funding\" and \"no named successor\" are acceptable if true)."
+    },
+    {
+      "id": "RA-1",
+      "category": "release-assets",
+      "blocks": [
+        "production"
+      ],
+      "status": "open",
+      "resolution": null,
+      "title": "GitHub Release v1.6.0 lacks assets that BINARIES.md says are attached",
+      "evidence": "GitHub API (docs/website/pr6a/evidence/github_releases.json): Release v1.6.0 has one asset, microrhododb_v1.6.0.sqlite (33,464,320 B, SHA-256 matches). BINARIES.md also lists microrhododb_v1.5.0.sqlite, microrhododb_v1.5.0_env_pilot.sqlite, microrhododb_v1.4.0.sqlite, microrhododb_v1.3.0.sqlite, microrhododb_v1.0.sqlite and MicroRhodoDB_v1.6.0.tar.gz with its .sha256 'attached to the same Release'. Local copies of the five historical databases exist and match the BINARIES.md SHA-256 values; no copy of the tar.gz exists and no checksum for it is recorded anywhere.",
+      "required_decision": "Maintainer either uploads the missing assets (the five databases from verified local copies; an archive only if one can be produced and documented truthfully as a newly created file) or corrects BINARIES.md to describe what the Release actually contains. Never fabricate or re-create historical binaries under their original names without verification."
+    },
+    {
+      "id": "RA-2",
+      "category": "release-assets",
+      "blocks": [
+        "production"
+      ],
+      "status": "open",
+      "resolution": null,
+      "title": "Zenodo deposit is claimed but unverified",
+      "evidence": "BINARIES.md: databases 'deposited on Zenodo'; MAINTENANCE.md: 'Zenodo (DOI <<PLACEHOLDER>>)'; .zenodo.json exists; no DOI is recorded and no deposit could be verified.",
+      "required_decision": "Maintainer confirms the deposit and records its DOI, or removes the deposit claim until it exists."
+    },
+    {
+      "id": "OPS-1",
+      "category": "deployment-prerequisite",
+      "blocks": [
+        "production"
+      ],
+      "status": "open",
+      "resolution": null,
+      "title": "GitHub Pages source must be switched to 'GitHub Actions' by the maintainer",
+      "evidence": "Production is served by the legacy branch-based 'pages build and deployment' (main, repository root; latest deployment main fab9182 at 2026-10-11T04:07:40Z). actions/deploy-pages requires Settings > Pages > Source = GitHub Actions. The switch is a repository setting that only the maintainer may change, immediately before an authorised deployment (see PR7_DEPLOYMENT_RUNBOOK.md).",
+      "required_decision": "Maintainer records the switch (or the decision to switch at deployment time) with a reference."
+    },
+    {
+      "id": "OPS-2",
+      "category": "deployment-prerequisite",
+      "blocks": [
+        "production"
+      ],
+      "status": "open",
+      "resolution": null,
+      "title": "github-pages environment allows PR branches and has no required reviewers",
+      "evidence": "docs/website/pr6a/evidence/github_environments.json and github_pages_branch_policies.json (queried 2026-10-11T20:19:32Z): protection rules = [branch_policy] only (no required reviewers); custom deployment-branch policies = 'None' (a policy literally named None), 'main', 'website/pr-1-exporter', 'website/pr-3-protein-entry'; can_admins_bypass = true.",
+      "required_decision": "Maintainer restricts deployment branches to main and adds a required reviewer (Settings > Environments > github-pages). Optionally disallow admin bypass."
+    },
+    {
+      "id": "CI-1",
+      "category": "ci",
+      "blocks": [
+        "production"
+      ],
+      "status": "open",
+      "resolution": null,
+      "title": "Remote GitHub CI has not validated the website 2.0 code that would be deployed",
+      "evidence": "docs/website/CI_STATUS.md: web-data passed on GitHub for PR-1 (4b8391c), PR-2 (b5416b1) and PR-3 (7546a7a). PR-3a to PR-7 were never pushed; their workflows (web-data, site-preview, deploy-site) have not run on GitHub.",
+      "required_decision": "Push the branches, open the PR, and record a successful web-data run (and a site-preview run) on the exact commit to be deployed. The deploy workflow re-checks this online."
+    },
+    {
+      "id": "VER-1",
+      "category": "release-approval",
+      "blocks": [
+        "production"
+      ],
+      "status": "open",
+      "resolution": null,
+      "title": "Website version is a pre-release development label",
+      "evidence": "web/package.json and the exporter's WEBSITE_VERSION are 2.0.0-pr7 (development stage label).",
+      "required_decision": "Maintainer chooses the release label (e.g. 2.0.0) at UI freeze and sets it in web/package.json and tools/export_web_data.py together."
+    },
+    {
+      "id": "ACC-1",
+      "category": "release-approval",
+      "blocks": [
+        "production"
+      ],
+      "status": "open",
+      "resolution": null,
+      "title": "Final review and explicit production-deployment authorisation",
+      "evidence": "PR-7 is implemented and validated locally only (PR7_IMPLEMENTED_PENDING_RELEASE_APPROVAL). No deployment has been authorised.",
+      "required_decision": "Maintainer reviews the preview artifact and smoke report and records the authorisation (reference to the approving comment)."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "_comment": "PR-7 release contract: frozen inputs and deployment invariants checked by build_site_artifact.py, verify_site_artifact.py and tests/test_web_pr7.py. Values copied from BINARIES.md and refpkg/MR_RT_003/SHA256SUMS; do not edit without a new dataset release.",
+  "dataset_release": "1.6.0",
+  "schema_version": "1.4.0",
+  "base_path": "/MicroRhodoDB/site/",
+  "pages_url": "https://congjianl.github.io/MicroRhodoDB/site/",
+  "repository_url": "https://github.com/CongjianL/MicroRhodoDB",
+  "source_db": {
+    "path": "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite",
+    "sha256": "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f",
+    "bytes": 33464320
+  },
+  "reference_tree": {
+    "path": "refpkg/MR_RT_003/tree/MR_RT_003.rooted.treefile",
+    "sha256": "c56196970698decea8384c1cad97545794268e6d8a2df2b195e7d35d5ded9aef",
+    "artifact_path": "site/data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile"
+  },
+  "rollback": {
+    "legacy_commit": "fab9182044c45670c869c8778fd8d48932bd35b8"
+  },
+  "limits": {
+    "max_file_bytes": 100000000,
+    "max_total_bytes": 1000000000
+  }
+}

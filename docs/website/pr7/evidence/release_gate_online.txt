@@ -1,0 +1,26 @@
+MicroRhodoDB release-blocker checklist (mode=report, online=True)
+  [BLOCKING] MD-1   Data/code licence statements are inconsistent
+             state: open; check: False; data licence statements {'LICENSE': 'CC-BY-4.0', 'README.md': 'CC-BY-4.0', 'CITATION.cff': 'CC-BY-4.0', '.zenodo.json': 'CC-BY-4.0'}; code licence statements {'LICENSE': 'CC-BY-4.0', 'README.md': 'MIT', 'web/package.json': 'MIT'}
+  [BLOCKING] MD-2   Conflicting v1.6.0 release dates
+             state: open; check: False; release dates {'CITATION.cff': '2026-10-09', '.zenodo.json': '2026-10-10', 'CHANGELOG.md': '2026-10-10', 'RELEASE_NOTES_v1.6.0.md': '2026-10-10', 'GitHub Release published_at (UTC)': '2026-10-10'}
+  [BLOCKING] MD-3   No DOI and no approved alternative citation policy
+             state: open; check: False; CITATION.cff has no DOI and no maintainer-approved alternative citation policy is recorded
+  [BLOCKING] MD-4   No public support/contact channel
+             state: open; check: False; contact line still a placeholder: - Contact address: `<<PLACEHOLDER: institutional e-mail>>`
+  [BLOCKING] MD-5   Maintenance cadence, hosting term, funding and succession are undecided
+             state: open; check: False; 7 placeholder line(s) in MAINTENANCE.md: `<<PLACEHOLDER>>` must be filled in by the maintainers before submission; they are not yet decided. | - Contact address: `<<PLACEHOLDER: institutional e-mail>>` | - **Corpus updates:** `<<PLACEHOLDER: e.g. one release per year, following a UniProtKB release>>`. | | Browser (live) | GitHub Pages, https://congjianl.github.io/MicroRhodoDB/site/ | `<<PLACEHOLDER: hosting term>>` | | | Release databases and archives | GitHub Release assets and Zenodo (DOI `<<PLACEHOLDER: Zenodo DOI>>`) | Zenodo: long-term archive | | `<<PLACEHOLDER: funding source and period, or "no dedicated funding">>`. | 3. `<<PLACEHOLDER: named successor or institutional custodian, if any>>`.
+  [BLOCKING] RA-1   GitHub Release v1.6.0 lacks assets that BINARIES.md says are attached
+             state: open; check: False; Release v1.6.0 has ['microrhododb_v1.6.0.sqlite']; missing ['MicroRhodoDB_v1.6.0.tar.gz', 'MicroRhodoDB_v1.6.0.tar.gz.sha256', 'microrhododb_v1.0.sqlite', 'microrhododb_v1.3.0.sqlite', 'microrhododb_v1.4.0.sqlite', 'microrhododb_v1.5.0.sqlite', 'microrhododb_v1.5.0_env_pilot.sqlite']; size mismatch []
+  [BLOCKING] RA-2   Zenodo deposit is claimed but unverified
+             state: open; check: False; Zenodo deposit claimed in BINARIES.md/MAINTENANCE.md; CITATION.cff has no DOI and no maintainer-approved alternative citation policy is recorded
+  [BLOCKING] OPS-1  GitHub Pages source must be switched to 'GitHub Actions' by the maintainer
+             state: open; check: None; no automated check; requires a maintainer resolution record
+  [BLOCKING] OPS-2  github-pages environment allows PR branches and has no required reviewers
+             state: open; check: False; protection rules ['branch_policy']; allowed deployment branches ['None', 'main', 'website/pr-1-exporter', 'website/pr-3-protein-entry']
+  [BLOCKING] CI-1   Remote GitHub CI has not validated the website 2.0 code that would be deployed
+             state: open; check: False; no successful web-data run for d4dacd679d557cab8fa3ee6378ffc8086959860b (0 run(s) found)
+  [BLOCKING] VER-1  Website version is a pre-release development label
+             state: open; check: False; web/package.json version 2.0.0-pr7; exporter WEBSITE_VERSION 2.0.0-pr7
+  [BLOCKING] ACC-1  Final review and explicit production-deployment authorisation
+             state: open; check: None; no automated check; requires a maintainer resolution record
+release_gate: 12 unresolved production blocker(s): MD-1, MD-2, MD-3, MD-4, MD-5, RA-1, RA-2, OPS-1, OPS-2, CI-1, VER-1, ACC-1 (report mode: local development and previews are not blocked)

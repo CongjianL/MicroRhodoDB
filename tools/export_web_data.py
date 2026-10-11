@@ -30,7 +30,7 @@ from pathlib import Path
 
 SCHEMA_VERSION = "1.4.0"
 DATASET_RELEASE = "1.6.0"
-WEBSITE_VERSION = "2.0.0-pr5"
+WEBSITE_VERSION = "2.0.0-pr7"
 DB_REL = "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"
 EXPECTED_DB_SHA256 = "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f"
 TREE_ID = "MR_RT_003"
@@ -785,12 +785,16 @@ def build_downloads(repo, md, db_sha):
                             "GitHub Release asset (asset file name not verified by the exporter)"})
     refpkg_files = [{"path": p, "sha256": h,
                      "url": f"{REPO_URL}/blob/{RELEASE_TAG}/{REFPKG}/{p}"} for p, h in read_sums(repo / REFPKG / "SHA256SUMS")]
+    # PR-7: repository documents are hashed from the checkout being exported, so their links must point at that
+    # same commit (not at the release tag, whose copies may differ). Falls back to the tag when git is unavailable.
+    head = git_state(repo)[0]
+    doc_ref = head if re.fullmatch(r"[0-9a-f]{40}", head) else RELEASE_TAG
     docs = []
     for path, desc in REPO_DOCUMENTS:
         full = repo / path
         require(full.is_file(), f"repository document missing: {path}", "BLOCKED_DATA_SOURCE")
         docs.append({"path": path, "description": desc, "sha256": sha256_file(full), "bytes": full.stat().st_size,
-                     "url": f"{REPO_URL}/blob/{RELEASE_TAG}/{path}"})
+                     "url": f"{REPO_URL}/blob/{doc_ref}/{path}"})
     cff = parse_cff((repo / "CITATION.cff").read_text())
     require(cff.get("version") == DATASET_RELEASE, "CITATION.cff version differs from the dataset release")
     maint = []

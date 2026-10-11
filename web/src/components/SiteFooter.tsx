@@ -1,5 +1,6 @@
 import { href } from "../app/routes";
 import { loadManifest, useResource } from "../data/loaders";
+import { BUILD, buildLabel } from "../lib/buildInfo";
 
 export function SiteFooter() {
   const m = useResource(loadManifest);
@@ -27,11 +28,11 @@ export function SiteFooter() {
         </dl>
         <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
           <dt>Website</dt>
-          <dd className="text-ink">{d ? d.website_version : "..."}</dd>
+          <dd className="text-ink" data-testid="footer-website-version">{d ? d.website_version : "..."}</dd>
           <dt>Data schema</dt>
           <dd className="text-ink">{d ? d.schema_version : "..."}</dd>
           <dt>Build</dt>
-          <dd className="text-ink">Development build (PR-2); not the deployed site</dd>
+          <dd className="text-ink" data-testid="footer-build" title={BUILD.commit ? `Source commit ${BUILD.commit}` : undefined}>{buildLabel()}</dd>
         </dl>
       </div>
     </footer>

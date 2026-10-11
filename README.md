@@ -86,8 +86,9 @@ which were run outside the workflow.
 
 The redesigned website (React + TypeScript + Vite, "website 2.0", still serving **dataset v1.6.0**) lives in
 `web/`. It is built from static JSON exported from the official v1.6.0 SQLite database; the legacy `site/`
-browser above is unchanged and remains the deployed version until the PR-7 deployment step is approved.
-Requirements: Node >= 22 and the `mrdb` conda environment (Python with the release DB present).
+browser above is unchanged and remains the deployed version until a production deployment is approved.
+Requirements: Node >= 22 and the `mrdb` conda environment (Python with the release DB present;
+`python web/scripts/fetch_release_db.py` downloads and verifies it from the GitHub Release).
 
 ```bash
 # 1. Export the static website data from the official database (refuses to run on checksum mismatch)
@@ -114,9 +115,31 @@ python web/scripts/pr5_reconciliation.py --out /tmp/recon      # SQL replay of e
 python web/scripts/pr6_scientific_audit.py --out /tmp/sci      # independent tree/clade/placement audit
 ```
 
-**Deployment:** not yet configured. A deployment workflow, preview review and rollback procedure are the
-scope of the PR-7 step and require maintainer approval; no command here publishes the site. Acceptance
-evidence for each redesign step is in `docs/website/` (latest: `docs/website/PR6_WEB_ACCEPTANCE_REPORT.md`).
+**Deployment artifact, preview and deployment (PR-7).** Full procedure: `docs/website/WEB_BUILD_AND_DEPLOY.md`.
+
+```bash
+# Build the exact GitHub Pages artifact (provenance, SHA256SUMS, deterministic tarball) and verify it offline
+python web/scripts/build_site_artifact.py --out /tmp/mrdb-site --tarball /tmp/mrdb-site.tar.gz   # add --production on a clean checkout
+python web/scripts/verify_site_artifact.py /tmp/mrdb-site --repo .
+
+# Preview it exactly as Pages would serve it: http://127.0.0.1:4173/MicroRhodoDB/site/
+python web/scripts/serve_artifact.py /tmp/mrdb-site 4173
+
+# Browser smoke tests against the artifact (routes, deep links, structures, MR_CLD3_017, a11y, outages)
+cd web && SMOKE_ARTIFACT=/tmp/mrdb-site npx playwright test -c playwright.smoke.config.ts && cd ..
+
+# Release-blocker checklist (report mode never blocks; production mode exits 3 while blockers are open)
+python web/scripts/release_gate.py --mode report
+
+# Rollback artifact of the pre-redesign site, verified against the committed manifest
+python web/scripts/site_rollback.py legacy-build --ref fab9182044c45670c869c8778fd8d48932bd35b8 --out /tmp/mrdb-legacy
+```
+
+Production deployment is **manual only**: the `deploy-site` workflow (Actions > deploy-site > Run workflow, from
+`main`, with `kind`, the full `source_sha`, the confirmation string `deploy <kind> <source_sha>` and a reason).
+It refuses to deploy website 2.0 while any release blocker in `docs/website/release_blockers.json` is open,
+and the `github-pages` environment must require reviewer approval. Nothing in this README publishes the site.
+See `docs/website/PR7_DEPLOYMENT_RUNBOOK.md` and `docs/website/PR7_ROLLBACK_RUNBOOK.md`.
 
 ## Repository layout
 

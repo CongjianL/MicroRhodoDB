@@ -1,0 +1,299 @@
+# PR-7: MANUAL production deployment of the MicroRhodoDB website to GitHub Pages.
+#
+# - Trigger: workflow_dispatch only (no push / pull_request / schedule), run from the main branch.
+# - Authorisation: the dispatcher must type the exact confirmation string; the deploy job uses the protected
+#   `github-pages` environment, so a required reviewer must approve it in the GitHub UI before anything is
+#   published (configure reviewers + main-only branch policy first: release blocker OPS-2).
+# - kind=website: release-blocker gate (web/scripts/release_gate.py --mode production --online) must pass,
+#   web-data must have succeeded on GitHub for the same commit, all scientific and frontend gates run again,
+#   the artifact is built deterministically, verified offline and smoke-tested before upload.
+# - kind=legacy-rollback: re-publishes the pre-redesign site (git archive of a legacy commit, verified against
+#   web/release/rollback/legacy_<sha12>.sha256). This restores the previously published site and is therefore
+#   not gated by the publication blockers; it still needs the confirmation string and environment approval.
+# - Pages source must be "GitHub Actions" (release blocker OPS-1); this workflow never changes repository settings.
+# See docs/website/PR7_DEPLOYMENT_RUNBOOK.md and docs/website/PR7_ROLLBACK_RUNBOOK.md.
+name: deploy-site
+
+on:
+  workflow_dispatch:
+    inputs:
+      kind:
+        description: "website = build and deploy website 2.0; legacy-rollback = re-publish the pre-redesign site"
+        type: choice
+        options: [website, legacy-rollback]
+        default: website
+        required: true
+      source_sha:
+        description: "Full 40-character commit SHA on main to deploy (legacy-rollback: the legacy commit, e.g. fab9182044c45670c869c8778fd8d48932bd35b8)"
+        type: string
+        required: true
+      confirm:
+        description: "Type exactly: deploy <kind> <source_sha>"
+        type: string
+        required: true
+      reason:
+        description: "Reason / reference (issue or PR URL) recorded in the audit log"
+        type: string
+        required: true
+
+permissions: {}
+
+concurrency:
+  group: pages-production
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    name: Preflight (authorisation, provenance, release blockers)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      sha: ${{ steps.check.outputs.sha }}
+    steps:
+      - name: Check dispatch context and confirmation
+        id: check
+        env:
+          KIND: ${{ inputs.kind }}
+          SHA: ${{ inputs.source_sha }}
+          CONFIRM: ${{ inputs.confirm }}
+          REASON: ${{ inputs.reason }}
+          REF: ${{ github.ref }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          set -eu
+          test "$EVENT" = "workflow_dispatch" || { echo "::error::only workflow_dispatch may deploy"; exit 1; }
+          test "$REF" = "refs/heads/main" || { echo "::error::run this workflow from main (got $REF)"; exit 1; }
+          echo "$SHA" | grep -Eq '^[0-9a-f]{40}$' || { echo "::error::source_sha must be a full 40-character lowercase SHA"; exit 1; }
+          test "$CONFIRM" = "deploy $KIND $SHA" || { echo "::error::confirmation string mismatch"; exit 1; }
+          test -n "$REASON" || { echo "::error::reason is required"; exit 1; }
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ inputs.source_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Source commit must be on main
+        env:
+          SHA: ${{ inputs.source_sha }}
+        run: |
+          set -eu
+          test "$(git rev-parse HEAD)" = "$SHA" || { echo "::error::checked-out commit differs from source_sha"; exit 1; }
+          git merge-base --is-ancestor "$SHA" origin/main || { echo "::error::$SHA is not an ancestor of main"; exit 1; }
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.11"
+      - name: Release-blocker gate (production, online)
+        if: inputs.kind == 'website'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          SHA: ${{ inputs.source_sha }}
+        run: |
+          # The checklist and the gate are those of the commit being deployed (checked out above).
+          python web/scripts/release_gate.py --mode production --online --sha "$SHA" --json "$RUNNER_TEMP/release_gate.json"
+      - name: Audit record
+        if: always()
+        env:
+          KIND: ${{ inputs.kind }}
+          SHA: ${{ inputs.source_sha }}
+          REASON: ${{ inputs.reason }}
+          ACTOR: ${{ github.actor }}
+          RUN: ${{ github.run_id }}
+        run: |
+          {
+            echo "## deploy-site preflight"
+            echo "- kind: \`$KIND\`"
+            echo "- source_sha: \`$SHA\`"
+            echo "- dispatched by: \`$ACTOR\` (run $RUN, attempt ${GITHUB_RUN_ATTEMPT})"
+            echo "- reason: $REASON"
+            echo "- time (UTC): $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  build:
+    name: Build, validate and package
+    needs: preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: read
+    steps:
+      # website: the commit being deployed. legacy-rollback: the main commit this workflow runs from (it holds the
+      # rollback tooling and manifest); the legacy commit itself is read with `git archive` from the full history.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ inputs.kind == 'legacy-rollback' && github.sha || needs.preflight.outputs.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.11"
+      - name: Install Python dependencies (pinned)
+        run: python -m pip install "pandas==3.0.6" "numpy==2.4.6" "pytest==9.1.1" "jsonschema==4.26.0" "pyyaml==6.0.3"
+
+      # ---------------- legacy rollback: verified git archive of the legacy commit ----------------
+      - name: Build legacy rollback artifact (verified against the committed manifest)
+        if: inputs.kind == 'legacy-rollback'
+        env:
+          SHA: ${{ needs.preflight.outputs.sha }}
+        run: python web/scripts/site_rollback.py legacy-build --ref "$SHA" --out "$RUNNER_TEMP/site"
+      - name: Upload Pages artifact (legacy, hidden files included as in branch-based Pages)
+        if: inputs.kind == 'legacy-rollback'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: ${{ runner.temp }}/site
+          include-hidden-files: true
+          retention-days: 90
+
+      # ---------------- website 2.0 ----------------
+      - name: Fetch and verify release database (BLOCKED_DATA_SOURCE if absent or different)
+        if: inputs.kind == 'website'
+        run: python web/scripts/fetch_release_db.py
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        if: inputs.kind == 'website'
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install frontend dependencies (lockfile)
+        if: inputs.kind == 'website'
+        working-directory: web
+        run: npm ci
+      - name: Build artifact (deterministic, production, verified)
+        if: inputs.kind == 'website'
+        run: python web/scripts/build_site_artifact.py --production --out "$RUNNER_TEMP/site" --tarball "$RUNNER_TEMP/release/mrdb-site.tar.gz" --json "$RUNNER_TEMP/release/build.json"
+      - name: Scientific integrity gates (G1, G4, G5, PR-6 audit + mutations, PR-7 artifact tests)
+        if: inputs.kind == 'website'
+        env:
+          MRDB_SITE_ARTIFACT: ${{ runner.temp }}/site
+          MRDB_REQUIRE_ARTIFACT: "1"
+        run: |
+          python -m pytest -q tests/test_web_export.py tests/test_fetch_release_db.py tests/test_web_phylogeny.py tests/test_web_pr4a.py tests/test_web_pr5.py tests/test_web_pr5a.py tests/test_web_pr6a.py tests/test_web_pr7.py
+          python web/scripts/pr5a_drilldown_golden.py --check
+          python web/scripts/pr6_scientific_audit.py --out "$RUNNER_TEMP/audit"
+          python web/scripts/pr6_audit_mutations.py --out "$RUNNER_TEMP/audit"
+          python web/scripts/schema_to_ts.py --check
+          python web/scripts/fetch_structure_fixtures.py --check
+      - name: Unit tests (Vitest)
+        if: inputs.kind == 'website'
+        working-directory: web
+        run: npx vitest run
+      - name: Install Playwright Chromium
+        if: inputs.kind == 'website'
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+      - name: Smoke tests on the assembled artifact (served like Pages)
+        if: inputs.kind == 'website'
+        working-directory: web
+        env:
+          SMOKE_ARTIFACT: ${{ runner.temp }}/site
+          SMOKE_REPORT_DIR: ${{ runner.temp }}/release/smoke
+          SMOKE_EXPECT_COMMIT: ${{ needs.preflight.outputs.sha }}
+        run: npx playwright test -c playwright.smoke.config.ts
+      - name: Re-verify the exact directory that will be uploaded
+        if: inputs.kind == 'website'
+        env:
+          SHA: ${{ needs.preflight.outputs.sha }}
+        run: python web/scripts/verify_site_artifact.py "$RUNNER_TEMP/site" --repo . --expect-commit "$SHA" --require-clean --json "$RUNNER_TEMP/release/verify.json"
+      - name: Upload Pages artifact (website)
+        if: inputs.kind == 'website'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: ${{ runner.temp }}/site
+          retention-days: 90
+      - name: Keep the release record (tarball, SHA256SUMS, BUILD_INFO, smoke report) for 90 days
+        if: always() && inputs.kind == 'website'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: mrdb-site-release-${{ needs.preflight.outputs.sha }}
+          path: |
+            ${{ runner.temp }}/release/
+            ${{ runner.temp }}/site/SHA256SUMS
+            ${{ runner.temp }}/site/site/BUILD_INFO.json
+          retention-days: 90
+          if-no-files-found: warn
+
+  deploy:
+    name: Deploy to GitHub Pages (requires environment approval)
+    needs: [preflight, build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+      - name: Audit record
+        env:
+          SHA: ${{ needs.preflight.outputs.sha }}
+          URL: ${{ steps.deployment.outputs.page_url }}
+        run: echo "Deployed \`$SHA\` to $URL at $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_STEP_SUMMARY"
+
+  verify-live:
+    name: Post-deployment verification of the live site
+    needs: [preflight, deploy]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ inputs.kind == 'legacy-rollback' && github.sha || needs.preflight.outputs.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.11"
+      - name: Download the release record
+        if: inputs.kind == 'website'
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: mrdb-site-release-${{ needs.preflight.outputs.sha }}
+          path: ${{ runner.temp }}/record
+      - name: Live files equal the verified artifact (all files, via SHA256SUMS)
+        if: inputs.kind == 'website'
+        run: |
+          # Pages/CDN propagation: retry for up to ~10 minutes before failing.
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            if python web/scripts/site_rollback.py verify-served --base https://congjianl.github.io/MicroRhodoDB/ --sums "$RUNNER_TEMP/record/site/SHA256SUMS"; then exit 0; fi
+            echo "attempt $i: live site does not match yet"; sleep 60
+          done
+          echo "::error::live site does not match the verified artifact"; exit 1
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        if: inputs.kind == 'website'
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Live browser smoke tests
+        if: inputs.kind == 'website'
+        working-directory: web
+        env:
+          SMOKE_BASE_URL: https://congjianl.github.io/MicroRhodoDB/
+          SMOKE_LIVE: "1"
+          SMOKE_EXPECT_COMMIT: ${{ needs.preflight.outputs.sha }}
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+          npx playwright test -c playwright.smoke.config.ts
+      - name: Live legacy files equal the legacy manifest
+        if: inputs.kind == 'legacy-rollback'
+        env:
+          SHA: ${{ needs.preflight.outputs.sha }}
+        run: |
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            if python web/scripts/site_rollback.py verify-served --base https://congjianl.github.io/MicroRhodoDB/ --sums "web/release/rollback/legacy_${SHA:0:12}.sha256" --paths index.html site/index.html site/app.js site/data.js site/style.css; then exit 0; fi
+            echo "attempt $i: live site does not match yet"; sleep 60
+          done
+          echo "::error::live site does not match the legacy manifest"; exit 1
+      - name: On failure - follow the rollback runbook
+        if: failure()
+        run: |
+          echo "::error::Post-deployment verification failed. Follow docs/website/PR7_ROLLBACK_RUNBOOK.md (R1: Pages source -> branch main / root; R2: deploy-site kind=legacy-rollback)."
+          exit 1

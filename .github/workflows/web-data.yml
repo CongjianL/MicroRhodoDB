@@ -6,7 +6,8 @@
 # PR-6: independent scientific audit + mutation self-test. PR-6a: portable scratch dirs; triggers also cover the
 # repository metadata the exporter publishes on the website (README, LICENSE, CITATION, MAINTENANCE, CHANGELOG,
 # BINARIES) and the frozen inputs it reads; tests/test_web_pr6a.py validates this file.
-# Validation only - no Pages, no deploy (deployment is a separate, manually authorised workflow).
+# PR-7: actions pinned to commit SHAs; builds and verifies (never deploys) the Pages artifact.
+# Validation only - no Pages, no deploy (deployment is deploy-site.yml, manual dispatch with a protected environment).
 # Data source: the official v1.6.0 GitHub Release asset, verified against BINARIES.md (SHA-256 + size); the fetch
 # step fails with BLOCKED_DATA_SOURCE if the asset is missing or differs.
 name: web-data
@@ -32,6 +33,8 @@ on:
       - "refpkg/MR_RT_003/**"
       - "releases/**"
       - ".github/workflows/web-data.yml"
+      - ".github/workflows/deploy-site.yml"
+      - ".github/workflows/site-preview.yml"
   push:
     branches: [main]
     paths:
@@ -53,6 +56,8 @@ on:
       - "refpkg/MR_RT_003/**"
       - "releases/**"
       - ".github/workflows/web-data.yml"
+      - ".github/workflows/deploy-site.yml"
+      - ".github/workflows/site-preview.yml"
   workflow_dispatch:
 
 permissions:
@@ -67,10 +72,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: "3.11"
       - name: Install test dependencies
@@ -80,7 +85,7 @@ jobs:
       - name: Export web data
         run: python tools/export_web_data.py --out web/public/data
       - name: Validate export (gates G1, G4 and G5)
-        run: python -m pytest -q tests/test_web_export.py tests/test_fetch_release_db.py tests/test_web_phylogeny.py tests/test_web_pr4a.py tests/test_web_pr5.py tests/test_web_pr5a.py tests/test_web_pr6a.py
+        run: python -m pytest -q tests/test_web_export.py tests/test_fetch_release_db.py tests/test_web_phylogeny.py tests/test_web_pr4a.py tests/test_web_pr5.py tests/test_web_pr5a.py tests/test_web_pr6a.py tests/test_web_pr7.py
       - name: Check drilldown golden accession sets (PR-5a)
         run: python web/scripts/pr5a_drilldown_golden.py --check
       - name: Independent scientific audit and its mutation self-test (PR-6)
@@ -92,7 +97,7 @@ jobs:
       - name: Verify committed structure fixtures (PR-3, offline SHA-256 check)
         run: python web/scripts/fetch_structure_fixtures.py --check
       # Frontend (PR-2 onward; these steps passed on GitHub for PR-1..PR-3 runs, later additions are unexercised remotely)
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: "22"
           cache: npm
@@ -112,9 +117,21 @@ jobs:
       - name: Browser tests (Playwright, mocked structures; @live excluded)
         working-directory: web
         run: npx playwright test
+      # PR-7: assemble the Pages artifact from this build (provenance stamp, SHA256SUMS, deterministic tarball),
+      # verify it offline (V1-V11) and run the artifact tests against it. MRDB_REQUIRE_ARTIFACT=1 turns a missing
+      # artifact into a failure instead of a skip. Never deploys.
+      - name: Build and verify the site artifact (PR-7, non-production)
+        run: python web/scripts/build_site_artifact.py --out "$RUNNER_TEMP/site-artifact" --tarball "$RUNNER_TEMP/site-artifact.tar.gz" --skip-export
+      - name: Artifact, rollback and gate tests (PR-7)
+        env:
+          MRDB_SITE_ARTIFACT: ${{ runner.temp }}/site-artifact
+          MRDB_REQUIRE_ARTIFACT: "1"
+        run: python -m pytest -q tests/test_web_pr7.py
+      - name: Release-blocker report (never blocks validation)
+        run: python web/scripts/release_gate.py --mode report
       - name: Upload Playwright report and screenshots
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: web-playwright
           path: |
