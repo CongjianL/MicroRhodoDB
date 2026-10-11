@@ -16,7 +16,7 @@
 // after the page is ready and timed until its "done" selector is attached (two animation frames
 // later, so the paint is included).
 //
-// Usage: node scripts/perf_capture.mjs <baseURL> <runs> <out.json> [pr2|pr3|pr4]
+// Usage: node scripts/perf_capture.mjs <baseURL> <runs> <out.json> [pr2|pr3|pr4|pr5]
 import { chromium } from "@playwright/test";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
@@ -74,7 +74,27 @@ const PR4_ROUTES = [
   { id: "clade_007", hash: "#/clade/MR_CLD3_007", ready: '[data-testid="clade-tree-canvas"] path' },
   { id: "record_mrdb", hash: "#/record/MRDB000001", ready: SEQ },
 ];
-const ROUTES = SET === "pr4" ? PR4_ROUTES : SET === "pr3" ? PR3_ROUTES : PR2_ROUTES;
+// PR-5 section pages. Interactions record long tasks (>50 ms main-thread blocks) between click and done,
+// so the sequence search can be shown to run off the main thread (Web Worker).
+const PR5_ROUTES = [
+  PR2_ROUTES[0],
+  { id: "statistics", hash: "#/statistics", ready: '[data-testid="chart-evidence-level"] svg', interact: [
+    { name: "stats_runtime_recount", click: '[data-testid="load-recount"]', done: '[data-testid="recon-status"]' },
+  ] },
+  { id: "evidence", hash: "#/evidence", ready: '[data-testid="e1-table"] tbody tr' },
+  { id: "structures", hash: "#/structures", ready: '[data-testid="pdb-table"] tbody tr' },
+  { id: "watchlist", hash: "#/watchlist", ready: '[data-testid="wl-table"] tbody tr' },
+  { id: "search_text", hash: "#/search?q=bacteriorhodopsin", ready: '[data-testid="text-results"] tbody tr' },
+  { id: "search_sequence", hash: "#/search?mode=sequence", ready: '[data-testid="seq-example"]', interact: [
+    { name: "seq_load_example", click: '[data-testid="seq-example"]', done: '[data-testid="seq-input"]:not([data-length="0"])' },
+    { name: "seq_search_P02945", click: '[data-testid="seq-run"]', done: '[data-testid="seq-hit-1"][data-acc="P02945"]' },
+  ] },
+  { id: "downloads", hash: "#/downloads", ready: '[data-testid="dl-release-files"] tbody tr' },
+  { id: "methods", hash: "#/methods", ready: '[data-testid="methods-denominators"]' },
+  { id: "citation", hash: "#/citation", ready: '[data-testid="cite-bibtex"]' },
+  { id: "help", hash: "#/help", ready: '[data-testid="help-faq"]' },
+];
+const ROUTES = SET === "pr5" ? PR5_ROUTES : SET === "pr4" ? PR4_ROUTES : SET === "pr3" ? PR3_ROUTES : PR2_ROUTES;
 
 async function interact(page, steps) {
   const out = [];
@@ -84,7 +104,8 @@ async function interact(page, steps) {
     else await page.selectOption(st.select[0], st.select[1]);
     await page.waitForSelector(st.done, { state: "attached", timeout: 30000 });
     const t1 = await page.evaluate(() => new Promise((res) => requestAnimationFrame(() => requestAnimationFrame(() => res(performance.now())))));
-    out.push({ name: st.name, ms: Math.round(t1 - t0) });
+    const lt = await page.evaluate(([a, b]) => (window.__lt || []).filter((e) => e[0] + e[1] >= a && e[0] <= b).map((e) => e[1]), [t0, t1]);
+    out.push({ name: st.name, ms: Math.round(t1 - t0), longTasks: lt.length, maxLongTaskMs: lt.length ? Math.round(Math.max(...lt)) : 0 });
   }
   return out;
 }
@@ -159,6 +180,10 @@ for (const r of ROUTES) {
     page.on("request", (q) => requests.push(q.url()));
     page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
     page.on("pageerror", (e) => errors.push(e.message));
+    if (r.interact) await page.addInitScript(() => {
+      window.__lt = [];
+      try { new PerformanceObserver((l) => { for (const e of l.getEntries()) window.__lt.push([e.startTime, e.duration]); }).observe({ type: "longtask", buffered: true }); } catch { /* unsupported */ }
+    });
     const external = [];
     if (r.viewer) {
       if (r.viewer === "mocked") await mock(page);

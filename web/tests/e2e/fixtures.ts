@@ -11,7 +11,7 @@ export interface Watch {
   dataFiles: () => string[];
 }
 
-export const HEAVY = [/^records-index\.json$/, /^accessions\.json$/, /^records\//, /^sequences\//, /^publications\.json$/, /^structures-index\.json$/, /^evidence-index\.json$/];
+export const HEAVY = [/^records-index\.json$/, /^accessions\.json$/, /^records\//, /^sequences\//, /^publications\.json$/, /^structures-index\.json$/, /^evidence-index\.json$/, /^export_manifest\.json$/];
 
 export const test = base.extend<{ watch: Watch }>({
   watch: async ({ page }, use) => {

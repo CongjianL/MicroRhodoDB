@@ -479,4 +479,4 @@ def test_export_manifest_lists_phylogeny_files(out):
                 "phylogeny/MR_RT_003.rooted.run1-support.DERIVED.README.txt"):
         f = files[f"{REL}/{rel}"]
         assert f["sha256"] == sha(out / rel)
-    assert em["schema_version"] == "1.3.0"  # 1.2.0 in PR-4; 1.3.0 since PR-4a (additive)
+    assert em["schema_version"] in ("1.3.0", "1.4.0")  # 1.2.0 in PR-4; 1.3.0 PR-4a; 1.4.0 PR-5 (additive)

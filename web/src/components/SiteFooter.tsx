@@ -11,8 +11,8 @@ export function SiteFooter() {
           <p className="font-semibold text-ink">MicroRhodoDB</p>
           <p className="mt-1">An evidence-aware knowledgebase of microbial rhodopsins.</p>
           <p className="mt-2">
-            <a href={href.about()}>About</a> <span aria-hidden="true">·</span> <a href={href.planned("citation")}>Citation</a>{" "}
-            <span aria-hidden="true">·</span> <a href={href.planned("help")}>Help</a>
+            <a href={href.about()}>About</a> <span aria-hidden="true">·</span> <a href={href.section("citation")}>Citation</a>{" "}
+            <span aria-hidden="true">·</span> <a href={href.section("help")}>Help</a>
           </p>
         </div>
         <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1" data-testid="footer-release">

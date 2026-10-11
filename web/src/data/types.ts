@@ -176,7 +176,70 @@ export interface Clades {
 export interface Current {
   readonly dataset_release: "1.6.0";
   readonly path: "data/v1.6.0/";
-  readonly schema_version: "1.3.0";
+  readonly schema_version: "1.4.0";
+}
+
+export interface Downloads {
+  readonly citation: {
+    readonly abstract: string | null;
+    readonly authors: Array<Record<string, string>>;
+    readonly "date-released": string | null;
+    readonly doi: string | null;
+    readonly license: string | null;
+    readonly message: string | null;
+    readonly "repository-code": string | null;
+    readonly title: string | null;
+    readonly type: string | null;
+    readonly version: string | null;
+  };
+  readonly citation_source: string;
+  readonly dataset_release: "1.6.0";
+  readonly maintenance_placeholders: Array<{
+    readonly context: string;
+    readonly hint: string;
+    readonly status: string;
+  }>;
+  readonly refpkg_files: Array<{
+    readonly path: string;
+    readonly sha256: string;
+    readonly url: string;
+  }>;
+  readonly release: {
+    readonly license: string | null;
+    readonly release_date: string | null;
+    readonly sha256sums_url: string;
+    readonly tag: "v1.6.0";
+    readonly url: string;
+  };
+  readonly release_files: Array<{
+    readonly bytes: number;
+    readonly distribution: string;
+    readonly in_git_at_tag: boolean;
+    readonly path: string;
+    readonly sha256: string;
+    readonly url: string;
+  }>;
+  readonly release_history: Array<{
+    readonly current: boolean;
+    readonly has_sha256sums: boolean;
+    readonly release: string;
+    readonly release_notes: string | null;
+    readonly url: string;
+  }>;
+  readonly repository_documents: Array<{
+    readonly bytes: number;
+    readonly description: string;
+    readonly path: string;
+    readonly sha256: string;
+    readonly url: string;
+  }>;
+  readonly version_note: string;
+  readonly website_derived: Array<{
+    readonly description: string;
+    readonly path: string;
+  }>;
+  readonly website_derived_note: string;
+  readonly website_version: string;
 }
 
 export interface EvidenceIndex {
@@ -201,6 +264,41 @@ export interface EvidenceIndex {
   readonly engineered_policy: string | null;
   readonly function_conflict_rule: string | null;
   readonly override_rules: Record<string, Array<string>>;
+  readonly validation: {
+    readonly audit_agreement: Array<{
+      readonly agreement: number;
+      readonly metric: string;
+      readonly n: number;
+      readonly n_match: number;
+      readonly note: string | null;
+      readonly tier: string;
+      readonly wilson_hi: number;
+      readonly wilson_lo: number;
+    }>;
+    readonly audit_sql: string;
+    readonly ci_method: string;
+    readonly loco: Array<{
+      readonly ci_method: string;
+      readonly cov_hi: number | null;
+      readonly cov_lo: number | null;
+      readonly coverage: number | null;
+      readonly holdout: string;
+      readonly n: number;
+      readonly n_E1: number;
+      readonly n_assigned: number;
+      readonly n_clades: number;
+      readonly n_correct: number;
+      readonly policy: string;
+      readonly prec_hi: number | null;
+      readonly prec_lo: number | null;
+      readonly precision: number | null;
+      readonly release_set: "1.6.0";
+      readonly subset: string;
+      readonly variant: string;
+    }>;
+    readonly loco_sql: string;
+    readonly note: string;
+  };
 }
 
 export type EvidenceLevel = "E1" | "E2" | "E3" | "E4" | "E5";
@@ -314,7 +412,7 @@ export interface ExportManifest {
     readonly sha256: string;
   }>;
   readonly n_files: number;
-  readonly schema_version: "1.3.0";
+  readonly schema_version: "1.4.0";
   readonly source_db_sha256: string;
   readonly total_bytes: number;
 }
@@ -356,7 +454,7 @@ export interface Manifest {
   };
   readonly release_date: string;
   readonly schema_revision: string;
-  readonly schema_version: "1.3.0";
+  readonly schema_version: "1.4.0";
   readonly source_db: {
     readonly file: "microrhododb_v1.6.0.sqlite";
     readonly opened_read_only: true;
@@ -684,6 +782,24 @@ export interface Subclade {
 }
 
 export interface Summary {
+  readonly crosstabs: Array<{
+    readonly cells: Array<{
+      readonly col: string | null;
+      readonly row: string | null;
+      readonly value: number;
+    }>;
+    readonly col_field: string;
+    readonly dataset_release: "1.6.0";
+    readonly denominator: {
+      readonly id: string;
+      readonly value: number;
+    };
+    readonly id: string;
+    readonly label: string;
+    readonly row_field: string;
+    readonly sql: string;
+    readonly total: number;
+  }>;
   readonly dataset_release: "1.6.0";
   readonly denominators: Record<string, {
     readonly id: string;
@@ -697,6 +813,7 @@ export interface Summary {
       readonly id: string;
       readonly value: number;
     };
+    readonly derivation?: string;
     readonly id: string;
     readonly items: Array<{
       readonly key: string | null;
@@ -723,7 +840,7 @@ export interface Summary {
     readonly value: number;
   }>;
   readonly notes: Array<string>;
-  readonly schema_version: "1.3.0";
+  readonly schema_version: "1.4.0";
 }
 
 export interface SupportAudit {
@@ -846,6 +963,7 @@ export interface DataFiles {
   "current.json": Current;
   "v1.6.0/accessions.json": Accessions;
   "v1.6.0/clades.json": Clades;
+  "v1.6.0/downloads.json": Downloads;
   "v1.6.0/evidence-index.json": EvidenceIndex;
   "v1.6.0/export_manifest.json": ExportManifest;
   "v1.6.0/manifest.json": Manifest;

@@ -701,7 +701,7 @@ def _independent_metrics(con):
     t = {n: pd.read_sql_query(f"SELECT * FROM {n}", con) for n in
          ("v_master", "mrdb_accession", "status_definition", "publication", "assertion_publication", "protein_pdb",
           "pdb_structure", "afdb_model", "predicted_structure", "tree_node", "clade", "placement",
-          "novel_family_candidate", "accession_map")}
+          "novel_family_candidate", "accession_map", "novel_family_flag", "foldseek_hit")}
     v, ap, pp = t["v_master"], t["assertion_publication"], t["protein_pdb"]
     grp = v.membership_status.map(dict(zip(t["status_definition"].status, t["status_definition"].status_group)))
     act = ap[ap.is_active == 1]
@@ -729,6 +729,15 @@ def _independent_metrics(con):
         "subclades": int((cl.level == 2).sum()),
         "placements_current": int(((pl.is_current == 1) & (pl.tree_id == "MR_RT_003")).sum()),
         "watchlist": len(t["novel_family_candidate"]),
+        # schema 1.4.0 (PR-5)
+        "members_candidates": int(grp.isin(["member", "candidate"]).sum()),
+        "clade_confident_members_candidates": int((grp.isin(["member", "candidate"])
+                                                   & v.clade_id.fillna("").ne("")).sum()),
+        "records_with_afdb_counted": int(v[v.counts_eligible == 1].source_acc.isin(
+            t["afdb_model"][t["afdb_model"].status == "ok"].source_acc).sum()),
+        "records_with_pdb_counted": int(v[v.counts_eligible == 1].source_acc.isin(pp.source_acc).sum()),
+        "novel_family_flag": int(t["novel_family_flag"].novel_family_hit.notna().sum()),
+        "foldseek_hits": len(t["foldseek_hit"]),
     }, t
 
 
@@ -736,7 +745,9 @@ BASELINE = {"records_total": 5466, "records_counted": 5460, "records_engineered"
             "mrdb_multi_source": 129, "e1_unique_sequences": 76, "call_conflict": 468, "pdb_links": 472,
             "pdb_entries": 438, "records_with_pdb": 66, "mrdb_with_pdb": 58, "records_with_afdb": 4397,
             "predicted_models": 2, "tree_tips": 472, "level1_clades": 17, "backbone_groups": 2, "subclades": 30,
-            "placements_current": 4996, "watchlist": 181, "publications": 121, "publication_links_active": 255}
+            "placements_current": 4996, "watchlist": 181, "publications": 121, "publication_links_active": 255,
+            # PR-5: release-notes value 3,821 / 4,468 (85.5%) confident-clade coverage of members + candidates
+            "members_candidates": 4468, "clade_confident_members_candidates": 3821, "novel_family_flag": 139}
 
 
 def test_summary_metrics_recomputed(D, con):
@@ -784,6 +795,45 @@ def test_summary_distributions_recomputed(D, con, records):
         "placement_clade_call": vc(pl.clade_call), "clade_consensus_status": vc(cl.consensus_status),
         "tip_role": vc(tips.tip_role), "watchlist_family": vc(t["novel_family_candidate"].family),
     }
+    # schema 1.4.0 (PR-5): recomputed in pandas/Python, independently of the exporter SQL
+    lin = pd.read_sql_query("SELECT source_acc, lineage FROM protein", con).set_index("source_acc").lineage
+
+    def phylum(acc):
+        hits = re.findall(r"(?:^|, )([^,]+?) \(phylum\)", lin.get(acc) or "")
+        assert len(hits) <= 1
+        return hits[0] if hits else None
+
+    def lbin(n):
+        if n < 200:
+            return "<200"
+        if n >= 450:
+            return ">=450"
+        lo = 200 + (n - 200) // 25 * 25
+        return f"{lo}-{lo + 24}"
+
+    def basis(b):
+        b = b or ""
+        for pre, key in (("experimental_ortholog:", "experimental_ortholog"), ("motif+phylogeny:", "motif+phylogeny"),
+                         ("legacy_v14_concordant_motif:", "legacy_v14_concordant_motif"),
+                         ("legacy_v14_motif_untestable:", "legacy_v14_motif_untestable"),
+                         ("curated_rule:", "curated_rule"), ("audit_rule_", "audit_rule"),
+                         ("family_hmm_", "family_hmm_conflict"), ("conflict:", "conflict")):
+            if b.startswith(pre):
+                return key
+        return {"experimental:this_protein": "experimental:this_protein", "insufficient": "insufficient"}.get(b, "UNMAPPED")
+
+    mc = set(v.source_acc[v.membership_status.map(sd).isin(["member", "candidate"])])
+    exp.update({
+        "membership_status_counted": vc(cnt.membership_status),
+        "ncbi_phylum_counted": vc(phylum(a) for a in cnt.source_acc),
+        "motif_class_counted": vc(cnt.motif_class), "helixC_motif_counted": vc(cnt.helixC_motif),
+        "length_bin_counted": vc(lbin(int(n)) for n in cnt.length),
+        "function_basis_category_counted": vc(basis(b) for b in cnt.function_basis),
+        "clade_state_members_candidates": vc(s_["phylogeny"]["clade_state"] for a, (_, s_) in records.items()
+                                             if a in mc),
+    })
+    assert exp["function_basis_category_counted"]["UNMAPPED"] == 0
+    assert exp["clade_state_members_candidates"]["confident"] == 3821
     got = {d["id"]: d for d in s["distributions"]}
     assert set(got) == set(exp)
     for k, d in got.items():
@@ -827,7 +877,7 @@ def test_json_schema_all_payloads(out):
         seen[pats[0]] += 1
     assert not errors, errors[:5]
     assert set(seen) == set(schema["x-files"])
-    assert len(files) == 5317  # 5,315 in schema 1.0.0 + vocabulary.json (1.1.0) + phylogeny/explorer.json (1.2.0)
+    assert len(files) == 5318  # 5,315 in schema 1.0.0 + vocabulary.json (1.1.0) + phylogeny/explorer.json (1.2.0) + downloads.json (1.4.0)
 
 
 def test_typescript_types_up_to_date():

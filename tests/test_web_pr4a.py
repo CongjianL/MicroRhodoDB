@@ -84,10 +84,11 @@ def recompute(con, plc, cid, g):
     return gp, by, rc, vm
 
 
-def test_schema_version_is_1_3_0(out):
+def test_schema_version_is_at_least_1_3_0(out):
+    # 1.3.0 introduced in PR-4a; PR-5 bumps to 1.4.0 additively (downloads.json, crosstabs, evidence validation)
     em = json.loads((out / "export_manifest.json").read_text())
-    assert em["schema_version"] == "1.3.0"
-    assert json.loads((out / "manifest.json").read_text())["schema_version"] == "1.3.0"
+    assert em["schema_version"] in ("1.3.0", "1.4.0")
+    assert json.loads((out / "manifest.json").read_text())["schema_version"] == em["schema_version"]
 
 
 def test_placement_qc_rule_matches_pendant_threshold(plc):

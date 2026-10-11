@@ -1,4 +1,3 @@
-import { PLANNED_PAGES, href, type PlannedPage } from "../app/routes";
 
 export function LoadingSkeleton({ label = "Loading data", lines = 4 }: { label?: string; lines?: number }) {
   return (
@@ -37,18 +36,3 @@ export function EmptyState({ title, children }: { title: string; children?: Reac
 }
 
 /** Clearly labelled placeholder for destinations implemented in later PRs (never a working tool). */
-export function PlannedNotice({ page }: { page: PlannedPage }) {
-  const p = PLANNED_PAGES[page];
-  return (
-    <div className="card border-dashed p-5" data-testid="planned-notice">
-      <p className="flex flex-wrap items-center gap-2 font-semibold">
-        <span className="badge badge-info">Planned: {p.pr}</span>
-        <span>{p.title} is not available in this development build.</span>
-      </p>
-      <p className="mt-2 text-sm text-ink-2">{p.summary}</p>
-      <p className="mt-3 text-sm">
-        Records can already be explored, filtered and exported from <a href={href.browse()}>Browse</a>.
-      </p>
-    </div>
-  );
-}

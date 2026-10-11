@@ -1,40 +1,29 @@
 import { useEffect, useId, useRef, useState } from "react";
-import { PLANNED_PAGES, href, type PlannedPage, type Route } from "../app/routes";
+import { SECTION_PAGES, href, type Route, type SectionPage } from "../app/routes";
 
 interface NavItem {
   key: string;
   label: string;
   href: string;
-  planned?: string; // PR that implements it
 }
 
 const PRIMARY: NavItem[] = [
   { key: "home", label: "Home", href: href.home() },
   { key: "browse", label: "Browse", href: href.browse() },
   { key: "phylogeny", label: "Phylogeny", href: href.phylogeny() },
-  ...(["structures", "search", "downloads"] as PlannedPage[]).map((p) => ({
-    key: p, label: p === "search" ? "Search" : PLANNED_PAGES[p].title, href: href.planned(p), planned: PLANNED_PAGES[p].pr,
-  })),
+  ...(["structures", "search", "downloads"] as SectionPage[]).map((p) => ({ key: p, label: SECTION_PAGES[p].nav, href: href.section(p) })),
   { key: "about", label: "About", href: href.about() },
 ];
 
-const MORE: NavItem[] = (["statistics", "evidence", "watchlist", "methods", "citation", "help"] as PlannedPage[]).map((p) => ({
-  key: p, label: PLANNED_PAGES[p].title, href: href.planned(p), planned: PLANNED_PAGES[p].pr,
+const MORE: NavItem[] = (["statistics", "evidence", "watchlist", "methods", "citation", "help"] as SectionPage[]).map((p) => ({
+  key: p, label: SECTION_PAGES[p].title, href: href.section(p),
 }));
 
 function activeKey(r: Route): string {
-  if (r.name === "planned") return r.page;
+  if (r.name === "section") return r.page;
   if (r.name === "record") return "browse";
   if (r.name === "clade") return "phylogeny";
   return r.name;
-}
-
-function PlannedPill({ pr }: { pr: string }) {
-  return (
-    <span className="ml-1 rounded border border-line-strong bg-subtle px-1 text-[0.6875rem] font-medium leading-4 text-ink-2" title={`Planned for ${pr}; not available in this build`}>
-      planned
-    </span>
-  );
 }
 
 function NavLink({ item, active, onClick, block = false }: { item: NavItem; active: boolean; onClick?: () => void; block?: boolean }) {
@@ -50,8 +39,6 @@ function NavLink({ item, active, onClick, block = false }: { item: NavItem; acti
       ].join(" ")}
     >
       {item.label}
-      {item.planned ? <PlannedPill pr={item.planned} /> : null}
-      {item.planned ? <span className="sr-only"> (planned for {item.planned})</span> : null}
     </a>
   );
 }

@@ -21,7 +21,7 @@ describe("parseHash", () => {
     }
     expect(parseHash("#/browse/x")).toMatchObject({ name: "not-found" });
   });
-  it("routes About, clades, planned pages and unknown paths", () => {
+  it("routes About, clades, section pages and unknown paths", () => {
     expect(parseHash("#/about")).toEqual({ name: "about" });
     expect(parseHash("#/clade/MR_CLD3_017")).toEqual({ name: "clade", cladeId: "MR_CLD3_017" });
     // PR-4: Phylogeny is a real page now (no longer planned); #/clade without an id opens it.
@@ -35,10 +35,17 @@ describe("parseHash", () => {
     expect(parseHash("#/phylogeny/x")).toMatchObject({ name: "not-found" });
     expect(parseHash(href.phylogeny("clade=MR_CLD3_017"))).toMatchObject({ name: "phylogeny" });
     expect(routeTitle({ name: "phylogeny", params: new URLSearchParams() })).toBe("Phylogeny - MicroRhodoDB");
+    // PR-5: all section pages are real pages (no "planned" route remains); query strings are kept as params.
     for (const p of ["structures", "search", "downloads", "statistics", "evidence", "watchlist", "methods", "citation", "help"]) {
-      expect(parseHash(`#/${p}`)).toEqual({ name: "planned", page: p });
+      const r = parseHash(`#/${p}`);
+      expect(r).toMatchObject({ name: "section", page: p });
+      if (r.name === "section") expect([...r.params.keys()]).toEqual([]);
+      expect(parseHash(`#/${p}/extra`)).toMatchObject({ name: "not-found" });
     }
-    expect(parseHash("#/novel")).toEqual({ name: "planned", page: "watchlist" });
+    const sr = parseHash("#/search?mode=sequence");
+    expect(sr).toMatchObject({ name: "section", page: "search" });
+    if (sr.name === "section") expect(sr.params.get("mode")).toBe("sequence");
+    expect(parseHash("#/novel")).toMatchObject({ name: "section", page: "watchlist" });
     expect(parseHash("#/nonsense")).toMatchObject({ name: "not-found" });
     expect(parseHash("#/about/extra/deep")).toMatchObject({ name: "not-found" });
   });
@@ -51,7 +58,8 @@ describe("parseHash", () => {
     expect(parseHash(href.record("MRDB000011"))).toMatchObject({ name: "record", accession: "MRDB000011" });
     expect(parseHash(href.clade("MR_CLD3_B01"))).toEqual({ name: "clade", cladeId: "MR_CLD3_B01" });
     expect(parseHash(href.home())).toEqual({ name: "home" });
-    expect(routeTitle({ name: "planned", page: "search" })).toMatch(/planned/);
+    expect(routeTitle({ name: "section", page: "search", params: new URLSearchParams() })).toBe("Search - MicroRhodoDB");
+    expect(routeTitle({ name: "section", page: "evidence", params: new URLSearchParams() })).not.toMatch(/planned/i);
   });
 });
 

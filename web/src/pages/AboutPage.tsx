@@ -81,9 +81,10 @@ export default function AboutPage() {
 
             <h2>This website</h2>
             <p>
-              This is a development build of the redesigned website. Pages marked “planned” in the navigation (phylogeny explorer, structures, sequence
-              search, downloads, statistics, evidence explorer, watchlist, methods, citation and help) are not yet available and do not provide results.
-              Start from <a href={href.browse()}>Browse</a> or the <a href={href.home()}>Home</a> page.
+              This is a development build of the redesigned website (website {m.website_version}). Every page reads the same exported files for data
+              release v{m.dataset_release}; the website computes no new classifications. See <a href={href.section("methods")}>Methods</a> for how each
+              page is derived, <a href={href.section("downloads")}>Downloads</a> for checksummed release files and{" "}
+              <a href={href.section("citation")}>Citation</a> for how to cite the data release.
             </p>
           </div>
         );

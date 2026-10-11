@@ -64,19 +64,17 @@ test.describe("Routing, history and static assets under /MicroRhodoDB/site/", ()
     expect(watch.errors).toEqual([]);
   });
 
-  test("#/novel redirects to #/watchlist without an extra history entry; planned pages are labelled", async ({ page, watch }) => {
+  test("#/novel redirects to #/watchlist without an extra history entry; section pages render", async ({ page, watch }) => {
     await page.goto("#/about");
     await page.evaluate(() => { location.hash = "#/novel"; });
     await expect(page).toHaveURL(/#\/watchlist$/);
-    await expect(page.getByTestId("planned-watchlist")).toBeVisible();
+    await expect(page.getByTestId("watchlist-isolation")).toBeVisible();
     await page.goBack();
     await expect(page).toHaveURL(/#\/about$/);
     for (const p of ["structures", "search", "downloads", "statistics", "evidence", "methods", "citation", "help"]) {
       await page.goto(`#/${p}`);
-      const n = page.getByTestId("planned-notice").first();
-      await expect(n).toBeVisible();
-      await expect(n).toContainText(/Planned/);
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+      await expect(page.getByTestId("planned-notice")).toHaveCount(0);
     }
     await page.goto("#/clade/MR_CLD3_017");
     await expect(page.getByTestId("clade-page")).toContainText("SH-aLRT 50.3 / UFBoot 72");

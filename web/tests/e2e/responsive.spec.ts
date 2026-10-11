@@ -29,6 +29,17 @@ const PAGES: { name: string; hash: string; ready: (p: Page) => Promise<void> }[]
   // PR-4: Phylogeny is a real page now (was planned_phylogeny)
   { name: "phylogeny", hash: "#/phylogeny", ready: async (p) => { await expect(p.getByTestId("tree-canvas")).toBeVisible(); } },
   { name: "clade_017", hash: "#/clade/MR_CLD3_017", ready: async (p) => { await expect(p.getByTestId("clade-tree-canvas")).toBeVisible(); } },
+  // PR-5 section pages
+  { name: "statistics", hash: "#/statistics", ready: async (p) => { await expect(p.getByTestId("chart-evidence-level")).toBeVisible(); } },
+  { name: "evidence", hash: "#/evidence", ready: async (p) => { await expect(p.getByTestId("e1-table")).toBeVisible(); } },
+  { name: "structures", hash: "#/structures", ready: async (p) => { await expect(p.getByTestId("pdb-table")).toBeVisible(); } },
+  { name: "watchlist", hash: "#/watchlist", ready: async (p) => { await expect(p.getByTestId("wl-table")).toBeVisible(); } },
+  { name: "search_text", hash: "#/search?q=P02945", ready: async (p) => { await expect(p.getByTestId("text-results")).toBeVisible(); } },
+  { name: "search_seq", hash: "#/search?mode=sequence", ready: async (p) => { await expect(p.getByTestId("seq-not-classifier")).toBeVisible(); } },
+  { name: "downloads", hash: "#/downloads", ready: async (p) => { await expect(p.getByTestId("dl-release-files")).toBeVisible(); } },
+  { name: "methods", hash: "#/methods", ready: async (p) => { await expect(p.getByTestId("methods-denominators")).toBeVisible(); } },
+  { name: "citation", hash: "#/citation", ready: async (p) => { await expect(p.getByTestId("cite-bibtex")).toBeVisible(); } },
+  { name: "help", hash: "#/help", ready: async (p) => { await expect(p.getByTestId("help-faq")).toBeVisible(); } },
 ];
 
 const audit: Record<string, unknown>[] = [];

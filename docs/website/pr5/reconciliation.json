@@ -1,0 +1,460 @@
+{
+ "db_sha256": "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f",
+ "all_ok": true,
+ "rows": [
+  {
+   "kind": "metric",
+   "id": "records_total",
+   "value": 5466,
+   "denominator": "all_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "records_counted",
+   "value": 5460,
+   "denominator": "all_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "records_engineered",
+   "value": 6,
+   "denominator": "all_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "mrdb_accessions",
+   "value": 5299,
+   "denominator": "mrdb_accessions",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "mrdb_multi_source",
+   "value": 129,
+   "denominator": "mrdb_accessions",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "typeI_members",
+   "value": 3089,
+   "denominator": "all_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "typeI_candidates",
+   "value": 1379,
+   "denominator": "all_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "e1_counted",
+   "value": 88,
+   "denominator": "counted_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "e1_total",
+   "value": 91,
+   "denominator": "all_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "e1_unique_sequences",
+   "value": 76,
+   "denominator": "mrdb_accessions",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "call_conflict",
+   "value": 468,
+   "denominator": "all_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "publications",
+   "value": 121,
+   "denominator": "publications",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "publication_links_active",
+   "value": 255,
+   "denominator": "active_links",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "publication_links_support",
+   "value": 141,
+   "denominator": "active_links",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "records_with_publications",
+   "value": 106,
+   "denominator": "all_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "pdb_links",
+   "value": 472,
+   "denominator": "pdb_links",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "pdb_entries",
+   "value": 438,
+   "denominator": "pdb_entries",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "records_with_pdb",
+   "value": 66,
+   "denominator": "all_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "mrdb_with_pdb",
+   "value": 58,
+   "denominator": "mrdb_accessions",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "pdb_entries_with_retinal",
+   "value": 382,
+   "denominator": "pdb_entries",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "records_with_afdb",
+   "value": 4397,
+   "denominator": "all_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "predicted_models",
+   "value": 2,
+   "denominator": "all_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "tree_tips",
+   "value": 472,
+   "denominator": "tree_tips",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "level1_clades",
+   "value": 17,
+   "denominator": "clade_level1_rows",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "backbone_groups",
+   "value": 2,
+   "denominator": "clade_level1_rows",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "subclades",
+   "value": 30,
+   "denominator": null,
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "placements_current",
+   "value": 4996,
+   "denominator": "all_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "watchlist",
+   "value": 181,
+   "denominator": "watchlist",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "members_candidates",
+   "value": 4468,
+   "denominator": "all_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "clade_confident_members_candidates",
+   "value": 3821,
+   "denominator": "members_candidates",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "records_with_afdb_counted",
+   "value": 4391,
+   "denominator": "counted_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "records_with_pdb_counted",
+   "value": 61,
+   "denominator": "counted_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "novel_family_flag",
+   "value": 139,
+   "denominator": "all_records",
+   "sql_replay": true
+  },
+  {
+   "kind": "metric",
+   "id": "foldseek_hits",
+   "value": 786,
+   "denominator": null,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status",
+   "value": 5466,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_group",
+   "value": 5466,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "evidence_level_counted",
+   "value": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "evidence_level_all",
+   "value": 5466,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "func_class_counted",
+   "value": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "tax_domain_counted",
+   "value": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "structure_coverage",
+   "value": 5466,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "afdb_status",
+   "value": 5466,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "pdb_method",
+   "value": 438,
+   "denominator": "pdb_entries",
+   "denominator_value": 438,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "link_role",
+   "value": 255,
+   "denominator": "active_links",
+   "denominator_value": 255,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state",
+   "value": 5466,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "placement_clade_call",
+   "value": 4996,
+   "denominator": "placements_current",
+   "denominator_value": 4996,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_consensus_status",
+   "value": 19,
+   "denominator": "clade_level1_rows",
+   "denominator_value": 19,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "tip_role",
+   "value": 472,
+   "denominator": "tree_tips",
+   "denominator_value": 472,
+   "sums_to_denominator": true,
+   "sql_replay": null
+  },
+  {
+   "kind": "distribution",
+   "id": "watchlist_family",
+   "value": 181,
+   "denominator": "watchlist",
+   "denominator_value": 181,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status_counted",
+   "value": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "value": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "motif_class_counted",
+   "value": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "value": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "length_bin_counted",
+   "value": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "function_basis_category_counted",
+   "value": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state_members_candidates",
+   "value": 4468,
+   "denominator": "members_candidates",
+   "denominator_value": 4468,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "crosstab",
+   "id": "evidence_by_membership_group_counted",
+   "value": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  },
+  {
+   "kind": "crosstab",
+   "id": "evidence_by_basis_category_counted",
+   "value": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "sums_to_denominator": true,
+   "sql_replay": true
+  }
+ ]
+}

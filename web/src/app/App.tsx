@@ -4,17 +4,40 @@ import { SiteHeader } from "../components/SiteHeader";
 import { ErrorState, LoadingSkeleton } from "../components/States";
 import { requestTitleFocus } from "../components/common";
 import { useHash } from "./navigation";
-import { canonicalRedirect, parseHash, routeTitle, type Route } from "./routes";
+import { canonicalRedirect, parseHash, routeTitle, type Route, type SectionPage } from "./routes";
 
 /* Route-level code splitting: each page is its own chunk. */
 const HomePage = lazy(() => import("../pages/HomePage"));
 const BrowsePage = lazy(() => import("../pages/BrowsePage"));
 const RecordPage = lazy(() => import("../pages/RecordPage"));
 const AboutPage = lazy(() => import("../pages/AboutPage"));
-const PlaceholderPage = lazy(() => import("../pages/PlaceholderPage").then((m) => ({ default: m.PlaceholderPage })));
 const PhylogenyPage = lazy(() => import("../pages/PhylogenyPage"));
 const CladePage = lazy(() => import("../pages/CladePage"));
 const NotFoundPage = lazy(() => import("../pages/PlaceholderPage").then((m) => ({ default: m.NotFoundPage })));
+/* PR-5 section pages. */
+const StatisticsPage = lazy(() => import("../pages/StatisticsPage"));
+const EvidencePage = lazy(() => import("../pages/EvidencePage"));
+const StructuresPage = lazy(() => import("../pages/StructuresPage"));
+const WatchlistPage = lazy(() => import("../pages/WatchlistPage"));
+const SearchPage = lazy(() => import("../pages/SearchPage"));
+const DownloadsPage = lazy(() => import("../pages/DownloadsPage"));
+const MethodsPage = lazy(() => import("../pages/MethodsPage"));
+const CitationPage = lazy(() => import("../pages/CitationPage"));
+const HelpPage = lazy(() => import("../pages/HelpPage"));
+
+function sectionPage(page: SectionPage, params: URLSearchParams) {
+  switch (page) {
+    case "statistics": return <StatisticsPage />;
+    case "evidence": return <EvidencePage params={params} />;
+    case "structures": return <StructuresPage params={params} />;
+    case "watchlist": return <WatchlistPage />;
+    case "search": return <SearchPage params={params} />;
+    case "downloads": return <DownloadsPage />;
+    case "methods": return <MethodsPage params={params} />;
+    case "citation": return <CitationPage />;
+    case "help": return <HelpPage />;
+  }
+}
 
 class Boundary extends Component<{ children: ReactNode; resetKey: string }, { error: Error | null }> {
   state = { error: null as Error | null };
@@ -43,7 +66,7 @@ function pageKey(r: Route): string {
     case "record": return `record/${r.accession}`;
     case "phylogeny": return "phylogeny";
     case "clade": return `clade/${r.cladeId}`;
-    case "planned": return `planned/${r.page}`;
+    case "section": return `section/${r.page}`;
     case "not-found": return `nf/${r.path}`;
     default: return r.name;
   }
@@ -57,7 +80,7 @@ function page(r: Route) {
     case "about": return <AboutPage />;
     case "phylogeny": return <PhylogenyPage params={r.params} />;
     case "clade": return <CladePage key={r.cladeId} cladeId={r.cladeId} />;
-    case "planned": return <PlaceholderPage key={r.page} page={r.page} />;
+    case "section": return sectionPage(r.page, r.params);
     case "not-found": return <NotFoundPage path={r.path} />;
   }
 }

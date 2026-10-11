@@ -28,9 +28,9 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-SCHEMA_VERSION = "1.3.0"
+SCHEMA_VERSION = "1.4.0"
 DATASET_RELEASE = "1.6.0"
-WEBSITE_VERSION = "2.0.0-pr4a"
+WEBSITE_VERSION = "2.0.0-pr5"
 DB_REL = "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"
 EXPECTED_DB_SHA256 = "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f"
 TREE_ID = "MR_RT_003"
@@ -458,6 +458,22 @@ def metric_defs():
          "SELECT COUNT(*) FROM placement WHERE is_current = 1 AND tree_id = 'MR_RT_003'", "all_records", "included"),
         ("watchlist", "Novel-family watchlist entries (not part of the corpus)",
          "SELECT COUNT(*) FROM novel_family_candidate", "watchlist", "included"),
+        # schema 1.4.0 (PR-5)
+        ("members_candidates", "Type-I members and candidates",
+         "SELECT COUNT(*) FROM v_master v WHERE " + MEMBER_OR_CANDIDATE, "all_records", "included"),
+        ("clade_confident_members_candidates", "Type-I members and candidates with a confident clade",
+         "SELECT COUNT(*) FROM v_master v WHERE COALESCE(v.clade_id, '') <> '' AND " + MEMBER_OR_CANDIDATE,
+         "members_candidates", "included"),
+        ("records_with_afdb_counted", "Counted source records with an AlphaFold DB model",
+         "SELECT COUNT(*) FROM afdb_model a JOIN v_master v USING (source_acc) WHERE a.status = 'ok' AND "
+         "v.counts_eligible = 1", "counted_records", "excluded"),
+        ("records_with_pdb_counted", "Counted source records with at least one PDB entry",
+         "SELECT COUNT(*) FROM v_master WHERE counts_eligible = 1 AND source_acc IN (SELECT source_acc FROM protein_pdb)",
+         "counted_records", "excluded"),
+        ("novel_family_flag", "Records with a family-HMM flag (novel_family_flag; flag only)",
+         "SELECT COUNT(*) FROM novel_family_flag WHERE novel_family_hit IS NOT NULL", "all_records", "included"),
+        ("foldseek_hits", "Foldseek funnel survivors (foldseek_hit)", "SELECT COUNT(*) FROM foldseek_hit", None,
+         "included"),
     ]
 
 
@@ -501,8 +517,94 @@ def distribution_defs():
         ("tip_role", "Reference tree tip role", None, "tree_tips"),
         ("watchlist_family", "Watchlist family", "SELECT family, COUNT(*) FROM novel_family_candidate GROUP BY 1 "
          "ORDER BY 1", "watchlist"),
+    ] + distribution_defs_v14()
+
+
+# Schema 1.4.0 (PR-5, Statistics Explorer): additional aggregates required by WEBSITE_REDESIGN_SPEC.md 8.1.
+LENGTH_BINS = [(None, 200)] + [(lo, lo + 25) for lo in range(200, 450, 25)] + [(450, None)]
+
+
+def length_bin_sql():
+    cases = []
+    for lo, hi in LENGTH_BINS:
+        key = f"<{hi}" if lo is None else (f">={lo}" if hi is None else f"{lo}-{hi - 1}")
+        cond = f"length < {hi}" if lo is None else (f"length >= {lo}" if hi is None else f"length >= {lo} AND length < {hi}")
+        cases.append(f"WHEN {cond} THEN '{key}'")
+    return "CASE " + " ".join(cases) + " END"
+
+
+BASIS_CATEGORY_SQL = (
+    "CASE WHEN function_basis = 'experimental:this_protein' THEN 'experimental:this_protein' "
+    "WHEN function_basis LIKE 'experimental_ortholog:%' THEN 'experimental_ortholog' "
+    "WHEN function_basis LIKE 'motif+phylogeny:%' THEN 'motif+phylogeny' "
+    "WHEN function_basis LIKE 'legacy_v14_concordant_motif:%' THEN 'legacy_v14_concordant_motif' "
+    "WHEN function_basis LIKE 'legacy_v14_motif_untestable:%' THEN 'legacy_v14_motif_untestable' "
+    "WHEN function_basis LIKE 'curated_rule:%' THEN 'curated_rule' "
+    "WHEN function_basis LIKE 'audit_rule_%' THEN 'audit_rule' "
+    "WHEN function_basis LIKE 'family_hmm_%' THEN 'family_hmm_conflict' "
+    "WHEN function_basis LIKE 'conflict:%' THEN 'conflict' "
+    "WHEN function_basis = 'insufficient' THEN 'insufficient' "
+    "ELSE 'UNMAPPED' END")
+MEMBER_OR_CANDIDATE = ("v.membership_status IN (SELECT status FROM status_definition "
+                       "WHERE status_group IN ('member', 'candidate'))")
+NCBI_PHYLUM_RE = re.compile(r"(?:^|, )([^,]+?) \(phylum\)")
+
+
+def distribution_defs_v14():
+    C = "counts_eligible = 1"
+    return [
+        ("membership_status_counted", "Membership status (counted records)",
+         f"SELECT membership_status, COUNT(*) FROM v_master WHERE {C} GROUP BY 1 ORDER BY 1", "counted_records"),
+        ("ncbi_phylum_counted", "NCBI phylum (counted records)", "PYTHON:ncbi_phylum", "counted_records"),
+        ("motif_class_counted", "Function class implied by the helix-C motif (counted records)",
+         f"SELECT motif_class, COUNT(*) FROM v_master WHERE {C} GROUP BY 1 ORDER BY 1", "counted_records"),
+        ("helixC_motif_counted", "Helix-C motif, BR positions 85/89/96 (counted records)",
+         f"SELECT helixC_motif, COUNT(*) FROM v_master WHERE {C} GROUP BY 1 ORDER BY 2 DESC, 1", "counted_records"),
+        ("length_bin_counted", "Sequence length, 25-residue bins (counted records)",
+         f"SELECT {length_bin_sql()} AS bin, COUNT(*) FROM v_master WHERE {C} GROUP BY 1 ORDER BY MIN(length)",
+         "counted_records"),
+        ("function_basis_category_counted", "Function-call basis category (counted records)",
+         f"SELECT {BASIS_CATEGORY_SQL} AS basis, COUNT(*) FROM v_master WHERE {C} GROUP BY 1 ORDER BY 1",
+         "counted_records"),
+        ("clade_state_members_candidates", "Phylogenetic placement state (Type-I members and candidates)",
+         f"SELECT s.clade_state, COUNT(*) FROM ({CLADE_STATE_SQL}) s JOIN v_master v USING (source_acc) "
+         f"WHERE {MEMBER_OR_CANDIDATE} GROUP BY 1 ORDER BY 1", "members_candidates"),
     ]
 
+
+NCBI_PHYLUM_SQL = ("SELECT p.lineage FROM v_master v JOIN protein p USING (source_acc) WHERE v.counts_eligible = 1")
+NCBI_PHYLUM_DERIVATION = ("protein.lineage of each counted record; phylum = the name tagged '(phylum)' in the NCBI "
+                          "lineage string (regex '(?:^|, )([^,]+?) \\(phylum\\)'); null = no phylum-ranked taxon "
+                          "in the lineage (e.g. viruses, unclassified or unranked eukaryotic lineages). GTDB taxonomy "
+                          "is not used here because it is available only for mapped prokaryotic records.")
+
+
+def ncbi_phylum_items(con):
+    c = Counter()
+    for (lin,) in con.execute(NCBI_PHYLUM_SQL):
+        m = NCBI_PHYLUM_RE.findall(lin or "")
+        require(len(m) <= 1, f"lineage with more than one phylum rank: {lin}")
+        c[m[0] if m else None] += 1
+    return sorted(c.items(), key=lambda kv: (-kv[1], kv[0] or ""))
+
+
+def crosstab_defs():
+    """(id, label, row field, column field, sql returning (row, col, count), denominator_id)."""
+    C = "counts_eligible = 1"
+    return [
+        ("evidence_by_membership_group_counted", "Evidence type by membership group (counted records)",
+         "membership_group", "evidence_level",
+         "SELECT s.status_group, v.evidence_level, COUNT(*) FROM v_master v JOIN status_definition s "
+         f"ON s.status = v.membership_status WHERE v.{C} GROUP BY 1, 2 ORDER BY 1, 2", "counted_records"),
+        ("evidence_by_basis_category_counted", "Evidence type by function-call basis category (counted records)",
+         "function_basis_category", "evidence_level",
+         f"SELECT {BASIS_CATEGORY_SQL} AS basis, evidence_level, COUNT(*) FROM v_master WHERE {C} "
+         "GROUP BY 1, 2 ORDER BY 1, 2", "counted_records"),
+    ]
+
+
+AUDIT_SQL = "SELECT * FROM audit_agreement ORDER BY rowid"
+LOCO_SQL = (f"SELECT * FROM loco_validation WHERE release_set = '{DATASET_RELEASE}' ORDER BY rowid")
 
 DENOMINATORS = {
     "all_records": ("All source records", "SELECT COUNT(*) FROM v_master"),
@@ -518,6 +620,9 @@ DENOMINATORS = {
     "clade_level1_rows": ("Level-1 clade rows (17 clades + 2 backbone groups)",
                           "SELECT COUNT(*) FROM clade WHERE level = 1 AND tree_id = 'MR_RT_003'"),
     "watchlist": ("Watchlist entries", "SELECT COUNT(*) FROM novel_family_candidate"),
+    # schema 1.4.0
+    "members_candidates": ("Type-I members and candidates (all records)",
+                           "SELECT COUNT(*) FROM v_master v WHERE " + MEMBER_OR_CANDIDATE),
 }
 
 
@@ -531,21 +636,196 @@ def build_summary(con, tip_roles):
                         "inclusion": {"engineered": eng, "watchlist": "excluded" if mid != "watchlist" else "only"}})
     dists = []
     for did_, label, sql, denid in distribution_defs():
+        derivation = None
         if sql is None:
             items = [{"key": k, "value": v} for k, v in sorted(Counter(tip_roles.values()).items())]
             src = f"{REFPKG}/tips.tsv (tip_role column)"
+        elif sql == "PYTHON:ncbi_phylum":
+            items = [{"key": k, "value": v} for k, v in ncbi_phylum_items(con)]
+            sql, src, derivation = NCBI_PHYLUM_SQL, None, NCBI_PHYLUM_DERIVATION
         else:
             items = [{"key": k, "value": v} for k, v in con.execute(sql).fetchall()]
             src = None
         total = sum(i["value"] for i in items)
         require(total == den[denid]["value"], f"distribution {did_} sums to {total}, denominator {den[denid]['value']}")
         require(all(i["key"] != "UNMAPPED" for i in items), f"distribution {did_} has UNMAPPED keys")
-        dists.append({"id": did_, "label": label, "sql": sql, "source_file": src, "items": items, "total": total,
-                      "denominator": {"id": denid, "value": den[denid]["value"]}, "dataset_release": DATASET_RELEASE})
+        d = {"id": did_, "label": label, "sql": sql, "source_file": src, "items": items, "total": total,
+             "denominator": {"id": denid, "value": den[denid]["value"]}, "dataset_release": DATASET_RELEASE}
+        if derivation:
+            d["derivation"] = derivation
+        dists.append(d)
+    xtabs = []
+    for xid, label, rf, cf, sql, denid in crosstab_defs():
+        cells = [{"row": r, "col": c, "value": n} for r, c, n in con.execute(sql).fetchall()]
+        total = sum(x["value"] for x in cells)
+        require(total == den[denid]["value"], f"crosstab {xid} sums to {total}, denominator {den[denid]['value']}")
+        require(all(x["row"] != "UNMAPPED" for x in cells), f"crosstab {xid} has UNMAPPED keys")
+        xtabs.append({"id": xid, "label": label, "row_field": rf, "col_field": cf, "sql": sql, "cells": cells,
+                      "total": total, "denominator": {"id": denid, "value": den[denid]["value"]},
+                      "dataset_release": DATASET_RELEASE})
     return {"schema_version": SCHEMA_VERSION, "dataset_release": DATASET_RELEASE, "denominators": den,
-            "metrics": metrics, "distributions": dists,
+            "metrics": metrics, "distributions": dists, "crosstabs": xtabs,
             "notes": ["E1-E5 are evidence types, not probabilities; membership status and evidence level are separate "
                       "axes.", "Counted records exclude the engineered constructs (counts_eligible = 0)."]}
+
+
+# ----------------------------------------------------------------------------------------------- downloads (1.4.0)
+REPO_URL = "https://github.com/CongjianL/MicroRhodoDB"
+RELEASE_TAG = f"v{DATASET_RELEASE}"
+RELEASE_DIR = f"releases/v{DATASET_RELEASE}"
+# Files listed in releases/v1.6.0/SHA256SUMS that are distributed as GitHub Release assets, not git blobs.
+RELEASE_ASSETS_NOT_IN_GIT = {"db/microrhododb_v1.6.0.sqlite"}
+REPO_DOCUMENTS = [
+    ("CITATION.cff", "Citation metadata (Citation File Format)"),
+    ("LICENSE", "Licence text"),
+    ("README.md", "Repository overview"),
+    ("MAINTENANCE.md", "Maintenance and sustainability plan"),
+    ("CHANGELOG.md", "Change log"),
+    ("docs/RELEASE_HISTORY.md", "Release history"),
+    ("tools/mrdb_search.py", "Command-line sequence search against a release database"),
+    (f"{RELEASE_DIR}/tables/data_dictionary_v160.tsv", "Data dictionary for every table and column"),
+]
+WEBSITE_DERIVED = [
+    ("summary.json", "Headline metrics, distributions and cross-tabulations with their SQL"),
+    ("records-index.json", "One row per source record (browse index)"),
+    ("sequences/corpus.fasta", "All corpus sequences, in records-index order"),
+    ("evidence-index.json", "E1 set, curated overrides, engineered constructs, call conflicts, validation"),
+    ("structures-index.json", "PDB entries, AlphaFold DB template and predicted models"),
+    ("publications.json", "Publications and record-publication links"),
+    ("watchlist.json", "Novel-family watchlist (not admitted to the corpus)"),
+    ("clades.json", "MR_CLD3 clades and level-2 subclades"),
+    ("phylogeny/MR_RT_003.rooted.treefile", "Rooted reference tree (Newick), byte-identical to refpkg"),
+    ("vocabulary.json", "Status, function-class, evidence and clade-state definitions"),
+    ("export_manifest.json", "SHA-256, size and record count of every website data file"),
+]
+PLACEHOLDER_RE = re.compile(r"<<PLACEHOLDER(?::\s*([^>]*))?>>")
+
+
+def read_sums(path):
+    out = []
+    for line in path.read_text().splitlines():
+        if line.strip():
+            h, f = line.split(None, 1)
+            out.append((f.strip().lstrip("*").removeprefix("./"), h))
+    return out
+
+
+def git_tracked(repo, paths):
+    """Set of tracked paths, or None when git is unavailable (the static rule is then used unchecked)."""
+    try:
+        res = subprocess.run(["git", "-C", str(repo), "ls-files", "--", *paths], capture_output=True, text=True,
+                             check=True).stdout
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return set(res.split("\n")) - {""}
+
+
+def parse_cff(text):
+    """Minimal CITATION.cff reader (top-level scalars, folded '>-' blocks, author names). Standard library only."""
+    out, authors, lines, i = {}, [], text.splitlines(), 0
+    while i < len(lines):
+        ln = lines[i]
+        m = re.match(r"^([A-Za-z][\w-]*):\s*(.*)$", ln)
+        if not m:
+            i += 1
+            continue
+        key, val = m.group(1), m.group(2).strip()
+        if val in (">-", ">", "|", "|-"):
+            buf, i = [], i + 1
+            while i < len(lines) and (lines[i].startswith(" ") or not lines[i].strip()):
+                buf.append(lines[i].strip())
+                i += 1
+            out[key] = " ".join(x for x in buf if x)
+            continue
+        if key == "authors":
+            i += 1
+            cur = None
+            while i < len(lines) and (lines[i].startswith(" ") or not lines[i].strip()):
+                am = re.match(r"^\s*(-\s*)?([\w-]+):\s*(.*)$", lines[i])
+                if am:
+                    if am.group(1) or cur is None:
+                        cur = {}
+                        authors.append(cur)
+                    cur[am.group(2)] = am.group(3).strip().strip('"')
+                i += 1
+            continue
+        if key == "keywords":
+            i += 1
+            kws = []
+            while i < len(lines) and lines[i].startswith(" "):
+                kws.append(lines[i].strip().lstrip("-").strip())
+                i += 1
+            out[key] = kws
+            continue
+        out[key] = val.strip('"') if val else None
+        i += 1
+    out["authors"] = authors
+    return out
+
+
+def build_downloads(repo, md, db_sha):
+    sums = read_sums(repo / RELEASE_DIR / "SHA256SUMS")
+    rel_paths = [f"{RELEASE_DIR}/{p}" for p, _ in sums]
+    tracked = git_tracked(repo, rel_paths + [d for d, _ in REPO_DOCUMENTS])
+    release_files = []
+    for p, h in sums:
+        full = repo / RELEASE_DIR / p
+        in_git = p not in RELEASE_ASSETS_NOT_IN_GIT
+        if tracked is not None:
+            require((f"{RELEASE_DIR}/{p}" in tracked) == in_git,
+                    f"{p}: git tracking disagrees with RELEASE_ASSETS_NOT_IN_GIT")
+        require(full.is_file(), f"release file missing: {full}", "BLOCKED_DATA_SOURCE")
+        size = full.stat().st_size
+        if p == "db/microrhododb_v1.6.0.sqlite":
+            require(h == db_sha, "SHA256SUMS database hash differs from the verified database")
+        release_files.append({
+            "path": p, "sha256": h, "bytes": size, "in_git_at_tag": in_git,
+            "url": f"{REPO_URL}/blob/{RELEASE_TAG}/{RELEASE_DIR}/{p}" if in_git else f"{REPO_URL}/releases/tag/{RELEASE_TAG}",
+            "distribution": "git (repository file at the release tag)" if in_git else
+                            "GitHub Release asset (asset file name not verified by the exporter)"})
+    refpkg_files = [{"path": p, "sha256": h,
+                     "url": f"{REPO_URL}/blob/{RELEASE_TAG}/{REFPKG}/{p}"} for p, h in read_sums(repo / REFPKG / "SHA256SUMS")]
+    docs = []
+    for path, desc in REPO_DOCUMENTS:
+        full = repo / path
+        require(full.is_file(), f"repository document missing: {path}", "BLOCKED_DATA_SOURCE")
+        docs.append({"path": path, "description": desc, "sha256": sha256_file(full), "bytes": full.stat().st_size,
+                     "url": f"{REPO_URL}/blob/{RELEASE_TAG}/{path}"})
+    cff = parse_cff((repo / "CITATION.cff").read_text())
+    require(cff.get("version") == DATASET_RELEASE, "CITATION.cff version differs from the dataset release")
+    maint = []
+    for ln in (repo / "MAINTENANCE.md").read_text().splitlines():
+        for m in PLACEHOLDER_RE.finditer(ln):
+            if m.group(1):
+                ctx = PLACEHOLDER_RE.sub("[not supplied]", ln).replace("`", "").replace("**", "")
+                maint.append({"hint": m.group(1).strip(), "status": "not supplied (pending confirmation by the maintainer)",
+                              "context": re.sub(r"\s+", " ", ctx).strip(" -|*.").strip()})
+    history = []
+    for d in sorted((repo / "releases").iterdir(), key=lambda x: [int(t) if t.isdigit() else t
+                                                                  for t in re.split(r"[.v]", x.name) if t]):
+        if d.is_dir():
+            notes = sorted(x.name for x in d.glob("RELEASE_NOTES*"))
+            history.append({"release": d.name, "has_sha256sums": (d / "SHA256SUMS").is_file(),
+                            "release_notes": notes[0] if notes else None,
+                            "url": f"{REPO_URL}/tree/{RELEASE_TAG}/releases/{d.name}",
+                            "current": d.name == RELEASE_TAG})
+    return {
+        "dataset_release": DATASET_RELEASE, "website_version": WEBSITE_VERSION,
+        "version_note": "The website version identifies the browser software only; the data release is "
+                        f"{DATASET_RELEASE}.",
+        "release": {"tag": RELEASE_TAG, "url": f"{REPO_URL}/releases/tag/{RELEASE_TAG}",
+                    "release_date": md.get("release_date"), "license": md.get("license"),
+                    "sha256sums_url": f"{REPO_URL}/blob/{RELEASE_TAG}/{RELEASE_DIR}/SHA256SUMS"},
+        "release_files": release_files, "refpkg_files": refpkg_files, "repository_documents": docs,
+        "website_derived": [{"path": p, "description": d} for p, d in WEBSITE_DERIVED],
+        "website_derived_note": "Website files are derived from the release database by tools/export_web_data.py; "
+                                "their SHA-256 values are listed in export_manifest.json. Cite the release, not the "
+                                "website files.",
+        "citation": {k: cff.get(k) for k in ("title", "version", "date-released", "repository-code", "license",
+                                             "message", "type", "doi", "abstract")} | {"authors": cff["authors"]},
+        "citation_source": "CITATION.cff",
+        "maintenance_placeholders": maint, "release_history": history,
+    }
 
 
 # ----------------------------------------------------------------------------------------------- export
@@ -977,6 +1257,13 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
         "call_conflict": [r["source_acc"] for r in recs if r["function"]["call_conflict"]],
         "override_rules": dict(sorted(override.items())),
         "function_conflict_rule": md.get("function_conflict_rule"), "engineered_policy": md.get("engineered_policy"),
+        "validation": {  # schema 1.4.0 (PR-5)
+            "audit_agreement": rows(con, AUDIT_SQL), "audit_sql": AUDIT_SQL,
+            "loco": rows(con, LOCO_SQL), "loco_sql": LOCO_SQL,
+            "ci_method": "Wilson score interval (ci_method = 'wilson' in loco_validation; wilson_lo/wilson_hi in "
+                         "audit_agreement).",
+            "note": "Validation rows are copied verbatim from the release database; the website computes nothing.",
+        },
     }), len(e1))
 
     # ---------------- clades
@@ -1245,6 +1532,10 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
                     "func_class": "func_class_definition (counts omitted; see summary.json)",
                     "clade_state": "exporter CLADE_STATE_SQL rules (WEB_DATA_CONTRACT.md section 7.3)"},
     }), 9 + 11 + 5)
+
+    # ---------------- downloads (schema 1.4.0, PR-5)
+    dl = build_downloads(repo, md, db_sha)
+    put(R + "downloads.json", dumps(dl), len(dl["release_files"]))
 
     # ---------------- summary + manifest + current
     summary = build_summary(con, tip_roles)

@@ -1,17 +1,6 @@
-/** Clearly labelled placeholders for destinations implemented in later PRs, plus Not Found. */
-import { PLANNED_PAGES, href, type PlannedPage } from "../app/routes";
+/** Not Found page (the PR-2..PR-4 "planned" placeholders were replaced by real pages in PR-5). */
+import { href } from "../app/routes";
 import { PageTitle, SearchBox } from "../components/common";
-import { PlannedNotice } from "../components/States";
-
-export function PlaceholderPage({ page }: { page: PlannedPage }) {
-  const p = PLANNED_PAGES[page];
-  return (
-    <div className="container-page pt-6" data-testid={`planned-${page}`}>
-      <PageTitle docTitle={`${p.title} (planned) - MicroRhodoDB`}>{p.title}</PageTitle>
-      <PlannedNotice page={page} />
-    </div>
-  );
-}
 
 export function NotFoundPage({ path }: { path: string }) {
   return (

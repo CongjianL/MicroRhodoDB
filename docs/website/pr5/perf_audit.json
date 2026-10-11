@@ -1,0 +1,3048 @@
+{
+ "generated_by": "web/scripts/pr5_perf_audit.py",
+ "environment": {
+  "machine": "Linux x86_64, 16 logical CPUs (sandbox)",
+  "python": "3.11.16",
+  "browser": "Chromium 153.0.8010.12 (Playwright headless)",
+  "server": "scripts/serve_e2e.py (loopback, no compression, Cache-Control: no-store)",
+  "viewport": "1440x900",
+  "runs_per_route": 5,
+  "cache": "cold (new browser context per run)",
+  "throttling": "none"
+ },
+ "routes": [
+  {
+   "id": "home",
+   "hash": "#/",
+   "files": [
+    {
+     "file": "assets/echarts-core-0HeO-QSV.js",
+     "kind": "js",
+     "raw": 475468,
+     "gzip": 157390
+    },
+    {
+     "file": "assets/index-DEgtOfn-.js",
+     "kind": "js",
+     "raw": 170100,
+     "gzip": 54688
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 157387,
+     "gzip": 14434
+    },
+    {
+     "file": "data/v1.6.0/phylogeny/tips.json",
+     "kind": "data",
+     "raw": 91433,
+     "gzip": 5912
+    },
+    {
+     "file": "assets/index-1Nt4oYPV.css",
+     "kind": "css",
+     "raw": 42841,
+     "gzip": 8315
+    },
+    {
+     "file": "data/v1.6.0/summary.json",
+     "kind": "data",
+     "raw": 38490,
+     "gzip": 6417
+    },
+    {
+     "file": "data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+     "kind": "data",
+     "raw": 17517,
+     "gzip": 8325
+    },
+    {
+     "file": "assets/HomePage-rYD10Yg8.js",
+     "kind": "js",
+     "raw": 14930,
+     "gzip": 4880
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/TreePreview-D-3Tj028.js",
+     "kind": "js",
+     "raw": 5157,
+     "gzip": 2145
+    },
+    {
+     "file": "assets/tslib.es6-MM1X6Oub.js",
+     "kind": "js",
+     "raw": 3740,
+     "gzip": 1529
+    },
+    {
+     "file": "assets/BarChart-D4mhKvsY.js",
+     "kind": "js",
+     "raw": 3533,
+     "gzip": 1548
+    },
+    {
+     "file": "assets/palette-CPFiN25S.js",
+     "kind": "js",
+     "raw": 2973,
+     "gzip": 1292
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 590
+    },
+    {
+     "file": "assets/CladeSupportNotice-CAqUUVCS.js",
+     "kind": "js",
+     "raw": 1092,
+     "gzip": 653
+    },
+    {
+     "file": "assets/summary-qvDt0ZTw.js",
+     "kind": "js",
+     "raw": 827,
+     "gzip": 427
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 678536,
+     "gzip": 224982
+    },
+    "css": {
+     "raw": 42841,
+     "gzip": 8315
+    },
+    "data": {
+     "raw": 313268,
+     "gzip": 38579
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 780
+    },
+    "all": {
+     "raw": 1035997,
+     "gzip": 272656
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [],
+   "timing_ms_median": {
+    "fcp": 236,
+    "dom_content_loaded": 103,
+    "load": 103.1,
+    "ready": 463.1
+   },
+   "timing_ms_ready_all_runs": [
+    463.1,
+    388.1,
+    531.8,
+    387.1,
+    556.4
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(8,127,120)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 4.65,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "MicroRhodoDB knowledgebase"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 5.17,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Methods"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 5.55,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "MR_CLD3_017"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "CC BY 4.0 (data); MIT (code)"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Search"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 64,
+     "sample": "P02945"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 5.95,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Fungal rhodopsins (CarO / LR / NOP-1-lik"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 21,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 109,
+     "sample": "UniProt source records, engineered const"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Home"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "fails thresholds"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 8.24,
+     "large": false,
+     "need": 4.5,
+     "count": 6,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 13.99,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Membership status is distinct from funct"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 14,
+     "sample": "Category"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 20,
+     "sample": "100"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 17,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Explore the diversity of microbial rhodo"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 153,
+     "sample": "Explore phylogeny"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": true,
+     "need": 3,
+     "count": 6,
+     "sample": "5,466"
+    }
+   ],
+   "contrast_failures": [],
+   "baseline": {
+    "total_gzip": 266560,
+    "ready_ms_median": 509
+   }
+  },
+  {
+   "id": "statistics",
+   "hash": "#/statistics",
+   "files": [
+    {
+     "file": "data/v1.6.0/records-index.json",
+     "kind": "data",
+     "raw": 4238744,
+     "gzip": 368890
+    },
+    {
+     "file": "assets/echarts-core-0HeO-QSV.js",
+     "kind": "js",
+     "raw": 475468,
+     "gzip": 157390
+    },
+    {
+     "file": "assets/index-DEgtOfn-.js",
+     "kind": "js",
+     "raw": 170100,
+     "gzip": 54688
+    },
+    {
+     "file": "assets/index-1Nt4oYPV.css",
+     "kind": "css",
+     "raw": 42841,
+     "gzip": 8315
+    },
+    {
+     "file": "data/v1.6.0/summary.json",
+     "kind": "data",
+     "raw": 38490,
+     "gzip": 6417
+    },
+    {
+     "file": "assets/StatisticsPage-DJXmCGuN.js",
+     "kind": "js",
+     "raw": 22901,
+     "gzip": 6442
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/browse-BnSmEpkB.js",
+     "kind": "js",
+     "raw": 4863,
+     "gzip": 1992
+    },
+    {
+     "file": "assets/stats-DnRAqohq.js",
+     "kind": "js",
+     "raw": 4554,
+     "gzip": 1785
+    },
+    {
+     "file": "assets/tslib.es6-MM1X6Oub.js",
+     "kind": "js",
+     "raw": 3740,
+     "gzip": 1529
+    },
+    {
+     "file": "assets/BarChart-D4mhKvsY.js",
+     "kind": "js",
+     "raw": 3533,
+     "gzip": 1548
+    },
+    {
+     "file": "assets/Provenance-C8-b20as.js",
+     "kind": "js",
+     "raw": 2850,
+     "gzip": 1022
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 590
+    },
+    {
+     "file": "assets/summary-qvDt0ZTw.js",
+     "kind": "js",
+     "raw": 827,
+     "gzip": 427
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "assets/chartColors-n2BareSK.js",
+     "kind": "js",
+     "raw": 388,
+     "gzip": 284
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 689940,
+     "gzip": 227537
+    },
+    "css": {
+     "raw": 42841,
+     "gzip": 8315
+    },
+    "data": {
+     "raw": 4285675,
+     "gzip": 378798
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 780
+    },
+    "all": {
+     "raw": 5019808,
+     "gzip": 615430
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [
+    "records-index.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 240,
+    "dom_content_loaded": 107.6,
+    "load": 107.7,
+    "ready": 693.9
+   },
+   "timing_ms_ready_all_runs": [
+    628.1,
+    693.9,
+    749,
+    737.2,
+    630.3
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "All source records"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 104,
+     "sample": "How this is counted"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 25,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 297,
+     "sample": "All UniProt source records, including 6 "
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "More"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 59,
+     "sample": "Category"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 18,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Statistics"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": true,
+     "need": 3,
+     "count": 7,
+     "sample": "5,466"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 381,
+     "sample": "Source records"
+    }
+   ],
+   "contrast_failures": [],
+   "interactions_ms": {
+    "stats_runtime_recount": {
+     "median": 252,
+     "max": 308,
+     "all_runs": [
+      277,
+      252,
+      308,
+      243,
+      223
+     ],
+     "long_tasks_max_ms": 79,
+     "long_tasks_total": 5
+    }
+   }
+  },
+  {
+   "id": "evidence",
+   "hash": "#/evidence",
+   "files": [
+    {
+     "file": "data/v1.6.0/records-index.json",
+     "kind": "data",
+     "raw": 4238744,
+     "gzip": 368890
+    },
+    {
+     "file": "assets/index-DEgtOfn-.js",
+     "kind": "js",
+     "raw": 170100,
+     "gzip": 54688
+    },
+    {
+     "file": "data/v1.6.0/publications.json",
+     "kind": "data",
+     "raw": 144494,
+     "gzip": 18244
+    },
+    {
+     "file": "assets/index-1Nt4oYPV.css",
+     "kind": "css",
+     "raw": 42841,
+     "gzip": 8315
+    },
+    {
+     "file": "data/v1.6.0/summary.json",
+     "kind": "data",
+     "raw": 38490,
+     "gzip": 6417
+    },
+    {
+     "file": "data/v1.6.0/evidence-index.json",
+     "kind": "data",
+     "raw": 34384,
+     "gzip": 6844
+    },
+    {
+     "file": "assets/EvidencePage-e1vHg8yY.js",
+     "kind": "js",
+     "raw": 26915,
+     "gzip": 6548
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/browse-BnSmEpkB.js",
+     "kind": "js",
+     "raw": 4863,
+     "gzip": 1992
+    },
+    {
+     "file": "assets/stats-DnRAqohq.js",
+     "kind": "js",
+     "raw": 4554,
+     "gzip": 1785
+    },
+    {
+     "file": "assets/Provenance-C8-b20as.js",
+     "kind": "js",
+     "raw": 2850,
+     "gzip": 1022
+    },
+    {
+     "file": "assets/Badges-Egx0yMJ7.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 688
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "assets/ui-COKfdDFL.js",
+     "kind": "js",
+     "raw": 1587,
+     "gzip": 812
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 590
+    },
+    {
+     "file": "assets/summary-qvDt0ZTw.js",
+     "kind": "js",
+     "raw": 827,
+     "gzip": 427
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "assets/Paged-B3k70jNS.js",
+     "kind": "js",
+     "raw": 613,
+     "gzip": 413
+    },
+    {
+     "file": "assets/useSectionScroll-C-D7w1nM.js",
+     "kind": "js",
+     "raw": 371,
+     "gzip": 294
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 215163,
+     "gzip": 69099
+    },
+    "css": {
+     "raw": 42841,
+     "gzip": 8315
+    },
+    "data": {
+     "raw": 4464553,
+     "gzip": 403886
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 780
+    },
+    "all": {
+     "raw": 4723909,
+     "gzip": 482080
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [
+    "evidence-index.json",
+    "publications.json",
+    "records-index.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 248,
+    "dom_content_loaded": 107.7,
+    "load": 107.7,
+    "ready": 566.4
+   },
+   "timing_ms_ready_all_runs": [
+    544.2,
+    587.7,
+    566.4,
+    549.5,
+    617.1
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Methods: validation"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "E2"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 501,
+     "sample": "88"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 62,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 559,
+     "sample": "counted of"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "More"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "Read evidence levels as evidence types, "
+    },
+    {
+     "fg": "rgb(20,83,45)",
+     "bg": "rgb(231,245,238)",
+     "ratio": 8.11,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Member (curated override)"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(15,79,145)",
+     "ratio": 8.24,
+     "large": false,
+     "need": 4.5,
+     "count": 28,
+     "sample": "E1"
+    },
+    {
+     "fg": "rgb(15,61,110)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 9.62,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "E3"
+    },
+    {
+     "fg": "rgb(30,47,69)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 12.97,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E4"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 53,
+     "sample": "Basis"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "E1\u2013E5 describe what kind of support exis"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 53,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Evidence explorer"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 714,
+     "sample": "Levels"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "structures",
+   "hash": "#/structures",
+   "files": [
+    {
+     "file": "data/v1.6.0/records-index.json",
+     "kind": "data",
+     "raw": 4238744,
+     "gzip": 368890
+    },
+    {
+     "file": "assets/index-DEgtOfn-.js",
+     "kind": "js",
+     "raw": 170100,
+     "gzip": 54688
+    },
+    {
+     "file": "data/v1.6.0/structures-index.json",
+     "kind": "data",
+     "raw": 127339,
+     "gzip": 14595
+    },
+    {
+     "file": "assets/index-1Nt4oYPV.css",
+     "kind": "css",
+     "raw": 42841,
+     "gzip": 8315
+    },
+    {
+     "file": "data/v1.6.0/summary.json",
+     "kind": "data",
+     "raw": 38490,
+     "gzip": 6417
+    },
+    {
+     "file": "assets/StructureViewer-CFNDKofO.js",
+     "kind": "js",
+     "raw": 17897,
+     "gzip": 6633
+    },
+    {
+     "file": "assets/StructuresPage-DsoYi3Tx.js",
+     "kind": "js",
+     "raw": 16478,
+     "gzip": 4823
+    },
+    {
+     "file": "assets/browse-BnSmEpkB.js",
+     "kind": "js",
+     "raw": 4863,
+     "gzip": 1992
+    },
+    {
+     "file": "assets/Badges-Egx0yMJ7.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 688
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 590
+    },
+    {
+     "file": "assets/summary-qvDt0ZTw.js",
+     "kind": "js",
+     "raw": 827,
+     "gzip": 427
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "assets/Paged-B3k70jNS.js",
+     "kind": "js",
+     "raw": 613,
+     "gzip": 413
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 213261,
+     "gzip": 70094
+    },
+    "css": {
+     "raw": 42841,
+     "gzip": 8315
+    },
+    "data": {
+     "raw": 4406401,
+     "gzip": 391020
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 780
+    },
+    "all": {
+     "raw": 4663855,
+     "gzip": 470209
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [
+    "records-index.json",
+    "structures-index.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 240,
+    "dom_content_loaded": 115.2,
+    "load": 115.3,
+    "ready": 492.4
+   },
+   "timing_ms_ready_all_runs": [
+    505.2,
+    526.1,
+    488.2,
+    492.4,
+    481.4
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 53,
+     "sample": "7Z09"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 12,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 110,
+     "sample": "382 contain retinal"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Structures"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "PDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 25,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Structure explorer"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": true,
+     "need": 3,
+     "count": 5,
+     "sample": "438"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 167,
+     "sample": "Distinct PDB entries"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "watchlist",
+   "hash": "#/watchlist",
+   "files": [
+    {
+     "file": "assets/echarts-core-0HeO-QSV.js",
+     "kind": "js",
+     "raw": 475468,
+     "gzip": 157390
+    },
+    {
+     "file": "assets/index-DEgtOfn-.js",
+     "kind": "js",
+     "raw": 170100,
+     "gzip": 54688
+    },
+    {
+     "file": "data/v1.6.0/watchlist.json",
+     "kind": "data",
+     "raw": 69489,
+     "gzip": 5792
+    },
+    {
+     "file": "assets/index-1Nt4oYPV.css",
+     "kind": "css",
+     "raw": 42841,
+     "gzip": 8315
+    },
+    {
+     "file": "data/v1.6.0/summary.json",
+     "kind": "data",
+     "raw": 38490,
+     "gzip": 6417
+    },
+    {
+     "file": "assets/WatchlistPage-DP3-CpJI.js",
+     "kind": "js",
+     "raw": 9634,
+     "gzip": 3352
+    },
+    {
+     "file": "assets/tslib.es6-MM1X6Oub.js",
+     "kind": "js",
+     "raw": 3740,
+     "gzip": 1529
+    },
+    {
+     "file": "assets/BarChart-D4mhKvsY.js",
+     "kind": "js",
+     "raw": 3533,
+     "gzip": 1548
+    },
+    {
+     "file": "assets/Provenance-C8-b20as.js",
+     "kind": "js",
+     "raw": 2850,
+     "gzip": 1022
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "assets/ui-COKfdDFL.js",
+     "kind": "js",
+     "raw": 1587,
+     "gzip": 812
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 590
+    },
+    {
+     "file": "assets/summary-qvDt0ZTw.js",
+     "kind": "js",
+     "raw": 827,
+     "gzip": 427
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "assets/Paged-B3k70jNS.js",
+     "kind": "js",
+     "raw": 613,
+     "gzip": 413
+    },
+    {
+     "file": "assets/chartColors-n2BareSK.js",
+     "kind": "js",
+     "raw": 388,
+     "gzip": 284
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 669456,
+     "gzip": 221895
+    },
+    "css": {
+     "raw": 42841,
+     "gzip": 8315
+    },
+    "data": {
+     "raw": 109807,
+     "gzip": 13327
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 780
+    },
+    "all": {
+     "raw": 823456,
+     "gzip": 244317
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [],
+   "timing_ms_median": {
+    "fcp": 240,
+    "dom_content_loaded": 119.3,
+    "load": 119.3,
+    "ready": 411.7
+   },
+   "timing_ms_ready_all_runs": [
+    468.6,
+    361.4,
+    361,
+    455.3,
+    411.7
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 40,
+     "sample": "How this is counted"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 87,
+     "sample": "Watchlist entries"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "More"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Not admitted to the corpus"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 20,
+     "sample": "Category"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "Watchlist entries are not corpus records"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 22,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Novel-family watchlist"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 593,
+     "sample": "Watchlist entries by family"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "search_text",
+   "hash": "#/search?q=bacteriorhodopsin",
+   "files": [
+    {
+     "file": "data/v1.6.0/records-index.json",
+     "kind": "data",
+     "raw": 4238744,
+     "gzip": 368890
+    },
+    {
+     "file": "assets/index-DEgtOfn-.js",
+     "kind": "js",
+     "raw": 170100,
+     "gzip": 54688
+    },
+    {
+     "file": "assets/index-1Nt4oYPV.css",
+     "kind": "css",
+     "raw": 42841,
+     "gzip": 8315
+    },
+    {
+     "file": "assets/SearchPage-0Bz9pBCi.js",
+     "kind": "js",
+     "raw": 20214,
+     "gzip": 6858
+    },
+    {
+     "file": "assets/browse-BnSmEpkB.js",
+     "kind": "js",
+     "raw": 4863,
+     "gzip": 1992
+    },
+    {
+     "file": "assets/swCore-D3j4J5mT.js",
+     "kind": "js",
+     "raw": 2772,
+     "gzip": 1463
+    },
+    {
+     "file": "assets/Badges-Egx0yMJ7.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 688
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "assets/ui-COKfdDFL.js",
+     "kind": "js",
+     "raw": 1587,
+     "gzip": 812
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 590
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "assets/Paged-B3k70jNS.js",
+     "kind": "js",
+     "raw": 613,
+     "gzip": 413
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 202632,
+     "gzip": 67344
+    },
+    "css": {
+     "raw": 42841,
+     "gzip": 8315
+    },
+    "data": {
+     "raw": 4240572,
+     "gzip": 370008
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 780
+    },
+    "all": {
+     "raw": 4487397,
+     "gzip": 446447
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [
+    "records-index.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 232,
+    "dom_content_loaded": 108.3,
+    "load": 108.4,
+    "ready": 529
+   },
+   "timing_ms_ready_all_runs": [
+    564.3,
+    529,
+    517.7,
+    507,
+    613.9
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "P02945"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "Text and identifiers"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 203,
+     "sample": "MRDB000001"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 9,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 499,
+     "sample": "B0R5N9"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Search"
+    },
+    {
+     "fg": "rgb(20,83,45)",
+     "bg": "rgb(231,245,238)",
+     "ratio": 8.11,
+     "large": false,
+     "need": 4.5,
+     "count": 190,
+     "sample": "Member (core)"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(15,79,145)",
+     "ratio": 8.24,
+     "large": false,
+     "need": 4.5,
+     "count": 6,
+     "sample": "E1"
+    },
+    {
+     "fg": "rgb(138,28,19)",
+     "bg": "rgb(254,243,242)",
+     "ratio": 8.56,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Decoy / rejected"
+    },
+    {
+     "fg": "rgb(43,58,140)",
+     "bg": "rgb(238,242,255)",
+     "ratio": 9,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "Candidate"
+    },
+    {
+     "fg": "rgb(76,42,133)",
+     "bg": "rgb(245,240,255)",
+     "ratio": 9.5,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Boundary family"
+    },
+    {
+     "fg": "rgb(15,61,110)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 9.62,
+     "large": false,
+     "need": 4.5,
+     "count": 71,
+     "sample": "E3"
+    },
+    {
+     "fg": "rgb(30,47,69)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 12.97,
+     "large": false,
+     "need": 4.5,
+     "count": 72,
+     "sample": "E4"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "Record"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 25,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Search"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 762,
+     "sample": "Protein sequence"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "search_sequence",
+   "hash": "#/search?mode=sequence",
+   "files": [
+    {
+     "file": "data/v1.6.0/records-index.json",
+     "kind": "data",
+     "raw": 4238744,
+     "gzip": 368890
+    },
+    {
+     "file": "data/v1.6.0/sequences/corpus.fasta",
+     "kind": "data",
+     "raw": 1865241,
+     "gzip": 724232
+    },
+    {
+     "file": "assets/index-DEgtOfn-.js",
+     "kind": "js",
+     "raw": 170100,
+     "gzip": 54688
+    },
+    {
+     "file": "data/v1.6.0/records/MRDB000001.json",
+     "kind": "data",
+     "raw": 58869,
+     "gzip": 9642
+    },
+    {
+     "file": "assets/index-1Nt4oYPV.css",
+     "kind": "css",
+     "raw": 42841,
+     "gzip": 8315
+    },
+    {
+     "file": "assets/SearchPage-0Bz9pBCi.js",
+     "kind": "js",
+     "raw": 20214,
+     "gzip": 6858
+    },
+    {
+     "file": "assets/seqSearch.worker-BDPbH1qa.js",
+     "kind": "js",
+     "raw": 6482,
+     "gzip": 2675
+    },
+    {
+     "file": "assets/browse-BnSmEpkB.js",
+     "kind": "js",
+     "raw": 4863,
+     "gzip": 1992
+    },
+    {
+     "file": "assets/swCore-D3j4J5mT.js",
+     "kind": "js",
+     "raw": 2772,
+     "gzip": 1463
+    },
+    {
+     "file": "assets/Badges-Egx0yMJ7.js",
+     "kind": "js",
+     "raw": 1767,
+     "gzip": 688
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "assets/ui-COKfdDFL.js",
+     "kind": "js",
+     "raw": 1587,
+     "gzip": 812
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 590
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "assets/Paged-B3k70jNS.js",
+     "kind": "js",
+     "raw": 613,
+     "gzip": 413
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 209114,
+     "gzip": 70019
+    },
+    "css": {
+     "raw": 42841,
+     "gzip": 8315
+    },
+    "data": {
+     "raw": 6164682,
+     "gzip": 1103882
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 780
+    },
+    "all": {
+     "raw": 6417989,
+     "gzip": 1182996
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [
+    "records-index.json",
+    "records/MRDB000001.json",
+    "sequences/corpus.fasta"
+   ],
+   "timing_ms_median": {
+    "fcp": 220,
+    "dom_content_loaded": 99.1,
+    "load": 99.1,
+    "ready": 271.8
+   },
+   "timing_ms_ready_all_runs": [
+    319.9,
+    271.8,
+    209.4,
+    264.5,
+    338.6
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 5.17,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Downloads"
+    },
+    {
+     "fg": "rgb(255,255,255)",
+     "bg": "rgb(22,101,181)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Protein sequence"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "About"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 6,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "An evidence-aware knowledgebase of micro"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Search"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 13.99,
+     "large": false,
+     "need": 4.5,
+     "count": 19,
+     "sample": "Method:"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 9,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Search"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 10,
+     "sample": "Text and identifiers"
+    }
+   ],
+   "contrast_failures": [],
+   "interactions_ms": {
+    "seq_load_example": {
+     "median": 102,
+     "max": 140,
+     "all_runs": [
+      140,
+      105,
+      65,
+      102,
+      94
+     ],
+     "long_tasks_max_ms": 0,
+     "long_tasks_total": 0
+    },
+    "seq_search_P02945": {
+     "median": 1411,
+     "max": 1559,
+     "all_runs": [
+      1427,
+      1559,
+      1411,
+      1395,
+      1394
+     ],
+     "long_tasks_max_ms": 87,
+     "long_tasks_total": 1
+    }
+   }
+  },
+  {
+   "id": "downloads",
+   "hash": "#/downloads",
+   "files": [
+    {
+     "file": "assets/index-DEgtOfn-.js",
+     "kind": "js",
+     "raw": 170100,
+     "gzip": 54688
+    },
+    {
+     "file": "assets/index-1Nt4oYPV.css",
+     "kind": "css",
+     "raw": 42841,
+     "gzip": 8315
+    },
+    {
+     "file": "data/v1.6.0/downloads.json",
+     "kind": "data",
+     "raw": 27973,
+     "gzip": 7320
+    },
+    {
+     "file": "assets/DownloadsPage-CdSNrSSp.js",
+     "kind": "js",
+     "raw": 9920,
+     "gzip": 2703
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "assets/citation-BJ9fqudp.js",
+     "kind": "js",
+     "raw": 1663,
+     "gzip": 853
+    },
+    {
+     "file": "assets/ui-COKfdDFL.js",
+     "kind": "js",
+     "raw": 1587,
+     "gzip": 812
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 590
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "assets/Paged-B3k70jNS.js",
+     "kind": "js",
+     "raw": 613,
+     "gzip": 413
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 184599,
+     "gzip": 59899
+    },
+    "css": {
+     "raw": 42841,
+     "gzip": 8315
+    },
+    "data": {
+     "raw": 29801,
+     "gzip": 8438
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 780
+    },
+    "all": {
+     "raw": 258593,
+     "gzip": 77432
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [],
+   "timing_ms_median": {
+    "fcp": 184,
+    "dom_content_loaded": 77.6,
+    "load": 79.2,
+    "ready": 299.8
+   },
+   "timing_ms_ready_all_runs": [
+    295.5,
+    299.8,
+    314.8,
+    293.6,
+    310.9
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 5.55,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "release page"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 10,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 102,
+     "sample": "RELEASE_NOTES_v1.6.0.md"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 30,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 9,
+     "sample": "none in the repository"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Downloads"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Release database file"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 15,
+     "sample": "File"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 6,
+     "sample": "db/microrhododb_v1.6.0.sqlite"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 71,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Downloads"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 374,
+     "sample": "12 kB"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "methods",
+   "hash": "#/methods",
+   "files": [
+    {
+     "file": "assets/index-DEgtOfn-.js",
+     "kind": "js",
+     "raw": 170100,
+     "gzip": 54688
+    },
+    {
+     "file": "data/v1.6.0/clades.json",
+     "kind": "data",
+     "raw": 157387,
+     "gzip": 14434
+    },
+    {
+     "file": "data/v1.6.0/structures-index.json",
+     "kind": "data",
+     "raw": 127339,
+     "gzip": 14595
+    },
+    {
+     "file": "data/v1.6.0/watchlist.json",
+     "kind": "data",
+     "raw": 69489,
+     "gzip": 5792
+    },
+    {
+     "file": "assets/index-1Nt4oYPV.css",
+     "kind": "css",
+     "raw": 42841,
+     "gzip": 8315
+    },
+    {
+     "file": "data/v1.6.0/summary.json",
+     "kind": "data",
+     "raw": 38490,
+     "gzip": 6417
+    },
+    {
+     "file": "data/v1.6.0/evidence-index.json",
+     "kind": "data",
+     "raw": 34384,
+     "gzip": 6844
+    },
+    {
+     "file": "data/v1.6.0/downloads.json",
+     "kind": "data",
+     "raw": 27973,
+     "gzip": 7320
+    },
+    {
+     "file": "assets/MethodsPage-Q88aCdBb.js",
+     "kind": "js",
+     "raw": 13090,
+     "gzip": 4288
+    },
+    {
+     "file": "data/v1.6.0/vocabulary.json",
+     "kind": "data",
+     "raw": 6613,
+     "gzip": 2373
+    },
+    {
+     "file": "assets/swCore-D3j4J5mT.js",
+     "kind": "js",
+     "raw": 2772,
+     "gzip": 1463
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "assets/ui-COKfdDFL.js",
+     "kind": "js",
+     "raw": 1587,
+     "gzip": 812
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 590
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "assets/Paged-B3k70jNS.js",
+     "kind": "js",
+     "raw": 613,
+     "gzip": 413
+    },
+    {
+     "file": "assets/useSectionScroll-C-D7w1nM.js",
+     "kind": "js",
+     "raw": 371,
+     "gzip": 294
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 189249,
+     "gzip": 62388
+    },
+    "css": {
+     "raw": 42841,
+     "gzip": 8315
+    },
+    "data": {
+     "raw": 463503,
+     "gzip": 58893
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 780
+    },
+    "all": {
+     "raw": 696945,
+     "gzip": 130376
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [
+    "evidence-index.json",
+    "structures-index.json"
+   ],
+   "timing_ms_median": {
+    "fcp": 208,
+    "dom_content_loaded": 92.5,
+    "load": 92.6,
+    "ready": 339
+   },
+   "timing_ms_ready_all_runs": [
+    394.4,
+    308.5,
+    329.2,
+    380,
+    339
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 5.17,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Statistics"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 14,
+     "sample": "Evidence Explorer"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "About"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 28,
+     "sample": "typeI_member_core"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "More"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 13.99,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "For readability, the phylum and helix-C "
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(241,245,249)",
+     "ratio": 14.57,
+     "large": false,
+     "need": 4.5,
+     "count": 11,
+     "sample": "Status"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 233,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Methods"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 177,
+     "sample": "Data source"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "citation",
+   "hash": "#/citation",
+   "files": [
+    {
+     "file": "assets/index-DEgtOfn-.js",
+     "kind": "js",
+     "raw": 170100,
+     "gzip": 54688
+    },
+    {
+     "file": "assets/index-1Nt4oYPV.css",
+     "kind": "css",
+     "raw": 42841,
+     "gzip": 8315
+    },
+    {
+     "file": "data/v1.6.0/downloads.json",
+     "kind": "data",
+     "raw": 27973,
+     "gzip": 7320
+    },
+    {
+     "file": "assets/CitationPage-TA0A4f-R.js",
+     "kind": "js",
+     "raw": 4339,
+     "gzip": 1643
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "assets/citation-BJ9fqudp.js",
+     "kind": "js",
+     "raw": 1663,
+     "gzip": 853
+    },
+    {
+     "file": "assets/ui-COKfdDFL.js",
+     "kind": "js",
+     "raw": 1587,
+     "gzip": 812
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 590
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 178405,
+     "gzip": 58426
+    },
+    "css": {
+     "raw": 42841,
+     "gzip": 8315
+    },
+    "data": {
+     "raw": 29801,
+     "gzip": 8438
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 780
+    },
+    "all": {
+     "raw": 252399,
+     "gzip": 75959
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [],
+   "timing_ms_median": {
+    "fcp": 196,
+    "dom_content_loaded": 98.6,
+    "load": 98.7,
+    "ready": 273.5
+   },
+   "timing_ms_ready_all_runs": [
+    251.2,
+    256.6,
+    278.6,
+    273.5,
+    298.9
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "https://github.com/CongjianL/MicroRhodoD"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 3,
+     "sample": "About"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 14,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "An evidence-aware knowledgebase of micro"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "More"
+    },
+    {
+     "fg": "rgb(138,60,4)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 7.25,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "No DOI yet"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,247,237)",
+     "ratio": 15.03,
+     "large": false,
+     "need": 4.5,
+     "count": 5,
+     "sample": "CITATION.cff for"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 20,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "How to cite MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 15,
+     "sample": "Reference (APA style)"
+    }
+   ],
+   "contrast_failures": []
+  },
+  {
+   "id": "help",
+   "hash": "#/help",
+   "files": [
+    {
+     "file": "assets/index-DEgtOfn-.js",
+     "kind": "js",
+     "raw": 170100,
+     "gzip": 54688
+    },
+    {
+     "file": "assets/index-1Nt4oYPV.css",
+     "kind": "css",
+     "raw": 42841,
+     "gzip": 8315
+    },
+    {
+     "file": "data/v1.6.0/downloads.json",
+     "kind": "data",
+     "raw": 27973,
+     "gzip": 7320
+    },
+    {
+     "file": "assets/HelpPage-Dn-QWQMO.js",
+     "kind": "js",
+     "raw": 7130,
+     "gzip": 2796
+    },
+    {
+     "file": "data/v1.6.0/manifest.json",
+     "kind": "data",
+     "raw": 1753,
+     "gzip": 1036
+    },
+    {
+     "file": "index.html",
+     "kind": "other",
+     "raw": 1110,
+     "gzip": 590
+    },
+    {
+     "file": "assets/rolldown-runtime-hePW80VL.js",
+     "kind": "js",
+     "raw": 716,
+     "gzip": 430
+    },
+    {
+     "file": "favicon.svg",
+     "kind": "other",
+     "raw": 242,
+     "gzip": 190
+    },
+    {
+     "file": "data/current.json",
+     "kind": "data",
+     "raw": 75,
+     "gzip": 82
+    }
+   ],
+   "totals": {
+    "js": {
+     "raw": 177946,
+     "gzip": 57914
+    },
+    "css": {
+     "raw": 42841,
+     "gzip": 8315
+    },
+    "data": {
+     "raw": 29801,
+     "gzip": 8438
+    },
+    "other": {
+     "raw": 1352,
+     "gzip": 780
+    },
+    "all": {
+     "raw": 251940,
+     "gzip": 75447
+    }
+   },
+   "molstar_chunk_loaded": false,
+   "heavy_data_files": [],
+   "timing_ms_median": {
+    "fcp": 216,
+    "dom_content_loaded": 101.7,
+    "load": 101.8,
+    "ready": 290.4
+   },
+   "timing_ms_ready_all_runs": [
+    238.9,
+    253.1,
+    342.4,
+    323,
+    290.4
+   ],
+   "console_errors": 0,
+   "contrast": [
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 5.63,
+     "large": false,
+     "need": 4.5,
+     "count": 9,
+     "sample": "Browse"
+    },
+    {
+     "fg": "rgb(22,101,181)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 5.89,
+     "large": false,
+     "need": 4.5,
+     "count": 10,
+     "sample": "Methods"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 6.04,
+     "large": false,
+     "need": 4.5,
+     "count": 10,
+     "sample": "v1.6.0"
+    },
+    {
+     "fg": "rgb(82,97,117)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 6.31,
+     "large": false,
+     "need": 4.5,
+     "count": 7,
+     "sample": "An evidence-aware knowledgebase of micro"
+    },
+    {
+     "fg": "rgb(15,79,145)",
+     "bg": "rgb(232,241,251)",
+     "ratio": 7.23,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "More"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": false,
+     "need": 4.5,
+     "count": 18,
+     "sample": "MicroRhodoDB"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(248,250,252)",
+     "ratio": 15.26,
+     "large": true,
+     "need": 3,
+     "count": 1,
+     "sample": "Help"
+    },
+    {
+     "fg": "rgb(20,34,56)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 15.96,
+     "large": false,
+     "need": 4.5,
+     "count": 38,
+     "sample": "What is the difference between membershi"
+    }
+   ],
+   "contrast_failures": []
+  }
+ ],
+ "chunks": [
+  {
+   "file": "assets/AboutPage-Db27MT5_.js",
+   "raw": 5728,
+   "gzip": 2136
+  },
+  {
+   "file": "assets/Badges-Egx0yMJ7.js",
+   "raw": 1767,
+   "gzip": 688
+  },
+  {
+   "file": "assets/BarChart-D4mhKvsY.js",
+   "raw": 3533,
+   "gzip": 1548
+  },
+  {
+   "file": "assets/BrowsePage-Dz1_tErV.js",
+   "raw": 79156,
+   "gzip": 22440
+  },
+  {
+   "file": "assets/CitationPage-TA0A4f-R.js",
+   "raw": 4339,
+   "gzip": 1643
+  },
+  {
+   "file": "assets/CladePage-mzuC5aRA.js",
+   "raw": 24707,
+   "gzip": 6181
+  },
+  {
+   "file": "assets/CladeSupportNotice-CAqUUVCS.js",
+   "raw": 1092,
+   "gzip": 653
+  },
+  {
+   "file": "assets/DownloadsPage-CdSNrSSp.js",
+   "raw": 9920,
+   "gzip": 2703
+  },
+  {
+   "file": "assets/EvidencePage-e1vHg8yY.js",
+   "raw": 26915,
+   "gzip": 6548
+  },
+  {
+   "file": "assets/HelpPage-Dn-QWQMO.js",
+   "raw": 7130,
+   "gzip": 2796
+  },
+  {
+   "file": "assets/HomePage-rYD10Yg8.js",
+   "raw": 14930,
+   "gzip": 4880
+  },
+  {
+   "file": "assets/MethodsPage-Q88aCdBb.js",
+   "raw": 13090,
+   "gzip": 4288
+  },
+  {
+   "file": "assets/Paged-B3k70jNS.js",
+   "raw": 613,
+   "gzip": 413
+  },
+  {
+   "file": "assets/PhylogenyPage-CUYgTQKq.js",
+   "raw": 27599,
+   "gzip": 9124
+  },
+  {
+   "file": "assets/PlaceholderPage-BppxoX0j.js",
+   "raw": 847,
+   "gzip": 439
+  },
+  {
+   "file": "assets/Provenance-C8-b20as.js",
+   "raw": 2850,
+   "gzip": 1022
+  },
+  {
+   "file": "assets/RecordPage-CXLjwBWW.js",
+   "raw": 51992,
+   "gzip": 13603
+  },
+  {
+   "file": "assets/SearchPage-0Bz9pBCi.js",
+   "raw": 20214,
+   "gzip": 6858
+  },
+  {
+   "file": "assets/StatisticsPage-DJXmCGuN.js",
+   "raw": 22901,
+   "gzip": 6442
+  },
+  {
+   "file": "assets/StructureViewer-CFNDKofO.js",
+   "raw": 17897,
+   "gzip": 6633
+  },
+  {
+   "file": "assets/StructuresPage-DsoYi3Tx.js",
+   "raw": 16478,
+   "gzip": 4823
+  },
+  {
+   "file": "assets/TreePreview-D-3Tj028.js",
+   "raw": 5157,
+   "gzip": 2145
+  },
+  {
+   "file": "assets/WatchlistPage-DP3-CpJI.js",
+   "raw": 9634,
+   "gzip": 3352
+  },
+  {
+   "file": "assets/browse-BnSmEpkB.js",
+   "raw": 4863,
+   "gzip": 1992
+  },
+  {
+   "file": "assets/chartColors-n2BareSK.js",
+   "raw": 388,
+   "gzip": 284
+  },
+  {
+   "file": "assets/citation-BJ9fqudp.js",
+   "raw": 1663,
+   "gzip": 853
+  },
+  {
+   "file": "assets/echarts-core-0HeO-QSV.js",
+   "raw": 475468,
+   "gzip": 157390
+  },
+  {
+   "file": "assets/index-1Nt4oYPV.css",
+   "raw": 42841,
+   "gzip": 8315
+  },
+  {
+   "file": "assets/index-DEgtOfn-.js",
+   "raw": 170100,
+   "gzip": 54688
+  },
+  {
+   "file": "assets/molstarViewer-Gb69Gzl2.js",
+   "raw": 3177781,
+   "gzip": 873360
+  },
+  {
+   "file": "assets/palette-CPFiN25S.js",
+   "raw": 2973,
+   "gzip": 1292
+  },
+  {
+   "file": "assets/phyloQuery-D3tgMc-7.js",
+   "raw": 13850,
+   "gzip": 5218
+  },
+  {
+   "file": "assets/rolldown-runtime-hePW80VL.js",
+   "raw": 716,
+   "gzip": 430
+  },
+  {
+   "file": "assets/seqSearch.worker-BDPbH1qa.js",
+   "raw": 6482,
+   "gzip": 2675
+  },
+  {
+   "file": "assets/stats-DnRAqohq.js",
+   "raw": 4554,
+   "gzip": 1785
+  },
+  {
+   "file": "assets/summary-qvDt0ZTw.js",
+   "raw": 827,
+   "gzip": 427
+  },
+  {
+   "file": "assets/swCore-D3j4J5mT.js",
+   "raw": 2772,
+   "gzip": 1463
+  },
+  {
+   "file": "assets/tslib.es6-MM1X6Oub.js",
+   "raw": 3740,
+   "gzip": 1529
+  },
+  {
+   "file": "assets/ui-COKfdDFL.js",
+   "raw": 1587,
+   "gzip": 812
+  },
+  {
+   "file": "assets/useExplorer-sezw4guU.js",
+   "raw": 25256,
+   "gzip": 8559
+  },
+  {
+   "file": "assets/useSectionScroll-C-D7w1nM.js",
+   "raw": 371,
+   "gzip": 294
+  }
+ ]
+}

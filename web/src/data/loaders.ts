@@ -1,5 +1,6 @@
 /**
- * Static data loaders for the export contract (WEB_DATA_CONTRACT.md, schema 1.3.0; PR-4a adds formal assignment counts to clades.json; PR-4 adds
+ * Static data loaders for the export contract (WEB_DATA_CONTRACT.md, schema 1.4.0; PR-5 adds downloads.json and loaders for the
+ * structures, watchlist and publication indexes used by the explorer pages; PR-4a adds formal assignment counts to clades.json; PR-4 adds
  * phylogeny/explorer.json, the IQ-TREE run1 support source and a clearly labelled DERIVED Newick).
  *
  * Every file is fetched lazily, at most once per page load, from the release-versioned
@@ -9,7 +10,8 @@
  */
 import { useEffect, useState } from "react";
 import type {
-  Accessions, Clades, CladeTips, Current, EvidenceIndex, Explorer, Manifest, MrdbEntry, RecordsIndex, Summary, Tips, Vocabulary,
+  Accessions, Clades, CladeTips, Current, Downloads, EvidenceIndex, Explorer, ExportManifest, Manifest, MrdbEntry, Publications,
+  RecordsIndex, StructuresIndex, Summary, Tips, Vocabulary, Watchlist,
 } from "./types";
 
 const BASE = import.meta.env.BASE_URL; // "/MicroRhodoDB/site/"
@@ -80,6 +82,13 @@ export const loadCorpusFasta = () => text("sequences/corpus.fasta");
 
 /* Record page, fetched on demand (engineered wild-type -> variant links, evidence policy texts). */
 export const loadEvidenceIndex = () => json<EvidenceIndex>("evidence-index.json");
+
+/* PR-5 explorer pages (each fetched only by the page that needs it). */
+export const loadStructuresIndex = () => json<StructuresIndex>("structures-index.json");
+export const loadWatchlist = () => json<Watchlist>("watchlist.json");
+export const loadPublications = () => json<Publications>("publications.json");
+export const loadDownloads = () => json<Downloads>("downloads.json");
+export const loadExportManifest = () => json<ExportManifest>("export_manifest.json");
 
 /** Absolute URL of a release-relative file (e.g. structures/predicted/<acc>_esmfold.pdb). */
 export const releaseFileUrl = (rel: string) => releaseUrl(rel);

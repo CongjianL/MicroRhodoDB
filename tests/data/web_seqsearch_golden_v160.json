@@ -1,0 +1,1413 @@
+{
+ "method": "legacy-v1.6.0: 3-mer prefilter (distinct shared 3-mers, top 300, stable order) + Gotoh Smith-Waterman, BLOSUM62, gap open 11, gap extend 1; top 10",
+ "generated_by": "web/scripts/legacy_seqsearch_golden.mjs (site/app.js + site/data.js, unmodified, Node vm)",
+ "site_app_js_sha256": "f43ebe699964c56b43e0e80d4ef4402ac96e5a73ddeefcaccdaface74f742a8f",
+ "site_data_js_sha256": "485b229663036042d4bb517e0690b247000e4a83075b49c3c7a33550346108a8",
+ "n_records": 5466,
+ "cases": [
+  {
+   "query_id": "P02945",
+   "query_fasta": ">P02945 bacteriorhodopsin example\nMLELLPTAVEGVSQAQITGRPEWIWLALGTALMGLGTLYFLVKGMGVSDPDAKKFYAITTLVPAIAFTMYLSMLLGYGLTMVPFGGEQNPIYWARYADWLFTTPLLLLDLALLVDADQGTILALVGADGIMIGTGLVGALTKVYSYRFVWWAISTAAMLYILYVLFFGFTSKAESMRPEVASTFKVLRNVTVVLWSAYPVVWLIGSEGAGIVPLNIETLLFMVLDVSAKVGFGLILLRSRAIFGEAEAPEPSAGDGAAATSD\n",
+   "query_length": 262,
+   "prefilter_sha256": "1ca01610e2f75e8f46ead5631762e83d250c4a8f1a4fe0a66d6680c03c0b1bd9",
+   "hits": [
+    {
+     "rank": 1,
+     "source_acc": "P02945",
+     "mrdb_acc": "MRDB000001",
+     "score": 1335,
+     "identity": 1,
+     "qcov": 1,
+     "scov": 1,
+     "alen": 262
+    },
+    {
+     "rank": 2,
+     "source_acc": "B0R5N9",
+     "mrdb_acc": "MRDB000001",
+     "score": 1335,
+     "identity": 1,
+     "qcov": 1,
+     "scov": 1,
+     "alen": 262
+    },
+    {
+     "rank": 3,
+     "source_acc": "A0A6B9F3P5",
+     "mrdb_acc": "MRDB002791",
+     "score": 1153,
+     "identity": 0.844622,
+     "qcov": 0.958015,
+     "scov": 0.980469,
+     "alen": 251
+    },
+    {
+     "rank": 4,
+     "source_acc": "A0ABD6CVB1",
+     "mrdb_acc": "MRDB003596",
+     "score": 1148,
+     "identity": 0.844622,
+     "qcov": 0.958015,
+     "scov": 0.980469,
+     "alen": 251
+    },
+    {
+     "rank": 5,
+     "source_acc": "A0A368N8T4",
+     "mrdb_acc": "MRDB002451",
+     "score": 1145,
+     "identity": 0.85259,
+     "qcov": 0.958015,
+     "scov": 0.980469,
+     "alen": 251
+    },
+    {
+     "rank": 6,
+     "source_acc": "A0A1G7RA78",
+     "mrdb_acc": "MRDB002063",
+     "score": 791,
+     "identity": 0.613281,
+     "qcov": 0.958015,
+     "scov": 0.992248,
+     "alen": 256
+    },
+    {
+     "rank": 7,
+     "source_acc": "P96787",
+     "mrdb_acc": "MRDB000049",
+     "score": 757,
+     "identity": 0.614108,
+     "qcov": 0.919847,
+     "scov": 0.934109,
+     "alen": 241
+    },
+    {
+     "rank": 8,
+     "source_acc": "A0A1I6G6Y6",
+     "mrdb_acc": "MRDB000049",
+     "score": 757,
+     "identity": 0.614108,
+     "qcov": 0.919847,
+     "scov": 0.934109,
+     "alen": 241
+    },
+    {
+     "rank": 9,
+     "source_acc": "A0ABD6ALL9",
+     "mrdb_acc": "MRDB003581",
+     "score": 748,
+     "identity": 0.576471,
+     "qcov": 0.969466,
+     "scov": 0.988372,
+     "alen": 255
+    },
+    {
+     "rank": 10,
+     "source_acc": "P69051",
+     "mrdb_acc": "MRDB000046",
+     "score": 744,
+     "identity": 0.605809,
+     "qcov": 0.919847,
+     "scov": 0.926923,
+     "alen": 241
+    }
+   ]
+  },
+  {
+   "query_id": "UOK93384.1",
+   "query_fasta": ">UOK93384.1\nMPFYDSRPPEGWPKGSINDMDYPLLGSICAVCCVFVAGSGIWMLYRLDLGMGYSCKPYKSGRAPEVNSLSGIICLLCGTMYAAKSFDFFDGGGTPFSLNWYWYLDYVFTCPLLILDFAFTLDLPHKIRYFFAVFLTLWCGVAAFVTPSAYRFAYYALGCCWFTPFALSLMRHVKERYLVYPPKCQRWLFWACVIFFGFWPMFPILFIFSWLGTGHISQQAFYIIHAFLDLTCKSIFGILMTVFRLELEEHTEVQGLPLNEPETLS\n",
+   "query_length": 265,
+   "prefilter_sha256": "fe005546ecd4d5579dac7ae1ed467397382ae2186f4cb37b0221e7de843dae0e",
+   "hits": [
+    {
+     "rank": 1,
+     "source_acc": "A0ABF7PQA2",
+     "mrdb_acc": "MRDB003608",
+     "score": 1480,
+     "identity": 0.996226,
+     "qcov": 1,
+     "scov": 1,
+     "alen": 265
+    },
+    {
+     "rank": 2,
+     "source_acc": "A0ABF7PQ82",
+     "mrdb_acc": "MRDB003606",
+     "score": 1459,
+     "identity": 1,
+     "qcov": 0.977358,
+     "scov": 1,
+     "alen": 259
+    },
+    {
+     "rank": 3,
+     "source_acc": "A0ABF7PQ84",
+     "mrdb_acc": "MRDB003607",
+     "score": 1449,
+     "identity": 0.996139,
+     "qcov": 0.977358,
+     "scov": 1,
+     "alen": 259
+    },
+    {
+     "rank": 4,
+     "source_acc": "L1IXB4",
+     "mrdb_acc": "MRDB004545",
+     "score": 241,
+     "identity": 0.302885,
+     "qcov": 0.743396,
+     "scov": 0.549865,
+     "alen": 208
+    },
+    {
+     "rank": 5,
+     "source_acc": "A0A3G1I4H9",
+     "mrdb_acc": "MRDB002499",
+     "score": 236,
+     "identity": 0.3125,
+     "qcov": 0.698113,
+     "scov": 0.512262,
+     "alen": 192
+    },
+    {
+     "rank": 6,
+     "source_acc": "L1J0E6",
+     "mrdb_acc": "MRDB004546",
+     "score": 230,
+     "identity": 0.305263,
+     "qcov": 0.698113,
+     "scov": 0.506887,
+     "alen": 190
+    },
+    {
+     "rank": 7,
+     "source_acc": "L1K1K8",
+     "mrdb_acc": "MRDB001687",
+     "score": 230,
+     "identity": 0.30198,
+     "qcov": 0.724528,
+     "scov": 0.461894,
+     "alen": 202
+    },
+    {
+     "rank": 8,
+     "source_acc": "A0A0C3UE61",
+     "mrdb_acc": "MRDB001687",
+     "score": 230,
+     "identity": 0.30198,
+     "qcov": 0.724528,
+     "scov": 0.461894,
+     "alen": 202
+    },
+    {
+     "rank": 9,
+     "source_acc": "A0A1Y1HT90",
+     "mrdb_acc": "MRDB000287",
+     "score": 181,
+     "identity": 0.268156,
+     "qcov": 0.645283,
+     "scov": 0.214717,
+     "alen": 179
+    },
+    {
+     "rank": 10,
+     "source_acc": "A0AAE0FQI2",
+     "mrdb_acc": "MRDB003401",
+     "score": 168,
+     "identity": 0.255,
+     "qcov": 0.671698,
+     "scov": 0.312195,
+     "alen": 200
+    }
+   ]
+  },
+  {
+   "query_id": "UOK93385.1",
+   "query_fasta": ">UOK93385.1\nMPFYDSRPPEGWPRGSVNDMDYPLLGSICAISAIAIAGSGIWMLYRLDLGMGYSCKPYKSGRAPEVNSISGIVCLLCGTMYAAKSFDFFDGGGTPFSLNWYWYLDYVFTCPLLIVDFAFTLDIPQKLRYSIAVFVALWCAVAAFATPSAFRFAYYALGCCWFIPLSLFLIRDVKKRYQVYPPKCQRLLFWACVVFFGFWPLFPLLFIFSWQGSGHISRQAYYIIHAFLDLVCKSIFGFLMTFFRLELEEHTEVQGLPLKEPKVMD\n",
+   "query_length": 265,
+   "prefilter_sha256": "bf81c5aa482ddc6ade657361a9611816730718eea92dcf27a7ca9b1dbb1c4efc",
+   "hits": [
+    {
+     "rank": 1,
+     "source_acc": "A0ABF7PQA2",
+     "mrdb_acc": "MRDB003608",
+     "score": 1277,
+     "identity": 0.829545,
+     "qcov": 0.996226,
+     "scov": 0.996226,
+     "alen": 264
+    },
+    {
+     "rank": 2,
+     "source_acc": "A0ABF7PQ82",
+     "mrdb_acc": "MRDB003606",
+     "score": 1271,
+     "identity": 0.841699,
+     "qcov": 0.977358,
+     "scov": 1,
+     "alen": 259
+    },
+    {
+     "rank": 3,
+     "source_acc": "A0ABF7PQ84",
+     "mrdb_acc": "MRDB003607",
+     "score": 1261,
+     "identity": 0.837838,
+     "qcov": 0.977358,
+     "scov": 1,
+     "alen": 259
+    },
+    {
+     "rank": 4,
+     "source_acc": "A0A172M4H4",
+     "mrdb_acc": "MRDB001983",
+     "score": 257,
+     "identity": 0.292079,
+     "qcov": 0.724528,
+     "scov": 0.666667,
+     "alen": 202
+    },
+    {
+     "rank": 5,
+     "source_acc": "L1K1K8",
+     "mrdb_acc": "MRDB001687",
+     "score": 257,
+     "identity": 0.292079,
+     "qcov": 0.724528,
+     "scov": 0.461894,
+     "alen": 202
+    },
+    {
+     "rank": 6,
+     "source_acc": "A0A0C3UE61",
+     "mrdb_acc": "MRDB001687",
+     "score": 257,
+     "identity": 0.292079,
+     "qcov": 0.724528,
+     "scov": 0.461894,
+     "alen": 202
+    },
+    {
+     "rank": 7,
+     "source_acc": "L1IXB4",
+     "mrdb_acc": "MRDB004545",
+     "score": 232,
+     "identity": 0.251908,
+     "qcov": 0.94717,
+     "scov": 0.700809,
+     "alen": 262
+    },
+    {
+     "rank": 8,
+     "source_acc": "L1J0E6",
+     "mrdb_acc": "MRDB004546",
+     "score": 229,
+     "identity": 0.268293,
+     "qcov": 0.901887,
+     "scov": 0.661157,
+     "alen": 246
+    },
+    {
+     "rank": 9,
+     "source_acc": "A0A3G1I4H9",
+     "mrdb_acc": "MRDB002499",
+     "score": 227,
+     "identity": 0.256098,
+     "qcov": 0.901887,
+     "scov": 0.66485,
+     "alen": 246
+    },
+    {
+     "rank": 10,
+     "source_acc": "A0A1Y1HT90",
+     "mrdb_acc": "MRDB000287",
+     "score": 197,
+     "identity": 0.267442,
+     "qcov": 0.622642,
+     "scov": 0.207479,
+     "alen": 172
+    }
+   ]
+  },
+  {
+   "query_id": "WP_051881467.1",
+   "query_fasta": ">WP_051881467.1\nMTEAFWLWLYVAVMAAGACLFLYWSRKPRGVPGYEYTIAAVIPIWSGLAYLAMALGQGTVMIDGREVYYARYLDWLVTTPLLLWLLGSTATFYRANDTRLIGSLMFADVVMILSGLFADLTAEQSVRWLWYTIGCVSFLLILWQVWGPLRRIAGEQGEALSKTYTRVAAYLTVFWVSYPLVWLISPSGIGIVGPTVSIALFVILPAFSKVGFSILDLYELRRLGDDRPSPKAAIPPPAGHRAVVERPV\n",
+   "query_length": 248,
+   "prefilter_sha256": "86fd7efa26e0e68805efe92262ae0b52a5cc1aa7128a0b5a7fe36de05413ec9b",
+   "hits": [
+    {
+     "rank": 1,
+     "source_acc": "A0A850H4I0",
+     "mrdb_acc": "MRDB003071",
+     "score": 731,
+     "identity": 0.560669,
+     "qcov": 0.943548,
+     "scov": 0.979508,
+     "alen": 239
+    },
+    {
+     "rank": 2,
+     "source_acc": "A0A844Z8J9",
+     "mrdb_acc": "MRDB003061",
+     "score": 730,
+     "identity": 0.564854,
+     "qcov": 0.943548,
+     "scov": 0.979508,
+     "alen": 239
+    },
+    {
+     "rank": 3,
+     "source_acc": "A0A2A2SIC3",
+     "mrdb_acc": "MRDB002290",
+     "score": 701,
+     "identity": 0.583333,
+     "qcov": 0.919355,
+     "scov": 0.934426,
+     "alen": 228
+    },
+    {
+     "rank": 4,
+     "source_acc": "A0ABW5RAS0",
+     "mrdb_acc": "MRDB003938",
+     "score": 653,
+     "identity": 0.570136,
+     "qcov": 0.891129,
+     "scov": 0.936441,
+     "alen": 221
+    },
+    {
+     "rank": 5,
+     "source_acc": "A0A1I6AD93",
+     "mrdb_acc": "MRDB002156",
+     "score": 642,
+     "identity": 0.52381,
+     "qcov": 0.919355,
+     "scov": 0.946721,
+     "alen": 231
+    },
+    {
+     "rank": 6,
+     "source_acc": "A0ABS2QRU6",
+     "mrdb_acc": "MRDB003805",
+     "score": 640,
+     "identity": 0.536364,
+     "qcov": 0.883065,
+     "scov": 0.916318,
+     "alen": 220
+    },
+    {
+     "rank": 7,
+     "source_acc": "A0ABV0KBG9",
+     "mrdb_acc": "MRDB003881",
+     "score": 636,
+     "identity": 0.532468,
+     "qcov": 0.931452,
+     "scov": 0.9625,
+     "alen": 231
+    },
+    {
+     "rank": 8,
+     "source_acc": "A0AB37UAS1",
+     "mrdb_acc": "MRDB003516",
+     "score": 632,
+     "identity": 0.538462,
+     "qcov": 0.891129,
+     "scov": 0.920833,
+     "alen": 221
+    },
+    {
+     "rank": 9,
+     "source_acc": "A0A5C6VX47",
+     "mrdb_acc": "MRDB002707",
+     "score": 631,
+     "identity": 0.554545,
+     "qcov": 0.887097,
+     "scov": 0.935897,
+     "alen": 220
+    },
+    {
+     "rank": 10,
+     "source_acc": "A0ACE2LP12",
+     "mrdb_acc": "MRDB005224",
+     "score": 631,
+     "identity": 0.549107,
+     "qcov": 0.899194,
+     "scov": 0.952991,
+     "alen": 224
+    }
+   ]
+  },
+  {
+   "query_id": "6EYU_A",
+   "query_fasta": ">6EYU_A\nMVYEAITAGGFGSQPFILAYIITAMISGLLFLYLPRKLDVPQKFGIIHFFIVVWSGLMYTNFLNQSFLSDYAWYMDWMVSTPLILLALGLTAFHGADTKRYDLLGALLGAEFTLVITGLLAQAQGSITPYYVGVLLLLGVVYLLAKPFREIAEESSDGLARAYKILAGYIGIFFLSYPTVWYISGIDALPGSLNILDPTQTSIALVVLPFFCKQVYGFLDMYLIHKAELEHH\n",
+   "query_length": 232,
+   "prefilter_sha256": "c3a1e8c8e37dda04c26ce04b4497b7ede4a3bcdd4b088dbc7715b659b89b04f4",
+   "hits": [
+    {
+     "rank": 1,
+     "source_acc": "A0A0A2VA27",
+     "mrdb_acc": "MRDB001815",
+     "score": 303,
+     "identity": 0.333333,
+     "qcov": 0.913793,
+     "scov": 0.947826,
+     "alen": 225
+    },
+    {
+     "rank": 2,
+     "source_acc": "Q6R5N7",
+     "mrdb_acc": "MRDB004684",
+     "score": 144,
+     "identity": 0.267974,
+     "qcov": 0.642241,
+     "scov": 0.554264,
+     "alen": 153
+    },
+    {
+     "rank": 3,
+     "source_acc": "A0ABD5YGM8",
+     "mrdb_acc": "MRDB003573",
+     "score": 139,
+     "identity": 0.29375,
+     "qcov": 0.668103,
+     "scov": 0.535971,
+     "alen": 160
+    },
+    {
+     "rank": 4,
+     "source_acc": "A0A1V8SNI6",
+     "mrdb_acc": "MRDB000280",
+     "score": 135,
+     "identity": 0.269737,
+     "qcov": 0.642241,
+     "scov": 0.25,
+     "alen": 152
+    },
+    {
+     "rank": 5,
+     "source_acc": "A0AAJ0GHX9",
+     "mrdb_acc": "MRDB001249",
+     "score": 131,
+     "identity": 0.289474,
+     "qcov": 0.633621,
+     "scov": 0.095464,
+     "alen": 152
+    },
+    {
+     "rank": 6,
+     "source_acc": "A0ABR2VI50",
+     "mrdb_acc": "MRDB001488",
+     "score": 131,
+     "identity": 0.305732,
+     "qcov": 0.642241,
+     "scov": 0.462295,
+     "alen": 157
+    },
+    {
+     "rank": 7,
+     "source_acc": "A0A343TMT0",
+     "mrdb_acc": "MRDB002430",
+     "score": 130,
+     "identity": 0.291391,
+     "qcov": 0.62931,
+     "scov": 0.466667,
+     "alen": 151
+    },
+    {
+     "rank": 8,
+     "source_acc": "A0A6G8QCE4",
+     "mrdb_acc": "MRDB002805",
+     "score": 130,
+     "identity": 0.229358,
+     "qcov": 0.922414,
+     "scov": 0.802521,
+     "alen": 218
+    },
+    {
+     "rank": 9,
+     "source_acc": "A0ACC2Z1W4",
+     "mrdb_acc": "MRDB001589",
+     "score": 130,
+     "identity": 0.291391,
+     "qcov": 0.642241,
+     "scov": 0.171742,
+     "alen": 151
+    },
+    {
+     "rank": 10,
+     "source_acc": "A0A2P6NS35",
+     "mrdb_acc": "MRDB002351",
+     "score": 129,
+     "identity": 0.237374,
+     "qcov": 0.801724,
+     "scov": 0.40708,
+     "alen": 198
+    }
+   ]
+  },
+  {
+   "query_id": "7W9W_A",
+   "query_fasta": ">7W9W_A\nGPMAHAPGTDQMFYVGTMDGWYLDTKLNSVAIGAHWSCFIVLTITTFYLGYESWTSRGPSKRTSFYAGYQEEQNLALFVNFFAMLSYFGKIVADTLGHNFGDVGPFIIGFGNYRYADYMLTCPMLVYDLLYQLRAPYRVSCSAIIFAILMSGVLAEFYAEGDPRLRNGAYAWYGFGCFWFIFAYSIVMSIVAKQYSRLAQLAQDTGAEHSLHVLKFAVFTFSMLWILFPLVWAICPRGFGWIDDNWTEVAHCVCDIVAKSCYGFALARFRKTYDEELFRLLEQLGHDEDEFQKLELDMRLSSNGERLEVLFQ\n",
+   "query_length": 312,
+   "prefilter_sha256": "b155a0c4de49dcdcb8fdcaa3e2efea34b6781fd4d7fe88ab10b0a87977dc150a",
+   "hits": [
+    {
+     "rank": 1,
+     "source_acc": "A0A0C3UE61",
+     "mrdb_acc": "MRDB001687",
+     "score": 413,
+     "identity": 0.330827,
+     "qcov": 0.852564,
+     "scov": 0.577367,
+     "alen": 266
+    },
+    {
+     "rank": 2,
+     "source_acc": "L1IBI6",
+     "mrdb_acc": "MRDB004541",
+     "score": 392,
+     "identity": 0.295455,
+     "qcov": 0.846154,
+     "scov": 0.616915,
+     "alen": 264
+    },
+    {
+     "rank": 3,
+     "source_acc": "A0AAW1QLK9",
+     "mrdb_acc": "MRDB001333",
+     "score": 160,
+     "identity": 0.266409,
+     "qcov": 0.798077,
+     "scov": 0.871212,
+     "alen": 259
+    },
+    {
+     "rank": 4,
+     "source_acc": "A0AAW1SWJ4",
+     "mrdb_acc": "MRDB001333",
+     "score": 160,
+     "identity": 0.266409,
+     "qcov": 0.798077,
+     "scov": 0.871212,
+     "alen": 259
+    },
+    {
+     "rank": 5,
+     "source_acc": "A0A5N6KXX2",
+     "mrdb_acc": "MRDB000003",
+     "score": 145,
+     "identity": 0.249071,
+     "qcov": 0.823718,
+     "scov": 0.157825,
+     "alen": 269
+    },
+    {
+     "rank": 6,
+     "source_acc": "A0A5A8CSF6",
+     "mrdb_acc": "MRDB002680",
+     "score": 141,
+     "identity": 0.273885,
+     "qcov": 0.487179,
+     "scov": 0.157895,
+     "alen": 157
+    },
+    {
+     "rank": 7,
+     "source_acc": "A0A9W6BY97",
+     "mrdb_acc": "MRDB001115",
+     "score": 141,
+     "identity": 0.227273,
+     "qcov": 0.782051,
+     "scov": 0.306122,
+     "alen": 264
+    },
+    {
+     "rank": 8,
+     "source_acc": "A0A5A8CW29",
+     "mrdb_acc": "MRDB002681",
+     "score": 140,
+     "identity": 0.259259,
+     "qcov": 0.483974,
+     "scov": 0.153368,
+     "alen": 162
+    },
+    {
+     "rank": 9,
+     "source_acc": "A0A9W7ST28",
+     "mrdb_acc": "MRDB003301",
+     "score": 138,
+     "identity": 0.225397,
+     "qcov": 0.951923,
+     "scov": 0.432558,
+     "alen": 315
+    },
+    {
+     "rank": 10,
+     "source_acc": "A0A084B629",
+     "mrdb_acc": "MRDB000081",
+     "score": 137,
+     "identity": 0.216667,
+     "qcov": 0.730769,
+     "scov": 0.275689,
+     "alen": 240
+    }
+   ]
+  },
+  {
+   "query_id": "QJF54416.1",
+   "query_fasta": ">QJF54416.1\nMEAMAMSEHELWRREFIRVLQTQPTTDETVSQGVAGASLCVFSCSTALICFYGFQYRNGRCNLHPIYVQFVTFCVYSLACFGTTDFLYIPIENHAGDVFDLAIGRYLFWMMTCPVIISNVNILLNLMTPDDLELGHVTFMMVKDIVMIAFGVLAAMQKNVTLKWIFNLASYFVCFWLVVDLLAMIREKKKHFIVHERCWEWVLAVMTYFFFAQSLFIFLYAFGPPCFNLMGPDGDKIGHSVGDLFAKNLFGFFAWYVRFVVLEPFVKRIRSARAVTPYQRGSDAMAPHKMRNVSFLNRKTNSKRTKAGPRAPRVLIVEPRIEIQRLFMFILRDAGIEGEIAFDLETASKIVRRDPLTHYDAIILNLTIAFENRVDTQKFRMQFRRKPFYLPLLGYCFDDTSYGPLVEREEVERNLSDGFIRHILDEGHLYDVITHWREASSHWRGIDDSADMERRLHQHVQGIHMAPIQDGEAEGMSSFIDYKNDLESQPQGEPSSKSAGRFVEGPSYNDKPASGGVVDYANSPVSPLSPVSPSTQTPATTSSAATKRSVQADSAAPGVRSGSSPAEGRISMRRKSSFESMNDNLRRQLKAEEEQVARLKQQQHQQHSQFSSSDYAPEQSLDTMSPQEQASAPQPLDSRQGLNYQSMPLPFVPNATAESKADGHSGTGQSSTRDELEDDELAPRRRTSLIIKGSMM\n",
+   "query_length": 696,
+   "prefilter_sha256": "6cd4870a90fa9f2df2a8219006871338746d67944ab8b37aa18bfb1e46837d61",
+   "hits": [
+    {
+     "rank": 1,
+     "source_acc": "A0A2R5G461",
+     "mrdb_acc": "MRDB002357",
+     "score": 2220,
+     "identity": 0.632857,
+     "qcov": 0.992816,
+     "scov": 1,
+     "alen": 700
+    },
+    {
+     "rank": 2,
+     "source_acc": "A0A2R5G2M3",
+     "mrdb_acc": "MRDB002356",
+     "score": 1141,
+     "identity": 0.402191,
+     "qcov": 0.897989,
+     "scov": 0.92911,
+     "alen": 639
+    },
+    {
+     "rank": 3,
+     "source_acc": "A0ABP0S7I2",
+     "mrdb_acc": "MRDB001396",
+     "score": 1063,
+     "identity": 0.39646,
+     "qcov": 0.806034,
+     "scov": 0.877193,
+     "alen": 565
+    },
+    {
+     "rank": 4,
+     "source_acc": "A0A2R5G0B6",
+     "mrdb_acc": "MRDB000374",
+     "score": 670,
+     "identity": 0.316703,
+     "qcov": 0.642241,
+     "scov": 0.657353,
+     "alen": 461
+    },
+    {
+     "rank": 5,
+     "source_acc": "G8HK98",
+     "mrdb_acc": "MRDB004451",
+     "score": 210,
+     "identity": 0.290043,
+     "qcov": 0.326149,
+     "scov": 0.305439,
+     "alen": 231
+    },
+    {
+     "rank": 6,
+     "source_acc": "G8HKA1",
+     "mrdb_acc": "MRDB004453",
+     "score": 200,
+     "identity": 0.277056,
+     "qcov": 0.326149,
+     "scov": 0.306294,
+     "alen": 231
+    },
+    {
+     "rank": 7,
+     "source_acc": "A0A5A8CSF6",
+     "mrdb_acc": "MRDB002680",
+     "score": 197,
+     "identity": 0.260377,
+     "qcov": 0.37069,
+     "scov": 0.271751,
+     "alen": 265
+    },
+    {
+     "rank": 8,
+     "source_acc": "A0A830HGR1",
+     "mrdb_acc": "MRDB003041",
+     "score": 189,
+     "identity": 0.261062,
+     "qcov": 0.321839,
+     "scov": 0.392727,
+     "alen": 226
+    },
+    {
+     "rank": 9,
+     "source_acc": "A0A699ZPF4",
+     "mrdb_acc": "MRDB002743",
+     "score": 183,
+     "identity": 0.291498,
+     "qcov": 0.347701,
+     "scov": 0.369841,
+     "alen": 247
+    },
+    {
+     "rank": 10,
+     "source_acc": "M1PFK4",
+     "mrdb_acc": "MRDB004636",
+     "score": 183,
+     "identity": 0.260163,
+     "qcov": 0.347701,
+     "scov": 0.35,
+     "alen": 246
+    }
+   ]
+  },
+  {
+   "query_id": "QJF54412.1",
+   "query_fasta": ">QJF54412.1\nMNDSAVFTARLFVALTATILSIFYTFQMSQGRCNIHPLYVQLVTAVVYTLSSFGFDDFVFTTVLFADGTQVKVSIARYLFWVMTCPVILAGYIQLLHYMPTVQHDYIRTTFIVVKDIITMCFGILAAVQPAGTLKIIFLIISFIFSFWLIIDMFFLLRERAIDFSERRLWIWLQVTSWLMLSSWMIFPLLFIIGPPGFSAISEGGDAVGHAVGDLIAKNIFGFSVWYFRYYIVFPHRDRVMKEMAIKNPAMVSAAIVPADRNSKKKVSSVTAPPVGNILVVEREPHIQRLIEYLTQDANV\n",
+   "query_length": 300,
+   "prefilter_sha256": "0b05363f77a8c4f3c6eb5c3c28177513fc15d421ea19a5f4c27a4e1060bb5e3f",
+   "hits": [
+    {
+     "rank": 1,
+     "source_acc": "A0ABP0S7I2",
+     "mrdb_acc": "MRDB001396",
+     "score": 583,
+     "identity": 0.388514,
+     "qcov": 0.983333,
+     "scov": 0.472089,
+     "alen": 296
+    },
+    {
+     "rank": 2,
+     "source_acc": "A0A2R5G461",
+     "mrdb_acc": "MRDB002357",
+     "score": 539,
+     "identity": 0.384106,
+     "qcov": 0.973333,
+     "scov": 0.464396,
+     "alen": 302
+    },
+    {
+     "rank": 3,
+     "source_acc": "A0A2R5G0B6",
+     "mrdb_acc": "MRDB000374",
+     "score": 472,
+     "identity": 0.344156,
+     "qcov": 0.95,
+     "scov": 0.441176,
+     "alen": 308
+    },
+    {
+     "rank": 4,
+     "source_acc": "A0A2R5G2M3",
+     "mrdb_acc": "MRDB002356",
+     "score": 448,
+     "identity": 0.319218,
+     "qcov": 0.99,
+     "scov": 0.463047,
+     "alen": 307
+    },
+    {
+     "rank": 5,
+     "source_acc": "A0A5A8CSF6",
+     "mrdb_acc": "MRDB002680",
+     "score": 269,
+     "identity": 0.275168,
+     "qcov": 0.946667,
+     "scov": 0.300752,
+     "alen": 298
+    },
+    {
+     "rank": 6,
+     "source_acc": "A0A830HGR1",
+     "mrdb_acc": "MRDB003041",
+     "score": 247,
+     "identity": 0.291304,
+     "qcov": 0.763333,
+     "scov": 0.405455,
+     "alen": 230
+    },
+    {
+     "rank": 7,
+     "source_acc": "A0A5A8CWN5",
+     "mrdb_acc": "MRDB002682",
+     "score": 244,
+     "identity": 0.302632,
+     "qcov": 0.74,
+     "scov": 0.291328,
+     "alen": 228
+    },
+    {
+     "rank": 8,
+     "source_acc": "Q8RUT8",
+     "mrdb_acc": "MRDB001730",
+     "score": 235,
+     "identity": 0.310502,
+     "qcov": 0.713333,
+     "scov": 0.280868,
+     "alen": 219
+    },
+    {
+     "rank": 9,
+     "source_acc": "A0A2K3E0X5",
+     "mrdb_acc": "MRDB001730",
+     "score": 235,
+     "identity": 0.310502,
+     "qcov": 0.713333,
+     "scov": 0.280868,
+     "alen": 219
+    },
+    {
+     "rank": 10,
+     "source_acc": "A0AAD3HL03",
+     "mrdb_acc": "MRDB003373",
+     "score": 226,
+     "identity": 0.309091,
+     "qcov": 0.73,
+     "scov": 0.286685,
+     "alen": 220
+    }
+   ]
+  },
+  {
+   "query_id": "USH44359.1",
+   "query_fasta": ">USH44359.1\nMASSTAAPPAAVPAIETAAPPSPEPRDSVSVNEGGDASSAQAGAAVGSTIIVGAPELEKEYSDLNFAQVARDEGRRCLLMCVAFAIAIAHLYIYPALFGVRIVDQAEVPAEERTYFHHGWTAMLVIFFIEGVTVFLKVCSTRKTRWLEKAVLQKLDGNIGVLIGEYIVVAATYIIMGANLIPVFEEPRSGRRVYAVRYMEWTIDACGLVYLDCRILFGMPFSKFRMLLVYSVLYMLFGLWAALASTWMWYAIFLSASWFFFGLVCYYYWTFHRQNPSPLQQFGRAPIKQAILVFVIVWWVLYGVLFMLCFQAPDVVPQWLEQLLWTGMDVVMKLSHTVVLMAWRETQWEIDAVVDRQKVEAGRAIAQLDHQRAIHERDLVRLRSRVYYGEHIKSEEEIKSEEVISRSLRARKSRQGQDGTEPSSALSGASSTKEPPALEENSGSAAPSWTAVLAKGKATSSPFARVNKIFMREAGLCLVLCLAFVVALLHLPVYSEWFGVEVLDAEAVPHDELGFFHHGWTTMLVVFLIESITVLLKVWSTWHDPRLAENVAQQLSGNLGVLIAEYLVVGATYVILGYNLMPVFVVHRPGVASRRVYAVRYMEWAVDATGLIWLDCHCLFSRNFNEFRMAIVWTVAYMLFGLWSALASTWAWYWAFLLASWAAFLIVCLILVRFLRQDPYPHQPFGKTSVKPCILAFIIGWWVLYGILFMVCFQAPDAVPQWLEQFLWTGMDVVMKLSHTVVLMAWRTTEWNVCELHGRNQAEKSKKSLLNEGSHARQEKQQLEAIMLEGGGVEAAGRVGSVSFAPSSSRRRKESDSTNWTATPGLRVDLSSMVRLEGQLAQGLVTDVHRKGMMRSEDLAELKRLEESGFLQAQQHRNWESQTREMTFLAHGINHIAYDPRSWMKTLTAVRGRAPTSFLLWVVLIESSIVLALSKFFGESFDLGVSSGIHSLFGVLVSFLVVFRTQAAFKKWWSGRSAVSSLVQMSRTFAQQVCAYVKDEAYVNRMVRYSIATVVATRCHLRNTRIDPAMLLGVLKEEEIEELNRQKNLPFYTAWVIRSTLAEAVAEGACLPLHMAIENAIKAIEQSIADAERLLTPMPFTYVVHVRTFLFIYLMGLPFILVEDLGWLMLVAVSFLGYLMIGLENTAVQLENPFGTDCNHHPLDLYCLEVSQDLLHLLDLRASAKAQ\n",
+   "query_length": 1187,
+   "prefilter_sha256": "35eab3e0ce614f79d509d628ff9c46db739aab16cef1a87a49b9f77e5e689b08",
+   "hits": [
+    {
+     "rank": 1,
+     "source_acc": "A0AAE0C9L8",
+     "mrdb_acc": "MRDB003400",
+     "score": 1567,
+     "identity": 0.411408,
+     "qcov": 0.64027,
+     "scov": 0.907982,
+     "alen": 824
+    },
+    {
+     "rank": 2,
+     "source_acc": "A0AA36JGB0",
+     "mrdb_acc": "MRDB003333",
+     "score": 132,
+     "identity": 0.241573,
+     "qcov": 0.139006,
+     "scov": 0.144726,
+     "alen": 178
+    },
+    {
+     "rank": 3,
+     "source_acc": "A0ABP0N0G3",
+     "mrdb_acc": "MRDB003661",
+     "score": 123,
+     "identity": 0.242574,
+     "qcov": 0.16428,
+     "scov": 0.286567,
+     "alen": 202
+    },
+    {
+     "rank": 4,
+     "source_acc": "A0ABP0NJK6",
+     "mrdb_acc": "MRDB003668",
+     "score": 123,
+     "identity": 0.308943,
+     "qcov": 0.09941,
+     "scov": 0.168794,
+     "alen": 123
+    },
+    {
+     "rank": 5,
+     "source_acc": "A0ABP0PK51",
+     "mrdb_acc": "MRDB003671",
+     "score": 123,
+     "identity": 0.308943,
+     "qcov": 0.09941,
+     "scov": 0.160594,
+     "alen": 123
+    },
+    {
+     "rank": 6,
+     "source_acc": "A0ABP0PK56",
+     "mrdb_acc": "MRDB003672",
+     "score": 123,
+     "identity": 0.308943,
+     "qcov": 0.09941,
+     "scov": 0.157407,
+     "alen": 123
+    },
+    {
+     "rank": 7,
+     "source_acc": "A0ABP0PKM9",
+     "mrdb_acc": "MRDB003674",
+     "score": 123,
+     "identity": 0.308943,
+     "qcov": 0.09941,
+     "scov": 0.144945,
+     "alen": 123
+    },
+    {
+     "rank": 8,
+     "source_acc": "A0ABP0PLF2",
+     "mrdb_acc": "MRDB003676",
+     "score": 123,
+     "identity": 0.308943,
+     "qcov": 0.09941,
+     "scov": 0.160162,
+     "alen": 123
+    },
+    {
+     "rank": 9,
+     "source_acc": "A0ABP0PLP0",
+     "mrdb_acc": "MRDB003677",
+     "score": 123,
+     "identity": 0.308943,
+     "qcov": 0.09941,
+     "scov": 0.140828,
+     "alen": 123
+    },
+    {
+     "rank": 10,
+     "source_acc": "A0ABP0PN84",
+     "mrdb_acc": "MRDB003679",
+     "score": 123,
+     "identity": 0.308943,
+     "qcov": 0.09941,
+     "scov": 0.160162,
+     "alen": 123
+    }
+   ]
+  },
+  {
+   "query_id": "USH44360.1",
+   "query_fasta": ">USH44360.1\nMASSTAAPPATVPATEAAAAPSPELRDSVPLDAAGDASPGARSAAGSTIIVGAPELEREYSDINFAQVAWDEGRRCLLMCVAFAVAIAHLYIYPALFGVRIVDATEVPAEERTYFHHGWTAMLVIFFIEGVTVFLKVCSTRNTKWLEKAVLQKLEGNIGVLIGEYIVVAATYILMGANLIPVFEEPRTGRRVYAVRYMEWTIDACGLVYLDCRILFGMPFSKFRMLLVYSILYMLFGLWAALASTWMWYAIFLSASWFFFGLVCYFYWTFHRQNPSPLQQFGRAPIKQAILIFVIVWWVLYGILFMVCFQAPDVVPQWLEQLLWTGMDVVMKLSHTVVLMAWRETQWEIDAVVDRQKAEAGRALAQLDHQRAIHERDLVRLRSRVYLGDHVKTQEERKSEDVLNKAVRARRSRQGEDDARPSSALLSGGEASPSTKEPQQPLEETSGSAAPSWTAVLAKGKATSSPFARVNQIFMREAGLCLVLCLAFMVALLHLPIYSEWFGVEVLDAEAVPHDELGFFHHGWTTMLVVFLIESITVLLKVWSTWHNPRLAENVAQQLSGNLGVLIAEYLVVGATYVILGYNLMPVFVVHRPGVASRRVYAVRYMEWAVDATGLIWLDCHCLFSRTFKEFRMAIVWTVAYMLFGLWSALASTWAWYWAFLLASWAAFLIVCLILVRFLRQDPYPHQPFGKTPVKPCILAFIIGWWVLYGILFMICFQAPDFVPQWLEQFLWTGMDIIMKLSHTVVLMAWRTTEWNVCELHGRNQAEKNQKSLLTDSSRARQEKLQIEAIMLEGGDPSARTSGVVSFAPSSSRRVKETDSTNWTATPGLHVDLSSMVRLEGQLGQGLVTDVHRKGMMKSEDLAELKRLEESGFLQAQQHRNWESQTREMTFLAHGINHIAYDPRRWTQTLLAVRGRAPTSFLLWVVLVESSIVLALSKFFGESFDLGVSSGIHSLFGVLVSFLIVFRTQAAFKKWWSGRSAVSSLVQMSRTFAQQVCAYVKDEAYVNKMVRYSIATVVATRCHLRNTRIDPAMLLGVLKEEEIEELNRQKNLPFYTTWVIRSTLAEAVSEGACLPLHMAIENALKAIEQSIADAERLLTPMPFTYVVHLRTFLFIYLMGLPFILVEDLGWLMLVAVSFLGYLMIGLENTAVQLENPFGTDCNHHPLDLYCLEVSQDLLHLLDLRASAKAQVDPPAAEQKARSAKSANTSTLMTAMKTGLKNRKPPKGRKEEDDDDGGGDDGGGD\n",
+   "query_length": 1244,
+   "prefilter_sha256": "8e44bdf4899fc023dfa5aa290b4c2d5be1769053254aa5802f2f1b6241e072a9",
+   "hits": [
+    {
+     "rank": 1,
+     "source_acc": "A0AAE0C9L8",
+     "mrdb_acc": "MRDB003400",
+     "score": 1598,
+     "identity": 0.397059,
+     "qcov": 0.651125,
+     "scov": 0.953437,
+     "alen": 884
+    },
+    {
+     "rank": 2,
+     "source_acc": "A0AA36JGB0",
+     "mrdb_acc": "MRDB003333",
+     "score": 127,
+     "identity": 0.235955,
+     "qcov": 0.132637,
+     "scov": 0.144726,
+     "alen": 178
+    },
+    {
+     "rank": 3,
+     "source_acc": "A0ABP0NJK6",
+     "mrdb_acc": "MRDB003668",
+     "score": 124,
+     "identity": 0.308943,
+     "qcov": 0.094855,
+     "scov": 0.168794,
+     "alen": 123
+    },
+    {
+     "rank": 4,
+     "source_acc": "A0ABP0PK51",
+     "mrdb_acc": "MRDB003671",
+     "score": 124,
+     "identity": 0.308943,
+     "qcov": 0.094855,
+     "scov": 0.160594,
+     "alen": 123
+    },
+    {
+     "rank": 5,
+     "source_acc": "A0ABP0PK56",
+     "mrdb_acc": "MRDB003672",
+     "score": 124,
+     "identity": 0.308943,
+     "qcov": 0.094855,
+     "scov": 0.157407,
+     "alen": 123
+    },
+    {
+     "rank": 6,
+     "source_acc": "A0ABP0PKM9",
+     "mrdb_acc": "MRDB003674",
+     "score": 124,
+     "identity": 0.308943,
+     "qcov": 0.094855,
+     "scov": 0.144945,
+     "alen": 123
+    },
+    {
+     "rank": 7,
+     "source_acc": "A0ABP0PLF2",
+     "mrdb_acc": "MRDB003676",
+     "score": 124,
+     "identity": 0.308943,
+     "qcov": 0.094855,
+     "scov": 0.160162,
+     "alen": 123
+    },
+    {
+     "rank": 8,
+     "source_acc": "A0ABP0PLP0",
+     "mrdb_acc": "MRDB003677",
+     "score": 124,
+     "identity": 0.308943,
+     "qcov": 0.094855,
+     "scov": 0.140828,
+     "alen": 123
+    },
+    {
+     "rank": 9,
+     "source_acc": "A0ABP0PN84",
+     "mrdb_acc": "MRDB003679",
+     "score": 124,
+     "identity": 0.308943,
+     "qcov": 0.094855,
+     "scov": 0.160162,
+     "alen": 123
+    },
+    {
+     "rank": 10,
+     "source_acc": "A0AAJ0GHX9",
+     "mrdb_acc": "MRDB001249",
+     "score": 121,
+     "identity": 0.327869,
+     "qcov": 0.093248,
+     "scov": 0.077861,
+     "alen": 122
+    }
+   ]
+  },
+  {
+   "query_id": "USH44362.1",
+   "query_fasta": ">USH44362.1\nMPTPLPMARSPQDGNVDRSSPERSLDLRERPLESERSNERDSRTCEATAGQVKYDSEGSPSWASAGSKYRGQVLPVYKGEALACAAMIVAYGICLAHMYVYPALFGVVVAPADEVPQGEIRIFQHGWTAMVVVLLVEVVAAVLKVWSTWRHAVLANAVALHYKGNLGVLIGEYILVGSAYVIMASNCTPVFVAPLTGRRIYCARYMTWLVDACGLVYLDCTILFRRSISDYAPCAVCMIACAELGLWSALSTSQYLHWAFLLGSLSAFAMMGAMMVRFLLTDKHADRTFGRSSTKTFFVFFILGWYCMYGALFVTTFEAPALISQQTEQLLWTFFDVVMKVSHAVMLLVWRGTQRDIETIVKQSKVEAARHVAQLDRALAIADHNKSLLLRRMSDSRIPNTECEEKAQCFKFLDEIPPSVLPGPSVTESHATGDSGRSGNLSESALAIYTRELANSSVMVVTFVLSLLHLYLYPAFLGVEVASASDIPDDEIAVFHHGWTSLLVMFMMEAVSVLVGALSTWHNPKLWKAVAHKLEDNVGVLFGEYALVGAGYALMAFNLMPVFIAPLTGRRIYVVRYMVWMVDACGLVYLDCRTLFHRSLSDCYIVFLLFIACVQFGLWSAFSPSWLLQTVFMICAFISVGVACCVMIKFCWEDPFSLKPFGNASLKPCILGFVVAWYGMYGLVFVVSTRSPALVSEWVEQLLWTAMDVVMKLSHTVMLVAWRALQWDVDAHVSIRNAVREQKKARMDLLAVQSQTEPADGRAEEPRLETTFTATPGLFLGAQSYAQISQNMGHSALTHSMIRPEQRSDMELLEQLGALQANLKSSWERKTLEDTFLETAGHYVAYNPEHWLQTLFGVRGRATGQWPFWFILAEAVVVALLAMISPEWAESLELSSSLHGMLSGSVMFLVVFRTQYAFRKWWDGRVAFGRIVRLSRTLGQQVCAFISDDKLCQSMVKYTVAAVVAARCHLRNMRISSGMLAGVLSKEEVSEINVYDNMPNYATWMVRSGLADAVRGGSCLPLHMAIDNSLRSLEEAIGDAERLLTPMPFMYVAHLRSILFLYLVTLPFVVVIDLGRFMVPGIGLAAYVLLGLENTAVELENPFGLDHCDLPLDLYCIVVSKDLTDILGLRAARVKNECKMGSEDIADEDGDDD\n",
+   "query_length": 1153,
+   "prefilter_sha256": "a42294deec66a939a5b3d5ef94c2e4e1d7f37917c2a940ca4938874dbd39dd9e",
+   "hits": [
+    {
+     "rank": 1,
+     "source_acc": "A0AAE0C9L8",
+     "mrdb_acc": "MRDB003400",
+     "score": 1531,
+     "identity": 0.390887,
+     "qcov": 0.639202,
+     "scov": 0.911308,
+     "alen": 834
+    },
+    {
+     "rank": 2,
+     "source_acc": "A0A1Q9CRJ3",
+     "mrdb_acc": "MRDB002211",
+     "score": 147,
+     "identity": 0.276836,
+     "qcov": 0.152645,
+     "scov": 0.154125,
+     "alen": 177
+    },
+    {
+     "rank": 3,
+     "source_acc": "A0ABP0N0G3",
+     "mrdb_acc": "MRDB003661",
+     "score": 115,
+     "identity": 0.211864,
+     "qcov": 0.200347,
+     "scov": 0.341791,
+     "alen": 236
+    },
+    {
+     "rank": 4,
+     "source_acc": "A0ABP0N122",
+     "mrdb_acc": "MRDB003662",
+     "score": 114,
+     "identity": 0.211864,
+     "qcov": 0.200347,
+     "scov": 0.334307,
+     "alen": 236
+    },
+    {
+     "rank": 5,
+     "source_acc": "A0A835SIX0",
+     "mrdb_acc": "MRDB003042",
+     "score": 111,
+     "identity": 0.236287,
+     "qcov": 0.185603,
+     "scov": 0.364686,
+     "alen": 237
+    },
+    {
+     "rank": 6,
+     "source_acc": "A0AA36IVJ1",
+     "mrdb_acc": "MRDB003330",
+     "score": 111,
+     "identity": 0.233503,
+     "qcov": 0.166522,
+     "scov": 0.256868,
+     "alen": 197
+    },
+    {
+     "rank": 7,
+     "source_acc": "A0A2P6NFY1",
+     "mrdb_acc": "MRDB000368",
+     "score": 108,
+     "identity": 0.21267,
+     "qcov": 0.180399,
+     "scov": 0.174061,
+     "alen": 221
+    },
+    {
+     "rank": 8,
+     "source_acc": "A0A0G4E9A8",
+     "mrdb_acc": "MRDB001869",
+     "score": 104,
+     "identity": 0.217391,
+     "qcov": 0.192541,
+     "scov": 0.316667,
+     "alen": 230
+    },
+    {
+     "rank": 9,
+     "source_acc": "A0A9P1CCW4",
+     "mrdb_acc": "MRDB001028",
+     "score": 104,
+     "identity": 0.239521,
+     "qcov": 0.134432,
+     "scov": 0.078462,
+     "alen": 167
+    },
+    {
+     "rank": 10,
+     "source_acc": "A0A835W281",
+     "mrdb_acc": "MRDB000866",
+     "score": 101,
+     "identity": 0.231939,
+     "qcov": 0.206418,
+     "scov": 0.389886,
+     "alen": 263
+    }
+   ]
+  },
+  {
+   "query_id": "USH44363.1",
+   "query_fasta": ">USH44363.1\nMPAPRRPGCGCACEHPAAAGNVSSDDEPDAVGASVRSGDIFAATLHAEGAEASRGSREPAAETRVVAAEPGDSAEEPEGQAQARKEESEAADDGSLLGSNLTEGSTPHPVHLTTLGEVGRTETYTCALFVLSYAVLLAHVYIYPAYFGVEVCPAHEVPSDELGYFHHGWTAVSVIFYIEAIPLCIRVWATRQHPLLASAVAQKMEGNIGVLFAEYIIVAATYSIMGYNRMPVFVEPRTGRRVYPVRFVAWLVDGCGLAYLDCRVLFGQPFARYRTIFVYVAANMLFGLWSAISPTWALHYLFLAAAWLFFAITCAMLVNFLRRDPEPLQPFGRAPIKRSILAFIILWQVLYGVVFMLAFQAPASLLPQWLEQLLWTGMDVIMKLSHTCVLLAWRASQREIEAFLLKQKAEAHSVVARIDRQRAVVERDLAEVRGRLRRQSSRLGLEDGAECVACGGAGCALCGRGPELPAHPTMSLTSGDMLPGPPALAPGVSGPEVPTPTFRDVNWVYLREAGICGCLLAAYAAAVVHLQVYSRVFGVELAPQESAAPAAERAFFHHGWTSMIVVFLIEAIAVILKVWSTWHDPNLAMAAAEKFGGHIGALIGEYFVVGTTYALMGFNLAPVFLEPRTGRRVYGARFMAWLVDSCGLVYLDCRCLFGRSFPEFRAALAWTAVNMMCGLWSALASSWAWHWFFLLCSWLSFFMVCAIMVRFMLSDPYPLEPFGRTLVKPFILALIIGWQALYGVVFMISFWPEQVLPEWLEQLAWTGMDVVLKLFHTAVLIAWRATESEFGALTSKRRAEKRRTRDLRIVERAKAQKQEIIDQEQEDEFEERGSGGGRSRSPSPPPRARAANWTATPGLSLDIASMLRLEAHLGQGAVSQEQRKSMMRAEDLEELRRLEQAGSVTAKLQEDFVSNMRDNTFLAHGINHIAYDPRSWFSTLLAVRGRAPTSGAMWVLIAESIVVACLAQIAPEIAPHLAASLHSLLSGSVAFLMVFRTEYAFRKWWDGRTAFENITSNSRTVSQQICAYVTDVRLVDKMVRYVIVNTVATRCHLRKTRIDPHMLAGILTKAEVEEVNRQDNMPYYTTWVIRYCLGEALATQTCLPCHMAIDAGIRALECAMADAERLLTPMAFTYVVHLRTFLFLYLLGLPFILVADLGWFMVIAVAVVSYLMIGLENTAVQLENPFGLDCNHHPLDLYCLEVVRDLLSLLDIRAGAAVEQPLRLRMRRSSEQMDECDDGAD\n",
+   "query_length": 1241,
+   "prefilter_sha256": "c625ddf6d5b7b72e24f124cac6c337eabfa5380f489e62806d6165e939156a06",
+   "hits": [
+    {
+     "rank": 1,
+     "source_acc": "A0AAE0C9L8",
+     "mrdb_acc": "MRDB003400",
+     "score": 1624,
+     "identity": 0.412604,
+     "qcov": 0.624496,
+     "scov": 0.926829,
+     "alen": 841
+    },
+    {
+     "rank": 2,
+     "source_acc": "A0A0G4E9A8",
+     "mrdb_acc": "MRDB001869",
+     "score": 119,
+     "identity": 0.233216,
+     "qcov": 0.206285,
+     "scov": 0.376389,
+     "alen": 283
+    },
+    {
+     "rank": 3,
+     "source_acc": "A0ABP0LAR9",
+     "mrdb_acc": "MRDB001391",
+     "score": 118,
+     "identity": 0.230435,
+     "qcov": 0.170024,
+     "scov": 0.252595,
+     "alen": 230
+    },
+    {
+     "rank": 4,
+     "source_acc": "A0A812P7H7",
+     "mrdb_acc": "MRDB002922",
+     "score": 114,
+     "identity": 0.271084,
+     "qcov": 0.127317,
+     "scov": 0.205229,
+     "alen": 166
+    },
+    {
+     "rank": 5,
+     "source_acc": "A0A812PA10",
+     "mrdb_acc": "MRDB002923",
+     "score": 114,
+     "identity": 0.271084,
+     "qcov": 0.127317,
+     "scov": 0.290203,
+     "alen": 166
+    },
+    {
+     "rank": 6,
+     "source_acc": "A0A812PPR4",
+     "mrdb_acc": "MRDB002925",
+     "score": 114,
+     "identity": 0.271084,
+     "qcov": 0.127317,
+     "scov": 0.209613,
+     "alen": 166
+    },
+    {
+     "rank": 7,
+     "source_acc": "A0A812WU69",
+     "mrdb_acc": "MRDB002945",
+     "score": 109,
+     "identity": 0.277108,
+     "qcov": 0.127317,
+     "scov": 0.282883,
+     "alen": 166
+    },
+    {
+     "rank": 8,
+     "source_acc": "A0A1Q9CRJ3",
+     "mrdb_acc": "MRDB002211",
+     "score": 105,
+     "identity": 0.252475,
+     "qcov": 0.159549,
+     "scov": 0.176791,
+     "alen": 202
+    },
+    {
+     "rank": 9,
+     "source_acc": "A0A9P1CCW4",
+     "mrdb_acc": "MRDB001028",
+     "score": 101,
+     "identity": 0.258706,
+     "qcov": 0.15552,
+     "scov": 0.091282,
+     "alen": 201
+    },
+    {
+     "rank": 10,
+     "source_acc": "A0A1Y1I5V9",
+     "mrdb_acc": "MRDB000288",
+     "score": 100,
+     "identity": 0.208,
+     "qcov": 0.192587,
+     "scov": 0.113604,
+     "alen": 250
+    }
+   ]
+  },
+  {
+   "query_id": "7AKX_A",
+   "query_fasta": ">7AKX_A\nMDNIIMTAYISIFVQIITAIISVYGLFIPLNFKDIILREILILELIVQIIEFIFYIWLIITLQSINEDITYVRYFDWVLTTPVMLLTTVYFFEYMNSDDGIRKKEINDRDYVYLFYICLSNFFMLLIGYLGETKQINKMLTLFGGSFFLFLTFYLLYVKYTKENWMNYIVFYFMFLVWFLYGFAFMFPFSIKNQMYNILDIVSKNIYSIFIFIVILNQSYKLLLEHHHHHH\n",
+   "query_length": 231,
+   "prefilter_sha256": "9ffee3c87e2e8ece78584316da99717315109fc5f3e7fd350c49d25ff73d6d87",
+   "hits": [
+    {
+     "rank": 1,
+     "source_acc": "A0AC59EXE7",
+     "mrdb_acc": "MRDB003999",
+     "score": 408,
+     "identity": 0.399061,
+     "qcov": 0.904762,
+     "scov": 0.946667,
+     "alen": 213
+    },
+    {
+     "rank": 2,
+     "source_acc": "H5TCX9",
+     "mrdb_acc": "MRDB001660",
+     "score": 116,
+     "identity": 0.214286,
+     "qcov": 0.774892,
+     "scov": 0.669091,
+     "alen": 196
+    },
+    {
+     "rank": 3,
+     "source_acc": "A0AAW2Z5U0",
+     "mrdb_acc": "MRDB003506",
+     "score": 113,
+     "identity": 0.257485,
+     "qcov": 0.670996,
+     "scov": 0.196524,
+     "alen": 167
+    },
+    {
+     "rank": 4,
+     "source_acc": "A0A317XNV2",
+     "mrdb_acc": "MRDB000020",
+     "score": 107,
+     "identity": 0.233918,
+     "qcov": 0.670996,
+     "scov": 0.111349,
+     "alen": 171
+    },
+    {
+     "rank": 5,
+     "source_acc": "A0AAW0Z5Q8",
+     "mrdb_acc": "MRDB001323",
+     "score": 105,
+     "identity": 0.238636,
+     "qcov": 0.662338,
+     "scov": 0.495177,
+     "alen": 176
+    },
+    {
+     "rank": 6,
+     "source_acc": "A0A9P6TFJ4",
+     "mrdb_acc": "MRDB001062",
+     "score": 104,
+     "identity": 0.2375,
+     "qcov": 0.619048,
+     "scov": 0.498282,
+     "alen": 160
+    },
+    {
+     "rank": 7,
+     "source_acc": "K1Y8S4",
+     "mrdb_acc": "MRDB001670",
+     "score": 104,
+     "identity": 0.240964,
+     "qcov": 0.645022,
+     "scov": 0.245499,
+     "alen": 166
+    },
+    {
+     "rank": 8,
+     "source_acc": "A0ABR3S6G8",
+     "mrdb_acc": "MRDB000029",
+     "score": 102,
+     "identity": 0.228916,
+     "qcov": 0.623377,
+     "scov": 0.179234,
+     "alen": 166
+    },
+    {
+     "rank": 9,
+     "source_acc": "A0ACC2ZKT5",
+     "mrdb_acc": "MRDB004072",
+     "score": 101,
+     "identity": 0.221675,
+     "qcov": 0.709957,
+     "scov": 0.568323,
+     "alen": 203
+    },
+    {
+     "rank": 10,
+     "source_acc": "A0A0A5GJX6",
+     "mrdb_acc": "MRDB001817",
+     "score": 97,
+     "identity": 0.27,
+     "qcov": 0.415584,
+     "scov": 0.384956,
+     "alen": 100
+    }
+   ]
+  }
+ ]
+}

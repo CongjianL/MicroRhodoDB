@@ -513,3 +513,34 @@ placement count differs from the number of placements with call `assigned` and `
 Not changed: record files, `accessions.json`, `records-index.json`, `summary.json`, `vocabulary.json`, sequences,
 structures, publications, watchlist, phylogeny files, `export_manifest.json` format, file count (5,317 exported files
 plus the manifest), determinism rules, exit codes.
+
+## 14. Schema 1.4.0 (PR-5, additive)
+
+PR-5 adds the data behind the Statistics, Evidence, Downloads, Methods and Citation pages. All changes are additive:
+no 1.3.0 field changed name, type or value, no metric or distribution value changed, and no classification, function,
+clade or membership score changed. Compared with the PR-4a export, exactly one file was added (`downloads.json`) and four
+files changed only by additions or version strings (`summary.json`, `evidence-index.json`, `manifest.json`,
+`export_manifest.json`; the derived-tree README now says schema 1.4.0). `tests/test_web_pr5.py` replays every stored SQL
+against the read-only DB.
+
+### 14.1 New fields
+
+| File / field | Content |
+|---|---|
+| `summary.json` → `metrics[]` | `members_candidates` (4,468), `clade_confident_members_candidates` (3,821), `records_with_afdb_counted` (4,391), `records_with_pdb_counted` (61), `novel_family_flag`, `foldseek_hits` (786) |
+| `summary.json` → `distributions[]` | `membership_status_counted`, `ncbi_phylum_counted`, `motif_class_counted`, `helixC_motif_counted`, `length_bin_counted` (25-residue bins), `function_basis_category_counted`, `clade_state_members_candidates` |
+| `summary.json` → `distributions[].derivation` | Optional. Present only when the stored SQL returns raw input that is reduced in Python; currently only `ncbi_phylum_counted` (phylum = the lineage name tagged `(phylum)`; `null` = no phylum-ranked taxon) |
+| `summary.json` → `crosstabs[]` (new key) | `evidence_by_membership_group_counted`, `evidence_by_basis_category_counted`: `{id, label, row_field, col_field, sql, cells[{row, col, value}], total, denominator, dataset_release}`; each sums to `counted_records` (5,460) |
+| `evidence-index.json` → `validation` | The stored LOCO / audit tables shown on the Evidence and Methods pages |
+| `downloads.json` (new file) | `release` (tag, URL, `release_date`, `license` exactly as stored), `release_files[]` (39: path, sha256, bytes, `in_git_at_tag`, URL, distribution; only the SQLite DB is not in git), `refpkg_files[]` (37, from `refpkg/MR_RT_003/SHA256SUMS`), `repository_documents[]`, `website_derived[]`, `citation` (parsed from `CITATION.cff`; `doi` is null), `maintenance_placeholders[]`, `release_history[]`, `version_note` |
+| `manifest.website_version` | `2.0.0-pr5` |
+
+The exporter fails if any distribution or crosstab does not sum to its denominator or a crosstab has an `UNMAPPED` key.
+`export_manifest.json` is linked from Downloads but never loaded by the browser.
+
+### 14.2 Licence and date fields are copied, not reconciled
+
+`release.license` is the stored string "CC BY 4.0 (data); MIT (code)". The repository `LICENSE` file contains only
+CC BY 4.0 and `CITATION.cff` says `CC-BY-4.0`. `release.release_date` (DB metadata) is 2026-10-10, while
+`CITATION.cff` `date-released` is 2026-10-09. The website shows both values with their sources and does not pick one;
+reconciling them is a maintainer decision.

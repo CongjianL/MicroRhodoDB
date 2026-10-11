@@ -2,12 +2,12 @@
  * Typed hash-route contract (WEBSITE_REDESIGN_SPEC.md section 2).
  *
  * Hash routing keeps every URL refresh-safe on GitHub Pages under /MicroRhodoDB/site/.
- * Legacy routes preserved: #/record/<MRDB or source accession>, #/about, #/search;
+ * Legacy routes preserved: #/record/<MRDB or source accession>, #/about, #/search (now the PR-5 Search page);
  * #/novel redirects to #/watchlist. The legacy root #/ (old browse table) now opens Home,
  * which links to Browse.
  */
 
-export type PlannedPage =
+export type SectionPage =
   | "structures"
   | "search"
   | "downloads"
@@ -25,22 +25,23 @@ export type Route =
   | { name: "about" }
   | { name: "phylogeny"; params: URLSearchParams }
   | { name: "clade"; cladeId: string }
-  | { name: "planned"; page: PlannedPage }
+  | { name: "section"; page: SectionPage; params: URLSearchParams }
   | { name: "not-found"; path: string };
 
-export const PLANNED_PAGES: Record<PlannedPage, { title: string; pr: string; summary: string }> = {
-  structures: { title: "Structures", pr: "PR-5", summary: "Structure browser for experimental PDB entries and predicted models." },
-  search: { title: "Sequence search", pr: "PR-5", summary: "Sequence-similarity search running in a Web Worker, with explicit method limits." },
-  downloads: { title: "Downloads", pr: "PR-5", summary: "Release files (TSV, FASTA, SQLite, reference tree) with checksums." },
-  statistics: { title: "Statistics", pr: "PR-5", summary: "Database composition and annotation coverage with explicit denominators." },
-  evidence: { title: "Evidence explorer", pr: "PR-5", summary: "E1-E5 evidence, function basis, call conflicts and curated membership overrides." },
-  watchlist: { title: "Novel-family watchlist", pr: "PR-5", summary: "Research-candidate layer kept separate from the corpus (not database records)." },
-  methods: { title: "Methods", pr: "PR-5", summary: "Membership scoring, evidence ladder, phylogeny and placement methods." },
-  citation: { title: "Citation", pr: "PR-5", summary: "How to cite MicroRhodoDB and its release files." },
-  help: { title: "Help", pr: "PR-5", summary: "Usage notes and frequently asked questions." },
+/** Section pages implemented in PR-5 (titles are used for navigation, <title> and headings). */
+export const SECTION_PAGES: Record<SectionPage, { title: string; nav: string; summary: string }> = {
+  structures: { title: "Structure explorer", nav: "Structures", summary: "Experimental PDB entries, AlphaFold DB models and release models, with provenance." },
+  search: { title: "Search", nav: "Search", summary: "Text search across records and an in-browser sequence-similarity search with stated limits." },
+  downloads: { title: "Downloads", nav: "Downloads", summary: "Release files, reference package and repository documents with SHA-256 checksums." },
+  statistics: { title: "Statistics", nav: "Statistics", summary: "Database composition and annotation coverage with explicit denominators and SQL provenance." },
+  evidence: { title: "Evidence explorer", nav: "Evidence", summary: "E1-E5 evidence, function-call basis, conflicts, curated membership overrides and validation." },
+  watchlist: { title: "Novel-family watchlist", nav: "Watchlist", summary: "Research candidates not admitted to the corpus, with screening funnel and limitations." },
+  methods: { title: "Methods", nav: "Methods", summary: "Membership scoring, evidence ladder, phylogeny, placement, validation and website derivation." },
+  citation: { title: "Citation", nav: "Citation", summary: "How to cite a specific MicroRhodoDB data release." },
+  help: { title: "Help", nav: "Help", summary: "How to use the website, and answers to common questions." },
 };
 
-const PLANNED = new Set(Object.keys(PLANNED_PAGES));
+const SECTIONS = new Set(Object.keys(SECTION_PAGES));
 
 /** Parse a location.hash value (e.g. "#/browse?evidence=E1") into a Route. */
 export function parseHash(hash: string): Route {
@@ -66,9 +67,9 @@ export function parseHash(hash: string): Route {
     case "clade":
       return arg ? { name: "clade", cladeId: arg } : { name: "phylogeny", params: new URLSearchParams(query) };
     case "novel":
-      return { name: "planned", page: "watchlist" };
+      return { name: "section", page: "watchlist", params: new URLSearchParams() };
     default:
-      if (PLANNED.has(head) && arg === undefined) return { name: "planned", page: head as PlannedPage };
+      if (SECTIONS.has(head) && arg === undefined) return { name: "section", page: head as SectionPage, params: new URLSearchParams(query) };
       return { name: "not-found", path };
   }
 }
@@ -102,7 +103,7 @@ export const href = {
   about: () => "#/about",
   phylogeny: (query = "") => (query ? `#/phylogeny?${query.replace(/^\?/, "")}` : "#/phylogeny"),
   clade: (id: string) => `#/clade/${encodeURIComponent(id)}`,
-  planned: (p: PlannedPage) => `#/${p}`,
+  section: (p: SectionPage, query = "") => `#/${p}${query ? `?${query.replace(/^\?/, "")}` : ""}`,
 };
 
 export function routeTitle(r: Route): string {
@@ -113,7 +114,7 @@ export function routeTitle(r: Route): string {
     case "about": return "About - MicroRhodoDB";
     case "phylogeny": return "Phylogeny - MicroRhodoDB";
     case "clade": return `${r.cladeId} - MicroRhodoDB`;
-    case "planned": return `${PLANNED_PAGES[r.page].title} (planned) - MicroRhodoDB`;
+    case "section": return `${SECTION_PAGES[r.page].title} - MicroRhodoDB`;
     case "not-found": return "Page not found - MicroRhodoDB";
   }
 }

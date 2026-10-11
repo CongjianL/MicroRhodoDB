@@ -3,7 +3,7 @@
  * and the rooted Newick. Never loads records-index, accessions, per-record files or FASTA.
  */
 import { useMemo } from "react";
-import { PLANNED_PAGES, href, routeForQuery, type PlannedPage } from "../app/routes";
+import { SECTION_PAGES, href, routeForQuery } from "../app/routes";
 import { CladeSupportNotice } from "../components/CladeSupportNotice";
 import { Callout, PageTitle, SearchBox, StatCard } from "../components/common";
 import { ErrorState, LoadingSkeleton } from "../components/States";
@@ -105,7 +105,7 @@ function HomeBody({ manifest, summary, clades, vocab, tree }: {
         <div className="mt-5 flex flex-wrap gap-2">
           <a href={href.browse()} className="btn btn-primary">Browse proteins</a>
           <a href={href.phylogeny()} className="btn btn-secondary">Explore phylogeny</a>
-          <a href={href.planned("search")} className="btn btn-secondary">Sequence search <PlannedTag page="search" /></a>
+          <a href={href.section("search", "mode=sequence")} className="btn btn-secondary">Sequence search</a>
         </div>
         <p className="mt-4 text-sm text-ink-2" data-testid="release-line">
           Data release <strong className="text-ink">v{manifest.dataset_release}</strong> ({manifest.release_date}) · {fmtInt(S("records_total"))} source records ·{" "}
@@ -217,7 +217,7 @@ function HomeBody({ manifest, summary, clades, vocab, tree }: {
         <Callout title="How to read these annotations" testId="transparency-note">
           <p>Membership status is distinct from functional evidence level. E1–E5 describe evidence types, not calibrated probabilities of correctness.</p>
           <p className="mt-1">
-            Methods for membership scoring, the evidence ladder and phylogenetic placement: <a href={href.planned("methods")}>Methods</a> <PlannedTag page="methods" />; scope and definitions: <a href={href.about()}>About</a>.
+            Methods for membership scoring, the evidence ladder and phylogenetic placement: <a href={href.section("methods")}>Methods</a>; scope and definitions: <a href={href.about()}>About</a>.
           </p>
         </Callout>
       </section>
@@ -229,15 +229,15 @@ function HomeBody({ manifest, summary, clades, vocab, tree }: {
           {[
             { h: href.browse(), t: "Browse", d: "Filter, sort and export source records by membership, function, evidence, clade, taxonomy and structure availability." },
             { h: href.phylogeny(), t: "Phylogeny", d: "Interactive explorer for the 472-tip MR_RT_003 reference tree: rectangular and radial layouts, search, corrected support values, placements and clade pages." },
-            { h: href.planned("structures"), t: "Structures", d: PLANNED_PAGES.structures.summary, p: "structures" as PlannedPage },
-            { h: href.planned("search"), t: "Search", d: PLANNED_PAGES.search.summary, p: "search" as PlannedPage },
-            { h: href.planned("downloads"), t: "Downloads", d: PLANNED_PAGES.downloads.summary, p: "downloads" as PlannedPage },
+            { h: href.section("structures"), t: "Structures", d: SECTION_PAGES.structures.summary },
+            { h: href.section("search"), t: "Search", d: SECTION_PAGES.search.summary },
+            { h: href.section("downloads"), t: "Downloads", d: SECTION_PAGES.downloads.summary },
             { h: href.about(), t: "About", d: "Scope, definitions of membership statuses and evidence levels, release provenance and license." },
           ].map((e) => (
             <li key={e.t}>
               <a href={e.h} className="card block h-full p-4 no-underline hover:border-accent hover:no-underline" data-testid={`entry-${e.t.toLowerCase()}`}>
                 <span className="flex items-center gap-2 font-semibold text-accent-strong">
-                  {e.t} {e.p ? <PlannedTag page={e.p} /> : null}
+                  {e.t}
                 </span>
                 <span className="mt-1 block text-sm text-ink-2">{e.d}</span>
               </a>
@@ -246,13 +246,5 @@ function HomeBody({ manifest, summary, clades, vocab, tree }: {
         </ul>
       </section>
     </>
-  );
-}
-
-function PlannedTag({ page }: { page: PlannedPage }) {
-  return (
-    <span className="rounded border border-line-strong bg-subtle px-1 text-[0.6875rem] font-medium leading-4 text-ink-2" title={`Planned for ${PLANNED_PAGES[page].pr}; not available in this build`}>
-      planned
-    </span>
   );
 }
