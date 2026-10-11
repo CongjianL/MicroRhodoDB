@@ -23,15 +23,38 @@ export class DataError extends Error {
   }
 }
 
+/**
+ * PR-6: time-to-response limit for data requests (headers received). A server that never answers no
+ * longer leaves a page loading forever; the page shows its error state with Retry. E2E tests may
+ * shorten it via window.__MRDB_DATA_TIMEOUT_MS (no effect otherwise).
+ */
+const dataTimeoutMs = () => {
+  const t = (globalThis as { __MRDB_DATA_TIMEOUT_MS?: unknown }).__MRDB_DATA_TIMEOUT_MS;
+  return typeof t === "number" && t > 0 ? t : 45_000;
+};
+
 async function fetchChecked(url: string): Promise<Response> {
   let res: Response;
+  const ctl = new AbortController();
+  let timedOut = false;
+  const timer = setTimeout(() => { timedOut = true; ctl.abort(); }, dataTimeoutMs());
   try {
-    res = await fetch(url, { credentials: "same-origin" });
+    res = await fetch(url, { credentials: "same-origin", signal: ctl.signal });
   } catch (e) {
-    throw new DataError(`Network error while loading ${url}`);
+    throw new DataError(timedOut ? `Timed out while loading ${url}` : `Network error while loading ${url}`);
+  } finally {
+    clearTimeout(timer);
   }
   if (!res.ok) throw new DataError(`HTTP ${res.status} while loading ${url}`, res.status);
   return res;
+}
+
+async function parseJson<T>(res: Response, url: string): Promise<T> {
+  try {
+    return (await res.json()) as T;
+  } catch {
+    throw new DataError(`Invalid or truncated data in ${url}`);
+  }
 }
 
 function once<T>(key: string, load: () => Promise<T>): Promise<T> {
@@ -46,7 +69,7 @@ function once<T>(key: string, load: () => Promise<T>): Promise<T> {
 
 export function loadCurrent(): Promise<Current> {
   return once("current", async () => {
-    const c = (await (await fetchChecked(`${BASE}data/current.json`)).json()) as Current;
+    const c = await parseJson<Current>(await fetchChecked(`${BASE}data/current.json`), `${BASE}data/current.json`);
     if (!/^data\/v\d+\.\d+\.\d+\/$/.test(c.path)) throw new DataError(`Unexpected data path ${c.path}`);
     return c;
   });
@@ -58,7 +81,10 @@ async function releaseUrl(rel: string): Promise<string> {
 }
 
 function json<T>(rel: string): Promise<T> {
-  return once(rel, async () => (await fetchChecked(await releaseUrl(rel))).json() as Promise<T>);
+  return once(rel, async () => {
+    const url = await releaseUrl(rel);
+    return parseJson<T>(await fetchChecked(url), url);
+  });
 }
 
 function text(rel: string): Promise<string> {
@@ -97,12 +123,14 @@ export function loadRecord(mrdbAcc: string): Promise<MrdbEntry | null> {
   if (!/^MRDB\d{6}$/.test(mrdbAcc)) return Promise.resolve(null);
   return once(`records/${mrdbAcc}`, async () => {
     const url = await releaseUrl(`records/${mrdbAcc}.json`);
-    const res = await fetch(url, { credentials: "same-origin" }).catch(() => {
-      throw new DataError(`Network error while loading ${url}`);
-    });
-    if (res.status === 404) return null;
-    if (!res.ok) throw new DataError(`HTTP ${res.status} while loading ${url}`, res.status);
-    return (await res.json()) as MrdbEntry;
+    let res: Response;
+    try {
+      res = await fetchChecked(url);
+    } catch (e) {
+      if (e instanceof DataError && e.status === 404) return null;
+      throw e;
+    }
+    return parseJson<MrdbEntry>(res, url);
   });
 }
 

@@ -1,0 +1,15 @@
+{
+ "route": "#/evidence",
+ "width": 1440,
+ "passes": 34,
+ "incomplete": [],
+ "violations": [],
+ "semantics": {
+  "h1": 1,
+  "main": 1,
+  "lang": "en",
+  "title": "Evidence explorer - MicroRhodoDB",
+  "pageOverflowPx": 0,
+  "unnamedControls": []
+ }
+}

@@ -10,6 +10,7 @@ import { loadDownloads, useResource } from "../data/loaders";
 import type { Downloads } from "../data/types";
 import { Ext, copyText } from "../features/entry/ui";
 import { apa, authors, bibtex } from "../lib/citation";
+import { safeExternalUrl } from "../lib/safe";
 
 export default function CitationPage() {
   const res = useResource(loadDownloads, []);
@@ -75,7 +76,7 @@ function Body({ d }: { d: Downloads }) {
       </p>
       <div className="flex flex-wrap gap-2 print:hidden">
         <button type="button" className="btn btn-secondary" onClick={() => window.print()}>Print</button>
-        {cff ? <a className="btn btn-secondary" href={cff.url} target="_blank" rel="noopener noreferrer">Open CITATION.cff</a> : null}
+        {cff ? <a className="btn btn-secondary" href={safeExternalUrl(cff.url)} target="_blank" rel="noopener noreferrer">Open CITATION.cff</a> : null}
       </div>
     </div>
   );

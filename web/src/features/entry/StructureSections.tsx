@@ -137,7 +137,7 @@ export function ExperimentalSection({ entry, src, onView }: { entry: MrdbEntry; 
                       <td className="font-mono text-xs">{p.shared_with.length ? p.shared_with.map((s) => <a key={s} className="block" href={href.record(s)}>{s}</a>) : <span className="font-sans text-ink-2">None</span>}</td>
                       <td className="min-w-[7.5rem] text-sm">
                         <button type="button" className="btn btn-secondary btn-sm mb-1 whitespace-nowrap" onClick={() => onView({ kind: "pdb", id: p.pdb_id })} data-testid="pdb-view">View in 3D<span className="sr-only"> {p.pdb_id}</span></button>
-                        <span className="flex flex-wrap gap-x-2">
+                        <span className="link-row flex flex-wrap gap-x-2">
                           <Ext href={u.rcsb}>RCSB</Ext>
                           <Ext href={u.pdbe}>PDBe</Ext>
                           <a href={u.mmcif} download>mmCIF</a>

@@ -33,6 +33,8 @@ export interface TreeCanvasProps {
   onSelect: (pre: number | null) => void;
   onHover: (pre: number | null) => void;
   label: string;
+  /** id of an element with a text alternative (PR-6). */
+  describedBy?: string;
   testId?: string;
 }
 
@@ -321,6 +323,7 @@ export const TreeCanvas = forwardRef<TreeCanvasHandle, TreeCanvasProps>(function
         viewBox={`0 0 ${W} ${height}`}
         role="application"
         aria-label={p.label}
+        aria-describedby={p.describedBy}
         aria-roledescription="phylogenetic tree"
         tabIndex={0}
         className="block cursor-grab touch-none select-none outline-none focus-visible:ring-2 focus-visible:ring-accent"

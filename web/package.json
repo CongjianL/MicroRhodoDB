@@ -1,9 +1,9 @@
 {
   "name": "microrhododb-web",
   "private": true,
-  "version": "2.0.0-pr5",
+  "version": "2.0.0-pr6",
   "type": "module",
-  "description": "MicroRhodoDB website (PR-2: design system, Home, Browse). Static React + TypeScript + Vite app served from /MicroRhodoDB/site/.",
+  "description": "MicroRhodoDB website 2.0 (dataset v1.6.0). Static React + TypeScript + Vite app served from /MicroRhodoDB/site/.",
   "license": "MIT",
   "engines": {
     "node": ">=22"
@@ -12,6 +12,7 @@
     "dev": "vite",
     "typecheck": "tsc --noEmit -p .",
     "build": "tsc --noEmit -p . && vite build",
+    "preview": "vite preview --port 4173 --strictPort",
     "test:unit": "vitest run",
     "test:e2e": "playwright test",
     "test": "vitest run && playwright test"
@@ -24,6 +25,7 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.63.0",
     "@tailwindcss/vite": "4.3.3",
     "@types/node": "22.20.5",
@@ -33,6 +35,7 @@
     "tailwindcss": "4.3.3",
     "typescript": "5.9.3",
     "vite": "8.3.4",
-    "vitest": "5.0.3"
+    "vitest": "5.0.3",
+    "web-vitals": "6.2.3"
   }
 }

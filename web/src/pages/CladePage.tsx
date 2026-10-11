@@ -136,7 +136,7 @@ function CladeEntry({ c, tree, clades }: { c: AnyClade; tree: XTree; clades: Cla
       {subs.length ? (
         <section className="mt-6" aria-labelledby="sub-h" data-testid="clade-subclades">
           <h2 id="sub-h" className="text-xl">Subclades</h2>
-          <div className="mt-2 overflow-x-auto rounded-md border border-line">
+          <div className="mt-2 overflow-x-auto rounded-md border border-line" role="region" aria-label="Subclades (scrolls horizontally)" tabIndex={0}>
             <table className="data-table">
               <thead><tr><th>Subclade</th><th className="num">Tips</th><th>Support (run1)</th><th>Function consensus</th><th>Dominant phylum</th><th className="num">Formal assignments</th><th className="num whitespace-normal">Placements with subclade call "assigned" (QC ok / long pendant)</th></tr></thead>
               <tbody>
@@ -163,7 +163,7 @@ function CladeEntry({ c, tree, clades }: { c: AnyClade; tree: XTree; clades: Cla
         <section className="mt-6" aria-labelledby="e1-h" data-testid="clade-e1">
           <h2 id="e1-h" className="text-xl">E1 records assigned to this group</h2>
           <p className="mt-1 text-sm text-ink-2">Experimentally characterised (E1) records confidently assigned to {c.clade_id}. Only counts-eligible records enter the official E1 count ({fc.n_E1}).</p>
-          <div className="mt-2 overflow-x-auto rounded-md border border-line">
+          <div className="mt-2 overflow-x-auto rounded-md border border-line" role="region" aria-label="E1 records assigned to this group (scrolls horizontally)" tabIndex={0}>
             <table className="data-table">
               <thead><tr><th>Protein Entry</th><th>Source</th><th>Protein</th><th>Organism</th><th>Function</th><th>Counts-eligible</th><th>Tip</th></tr></thead>
               <tbody>
@@ -297,7 +297,7 @@ function AssignmentsVsPlacements({ c }: { c: CladeLevel1 | Subclade }) {
       <div className="mt-3 grid grid-cols-[minmax(0,1fr)] gap-4 lg:grid-cols-2">
         <div>
           <h3 className="text-base">Formal assignments</h3>
-          <div className="mt-1 overflow-x-auto rounded-md border border-line">
+          <div className="mt-1 overflow-x-auto rounded-md border border-line" role="region" aria-label="Formal assignments (scrolls horizontally)" tabIndex={0}>
           <table className="data-table" data-testid="clade-formal">
             <tbody>
               <tr><th scope="row" className="static whitespace-normal font-normal">Reference tips in the corpus</th><td className="num" data-testid="clade-formal-tips">{fmtInt(cc.formalTips)}</td></tr>
@@ -311,7 +311,7 @@ function AssignmentsVsPlacements({ c }: { c: CladeLevel1 | Subclade }) {
         <div>
           <h3 className="text-base">Current placements into this group</h3>
           {cc.placementRows.length ? (
-            <div className="mt-1 overflow-x-auto rounded-md border border-line">
+            <div className="mt-1 overflow-x-auto rounded-md border border-line" role="region" aria-label="Current placements into this group (scrolls horizontally)" tabIndex={0}>
             <table className="data-table" data-testid="clade-placements">
               <thead><tr><th>{callLabel}</th><th className="num">QC ok</th><th className="num">Long pendant</th><th className="num">Total</th></tr></thead>
               <tbody>
@@ -339,7 +339,7 @@ function AssignmentsVsPlacements({ c }: { c: CladeLevel1 | Subclade }) {
         <div className="mt-4" data-testid="clade-placement-only">
           <h3 className="text-base">Placement-only records (no formal assignment)</h3>
           <p className="text-xs text-ink-2">Their backbone subclade call is <code>assigned</code>, but pendant QC failed; their level-1 clade call is unassigned. Values as stored in v1.6.0.</p>
-          <div className="mt-1 overflow-x-auto rounded-md border border-line">
+          <div className="mt-1 overflow-x-auto rounded-md border border-line" role="region" aria-label="Placement-only records (scrolls horizontally)" tabIndex={0}>
             <table className="data-table">
               <thead><tr><th>Source</th><th>MRDB</th><th>Subclade call</th><th>Placement QC</th><th className="num">LWR-weighted pendant</th><th className="num">Subclade LWR</th><th>Clade call (QC)</th><th>Record clade state</th></tr></thead>
               <tbody>

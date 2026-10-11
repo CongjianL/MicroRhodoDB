@@ -1,0 +1,260 @@
+
+Running 247 tests using 4 workers
+
+[1/247] tests/e2e/browse.spec.ts:14:3 › Browse › default view: 3,085 Type-I members (engineered hidden), 50 rows per page
+[2/247] tests/e2e/browse.spec.ts:63:3 › Browse › sorting by length cycles ascending, descending, none and sets aria-sort
+[3/247] tests/e2e/browse.spec.ts:27:3 › Browse › filters update the URL, show chips, and Back/Forward restore them
+[4/247] tests/e2e/browse.spec.ts:51:3 › Browse › clade filter with and without tentative placements; uncertainty banner for MR_CLD3_017
+[5/247] tests/e2e/browse.spec.ts:86:3 › Browse › pagination: next, last, page size, out-of-range page
+[6/247] tests/e2e/browse.spec.ts:104:3 › Browse › invalid URL parameters are reported, not silently applied
+[7/247] tests/e2e/browse.spec.ts:111:3 › Browse › legacy alias status=member and record links
+[8/247] tests/e2e/browse.spec.ts:122:3 › Browse › exports: TSV, source FASTA, unique MRDB FASTA and manifest contain exactly the selection
+[9/247] tests/e2e/browse.spec.ts:171:3 › Browse › exports of the same selection in different sort orders get distinct names; selection_id is shared
+[10/247] tests/e2e/browse.spec.ts:197:3 › Browse › only the lightweight files plus records-index are loaded on Browse
+[11/247] tests/e2e/clade.spec.ts:19:3 › Clade Explorer pages › every level-1 clade and backbone group page renders its tips, subtree and support
+[12/247] tests/e2e/clade.spec.ts:43:3 › Clade Explorer pages › MR_CLD3_017: legacy banner, corrected vs stored label, 6 subclades, 4 counted E1 records, placements
+[13/247] tests/e2e/clade.spec.ts:78:3 › Clade Explorer pages › subclade page carries the parent's legacy note; backbone group page has no clade claims
+[14/247] tests/e2e/clade.spec.ts:93:3 › Clade Explorer pages › PR-4a MR_CLD3_B02: 4 placements, 5 formal assignments, 3 placement-only long-pendant records
+[15/247] tests/e2e/clade.spec.ts:122:3 › Clade Explorer pages › PR-4a MR_CLD3_009 names the engineered E1 record excluded from the official count
+[16/247] tests/e2e/clade.spec.ts:138:3 › Clade Explorer pages › MR_CLD3_001 lists the 2 reference tips that are not in the corpus without inventing entries
+[17/247] tests/e2e/clade.spec.ts:148:3 › Clade Explorer pages › unknown clade ids show the not-found page; #/clade opens the explorer
+[18/247] tests/e2e/clade.spec.ts:157:5 › Clade Explorer pages › responsive 375px clade page has no horizontal overflow
+[19/247] tests/e2e/clade.spec.ts:157:5 › Clade Explorer pages › responsive 768px clade page has no horizontal overflow
+[20/247] tests/e2e/clade.spec.ts:157:5 › Clade Explorer pages › responsive 1440px clade page has no horizontal overflow
+[21/247] tests/e2e/home.spec.ts:7:3 › Home › renders statistics equal to summary.json with explicit denominators
+[22/247] tests/e2e/home.spec.ts:32:3 › Home › membership and evidence charts show real counts and denominators
+[23/247] tests/e2e/home.spec.ts:54:3 › Home › tree preview draws the real 472-tip MR_RT_003 tree and discloses MR_CLD3_017 uncertainty
+[24/247] tests/e2e/home.spec.ts:77:3 › Home › does not download the full database (no index, accessions, records or sequences)
+[25/247] tests/e2e/home.spec.ts:88:3 › Home › search box and entry points navigate to the right routes
+[26/247] tests/e2e/home.spec.ts:106:3 › Home › function links open Browse selections of the displayed size
+[27/247] tests/e2e/home.spec.ts:116:1 › About does not download the full database and states provenance
+[28/247] tests/e2e/phylogeny.spec.ts:36:3 › Phylogeny explorer › full 472-tip tree renders; layouts, branch lengths and colour modes update canvas, legend and URL
+[29/247] tests/e2e/phylogeny.spec.ts:67:3 › Phylogeny explorer › support toggle: 469 run1 values, thresholds re-evaluate, MR_CLD3_017 shows 50.3/72 and fails
+[30/247] tests/e2e/phylogeny.spec.ts:88:3 › Phylogeny explorer › node panel: corrected support, rerooting discrepancy audit, root split, legacy MRCA
+[31/247] tests/e2e/phylogeny.spec.ts:120:3 › Phylogeny explorer › tip deep links: Protein Entry link, absent-from-corpus tips, non-tips are refused
+[32/247] tests/e2e/phylogeny.spec.ts:147:3 › Phylogeny explorer › placement deep link highlights only the best_edge branch and shows stored fields verbatim
+[33/247] tests/e2e/phylogeny.spec.ts:167:3 › Phylogeny explorer › record page links open the explorer at the tip or at the placement
+[34/247] tests/e2e/phylogeny.spec.ts:179:3 › Phylogeny explorer › search finds tips by accession, MRDB accession and organism; placed records are not offered
+[35/247] tests/e2e/phylogeny.spec.ts:194:3 › Phylogeny explorer › subtree view, collapse / expand and the clade table
+[36/247] tests/e2e/phylogeny.spec.ts:231:3 › Phylogeny explorer › keyboard: focusable canvas zooms, pans, resets; Escape clears the selection
+[37/247] tests/e2e/phylogeny.spec.ts:250:3 › Phylogeny explorer › downloads: frozen files byte-identical, DERIVED Newick + README, SVG and PNG figures
+[38/247] tests/e2e/phylogeny.spec.ts:304:5 › Phylogeny explorer › responsive 375px: no page overflow, canvas fits, controls reachable
+tests/e2e/phylogeny.spec.ts:250:3 › Phylogeny explorer › downloads: frozen files byte-identical, DERIVED Newick + README, SVG and PNG figures
+[pr4a] rect clade SVG export size (support off): 89023 bytes
+
+[39/247] tests/e2e/phylogeny.spec.ts:304:5 › Phylogeny explorer › responsive 768px: no page overflow, canvas fits, controls reachable
+[pr4a] rect clade SVG export size (support on): 158004 bytes
+
+[40/247] tests/e2e/phylogeny.spec.ts:304:5 › Phylogeny explorer › responsive 1280px: no page overflow, canvas fits, controls reachable
+[41/247] tests/e2e/pr5.spec.ts:12:3 › PR-5 section pages › every section page renders an h1 and never claims to be the official classifier
+[42/247] tests/e2e/pr5.spec.ts:23:3 › PR-5 section pages › Statistics: frozen denominators and 12/12 runtime reconciliation
+[43/247] tests/e2e/pr5.spec.ts:37:3 › PR-5 section pages › Evidence: E1 counted 88 vs total 91 (engineered toggle)
+[44/247] tests/e2e/pr5.spec.ts:44:3 › PR-5 section pages › Structures: release provenance warning; Mol* loads only on click
+[45/247] tests/e2e/pr5.spec.ts:63:3 › PR-5 section pages › Watchlist: isolated, 181 candidates, no membership/evidence columns
+[46/247] tests/e2e/pr5.spec.ts:72:3 › PR-5 section pages › Text search: accession and PDB golden cases
+[47/247] tests/e2e/pr5.spec.ts:80:3 › PR-5 section pages › Sequence search: worker example, validation codes, cancel, not-a-classifier notice
+[48/247] tests/e2e/pr5.spec.ts:108:3 › PR-5 section pages › Downloads: 39 release files listed, export manifest linked but not fetched
+[49/247] tests/e2e/pr5.spec.ts:116:3 › PR-5 section pages › Citation: DOI not supplied; BibTeX cites the dataset version, not the website version
+[50/247] tests/e2e/pr5a.spec.ts:30:3 › PR-5a drilldowns › membership status (both denominators): every linked status opens exactly its counted records
+[51/247] tests/e2e/pr5a.spec.ts:43:3 › PR-5a drilldowns › clade state over members + candidates keeps the 4,468 population (and all-records scope keeps 5,466)
+[52/247] tests/e2e/pr5a.spec.ts:59:3 › PR-5a drilldowns › evidence (both denominators) and the evidence x membership crosstab
+[53/247] tests/e2e/pr5a.spec.ts:72:3 › PR-5a drilldowns › Home: stat cards, membership groups and functional classes open their counted records
+[54/247] tests/e2e/pr5a.spec.ts:86:3 › PR-5a drilldowns › Browse offers the Members + candidates population tab
+[55/247] tests/e2e/pr5a.spec.ts:94:3 › PR-5a Search -> Browse › MR_CLD3_017: formal view = 1,646 (not the same as the search); incl. tentative = the same 2,243
+[56/247] tests/e2e/pr5a.spec.ts:116:3 › PR-5a Search -> Browse › PDB ID search maps to the PDB filter with identical records
+[57/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › home: no serious/critical WCAG A/AA violations; semantics
+[58/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › browse: no serious/critical WCAG A/AA violations; semantics
+[59/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › browse_clade017_tent: no serious/critical WCAG A/AA violations; semantics
+[60/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › record_P02945: no serious/critical WCAG A/AA violations; semantics
+[61/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › record_engineered: no serious/critical WCAG A/AA violations; semantics
+[62/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › record_not_found: no serious/critical WCAG A/AA violations; semantics
+[63/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › about: no serious/critical WCAG A/AA violations; semantics
+[64/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › phylogeny: no serious/critical WCAG A/AA violations; semantics
+[65/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › clade_017: no serious/critical WCAG A/AA violations; semantics
+[66/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › statistics: no serious/critical WCAG A/AA violations; semantics
+[67/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › evidence: no serious/critical WCAG A/AA violations; semantics
+[68/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › structures: no serious/critical WCAG A/AA violations; semantics
+[69/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › watchlist: no serious/critical WCAG A/AA violations; semantics
+[70/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › search_text: no serious/critical WCAG A/AA violations; semantics
+[71/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › search_seq: no serious/critical WCAG A/AA violations; semantics
+[72/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › downloads: no serious/critical WCAG A/AA violations; semantics
+[73/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › methods: no serious/critical WCAG A/AA violations; semantics
+[74/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › citation: no serious/critical WCAG A/AA violations; semantics
+[75/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › help: no serious/critical WCAG A/AA violations; semantics
+[76/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 375px › not_found: no serious/critical WCAG A/AA violations; semantics
+[77/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › home: no serious/critical WCAG A/AA violations; semantics
+[78/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › browse: no serious/critical WCAG A/AA violations; semantics
+[79/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › browse_clade017_tent: no serious/critical WCAG A/AA violations; semantics
+[80/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › record_P02945: no serious/critical WCAG A/AA violations; semantics
+[81/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › record_engineered: no serious/critical WCAG A/AA violations; semantics
+[82/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › record_not_found: no serious/critical WCAG A/AA violations; semantics
+[83/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › about: no serious/critical WCAG A/AA violations; semantics
+[84/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › phylogeny: no serious/critical WCAG A/AA violations; semantics
+[85/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › clade_017: no serious/critical WCAG A/AA violations; semantics
+[86/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › statistics: no serious/critical WCAG A/AA violations; semantics
+[87/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › evidence: no serious/critical WCAG A/AA violations; semantics
+[88/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › structures: no serious/critical WCAG A/AA violations; semantics
+[89/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › watchlist: no serious/critical WCAG A/AA violations; semantics
+[90/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › search_text: no serious/critical WCAG A/AA violations; semantics
+[91/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › search_seq: no serious/critical WCAG A/AA violations; semantics
+[92/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › downloads: no serious/critical WCAG A/AA violations; semantics
+[93/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › methods: no serious/critical WCAG A/AA violations; semantics
+[94/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › citation: no serious/critical WCAG A/AA violations; semantics
+[95/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › help: no serious/critical WCAG A/AA violations; semantics
+[96/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 768px › not_found: no serious/critical WCAG A/AA violations; semantics
+[97/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › home: no serious/critical WCAG A/AA violations; semantics
+[98/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › browse: no serious/critical WCAG A/AA violations; semantics
+[99/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › browse_clade017_tent: no serious/critical WCAG A/AA violations; semantics
+[100/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › record_P02945: no serious/critical WCAG A/AA violations; semantics
+[101/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › record_engineered: no serious/critical WCAG A/AA violations; semantics
+[102/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › record_not_found: no serious/critical WCAG A/AA violations; semantics
+[103/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › about: no serious/critical WCAG A/AA violations; semantics
+[104/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › phylogeny: no serious/critical WCAG A/AA violations; semantics
+[105/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › clade_017: no serious/critical WCAG A/AA violations; semantics
+[106/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › statistics: no serious/critical WCAG A/AA violations; semantics
+[107/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › evidence: no serious/critical WCAG A/AA violations; semantics
+[108/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › structures: no serious/critical WCAG A/AA violations; semantics
+[109/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › watchlist: no serious/critical WCAG A/AA violations; semantics
+[110/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › search_text: no serious/critical WCAG A/AA violations; semantics
+[111/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › search_seq: no serious/critical WCAG A/AA violations; semantics
+[112/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › downloads: no serious/critical WCAG A/AA violations; semantics
+[113/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › methods: no serious/critical WCAG A/AA violations; semantics
+[114/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › citation: no serious/critical WCAG A/AA violations; semantics
+[115/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › help: no serious/critical WCAG A/AA violations; semantics
+[116/247] tests/e2e/pr6_a11y.spec.ts:32:7 › axe 1440px › not_found: no serious/critical WCAG A/AA violations; semantics
+[117/247] tests/e2e/pr6_reliability.spec.ts:33:3 › PR-6 security › CSP meta is present in the production build; every mandatory route renders with zero CSP violations
+[118/247] tests/e2e/pr6_reliability.spec.ts:51:3 › PR-6 security › Mol* viewer (mocked RCSB) loads under the CSP without violations
+[119/247] tests/e2e/pr6_reliability.spec.ts:61:3 › PR-6 security › external links: rel=noopener noreferrer on every target=_blank; no script URLs anywhere
+[120/247] tests/e2e/pr6_reliability.spec.ts:81:3 › PR-6 security › injection payloads in routes, Browse and Search are rendered as text and never executed
+[121/247] tests/e2e/pr6_reliability.spec.ts:98:3 › PR-6 security › malformed and hostile routes render not-found / record-not-found without uncaught errors
+[122/247] tests/e2e/pr6_reliability.spec.ts:118:3 › PR-6 legacy deep links (old site/app.js routes) › #/record (MRDB, source, lower case, trailing slash), #/search, #/novel, #/about, #/ and index.html
+[123/247] tests/e2e/pr6_reliability.spec.ts:142:3 › PR-6 failure injection (uncaught errors only) › data outage: summary.json 503 on Home shows an error with Retry; Retry recovers
+[124/247] tests/e2e/pr6_reliability.spec.ts:155:3 › PR-6 failure injection (uncaught errors only) › truncated JSON (records-index) on Browse shows an error state, not a crash
+[125/247] tests/e2e/pr6_reliability.spec.ts:164:3 › PR-6 failure injection (uncaught errors only) › hung data request times out into an error state (timeout shortened for the test)
+[126/247] tests/e2e/pr6_reliability.spec.ts:173:3 › PR-6 failure injection (uncaught errors only) › network failure of a record file shows an error; the rest of the site keeps working
+[127/247] tests/e2e/pr6_reliability.spec.ts:185:3 › PR-6 failure injection (uncaught errors only) › RCSB and AlphaFold DB outage: viewer error with Retry and external links; page stays usable
+[128/247] tests/e2e/pr6_reliability.spec.ts:199:3 › PR-6 failure injection (uncaught errors only) › sequence-search worker script unavailable: a visible error, no uncaught exception
+[129/247] tests/e2e/pr6_reliability.spec.ts:215:3 › PR-6 repeated interactions and resource use › rapid navigation across all routes (3 rounds) and back/forward: no errors, bounded JS heap
+[130/247] tests/e2e/pr6_reliability.spec.ts:238:3 › PR-6 repeated interactions and resource use › tree: 20 layout/colour toggles and 30 zoom steps stay consistent
+[131/247] tests/e2e/pr6_reliability.spec.ts:254:3 › PR-6 repeated interactions and resource use › sequence search: start/cancel 5 times then a full run gives the golden top hit
+[132/247] tests/e2e/pr6_reliability.spec.ts:271:5 › PR-6 keyboard and alternatives › home: first 30 Tab stops are visible and show a focus indicator
+[133/247] tests/e2e/pr6_reliability.spec.ts:271:5 › PR-6 keyboard and alternatives › browse: first 30 Tab stops are visible and show a focus indicator
+[134/247] tests/e2e/pr6_reliability.spec.ts:271:5 › PR-6 keyboard and alternatives › record_P02945: first 30 Tab stops are visible and show a focus indicator
+[135/247] tests/e2e/pr6_reliability.spec.ts:271:5 › PR-6 keyboard and alternatives › phylogeny: first 30 Tab stops are visible and show a focus indicator
+[136/247] tests/e2e/pr6_reliability.spec.ts:271:5 › PR-6 keyboard and alternatives › statistics: first 30 Tab stops are visible and show a focus indicator
+[137/247] tests/e2e/pr6_reliability.spec.ts:271:5 › PR-6 keyboard and alternatives › structures: first 30 Tab stops are visible and show a focus indicator
+[138/247] tests/e2e/pr6_reliability.spec.ts:271:5 › PR-6 keyboard and alternatives › search_seq: first 30 Tab stops are visible and show a focus indicator
+tests/e2e/pr6_reliability.spec.ts:215:3 › PR-6 repeated interactions and resource use › rapid navigation across all routes (3 rounds) and back/forward: no errors, bounded JS heap
+HEAP_MB 22.8 23.2 23.7
+
+[139/247] tests/e2e/pr6_reliability.spec.ts:297:3 › PR-6 keyboard and alternatives › tree canvas has a label and a text alternative; the Clade Explorer table lists all 19 groups
+[140/247] tests/e2e/record_pr3a.spec.ts:55:3 › 1. source position in multi-accession entries › MRDB000001: P02945 is (1 of 2), B0R5N9 is (2 of 2); switching updates the label
+[141/247] tests/e2e/record_pr3a.spec.ts:70:3 › 1. source position in multi-accession entries › MRDB000249: each of the 7 sources shows its own position, in source-table order
+[142/247] tests/e2e/record_pr3a.spec.ts:86:3 › 1. source position in multi-accession entries › single-source entry shows no position
+[143/247] tests/e2e/record_pr3a.spec.ts:95:3 › 2. Mol* async races › slow PDB load superseded by AlphaFold DB: the stale structure is never shown
+[144/247] tests/e2e/record_pr3a.spec.ts:115:3 › 2. Mol* async races › rapid switching through several structures: the last selection wins
+[145/247] tests/e2e/record_pr3a.spec.ts:137:3 › 2. Mol* async races › double Retry after an error loads the structure once
+[146/247] tests/e2e/record_pr3a.spec.ts:164:3 › 2. Mol* async races › selection changed while Mol* is still initialising: one plugin, only the final selection is fetched
+[147/247] tests/e2e/record_pr3a.spec.ts:186:3 › 2. Mol* async races › leaving the page while a structure is loading disposes the plugin and commits nothing
+[148/247] tests/e2e/record_pr3a.spec.ts:203:3 › 2. Mol* async races › leaving the page while Mol* is initialising never creates a plugin
+[149/247] tests/e2e/record_pr3a.spec.ts:224:3 › 2. Mol* async races › switching source while loading: the old viewer is disposed, the new one starts idle
+[150/247] tests/e2e/record_pr3a.spec.ts:245:5 › 4. release-model provenance warning › MRDB000030 / B0R633: warning in the Predicted section and the viewer; stored values unchanged
+[151/247] tests/e2e/record_pr3a.spec.ts:245:5 › 4. release-model provenance warning › MRDB003319 / A0A9X2L7U0: warning in the Predicted section and the viewer; stored values unchanged
+[152/247] tests/e2e/record_pr3a.spec.ts:271:3 › 5. minor UI corrections › MR_CLD3_017 mini-tree label lies entirely outside the highlight outline and inside the drawing
+[153/247] tests/e2e/record_pr3a.spec.ts:304:3 › 5. minor UI corrections › Copy link keeps the selected section and structure (and drops invalid parameters)
+[154/247] tests/e2e/record.spec.ts:21:3 › Protein Entry: MRDB000001 (175 PDB entries) › sections, counts, representatives and section navigation
+[155/247] tests/e2e/record.spec.ts:54:3 › Protein Entry: MRDB000001 (175 PDB entries) › viewer loads on click from mocked RCSB BinaryCIF, then switches to AlphaFold DB with pLDDT
+[156/247] tests/e2e/record.spec.ts:85:3 › Protein Entry: MRDB000001 (175 PDB entries) › View in 3D from the PDB table selects, deep-links and loads that entry
+[157/247] tests/e2e/record.spec.ts:101:3 › Protein Entry: MRDB000001 (175 PDB entries) › deep link with section and structure survives reload; viewer stays idle until requested
+[158/247] tests/e2e/record.spec.ts:116:3 › viewer failures › BinaryCIF HTTP 500 falls back to mmCIF
+[159/247] tests/e2e/record.spec.ts:128:3 › viewer failures › HTTP 404 on every URL shows an error with links, and Retry recovers
+[160/247] tests/e2e/record.spec.ts:144:3 › viewer failures › a stalled AlphaFold DB request times out with a clear message
+[161/247] tests/e2e/record.spec.ts:162:3 › viewer failures (continued) › a 200 response that is not a structure (e.g. an HTML error page) reports a parse error
+[162/247] tests/e2e/record.spec.ts:176:5 › release models (pLDDT stored as 0-1, rescaled in the browser) › MRDB000030 / B0R633: release model loads from the versioned data directory
+[163/247] tests/e2e/record.spec.ts:176:5 › release models (pLDDT stored as 0-1, rescaled in the browser) › MRDB003319 / A0A9X2L7U0: release model loads from the versioned data directory
+[164/247] tests/e2e/record.spec.ts:200:3 › record types › no structures at all: explicit empty states, no viewer
+[165/247] tests/e2e/record.spec.ts:211:3 › record types › AlphaFold-only record defaults to the AFDB model and loads it
+[166/247] tests/e2e/record.spec.ts:223:3 › record types › multi-accession record: switch source, Back restores the previous focus
+[167/247] tests/e2e/record.spec.ts:240:3 › record types › engineered variant links to its wild type and back
+[168/247] tests/e2e/record.spec.ts:252:3 › record types › curated override is shown separately from the classifier call
+[169/247] tests/e2e/record.spec.ts:263:3 › record types › tentative MR_CLD3_017 placement: caveat, support values and arc-only tree highlight
+[170/247] tests/e2e/record.spec.ts:278:3 › record types › reference tip: the mini tree marks the tip itself
+[171/247] tests/e2e/record.spec.ts:290:3 › record types › FASTA download and JSON export use release data
+[172/247] tests/e2e/record.spec.ts:301:3 › invalid identifiers › unknown well-formed and malformed IDs show not-found without fetching a record
+[173/247] tests/e2e/record.spec.ts:311:3 › invalid identifiers › lower-case accessions redirect to the canonical upper-case URL, keeping the query
+[174/247] tests/e2e/record.spec.ts:320:3 › Mol* chunk isolation › Home, Browse and About never request the Mol* chunk
+[175/247] tests/e2e/record.spec.ts:342:7 › record layout 375px › MRDB000001: no horizontal overflow, sticky nav, screenshots
+[176/247] tests/e2e/record.spec.ts:342:7 › record layout 375px › MRDB000249: no horizontal overflow, sticky nav, screenshots
+[177/247] tests/e2e/record.spec.ts:342:7 › record layout 375px › MRDB000003: no horizontal overflow, sticky nav, screenshots
+[178/247] tests/e2e/record.spec.ts:342:7 › record layout 768px › MRDB000001: no horizontal overflow, sticky nav, screenshots
+[179/247] tests/e2e/record.spec.ts:342:7 › record layout 768px › MRDB000249: no horizontal overflow, sticky nav, screenshots
+[180/247] tests/e2e/record.spec.ts:342:7 › record layout 768px › MRDB000003: no horizontal overflow, sticky nav, screenshots
+[181/247] tests/e2e/record.spec.ts:342:7 › record layout 1440px › MRDB000001: no horizontal overflow, sticky nav, screenshots
+[182/247] tests/e2e/record.spec.ts:342:7 › record layout 1440px › MRDB000249: no horizontal overflow, sticky nav, screenshots
+[183/247] tests/e2e/record.spec.ts:342:7 › record layout 1440px › MRDB000003: no horizontal overflow, sticky nav, screenshots
+[184/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › home: no horizontal overflow, screenshot
+[185/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › browse: no horizontal overflow, screenshot
+[186/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › browse_clade017_tent: no horizontal overflow, screenshot
+[187/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › record_P02945: no horizontal overflow, screenshot
+[188/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › about: no horizontal overflow, screenshot
+[189/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › phylogeny: no horizontal overflow, screenshot
+[190/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › clade_017: no horizontal overflow, screenshot
+[191/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › statistics: no horizontal overflow, screenshot
+[192/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › evidence: no horizontal overflow, screenshot
+[193/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › structures: no horizontal overflow, screenshot
+[194/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › watchlist: no horizontal overflow, screenshot
+[195/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › search_text: no horizontal overflow, screenshot
+[196/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › search_seq: no horizontal overflow, screenshot
+[197/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › downloads: no horizontal overflow, screenshot
+[198/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › methods: no horizontal overflow, screenshot
+[199/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › citation: no horizontal overflow, screenshot
+[200/247] tests/e2e/responsive.spec.ts:51:7 › viewport 375px › help: no horizontal overflow, screenshot
+[201/247] tests/e2e/responsive.spec.ts:86:5 › viewport 375px › mobile menu opens with keyboard and closes on Escape
+[202/247] tests/e2e/responsive.spec.ts:105:5 › viewport 375px › browse filters are reachable (sidebar on desktop, collapsible on mobile)
+[203/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › home: no horizontal overflow, screenshot
+[204/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › browse: no horizontal overflow, screenshot
+[205/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › browse_clade017_tent: no horizontal overflow, screenshot
+[206/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › record_P02945: no horizontal overflow, screenshot
+[207/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › about: no horizontal overflow, screenshot
+[208/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › phylogeny: no horizontal overflow, screenshot
+[209/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › clade_017: no horizontal overflow, screenshot
+[210/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › statistics: no horizontal overflow, screenshot
+[211/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › evidence: no horizontal overflow, screenshot
+[212/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › structures: no horizontal overflow, screenshot
+[213/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › watchlist: no horizontal overflow, screenshot
+[214/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › search_text: no horizontal overflow, screenshot
+[215/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › search_seq: no horizontal overflow, screenshot
+[216/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › downloads: no horizontal overflow, screenshot
+[217/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › methods: no horizontal overflow, screenshot
+[218/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › citation: no horizontal overflow, screenshot
+[219/247] tests/e2e/responsive.spec.ts:51:7 › viewport 768px › help: no horizontal overflow, screenshot
+[220/247] tests/e2e/responsive.spec.ts:86:5 › viewport 768px › mobile menu opens with keyboard and closes on Escape
+[221/247] tests/e2e/responsive.spec.ts:105:5 › viewport 768px › browse filters are reachable (sidebar on desktop, collapsible on mobile)
+[222/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › home: no horizontal overflow, screenshot
+[223/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › browse: no horizontal overflow, screenshot
+[224/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › browse_clade017_tent: no horizontal overflow, screenshot
+[225/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › record_P02945: no horizontal overflow, screenshot
+[226/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › about: no horizontal overflow, screenshot
+[227/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › phylogeny: no horizontal overflow, screenshot
+[228/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › clade_017: no horizontal overflow, screenshot
+[229/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › statistics: no horizontal overflow, screenshot
+[230/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › evidence: no horizontal overflow, screenshot
+[231/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › structures: no horizontal overflow, screenshot
+[232/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › watchlist: no horizontal overflow, screenshot
+[233/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › search_text: no horizontal overflow, screenshot
+[234/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › search_seq: no horizontal overflow, screenshot
+[235/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › downloads: no horizontal overflow, screenshot
+[236/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › methods: no horizontal overflow, screenshot
+[237/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › citation: no horizontal overflow, screenshot
+[238/247] tests/e2e/responsive.spec.ts:51:7 › viewport 1440px › help: no horizontal overflow, screenshot
+[239/247] tests/e2e/responsive.spec.ts:86:5 › viewport 1440px › mobile menu opens with keyboard and closes on Escape
+[240/247] tests/e2e/responsive.spec.ts:105:5 › viewport 1440px › browse filters are reachable (sidebar on desktop, collapsible on mobile)
+[241/247] tests/e2e/routes.spec.ts:4:3 › Routing, history and static assets under /MicroRhodoDB/site/ › repository-root redirect reaches the site and all assets load from the base path
+[242/247] tests/e2e/routes.spec.ts:17:3 › Routing, history and static assets under /MicroRhodoDB/site/ › legacy record deep links: MRDB accession and source accession
+[243/247] tests/e2e/routes.spec.ts:38:3 › Routing, history and static assets under /MicroRhodoDB/site/ › tentative placements on records carry the MR_CLD3_017 caveat
+[244/247] tests/e2e/routes.spec.ts:57:3 › Routing, history and static assets under /MicroRhodoDB/site/ › unknown accessions and paths show not-found pages without errors
+[245/247] tests/e2e/routes.spec.ts:67:3 › Routing, history and static assets under /MicroRhodoDB/site/ › #/novel redirects to #/watchlist without an extra history entry; section pages render
+[246/247] tests/e2e/routes.spec.ts:84:3 › Routing, history and static assets under /MicroRhodoDB/site/ › header navigation, history and refresh
+[247/247] tests/e2e/routes.spec.ts:106:3 › Routing, history and static assets under /MicroRhodoDB/site/ › keyboard: skip link and visible focus
+  1 skipped
+  246 passed (2.3m)

@@ -1,0 +1,37 @@
+{
+ "route": "#/phylogeny",
+ "width": 1440,
+ "passes": 34,
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "nodes": 13,
+   "reasons": [
+    {
+     "key": "nonBmp",
+     "n": 1,
+     "example": "button[aria-label=\"Zoom out\"]"
+    },
+    {
+     "key": "imgNode",
+     "n": 11,
+     "example": "text[y=\"24.04237288135593\"]"
+    },
+    {
+     "key": "bgOverlap",
+     "n": 1,
+     "example": "text[x=\"58.65700178742312\"]"
+    }
+   ]
+  }
+ ],
+ "violations": [],
+ "semantics": {
+  "h1": 1,
+  "main": 1,
+  "lang": "en",
+  "title": "Phylogeny - MicroRhodoDB",
+  "pageOverflowPx": 0,
+  "unnamedControls": []
+ }
+}

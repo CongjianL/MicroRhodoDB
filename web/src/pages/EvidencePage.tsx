@@ -68,7 +68,7 @@ function PubRefs({ refs }: { refs: PubRef[] | undefined }) {
     return true;
   });
   return (
-    <span className="flex flex-wrap gap-x-2 gap-y-0.5">
+    <span className="link-row flex flex-wrap gap-x-2 gap-y-0.5">
       {uniq.slice(0, 4).map((r) =>
         r.pmid ? <Ext key={r.pmid} href={`https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/`}>PMID {r.pmid}</Ext> : <Ext key={r.doi!} href={`https://doi.org/${r.doi}`}>DOI</Ext>,
       )}
@@ -179,7 +179,7 @@ function EvidenceBody({ summary, vocab, ev, pubs, index, params }: {
                   <td className="num">{fmtInt(accs.length)}</td>
                   <td className="min-w-[18rem]">
                     <details><summary className="cursor-pointer text-accent">Show {accs.length}</summary>
-                      <span className="mt-1 flex flex-wrap gap-x-2 gap-y-0.5 font-mono text-xs">{accs.map((a) => <a key={a} href={href.record(a)}>{a}</a>)}</span>
+                      <span className="link-row mt-1 flex flex-wrap gap-x-2 gap-y-0.5 font-mono text-xs">{accs.map((a) => <a key={a} href={href.record(a)}>{a}</a>)}</span>
                     </details>
                   </td>
                 </tr>

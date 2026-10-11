@@ -1,0 +1,32 @@
+{
+ "route": "#/record/P02945",
+ "width": 1440,
+ "passes": 33,
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "nodes": 2,
+   "reasons": [
+    {
+     "key": "imgNode",
+     "n": 1,
+     "example": ".max-w-md > p"
+    },
+    {
+     "key": "nonBmp",
+     "n": 1,
+     "example": "button[aria-label=\"Sort by Resolution\"] > .text-ink-2[aria-hidden=\"true\"]"
+    }
+   ]
+  }
+ ],
+ "violations": [],
+ "semantics": {
+  "h1": 1,
+  "main": 1,
+  "lang": "en",
+  "title": "MRDB000001 (P02945) Bacteriorhodopsin (BR) (Bacterioopsin) (BO) - MicroRhodoDB",
+  "pageOverflowPx": 0,
+  "unnamedControls": []
+ }
+}

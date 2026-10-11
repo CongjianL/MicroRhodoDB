@@ -1,0 +1,32 @@
+{
+ "route": "#/watchlist",
+ "width": 1440,
+ "passes": 34,
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "nodes": 10,
+   "reasons": [
+    {
+     "key": "imgNode",
+     "n": 8,
+     "example": "text[transform=\"translate(112.9395 162.6)\"]"
+    },
+    {
+     "key": "shortTextContent",
+     "n": 2,
+     "example": "text[transform=\"translate(135.6147 162.6)\"]"
+    }
+   ]
+  }
+ ],
+ "violations": [],
+ "semantics": {
+  "h1": 1,
+  "main": 1,
+  "lang": "en",
+  "title": "Novel-family watchlist - MicroRhodoDB",
+  "pageOverflowPx": 0,
+  "unnamedControls": []
+ }
+}

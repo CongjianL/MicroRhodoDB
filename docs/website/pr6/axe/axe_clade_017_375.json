@@ -1,0 +1,37 @@
+{
+ "route": "#/clade/MR_CLD3_017",
+ "width": 375,
+ "passes": 33,
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "nodes": 920,
+   "reasons": [
+    {
+     "key": "elmPartiallyObscured",
+     "n": 818,
+     "example": "tr[data-testid=\"clade-placements-assigned\"] > .num:nth-child(4)"
+    },
+    {
+     "key": "shortTextContent",
+     "n": 1,
+     "example": "td[data-testid=\"sub-placed-MR_CLD3_017.04\"]"
+    },
+    {
+     "key": "bgOverlap",
+     "n": 101,
+     "example": "text[y=\"20.06\"]"
+    }
+   ]
+  }
+ ],
+ "violations": [],
+ "semantics": {
+  "h1": 1,
+  "main": 1,
+  "lang": "en",
+  "title": "MR_CLD3_017 - MicroRhodoDB",
+  "pageOverflowPx": 0,
+  "unnamedControls": []
+ }
+}

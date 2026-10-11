@@ -55,6 +55,13 @@
   a:hover {
     @apply text-accent-strong underline;
   }
+  /* PR-6 (WCAG 1.4.1, axe link-in-text-block): links inside running text are underlined so they do not
+     rely on colour alone. Navigation, buttons and elements with an explicit no-underline utility are
+     unaffected (utilities and .btn win over this base rule). */
+  :where(main, footer) :where(p, li, dd, td, figcaption, blockquote, caption, .prose-links) a:not(.btn):not(nav a) {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+  }
   code, kbd, samp {
     @apply font-mono;
     font-size: 0.92em;
@@ -88,6 +95,8 @@
     font-size: 0.95rem;
   }
   .btn:hover { text-decoration: none; }
+  /* PR-6 (WCAG 2.5.8 target size): compact link groups in tables get a 24 px minimum target height. */
+  .link-row > a { display: inline-flex; align-items: center; min-height: 24px; }
   .btn-primary { @apply bg-accent border-accent text-white; }
   .btn-primary:hover { @apply bg-accent-strong border-accent-strong text-white; }
   .btn-secondary { @apply bg-surface border-line-strong text-ink; }

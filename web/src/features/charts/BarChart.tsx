@@ -6,6 +6,7 @@
  */
 import { useEffect, useId, useRef, useState } from "react";
 import { fmtInt, fmtPct } from "../../lib/format";
+import { escapeHtml } from "../../lib/safe";
 
 export interface BarItem {
   key: string;
@@ -47,7 +48,7 @@ export function BarChart({ title, items, denominator, denominatorLabel, testId, 
             trigger: "item",
             formatter: (p: { dataIndex: number }) => {
               const it = rev[p.dataIndex];
-              return `${it.label}: ${fmtInt(it.value)} of ${fmtInt(denominator)} (${fmtPct(it.value, denominator)})`;
+              return `${escapeHtml(it.label)}: ${fmtInt(it.value)} of ${fmtInt(denominator)} (${fmtPct(it.value, denominator)})`;
             },
           },
           xAxis: { type: "value", max: Math.max(...items.map((i) => i.value)), axisLabel: { show: false }, splitLine: { show: false }, axisLine: { show: false }, axisTick: { show: false } },

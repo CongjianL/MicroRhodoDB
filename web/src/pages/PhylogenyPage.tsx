@@ -26,6 +26,7 @@ import { parsePhyloQuery, phyloQueryString, type PhyloQuery } from "../features/
 import { exportSvg } from "../features/tree/svgExport";
 import { TreeCanvas, type TreeCanvasHandle } from "../features/tree/TreeCanvas";
 import { useExplorerData } from "../features/tree/useExplorer";
+import { safeExternalUrl } from "../lib/safe";
 
 export default function PhylogenyPage({ params }: { params: URLSearchParams }) {
   const res = useExplorerData();
@@ -198,9 +199,11 @@ function Explorer({ tree, clades, params }: { tree: XTree; clades: Clades; param
             height={height}
             onSelect={setSelected}
             onHover={setHover}
+            describedBy="tree-text-alt"
             label={`MR_RT_003 reference tree, ${q.layout === "rect" ? "rectangular" : "radial"} layout, ${tree.nodes[rootPre].nTips} tips shown. Use plus and minus to zoom, arrow keys to pan, 0 to reset.`}
           />
           <p className="mt-1 text-xs text-ink-2">Click a node or tip for details. Drag to pan. Zoom with the buttons, or click the tree and use the mouse wheel or + / - keys; arrow keys pan, 0 resets. Tip labels appear when zoomed in far enough. The coloured strip marks level-1 clades and backbone groups.</p>
+          <p id="tree-text-alt" className="mt-1 text-xs text-ink-2" data-testid="tree-text-alt">Text alternative: find any tip with the tip search above; the <button type="button" className="text-accent underline underline-offset-2" onClick={() => { const h = document.getElementById("ce-h"); h?.scrollIntoView(); h?.focus(); }}>Clade Explorer table</button> lists every level-1 clade and backbone group with tip counts, support and record counts; each clade page lists its reference tips in tree order with links to Protein Entries; the Newick trees are under Downloads below.</p>
         </div>
         <aside className="space-y-3" aria-label="Tree details">
           {q.placement ? <PlacementPanel tree={tree} info={placement ?? "loading"} mrdb={q.placement} onFocus={focusOn} /> : null}
@@ -258,7 +261,7 @@ function useReleaseUrl(file: string): string | null {
 
 function ReadmeLink({ file }: { file: string }) {
   const url = useReleaseUrl(file);
-  return <a href={url ?? undefined} target="_blank" rel="noopener noreferrer" data-testid="dl-derived-readme">README<span className="sr-only"> (opens in a new tab)</span></a>;
+  return <a href={safeExternalUrl(url)} target="_blank" rel="noopener noreferrer" data-testid="dl-derived-readme">README<span className="sr-only"> (opens in a new tab)</span></a>;
 }
 
 function DlItem({ file, name, title, children, testId }: { file: string; name: string; title: React.ReactNode; children: React.ReactNode; testId: string }) {
@@ -364,7 +367,7 @@ function Toolbar({ tree, q, nav, canvas, onPick, collapseAll }: {
             }
           }}
           autoComplete="off"
-          aria-controls="tree-search-results"
+          aria-controls={term.trim().length >= 2 ? "tree-search-results" : undefined}
           data-testid="tree-search"
         />
         {term.trim().length >= 2 ? (
@@ -399,7 +402,7 @@ function CladeTable({ tree, clades, q }: { tree: XTree; clades: Clades; q: Phylo
   const mrca = level1Mrcas(tree);
   return (
     <section className="mt-8" aria-labelledby="ce-h" data-testid="clade-explorer">
-      <h2 id="ce-h" className="text-xl">Clade Explorer</h2>
+      <h2 id="ce-h" className="text-xl" tabIndex={-1}>Clade Explorer</h2>
       <p className="mt-1 max-w-4xl text-sm text-ink-2">
         {clades.level1.filter((c) => c.kind === "clade").length} level-1 clades and {clades.level1.filter((c) => c.kind === "backbone_group").length} backbone groups (scheme {clades.scheme}). Support: corrected IQ-TREE run1 values; thresholds {thresholdText(clades)}. Memberships are those of v1.6.0 and are not re-derived here.
       </p>

@@ -1,0 +1,15 @@
+{
+ "route": "#/help",
+ "width": 375,
+ "passes": 23,
+ "incomplete": [],
+ "violations": [],
+ "semantics": {
+  "h1": 1,
+  "main": 1,
+  "lang": "en",
+  "title": "Help - MicroRhodoDB",
+  "pageOverflowPx": 0,
+  "unnamedControls": []
+ }
+}

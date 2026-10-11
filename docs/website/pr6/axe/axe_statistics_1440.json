@@ -1,0 +1,32 @@
+{
+ "route": "#/statistics",
+ "width": 1440,
+ "passes": 30,
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "nodes": 211,
+   "reasons": [
+    {
+     "key": "imgNode",
+     "n": 202,
+     "example": "text[transform=\"translate(238.2485 298.7778)\"]"
+    },
+    {
+     "key": "shortTextContent",
+     "n": 9,
+     "example": "text[transform=\"translate(251.7215 92.1111)\"]"
+    }
+   ]
+  }
+ ],
+ "violations": [],
+ "semantics": {
+  "h1": 1,
+  "main": 1,
+  "lang": "en",
+  "title": "Statistics - MicroRhodoDB",
+  "pageOverflowPx": 0,
+  "unnamedControls": []
+ }
+}

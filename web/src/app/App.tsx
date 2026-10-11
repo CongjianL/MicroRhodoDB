@@ -113,7 +113,9 @@ export function App() {
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader route={route} />
-      <main id="main" tabIndex={-1} className="flex-1 pb-4 outline-none">
+      {/* min-h-screen keeps the footer below the fold while page data loads; without it the footer is
+          painted in the viewport and then pushed out (PR-6: CLS 0.17 desktop / 0.40 mobile on every route). */}
+      <main id="main" tabIndex={-1} className="min-h-screen flex-1 pb-4 outline-none">
         <Boundary resetKey={key}>
           <Suspense fallback={<div className="container-page pt-6"><LoadingSkeleton label="Loading page" /></div>}>{page(route)}</Suspense>
         </Boundary>

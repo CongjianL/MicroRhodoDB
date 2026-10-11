@@ -17,6 +17,7 @@ import { releaseFileUrl } from "../../data/loaders";
 import type { StructureOption } from "../../lib/entry";
 import { Generations, SingleFlight } from "./loadControl";
 import type { Coloring, LoadResult, MolViewer, Style } from "./molstarViewer";
+import { safeExternalUrl } from "../../lib/safe";
 
 type Phase =
   | { s: "idle" }
@@ -246,7 +247,7 @@ export function StructureViewer({ options, selected, onSelect, activate, onActiv
                     <button type="button" className="btn btn-secondary btn-sm" onClick={() => void load(selected)} data-testid="viewer-retry">Retry</button>
                   ) : null}
                   {selected?.external.map((x) => (
-                    <a key={x.url} className="btn btn-secondary btn-sm" href={x.url} target="_blank" rel="noopener noreferrer">{x.label}</a>
+                    <a key={x.url} className="btn btn-secondary btn-sm" href={safeExternalUrl(x.url)} target="_blank" rel="noopener noreferrer">{x.label}</a>
                   ))}
                   {downloadHref ? <a className="btn btn-secondary btn-sm" href={downloadHref} download={selected?.download.filename}>Download coordinates</a> : null}
                 </div>

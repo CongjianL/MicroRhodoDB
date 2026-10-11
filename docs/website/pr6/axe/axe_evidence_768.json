@@ -1,0 +1,32 @@
+{
+ "route": "#/evidence",
+ "width": 768,
+ "passes": 33,
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "nodes": 22,
+   "reasons": [
+    {
+     "key": "shortTextContent",
+     "n": 8,
+     "example": "div[aria-label=\"Evidence level by call basis\"] > table > tbody > tr:nth-child(1) > .num:nth-child(6)"
+    },
+    {
+     "key": "elmPartiallyObscured",
+     "n": 14,
+     "example": "tbody > tr:nth-child(1) > .font-semibold.num"
+    }
+   ]
+  }
+ ],
+ "violations": [],
+ "semantics": {
+  "h1": 1,
+  "main": 1,
+  "lang": "en",
+  "title": "Evidence explorer - MicroRhodoDB",
+  "pageOverflowPx": 0,
+  "unnamedControls": []
+ }
+}

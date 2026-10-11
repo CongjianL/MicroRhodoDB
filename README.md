@@ -82,6 +82,42 @@ The rebuild writes to `work/v160_rebuild/` and checks that the rebuilt database 
 shipped one (91/91 objects). `workflow/README.md` lists which steps are re-executable from this repository and
 which were run outside the workflow.
 
+## Website 2.0 (redesign in `web/`, not yet deployed)
+
+The redesigned website (React + TypeScript + Vite, "website 2.0", still serving **dataset v1.6.0**) lives in
+`web/`. It is built from static JSON exported from the official v1.6.0 SQLite database; the legacy `site/`
+browser above is unchanged and remains the deployed version until the PR-7 deployment step is approved.
+Requirements: Node >= 22 and the `mrdb` conda environment (Python with the release DB present).
+
+```bash
+# 1. Export the static website data from the official database (refuses to run on checksum mismatch)
+python tools/export_web_data.py --repo . --out web/public/data
+
+# 2. Install pinned dependencies
+cd web && npm ci
+
+# Development server (http://localhost:5173/MicroRhodoDB/site/)
+npm run dev
+
+# Production build (type-check + Vite) and local preview of the built site
+npm run build
+npm run preview                  # serves web/dist at http://localhost:4173/MicroRhodoDB/site/
+
+# Validation
+npx tsc --noEmit -p .            # type-check
+npx vitest run                   # unit / integration tests
+npx playwright install chromium  # once
+npx playwright test              # end-to-end, accessibility (axe) and failure-injection tests
+cd .. && python -m pytest -q     # release + website data-contract tests (repository root)
+python web/scripts/schema_to_ts.py --check
+python web/scripts/pr5_reconciliation.py --out /tmp/recon      # SQL replay of every displayed statistic
+python web/scripts/pr6_scientific_audit.py --out /tmp/sci      # independent tree/clade/placement audit
+```
+
+**Deployment:** not yet configured. A deployment workflow, preview review and rollback procedure are the
+scope of the PR-7 step and require maintainer approval; no command here publishes the site. Acceptance
+evidence for each redesign step is in `docs/website/` (latest: `docs/website/PR6_WEB_ACCEPTANCE_REPORT.md`).
+
 ## Repository layout
 
 | Path | Content |

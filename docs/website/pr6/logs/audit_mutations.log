@@ -1,0 +1,14 @@
+13/13 as expected
+OK   none (unmodified copy) 0
+OK   evidence level of P02945 E1 -> E2 (records-index) 1
+OK   membership status swapped to candidate (records-index) 1
+OK   clade_id of a placed record changed (records-index) 1
+OK   engineered flag cleared for A0ABF7PQA2 1
+OK   one source record dropped 1
+OK   SH-aLRT values of two tree nodes swapped 1
+OK   tip moved to another level-1 clade 1
+OK   edge map points to the wrong rooted node 1
+OK   MR_CLD3_017 marked as meeting the support thresholds 1
+OK   PDB 1AP9 linked to the wrong source record 1
+OK   accession map points to the wrong MRDB record 1
+OK   placement best edge changed in a record file 1

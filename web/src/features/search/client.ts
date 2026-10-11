@@ -10,6 +10,8 @@ export class SearchClient {
   private worker: Worker | null = null;
   private ready: Promise<number> | null = null;
   private seq = 0;
+  /** Reason of the last failure, reported if a call arrives after the worker was torn down. */
+  private lastError: Error | null = null;
   private pending = new Map<number, { resolve: (v: unknown) => void; reject: (e: Error) => void; onProgress?: (p: Phase, d: number, t: number) => void }>();
 
   constructor(private fastaUrl: () => Promise<string>, private flags: () => Promise<IndexFlags>) {}
@@ -36,6 +38,7 @@ export class SearchClient {
   }
 
   private fail(e: Error) {
+    this.lastError = e;
     for (const p of this.pending.values()) p.reject(e);
     this.pending.clear();
     this.worker?.terminate();
@@ -46,14 +49,17 @@ export class SearchClient {
   private call<T>(msg: Omit<WorkerRequest, "id"> & { type: WorkerRequest["type"] }, onProgress?: (p: Phase, d: number, t: number) => void): Promise<T> {
     const id = ++this.seq;
     return new Promise<T>((resolve, reject) => {
+      // The worker can fail to load (e.g. its script is unavailable) before the corpus URL resolves.
+      if (!this.worker) { reject(this.lastError ?? new Error("The search worker is not available.")); return; }
       this.pending.set(id, { resolve: resolve as (v: unknown) => void, reject, onProgress });
-      this.worker!.postMessage({ ...msg, id } as WorkerRequest);
+      this.worker.postMessage({ ...msg, id } as WorkerRequest);
     });
   }
 
   /** Load the corpus in the worker (once). */
   init(onProgress?: (p: Phase, d: number, t: number) => void): Promise<number> {
     if (!this.ready) {
+      this.lastError = null;
       this.worker = this.spawn();
       this.ready = Promise.all([this.fastaUrl(), this.flags()]).then(([fastaUrl, index]) =>
         this.call<number>({ type: "init", fastaUrl, index } as Omit<WorkerRequest, "id">, onProgress));

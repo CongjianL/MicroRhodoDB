@@ -1,6 +1,7 @@
 /** Small presentational helpers shared by the Protein Entry sections. */
 import type { ReactNode } from "react";
 import type { SectionId } from "../../lib/entry";
+import { safeExternalUrl } from "../../lib/safe";
 
 export function Row({ k, children, testId }: { k: ReactNode; children: ReactNode; testId?: string }) {
   return (
@@ -21,15 +22,18 @@ export function Section({ id, title, lead, children, testId }: { id: SectionId |
   return (
     <section id={`section-${id}`} aria-labelledby={`h-${id}`} className="scroll-mt-32 lg:scroll-mt-20" data-testid={testId ?? `section-${id}`}>
       <h2 id={`h-${id}`} tabIndex={-1} className="text-xl outline-none">{title}</h2>
-      {lead ? <div className="mt-1 max-w-4xl text-sm text-ink-2">{lead}</div> : null}
+      {lead ? <div className="prose-links mt-1 max-w-4xl text-sm text-ink-2">{lead}</div> : null}
       <div className="mt-3">{children}</div>
     </section>
   );
 }
 
 export function Ext({ href, children }: { href: string; children: ReactNode }) {
+  const safe = safeExternalUrl(href);
+  // PR-6: a non-http(s) URL is never rendered as a link; the text stays visible.
+  if (!safe) return <span data-unsafe-link="">{children}</span>;
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
+    <a href={safe} target="_blank" rel="noopener noreferrer">
       {children}
       <span className="sr-only"> (opens in a new tab)</span>
     </a>

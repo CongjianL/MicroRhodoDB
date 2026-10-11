@@ -1,0 +1,32 @@
+{
+ "route": "#/clade/MR_CLD3_017",
+ "width": 1440,
+ "passes": 33,
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "nodes": 805,
+   "reasons": [
+    {
+     "key": "bgOverlap",
+     "n": 101,
+     "example": "text[y=\"20.06\"]"
+    },
+    {
+     "key": "elmPartiallyObscured",
+     "n": 704,
+     "example": "a[href=\"#/phylogeny?tip=A0ACC3S8D6\"]"
+    }
+   ]
+  }
+ ],
+ "violations": [],
+ "semantics": {
+  "h1": 1,
+  "main": 1,
+  "lang": "en",
+  "title": "MR_CLD3_017 - MicroRhodoDB",
+  "pageOverflowPx": 0,
+  "unnamedControls": []
+ }
+}

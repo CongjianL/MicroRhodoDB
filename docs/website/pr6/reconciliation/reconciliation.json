@@ -1,0 +1,589 @@
+{
+ "db_sha256": "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f",
+ "all_ok": true,
+ "sql_replayed": 57,
+ "independently_derived": 1,
+ "comparison": "keyed (exact key sets incl. null categories, duplicate keys rejected, value per key, totals)",
+ "rows": [
+  {
+   "kind": "metric",
+   "id": "records_total",
+   "method": "sql",
+   "total": 5466,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "records_counted",
+   "method": "sql",
+   "total": 5460,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "records_engineered",
+   "method": "sql",
+   "total": 6,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "mrdb_accessions",
+   "method": "sql",
+   "total": 5299,
+   "denominator": "mrdb_accessions",
+   "denominator_value": 5299,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "mrdb_multi_source",
+   "method": "sql",
+   "total": 129,
+   "denominator": "mrdb_accessions",
+   "denominator_value": 5299,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "typeI_members",
+   "method": "sql",
+   "total": 3089,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "typeI_candidates",
+   "method": "sql",
+   "total": 1379,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "e1_counted",
+   "method": "sql",
+   "total": 88,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "e1_total",
+   "method": "sql",
+   "total": 91,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "e1_unique_sequences",
+   "method": "sql",
+   "total": 76,
+   "denominator": "mrdb_accessions",
+   "denominator_value": 5299,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "call_conflict",
+   "method": "sql",
+   "total": 468,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "publications",
+   "method": "sql",
+   "total": 121,
+   "denominator": "publications",
+   "denominator_value": 121,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "publication_links_active",
+   "method": "sql",
+   "total": 255,
+   "denominator": "active_links",
+   "denominator_value": 255,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "publication_links_support",
+   "method": "sql",
+   "total": 141,
+   "denominator": "active_links",
+   "denominator_value": 255,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "records_with_publications",
+   "method": "sql",
+   "total": 106,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "pdb_links",
+   "method": "sql",
+   "total": 472,
+   "denominator": "pdb_links",
+   "denominator_value": 472,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "pdb_entries",
+   "method": "sql",
+   "total": 438,
+   "denominator": "pdb_entries",
+   "denominator_value": 438,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "records_with_pdb",
+   "method": "sql",
+   "total": 66,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "mrdb_with_pdb",
+   "method": "sql",
+   "total": 58,
+   "denominator": "mrdb_accessions",
+   "denominator_value": 5299,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "pdb_entries_with_retinal",
+   "method": "sql",
+   "total": 382,
+   "denominator": "pdb_entries",
+   "denominator_value": 438,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "records_with_afdb",
+   "method": "sql",
+   "total": 4397,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "predicted_models",
+   "method": "sql",
+   "total": 2,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "tree_tips",
+   "method": "sql",
+   "total": 472,
+   "denominator": "tree_tips",
+   "denominator_value": 472,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "level1_clades",
+   "method": "sql",
+   "total": 17,
+   "denominator": "clade_level1_rows",
+   "denominator_value": 19,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "backbone_groups",
+   "method": "sql",
+   "total": 2,
+   "denominator": "clade_level1_rows",
+   "denominator_value": 19,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "subclades",
+   "method": "sql",
+   "total": 30,
+   "denominator": null,
+   "denominator_value": null,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "placements_current",
+   "method": "sql",
+   "total": 4996,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "watchlist",
+   "method": "sql",
+   "total": 181,
+   "denominator": "watchlist",
+   "denominator_value": 181,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "members_candidates",
+   "method": "sql",
+   "total": 4468,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "clade_confident_members_candidates",
+   "method": "sql",
+   "total": 3821,
+   "denominator": "members_candidates",
+   "denominator_value": 4468,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "records_with_afdb_counted",
+   "method": "sql",
+   "total": 4391,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "records_with_pdb_counted",
+   "method": "sql",
+   "total": 61,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "novel_family_flag",
+   "method": "sql",
+   "total": 139,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "metric",
+   "id": "foldseek_hits",
+   "method": "sql",
+   "total": 786,
+   "denominator": null,
+   "denominator_value": null,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status",
+   "method": "sql",
+   "total": 5466,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_group",
+   "method": "sql",
+   "total": 5466,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "evidence_level_counted",
+   "method": "sql",
+   "total": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "evidence_level_all",
+   "method": "sql",
+   "total": 5466,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "func_class_counted",
+   "method": "sql",
+   "total": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "tax_domain_counted",
+   "method": "sql",
+   "total": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "structure_coverage",
+   "method": "sql",
+   "total": 5466,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "afdb_status",
+   "method": "sql",
+   "total": 5466,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "pdb_method",
+   "method": "sql",
+   "total": 438,
+   "denominator": "pdb_entries",
+   "denominator_value": 438,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "link_role",
+   "method": "sql",
+   "total": 255,
+   "denominator": "active_links",
+   "denominator_value": 255,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state",
+   "method": "sql",
+   "total": 5466,
+   "denominator": "all_records",
+   "denominator_value": 5466,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "placement_clade_call",
+   "method": "sql",
+   "total": 4996,
+   "denominator": "placements_current",
+   "denominator_value": 4996,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_consensus_status",
+   "method": "sql",
+   "total": 19,
+   "denominator": "clade_level1_rows",
+   "denominator_value": 19,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "tip_role",
+   "method": "derived:refpkg/MR_RT_003/tips.tsv",
+   "total": 472,
+   "denominator": "tree_tips",
+   "denominator_value": 472,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "watchlist_family",
+   "method": "sql",
+   "total": 181,
+   "denominator": "watchlist",
+   "denominator_value": 181,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "membership_status_counted",
+   "method": "sql",
+   "total": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "ncbi_phylum_counted",
+   "method": "sql",
+   "total": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "motif_class_counted",
+   "method": "sql",
+   "total": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "helixC_motif_counted",
+   "method": "sql",
+   "total": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "length_bin_counted",
+   "method": "sql",
+   "total": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "function_basis_category_counted",
+   "method": "sql",
+   "total": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "distribution",
+   "id": "clade_state_members_candidates",
+   "method": "sql",
+   "total": 4468,
+   "denominator": "members_candidates",
+   "denominator_value": 4468,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "crosstab",
+   "id": "evidence_by_membership_group_counted",
+   "method": "sql",
+   "total": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "ok": true,
+   "problems": []
+  },
+  {
+   "kind": "crosstab",
+   "id": "evidence_by_basis_category_counted",
+   "method": "sql",
+   "total": 5460,
+   "denominator": "counted_records",
+   "denominator_value": 5460,
+   "ok": true,
+   "problems": []
+  }
+ ]
+}

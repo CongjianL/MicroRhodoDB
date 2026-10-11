@@ -1,0 +1,37 @@
+{
+ "route": "#/record/A0ABF7PQA2",
+ "width": 768,
+ "passes": 34,
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "nodes": 20,
+   "reasons": [
+    {
+     "key": "elmPartiallyObscured",
+     "n": 18,
+     "example": "a[data-section=\"phylogeny\"]"
+    },
+    {
+     "key": "imgNode",
+     "n": 1,
+     "example": ".max-w-md > p"
+    },
+    {
+     "key": "nonBmp",
+     "n": 1,
+     "example": "button[aria-label=\"Sort by Resolution\"] > .text-ink-2[aria-hidden=\"true\"]"
+    }
+   ]
+  }
+ ],
+ "violations": [],
+ "semantics": {
+  "h1": 1,
+  "main": 1,
+  "lang": "en",
+  "title": "MRDB003608 (A0ABF7PQA2) Kalium Channelrhodopsin 1 (Kalium channelrhodopsin 1 C110A) - MicroRhodoDB",
+  "pageOverflowPx": 0,
+  "unnamedControls": []
+ }
+}

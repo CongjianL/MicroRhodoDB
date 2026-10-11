@@ -130,7 +130,7 @@ export function Callout({ tone = "info", title, children, testId }: { tone?: "in
   return (
     <div className={`rounded-lg border p-4 text-sm ${cls}`} data-testid={testId} role={tone === "warn" ? "note" : undefined}>
       {title ? <p className={`font-semibold ${tone === "warn" ? "text-[#8a3c04]" : "text-accent-strong"}`}>{title}</p> : null}
-      <div className={title ? "mt-1 text-ink" : "text-ink"}>{children}</div>
+      <div className={title ? "prose-links mt-1 text-ink" : "prose-links text-ink"}>{children}</div>
     </div>
   );
 }

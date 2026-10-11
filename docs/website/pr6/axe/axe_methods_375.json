@@ -1,0 +1,15 @@
+{
+ "route": "#/methods",
+ "width": 375,
+ "passes": 31,
+ "incomplete": [],
+ "violations": [],
+ "semantics": {
+  "h1": 1,
+  "main": 1,
+  "lang": "en",
+  "title": "Methods - MicroRhodoDB",
+  "pageOverflowPx": 0,
+  "unnamedControls": []
+ }
+}

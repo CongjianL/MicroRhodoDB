@@ -29,8 +29,8 @@ export function SequenceSection({ entry, src }: { entry: MrdbEntry; src: SourceR
           <button type="button" className="btn btn-secondary btn-sm" onClick={() => downloadText(`${src.source_acc}.fasta`, fastaRecord(entry, src))}>Download FASTA</button>
           <span role="status" aria-live="polite" className="text-sm text-ink-2">{copied}</span>
         </div>
-        <div className="relative overflow-x-auto" role="region" aria-label={`Sequence of ${src.source_acc}`} tabIndex={0}>
-          <pre className="font-mono text-[0.8125rem] leading-relaxed" data-testid="sequence" data-length={src.sequence.length} aria-label={`Amino-acid sequence, ${src.length} residues`}>
+        <div className="relative overflow-x-auto" role="region" aria-label={`Amino-acid sequence of ${src.source_acc}, ${src.length} residues`} tabIndex={0}>
+          <pre className="font-mono text-[0.8125rem] leading-relaxed" data-testid="sequence" data-length={src.sequence.length}>
             {lines.map((l) => (
               <span key={l.start} className="block whitespace-pre">
                 <span className="inline-block w-12 select-none pr-3 text-right text-ink-2" aria-hidden="true">{l.start}</span>

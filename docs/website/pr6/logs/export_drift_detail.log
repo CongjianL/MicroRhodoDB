@@ -1,0 +1,3 @@
+/repository_documents[2]/bytes 6676 -> 8554
+/repository_documents[2]/sha256 b602f946ec8477470b7613ff85c77eecd1a195e5ed46b393a9a04f0ccbf4e7fe -> 16f36e9c9fadb39e914fb004ed616c28b7c026befe1980f79fa1aa04efbfdf67
+export_manifest file-hash diffs: ['v1.6.0/downloads.json', 'v1.6.0/manifest.json']

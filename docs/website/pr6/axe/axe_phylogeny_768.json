@@ -1,0 +1,47 @@
+{
+ "route": "#/phylogeny",
+ "width": 768,
+ "passes": 35,
+ "incomplete": [
+  {
+   "id": "color-contrast",
+   "nodes": 125,
+   "reasons": [
+    {
+     "key": "nonBmp",
+     "n": 1,
+     "example": "button[aria-label=\"Zoom out\"]"
+    },
+    {
+     "key": "imgNode",
+     "n": 9,
+     "example": "text[y=\"22.453389830508478\"]"
+    },
+    {
+     "key": "bgOverlap",
+     "n": 1,
+     "example": "text[x=\"74.77649213051183\"]"
+    },
+    {
+     "key": "elmPartiallyObscured",
+     "n": 95,
+     "example": "tr[data-testid=\"ce-row-MR_CLD3_001\"] > .num:nth-child(5)"
+    },
+    {
+     "key": "shortTextContent",
+     "n": 19,
+     "example": "tr[data-testid=\"ce-row-MR_CLD3_001\"] > .whitespace-nowrap:nth-child(7)"
+    }
+   ]
+  }
+ ],
+ "violations": [],
+ "semantics": {
+  "h1": 1,
+  "main": 1,
+  "lang": "en",
+  "title": "Phylogeny - MicroRhodoDB",
+  "pageOverflowPx": 0,
+  "unnamedControls": []
+ }
+}

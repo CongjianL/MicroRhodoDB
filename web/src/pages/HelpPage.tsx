@@ -5,6 +5,7 @@
 import { href } from "../app/routes";
 import { PageTitle } from "../components/common";
 import { loadDownloads, useResource } from "../data/loaders";
+import { safeExternalUrl } from "../lib/safe";
 
 const FAQ: { id: string; q: string; a: React.ReactNode }[] = [
   {
@@ -93,7 +94,7 @@ export default function HelpPage() {
       <section aria-labelledby="help-support" className="mb-8 max-w-4xl text-sm" data-testid="help-support">
         <h2 id="help-support" className="mb-2 text-xl">Support and corrections</h2>
         <p>
-          Report errors or request corrections through the {repo ? <a href={`${repo}/issues`} target="_blank" rel="noopener noreferrer">repository issue tracker</a> : "repository issue tracker"}.
+          Report errors or request corrections through the {repo ? <a href={safeExternalUrl(`${repo}/issues`)} target="_blank" rel="noopener noreferrer">repository issue tracker</a> : "repository issue tracker"}.
           {" "}Contact address: {contact ? <span>{contact.status}</span> : "not supplied"}.
         </p>
       </section>

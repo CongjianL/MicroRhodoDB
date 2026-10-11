@@ -170,7 +170,7 @@ function Body({ d }: { d: [Manifest, Summary, Vocabulary, Clades, EvidenceIndex,
       </Sec>
 
       <Sec id="docs" title="Documentation">
-        <ul className="list-disc pl-5">
+        <ul className="list-disc space-y-1.5 pl-5">
           <li><Ext href={doc("docs/SCIENTIFIC_SCOPE.md")}>Scientific scope</Ext> (design history and current-state notes)</li>
           <li><Ext href={doc("docs/DATA_MODEL.md")}>Data model</Ext> and the <Ext href={doc("releases/v1.6.0/tables/data_dictionary_v160.tsv")}>data dictionary</Ext></li>
           <li><Ext href={doc("docs/BUILD_PIPELINE.md")}>Build pipeline</Ext> and <Ext href={doc("docs/LEGACY_AND_MISSING_COMPONENTS.md")}>legacy and missing components</Ext></li>
