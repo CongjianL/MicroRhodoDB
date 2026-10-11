@@ -5,10 +5,17 @@
  * Controls are our own (style, ligand/retinal, colouring, reset, PNG snapshot, coordinate download);
  * the full Mol* plugin UI is not used. Residue highlighting is deliberately unavailable because
  * v1.6.0 provides no validated PDB chain/residue to UniProt mapping.
+ *
+ * Async safety (PR-3a): every load gets a generation number and an AbortController; only the latest
+ * generation may change the UI, and the Mol* wrapper serialises all state changes, so rapid switching,
+ * repeated Retry clicks or unmounting cannot let an outdated structure replace the selected one.
+ * The Mol* plugin is created once per viewer (single-flight) and disposed on unmount, including when
+ * unmounting happens while the chunk or the plugin is still initialising.
  */
 import { useEffect, useId, useRef, useState } from "react";
 import { releaseFileUrl } from "../../data/loaders";
 import type { StructureOption } from "../../lib/entry";
+import { Generations, SingleFlight } from "./loadControl";
 import type { Coloring, LoadResult, MolViewer, Style } from "./molstarViewer";
 
 type Phase =
@@ -41,6 +48,9 @@ export function StructureViewer({ options, selected, onSelect, activate, onActiv
   const canvas = useRef<HTMLCanvasElement>(null);
   const viewer = useRef<MolViewer | null>(null);
   const abort = useRef<AbortController | null>(null);
+  const gens = useRef(new Generations());
+  const init = useRef(new SingleFlight<MolViewer>());
+  const mounted = useRef(false);
   const [phase, setPhase] = useState<Phase>({ s: "idle" });
   const [style, setStyle] = useState<Style>("cartoon");
   const [coloring, setColoring] = useState<Coloring>(selected?.predicted ? "plddt-confidence" : "chain-id");
@@ -64,39 +74,55 @@ export function StructureViewer({ options, selected, onSelect, activate, onActiv
     };
   }, [selected]);
 
-  useEffect(() => () => {
-    abort.current?.abort();
-    viewer.current?.dispose();
-    viewer.current = null;
+  useEffect(() => {
+    mounted.current = true;
+    return () => {
+      mounted.current = false;
+      gens.current.invalidate();
+      abort.current?.abort();
+      viewer.current?.dispose();
+      viewer.current = null;
+    };
   }, []);
 
-  async function ensureViewer(): Promise<MolViewer> {
-    if (viewer.current) return viewer.current;
-    setPhase({ s: "starting" });
-    const mod = await import("./molstarViewer");
-    const v = await mod.MolViewer.create(canvas.current!, host.current!);
-    viewer.current = v;
-    return v;
+  /** One plugin per viewer. If the component unmounts while initialising, the new plugin is disposed. */
+  function ensureViewer(): Promise<MolViewer> {
+    if (viewer.current) return Promise.resolve(viewer.current);
+    return init.current.get(async () => {
+      const mod = await import("./molstarViewer");
+      if (!mounted.current || !canvas.current || !host.current) throw new mod.ViewerError("Viewer closed", "aborted");
+      const v = await mod.MolViewer.create(canvas.current, host.current);
+      if (!mounted.current) {
+        v.dispose();
+        throw new mod.ViewerError("Viewer closed", "aborted");
+      }
+      viewer.current = v;
+      return v;
+    });
   }
 
   async function load(opt: StructureOption | null) {
     if (!opt) return;
+    const g = gens.current.next();
     abort.current?.abort();
     const ctl = new AbortController();
     abort.current = ctl;
+    const live = () => mounted.current && gens.current.isCurrent(g) && !ctl.signal.aborted;
     const col: Coloring = opt.predicted ? "plddt-confidence" : "chain-id";
     try {
+      if (!viewer.current) setPhase({ s: "starting" });
       const v = await ensureViewer();
-      if (ctl.signal.aborted) return;
+      if (!live()) return;
       setPhase({ s: "loading", key: opt.key });
       const urls = await absolute(opt.urls);
+      if (!live()) return;
       const result = await v.load({ urls, rescalePlddt: opt.rescalePlddt, label: opt.label }, { style, coloring: col, showLigand }, ctl.signal);
-      if (ctl.signal.aborted) return;
+      if (!live()) return;
       setColoring(col === "plddt-confidence" && !result.plddtAvailable ? "chain-id" : col);
       setPhase({ s: "ready", key: opt.key, result });
       onActivated?.();
     } catch (e) {
-      if (ctl.signal.aborted) return;
+      if (!live()) return;
       const err = e as Error & { kind?: string };
       if (err.kind === "aborted") return;
       setPhase({ s: "error", key: opt.key, message: err.message, kind: err.kind ?? "error" });
@@ -116,12 +142,13 @@ export function StructureViewer({ options, selected, onSelect, activate, onActiv
   }, [activate]);
 
   async function run(fn: (v: MolViewer) => Promise<unknown> | unknown) {
-    if (!viewer.current) return;
+    const v = viewer.current;
+    if (!v) return;
     setBusy(true);
     try {
-      await fn(viewer.current);
+      await fn(v);
     } finally {
-      setBusy(false);
+      if (mounted.current) setBusy(false);
     }
   }
 
@@ -192,6 +219,9 @@ export function StructureViewer({ options, selected, onSelect, activate, onActiv
         <p className="border-b border-line px-3 py-2 text-sm text-ink-2" data-testid="viewer-detail">
           {isPred ? <strong className="text-ink">Predicted model, not an experimental structure. </strong> : null}
           {selected.detail}
+          {selected.warning ? (
+            <span className="mt-1 block text-[#8a3c04]" data-testid="viewer-provenance-warning"><strong>Provenance: </strong>{selected.warning}</span>
+          ) : null}
         </p>
       ) : null}
 

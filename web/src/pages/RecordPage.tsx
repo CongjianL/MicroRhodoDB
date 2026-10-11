@@ -27,8 +27,8 @@ import { ExperimentalSection, PredictedSection } from "../features/entry/Structu
 import { Section, copyText, downloadText } from "../features/entry/ui";
 import { StructureViewer } from "../features/structure/StructureViewer";
 import {
-  SECTIONS, defaultStructure, fasta, parseRecordQuery, recordQueryString, resolveSelection, structureOptions,
-  type SectionId, type StructureSel,
+  SECTIONS, defaultStructure, fasta, parseRecordQuery, permalinkQuery, recordQueryString, resolveSelection, sourcePosition,
+  structureOptions, type SectionId, type StructureSel,
 } from "../lib/entry";
 import { fmtInt } from "../lib/format";
 import { caveatMap } from "../lib/summary";
@@ -103,6 +103,7 @@ function RecordView({ entry, focus, via, routeAcc, params, clades, vocab }: {
   const [releaseUrl, setReleaseUrl] = useState<string | null>(null);
   const name = src.protein_name ?? "Unnamed protein";
   const ph = src.phylogeny;
+  const pos = sourcePosition(entry, src.source_acc);
 
   useEffect(() => {
     const pm = src.structures.predicted[0];
@@ -177,7 +178,7 @@ function RecordView({ entry, focus, via, routeAcc, params, clades, vocab }: {
       <Breadcrumbs items={[{ label: "Home", href: href.home() }, { label: "Browse", href: href.browse() }, { label: entry.mrdb_acc }]} />
       <PageTitle
         docTitle={`${entry.mrdb_acc} (${src.source_acc}) ${name} - MicroRhodoDB`}
-        eyebrow={<span className="font-mono">{entry.mrdb_acc} · source record {src.source_acc}{entry.n_source_records > 1 ? ` (1 of ${entry.n_source_records})` : ""}</span>}
+        eyebrow={<span className="font-mono" data-testid="record-eyebrow">{entry.mrdb_acc} · source record {src.source_acc}{pos && pos.total > 1 ? <span data-testid="source-position" data-index={pos.index} data-total={pos.total}>{` (${pos.index} of ${pos.total})`}</span> : null}</span>}
         lead={<>{src.organism ?? "Organism not reported"} · {fmtInt(src.length)} aa</>}
       >
         {name}
@@ -274,9 +275,10 @@ function HeaderActions({ entry, src, routeAcc }: { entry: MrdbEntry; src: Source
   useEffect(() => {
     releaseFileUrl(`records/${entry.mrdb_acc}.json`).then(setJsonUrl, () => setJsonUrl(null));
   }, [entry.mrdb_acc]);
+  // Keeps the current (valid) section and structure parameters, so the link reopens the same view.
   const permalink = () => {
     const u = new URL(window.location.href);
-    u.hash = href.record(routeAcc).slice(1);
+    u.hash = href.record(routeAcc, permalinkQuery(window.location.hash)).slice(1);
     return u.toString();
   };
   return (
@@ -284,7 +286,10 @@ function HeaderActions({ entry, src, routeAcc }: { entry: MrdbEntry; src: Source
       <button
         type="button"
         className="btn btn-secondary btn-sm"
-        onClick={async () => setMsg((await copyText(permalink())) ? "Permanent link copied." : `Copy failed. Link: ${permalink()}`)}
+        onClick={async () => {
+          const link = permalink();
+          setMsg((await copyText(link)) ? "Link copied (includes the selected section and structure)." : `Copy failed. Link: ${link}`);
+        }}
         data-testid="copy-link"
       >
         Copy link

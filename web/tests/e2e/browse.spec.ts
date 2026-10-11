@@ -126,7 +126,8 @@ test.describe("Browse", () => {
 
     await open();
     let [d] = await Promise.all([page.waitForEvent("download"), page.getByTestId("export-tsv").click()]);
-    expect(d.suggestedFilename()).toMatch(/^microrhododb_v1\.6\.0_browse_[0-9a-f]{8}_88_source_records\.tsv$/);
+    expect(d.suggestedFilename()).toMatch(/^microrhododb_v1\.6\.0_browse_[0-9a-f]{8}_[0-9a-f]{8}_88_source_records\.tsv$/);
+    const tsvName = d.suggestedFilename();
     const tsv = (await readDownload(d)).split("\n");
     expect(tsv[0].split("\t").slice(0, 3)).toEqual(["mrdb_acc", "source_acc", "protein_name"]);
     expect(tsv[0].split("\t")).toHaveLength(47);
@@ -140,6 +141,7 @@ test.describe("Browse", () => {
     await open();
     [d] = await Promise.all([page.waitForEvent("download"), page.getByTestId("export-fasta").click()]);
     expect(d.suggestedFilename()).toMatch(/_88_source_records\.fasta$/);
+    const faName = d.suggestedFilename();
     const fa = await readDownload(d);
     expect((fa.match(/^>/gm) ?? []).length).toBe(88);
     expect(fa).toMatch(/^>MRDB\d{6} \S+ status=\S+ evidence=E1 func=\S+ clade=\S+ engineered=0\n[A-Z]+/);
@@ -152,12 +154,43 @@ test.describe("Browse", () => {
     const nU = (u.match(/^>/gm) ?? []).length;
     expect(d.suggestedFilename()).toContain(`_${nU}_mrdb_sequences`);
     expect(nU).toBeLessThan(88);
+    const mrdbName = d.suggestedFilename();
 
     await open();
     [d] = await Promise.all([page.waitForEvent("download"), page.getByTestId("export-manifest").click()]);
     const man = JSON.parse(await readDownload(d));
-    expect(man).toMatchObject({ dataset_release: "1.6.0", n_source_records: 88, n_mrdb_accessions: nU, filter_query: "group=all&evidence=E1", sort: { key: "length", dir: "desc" } });
+    expect(man).toMatchObject({ dataset_release: "1.6.0", n_source_records: 88, n_mrdb_accessions: nU, filter_query: "group=all&evidence=E1", sort: { key: "length", dir: "desc" }, sort_token: "length:desc" });
+    // PR-3a: the manifest lists exactly the names of the files that were downloaded.
+    expect(man.files).toEqual({ records_tsv: tsvName, records_fasta: faName, mrdb_fasta: mrdbName, manifest: d.suggestedFilename() });
+    expect(tsvName).toContain(`_browse_${man.selection_id}_${man.export_id}_88_`);
     expect(watch.dataFiles()).toContain("sequences/corpus.fasta");
+    expect(watch.errors).toEqual([]);
+  });
+
+  // PR-3a regression (PR-2 issue): different sort orders gave different file contents under one name.
+  test("exports of the same selection in different sort orders get distinct names; selection_id is shared", async ({ page, watch }) => {
+    const grab = async (hash: string) => {
+      await page.goto(hash);
+      await expect(count(page)).toHaveText("88");
+      if (!(await page.getByTestId("export-tsv").isVisible())) await page.getByRole("button", { name: "Download" }).click();
+      const [d] = await Promise.all([page.waitForEvent("download"), page.getByTestId("export-tsv").click()]);
+      const name = d.suggestedFilename();
+      const m = /^microrhododb_v1\.6\.0_browse_([0-9a-f]{8})_([0-9a-f]{8})_88_source_records\.tsv$/.exec(name);
+      expect(m, name).not.toBeNull();
+      const lines = (await readDownload(d)).split("\n").slice(1, -1);
+      return { name, selection: m![1], exportId: m![2], body: lines.join("\n"), set: [...lines].sort().join("\n") };
+    };
+    const desc = await grab("#/browse?group=all&evidence=E1&sort=length&dir=desc");
+    const asc = await grab("#/browse?group=all&evidence=E1&sort=length&dir=asc");
+    const idx = await grab("#/browse?group=all&evidence=E1");
+    expect(desc.body).not.toBe(asc.body);
+    expect(desc.set).toBe(asc.set);
+    expect(idx.set).toBe(asc.set);
+    expect(new Set([desc.selection, asc.selection, idx.selection]).size).toBe(1);
+    expect(new Set([desc.exportId, asc.exportId, idx.exportId]).size).toBe(3);
+    expect(new Set([desc.name, asc.name, idx.name]).size).toBe(3);
+    // Same sort again: same name (names are deterministic).
+    expect((await grab("#/browse?group=all&evidence=E1&sort=length&dir=desc")).name).toBe(desc.name);
     expect(watch.errors).toEqual([]);
   });
 

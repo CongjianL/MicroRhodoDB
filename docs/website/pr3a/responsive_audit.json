@@ -1,0 +1,250 @@
+{
+ "note": "PR-3a rerun of the PR-2/PR-3 responsive audits (responsive.spec.ts, record.spec.ts layout tests).",
+ "pages": [
+  {
+   "page": "about",
+   "hash": "#/about",
+   "viewport": 1440,
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "browse",
+   "hash": "#/browse",
+   "viewport": 1440,
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "browse_clade017_tent",
+   "hash": "#/browse?group=all&eng=1&clade=MR_CLD3_017&tent=1",
+   "viewport": 1440,
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "home",
+   "hash": "#/",
+   "viewport": 1440,
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "planned_phylogeny",
+   "hash": "#/phylogeny",
+   "viewport": 1440,
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "record_P02945",
+   "hash": "#/record/P02945",
+   "viewport": 1440,
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "about",
+   "hash": "#/about",
+   "viewport": 375,
+   "scrollWidth": 375,
+   "innerWidth": 375,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "browse",
+   "hash": "#/browse",
+   "viewport": 375,
+   "scrollWidth": 375,
+   "innerWidth": 375,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "browse_clade017_tent",
+   "hash": "#/browse?group=all&eng=1&clade=MR_CLD3_017&tent=1",
+   "viewport": 375,
+   "scrollWidth": 375,
+   "innerWidth": 375,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "home",
+   "hash": "#/",
+   "viewport": 375,
+   "scrollWidth": 375,
+   "innerWidth": 375,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "planned_phylogeny",
+   "hash": "#/phylogeny",
+   "viewport": 375,
+   "scrollWidth": 375,
+   "innerWidth": 375,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "record_P02945",
+   "hash": "#/record/P02945",
+   "viewport": 375,
+   "scrollWidth": 375,
+   "innerWidth": 375,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "about",
+   "hash": "#/about",
+   "viewport": 768,
+   "scrollWidth": 768,
+   "innerWidth": 768,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "browse",
+   "hash": "#/browse",
+   "viewport": 768,
+   "scrollWidth": 768,
+   "innerWidth": 768,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "browse_clade017_tent",
+   "hash": "#/browse?group=all&eng=1&clade=MR_CLD3_017&tent=1",
+   "viewport": 768,
+   "scrollWidth": 768,
+   "innerWidth": 768,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "home",
+   "hash": "#/",
+   "viewport": 768,
+   "scrollWidth": 768,
+   "innerWidth": 768,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "planned_phylogeny",
+   "hash": "#/phylogeny",
+   "viewport": 768,
+   "scrollWidth": 768,
+   "innerWidth": 768,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "record_P02945",
+   "hash": "#/record/P02945",
+   "viewport": 768,
+   "scrollWidth": 768,
+   "innerWidth": 768,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "MRDB000001",
+   "hash": "#/record/MRDB000001",
+   "viewport": 1440,
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "MRDB000003",
+   "hash": "#/record/MRDB000003",
+   "viewport": 1440,
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "MRDB000249",
+   "hash": "#/record/MRDB000249",
+   "viewport": 1440,
+   "scrollWidth": 1440,
+   "innerWidth": 1440,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "MRDB000001",
+   "hash": "#/record/MRDB000001",
+   "viewport": 375,
+   "scrollWidth": 375,
+   "innerWidth": 375,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "MRDB000003",
+   "hash": "#/record/MRDB000003",
+   "viewport": 375,
+   "scrollWidth": 375,
+   "innerWidth": 375,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "MRDB000249",
+   "hash": "#/record/MRDB000249",
+   "viewport": 375,
+   "scrollWidth": 375,
+   "innerWidth": 375,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "MRDB000001",
+   "hash": "#/record/MRDB000001",
+   "viewport": 768,
+   "scrollWidth": 768,
+   "innerWidth": 768,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "MRDB000003",
+   "hash": "#/record/MRDB000003",
+   "viewport": 768,
+   "scrollWidth": 768,
+   "innerWidth": 768,
+   "console_errors": 0,
+   "overflow": false
+  },
+  {
+   "page": "MRDB000249",
+   "hash": "#/record/MRDB000249",
+   "viewport": 768,
+   "scrollWidth": 768,
+   "innerWidth": 768,
+   "console_errors": 0,
+   "overflow": false
+  }
+ ],
+ "any_overflow": false,
+ "console_errors_total": 0
+}

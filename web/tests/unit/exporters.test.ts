@@ -10,7 +10,7 @@ import { describe, expect, it } from "vitest";
 import { parseCorpusFasta } from "../../src/data/loaders";
 import { applyFilters, DEFAULT_STATE, filterQuery, parseBrowse } from "../../src/lib/browse";
 import {
-  EXTRA_TSV_COLUMNS, exportFilename, fastaHeader, fnv1a, LEGACY_TSV_COLUMNS, selectionManifest, toFasta, toTSV, toUniqueFasta,
+  EXTRA_TSV_COLUMNS, exportFilename, exportIds, fastaHeader, fnv1a, LEGACY_TSV_COLUMNS, selectionManifest, toFasta, toTSV, toUniqueFasta,
   tsvCell, TSV_COLUMNS, wrap60,
 } from "../../src/lib/exporters";
 import { legacy, legacyRows, manifest, readData, rows } from "./helpers";
@@ -109,12 +109,66 @@ describe("FASTA exports", () => {
 });
 
 describe("file names and selection manifest", () => {
-  it("file names encode release, selection hash and count", () => {
+  it("file names encode release, selection id, export id and count", () => {
     const q = filterQuery(parseBrowse(new URLSearchParams("evidence=E1&group=all")).state);
     expect(q).toBe("group=all&evidence=E1");
     expect(fnv1a("")).toBe("811c9dc5");
-    expect(exportFilename("1.6.0", "records_tsv", 88, q)).toBe(`microrhododb_v1.6.0_browse_${fnv1a(q)}_88_source_records.tsv`);
-    expect(exportFilename("1.6.0", "manifest", 88, q)).toBe(`microrhododb_v1.6.0_browse_${fnv1a(q)}_selection.json`);
+    const ids = exportIds(q, "", "asc");
+    expect(ids.selection_id).toBe(fnv1a(q));
+    expect(ids.sort_token).toBe("index");
+    expect(ids.export_id).toBe(fnv1a(`${q}\u0000sort=index`));
+    const base = `microrhododb_v1.6.0_browse_${fnv1a(q)}_${ids.export_id}`;
+    expect(exportFilename("1.6.0", "records_tsv", 88, ids)).toBe(`${base}_88_source_records.tsv`);
+    expect(exportFilename("1.6.0", "records_fasta", 88, ids)).toBe(`${base}_88_source_records.fasta`);
+    expect(exportFilename("1.6.0", "mrdb_fasta", 80, ids)).toBe(`${base}_80_mrdb_sequences.fasta`);
+    expect(exportFilename("1.6.0", "manifest", 88, ids)).toBe(`${base}_selection.json`);
+  });
+
+  // PR-3a regression: PR-2 named files only by the filter hash, so two sort orders produced files with
+  // different row order but identical names.
+  it("same filters with different sort orders keep selection_id but get distinct export_id and file names", () => {
+    const q = "group=all&evidence=E1";
+    const variants = [exportIds(q, "", "asc"), exportIds(q, "length", "asc"), exportIds(q, "length", "desc"), exportIds(q, "mrdb_acc", "asc")];
+    expect(new Set(variants.map((v) => v.selection_id)).size).toBe(1);
+    expect(new Set(variants.map((v) => v.export_id)).size).toBe(variants.length);
+    expect(new Set(variants.map((v) => v.sort_token))).toEqual(new Set(["index", "length:asc", "length:desc", "mrdb_acc:asc"]));
+    for (const kind of ["records_tsv", "records_fasta", "mrdb_fasta", "manifest"] as const) {
+      expect(new Set(variants.map((v) => exportFilename("1.6.0", kind, 88, v))).size).toBe(variants.length);
+    }
+    // Different filters give different selection ids even with the same sort.
+    expect(exportIds("group=all", "length", "asc").selection_id).not.toBe(variants[1].selection_id);
+  });
+
+  it("sort direction is ignored when no sort key is set (index order)", () => {
+    expect(exportIds("group=all", "", "asc")).toEqual(exportIds("group=all", "", "desc"));
+    expect(exportIds("group=all", "length", "bogus").sort_token).toBe("length:asc");
+  });
+
+  it("selection manifest lists exactly the file names the menu writes", () => {
+    const st = parseBrowse(new URLSearchParams("group=all&evidence=E1")).state;
+    const sel = applyFilters(rows(), st);
+    const m = manifest();
+    const q = filterQuery(st);
+    for (const [key, dir] of [["", "asc"], ["length", "desc"], ["length", "asc"]] as const) {
+      const sm = selectionManifest({
+        release: m.dataset_release, releaseDate: m.release_date, schemaVersion: m.schema_version,
+        websiteVersion: m.website_version, dbSha: m.source_db.sha256, filterQ: q, sortKey: key, sortDir: dir,
+        rows: sel, now: new Date("2026-10-10T00:00:00Z"),
+      });
+      const ids = exportIds(q, key, dir);
+      const nM = new Set(sel.map((r) => r.mrdb_acc)).size;
+      expect(sm.selection_id).toBe(ids.selection_id);
+      expect(sm.export_id).toBe(ids.export_id);
+      expect(sm.sort_token).toBe(ids.sort_token);
+      expect(sm.sort).toEqual(key ? { key, dir } : null);
+      expect(sm.files).toEqual({
+        records_tsv: exportFilename(m.dataset_release, "records_tsv", sel.length, ids),
+        records_fasta: exportFilename(m.dataset_release, "records_fasta", sel.length, ids),
+        mrdb_fasta: exportFilename(m.dataset_release, "mrdb_fasta", nM, ids),
+        manifest: exportFilename(m.dataset_release, "manifest", sel.length, ids),
+      });
+      for (const f of Object.values(sm.files)) expect(f).toContain(`_${ids.selection_id}_${ids.export_id}_`);
+    }
   });
 
   it("manifest records counts, provenance and filters", () => {

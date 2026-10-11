@@ -12,6 +12,7 @@ import { PluginContext } from "molstar/lib/mol-plugin/context";
 import { DefaultPluginSpec, PluginSpec } from "molstar/lib/mol-plugin/spec";
 import { Color } from "molstar/lib/mol-util/color";
 import { rescalePlddt } from "../../lib/entry";
+import { Mutex } from "./loadControl";
 
 export type Style = "cartoon" | "surface" | "ball-and-stick";
 export type Coloring = "chain-id" | "plddt-confidence";
@@ -35,6 +36,22 @@ export class ViewerError extends Error {
   constructor(message: string, readonly kind: "network" | "http" | "timeout" | "parse" | "webgl" | "aborted") {
     super(message);
   }
+}
+
+/**
+ * Optional diagnostics for E2E tests: when a page defines `window.__MRDB_VIEWER_STATS = {}` before the
+ * app loads, the wrapper records plugin creation/disposal and every structure actually committed to
+ * the Mol* state. No effect otherwise.
+ */
+interface ViewerStats { created: number; disposed: number; rendered: string[]; current: string | null }
+function stats(): ViewerStats | null {
+  const s = (globalThis as { __MRDB_VIEWER_STATS?: Partial<ViewerStats> }).__MRDB_VIEWER_STATS;
+  if (!s || typeof s !== "object") return null;
+  s.created ??= 0;
+  s.disposed ??= 0;
+  s.rendered ??= [];
+  s.current ??= null;
+  return s as ViewerStats;
 }
 
 /** Per-URL timeout. E2E tests may shorten it via window.__MRDB_VIEWER_TIMEOUT_MS (no effect otherwise). */
@@ -79,9 +96,36 @@ export class MolViewer {
   private style: Style = "cartoon";
   private coloring: Coloring = "chain-id";
   private showLigand = true;
+  /** Serialises every change of the Mol* state (load, clear, representation, dispose). */
+  private readonly lock = new Mutex();
+  private disposed = false;
+  /** Label of the structure currently committed to the Mol* state (null = empty). */
+  private current: string | null = null;
 
   private constructor(plugin: PluginContext) {
     this.plugin = plugin;
+    const st = stats();
+    if (st) st.created++;
+  }
+
+  get loadedLabel(): string | null {
+    return this.current;
+  }
+
+  private setCurrent(label: string | null) {
+    this.current = label;
+    const st = stats();
+    if (st) {
+      st.current = label;
+      if (label) st.rendered.push(label);
+    }
+  }
+
+  private async clearAll() {
+    if (this.disposed) return;
+    await this.plugin.clear();
+    this.polymer = this.ligand = null;
+    this.setCurrent(null);
   }
 
   static async create(canvas: HTMLCanvasElement, container: HTMLDivElement): Promise<MolViewer> {
@@ -122,38 +166,60 @@ export class MolViewer {
         if (lastErr.kind === "aborted") throw lastErr;
       }
     }
-    if (!data || !used) throw lastErr ?? new ViewerError("No coordinate source", "network");
-    if (spec.rescalePlddt && typeof data === "string") data = rescalePlddt(data);
-    if (signal.aborted) throw new ViewerError("Loading cancelled", "aborted");
-
-    const p = this.plugin;
-    await p.clear();
-    this.polymer = this.ligand = null;
-    try {
-      const raw = await p.builders.data.rawData({ data, label: spec.label });
-      const traj = await p.builders.structure.parseTrajectory(raw, used.format);
-      const model = await p.builders.structure.createModel(traj);
-      const structure = await p.builders.structure.createStructure(model);
-      const polymer = await p.builders.structure.tryCreateComponentStatic(structure, "polymer");
-      const ligand = await p.builders.structure.tryCreateComponentStatic(structure, "ligand");
-      this.polymer = polymer?.ref ?? null;
-      this.ligand = ligand?.ref ?? null;
-    } catch (e) {
-      throw new ViewerError(`Could not parse coordinates from ${used.url}: ${(e as Error).message}`, "parse");
+    if (!data || !used) {
+      // Never leave an older structure on screen under an error for the current request.
+      if (!signal.aborted) await this.lock.run(() => this.clearAll());
+      throw lastErr ?? new ViewerError("No coordinate source", "network");
     }
-    this.style = opts.style;
-    this.showLigand = opts.showLigand;
-    const plddtAvailable = this.plddtApplicable();
-    this.coloring = opts.coloring === "plddt-confidence" && !plddtAvailable ? "chain-id" : opts.coloring;
-    await this.rebuild();
-    p.managers.camera.reset();
-    return {
-      url: used.url,
-      bytes: typeof data === "string" ? data.length : data.byteLength,
-      hasLigand: !!this.ligand,
-      plddtAvailable,
-      ms: Math.round(performance.now() - t0),
-    };
+    if (spec.rescalePlddt && typeof data === "string") data = rescalePlddt(data);
+    const payload = data;
+    const source = used;
+
+    // Critical section: a superseded request (signal aborted) never touches the Mol* state, and a
+    // request superseded while building cannot report success; the newer request, queued behind it,
+    // clears and rebuilds afterwards.
+    return this.lock.run(async () => {
+      if (this.disposed || signal.aborted) throw new ViewerError("Loading cancelled", "aborted");
+      const p = this.plugin;
+      await this.clearAll();
+      try {
+        const raw = await p.builders.data.rawData({ data: payload, label: spec.label });
+        const traj = await p.builders.structure.parseTrajectory(raw, source.format);
+        const model = await p.builders.structure.createModel(traj);
+        const structure = await p.builders.structure.createStructure(model);
+        const polymer = await p.builders.structure.tryCreateComponentStatic(structure, "polymer");
+        const ligand = await p.builders.structure.tryCreateComponentStatic(structure, "ligand");
+        this.polymer = polymer?.ref ?? null;
+        this.ligand = ligand?.ref ?? null;
+      } catch (e) {
+        if (this.disposed || signal.aborted) throw new ViewerError("Loading cancelled", "aborted");
+        await this.clearAll();
+        throw new ViewerError(`Could not parse coordinates from ${source.url}: ${(e as Error).message}`, "parse");
+      }
+      // Superseded while parsing: discard before any representation is drawn.
+      if (this.disposed || signal.aborted) {
+        await this.clearAll();
+        throw new ViewerError("Loading cancelled", "aborted");
+      }
+      this.style = opts.style;
+      this.showLigand = opts.showLigand;
+      const plddtAvailable = this.plddtApplicable();
+      this.coloring = opts.coloring === "plddt-confidence" && !plddtAvailable ? "chain-id" : opts.coloring;
+      await this.rebuild();
+      if (this.disposed || signal.aborted) {
+        await this.clearAll();
+        throw new ViewerError("Loading cancelled", "aborted");
+      }
+      p.managers.camera.reset();
+      this.setCurrent(spec.label);
+      return {
+        url: source.url,
+        bytes: typeof payload === "string" ? payload.length : payload.byteLength,
+        hasLigand: !!this.ligand,
+        plddtAvailable,
+        ms: Math.round(performance.now() - t0),
+      };
+    });
   }
 
   private plddtApplicable(): boolean {
@@ -182,20 +248,29 @@ export class MolViewer {
     }
   }
 
-  async setStyle(style: Style) {
-    this.style = style;
-    await this.rebuild();
+  setStyle(style: Style) {
+    return this.lock.run(async () => {
+      if (this.disposed) return;
+      this.style = style;
+      await this.rebuild();
+    });
   }
 
-  async setColoring(c: Coloring) {
-    this.coloring = c === "plddt-confidence" && !this.plddtApplicable() ? "chain-id" : c;
-    await this.rebuild();
-    return this.coloring;
+  setColoring(c: Coloring): Promise<Coloring> {
+    return this.lock.run(async () => {
+      if (this.disposed) return this.coloring;
+      this.coloring = c === "plddt-confidence" && !this.plddtApplicable() ? "chain-id" : c;
+      await this.rebuild();
+      return this.coloring;
+    });
   }
 
   setLigandVisible(v: boolean) {
-    this.showLigand = v;
-    if (this.ligand) setSubtreeVisibility(this.plugin.state.data, this.ligand, !v);
+    return this.lock.run(() => {
+      if (this.disposed) return;
+      this.showLigand = v;
+      if (this.ligand) setSubtreeVisibility(this.plugin.state.data, this.ligand, !v);
+    });
   }
 
   resetCamera() {
@@ -208,7 +283,18 @@ export class MolViewer {
     return h.getImageDataUri();
   }
 
+  /** Idempotent. Queued behind any running build; queued loads see `disposed` and bail out. */
   dispose() {
-    this.plugin.dispose();
+    if (this.disposed) return;
+    this.disposed = true;
+    void this.lock.run(() => {
+      this.plugin.dispose();
+      this.current = null;
+      const st = stats();
+      if (st) {
+        st.disposed++;
+        st.current = null;
+      }
+    });
   }
 }

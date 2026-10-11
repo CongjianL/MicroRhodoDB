@@ -7,6 +7,7 @@
 import type { Clades, Tips } from "../../data/types";
 import { cladeShort, fmtInt } from "../../lib/format";
 import { parseNewick, radialLayout, sectorPath } from "./newick";
+import { boxExtent, clearLabelRadius, labelBox } from "./labelPlacement";
 
 export const CLADE_PALETTE = ["#0072B2", "#D55E00", "#009E73", "#CC79A7", "#E69F00", "#56B4E9", "#882255", "#117733", "#332288", "#AA4499"];
 const BACKBONE = "#9aa5b1";
@@ -62,7 +63,6 @@ export function TreePreview({ model, clades, highlight, idPrefix = "tree" }: { m
   const ring0 = R + 8;
   const ring1 = R + 26;
   const failing = new Set(clades.level1.filter((c) => !c.support_audit.iqtree_run1_meets_support_thresholds).map((c) => c.clade_id));
-  const ext = ring1 + 34;
   const { layout, colorOf } = model;
   const scaleLen = 1; // substitutions per site
   const nClades = clades.level1.filter((c) => c.kind === "clade").length;
@@ -71,6 +71,21 @@ export function TreePreview({ model, clades, highlight, idPrefix = "tree" }: { m
   const dim = (g: string) => !!highlight && hiGroup !== null && g !== hiGroup;
   const tip = highlight?.tip ? layout.tipPos.get(highlight.tip) : undefined;
   const hiArcs = hiGroup ? layout.arcs.filter((a) => a.group === hiGroup) : [];
+  // Highlight outline: sector ring0-4 .. ring1+4 with a 3 px stroke, so its outer edge is ring1 + 5.5.
+  const hiOuter = ring1 + 4 + 1.5;
+  const labelFor = (a: (typeof layout.arcs)[number]) => {
+    const text = (a.group === OUTGROUP_KEY ? "OG" : cladeShort(a.group)) + (failing.has(a.group) ? "!" : "");
+    const mid = (a.start + a.end) / 2;
+    const base = ring1 + 15;
+    if (a.group !== hiGroup) return { text, mid, r: base, w: 0, h: 0 };
+    const { w, h } = labelBox(text, 15);
+    return { text, mid, r: clearLabelRadius(base, hiOuter, w, h, mid), w, h };
+  };
+  // Enlarge the drawing only when a pushed-out highlighted label would otherwise be clipped.
+  const ext = Math.max(ring1 + 34, ...hiArcs.map((a) => {
+    const l = labelFor(a);
+    return boxExtent(l.r, l.w, l.h, l.mid) + 4;
+  }));
 
   return (
     <svg
@@ -104,10 +119,9 @@ export function TreePreview({ model, clades, highlight, idPrefix = "tree" }: { m
       <g>
         {layout.arcs.map((a) => {
           const fail = failing.has(a.group);
-          const mid = (a.start + a.end) / 2;
           const big = a.n >= 9 || a.group === OUTGROUP_KEY;
-          const lr = ring1 + 15;
-          const label = a.group === OUTGROUP_KEY ? "OG" : cladeShort(a.group);
+          const { text: label, mid, r: lr } = labelFor(a);
+          const isHi = a.group === hiGroup;
           return (
             <g key={a.group + a.start} data-group={a.group}>
               <path
@@ -123,6 +137,10 @@ export function TreePreview({ model, clades, highlight, idPrefix = "tree" }: { m
               </path>
               {big ? (
                 <text
+                  data-testid="tree-label"
+                  data-group={a.group}
+                  data-highlighted={isHi ? "true" : undefined}
+                  data-clear-r={isHi ? hiOuter : undefined}
                   x={lr * Math.cos(mid)}
                   y={lr * Math.sin(mid)}
                   textAnchor="middle"
@@ -132,7 +150,6 @@ export function TreePreview({ model, clades, highlight, idPrefix = "tree" }: { m
                   fill={fail ? "#8a3c04" : "#142238"}
                 >
                   {label}
-                  {fail ? "!" : ""}
                 </text>
               ) : null}
             </g>

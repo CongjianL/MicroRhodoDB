@@ -5,7 +5,7 @@ import { Pagination } from "../../components/common";
 import type { MrdbEntry, PdbMethod, SourceRecord } from "../../data/types";
 import { fmtInt } from "../../lib/format";
 import {
-  DEFAULT_PDB_FILTER, PDB_METHOD_SHORT, afdbEntryUrl, filterSortPdb, focusedRows, pdbUrls, resolutionText, unionRows,
+  releaseModelProvenanceWarning, DEFAULT_PDB_FILTER, PDB_METHOD_SHORT, afdbEntryUrl, filterSortPdb, focusedRows, pdbUrls, resolutionText, unionRows,
   type PdbFilter, type PdbSortKey, type StructureSel,
 } from "../../lib/entry";
 import { Ext, Row, Section, fmtNum, na } from "./ui";
@@ -202,6 +202,11 @@ export function PredictedSection({ src, releaseUrl, onView }: { src: SourceRecor
             pm.map((m) => (
               <div key={m.sha256} className="mt-2" data-testid="release-model">
                 <p className="font-semibold">Predicted model: {m.method}, not experimental</p>
+                {releaseModelProvenanceWarning(m) ? (
+                  <p role="note" className="mt-2 rounded-md border border-[#f3c58f] bg-[#fff7ed] p-2 text-sm text-[#8a3c04]" data-testid="release-provenance-warning">
+                    <FlagBadge tone="warn">provenance</FlagBadge> {releaseModelProvenanceWarning(m)}
+                  </p>
+                ) : null}
                 <dl className="mt-1 text-sm">
                   <Row k="Note (verbatim)"><q>{m.note ?? "No note recorded"}</q></Row>
                   <Row k="Mean pLDDT">{fmtNum(m.mean_plddt)} <span className="text-ink-2">(model confidence; not resolution)</span></Row>

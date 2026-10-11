@@ -13,11 +13,15 @@ import {
   meanCaBfactor,
   parseRecordQuery,
   parseStructureParam,
+  permalinkQuery,
   recordQueryString,
+  releaseModelProvenanceWarning,
+  releaseOption,
   rescalePlddt,
   resolveSelection,
   sameSel,
   sequenceLines,
+  sourcePosition,
   structureOptions,
   unionRows,
   variantsOf,
@@ -220,6 +224,74 @@ describe("tree highlight", () => {
 
 /* ---------------------------------------------------------------- integrity sweep over all record files */
 
+// PR-3a regression: the record eyebrow said "(1 of N)" for every source of a multi-accession entry.
+describe("source position within a multi-accession entry", () => {
+  it("MRDB000001: P02945 is 1 of 2 and B0R5N9 is 2 of 2 (source-table order)", () => {
+    const e = rec("MRDB000001");
+    expect(e.sources.map((s) => s.source_acc)).toEqual(["P02945", "B0R5N9"]);
+    expect(sourcePosition(e, "P02945")).toEqual({ index: 1, total: 2 });
+    expect(sourcePosition(e, "B0R5N9")).toEqual({ index: 2, total: 2 });
+    expect(sourcePosition(e, "Q5V4H7")).toBeNull();
+  });
+  it("MRDB000249: every one of the 7 sources gets its own position", () => {
+    const e = rec("MRDB000249");
+    expect(e.n_source_records).toBe(7);
+    const pos = e.sources.map((s) => sourcePosition(e, s.source_acc));
+    expect(pos.map((p) => p!.index)).toEqual([1, 2, 3, 4, 5, 6, 7]);
+    expect(pos.every((p) => p!.total === 7)).toBe(true);
+    expect(sourcePosition(e, "A0ACD1IKA6")!.index).toBe(e.sources.findIndex((s) => s.source_acc === "A0ACD1IKA6") + 1);
+  });
+  it("single-source entries have total 1 (the label is hidden)", () => {
+    expect(sourcePosition(rec("MRDB000009"), "Q5V4H7")).toEqual({ index: 1, total: 1 });
+  });
+});
+
+// PR-3a regression: Copy link dropped the selected section and structure.
+describe("permalink query (Copy link)", () => {
+  it("keeps valid section and structure parameters in canonical form", () => {
+    expect(permalinkQuery("#/entry/MRDB000001?structure=pdb:5zim&section=experimental")).toBe("section=experimental&structure=pdb:5ZIM");
+    expect(permalinkQuery("#/entry/MRDB000001/B0R5N9?section=predicted&structure=AFDB")).toBe("section=predicted&structure=afdb");
+    expect(permalinkQuery("#/entry/MRDB000030?structure=pred")).toBe("structure=pred");
+    expect(permalinkQuery("#/entry/MRDB000001?section=phylogeny")).toBe("section=phylogeny");
+  });
+  it("drops invalid parameters and returns empty without a query", () => {
+    expect(permalinkQuery("#/entry/MRDB000001")).toBe("");
+    expect(permalinkQuery("#/entry/MRDB000001?section=nope&structure=bogus&x=1")).toBe("");
+    expect(permalinkQuery("#/entry/MRDB000001?section=nope&structure=pdb:5ZIM")).toBe("structure=pdb:5ZIM");
+  });
+});
+
+// PR-3a: stored method "ESMCFold2 (full)" vs historical ESMFold note/file name. Warn; never rewrite.
+describe("release-model provenance warning", () => {
+  for (const [mrdb, acc] of [["MRDB000030", "B0R633"], ["MRDB003319", "A0A9X2L7U0"]] as const) {
+    it(`${acc}: warns about the ESMCFold2 / ESMFold label discrepancy and leaves stored values untouched`, () => {
+      const src = srcOf(rec(mrdb), acc);
+      const m = src.structures.predicted[0];
+      const before = JSON.stringify(m);
+      expect(m.method).toBe("ESMCFold2 (full)");
+      expect(m.file).toMatch(/_esmfold\.pdb$/);
+      const w = releaseModelProvenanceWarning(m);
+      expect(w).toMatch(/^Method label discrepancy: the stored method is "ESMCFold2 \(full\)"/);
+      expect(w).toMatch(/note and file name refer to ESMFold/);
+      expect(w).toMatch(/cannot be confirmed/);
+      expect(w).toMatch(/not been corrected/);
+      const opt = releaseOption(src, m);
+      expect(opt.warning).toBe(w);
+      expect(opt.detail).toContain("ESMCFold2 (full)");
+      expect(JSON.stringify(m)).toBe(before);
+    });
+  }
+  it("no warning when method, note and file name agree", () => {
+    expect(releaseModelProvenanceWarning({ method: "ESMCFold2 (full)", note: "ESMCFold2 prediction", file: "structures/predicted/X_esmcfold2.pdb" })).toBeNull();
+    expect(releaseModelProvenanceWarning({ method: "ESMFold", note: "ESMFold prediction", file: "structures/predicted/X_esmfold.pdb" })).toBeNull();
+    expect(releaseModelProvenanceWarning({ method: "ESMCFold2 (full)", note: null, file: "structures/predicted/X.pdb" })).toBeNull();
+  });
+  it("names only the field that disagrees", () => {
+    expect(releaseModelProvenanceWarning({ method: "ESMCFold2 (full)", note: null, file: "p/X_esmfold.pdb" })).toMatch(/the file name refers to ESMFold/);
+    expect(releaseModelProvenanceWarning({ method: "ESMCFold2", note: "ESM-Fold run", file: "p/X.pdb" })).toMatch(/the note refers to ESMFold/);
+  });
+});
+
 describe("integrity sweep: every record file against records-index.json", () => {
   const ri = json<RecordsIndex>("records-index.json");
   const col = Object.fromEntries((ri.columns as readonly string[]).map((c, i) => [c, i]));
@@ -241,6 +313,11 @@ describe("integrity sweep: every record file against records-index.json", () => 
       const e = JSON.parse(readFileSync(resolve(dir, f), "utf8")) as MrdbEntry;
       const union = unionRows(e).map((r) => r.pdb_id).sort();
       if (JSON.stringify(union) !== JSON.stringify([...e.pdb_union].sort())) problems.push(`${e.mrdb_acc}: union`);
+      if (e.sources.length !== e.n_source_records) problems.push(`${e.mrdb_acc}: n_source_records`);
+      e.sources.forEach((s, i) => {
+        const p = sourcePosition(e, s.source_acc);
+        if (!p || p.index !== i + 1 || p.total !== e.n_source_records) problems.push(`${s.source_acc}: source position`);
+      });
       for (const s of e.sources as SourceRecord[]) {
         nSources++;
         const row = idx.get(s.source_acc);

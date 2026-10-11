@@ -8,7 +8,7 @@ import { Disclosure } from "../../components/common";
 import { loadCorpusFasta, parseCorpusFasta } from "../../data/loaders";
 import type { Manifest } from "../../data/types";
 import type { IndexRow } from "../../lib/browse";
-import { exportFilename, saveText, selectionManifest, toFasta, toTSV, toUniqueFasta } from "../../lib/exporters";
+import { exportFilename, exportIds, saveText, selectionManifest, toFasta, toTSV, toUniqueFasta } from "../../lib/exporters";
 import { fmtInt } from "../../lib/format";
 
 let seqCache: Promise<Map<string, string>> | null = null;
@@ -29,6 +29,8 @@ export function ExportMenu({ rows, filterQ, sortKey, sortDir, manifest }: {
   const release = manifest.dataset_release;
   const nMrdb = new Set(rows.map((r) => r.mrdb_acc)).size;
   const empty = rows.length === 0;
+  // Filter-based selection_id plus sort-aware export_id: the same ids the selection manifest records.
+  const ids = exportIds(filterQ, sortKey, sortDir);
 
   const run = async (close: () => void, kind: "tsv" | "fasta" | "mrdb" | "manifest") => {
     setBusy(true);
@@ -36,19 +38,19 @@ export function ExportMenu({ rows, filterQ, sortKey, sortDir, manifest }: {
     try {
       let name: string;
       if (kind === "tsv") {
-        name = exportFilename(release, "records_tsv", rows.length, filterQ);
+        name = exportFilename(release, "records_tsv", rows.length, ids);
         saveText(toTSV(rows), name, "text/tab-separated-values;charset=utf-8");
       } else if (kind === "fasta") {
         const seqs = await sequences();
-        name = exportFilename(release, "records_fasta", rows.length, filterQ);
+        name = exportFilename(release, "records_fasta", rows.length, ids);
         saveText(toFasta(rows, seqs), name, "text/x-fasta;charset=utf-8");
       } else if (kind === "mrdb") {
         const seqs = await sequences();
         const u = toUniqueFasta(rows, seqs);
-        name = exportFilename(release, "mrdb_fasta", u.n, filterQ);
+        name = exportFilename(release, "mrdb_fasta", u.n, ids);
         saveText(u.text, name, "text/x-fasta;charset=utf-8");
       } else {
-        name = exportFilename(release, "manifest", rows.length, filterQ);
+        name = exportFilename(release, "manifest", rows.length, ids);
         const m = selectionManifest({
           release, releaseDate: manifest.release_date, schemaVersion: manifest.schema_version, websiteVersion: manifest.website_version,
           dbSha: manifest.source_db.sha256, filterQ, sortKey, sortDir, rows, now: new Date(),

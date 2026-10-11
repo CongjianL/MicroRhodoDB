@@ -169,6 +169,8 @@ export interface StructureOption {
   download: { url: string; filename: string };
   external: { label: string; url: string }[];
   detail: string;
+  /** Provenance warning shown with the option (release models with inconsistent method labels). */
+  warning?: string | null;
 }
 
 export function pdbOption(p: PdbLink, sourceAcc: string): StructureOption {
@@ -220,6 +222,7 @@ export function releaseOption(src: SourceRecord, m: PredictedModel): StructureOp
     download: { url: m.file, filename },
     external: [],
     detail: `Predicted model distributed with the release for ${src.source_acc} (${m.method}); not an experimental structure.`,
+    warning: releaseModelProvenanceWarning(m),
   };
 }
 
@@ -366,4 +369,40 @@ export function fasta(entry: MrdbEntry, sources: SourceRecord[]): string {
 /** Wild-type -> engineered variants (source accessions), from evidence-index.json `engineered`. */
 export function variantsOf(engineered: { source_acc: string; wild_type_acc: string }[], wt: string): string[] {
   return engineered.filter((e) => e.wild_type_acc === wt).map((e) => e.source_acc).sort();
+}
+
+/* ---------------------------------------------------------------- PR-3a corrections */
+
+/** 1-based position of a source accession within its MRDB entry, in the order of the source table. */
+export function sourcePosition(entry: MrdbEntry, sourceAcc: string): { index: number; total: number } | null {
+  const i = entry.sources.findIndex((s) => s.source_acc === sourceAcc);
+  return i < 0 ? null : { index: i + 1, total: entry.sources.length };
+}
+
+/**
+ * Query string for "Copy link": the current, valid `section` and `structure` parameters of the
+ * record hash, in canonical form (invalid values are dropped, as when the page is opened).
+ */
+export function permalinkQuery(hash: string): string {
+  const q = hash.includes("?") ? hash.slice(hash.indexOf("?") + 1) : "";
+  return recordQueryString(parseRecordQuery(new URLSearchParams(q)));
+}
+
+/**
+ * Provenance warning for release models whose stored method label disagrees with the historical
+ * file name or note: v1.6.0 stores method "ESMCFold2 (full)" while the note says "ESMFold prediction"
+ * and the files are named *_esmfold.pdb. The stored values are shown verbatim; nothing is corrected.
+ * Returns null when method, note and file name agree.
+ */
+export function releaseModelProvenanceWarning(m: Pick<PredictedModel, "method" | "note" | "file">): string | null {
+  const mentionsEsmfold = (s: string | null) => !!s && /esm[\s_-]?fold(?!2)/i.test(s) && !/esmc[\s_-]?fold/i.test(s);
+  const methodIsEsmc = /esmc[\s_-]?fold/i.test(m.method);
+  const fileName = m.file.split("/").pop() ?? m.file;
+  const sources = [mentionsEsmfold(m.note) ? "note" : null, mentionsEsmfold(fileName) ? "file name" : null].filter(Boolean);
+  if (!methodIsEsmc || !sources.length) return null;
+  return (
+    `Method label discrepancy: the stored method is "${m.method}", but the ${sources.join(" and ")} ` +
+    `refer${sources.length > 1 ? "" : "s"} to ESMFold. ESMCFold2 and ESMFold are different predictors; which one produced this model ` +
+    `cannot be confirmed from the v1.6.0 release metadata. Values are shown as stored and have not been corrected.`
+  );
 }

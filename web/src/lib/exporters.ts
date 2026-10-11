@@ -104,9 +104,32 @@ export function fnv1a(s: string): string {
 
 export type ExportKind = "records_tsv" | "records_fasta" | "mrdb_fasta" | "manifest";
 
-export function exportFilename(release: string, kind: ExportKind, n: number, filterQ: string): string {
-  const id = fnv1a(filterQ);
-  const base = `microrhododb_v${release}_browse_${id}`;
+/**
+ * Identifiers of a Browse export.
+ * - selection_id: hash of the filter query only. Same filters = same selected rows, whatever the order.
+ * - export_id: hash of the filter query plus the sort order. Exported files list rows in the displayed
+ *   sort order, so files with different content always get different names (PR-3a; fixes the PR-2
+ *   issue where two sort orders produced different files with identical names).
+ * Sort keys are validated column ids; without a sort key the index order is used ("index") and the
+ * direction is ignored.
+ */
+export interface ExportIds {
+  selection_id: string;
+  export_id: string;
+  sort_token: string;
+}
+
+export function sortToken(sortKey: string, sortDir: string): string {
+  return sortKey ? `${sortKey}:${sortDir === "desc" ? "desc" : "asc"}` : "index";
+}
+
+export function exportIds(filterQ: string, sortKey: string, sortDir: string): ExportIds {
+  const sort_token = sortToken(sortKey, sortDir);
+  return { selection_id: fnv1a(filterQ), export_id: fnv1a(`${filterQ}\u0000sort=${sort_token}`), sort_token };
+}
+
+export function exportFilename(release: string, kind: ExportKind, n: number, ids: ExportIds): string {
+  const base = `microrhododb_v${release}_browse_${ids.selection_id}_${ids.export_id}`;
   switch (kind) {
     case "records_tsv": return `${base}_${n}_source_records.tsv`;
     case "records_fasta": return `${base}_${n}_source_records.fasta`;
@@ -123,9 +146,11 @@ export interface SelectionManifest {
   website_version: string;
   source_db_sha256: string;
   selection_id: string;
+  export_id: string;
   filter_query: string;
   filters: Record<string, string>;
   sort: { key: string; dir: string } | null;
+  sort_token: string;
   n_source_records: number;
   n_mrdb_accessions: number;
   n_engineered_in_selection: number;
@@ -141,6 +166,7 @@ export function selectionManifest(args: {
 }): SelectionManifest {
   const { release, filterQ, rows } = args;
   const mrdb = new Set(rows.map((r) => r.mrdb_acc));
+  const ids = exportIds(filterQ, args.sortKey, args.sortDir);
   return {
     database: "MicroRhodoDB",
     dataset_release: release,
@@ -148,22 +174,26 @@ export function selectionManifest(args: {
     schema_version: args.schemaVersion,
     website_version: args.websiteVersion,
     source_db_sha256: args.dbSha,
-    selection_id: fnv1a(filterQ),
+    selection_id: ids.selection_id,
+    export_id: ids.export_id,
     filter_query: filterQ,
     filters: Object.fromEntries(new URLSearchParams(filterQ)),
     sort: args.sortKey ? { key: args.sortKey, dir: args.sortDir } : null,
+    sort_token: ids.sort_token,
     n_source_records: rows.length,
     n_mrdb_accessions: mrdb.size,
     n_engineered_in_selection: rows.filter((r) => r.is_engineered).length,
     files: {
-      records_tsv: exportFilename(release, "records_tsv", rows.length, filterQ),
-      records_fasta: exportFilename(release, "records_fasta", rows.length, filterQ),
-      mrdb_fasta: exportFilename(release, "mrdb_fasta", mrdb.size, filterQ),
+      records_tsv: exportFilename(release, "records_tsv", rows.length, ids),
+      records_fasta: exportFilename(release, "records_fasta", rows.length, ids),
+      mrdb_fasta: exportFilename(release, "mrdb_fasta", mrdb.size, ids),
+      manifest: exportFilename(release, "manifest", rows.length, ids),
     },
     tsv_columns: [...TSV_COLUMNS],
     notes: [
       "Rows are source records (UniProt accessions); several source records can share one MRDB accession (identical sequence).",
       "Empty filter_query = default Browse filters: group=member (Type-I members), engineered constructs hidden.",
+      "selection_id identifies the filter set only (same rows in any order); export_id also encodes the sort order (sort_token), which fixes the row order in the files. File names contain both.",
       "TSV: legacy v1.6.0 columns first (same order), PR-2 columns appended; booleans 1/0; numbers at full exported precision.",
       "E1-E5 are evidence types, not probabilities; membership status and evidence level are separate axes.",
     ],
