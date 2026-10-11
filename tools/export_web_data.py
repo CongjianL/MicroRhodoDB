@@ -28,9 +28,9 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-SCHEMA_VERSION = "1.2.0"
+SCHEMA_VERSION = "1.3.0"
 DATASET_RELEASE = "1.6.0"
-WEBSITE_VERSION = "2.0.0-pr4"
+WEBSITE_VERSION = "2.0.0-pr4a"
 DB_REL = "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"
 EXPECTED_DB_SHA256 = "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f"
 TREE_ID = "MR_RT_003"
@@ -1038,12 +1038,50 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
                       "current placements with placement.clade_id = this clade, by placement.clade_call_qc"),
             "counts": dict(sorted(pc.items()))}
         d["n_reference_tips_in_corpus"] = sum(1 for t in clade_tipset[c["clade_id"]] if t in corpus_mrdb)
+        # schema 1.3.0 (PR-4a): formal assignments (record_clade, via v_master) kept apart from EPA-ng placements.
+        # Rule (pipeline/v150/record_clades.py): record clade/subclade = reference-tip membership, or a primary
+        # placement with call 'assigned' AND placement_qc 'ok' (LWR-weighted pendant <= 1.0); a backbone subclade
+        # call without a level-1 clade becomes the record's level-1 group (B01/B02).
+        cid = c["clade_id"]
+        sub_level = c["level"] == 2 or is_bb
+        call_f = "subclade_call" if sub_level else "clade_call"
+        formal = [v for v in V if (v["subclade_id"] if c["level"] == 2 else v["clade_id"]) == cid]
+        f_tip = sum(1 for v in formal if v["clade_source"] == "reference_tip")
+        f_plc = sum(1 for v in formal if v["clade_source"] == "placement")
+        require(f_tip + f_plc == len(formal), f"{cid}: unknown clade_source")
+        require(f_tip == d["n_reference_tips_in_corpus"], f"{cid}: formal tip count != reference tips in corpus")
+        gpl = [pl for pl in plc.values() if pl["subclade_id" if sub_level else "clade_id"] == cid]
+        by_qc = defaultdict(Counter)
+        for pl in gpl:
+            by_qc[pl[call_f]][pl["placement_qc"]] += 1
+        asg = dict(by_qc.get("assigned", {}))
+        require(f_plc == asg.get("ok", 0), f"{cid}: formal placements != {call_f}=assigned and placement_qc=ok")
+        d["placement_counts"]["call_field"] = call_f
+        d["placement_counts"]["by_call_and_qc"] = {k: dict(sorted(v.items())) for k, v in sorted(by_qc.items())}
+        d["assignment_counts"] = {
+            "basis": ("formal v1.6.0 record assignments (v_master." + ("subclade_id" if c["level"] == 2 else "clade_id")
+                      + " = this group): reference tips in the corpus plus placements with " + call_f
+                      + " = assigned and placement_qc = ok (pipeline/v150/record_clades.py)"),
+            "reference_tips": f_tip, "placements": f_plc, "total": len(formal),
+            "placements_assigned_call_failing_qc": asg.get("long_pendant", 0)}
+        if is_bb:
+            # Placements whose backbone subclade call is 'assigned' but fail pendant QC: preserved as placements only.
+            d["placement_only_records"] = [
+                {"source_acc": pl["source_acc"], "mrdb_acc": corpus_mrdb[pl["source_acc"]],
+                 "subclade_call": pl["subclade_call"], "clade_call_qc": pl["clade_call_qc"],
+                 "placement_qc": pl["placement_qc"], "lwr_weighted_pendant": pl["lwr_weighted_pendant"],
+                 "best_lwr": pl["best_lwr"], "subclade_lwr": pl["subclade_lwr"], "clade_state": cstate.get(pl["source_acc"])}
+                for pl in sorted(gpl, key=lambda x: x["source_acc"])
+                if pl["subclade_call"] == "assigned" and pl["placement_qc"] != "ok"]
+        else:
+            d["placement_only_records"] = None
         if c["level"] == 1:
             e1 = sorted((v for v in V if v["clade_id"] == c["clade_id"] and v["evidence_level"] == "E1"),
                         key=lambda v: (v["source_acc"] not in tip_roles, v["mrdb_acc"], v["source_acc"]))
             d["e1_anchors"] = [{"source_acc": v["source_acc"], "mrdb_acc": v["mrdb_acc"], "func_class": v["func_class"],
                                 "protein_name": v["protein_name"], "organism": v["organism"],
-                                "counts_eligible": b(v["counts_eligible"]), "is_reference_tip": v["source_acc"] in tip_roles}
+                                "counts_eligible": b(v["counts_eligible"]), "is_engineered": b(v["is_engineered"]),
+                                "is_reference_tip": v["source_acc"] in tip_roles}
                                for v in e1]
             reps = [dict(a, reason="E1 record assigned to this group") for a in d["e1_anchors"]][:12]
             seen = {r["source_acc"] for r in reps}
@@ -1056,7 +1094,8 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
                 v = vm_by_acc[t]
                 reps.append({"source_acc": t, "mrdb_acc": v["mrdb_acc"], "func_class": v["func_class"],
                              "protein_name": v["protein_name"], "organism": v["organism"],
-                             "counts_eligible": b(v["counts_eligible"]), "is_reference_tip": True,
+                             "counts_eligible": b(v["counts_eligible"]), "is_engineered": b(v["is_engineered"]),
+                             "is_reference_tip": True,
                              "reason": f"reference tip ({tip_roles[t]})"})
             d["representatives"] = reps
         if c["level"] == 1:

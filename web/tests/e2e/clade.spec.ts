@@ -52,9 +52,17 @@ test.describe("Clade Explorer pages", () => {
     await expect(cp.getByTestId("clade-subclades").locator("tbody tr")).toHaveCount(6);
     await expect(cp.getByTestId("clade-e1").locator("tbody tr")).toHaveCount(4);
     await expect(cp.getByTestId("clade-ne1")).toContainText("4");
-    await expect(cp.getByTestId("clade-placements")).toContainText("assigned 1,546");
-    await expect(cp.getByTestId("clade-placements")).toContainText("distant_assigned 597");
-    await expect(cp.getByTestId("clade-function")).toContainText("they are not tips of the tree");
+    // PR-4a: formal assignments (tips + placements passing QC) are shown apart from the placement table
+    await expect(cp.getByTestId("clade-formal-total")).toHaveText("1,646");
+    await expect(cp.getByTestId("clade-formal-tips")).toHaveText("100");
+    await expect(cp.getByTestId("clade-formal-placements")).toHaveText("1,546");
+    await expect(cp.getByTestId("clade-placements-assigned").locator("td")).toHaveText(["assigned", "1,546", "597", "2,143"]);
+    await expect(cp.getByTestId("clade-placements-failing-qc")).toContainText("tentative (distant_assigned) records");
+    await expect(cp.getByTestId("clade-assignments")).toContainText("placements are never tips");
+    await expect(cp.getByTestId("clade-placement-only")).toHaveCount(0);
+    await expect(cp.getByTestId("sub-formal-MR_CLD3_017.02")).toHaveText("311");
+    await expect(cp.getByTestId("sub-placed-MR_CLD3_017.02")).toContainText("480");
+    await expect(cp.getByTestId("sub-placed-MR_CLD3_017.02")).toContainText("(289 / 191)");
     // subtree legend counts are those of the 100 tips below the MRCA
     const n = await cp.getByTestId("legend-ingroup").locator("li span.tabular-nums").allInnerTexts();
     expect(n.reduce((s, x) => s + Number(x), 0)).toBe(100);
@@ -79,6 +87,51 @@ test.describe("Clade Explorer pages", () => {
     await expect(page.getByTestId("clade-page")).toHaveAttribute("data-legacy", "false");
     await expect(page.getByTestId("clade-page")).toContainText(/backbone group/i);
     await expect(page.getByTestId("clade-member")).toHaveCount(4);
+    expect(watch.errors).toEqual([]);
+  });
+
+  test("PR-4a MR_CLD3_B02: 4 placements, 5 formal assignments, 3 placement-only long-pendant records", async ({ page, watch }) => {
+    await page.goto("#/clade/MR_CLD3_B02");
+    const cp = page.getByTestId("clade-page");
+    await expect(cp.getByTestId("clade-formal-summary")).toContainText("5");
+    await expect(cp.getByTestId("clade-formal-tips")).toHaveText("4");
+    await expect(cp.getByTestId("clade-formal-placements")).toHaveText("1");
+    await expect(cp.getByTestId("clade-formal-total")).toHaveText("5");
+    await expect(cp.getByTestId("clade-placements-assigned").locator("td")).toHaveText(["assigned", "1", "3", "4"]);
+    await expect(cp.getByTestId("clade-placements-total")).toHaveText("4");
+    await expect(cp.getByTestId("clade-placements-failing-qc")).toContainText("carry no formal assignment");
+    const only = cp.getByTestId("clade-placement-only");
+    await expect(only.locator("tbody tr")).toHaveCount(3);
+    for (const acc of ["A0A2P6MQ02", "A0A2P6NAG6", "A0A2P6NFX8"]) {
+      const row = only.getByTestId(`placement-only-${acc}`);
+      await expect(row).toContainText("long_pendant");
+      await expect(row).toContainText("Unassigned");
+      await expect(row.locator(`a[href="#/record/${acc}"]`)).toHaveCount(1);
+    }
+    // the placed record links to its entry, whose clade state stays unassigned
+    await only.getByTestId("placement-only-A0A2P6MQ02").locator("a").click();
+    await expect(page).toHaveURL(/#\/record\/A0A2P6MQ02/);
+    await page.goto("#/clade/MR_CLD3_B01");
+    await expect(page.getByTestId("clade-formal-total")).toHaveText("97");
+    await expect(page.getByTestId("clade-placements-total")).toHaveText("93");
+    await expect(page.getByTestId("clade-placements-failing-qc")).toHaveCount(0);
+    await expect(page.getByTestId("clade-placement-only")).toHaveCount(0);
+    expect(watch.errors).toEqual([]);
+  });
+
+  test("PR-4a MR_CLD3_009 names the engineered E1 record excluded from the official count", async ({ page, watch }) => {
+    await page.goto("#/clade/MR_CLD3_009");
+    const cp = page.getByTestId("clade-page");
+    await expect(cp.getByTestId("clade-e1").locator("tbody tr")).toHaveCount(12);
+    await expect(cp.getByTestId("clade-ne1")).toContainText("11");
+    const ex = cp.getByTestId("clade-e1-excluded");
+    await expect(ex).toContainText("12 E1 source records");
+    await expect(ex).toContainText("11 are counts-eligible");
+    await expect(ex).toContainText("A0A8X6EH36");
+    await expect(ex).toContainText("MRDB003178");
+    await expect(ex).toContainText("engineered");
+    await page.goto("#/clade/MR_CLD3_017");
+    await expect(page.getByTestId("clade-e1-excluded")).toHaveCount(0);
     expect(watch.errors).toEqual([]);
   });
 

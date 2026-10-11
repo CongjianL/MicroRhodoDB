@@ -28,6 +28,13 @@ export interface AfdbModel {
 export type CladeId = string;
 
 export interface CladeLevel1 {
+  readonly assignment_counts: {
+    readonly basis: string;
+    readonly placements: number;
+    readonly placements_assigned_call_failing_qc: number;
+    readonly reference_tips: number;
+    readonly total: number;
+  };
   readonly clade_id: CladeId;
   readonly consensus_status: string;
   readonly dominant_domain: string | null;
@@ -37,6 +44,7 @@ export interface CladeLevel1 {
   readonly e1_anchors: Array<{
     readonly counts_eligible: boolean | null;
     readonly func_class: string | null;
+    readonly is_engineered: boolean | null;
     readonly is_reference_tip: boolean;
     readonly mrdb_acc: MrdbAcc;
     readonly organism: string | null;
@@ -74,11 +82,25 @@ export interface CladeLevel1 {
   readonly parent_clade_id: string | null;
   readonly placement_counts: {
     readonly basis: string;
+    readonly by_call_and_qc: Record<string, Record<string, number>>;
+    readonly call_field: "clade_call" | "subclade_call";
     readonly counts: Record<string, number>;
   };
+  readonly placement_only_records: Array<{
+    readonly best_lwr: number;
+    readonly clade_call_qc: string;
+    readonly clade_state: string | null;
+    readonly lwr_weighted_pendant: number;
+    readonly mrdb_acc: string;
+    readonly placement_qc: string;
+    readonly source_acc: string;
+    readonly subclade_call: string;
+    readonly subclade_lwr: number | null;
+  }> | null;
   readonly representatives: Array<{
     readonly counts_eligible: boolean | null;
     readonly func_class: string | null;
+    readonly is_engineered: boolean | null;
     readonly is_reference_tip: boolean;
     readonly mrdb_acc: MrdbAcc;
     readonly organism: string | null;
@@ -154,7 +176,7 @@ export interface Clades {
 export interface Current {
   readonly dataset_release: "1.6.0";
   readonly path: "data/v1.6.0/";
-  readonly schema_version: "1.2.0";
+  readonly schema_version: "1.3.0";
 }
 
 export interface EvidenceIndex {
@@ -292,7 +314,7 @@ export interface ExportManifest {
     readonly sha256: string;
   }>;
   readonly n_files: number;
-  readonly schema_version: "1.2.0";
+  readonly schema_version: "1.3.0";
   readonly source_db_sha256: string;
   readonly total_bytes: number;
 }
@@ -334,7 +356,7 @@ export interface Manifest {
   };
   readonly release_date: string;
   readonly schema_revision: string;
-  readonly schema_version: "1.2.0";
+  readonly schema_version: "1.3.0";
   readonly source_db: {
     readonly file: "microrhododb_v1.6.0.sqlite";
     readonly opened_read_only: true;
@@ -590,6 +612,13 @@ export interface StructuresIndex {
 }
 
 export interface Subclade {
+  readonly assignment_counts: {
+    readonly basis: string;
+    readonly placements: number;
+    readonly placements_assigned_call_failing_qc: number;
+    readonly reference_tips: number;
+    readonly total: number;
+  };
   readonly clade_id: CladeId;
   readonly consensus_status: string;
   readonly dominant_domain: string | null;
@@ -623,8 +652,21 @@ export interface Subclade {
   readonly parent_clade_id: string | null;
   readonly placement_counts: {
     readonly basis: string;
+    readonly by_call_and_qc: Record<string, Record<string, number>>;
+    readonly call_field: "clade_call" | "subclade_call";
     readonly counts: Record<string, number>;
   };
+  readonly placement_only_records: Array<{
+    readonly best_lwr: number;
+    readonly clade_call_qc: string;
+    readonly clade_state: string | null;
+    readonly lwr_weighted_pendant: number;
+    readonly mrdb_acc: string;
+    readonly placement_qc: string;
+    readonly source_acc: string;
+    readonly subclade_call: string;
+    readonly subclade_lwr: number | null;
+  }> | null;
   readonly scheme: "MR_CLD3";
   readonly sh_alrt: number | null;
   readonly support_audit: {
@@ -681,7 +723,7 @@ export interface Summary {
     readonly value: number;
   }>;
   readonly notes: Array<string>;
-  readonly schema_version: "1.2.0";
+  readonly schema_version: "1.3.0";
 }
 
 export interface SupportAudit {

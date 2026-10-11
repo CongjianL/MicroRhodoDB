@@ -15,6 +15,7 @@ import { CLADE_STATE_LABEL, FUNC_LABEL, fmtInt } from "../lib/format";
 import { thresholdText } from "../lib/summary";
 import { buildColorScheme, scopeScheme, tipRoleLabel, type XTree } from "../features/tree/explorerModel";
 import { Legend } from "../features/tree/ExplorerPanels";
+import { cladeCounts } from "../features/tree/cladeCounts";
 import { phyloQueryString } from "../features/tree/phyloQuery";
 import { TreeCanvas } from "../features/tree/TreeCanvas";
 import { useExplorerData } from "../features/tree/useExplorer";
@@ -61,6 +62,7 @@ function CladeEntry({ c, tree, clades }: { c: AnyClade; tree: XTree; clades: Cla
   const browseKey = l1 ? "clade" : "sub";
   const fc = c.function_consensus;
   const eligibleE1 = l1 ? l1.e1_anchors.filter((e) => e.counts_eligible === true).length : 0;
+  const cc = cladeCounts(c);
 
   return (
     <div className="container-page pt-6" data-testid="clade-page" data-clade={c.clade_id} data-legacy={legacy ? "true" : "false"}>
@@ -86,7 +88,7 @@ function CladeEntry({ c, tree, clades }: { c: AnyClade; tree: XTree; clades: Cla
             <Stat k="Group">{kind}{parent ? <> of <a href={href.clade(parent.clade_id)} className="font-mono">{parent.clade_id}</a></> : null}</Stat>
             <Stat k="Tips in MR_RT_003" testId="clade-ntips">{fmtInt(nTips)} ({fmtInt(c.n_reference_tips_in_corpus)} in the v1.6.0 corpus)</Stat>
             {l1 ? <Stat k="Records (confident / tentative)" testId="clade-records">{fmtInt(l1.n_records_confident)} / {fmtInt(l1.n_records_tentative)}</Stat> : null}
-            <Stat k="Records assigned">{c.n_records_assigned === null ? nr(null) : fmtInt(c.n_records_assigned)}</Stat>
+            <Stat k="Formal assignments" testId="clade-formal-summary">{fmtInt(cc.formalTotal)} <span className="text-xs text-ink-2">({fmtInt(cc.formalTips)} reference tips + {fmtInt(cc.formalPlacements)} placements passing QC)</span></Stat>
             <Stat k="Support (run1, corrected)" testId="clade-support">
               SH-aLRT {a.iqtree_run1_sh_alrt} / UFBoot {a.iqtree_run1_ufboot}{" "}
               {a.iqtree_run1_meets_support_thresholds ? <FlagBadge tone="info">meets thresholds</FlagBadge> : <FlagBadge tone="warn">fails thresholds</FlagBadge>}
@@ -120,29 +122,23 @@ function CladeEntry({ c, tree, clades }: { c: AnyClade; tree: XTree; clades: Cla
           <dl className="mt-2 grid grid-cols-[minmax(0,1fr)] gap-x-4 [overflow-wrap:anywhere] gap-y-1.5 text-sm sm:grid-cols-[13rem_minmax(0,1fr)]">
             <Stat k="Clade function" testId="clade-func">{fc.clade_function ? <>{funcLabel(fc.clade_function)} <code className="text-xs text-ink-2">{fc.clade_function}</code></> : <span className="text-ink-2">None (no consensus call)</span>}</Stat>
             <Stat k="Consensus status">{fc.consensus_status}</Stat>
-            <Stat k="E1 records (counted)" testId="clade-ne1">{fc.n_E1}{l1 && l1.e1_anchors.length !== fc.n_E1 ? <span className="block text-xs text-ink-2">{l1.e1_anchors.length} E1 records are listed below; {eligibleE1} are counts-eligible and form the official count.</span> : null}</Stat>
+            <Stat k="E1 records (counted)" testId="clade-ne1">{fc.n_E1}{l1 && l1.e1_anchors.length !== fc.n_E1 ? <span className="block text-xs text-ink-2" data-testid="clade-e1-excluded">{l1.e1_anchors.length} E1 source records are assigned to this group; {eligibleE1} are counts-eligible and form the official count. Excluded (counts_eligible = 0): {cc.e1Excluded.map((e, i) => <span key={e.source_acc}>{i ? "; " : ""}<a href={href.record(e.source_acc)} className="font-mono">{e.source_acc}</a> ({e.mrdb_acc}{e.is_engineered ? ", engineered construct, is_engineered = 1" : ""})</span>)}. Engineered constructs never enter official counts.</span> : null}</Stat>
             <Stat k="E1 classes">{nr(fc.E1_classes)}</Stat>
             <Stat k="Top-class fraction">{fc.top_frac === null ? nr(null) : fc.top_frac.toFixed(2)}</Stat>
             <Stat k="Records considered">{fmtInt(fc.n_records)}</Stat>
             <Stat k="E1 classes among tips">{nr(c.e1_classes_tips)}</Stat>
           </dl>
-          <h3 className="mt-4 text-base">Placements</h3>
-          <p className="text-xs text-ink-2">{c.placement_counts.basis}.</p>
-          {Object.keys(c.placement_counts.counts).length ? (
-            <ul className="mt-1 flex flex-wrap gap-2 text-sm" data-testid="clade-placements">
-              {Object.entries(c.placement_counts.counts).map(([k, n]) => <li key={k}><code>{k}</code> {fmtInt(n)}</li>)}
-            </ul>
-          ) : <p className="mt-1 text-sm text-ink-2" data-testid="clade-placements">No current placements.</p>}
-          <p className="mt-1 text-xs text-ink-2">Placements are EPA-ng results on the fixed reference tree; they are not tips of the tree.</p>
         </section>
       </div>
+
+      <AssignmentsVsPlacements c={c} />
 
       {subs.length ? (
         <section className="mt-6" aria-labelledby="sub-h" data-testid="clade-subclades">
           <h2 id="sub-h" className="text-xl">Subclades</h2>
           <div className="mt-2 overflow-x-auto rounded-md border border-line">
             <table className="data-table">
-              <thead><tr><th>Subclade</th><th className="num">Tips</th><th>Support (run1)</th><th>Function consensus</th><th>Dominant phylum</th><th className="num">Records assigned</th></tr></thead>
+              <thead><tr><th>Subclade</th><th className="num">Tips</th><th>Support (run1)</th><th>Function consensus</th><th>Dominant phylum</th><th className="num">Formal assignments</th><th className="num whitespace-normal">Placements with subclade call "assigned" (QC ok / long pendant)</th></tr></thead>
               <tbody>
                 {subs.map((s) => (
                   <tr key={s.clade_id}>
@@ -151,7 +147,8 @@ function CladeEntry({ c, tree, clades }: { c: AnyClade; tree: XTree; clades: Cla
                     <td>{s.support_audit.iqtree_run1_label} {s.support_audit.iqtree_run1_meets_support_thresholds ? null : <FlagBadge tone="warn">fails</FlagBadge>}</td>
                     <td>{s.function_consensus.clade_function ?? <span className="text-ink-2">none</span>} <span className="text-xs text-ink-2">({s.function_consensus.consensus_status})</span></td>
                     <td>{nr(s.dominant_phylum)}</td>
-                    <td className="num">{s.n_records_assigned === null ? "" : fmtInt(s.n_records_assigned)}</td>
+                    <td className="num" data-testid={`sub-formal-${s.clade_id}`}>{fmtInt(s.assignment_counts.total)}</td>
+                    <td className="num" data-testid={`sub-placed-${s.clade_id}`}>{fmtInt((s.placement_counts.by_call_and_qc.assigned?.ok ?? 0) + (s.placement_counts.by_call_and_qc.assigned?.long_pendant ?? 0))} <span className="text-xs text-ink-2">({fmtInt(s.placement_counts.by_call_and_qc.assigned?.ok ?? 0)} / {fmtInt(s.placement_counts.by_call_and_qc.assigned?.long_pendant ?? 0)})</span></td>
                   </tr>
                 ))}
               </tbody>
@@ -280,6 +277,89 @@ function MemberTable({ members, cladeId }: { members: [string, ExplorerTip][]; c
           </tbody>
         </table>
       </div>
+    </section>
+  );
+}
+
+/** PR-4a: formal v1.6.0 assignments (record_clade) shown apart from EPA-ng placement counts. */
+function AssignmentsVsPlacements({ c }: { c: CladeLevel1 | Subclade }) {
+  const cc = cladeCounts(c);
+  const callLabel = cc.callField === "clade_call" ? "clade call" : "subclade call";
+  const only = c.placement_only_records;
+  return (
+    <section className="card mt-6 p-4" aria-labelledby="ap-h" data-testid="clade-assignments">
+      <h2 id="ap-h" className="text-lg">Formal assignments and EPA-ng placements</h2>
+      <p className="mt-1 max-w-4xl text-sm text-ink-2">
+        A <strong>formal assignment</strong> is the official v1.6.0 record-to-group assignment: a reference tip of the group, or a placement whose {callLabel} is
+        {" "}<code>assigned</code> <em>and</em> whose pendant-length QC is <code>ok</code> (LWR-weighted pendant &le; 1.0). A <strong>placement</strong> is an EPA-ng result on the fixed
+        reference tree; placements are never tips, and a placement alone is not an assignment.
+      </p>
+      <div className="mt-3 grid grid-cols-[minmax(0,1fr)] gap-4 lg:grid-cols-2">
+        <div>
+          <h3 className="text-base">Formal assignments</h3>
+          <div className="mt-1 overflow-x-auto rounded-md border border-line">
+          <table className="data-table" data-testid="clade-formal">
+            <tbody>
+              <tr><th scope="row" className="static whitespace-normal font-normal">Reference tips in the corpus</th><td className="num" data-testid="clade-formal-tips">{fmtInt(cc.formalTips)}</td></tr>
+              <tr><th scope="row" className="static whitespace-normal font-normal">Placements passing QC ({callLabel} assigned, QC ok)</th><td className="num" data-testid="clade-formal-placements">{fmtInt(cc.formalPlacements)}</td></tr>
+              <tr><th scope="row" className="static whitespace-normal font-normal">Total formal assignments</th><td className="num font-semibold" data-testid="clade-formal-total">{fmtInt(cc.formalTotal)}</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p className="mt-1 text-xs text-ink-2">{c.assignment_counts.basis}.</p>
+        </div>
+        <div>
+          <h3 className="text-base">Current placements into this group</h3>
+          {cc.placementRows.length ? (
+            <div className="mt-1 overflow-x-auto rounded-md border border-line">
+            <table className="data-table" data-testid="clade-placements">
+              <thead><tr><th>{callLabel}</th><th className="num">QC ok</th><th className="num">Long pendant</th><th className="num">Total</th></tr></thead>
+              <tbody>
+                {cc.placementRows.map((r) => (
+                  <tr key={r.call} data-testid={`clade-placements-${r.call}`}><td><code>{r.call}</code></td><td className="num">{fmtInt(r.ok)}</td><td className="num">{fmtInt(r.longPendant)}</td><td className="num">{fmtInt(r.total)}</td></tr>
+                ))}
+                <tr><th scope="row" className="static whitespace-normal font-normal">All placements</th><td /><td /><td className="num" data-testid="clade-placements-total">{fmtInt(cc.placementsTotal)}</td></tr>
+              </tbody>
+            </table>
+            </div>
+          ) : <p className="mt-1 text-sm text-ink-2" data-testid="clade-placements">No current placements.</p>}
+          <p className="mt-1 text-xs text-ink-2">Grouped by placement.{cc.callField} and placement_qc ({c.placement_counts.basis}).</p>
+          {cc.assignedCallFailingQc ? (
+            <p className="mt-2 text-sm" data-testid="clade-placements-failing-qc">
+              <FlagBadge tone="warn">not assigned</FlagBadge>{" "}
+              {fmtInt(cc.assignedCallFailingQc)} placement{cc.assignedCallFailingQc === 1 ? " has" : "s have"} {callLabel} <code>assigned</code> but a long pendant (placement_qc = long_pendant), so
+              {cc.failingQcMeaning === "tentative_level1"
+                ? " they are not formal assignments; these records are the tentative (distant_assigned) records of this clade."
+                : " they are kept as placements only and carry no formal assignment to this group."}
+            </p>
+          ) : null}
+        </div>
+      </div>
+      {only && only.length ? (
+        <div className="mt-4" data-testid="clade-placement-only">
+          <h3 className="text-base">Placement-only records (no formal assignment)</h3>
+          <p className="text-xs text-ink-2">Their backbone subclade call is <code>assigned</code>, but pendant QC failed; their level-1 clade call is unassigned. Values as stored in v1.6.0.</p>
+          <div className="mt-1 overflow-x-auto rounded-md border border-line">
+            <table className="data-table">
+              <thead><tr><th>Source</th><th>MRDB</th><th>Subclade call</th><th>Placement QC</th><th className="num">LWR-weighted pendant</th><th className="num">Subclade LWR</th><th>Clade call (QC)</th><th>Record clade state</th></tr></thead>
+              <tbody>
+                {only.map((r) => (
+                  <tr key={r.source_acc} data-testid={`placement-only-${r.source_acc}`}>
+                    <td><a href={href.record(r.source_acc)} className="font-mono">{r.source_acc}</a></td>
+                    <td className="font-mono">{r.mrdb_acc}</td>
+                    <td><code>{r.subclade_call}</code></td>
+                    <td><code>{r.placement_qc}</code></td>
+                    <td className="num">{r.lwr_weighted_pendant.toFixed(3)}</td>
+                    <td className="num">{r.subclade_lwr === null ? "" : r.subclade_lwr.toFixed(3)}</td>
+                    <td><code>{r.clade_call_qc}</code></td>
+                    <td>{r.clade_state ? CLADE_STATE_LABEL[r.clade_state as keyof typeof CLADE_STATE_LABEL] ?? r.clade_state : ""}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 }

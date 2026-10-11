@@ -1,4 +1,4 @@
-"""PR-4 gate G4: phylogeny explorer data (schema 1.2.0) reconciles with the frozen refpkg and SQLite.
+"""PR-4 gate G4: phylogeny explorer data (schema 1.2.0, current export 1.3.0) reconciles with the frozen refpkg and SQLite.
 
 Run from the repository root:
     pytest -q tests/test_web_phylogeny.py
@@ -479,4 +479,4 @@ def test_export_manifest_lists_phylogeny_files(out):
                 "phylogeny/MR_RT_003.rooted.run1-support.DERIVED.README.txt"):
         f = files[f"{REL}/{rel}"]
         assert f["sha256"] == sha(out / rel)
-    assert em["schema_version"] == "1.2.0"
+    assert em["schema_version"] == "1.3.0"  # 1.2.0 in PR-4; 1.3.0 since PR-4a (additive)

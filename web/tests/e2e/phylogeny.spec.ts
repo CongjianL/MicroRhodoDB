@@ -278,6 +278,21 @@ test.describe("Phylogeny explorer", () => {
     expect(svgTxt).not.toContain("NaN");
     expect(svgTxt).toContain("Q9UW81");
     expect(svgTxt).toContain("MR_CLD3_017");
+    // PR-4a: export size is tens to hundreds of kB, not MB. Default view (support marks off) ~89 kB;
+    // with support marks (PR-4 audit export, ?support=1) 158,004 B. Never 4.6 MB as an earlier draft said.
+    console.log(`[pr4a] rect clade SVG export size (support off): ${svg.bytes.length} bytes`);
+    expect(svg.bytes.length).toBeGreaterThan(50_000);
+    expect(svg.bytes.length).toBeLessThan(150_000);
+    expect((svgTxt.match(/<text/g) ?? []).length).toBeGreaterThanOrEqual(472);
+    await page.goto("#/phylogeny?support=1");
+    await expect(canvas(page)).toHaveAttribute("data-visible-leaves", "472");
+    const svgS = await download(page, () => page.getByTestId("tree-downloads").getByTestId("dl-svg").click());
+    console.log(`[pr4a] rect clade SVG export size (support on): ${svgS.bytes.length} bytes`);
+    expect(svgS.bytes.length).toBeGreaterThan(svg.bytes.length);
+    expect(svgS.bytes.length).toBeGreaterThan(100_000);
+    expect(svgS.bytes.length).toBeLessThan(300_000);
+    await page.goto("#/phylogeny");
+    await expect(canvas(page)).toHaveAttribute("data-visible-leaves", "472");
     const png = await download(page, () => dl.getByTestId("dl-png").click());
     expect(png.name).toBe("MR_RT_003_rect_clade.png");
     expect(png.bytes.subarray(0, 8).toString("hex")).toBe("89504e470d0a1a0a");

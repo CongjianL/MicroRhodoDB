@@ -194,6 +194,12 @@
          "null"
         ]
        },
+       "is_engineered": {
+        "type": [
+         "boolean",
+         "null"
+        ]
+       },
        "is_reference_tip": {
         "type": "boolean"
        }
@@ -205,6 +211,7 @@
        "protein_name",
        "organism",
        "counts_eligible",
+       "is_engineered",
        "is_reference_tip"
       ],
       "type": "object"
@@ -373,11 +380,28 @@
         "type": "integer"
        },
        "type": "object"
+      },
+      "by_call_and_qc": {
+       "additionalProperties": {
+        "additionalProperties": {
+         "type": "integer"
+        },
+        "type": "object"
+       },
+       "type": "object"
+      },
+      "call_field": {
+       "enum": [
+        "clade_call",
+        "subclade_call"
+       ]
       }
      },
      "required": [
       "basis",
-      "counts"
+      "counts",
+      "by_call_and_qc",
+      "call_field"
      ],
      "type": "object"
     },
@@ -415,6 +439,12 @@
          "null"
         ]
        },
+       "is_engineered": {
+        "type": [
+         "boolean",
+         "null"
+        ]
+       },
        "is_reference_tip": {
         "type": "boolean"
        },
@@ -429,6 +459,7 @@
        "protein_name",
        "organism",
        "counts_eligible",
+       "is_engineered",
        "is_reference_tip",
        "reason"
       ],
@@ -508,6 +539,94 @@
       "number",
       "null"
      ]
+    },
+    "assignment_counts": {
+     "additionalProperties": false,
+     "properties": {
+      "basis": {
+       "type": "string"
+      },
+      "placements": {
+       "type": "integer"
+      },
+      "placements_assigned_call_failing_qc": {
+       "type": "integer"
+      },
+      "reference_tips": {
+       "type": "integer"
+      },
+      "total": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "basis",
+      "placements",
+      "placements_assigned_call_failing_qc",
+      "reference_tips",
+      "total"
+     ],
+     "type": "object"
+    },
+    "placement_only_records": {
+     "anyOf": [
+      {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "best_lwr": {
+          "type": "number"
+         },
+         "clade_call_qc": {
+          "type": "string"
+         },
+         "clade_state": {
+          "type": [
+           "string",
+           "null"
+          ]
+         },
+         "lwr_weighted_pendant": {
+          "type": "number"
+         },
+         "mrdb_acc": {
+          "type": "string"
+         },
+         "placement_qc": {
+          "type": "string"
+         },
+         "source_acc": {
+          "type": "string"
+         },
+         "subclade_call": {
+          "type": "string"
+         },
+         "subclade_lwr": {
+          "type": [
+           "number",
+           "null"
+          ]
+         }
+        },
+        "required": [
+         "best_lwr",
+         "clade_call_qc",
+         "clade_state",
+         "lwr_weighted_pendant",
+         "mrdb_acc",
+         "placement_qc",
+         "source_acc",
+         "subclade_call",
+         "subclade_lwr"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      {
+       "type": "null"
+      }
+     ]
     }
    },
    "required": [
@@ -548,7 +667,9 @@
     "support_audit",
     "top_frac",
     "tree_id",
-    "ufboot"
+    "ufboot",
+    "assignment_counts",
+    "placement_only_records"
    ],
    "type": "object"
   },
@@ -759,7 +880,7 @@
      "const": "data/v1.6.0/"
     },
     "schema_version": {
-     "const": "1.2.0"
+     "const": "1.3.0"
     }
    },
    "required": [
@@ -1436,7 +1557,7 @@
      "type": "integer"
     },
     "schema_version": {
-     "const": "1.2.0"
+     "const": "1.3.0"
     },
     "source_db_sha256": {
      "pattern": "^[0-9a-f]{64}$",
@@ -1620,7 +1741,7 @@
      "type": "string"
     },
     "schema_version": {
-     "const": "1.2.0"
+     "const": "1.3.0"
     },
     "source_db": {
      "additionalProperties": false,
@@ -3483,11 +3604,28 @@
         "type": "integer"
        },
        "type": "object"
+      },
+      "by_call_and_qc": {
+       "additionalProperties": {
+        "additionalProperties": {
+         "type": "integer"
+        },
+        "type": "object"
+       },
+       "type": "object"
+      },
+      "call_field": {
+       "enum": [
+        "clade_call",
+        "subclade_call"
+       ]
       }
      },
      "required": [
       "basis",
-      "counts"
+      "counts",
+      "by_call_and_qc",
+      "call_field"
      ],
      "type": "object"
     },
@@ -3553,6 +3691,94 @@
       "number",
       "null"
      ]
+    },
+    "assignment_counts": {
+     "additionalProperties": false,
+     "properties": {
+      "basis": {
+       "type": "string"
+      },
+      "placements": {
+       "type": "integer"
+      },
+      "placements_assigned_call_failing_qc": {
+       "type": "integer"
+      },
+      "reference_tips": {
+       "type": "integer"
+      },
+      "total": {
+       "type": "integer"
+      }
+     },
+     "required": [
+      "basis",
+      "placements",
+      "placements_assigned_call_failing_qc",
+      "reference_tips",
+      "total"
+     ],
+     "type": "object"
+    },
+    "placement_only_records": {
+     "anyOf": [
+      {
+       "items": {
+        "additionalProperties": false,
+        "properties": {
+         "best_lwr": {
+          "type": "number"
+         },
+         "clade_call_qc": {
+          "type": "string"
+         },
+         "clade_state": {
+          "type": [
+           "string",
+           "null"
+          ]
+         },
+         "lwr_weighted_pendant": {
+          "type": "number"
+         },
+         "mrdb_acc": {
+          "type": "string"
+         },
+         "placement_qc": {
+          "type": "string"
+         },
+         "source_acc": {
+          "type": "string"
+         },
+         "subclade_call": {
+          "type": "string"
+         },
+         "subclade_lwr": {
+          "type": [
+           "number",
+           "null"
+          ]
+         }
+        },
+        "required": [
+         "best_lwr",
+         "clade_call_qc",
+         "clade_state",
+         "lwr_weighted_pendant",
+         "mrdb_acc",
+         "placement_qc",
+         "source_acc",
+         "subclade_call",
+         "subclade_lwr"
+        ],
+        "type": "object"
+       },
+       "type": "array"
+      },
+      {
+       "type": "null"
+      }
+     ]
     }
    },
    "required": [
@@ -3585,7 +3811,9 @@
     "support_audit",
     "top_frac",
     "tree_id",
-    "ufboot"
+    "ufboot",
+    "assignment_counts",
+    "placement_only_records"
    ],
    "type": "object"
   },
@@ -3788,7 +4016,7 @@
      "type": "array"
     },
     "schema_version": {
-     "const": "1.2.0"
+     "const": "1.3.0"
     }
    },
    "required": [

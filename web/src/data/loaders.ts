@@ -1,5 +1,5 @@
 /**
- * Static data loaders for the export contract (WEB_DATA_CONTRACT.md, schema 1.2.0; PR-4 adds
+ * Static data loaders for the export contract (WEB_DATA_CONTRACT.md, schema 1.3.0; PR-4a adds formal assignment counts to clades.json; PR-4 adds
  * phylogeny/explorer.json, the IQ-TREE run1 support source and a clearly labelled DERIVED Newick).
  *
  * Every file is fetched lazily, at most once per page load, from the release-versioned

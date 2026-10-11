@@ -176,7 +176,7 @@ Interactions on the full 472-tip tree, click to painted (median of 5, ms): radia
 ## 7. Responsive layout and visual review
 
 - Machine audit: `docs/website/pr4/responsive_audit.json`: `#/phylogeny` and `#/clade/MR_CLD3_017` at 375, 768 and 1440 px; in all 6 combinations `scrollWidth == innerWidth`, 0 console errors. Playwright also checks the explorer at 375/768/1280 (canvas heights 440/560/660 px) and every clade page at three widths.
-- Screenshots: `docs/website/pr4/screenshots/` (31 PNG). The SVG figure export (4.6 MB, all 472 labels) is delivered with the review package, not committed.
+- Screenshots: `docs/website/pr4/screenshots/` (31 PNG). The SVG figure export (158,004 bytes = 154 KiB with support marks, `#/phylogeny?support=1`; 89,023 bytes in the default view; all 472 labels in both. Corrected in PR-4a, an earlier draft said 4.6 MB) is delivered with the review package, not committed.
 
 Defects found in review and fixed in this PR:
 1. **Page overflow at 375 px** (405 px document) from long SHA-256 values and file names in the provenance and download lists; fixed with `minmax(0,1fr)` grids and `overflow-wrap:anywhere` on both pages.
@@ -198,8 +198,8 @@ Known UI limitations left as they are:
 5. **Subclades:** all 30 meet the rule with run1 support; none needs flagging.
 6. **Placement position along the branch is not stored** in v1.6.0, so placements can only be shown as a whole-branch highlight.
 7. **Two reference tips are absent from the corpus**: QBQ84355 and QBQ84358 (boundary_schizorhodopsin, MR_CLD3_001).
-8. **Backbone-group assignments come through `subclade_call`, not a level-1 clade call.** 97 current placements have `subclade_id` B01 (93) or B02 (4), all with `clade_call_qc = unassigned` and `subclade_call = assigned`. 94 of them are record assignments (`record_clade.source = placement`: B01 93, B02 1); the other 3 (B02) have no record clade (`v_master.clade_id` empty). All are shown as stored; the 3 vs 94 difference is not reconciled here.
-9. **MR_CLD3_009 lists 12 E1 anchors while `clade.n_E1` = 11**; both are shown from their sources, and the difference is not reconciled here.
+8. **Backbone-group assignments come through `subclade_call`, not a level-1 clade call.** 97 current placements have `subclade_id` B01 (93) or B02 (4), all with `clade_call_qc = unassigned` and `subclade_call = assigned`. 94 of them are record assignments (`record_clade.source = placement`: B01 93, B02 1); the other 3 (B02) have no record clade (`v_master.clade_id` empty). All are shown as stored. **Resolved in PR-4a** (`WEB_DATA_CONTRACT.md` 13.3): the 3 are `long_pendant` placements (pendant > 1.0), kept as placement-only records with no formal assignment.
+9. **MR_CLD3_009 lists 12 E1 anchors while `clade.n_E1` = 11**; both are shown from their sources. **Resolved in PR-4a**: the 12th, A0A8X6EH36 (MRDB003178), is an engineered construct (`counts_eligible = 0`) and is excluded from official counts.
 
 ## 9. Deviations from `WEBSITE_REDESIGN_SPEC.md` / the approved plan
 

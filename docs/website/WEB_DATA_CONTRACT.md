@@ -464,3 +464,52 @@ The refpkg input list now includes `tips_annot.tsv` (checked against the treefil
 Not changed: record files, `accessions.json`, `records-index.json`, `summary.json`, `vocabulary.json`, sequences,
 structures, publications, watchlist, the existing phylogeny files, `export_manifest.json` format, determinism rules,
 exit codes.
+
+## 13. Schema 1.3.0 (PR-4a, additive)
+
+PR-4 showed `placement_counts` on clade pages next to "records assigned". For subclades and backbone groups the
+placement counts grouped by `subclade_call` mixed placements that passed pendant QC with placements that did not, so a
+reader could take, for example, 480 placements in MR_CLD3_017.02 for 480 members (the formal count is 311). PR-4a adds
+the formal assignment counts, the breakdown by call and QC, and the backbone placement-only records. All changes are
+additive; no 1.2.0 field changed name, type or value (the old `placement_counts.counts` is kept), and no scientific value
+changed. `tests/test_web_pr4a.py` recomputes everything from the read-only DB.
+
+### 13.1 Formal assignment rule (restated from `pipeline/v150/record_clades.py`)
+
+A record's clade (`record_clade` / `v_master.clade_id`) is either reference-tip membership, or a current MR_RT_003
+placement whose `clade_call` is `assigned` (LWR >= 0.9) **and** whose `placement_qc` is `ok` (LWR-weighted pendant <= 1.0,
+`PENDANT_MAX` in `placement_assign.py`). Subclades use `subclade_call` the same way. A backbone subclade call (B01/B02)
+without a level-1 clade becomes the record's level-1 group. A placement with call `assigned` but
+`placement_qc = long_pendant` is a placement only: at level 1 it is the tentative record (`clade_call_qc =
+distant_assigned`, `tentative_clade_id`); for subclades and backbone groups it has no formal assignment.
+
+### 13.2 New fields
+
+| File / field | Content |
+|---|---|
+| `clades.json` → `level1[]`, `subclades[]` → `assignment_counts` | `basis`, `reference_tips`, `placements` (call assigned and QC ok), `total` (= `v_master` rows with this `clade_id`, or `subclade_id` for subclades), `placements_assigned_call_failing_qc` |
+| `… → placement_counts.call_field` | `clade_call` (level-1 clades) or `subclade_call` (subclades, backbone groups) |
+| `… → placement_counts.by_call_and_qc` | `{call: {placement_qc: n}}` over current placements in the group |
+| `… → placement_only_records` | backbone groups: list of placements with `subclade_call = assigned` that fail pendant QC (`source_acc`, `mrdb_acc`, `subclade_call`, `clade_call_qc`, `placement_qc`, `lwr_weighted_pendant`, `best_lwr`, `subclade_lwr`, `clade_state`); `null` for every other group |
+| `clades.json` → `level1[].e1_anchors[]`, `representatives[]` → `is_engineered` | `v_master.is_engineered`, so the UI can say why an E1 record is not counted |
+| `manifest.website_version` | `2.0.0-pr4a` |
+
+The exporter fails if, for any group, the formal tip count differs from `n_reference_tips_in_corpus` or the formal
+placement count differs from the number of placements with call `assigned` and `placement_qc = ok`.
+
+### 13.3 The two reconciliations PR-4 left open
+
+- **Backbone groups, 97 placements vs 94 formal placement assignments.** 97 current placements have `subclade_id`
+  B01 (93) or B02 (4); all have `subclade_call = assigned` and `clade_call_qc = unassigned`. 94 pass pendant QC
+  (B01 93, B02 1: A0A2P6NRH4) and are formal assignments. The other 3 (B02: A0A2P6MQ02 / MRDB002347, A0A2P6NAG6 /
+  MRDB002348, A0A2P6NFX8 / MRDB002350; LWR-weighted pendants 1.734, 1.424, 2.111) are `long_pendant` and have no
+  record clade (`clade_state = unassigned`). They are listed on the B02 page as placement-only records; no assignment
+  is invented. Formal totals: B01 97 = 4 tips + 93; B02 5 = 4 tips + 1.
+- **MR_CLD3_009, 12 E1 source records vs 11 counted.** All 12 have `v_master.clade_id = MR_CLD3_009` and
+  `evidence_level = E1`; A0A8X6EH36 (MRDB003178) is an engineered construct (`is_engineered = 1`,
+  `counts_eligible = 0`) and is excluded from `clade.n_E1` = 11, like every engineered construct in official counts.
+  Every other group has as many E1 records as its `n_E1`.
+
+Not changed: record files, `accessions.json`, `records-index.json`, `summary.json`, `vocabulary.json`, sequences,
+structures, publications, watchlist, phylogeny files, `export_manifest.json` format, file count (5,317 exported files
+plus the manifest), determinism rules, exit codes.
