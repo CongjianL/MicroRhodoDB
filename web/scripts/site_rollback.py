@@ -177,8 +177,16 @@ def _strip_provenance(name: str, obj):
 _PROV_FILES = {"export_manifest.json", "manifest.json", "downloads.json"}
 
 
+def _dir_sums(d: Path) -> dict[str, str]:
+    """SHA256SUMS of an artifact directory; computed from the files when absent (e.g. a legacy-build output)."""
+    if (d / "SHA256SUMS").is_file():
+        return read_sums(d / "SHA256SUMS")
+    return {p.relative_to(d).as_posix(): sha256_bytes(p.read_bytes())
+            for p in sorted(d.rglob("*")) if p.is_file() and p.relative_to(d).as_posix() != "SHA256SUMS"}
+
+
 def compare(a: Path, b: Path) -> dict:
-    sa, sb = read_sums(a / "SHA256SUMS"), read_sums(b / "SHA256SUMS")
+    sa, sb = _dir_sums(a), _dir_sums(b)
     added = sorted(set(sb) - set(sa))
     removed = sorted(set(sa) - set(sb))
     changed = sorted(r for r in set(sa) & set(sb) if sa[r] != sb[r])
@@ -202,12 +210,13 @@ def compare(a: Path, b: Path) -> dict:
                 prov_only.append(r)
                 continue
         sci.append(r)
-    same_release = ia.get("dataset_release") == ib.get("dataset_release")
+    # None = at least one side is not a website 2.0 artifact (no BUILD_INFO.json), e.g. the legacy site.
+    same_release = (ia.get("dataset_release") == ib.get("dataset_release")) if (ia and ib) else None
     return {"a": str(a), "b": str(b), "a_commit": ia.get("source_commit"), "b_commit": ib.get("source_commit"),
             "added": added, "removed": removed, "changed": changed, "identical": not (added or removed or changed),
             "scientific_data_changes": sorted(sci), "provenance_only_data_changes": sorted(prov_only),
             "same_dataset_release": same_release,
-            "unexpected_scientific_change": bool(sci) and same_release}
+            "unexpected_scientific_change": bool(sci) and same_release is True}
 
 
 def cmd_compare(a) -> int:
@@ -219,7 +228,14 @@ def cmd_compare(a) -> int:
     if res["unexpected_scientific_change"]:
         print("UNEXPECTED_SCIENTIFIC_DATA_CHANGE: data files differ while the dataset release is unchanged", file=sys.stderr)
         return 4
-    print("ARTIFACTS_IDENTICAL" if res["identical"] else "ARTIFACTS_DIFFER (no scientific-data change)")
+    if res["identical"]:
+        print("ARTIFACTS_IDENTICAL")
+    elif res["same_dataset_release"] is None:
+        print("ARTIFACTS_DIFFER (one side has no BUILD_INFO.json, e.g. the legacy site: scientific content not classified)")
+    elif not res["same_dataset_release"]:
+        print("ARTIFACTS_DIFFER (different dataset releases: data changes are expected and must be reviewed)")
+    else:
+        print("ARTIFACTS_DIFFER (no scientific-data change)")
     return 0
 
 

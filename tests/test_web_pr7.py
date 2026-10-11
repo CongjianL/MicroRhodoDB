@@ -455,6 +455,19 @@ def test_artifact_compare_classifies_changes(artifact, tmp_path):
 
 
 # --------------------------------------------------------------------------------------------- rollback
+def test_compare_handles_directories_without_sha256sums(tmp_path):
+    """A legacy-build output has no SHA256SUMS/BUILD_INFO: compare hashes files itself and does not classify."""
+    a, b = tmp_path / "a", tmp_path / "b"
+    for d, txt in ((a, "old"), (b, "new")):
+        (d / "site/data").mkdir(parents=True)
+        (d / "index.html").write_text("<meta http-equiv=refresh content='0; url=site/'>")
+        (d / "site/data/x.json").write_text(txt)
+    res = R.compare(a, b)
+    assert res["changed"] == ["site/data/x.json"] and res["same_dataset_release"] is None
+    assert res["unexpected_scientific_change"] is False
+    assert R.compare(a, a)["identical"] is True
+
+
 def test_legacy_manifest_reproduces_the_pre_redesign_site(tmp_path):
     man = R.manifest_path(LEGACY)
     assert man.is_file(), "legacy manifest must be committed with PR-7"
