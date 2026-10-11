@@ -6,12 +6,18 @@
 
 Static file server only (no SPA fallback, no rewrites), so any asset or route that works here
 works on a plain static host. Usage: python web/scripts/serve_e2e.py [port]
+
+PR-6a test-only endpoints (never part of the built site; used by Playwright via route.continue({url})):
+    /__test__/stall?path=<site-relative file>   headers + first 64 bytes of the file, then silence (30 s)
+    /__test__/drip?path=<file>&chunks=N&gap_ms=M  the complete file in N chunks with M ms between chunks
 """
 import functools
 import http.server
 import shutil
 import sys
+import time
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 WEB = Path(__file__).resolve().parents[1]
 REPO = WEB.parent
@@ -37,6 +43,36 @@ def main() -> None:
         def end_headers(self):
             self.send_header("Cache-Control", "no-store")
             super().end_headers()
+
+        def do_GET(self):
+            u = urlsplit(self.path)
+            if not u.path.startswith("/__test__/"):
+                return super().do_GET()
+            q = parse_qs(u.query)
+            f = (DIST / q.get("path", [""])[0]).resolve()
+            if DIST.resolve() not in f.parents or not f.is_file():
+                return self.send_error(404)
+            body = f.read_bytes()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json" if f.suffix == ".json" else "text/plain")
+            self.send_header("Content-Length", str(len(body)))
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            try:
+                if u.path == "/__test__/stall":
+                    self.wfile.write(body[:64])
+                    self.wfile.flush()
+                    time.sleep(30)  # stalled body; the browser aborts long before this
+                elif u.path == "/__test__/drip":
+                    n = max(1, int(q.get("chunks", ["6"])[0]))
+                    gap = int(q.get("gap_ms", ["400"])[0]) / 1000
+                    step = -(-len(body) // n)
+                    for i in range(0, len(body), step):
+                        time.sleep(gap)
+                        self.wfile.write(body[i:i + step])
+                        self.wfile.flush()
+            except (ConnectionResetError, BrokenPipeError):
+                pass
 
     class Server(http.server.ThreadingHTTPServer):
         def handle_error(self, request, client_address):

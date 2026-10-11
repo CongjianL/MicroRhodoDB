@@ -47,8 +47,8 @@ conflict is disclosed to users and not hidden. Displaying a value is not the sam
   description ("PR-2: design system, Home, Browse"), and changed the package version from `2.0.0-pr5` to
   `2.0.0-pr6`. This version is not displayed on the site, which shows only the dataset release v1.6.0.
   The `license` field (`MIT`) was **not** changed; see MD-1.
-- `.github/workflows/web-data.yml`: added the PR-6 scientific audit and its mutation self-test. CI has
-  **not** run on this branch (no push).
+- `.github/workflows/web-data.yml`: added the PR-6 scientific audit and its mutation self-test. Remote CI has
+  **not** run for this branch, which was not pushed. Earlier branches PR-1 to PR-3 passed remote CI (see `CI_STATUS.md`).
 
 ## 4. Hosted-copy status
 

@@ -1,5 +1,7 @@
 # PR-4a auto-acceptance report: corrections to PR-4 and independent acceptance of PR-4 + PR-4a
 
+> **Erratum (PR-6a, see `CI_STATUS.md`):** GitHub CI did run for this project. The `web-data` workflow passed on GitHub for PR-1 (`4b8391c`), PR-2 (`b5416b1`) and PR-3 (`7546a7a`). The statement that CI had "never" run applies only to the unpushed branches from PR-3a onward, including PR-4a, which have not yet had their own remote CI run.
+
 - Branch: `website/pr-4-phylogeny`. PR-4a is one commit on top of PR-4 `ded4a840372573d2c841097bc14d110c62ba12f5` (parent PR-3a `7546a7a`).
 - Dataset: v1.6.0 (frozen). Source DB SHA-256 `379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f`.
 - Data export schema: **1.3.0** (additive over 1.2.0; `WEB_DATA_CONTRACT.md` section 13). Website version `2.0.0-pr4a`.
@@ -117,7 +119,7 @@ Navigation and downloads in the browser are covered by Playwright (tip → recor
 - L-2 Placement position along the branch is not stored in v1.6.0 (unchanged from PR-4).
 - L-3 The placement-only list is exported for backbone groups only; subclade long-pendant placements are visible as counts, not as record lists.
 - L-4 On 375 px screens the placement table scrolls horizontally to show the Total column.
-- L-5 `.github/workflows/web-data.yml` now lists `tests/test_web_pr4a.py`, but the workflow has never executed on GitHub, and its DB fetch step stays BLOCKED_DATA_SOURCE until the v1.6.0 Release asset is published.
+- L-5 `.github/workflows/web-data.yml` now lists `tests/test_web_pr4a.py`, but that version of the workflow has not executed on GitHub (earlier versions passed for PR-1 to PR-3; see `CI_STATUS.md`), and its DB fetch step stays BLOCKED_DATA_SOURCE until the v1.6.0 Release asset is published.
 
 ## 7. Unresolved scientific issues (carried over; not changed)
 

@@ -2,7 +2,13 @@
 """Adversarial self-test of pr6_scientific_audit.py: each mutation corrupts one scientific fact in a
 copy of the export; the audit must exit non-zero for every mutation (and zero for the unmodified copy).
 
-Usage: python web/scripts/pr6_audit_mutations.py --out docs/website/pr6
+Usage: python web/scripts/pr6_audit_mutations.py --out docs/website/pr6 [--tmp-root DIR]
+
+PR-6a: scratch copies live in a fresh directory under the system temporary directory (tempfile.gettempdir():
+$TMPDIR, then /tmp; $RUNNER_TEMP is honoured on GitHub Actions) or under --tmp-root, and are always removed,
+also on failure. No path outside the repository checkout, --out and that directory is touched.
+A mutation counts as detected only if the audit exits with 1 AND its JSON report lists at least one failing
+check (a crash of the audit is not a detection); the unmodified control must exit 0 with every check passing.
 """
 from __future__ import annotations
 
@@ -95,37 +101,58 @@ MUTATIONS = [
 ]
 
 
-def run(exp: Path, out: Path) -> int:
-    return subprocess.run([sys.executable, str(AUDIT), "--export", str(exp), "--out", str(out)],
-                          capture_output=True, text=True).returncode
+def run(exp: Path, out: Path) -> dict:
+    """Run the audit on `exp`; return its exit code and the failing check IDs from its JSON report."""
+    report = out / "scientific_audit.json"
+    if report.exists():
+        report.unlink()
+    p = subprocess.run([sys.executable, str(AUDIT), "--export", str(exp), "--out", str(out)],
+                       capture_output=True, text=True)
+    failed = None
+    if report.exists():
+        failed = [c["id"] for c in json.loads(report.read_text())["checks"] if not c["pass"]]
+    return {"exit": p.returncode, "failed_checks": failed, "stderr_tail": p.stderr[-400:] if p.returncode not in (0, 1) else ""}
+
+
+def scratch_root(explicit: str | None) -> Path:
+    """Portable scratch parent: --tmp-root, else $RUNNER_TEMP (GitHub Actions), else the system temp dir."""
+    import os
+    root = explicit or os.environ.get("RUNNER_TEMP") or tempfile.gettempdir()
+    p = Path(root)
+    p.mkdir(parents=True, exist_ok=True)
+    return p
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", required=True)
+    ap.add_argument("--tmp-root", default=None, help="parent of the scratch directory (default: system temp dir)")
     a = ap.parse_args()
     res = []
-    with tempfile.TemporaryDirectory(dir="/workspace") as td:
+    with tempfile.TemporaryDirectory(prefix="mrdb_pr6_mut_", dir=scratch_root(a.tmp_root)) as td:
         base = Path(td) / "v1.6.0"
         shutil.copytree(EXP, base)
         scratch = Path(td) / "o"
-        res.append({"mutation": "none (unmodified copy)", "exit": run(base, scratch), "expected": 0})
+        res.append({"mutation": "none (unmodified copy)", **run(base, scratch), "expected": 0})
         for name, rel, fn in MUTATIONS:
             work = Path(td) / "m"
             if work.exists():
                 shutil.rmtree(work)
             shutil.copytree(base, work)
             edit(work / rel if rel else first_placed(work), fn)
-            res.append({"mutation": name, "exit": run(work, scratch), "expected": 1})
+            res.append({"mutation": name, **run(work, scratch), "expected": 1})
     for r in res:
-        r["detected"] = (r["exit"] != 0) == (r["expected"] != 0)
+        if r["expected"] == 0:
+            r["detected"] = r["exit"] == 0 and r["failed_checks"] == []
+        else:
+            r["detected"] = r["exit"] == 1 and bool(r["failed_checks"])
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     (out / "scientific_audit_mutations.json").write_text(json.dumps(res, indent=1))
     ok = sum(r["detected"] for r in res)
     print(f"{ok}/{len(res)} as expected")
     for r in res:
-        print(("OK  " if r["detected"] else "MISS"), r["mutation"], r["exit"])
+        print(("OK  " if r["detected"] else "MISS"), r["mutation"], r["exit"], r["failed_checks"])
     sys.exit(0 if ok == len(res) else 1)
 
 

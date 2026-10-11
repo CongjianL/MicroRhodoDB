@@ -2,7 +2,7 @@
 import type { Hit } from "./swCore";
 
 export type WorkerRequest =
-  | { type: "init"; id: number; fastaUrl: string; index: { accs: string[]; reviewed: number[]; rep: number[] } }
+  | { type: "init"; id: number; fastaUrl: string; timeoutMs?: number; index: { accs: string[]; reviewed: number[]; rep: number[] } }
   | { type: "search"; id: number; sequence: string };
 
 export type Phase = "load" | "prefilter" | "align" | "traceback";

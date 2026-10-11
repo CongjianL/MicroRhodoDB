@@ -1,0 +1,139 @@
+[
+ {
+  "mutation": "none (unmodified copy)",
+  "exit": 0,
+  "failed_checks": [],
+  "stderr_tail": "",
+  "expected": 0,
+  "detected": true
+ },
+ {
+  "mutation": "evidence level of P02945 E1 -> E2 (records-index)",
+  "exit": 1,
+  "failed_checks": [
+   "R7",
+   "R12"
+  ],
+  "stderr_tail": "",
+  "expected": 1,
+  "detected": true
+ },
+ {
+  "mutation": "membership status swapped to candidate (records-index)",
+  "exit": 1,
+  "failed_checks": [
+   "R7"
+  ],
+  "stderr_tail": "",
+  "expected": 1,
+  "detected": true
+ },
+ {
+  "mutation": "clade_id of a placed record changed (records-index)",
+  "exit": 1,
+  "failed_checks": [
+   "R7",
+   "R14"
+  ],
+  "stderr_tail": "",
+  "expected": 1,
+  "detected": true
+ },
+ {
+  "mutation": "engineered flag cleared for A0ABF7PQA2",
+  "exit": 1,
+  "failed_checks": [
+   "R4",
+   "R7"
+  ],
+  "stderr_tail": "",
+  "expected": 1,
+  "detected": true
+ },
+ {
+  "mutation": "one source record dropped",
+  "exit": 1,
+  "failed_checks": [
+   "R2",
+   "R3",
+   "R5",
+   "R7b",
+   "R14",
+   "S5"
+  ],
+  "stderr_tail": "",
+  "expected": 1,
+  "detected": true
+ },
+ {
+  "mutation": "SH-aLRT values of two tree nodes swapped",
+  "exit": 1,
+  "failed_checks": [
+   "T7"
+  ],
+  "stderr_tail": "",
+  "expected": 1,
+  "detected": true
+ },
+ {
+  "mutation": "tip moved to another level-1 clade",
+  "exit": 1,
+  "failed_checks": [
+   "T18"
+  ],
+  "stderr_tail": "",
+  "expected": 1,
+  "detected": true
+ },
+ {
+  "mutation": "edge map points to the wrong rooted node",
+  "exit": 1,
+  "failed_checks": [
+   "T19"
+  ],
+  "stderr_tail": "",
+  "expected": 1,
+  "detected": true
+ },
+ {
+  "mutation": "MR_CLD3_017 marked as meeting the support thresholds",
+  "exit": 1,
+  "failed_checks": [
+   "T16b",
+   "T16c"
+  ],
+  "stderr_tail": "",
+  "expected": 1,
+  "detected": true
+ },
+ {
+  "mutation": "PDB 1AP9 linked to the wrong source record",
+  "exit": 1,
+  "failed_checks": [
+   "S3"
+  ],
+  "stderr_tail": "",
+  "expected": 1,
+  "detected": true
+ },
+ {
+  "mutation": "accession map points to the wrong MRDB record",
+  "exit": 1,
+  "failed_checks": [
+   "R8"
+  ],
+  "stderr_tail": "",
+  "expected": 1,
+  "detected": true
+ },
+ {
+  "mutation": "placement best edge changed in a record file",
+  "exit": 1,
+  "failed_checks": [
+   "P3"
+  ],
+  "stderr_tail": "",
+  "expected": 1,
+  "detected": true
+ }
+]

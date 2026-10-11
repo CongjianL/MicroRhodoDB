@@ -1,5 +1,7 @@
 # PR-5a auto-acceptance report: corrections to PR-5 and independent acceptance of PR-5 + PR-5a
 
+> **Erratum (PR-6a, see `CI_STATUS.md`):** GitHub CI did run for this project. The `web-data` workflow passed on GitHub for PR-1 (`4b8391c`), PR-2 (`b5416b1`) and PR-3 (`7546a7a`). The statement that CI had "never" run applies only to the unpushed branches from PR-3a onward, including PR-5a, which have not yet had their own remote CI run.
+
 - Branch: `website/pr-5a-corrections`, created from PR-5 `8a6577975916ec1d5085dbf9054af2df7cbf4a6d`
   (`website/pr-5-explorers`, left unchanged).
 - PR-5a commits:
@@ -200,7 +202,7 @@ The review used the real implementation and the frozen DB, not test-summary asse
 - Effect: CI would have skipped the new regression tests.
 - Fix: the workflow now runs `test_web_pr5a.py` and `pr5a_drilldown_golden.py --check`, and its path filter includes
   the new files.
-- The fix is unexecuted, because CI has never run.
+- The fix is unexecuted, because PR-5a has not been pushed. The earlier web-data runs on PR-1 to PR-3 passed but predate it (`CI_STATUS.md`).
 
 No other defect was found.
 
@@ -249,7 +251,7 @@ The clone's re-export was compared with the working-tree export (`diff -r`):
 | L-1 | P3 | Phylum drilldowns use the Browse lineage substring `lin=<name> (phylum)`. No collision exists in v1.6.0: the golden test proves set equality for every linked phylum. A future release could introduce a collision; the golden test would then fail rather than show a wrong link. Exact phylum matching is a hardening candidate. |
 | L-2 | P3 | The Browse free-text filter (`q=`) searches fewer fields than Search. It is now labelled with its actual overlap and never claimed equal unless the sets match. |
 | L-3 | P2 (carried from PR-5) | Several pages load the 4.1 MB `records-index.json`. The Structures PDB table scrolls horizontally at 1440 px. Mol* chunk 852.9 KiB gzip. Scheduled for PR-6. |
-| L-4 | info | GitHub CI has never run. All results are local. |
+| L-4 | info | GitHub CI has not run for PR-5a (not pushed); it passed for PR-1 to PR-3 (`CI_STATUS.md`). All PR-5a results are local. |
 | L-5 | info | `PR5_INDEPENDENT_REVIEW.md` was not available (see Decision). |
 
 ## 8. Files

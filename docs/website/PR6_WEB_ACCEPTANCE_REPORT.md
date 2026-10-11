@@ -1,8 +1,10 @@
 # PR-6 Web Acceptance Report: accessibility, performance, regression and scientific audit
 
+> **Erratum (PR-6a, see `CI_STATUS.md`):** GitHub CI did run for this project. The `web-data` workflow passed on GitHub for PR-1 (`4b8391c`), PR-2 (`b5416b1`) and PR-3 (`7546a7a`). The statement that CI had "never" run applies only to the unpushed branches from PR-3a onward, including PR-6, which have not yet had their own remote CI run.
+
 **Branch:** `website/pr-6-acceptance`, created from the accepted PR-5a commit `64f8a18947f716610e3a29f3bac58ac55466c6f6`.
 **Dataset:** v1.6.0 (frozen). DB SHA-256 is `379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f`. The MR_RT_003 tree SHA-256 is `c56196970698decea8384c1cad97545794268e6d8a2df2b195e7d35d5ded9aef`.
-**Validation scope:** everything here is **local**, run in the development sandbox (Linux, Node 22, Chromium 153 headless). **GitHub CI has never run** on this branch or on any earlier redesign branch. Nothing was pushed, merged or deployed.
+**Validation scope:** everything here is **local**, run in the development sandbox (Linux, Node 22, Chromium 153 headless). **GitHub CI has not run for PR-6** (the branch was not pushed). The `web-data` workflow did pass on GitHub for PR-1 to PR-3 (see `CI_STATUS.md`). Nothing was pushed, merged or deployed.
 
 ## Decision: Gate G6 = PASS (local), with 5 maintainer-decision PR-7 blockers open
 

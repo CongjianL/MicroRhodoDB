@@ -6,6 +6,7 @@
  */
 import { Prefilter, buildCorpus, parseCorpus, search, type Corpus } from "./swCore";
 import type { WorkerRequest, WorkerResponse } from "./protocol";
+import { fetchText } from "../../data/fetchText";
 
 let corpus: Corpus | null = null;
 let pf: Prefilter | null = null;
@@ -17,9 +18,9 @@ self.onmessage = async (ev: MessageEvent<WorkerRequest>) => {
     if (msg.type === "init") {
       if (!corpus) {
         post({ type: "progress", id: msg.id, phase: "load", done: 0, total: 1 });
-        const res = await fetch(msg.fastaUrl, { credentials: "same-origin" });
-        if (!res.ok) throw new Error(`HTTP ${res.status} while loading corpus.fasta`);
-        corpus = buildCorpus(parseCorpus(await res.text()), msg.index);
+        // PR-6a: same inactivity timeout as the page's data loaders (covers stalled bodies too).
+        const fasta = await fetchText(msg.fastaUrl, msg.timeoutMs);
+        corpus = buildCorpus(parseCorpus(fasta), msg.index);
         pf = new Prefilter();
       }
       post({ type: "ready", id: msg.id, nSubjects: corpus.seqs.length });

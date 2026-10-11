@@ -100,6 +100,7 @@ test.describe("PR-5 section pages", () => {
       await expect(page.getByTestId("seq-invalid").locator("[data-code]")).toHaveAttribute("data-code", code);
     }
     await page.getByTestId("seq-example").click();
+    await expect(page.getByTestId("seq-input")).not.toHaveValue("");
     await page.getByTestId("seq-run").click();
     await page.getByTestId("seq-cancel").click();
     await expect(page.getByTestId("seq-cancelled")).toBeVisible();

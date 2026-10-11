@@ -1,0 +1,29 @@
+{
+  "total_count": 4,
+  "branch_policies": [
+    {
+      "id": 62565326,
+      "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k2MjU2NTMyNg==",
+      "name": "None",
+      "type": "branch"
+    },
+    {
+      "id": 62565341,
+      "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k2MjU2NTM0MQ==",
+      "name": "main",
+      "type": "branch"
+    },
+    {
+      "id": 62647460,
+      "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k2MjY0NzQ2MA==",
+      "name": "website/pr-1-exporter",
+      "type": "branch"
+    },
+    {
+      "id": 62642262,
+      "node_id": "MDE2OkdhdGVCcmFuY2hQb2xpY3k2MjY0MjI2Mg==",
+      "name": "website/pr-3-protein-entry",
+      "type": "branch"
+    }
+  ]
+}

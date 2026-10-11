@@ -1,0 +1,508 @@
+{
+ "db": "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite",
+ "db_sha256": "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f",
+ "export": "/workspace/web/gh/web/public/data/v1.6.0",
+ "n_checks": 47,
+ "n_pass": 47,
+ "checks": [
+  {
+   "id": "D0",
+   "check": "official v1.6.0 SQLite sha256 unchanged",
+   "expected": "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f",
+   "observed": "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f",
+   "pass": true
+  },
+  {
+   "id": "R1",
+   "check": "records-index source_acc rows (no duplicates)",
+   "expected": 5466,
+   "observed": 5466,
+   "pass": true
+  },
+  {
+   "id": "R2",
+   "check": "source records: export set == v_master set (5,466)",
+   "expected": [
+    5466,
+    true
+   ],
+   "observed": [
+    5466,
+    true
+   ],
+   "pass": true
+  },
+  {
+   "id": "R3",
+   "check": "counted records: export set == v_counted (5,460)",
+   "expected": [
+    5460,
+    true
+   ],
+   "observed": [
+    5460,
+    true
+   ],
+   "pass": true
+  },
+  {
+   "id": "R4",
+   "check": "engineered records: export set == v_engineered (6)",
+   "expected": [
+    6,
+    true
+   ],
+   "observed": [
+    6,
+    true
+   ],
+   "pass": true
+  },
+  {
+   "id": "R5",
+   "check": "MRDB accessions: export set == mrdb_accession (5,299)",
+   "expected": [
+    5299,
+    true
+   ],
+   "observed": [
+    5299,
+    true
+   ],
+   "pass": true
+  },
+  {
+   "id": "R6",
+   "check": "MRDB accessions with more than one source record",
+   "expected": 129,
+   "observed": 129,
+   "pass": true
+  },
+  {
+   "id": "R7",
+   "check": "records-index vs v_master: per-record equality of 30 shared columns x 5,466 records",
+   "expected": {},
+   "observed": {},
+   "pass": true
+  },
+  {
+   "id": "R7b",
+   "check": "the only representation change: DB empty strings exported as null (count per column == DB empty-string count)",
+   "expected": {
+    "clade_id": 1312,
+    "subclade_id": 1741
+   },
+   "observed": {
+    "subclade_id": 1741,
+    "clade_id": 1312
+   },
+   "pass": true
+  },
+  {
+   "id": "R8",
+   "check": "accessions.json by_source == accession_map (current)",
+   "expected": [
+    5466,
+    true
+   ],
+   "observed": [
+    5466,
+    true
+   ],
+   "pass": true
+  },
+  {
+   "id": "R9",
+   "check": "accessions.json by_mrdb representative == mrdb_accession",
+   "expected": true,
+   "observed": true,
+   "pass": true
+  },
+  {
+   "id": "R10",
+   "check": "record files: one file per MRDB accession; every source exactly once",
+   "expected": [
+    5299,
+    5466,
+    1
+   ],
+   "observed": [
+    5299,
+    5466,
+    1
+   ],
+   "pass": true
+  },
+  {
+   "id": "R11",
+   "check": "record files vs v_master (status, evidence, function, clade, subclade, tentative, placement call, clade source)",
+   "expected": {},
+   "observed": {},
+   "pass": true
+  },
+  {
+   "id": "R12",
+   "check": "E1 counted / total",
+   "expected": [
+    88,
+    91
+   ],
+   "observed": [
+    88,
+    91
+   ],
+   "pass": true
+  },
+  {
+   "id": "R13",
+   "check": "members + candidates (all source records, status_definition) / confident clade state",
+   "expected": [
+    4468,
+    3821
+   ],
+   "observed": [
+    4468,
+    3821
+   ],
+   "pass": true
+  },
+  {
+   "id": "R14",
+   "check": "MR_CLD3_017 source records (v_master.clade_id) / tentative",
+   "expected": [
+    1646,
+    597
+   ],
+   "observed": [
+    1646,
+    597
+   ],
+   "pass": true
+  },
+  {
+   "id": "S1",
+   "check": "protein_pdb links / distinct PDB entries / records with PDB",
+   "expected": [
+    472,
+    438,
+    66
+   ],
+   "observed": [
+    472,
+    438,
+    66
+   ],
+   "pass": true
+  },
+  {
+   "id": "S2",
+   "check": "structures-index PDB entries == protein_pdb distinct entries",
+   "expected": true,
+   "observed": true,
+   "pass": true
+  },
+  {
+   "id": "S3",
+   "check": "structures-index (record, PDB) links == protein_pdb",
+   "expected": true,
+   "observed": true,
+   "pass": true
+  },
+  {
+   "id": "S4",
+   "check": "records-index n_pdb and pdb_ids == protein_pdb per record",
+   "expected": 0,
+   "observed": 0,
+   "pass": true
+  },
+  {
+   "id": "S5",
+   "check": "AlphaFold DB models (has_afdb) == v_master.afdb_model_id not null (4,397)",
+   "expected": [
+    4397,
+    true
+   ],
+   "observed": [
+    4397,
+    true
+   ],
+   "pass": true
+  },
+  {
+   "id": "T1",
+   "check": "web rooted treefile and run1.treefile byte-identical to refpkg/MR_RT_003",
+   "expected": [
+    true,
+    true
+   ],
+   "observed": [
+    true,
+    true
+   ],
+   "pass": true
+  },
+  {
+   "id": "T2",
+   "check": "tips: 472 in rooted and run1, identical sets, no duplicates",
+   "expected": [
+    472,
+    472,
+    true
+   ],
+   "observed": [
+    472,
+    472,
+    true
+   ],
+   "pass": true
+  },
+  {
+   "id": "T3",
+   "check": "tips == DB tree_node tips (MR_RT_003)",
+   "expected": true,
+   "observed": true,
+   "pass": true
+  },
+  {
+   "id": "T4",
+   "check": "topology: non-trivial bipartitions of rooted == run1 (rerooting preserves splits)",
+   "expected": [
+    true,
+    469
+   ],
+   "observed": [
+    true,
+    469
+   ],
+   "pass": true
+  },
+  {
+   "id": "T5",
+   "check": "explorer internal nodes == rooted internal nodes (471 = 470 unrooted internal nodes + root)",
+   "expected": 471,
+   "observed": 471,
+   "pass": true
+  },
+  {
+   "id": "T6",
+   "check": "explorer nodes map to the same tip span (first, last, n) as the parsed rooted tree",
+   "expected": 0,
+   "observed": 0,
+   "pass": true
+  },
+  {
+   "id": "T7",
+   "check": "displayed support == IQ-TREE run1 SH-aLRT/UFBoot label of the same bipartition (all displayed nodes)",
+   "expected": [],
+   "observed": [],
+   "pass": true
+  },
+  {
+   "id": "T8",
+   "check": "nodes with displayed support (469 non-root bipartitions; root split shown once)",
+   "expected": 469,
+   "observed": 469,
+   "pass": true
+  },
+  {
+   "id": "T9",
+   "check": "rooted-file labels attached to a different bipartition after rerooting (audit only, not displayed)",
+   "expected": 17,
+   "observed": 17,
+   "pass": true
+  },
+  {
+   "id": "T10",
+   "check": "outgroup: 15 heliorhodopsin tips form one root child",
+   "expected": [
+    15,
+    true
+   ],
+   "observed": [
+    15,
+    true
+   ],
+   "pass": true
+  },
+  {
+   "id": "T11",
+   "check": "tip roles (394 cl0.6 reps, 57 anchors, 4 seeds, 15 outgroup, 2 schizorhodopsins)",
+   "expected": {
+    "cl0.6_representative": 394,
+    "anchor_characterized": 57,
+    "seed": 4,
+    "outgroup_heliorhodopsin": 15,
+    "boundary_schizorhodopsin": 2
+   },
+   "observed": {
+    "cl0.6_representative": 394,
+    "anchor_characterized": 57,
+    "outgroup_heliorhodopsin": 15,
+    "seed": 4,
+    "boundary_schizorhodopsin": 2
+   },
+   "pass": true
+  },
+  {
+   "id": "T12",
+   "check": "DB clades: 19 level-1 groups (17 clades + 2 backbone groups) and 30 subclades",
+   "expected": [
+    19,
+    30
+   ],
+   "observed": [
+    19,
+    30
+   ],
+   "pass": true
+  },
+  {
+   "id": "T13",
+   "check": "clades.json clade ids == DB clade ids",
+   "expected": true,
+   "observed": true,
+   "pass": true
+  },
+  {
+   "id": "T14",
+   "check": "clade_tip sizes == clade.n_tips (49 groups)",
+   "expected": [],
+   "observed": [],
+   "pass": true
+  },
+  {
+   "id": "T15",
+   "check": "every clade / subclade tip set is one node of the rooted tree (monophyletic)",
+   "expected": [],
+   "observed": [],
+   "pass": true
+  },
+  {
+   "id": "T16",
+   "check": "DB clade support == run1 label of the clade bipartition, except the documented MR_CLD3_017 legacy value",
+   "expected": [
+    [
+     "MR_CLD3_017",
+     100.0,
+     100.0,
+     "50.3/72"
+    ]
+   ],
+   "observed": [
+    [
+     "MR_CLD3_017",
+     100.0,
+     100.0,
+     "50.3/72"
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "id": "T16b",
+   "check": "clades.json support_audit (run1 label, thresholds SH-aLRT >= 80 and UFBoot >= 95, DB match flag) recomputed for all 49 groups",
+   "expected": [],
+   "observed": [],
+   "pass": true
+  },
+  {
+   "id": "T16c",
+   "check": "groups failing the corrected support thresholds (shown with the website warning)",
+   "expected": [
+    "MR_CLD3_017"
+   ],
+   "observed": [
+    "MR_CLD3_017"
+   ],
+   "pass": true
+  },
+  {
+   "id": "T17",
+   "check": "explorer clade/subclade MRCA nodes == parsed MRCA of DB clade_tip sets",
+   "expected": true,
+   "observed": true,
+   "pass": true
+  },
+  {
+   "id": "T18",
+   "check": "explorer tip group == clade_tip.clade_id; 'backbone_unassigned' tips == explorer unclustered_backbone; outgroup has no group",
+   "expected": [
+    true,
+    27,
+    true
+   ],
+   "observed": [
+    true,
+    27,
+    true
+   ],
+   "pass": true
+  },
+  {
+   "id": "T19",
+   "check": "edge_map: every DB tree_edge maps to rooted node(s) with the same bipartition",
+   "expected": [
+    941,
+    []
+   ],
+   "observed": [
+    941,
+    []
+   ],
+   "pass": true
+  },
+  {
+   "id": "P1",
+   "check": "current placements (MR_RT_003, is_current = 1)",
+   "expected": 4996,
+   "observed": 4996,
+   "pass": true
+  },
+  {
+   "id": "P2",
+   "check": "placement objects in record files: same source set as current DB placements",
+   "expected": [
+    4996,
+    true
+   ],
+   "observed": [
+    4996,
+    true
+   ],
+   "pass": true
+  },
+  {
+   "id": "P3",
+   "check": "per-record placement fields == DB placement row (all fields, all current placements)",
+   "expected": {},
+   "observed": {},
+   "pass": true
+  },
+  {
+   "id": "P4",
+   "check": "placement clade_call_qc counts == explorer meta placement_status_counts",
+   "expected": {
+    "assigned": 3617,
+    "distant_assigned": 720,
+    "distant_tentative": 4,
+    "outgroup_heliorhodopsin": 456,
+    "unassigned": 199
+   },
+   "observed": {
+    "assigned": 3617,
+    "distant_assigned": 720,
+    "distant_tentative": 4,
+    "outgroup_heliorhodopsin": 456,
+    "unassigned": 199
+   },
+   "pass": true
+  },
+  {
+   "id": "P5",
+   "check": "placement best_edge exists in edge_map (placement drawn on a real reference branch)",
+   "expected": 0,
+   "observed": 0,
+   "pass": true
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+Adversarial check (PR-6a acceptance): the unmodified PR-6 script, git show 68e301b:web/scripts/pr6_audit_mutations.py,
+(REPO pinned to the checkout path because the copy runs outside the repository) was run with the same
+sitecustomize audit hook used by tests/test_web_pr6a.py::run_under_hook (simulated missing /workspace).
+Result: exit 1
+Hook log: MISSING_WORKSPACE tempfile.mkdtemp /workspace/tmp9itgqtku
+Traceback tail: tempfile.TemporaryDirectory(dir="/workspace") -> mkdtemp -> FileNotFoundError [Errno 2] simulated: /workspace does not exist
+The PR-6a script under the identical hook: exit 0, 13/13 mutations detected, scratch removed
+(tests/test_web_pr6a.py::test_mutation_audit_runs_without_workspace).

@@ -3,6 +3,7 @@
  * terminating the worker (a fresh one is created for the next search) and error recovery.
  */
 import type { Phase, WorkerRequest, WorkerResponse, WorkerResult } from "./protocol";
+import { dataTimeoutMs } from "../../data/fetchText";
 
 export interface IndexFlags { accs: string[]; reviewed: number[]; rep: number[] }
 
@@ -62,7 +63,7 @@ export class SearchClient {
       this.lastError = null;
       this.worker = this.spawn();
       this.ready = Promise.all([this.fastaUrl(), this.flags()]).then(([fastaUrl, index]) =>
-        this.call<number>({ type: "init", fastaUrl, index } as Omit<WorkerRequest, "id">, onProgress));
+        this.call<number>({ type: "init", fastaUrl, index, timeoutMs: dataTimeoutMs() } as Omit<WorkerRequest, "id">, onProgress));
       this.ready.catch(() => this.fail(new Error("initialisation failed")));
     }
     return this.ready;

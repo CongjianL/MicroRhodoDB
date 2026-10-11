@@ -1,0 +1,17 @@
+frozen_baseline exit=0
+refpkg_sums exit=0
+frozen_diff exit=0
+db_sha exit=0
+export_drift exit=0
+schema_check exit=0
+fixtures_check exit=0
+golden_check exit=0
+reconciliation exit=0
+scientific_audit exit=0
+audit_mutations exit=0
+actionlint exit=0
+pytest exit=0
+tsc exit=0
+build exit=0
+vitest exit=0
+playwright_full exit=0
