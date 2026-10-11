@@ -1,0 +1,24 @@
+== clone website/pr-5a-corrections
+d95bd6e website PR-5a: corrected Statistics/Home drilldown populations, structured Search->Browse options with set-equality, keyed SQL reconciliation (57 SQL + 1 derived), members+candidates Browse group; regression + mutation tests
+copied releases/v1.0/db/microrhododb_v1.0.sqlite
+copied releases/v1.3.0/db/microrhododb_v1.3.0.sqlite
+copied releases/v1.4.0/db/microrhododb_v1.4.0.sqlite
+copied releases/v1.5.0/db/microrhododb_v1.5.0.sqlite
+copied releases/v1.5.0/db/microrhododb_v1.5.0_env_pilot.sqlite
+copied releases/v1.6.0/db/microrhododb_v1.6.0.sqlite
+== status clean: 0 changes
+exported 5325 files, 29,072,270 bytes; export_manifest sha256 d0dcc2b77701d552b133ccccd6ee4c4dd02ba264b7e1e4f480b931e6771d8638
+== pytest
+139 passed in 48.19s
+types.ts is up to date
+== npm ci
+added 282 packages in 8s
+== typecheck+build
+build exit 0
+== vitest
+ Test Files  14 passed (14)
+      Tests  197 passed (197)
+== playwright
+  1 skipped
+  163 passed (1.4m)
+== done
