@@ -1,0 +1,15 @@
+source commit 26405befa363b6c7baf6d3e60ec2c77491395d8c clean=True SOURCE_DATE_EPOCH=1791766592
++ /workspace/.conda/mrdb/bin/python tools/export_web_data.py --repo . --out web/public/data
++ npm run build
+PASS V1   artifact layout (5374 files)
+PASS V2   SHA256SUMS (5373 entries)
+PASS V3   BUILD_INFO provenance (commit 26405befa363b6c7baf6d3e60ec2c77491395d8c)
+PASS V4   base path and asset references (203 references checked, 43 asset files)
+PASS V5   data files vs export manifest (5325 manifest files)
+PASS V6   JSON integrity and schema (5318 JSON files)
+PASS V7   reference tree
+PASS V8   download paths and checksums
+PASS V9   security and leakage
+PASS V10  GitHub Pages size limits (34727432 bytes)
+PASS V11  official SQLite database
+ARTIFACT_VERIFIED /workspace/scratch/pr7a_art/art_a commit=26405befa363b6c7baf6d3e60ec2c77491395d8c files=5373 content_sha256=5f1c8b82342bcaef6b0089a21c2e26afb16b90784907f9fc495245db9f59e39b tarball_sha256=db9c2d80adb5c594df8d9847e856d513f13eed0bc2864cf08a295af15ff6565d

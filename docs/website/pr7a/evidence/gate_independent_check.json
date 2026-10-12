@@ -1,0 +1,140 @@
+[
+  {
+    "scenario": "positive: all mandatory blockers resolved + authorised, all checks pass",
+    "exit": 0,
+    "expected": 0,
+    "ok": true
+  },
+  {
+    "scenario": "ACC-1 authorisation missing",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "OPS-1 decision missing",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "MD-1 record with future date",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "MD-3 record with template reference",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "status 'waived' instead of resolved",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "ACC-1 deleted from the checklist",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "MD-2 re-scoped out of production",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "MD-2 dates disagree (valid record)",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "VER-1 pre-release version (valid record)",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "OPS-1 Pages source still legacy",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "OPS-1 Pages API 403",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "OPS-1 Pages API 404 (as seen unauthenticated today)",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "OPS-2 no required reviewers",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "OPS-2 PR branches allowed",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "OPS-2 environment API 500",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "CI-1 web-data failed",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "RA-1 Release asset missing",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "RA-2/MD-3 DOI does not resolve",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  },
+  {
+    "scenario": "production without --online",
+    "exit": 2,
+    "expected": 2,
+    "ok": true
+  },
+  {
+    "scenario": "production without --sha",
+    "exit": 2,
+    "expected": 2,
+    "ok": true
+  },
+  {
+    "scenario": "report mode with every blocker open",
+    "exit": 0,
+    "expected": 0,
+    "ok": true
+  },
+  {
+    "scenario": "GitHub API unreachable",
+    "exit": 3,
+    "expected": 3,
+    "ok": true
+  }
+]

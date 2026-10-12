@@ -1,0 +1,45 @@
+
+Running 41 tests using 4 workers
+
+[1/41] tests/smoke/site_smoke.spec.ts:35:3 › deployment artifact: entry, base path and provenance › BUILD_INFO.json identifies commit, dataset, schema and source DB; the footer shows the same build
+[2/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › home renders (one h1, no errors, no horizontal overflow)
+[3/41] tests/smoke/site_smoke.spec.ts:54:3 › deployment artifact: entry, base path and provenance › the HTML ships a restrictive Content-Security-Policy and no test or sandbox endpoints
+[4/41] tests/smoke/site_smoke.spec.ts:24:3 › deployment artifact: entry, base path and provenance › repository root redirects to site/; every asset is served from /MicroRhodoDB/site/
+[5/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › browse renders (one h1, no errors, no horizontal overflow)
+[6/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › record_P02945 renders (one h1, no errors, no horizontal overflow)
+[7/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › phylogeny renders (one h1, no errors, no horizontal overflow)
+[8/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › clade_017 renders (one h1, no errors, no horizontal overflow)
+[9/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › statistics renders (one h1, no errors, no horizontal overflow)
+[10/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › evidence renders (one h1, no errors, no horizontal overflow)
+[11/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › structures renders (one h1, no errors, no horizontal overflow)
+[12/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › watchlist renders (one h1, no errors, no horizontal overflow)
+[13/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › search_text renders (one h1, no errors, no horizontal overflow)
+[14/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › search_seq renders (one h1, no errors, no horizontal overflow)
+[15/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › downloads renders (one h1, no errors, no horizontal overflow)
+[16/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › methods renders (one h1, no errors, no horizontal overflow)
+[17/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › citation renders (one h1, no errors, no horizontal overflow)
+[18/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › help renders (one h1, no errors, no horizontal overflow)
+[19/41] tests/smoke/site_smoke.spec.ts:65:5 › mandatory routes › not_found renders (one h1, no errors, no horizontal overflow)
+[20/41] tests/smoke/site_smoke.spec.ts:74:3 › mandatory routes › only same-origin requests during a sweep of every route (no third-party calls without user action)
+[21/41] tests/smoke/site_smoke.spec.ts:88:3 › deep links and scientific warnings › MRDB and source-accession deep links resolve to the same record
+[22/41] tests/smoke/site_smoke.spec.ts:102:3 › deep links and scientific warnings › MR_CLD3_017: tentative caveat, corrected run1 support 50.3/72, legacy-assignment banner
+[23/41] tests/smoke/site_smoke.spec.ts:119:3 › structures › experimental PDB structure and AlphaFold DB prediction load in the viewer
+[24/41] tests/smoke/site_smoke.spec.ts:138:3 › failure behaviour (expected failed requests; uncaught errors are not allowed) › missing data file: error with Retry, Retry recovers
+[25/41] tests/smoke/site_smoke.spec.ts:151:3 › failure behaviour (expected failed requests; uncaught errors are not allowed) › RCSB PDB and AlphaFold DB unavailable: viewer error with Retry; the record stays usable
+[26/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 375px › home: no overflow, no serious/critical axe violations
+[27/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 375px › browse: no overflow, no serious/critical axe violations
+[28/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 375px › record_P02945: no overflow, no serious/critical axe violations
+[29/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 375px › phylogeny: no overflow, no serious/critical axe violations
+[30/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 375px › clade_017: no overflow, no serious/critical axe violations
+[31/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 375px › statistics: no overflow, no serious/critical axe violations
+[32/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 375px › downloads: no overflow, no serious/critical axe violations
+[33/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 375px › citation: no overflow, no serious/critical axe violations
+[34/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 1440px › home: no overflow, no serious/critical axe violations
+[35/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 1440px › browse: no overflow, no serious/critical axe violations
+[36/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 1440px › record_P02945: no overflow, no serious/critical axe violations
+[37/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 1440px › phylogeny: no overflow, no serious/critical axe violations
+[38/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 1440px › clade_017: no overflow, no serious/critical axe violations
+[39/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 1440px › statistics: no overflow, no serious/critical axe violations
+[40/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 1440px › downloads: no overflow, no serious/critical axe violations
+[41/41] tests/smoke/site_smoke.spec.ts:169:7 › responsive and accessibility 1440px › citation: no overflow, no serious/critical axe violations
+  41 passed (19.5s)

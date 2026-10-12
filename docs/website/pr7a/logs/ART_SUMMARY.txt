@@ -1,0 +1,23 @@
+source commit 26405befa363b6c7baf6d3e60ec2c77491395d8c
+clone_a exit=0
+clone_b exit=0
+build_a exit=0
+build_b exit=0
+trees_clean_after_build exit=0
+repro_dirs exit=0
+repro_tarball exit=0
+repro_compare exit=0
+offline_verify_tarball exit=0
+verify_no_repo exit=0
+pytest_artifact exit=0
+smoke_artifact exit=0
+smoke_negative_wrong_commit exit=0
+legacy_build exit=0
+legacy_smoke exit=0
+rollback_drill exit=0
+compare_new_vs_legacy_is_flagged exit=0
+gate_report exit=0
+gate_production_offline_usage exit=0
+gate_production_online_current_state exit=0
+permissions_audit exit=0
+actionlint exit=0

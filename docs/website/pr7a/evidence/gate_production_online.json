@@ -1,0 +1,239 @@
+{
+  "blockers": [
+    {
+      "blocks": [
+        "production"
+      ],
+      "category": "publication-metadata",
+      "check": false,
+      "check_detail": "data licence statements {'LICENSE': 'CC-BY-4.0', 'README.md': 'CC-BY-4.0', 'CITATION.cff': 'CC-BY-4.0', '.zenodo.json': 'CC-BY-4.0'}; code licence statements {'LICENSE': 'CC-BY-4.0', 'README.md': 'MIT', 'web/package.json': 'MIT'}",
+      "has_resolution_record": false,
+      "id": "MD-1",
+      "json_status": "open",
+      "mandatory": true,
+      "resolution_problems": [
+        "status is 'open', not 'resolved'"
+      ],
+      "resolved": false,
+      "state": "open",
+      "title": "Data/code licence statements are inconsistent"
+    },
+    {
+      "blocks": [
+        "production"
+      ],
+      "category": "publication-metadata",
+      "check": false,
+      "check_detail": "release dates {'CITATION.cff': '2026-10-09', '.zenodo.json': '2026-10-10', 'CHANGELOG.md': '2026-10-10', 'RELEASE_NOTES_v1.6.0.md': '2026-10-10', 'GitHub Release published_at (UTC)': '2026-10-10'}",
+      "has_resolution_record": false,
+      "id": "MD-2",
+      "json_status": "open",
+      "mandatory": true,
+      "resolution_problems": [
+        "status is 'open', not 'resolved'"
+      ],
+      "resolved": false,
+      "state": "open",
+      "title": "Conflicting v1.6.0 release dates"
+    },
+    {
+      "blocks": [
+        "production"
+      ],
+      "category": "publication-metadata",
+      "check": false,
+      "check_detail": "CITATION.cff has no DOI and no maintainer-approved alternative citation policy is recorded",
+      "has_resolution_record": false,
+      "id": "MD-3",
+      "json_status": "open",
+      "mandatory": true,
+      "resolution_problems": [
+        "status is 'open', not 'resolved'"
+      ],
+      "resolved": false,
+      "state": "open",
+      "title": "No DOI and no approved alternative citation policy"
+    },
+    {
+      "blocks": [
+        "production"
+      ],
+      "category": "publication-metadata",
+      "check": false,
+      "check_detail": "contact line still a placeholder: - Contact address: `<<PLACEHOLDER: institutional e-mail>>`",
+      "has_resolution_record": false,
+      "id": "MD-4",
+      "json_status": "open",
+      "mandatory": true,
+      "resolution_problems": [
+        "status is 'open', not 'resolved'"
+      ],
+      "resolved": false,
+      "state": "open",
+      "title": "No public support/contact channel"
+    },
+    {
+      "blocks": [
+        "production"
+      ],
+      "category": "publication-metadata",
+      "check": false,
+      "check_detail": "7 placeholder line(s) in MAINTENANCE.md: `<<PLACEHOLDER>>` must be filled in by the maintainers before submission; they are not yet decided. | - Contact address: `<<PLACEHOLDER: institutional e-mail>>` | - **Corpus updates:** `<<PLACEHOLDER: e.g. one release per year, following a UniProtKB release>>`. | | Browser (live) | GitHub Pages, https://congjianl.github.io/MicroRhodoDB/site/ | `<<PLACEHOLDER: hosting term>>` | | | Release databases and archives | GitHub Release assets and Zenodo (DOI `<<PLACEHOLDER: Zenodo DOI>>`) | Zenodo: long-term archive | | `<<PLACEHOLDER: funding source and period, or \"no dedicated funding\">>`. | 3. `<<PLACEHOLDER: named successor or institutional custodian, if any>>`.",
+      "has_resolution_record": false,
+      "id": "MD-5",
+      "json_status": "open",
+      "mandatory": true,
+      "resolution_problems": [
+        "status is 'open', not 'resolved'"
+      ],
+      "resolved": false,
+      "state": "open",
+      "title": "Maintenance cadence, hosting term, funding and succession are undecided"
+    },
+    {
+      "blocks": [
+        "production"
+      ],
+      "category": "release-assets",
+      "check": false,
+      "check_detail": "Release v1.6.0 has ['microrhododb_v1.6.0.sqlite']; missing ['MicroRhodoDB_v1.6.0.tar.gz', 'MicroRhodoDB_v1.6.0.tar.gz.sha256', 'microrhododb_v1.0.sqlite', 'microrhododb_v1.3.0.sqlite', 'microrhododb_v1.4.0.sqlite', 'microrhododb_v1.5.0.sqlite', 'microrhododb_v1.5.0_env_pilot.sqlite']; size mismatch []",
+      "has_resolution_record": false,
+      "id": "RA-1",
+      "json_status": "open",
+      "mandatory": true,
+      "resolution_problems": [
+        "status is 'open', not 'resolved'"
+      ],
+      "resolved": false,
+      "state": "open",
+      "title": "GitHub Release v1.6.0 lacks assets that BINARIES.md says are attached"
+    },
+    {
+      "blocks": [
+        "production"
+      ],
+      "category": "release-assets",
+      "check": false,
+      "check_detail": "Zenodo deposit claimed in BINARIES.md/MAINTENANCE.md; CITATION.cff has no DOI and no maintainer-approved alternative citation policy is recorded",
+      "has_resolution_record": false,
+      "id": "RA-2",
+      "json_status": "open",
+      "mandatory": true,
+      "resolution_problems": [
+        "status is 'open', not 'resolved'"
+      ],
+      "resolved": false,
+      "state": "open",
+      "title": "Zenodo deposit is claimed but unverified"
+    },
+    {
+      "blocks": [
+        "production"
+      ],
+      "category": "deployment-prerequisite",
+      "check": null,
+      "check_detail": "GitHub Pages API failed: HTTP Error 404: Not Found",
+      "has_resolution_record": false,
+      "id": "OPS-1",
+      "json_status": "open",
+      "mandatory": true,
+      "resolution_problems": [
+        "status is 'open', not 'resolved'"
+      ],
+      "resolved": false,
+      "state": "open",
+      "title": "GitHub Pages source must be switched to 'GitHub Actions' by the maintainer"
+    },
+    {
+      "blocks": [
+        "production"
+      ],
+      "category": "deployment-prerequisite",
+      "check": false,
+      "check_detail": "protection rules ['branch_policy']; required reviewers 0; deployment_branch_policy {'protected_branches': False, 'custom_branch_policies': True}; allowed deployment branches ['None', 'main', 'website/pr-1-exporter', 'website/pr-3-protein-entry'] (types ['branch']); can_admins_bypass True; prevent_self_review None",
+      "has_resolution_record": false,
+      "id": "OPS-2",
+      "json_status": "open",
+      "mandatory": true,
+      "resolution_problems": [
+        "status is 'open', not 'resolved'"
+      ],
+      "resolved": false,
+      "state": "open",
+      "title": "github-pages environment allows PR branches and has no required reviewers"
+    },
+    {
+      "blocks": [
+        "production"
+      ],
+      "category": "ci",
+      "check": false,
+      "check_detail": "no successful web-data run for 26405befa363b6c7baf6d3e60ec2c77491395d8c (0 run(s) found)",
+      "has_resolution_record": false,
+      "id": "CI-1",
+      "json_status": "open",
+      "mandatory": true,
+      "resolution_problems": [
+        "status is 'open', not 'resolved'"
+      ],
+      "resolved": false,
+      "state": "open",
+      "title": "Remote GitHub CI has not validated the website 2.0 code that would be deployed"
+    },
+    {
+      "blocks": [
+        "production"
+      ],
+      "category": "release-approval",
+      "check": false,
+      "check_detail": "web/package.json version 2.0.0-pr7; exporter WEBSITE_VERSION 2.0.0-pr7",
+      "has_resolution_record": false,
+      "id": "VER-1",
+      "json_status": "open",
+      "mandatory": true,
+      "resolution_problems": [
+        "status is 'open', not 'resolved'"
+      ],
+      "resolved": false,
+      "state": "open",
+      "title": "Website version is a pre-release development label"
+    },
+    {
+      "blocks": [
+        "production"
+      ],
+      "category": "release-approval",
+      "check": null,
+      "check_detail": "no automated check; requires a maintainer resolution record",
+      "has_resolution_record": false,
+      "id": "ACC-1",
+      "json_status": "open",
+      "mandatory": true,
+      "resolution_problems": [
+        "status is 'open', not 'resolved'"
+      ],
+      "resolved": false,
+      "state": "open",
+      "title": "Final review and explicit production-deployment authorisation"
+    }
+  ],
+  "checklist_problems": [],
+  "checklist_version": 1,
+  "online": true,
+  "production_allowed": false,
+  "sha": "26405befa363b6c7baf6d3e60ec2c77491395d8c",
+  "unresolved": [
+    "ACC-1",
+    "CI-1",
+    "MD-1",
+    "MD-2",
+    "MD-3",
+    "MD-4",
+    "MD-5",
+    "OPS-1",
+    "OPS-2",
+    "RA-1",
+    "RA-2",
+    "VER-1"
+  ]
+}

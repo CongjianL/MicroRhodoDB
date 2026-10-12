@@ -1,0 +1,52 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - import "./csp.config" without a file extension (vite.config.ts:6:21). Add the file extension
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.3 [39m[90m/workspace/web/gh/web[39m
+
+ [32m✓[39m tests/unit/loadControl.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 35[2mms[22m[39m
+ [32m✓[39m tests/unit/cladeCounts.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m tests/unit/pr6.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m tests/unit/labelPlacement.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 104[2mms[22m[39m
+ [32m✓[39m tests/unit/tree.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 32[2mms[22m[39m
+ [32m✓[39m tests/unit/summary.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 162[2mms[22m[39m
+ [32m✓[39m tests/unit/browse.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 156[2mms[22m[39m
+ [32m✓[39m tests/unit/phylogeny.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 196[2mms[22m[39m
+ [32m✓[39m tests/unit/routes.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m tests/unit/pr7.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m tests/unit/browse.legacy.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 292[2mms[22m[39m
+ [32m✓[39m tests/unit/exporters.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 242[2mms[22m[39m
+ [32m✓[39m tests/unit/pr5.test.ts [2m([22m[2m25 tests[22m[2m)[22m[33m 469[2mms[22m[39m
+ [32m✓[39m tests/unit/entry.test.ts [2m([22m[2m28 tests[22m[2m)[22m[33m 504[2mms[22m[39m
+   [32m✓[39m integrity sweep: every record file against records-index.json [2m(2)[22m
+     [33m[2m✓[22m[39m per-source PDB links, union, flags, AFDB and release models are consistent[33m 416[2mms[22m[39m
+ [32m✓[39m tests/unit/pr6a.test.ts [2m([22m[2m12 tests[22m[2m)[22m[33m 1422[2mms[22m[39m
+   [32m✓[39m PR-6a fetchText inactivity timeout [2m(7)[22m
+     [33m[2m✓[22m[39m does not cut off a slow download that keeps delivering data (idle, not total, limit)[33m 325[2mms[22m[39m
+   [32m✓[39m PR-6a fetchText via XMLHttpRequest (browser and worker transport) [2m(5)[22m
+     [33m[2m✓[22m[39m does not cut off a slow body that keeps progressing (idle, not total, limit)[33m 330[2mms[22m[39m
+ [32m✓[39m tests/unit/pr5a.test.ts [2m([22m[2m25 tests[22m[2m)[22m[33m 1299[2mms[22m[39m
+   [32m✓[39m D1/D4 Statistics and Home drilldowns return exactly the counted source records [2m(9)[22m
+     [33m[2m✓[22m[39m every drillable distribution category: Browse set = definition set, |set| = exported value[33m 585[2mms[22m[39m
+ [32m✓[39m tests/unit/seqsearch.test.ts [2m([22m[2m21 tests[22m[2m)[22m[33m 30163[2mms[22m[39m
+   [32m✓[39m legacy golden cases [2m(15)[22m
+     [33m[2m✓[22m[39m P02945: identical prefilter, ranking, scores, identity and coverage[33m 884[2mms[22m[39m
+     [33m[2m✓[22m[39m UOK93384.1: identical prefilter, ranking, scores, identity and coverage[33m 1065[2mms[22m[39m
+     [33m[2m✓[22m[39m UOK93385.1: identical prefilter, ranking, scores, identity and coverage[33m 1054[2mms[22m[39m
+     [33m[2m✓[22m[39m WP_051881467.1: identical prefilter, ranking, scores, identity and coverage[33m 838[2mms[22m[39m
+     [33m[2m✓[22m[39m 6EYU_A: identical prefilter, ranking, scores, identity and coverage[33m 892[2mms[22m[39m
+     [33m[2m✓[22m[39m 7W9W_A: identical prefilter, ranking, scores, identity and coverage[33m 1216[2mms[22m[39m
+     [33m[2m✓[22m[39m QJF54416.1: identical prefilter, ranking, scores, identity and coverage[33m 2751[2mms[22m[39m
+     [33m[2m✓[22m[39m QJF54412.1: identical prefilter, ranking, scores, identity and coverage[33m 1138[2mms[22m[39m
+     [33m[2m✓[22m[39m USH44359.1: identical prefilter, ranking, scores, identity and coverage[33m 4579[2mms[22m[39m
+     [33m[2m✓[22m[39m USH44360.1: identical prefilter, ranking, scores, identity and coverage[33m 4797[2mms[22m[39m
+     [33m[2m✓[22m[39m USH44362.1: identical prefilter, ranking, scores, identity and coverage[33m 4471[2mms[22m[39m
+     [33m[2m✓[22m[39m USH44363.1: identical prefilter, ranking, scores, identity and coverage[33m 4855[2mms[22m[39m
+     [33m[2m✓[22m[39m 7AKX_A: identical prefilter, ranking, scores, identity and coverage[33m 794[2mms[22m[39m
+     [33m[2m✓[22m[39m P02945 example returns itself at 100% identity and full coverage[33m 791[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m17 passed[39m[22m[90m (17)[39m
+[2m      Tests [22m [1m[32m227 passed[39m[22m[90m (227)[39m
+[2m   Start at [22m 01:02:45
+[2m   Duration [22m 31.01s[2m (tests 89%, transform 6%, import 5%)[22m
+

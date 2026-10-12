@@ -1,0 +1,3 @@
+release_gate_online_report.json (report --online --sha 82c3aff673f253e2bb20e0eec562deb97c704374): 2026-10-12T00:32:02Z
+live_legacy_verify_served.json (331 non-hidden legacy files, plus .gitignore/.nojekyll/.zenodo.json checked separately, all OK): 2026-10-12T00:32:12Z
+Both unauthenticated, read-only.

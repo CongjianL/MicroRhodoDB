@@ -1,0 +1,8 @@
+{
+  "ref": "fab9182044c45670c869c8778fd8d48932bd35b8",
+  "files": 334,
+  "bytes": 39917977,
+  "manifest": "web/release/rollback/legacy_fab9182044c4.sha256",
+  "manifest_sha256": "566cd481814637183d2ee53599078827da515e2c8a2f23fbb66b256a7c927ce7"
+}
+LEGACY_ARTIFACT_VERIFIED /workspace/scratch/pr7a_art/legacy

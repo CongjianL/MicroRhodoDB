@@ -1,0 +1,94 @@
+{
+  "artifact": "/workspace/scratch/pr7a_art/extract",
+  "ok": true,
+  "checks": [
+    {
+      "id": "V1",
+      "name": "artifact layout",
+      "ok": true,
+      "errors": [],
+      "n_errors": 0,
+      "info": "5374 files"
+    },
+    {
+      "id": "V2",
+      "name": "SHA256SUMS",
+      "ok": true,
+      "errors": [],
+      "n_errors": 0,
+      "info": "5373 entries"
+    },
+    {
+      "id": "V3",
+      "name": "BUILD_INFO provenance",
+      "ok": true,
+      "errors": [],
+      "n_errors": 0,
+      "info": "commit 26405befa363b6c7baf6d3e60ec2c77491395d8c"
+    },
+    {
+      "id": "V4",
+      "name": "base path and asset references",
+      "ok": true,
+      "errors": [],
+      "n_errors": 0,
+      "info": "203 references checked, 43 asset files"
+    },
+    {
+      "id": "V5",
+      "name": "data files vs export manifest",
+      "ok": true,
+      "errors": [],
+      "n_errors": 0,
+      "info": "5325 manifest files"
+    },
+    {
+      "id": "V6",
+      "name": "JSON integrity and schema",
+      "ok": true,
+      "errors": [],
+      "n_errors": 0,
+      "info": "5318 JSON files"
+    },
+    {
+      "id": "V7",
+      "name": "reference tree",
+      "ok": true,
+      "errors": [],
+      "n_errors": 0,
+      "info": ""
+    },
+    {
+      "id": "V8",
+      "name": "download paths and checksums",
+      "ok": true,
+      "errors": [],
+      "n_errors": 0,
+      "info": ""
+    },
+    {
+      "id": "V9",
+      "name": "security and leakage",
+      "ok": true,
+      "errors": [],
+      "n_errors": 0,
+      "info": ""
+    },
+    {
+      "id": "V10",
+      "name": "GitHub Pages size limits",
+      "ok": true,
+      "errors": [],
+      "n_errors": 0,
+      "info": "34727432 bytes"
+    },
+    {
+      "id": "V11",
+      "name": "official SQLite database",
+      "ok": true,
+      "errors": [],
+      "n_errors": 0,
+      "info": ""
+    }
+  ]
+}

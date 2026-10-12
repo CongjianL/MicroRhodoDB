@@ -1,0 +1,24 @@
+PASS  exit=0 expected=0  positive: all mandatory blockers resolved + authorised, all checks pass
+PASS  exit=3 expected=3  ACC-1 authorisation missing
+PASS  exit=3 expected=3  OPS-1 decision missing
+PASS  exit=3 expected=3  MD-1 record with future date
+PASS  exit=3 expected=3  MD-3 record with template reference
+PASS  exit=3 expected=3  status 'waived' instead of resolved
+PASS  exit=3 expected=3  ACC-1 deleted from the checklist
+PASS  exit=3 expected=3  MD-2 re-scoped out of production
+PASS  exit=3 expected=3  MD-2 dates disagree (valid record)
+PASS  exit=3 expected=3  VER-1 pre-release version (valid record)
+PASS  exit=3 expected=3  OPS-1 Pages source still legacy
+PASS  exit=3 expected=3  OPS-1 Pages API 403
+PASS  exit=3 expected=3  OPS-1 Pages API 404 (as seen unauthenticated today)
+PASS  exit=3 expected=3  OPS-2 no required reviewers
+PASS  exit=3 expected=3  OPS-2 PR branches allowed
+PASS  exit=3 expected=3  OPS-2 environment API 500
+PASS  exit=3 expected=3  CI-1 web-data failed
+PASS  exit=3 expected=3  RA-1 Release asset missing
+PASS  exit=3 expected=3  RA-2/MD-3 DOI does not resolve
+PASS  exit=2 expected=2  production without --online
+PASS  exit=2 expected=2  production without --sha
+PASS  exit=0 expected=0  report mode with every blocker open
+PASS  exit=3 expected=3  GitHub API unreachable (connection refused)
+GATE_INDEPENDENT_CHECK_PASS: 23/23 scenarios as expected

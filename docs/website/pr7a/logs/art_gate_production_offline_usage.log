@@ -1,0 +1,2 @@
+release_gate: production mode requires --online and --sha <40-hex commit> -> PRODUCTION DEPLOYMENT BLOCKED
+production_exit=2

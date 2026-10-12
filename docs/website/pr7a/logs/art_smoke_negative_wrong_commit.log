@@ -1,0 +1,25 @@
+
+Running 1 test using 1 worker
+
+[1/1] tests/smoke/site_smoke.spec.ts:35:3 › deployment artifact: entry, base path and provenance › BUILD_INFO.json identifies commit, dataset, schema and source DB; the footer shows the same build
+  1) tests/smoke/site_smoke.spec.ts:35:3 › deployment artifact: entry, base path and provenance › BUILD_INFO.json identifies commit, dataset, schema and source DB; the footer shows the same build 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "0000000000000000000000000000000000000000"
+    Received: "26405befa363b6c7baf6d3e60ec2c77491395d8c"
+
+      38 |     const bi = (await r.json()) as BuildInfo;
+      39 |     expect(bi.source_commit).toMatch(/^[0-9a-f]{40}$/);
+    > 40 |     if (EXPECT_COMMIT) expect(bi.source_commit).toBe(EXPECT_COMMIT);
+         |                                                 ^
+      41 |     expect(bi.dataset_release).toBe("1.6.0");
+      42 |     expect(bi.base_path).toBe("/MicroRhodoDB/site/");
+      43 |     expect(bi.schema_version).toBe("1.4.0");
+        at /workspace/scratch/pr7a_art/clone_a/web/tests/smoke/site_smoke.spec.ts:40:49
+
+    Error Context: test-results/smoke/site_smoke-deployment-arti-0f7c7-footer-shows-the-same-build/error-context.md
+
+
+  1 failed
+    tests/smoke/site_smoke.spec.ts:35:3 › deployment artifact: entry, base path and provenance › BUILD_INFO.json identifies commit, dataset, schema and source DB; the footer shows the same build 

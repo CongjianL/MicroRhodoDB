@@ -1,0 +1,5 @@
+
+Running 1 test using 1 worker
+
+[1/1] tests/smoke/legacy_smoke.spec.ts:7:1 › legacy site: root redirect, browse table rendered from data.js, no errors
+  1 passed (1.6s)

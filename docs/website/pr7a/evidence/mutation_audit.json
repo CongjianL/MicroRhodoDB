@@ -1,0 +1,241 @@
+[
+  {
+    "id": "BASELINE-gate",
+    "rc": 0,
+    "tail": "157 passed, 39 deselected in 4.04s",
+    "expected": "pass",
+    "ok": true
+  },
+  {
+    "id": "BASELINE-verifier",
+    "rc": 0,
+    "tail": "10 passed, 186 deselected in 15.53s",
+    "expected": "pass",
+    "ok": true
+  },
+  {
+    "id": "G2",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "resolution record not validated",
+    "rc": 1,
+    "tail": "1 failed, 1 passed, 39 deselected in 0.98s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "G3",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "undecidable check (None) counts as passing",
+    "rc": 1,
+    "tail": "1 failed, 1 passed, 39 deselected in 0.22s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "G4",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "checklist problems ignored",
+    "rc": 1,
+    "tail": "1 failed, 142 passed, 39 deselected in 0.96s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "G5",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "deleted mandatory blocker not re-added",
+    "rc": 1,
+    "tail": "1 failed, 144 passed, 39 deselected in 1.01s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "G6",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "production allowed offline / without --sha",
+    "rc": 1,
+    "tail": "1 failed, 148 passed, 39 deselected in 0.93s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "G7",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "OPS-1 passes on API error",
+    "rc": 1,
+    "tail": "1 failed, 87 passed, 39 deselected in 0.78s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "G8",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "OPS-1 passes when build_type is missing",
+    "rc": 1,
+    "tail": "1 failed, 73 passed, 39 deselected in 0.60s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "G9",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "OPS-2 ignores required reviewers",
+    "rc": 1,
+    "tail": "1 failed, 74 passed, 39 deselected in 0.55s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "G10",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "OPS-2 accepts extra deployment branches / tag policies",
+    "rc": 1,
+    "tail": "1 failed, 76 passed, 39 deselected in 0.63s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "G16",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "OPS-2 assumes a policy without a type is a branch and ignores pagination",
+    "rc": 1,
+    "tail": "1 failed, 77 passed, 39 deselected in 0.61s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "G11",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "CI-1 trusts the workflow name",
+    "rc": 1,
+    "tail": "1 failed, 64 passed, 39 deselected in 0.54s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "G12",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "future decision dates accepted",
+    "rc": 1,
+    "tail": "1 failed, 17 passed, 39 deselected in 0.27s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "G13",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "example/reserved reference hosts accepted",
+    "rc": 1,
+    "tail": "1 failed, 16 passed, 39 deselected in 0.29s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "G14",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "MD-2 passes online when the Release cannot be read",
+    "rc": 1,
+    "tail": "1 failed, 86 passed, 39 deselected in 0.73s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "G15",
+    "file": "web/scripts/release_gate.py",
+    "weakness": "unexpected exception in a check not contained",
+    "rc": 1,
+    "tail": "1 failed, 137 passed, 39 deselected in 1.02s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "V1",
+    "file": "web/scripts/site_rollback.py",
+    "weakness": "only a prefix of each file hashed",
+    "rc": 1,
+    "tail": "1 failed, 2 passed, 186 deselected in 3.78s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "V2",
+    "file": "web/scripts/site_rollback.py",
+    "weakness": "truncated bodies accepted",
+    "rc": 1,
+    "tail": "1 failed, 1 passed, 186 deselected in 3.21s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "V3",
+    "file": "web/scripts/site_rollback.py",
+    "weakness": "no per-request wall-clock deadline (slow-drip bodies)",
+    "rc": 1,
+    "tail": "1 failed, 4 passed, 186 deselected in 26.42s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "V4",
+    "file": "web/scripts/site_rollback.py",
+    "weakness": "blocking read defeats the body deadline",
+    "rc": 1,
+    "tail": "1 failed, 4 passed, 186 deselected in 26.41s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "V5",
+    "file": "web/scripts/site_rollback.py",
+    "weakness": "unbounded concurrency",
+    "rc": 1,
+    "tail": "1 failed, 186 deselected in 1.78s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "V6",
+    "file": "web/scripts/site_rollback.py",
+    "weakness": "sequential verification",
+    "rc": 1,
+    "tail": "1 failed, 186 deselected in 12.95s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "V7",
+    "file": "web/scripts/site_rollback.py",
+    "weakness": "per-request limit not capped by the total deadline",
+    "rc": 1,
+    "tail": "1 failed, 6 passed, 186 deselected in 30.16s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "V8",
+    "file": "web/scripts/site_rollback.py",
+    "weakness": "no per-file retries for transient failures",
+    "rc": 1,
+    "tail": "1 failed, 1 passed, 186 deselected in 3.24s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "V9",
+    "file": "web/scripts/site_rollback.py",
+    "weakness": "every file re-fetched in every propagation round",
+    "rc": 1,
+    "tail": "1 failed, 2 passed, 186 deselected in 3.65s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "V10",
+    "file": "web/scripts/site_rollback.py",
+    "weakness": "no propagation re-check rounds",
+    "rc": 1,
+    "tail": "1 failed, 3 passed, 186 deselected in 4.29s",
+    "killed": true,
+    "ok": true
+  }
+]
