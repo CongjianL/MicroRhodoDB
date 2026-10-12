@@ -123,9 +123,11 @@ Only after every blocker in `release_blockers.json` is resolved by the maintaine
 2. Merge the reviewed PR into `main`; wait for `web-data` (and `site-preview`) to succeed on that commit (CI-1).
 3. Actions > deploy-site > Run workflow on `main`: `kind=website`, `source_sha=<40-hex main commit>`,
    `confirm=deploy website <sha>`, `reason=<approval reference>`.
-4. preflight (event, ref, SHA format, confirmation, ancestry, production gate online) -> build (all gates,
-   production build, smoke, re-verify) -> deploy (waits for reviewer approval) -> verify-live (every live file
-   equals `SHA256SUMS`, then live smoke).
+4. preflight (event, ref, SHA format, confirmation, ancestry, production gate online; permissions
+   `contents: read`, `actions: read`, `pages: read`) -> build (all gates, production build, smoke, re-verify)
+   -> deploy (waits for reviewer approval) -> verify-live (every live file equals `SHA256SUMS`, full-file
+   SHA-256, 16 concurrent requests, 3 retries per request, re-checks only lagging files every 30 s, total
+   deadline 15 min; then live smoke).
 5. On any post-deployment failure follow `PR7_ROLLBACK_RUNBOOK.md`.
 
 ## 9. Future dataset releases

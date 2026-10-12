@@ -63,8 +63,11 @@ CLI equivalent (maintainer token): `gh workflow run deploy-site.yml --ref main -
    release record `mrdb-site-release-<SHA>` (tarball, `SHA256SUMS`, `BUILD_INFO.json`, gate JSON, smoke
    report) kept for 90 days.
 3. deploy: waits for the environment reviewer. The reviewer checks the build summary and approves.
-4. verify-live: every live file must equal the artifact's `SHA256SUMS` (retried 10 x 60 s for CDN
-   propagation), then live smoke tests with `SMOKE_EXPECT_COMMIT=<SHA>`.
+4. verify-live: every live file must equal the artifact's `SHA256SUMS` (full-file SHA-256). One bounded call
+   to `site_rollback.py verify-served` (PR-7a): 16 concurrent requests, 30 s per request, up to 3 retries with
+   backoff for network errors and HTTP 408/425/429/5xx, files that are missing (404) or stale are re-requested
+   every 30 s until they converge, total deadline 15 minutes. Then live smoke tests with
+   `SMOKE_EXPECT_COMMIT=<SHA>`. The job timeout is 35 minutes.
 
 ## 5. Post-deployment checks (manual, read-only)
 
@@ -83,7 +86,7 @@ unknown route; check the footer build label.
 |---|---|
 | preflight or build fails | nothing was published; fix and re-dispatch (new commit if code changed) |
 | deploy step fails | Pages keeps the previous deployment; re-run the failed job once; otherwise R1/R2 |
-| verify-live: missing assets / hash differences after 10 min | `PR7_ROLLBACK_RUNBOOK.md` R2 (or R1), then investigate |
+| verify-live: missing assets / hash differences at the 15 min deadline | `PR7_ROLLBACK_RUNBOOK.md` R2 (or R1), then investigate |
 | live smoke fails, files match | inspect the report; if user-visible breakage, roll back (R2/R3) |
 | scientific-data difference | roll back immediately (R2/R3) and run `site_rollback.py compare` |
 | GitHub Pages outage | do nothing to the site; check githubstatus.com; re-run verify-live later |

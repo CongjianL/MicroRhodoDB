@@ -10,3 +10,9 @@ The authoritative list is section 7 of `PR6_WEB_ACCEPTANCE_REPORT.md`. It covers
 - Byte-for-byte reproducibility is verified for the same lockfile, Node and Python versions. A different runner image may change minified bytes. V1 to V11 and the smoke tests still verify content.
 - Live smoke tests answer the RCSB and AFDB structure requests from fixtures. Real external availability is covered only by the opt-in `@live` E2E tests.
 - The online release gate reads GitHub API data with the workflow token. If a read is refused, the gate fails closed.
+- PR-7a: the gate code ships in the commit it evaluates, so a change that weakens it is caught only by review,
+  CI-1 and the environment reviewer (OPS-2). The JSON resolution record is an audit trail, not cryptographic
+  authorisation. `can_admins_bypass` and self-review prevention are reported but not enforced.
+- PR-7a: unauthenticated reads of the Pages and environment APIs are refused (404), so the gate can only pass
+  OPS-1/OPS-2 with a token; in `deploy-site.yml` the preflight token has `pages: read` and `actions: read`.
+  This permission path has not yet run on GitHub (CI-1).

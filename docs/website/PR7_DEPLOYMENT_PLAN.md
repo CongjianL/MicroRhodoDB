@@ -34,7 +34,7 @@ no GitHub setting has been changed. Spec reference: `WEBSITE_REDESIGN_SPEC.md` P
 - `workflow_dispatch` only; must run from `refs/heads/main`; `source_sha` must be 40-hex and an ancestor of
   `origin/main`; the dispatcher types `deploy <kind> <source_sha>`; a reason is mandatory and recorded in the
   job summary together with actor, run id/attempt and UTC time.
-- Top-level `permissions: {}`. preflight: `contents: read, actions: read`; build and verify-live:
+- Top-level `permissions: {}`. preflight: `contents: read, actions: read, pages: read` (PR-7a, for the OPS-1 check); build and verify-live:
   `contents: read`; only `deploy` has `pages: write` and `id-token: write`.
 - `deploy` uses the `github-pages` environment, so a required reviewer (OPS-2) must approve in the GitHub UI.
   GitHub does not let the dispatcher self-approve when "Prevent self-review" is enabled; the runbook requires it.

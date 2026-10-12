@@ -6,9 +6,12 @@ Sub-commands
                                         repository root, .nojekyll) as an artifact: `git archive SHA`, verified
                                         file-by-file against web/release/rollback/legacy_<sha12>.sha256.
   legacy-manifest --ref SHA             Write that manifest (done once; committed with PR-7).
-  verify-served  --base URL --sums FILE [--paths P ...]
+  verify-served  --base URL --sums FILE [--paths P ...] [--workers N --deadline S --request-timeout S
+                 --retries N --round-wait S --exclude-hidden]
                                         Fetch files from a served site (local server or the live site) and compare
-                                        them with a SHA256SUMS-style manifest. Read-only (HTTP GET).
+                                        the full SHA-256 of every body with a SHA256SUMS-style manifest. Bounded
+                                        concurrency, per-request and total deadlines, per-file retries for transient
+                                        errors, re-check rounds for CDN propagation. Read-only (HTTP GET).
   compare        A B                    Compare two artifacts (directories with SHA256SUMS): lists added/removed/
                                         changed files and classifies scientific-data changes (site/data/**).
                                         Exit 4 if scientific data differ while the dataset release is unchanged.
@@ -26,15 +29,20 @@ Recovery paths documented in docs/website/PR7_ROLLBACK_RUNBOOK.md:
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import hashlib
+import http.client
 import io
 import json
+import random
 import shutil
 import subprocess
 import sys
 import tarfile
 import threading
+import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -111,35 +119,143 @@ def cmd_legacy_build(a) -> int:
     return 0
 
 
-def fetch(url: str, timeout: int = 60) -> tuple[int, bytes]:
+def fetch(url: str, timeout: float = 60) -> tuple[int, bytes]:
+    """Simple GET used by the drill for status probes (root redirect, 404, BUILD_INFO)."""
+    st, body, err = fetch_bounded(url, timeout, timeout, DEFAULT_MAX_BYTES)
+    return (st if st is not None else 0), (body or b"")
+
+
+# ------------------------------------------------------------------------------ served-site verification
+# Post-deployment verification fetches every file of the artifact (5,373 for website 2.0) and compares the full
+# SHA-256 of each body with SHA256SUMS. Bounded concurrency keeps the run short on a high-latency CDN; every
+# request has its own wall-clock deadline (also while the body is streaming), the whole run has a total deadline,
+# transient failures (network error, timeout, truncated body, HTTP 408/425/429/5xx) are retried per file with
+# exponential backoff, and propagation failures (HTTP 404 or stale bytes) are re-checked in later rounds, only for
+# the files that are still wrong. A file counts as verified only when one complete 200 response hashes to the
+# manifest value; nothing else (partial body, Content-Length mismatch, deadline) is ever accepted.
+DEFAULT_WORKERS = 8
+DEFAULT_REQUEST_TIMEOUT = 30.0
+DEFAULT_DEADLINE = 900.0
+DEFAULT_RETRIES = 3
+DEFAULT_ROUND_WAIT = 30.0
+DEFAULT_MAX_BYTES = 256 * 1024 * 1024
+TRANSIENT_STATUS = {408, 425, 429, 500, 502, 503, 504}
+
+
+def fetch_bounded(url: str, timeout: float, request_deadline: float, max_bytes: int) -> tuple[int | None, bytes | None, str | None]:
+    """GET url -> (status, body, error). body is returned only for a complete response; error is set for network
+    errors, timeouts, an exceeded per-request wall-clock deadline (slow-drip bodies), oversize or truncated bodies."""
+    t0 = time.monotonic()
     req = urllib.request.Request(url, headers={"User-Agent": "mrdb-site-rollback", "Cache-Control": "no-cache"})
     try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            return r.status, r.read()
+        with urllib.request.urlopen(req, timeout=max(0.05, timeout)) as r:
+            status, length = r.status, r.headers.get("Content-Length")
+            chunks, n = [], 0
+            while True:
+                if time.monotonic() - t0 > request_deadline:
+                    return status, None, f"request deadline ({request_deadline:.0f} s) exceeded while reading the body"
+                b = r.read1(65536)  # returns after one socket read, so the deadline is re-checked during slow bodies
+                if not b:
+                    break
+                n += len(b)
+                if n > max_bytes:
+                    return status, None, f"body larger than {max_bytes} bytes"
+                chunks.append(b)
+            body = b"".join(chunks)
+            if length is not None and length.isdigit() and int(length) != len(body):
+                return status, None, f"truncated body ({len(body)} of {length} bytes)"
+            return status, body, None
     except urllib.error.HTTPError as e:
-        return e.code, b""
+        return e.code, None, None
+    except (urllib.error.URLError, OSError, http.client.HTTPException, ValueError) as e:
+        return None, None, f"network error: {type(e).__name__}: {getattr(e, 'reason', e)}"
 
 
-def verify_served(base: str, sums: dict[str, str], paths: list[str] | None = None) -> dict:
+def verify_served(base: str, sums: dict[str, str], paths: list[str] | None = None, *, workers: int = DEFAULT_WORKERS,
+                  request_timeout: float = DEFAULT_REQUEST_TIMEOUT, deadline: float = DEFAULT_DEADLINE,
+                  retries: int = DEFAULT_RETRIES, round_wait: float = DEFAULT_ROUND_WAIT, max_rounds: int | None = None,
+                  max_bytes: int = DEFAULT_MAX_BYTES, backoff: float = 0.5) -> dict:
     base = base if base.endswith("/") else base + "/"
-    todo = paths or sorted(sums)
-    bad, ok = [], 0
-    for r in todo:
-        if r not in sums:
-            bad.append(f"{r}: not in manifest")
-            continue
-        status, body = fetch(base + r)
-        if status != 200:
-            bad.append(f"{r}: HTTP {status}")
-        elif sha256_bytes(body) != sums[r]:
-            bad.append(f"{r}: served bytes differ ({sha256_bytes(body)[:12]} != {sums[r][:12]})")
-        else:
-            ok += 1
-    return {"base": base, "checked": len(todo), "ok": ok, "failed": bad}
+    todo = list(paths) if paths else sorted(sums)
+    t0 = time.monotonic()
+    lock = threading.Lock()
+    stats = {"requests": 0, "retries": 0, "in_flight": 0, "max_in_flight": 0}
+
+    def remaining() -> float:
+        return deadline - (time.monotonic() - t0)
+
+    def check_one(rel: str) -> tuple[bool, str]:
+        reason = "not attempted"
+        for attempt in range(retries + 1):
+            rem = remaining()
+            if rem <= 0:
+                return False, f"total deadline ({deadline:.0f} s) reached; last result: {reason}"
+            with lock:
+                stats["requests"] += 1
+                stats["in_flight"] += 1
+                stats["max_in_flight"] = max(stats["max_in_flight"], stats["in_flight"])
+            try:
+                lim = min(request_timeout, rem)
+                st, body, err = fetch_bounded(base + urllib.parse.quote(rel), lim, lim, max_bytes)
+            finally:
+                with lock:
+                    stats["in_flight"] -= 1
+            if err is None and st == 200:
+                h = sha256_bytes(body)
+                if h == sums[rel]:
+                    return True, ""
+                return False, f"served bytes differ ({h[:12]} != {sums[rel][:12]})"  # stale: re-check next round
+            reason = err or f"HTTP {st}"
+            if err is None and st not in TRANSIENT_STATUS:
+                return False, reason  # 404/403...: propagation or a real error; re-checked next round
+            if attempt < retries:
+                with lock:
+                    stats["retries"] += 1
+                time.sleep(max(0.0, min(backoff * (2 ** attempt) * (0.5 + random.random()), remaining())))
+        return False, f"{reason} (after {retries + 1} attempts)"
+
+    failed: dict[str, str] = {r: "not in manifest" for r in todo if r not in sums}
+    pending = [r for r in todo if r in sums]
+    last: dict[str, str] = {}
+    ok, rounds = 0, 0
+    while pending and remaining() > 0 and (max_rounds is None or rounds < max_rounds):
+        if rounds:
+            time.sleep(max(0.0, min(round_wait, remaining())))
+            if remaining() <= 0:
+                break
+        rounds += 1
+        ex = concurrent.futures.ThreadPoolExecutor(max_workers=max(1, workers))
+        futs = {ex.submit(check_one, r): r for r in pending}
+        done, not_done = concurrent.futures.wait(futs, timeout=max(0.0, remaining()) + 2.0)
+        still = []
+        for f, r in futs.items():
+            if f in done:
+                good, why = f.result()
+                if good:
+                    ok += 1
+                    continue
+                last[r] = why
+            else:
+                last[r] = f"total deadline ({deadline:.0f} s) reached during verification"
+            still.append(r)
+        ex.shutdown(wait=False, cancel_futures=True)
+        pending = still
+    for r in pending:
+        failed[r] = last.get(r, f"total deadline ({deadline:.0f} s) reached before verification")
+    bad = [f"{r}: {why}" for r, why in sorted(failed.items())]
+    return {"base": base, "checked": len(todo), "ok": ok, "failed": bad, "rounds": rounds,
+            "requests": stats["requests"], "retries": stats["retries"], "max_in_flight": stats["max_in_flight"],
+            "workers": workers, "deadline_s": deadline, "elapsed_s": round(time.monotonic() - t0, 2),
+            "deadline_exceeded": bool(pending) and remaining() <= 0}
 
 
 def cmd_verify_served(a) -> int:
-    res = verify_served(a.base, read_sums(a.sums), a.paths)
+    sums = read_sums(a.sums)
+    paths = a.paths
+    if a.exclude_hidden:
+        paths = [r for r in (paths or sorted(sums)) if not any(part.startswith(".") for part in r.split("/"))]
+    res = verify_served(a.base, sums, paths, workers=a.workers, request_timeout=a.request_timeout, deadline=a.deadline,
+                        retries=a.retries, round_wait=a.round_wait, max_rounds=a.max_rounds)
     print(json.dumps({**res, "failed": res["failed"][:30]}, indent=2))
     if a.json:
         a.json.write_text(json.dumps(res, indent=2) + "\n")
@@ -263,7 +379,7 @@ def drill(new: Path, legacy: Path, port: int, work: Path) -> dict:
         srv = _serve(pages, port)
         try:
             base = f"http://127.0.0.1:{port}/MicroRhodoDB/"
-            res = verify_served(base, sums)
+            res = verify_served(base, sums, max_rounds=1, retries=1, deadline=600)  # local: no propagation delay
             st, root_html = fetch(base)
             st2, _ = fetch(f"http://127.0.0.1:{port}/MicroRhodoDB/site/")
             st3, _ = fetch(base + "does-not-exist.html")
@@ -300,7 +416,15 @@ def main(argv=None) -> int:
     p = sub.add_parser("legacy-build"); p.add_argument("--ref", required=True); p.add_argument("--out", type=Path, required=True)
     p.set_defaults(fn=cmd_legacy_build)
     p = sub.add_parser("verify-served"); p.add_argument("--base", required=True); p.add_argument("--sums", type=Path, required=True)
-    p.add_argument("--paths", nargs="*"); p.add_argument("--json", type=Path); p.set_defaults(fn=cmd_verify_served)
+    p.add_argument("--paths", nargs="*"); p.add_argument("--json", type=Path)
+    p.add_argument("--exclude-hidden", action="store_true", help="skip manifest paths with a dot-file/dot-directory component")
+    p.add_argument("--workers", type=int, default=DEFAULT_WORKERS, help="concurrent requests (bounded)")
+    p.add_argument("--request-timeout", type=float, default=DEFAULT_REQUEST_TIMEOUT, help="per-request wall-clock limit, s")
+    p.add_argument("--deadline", type=float, default=DEFAULT_DEADLINE, help="total wall-clock limit for the whole run, s")
+    p.add_argument("--retries", type=int, default=DEFAULT_RETRIES, help="per-file retries for transient failures")
+    p.add_argument("--round-wait", type=float, default=DEFAULT_ROUND_WAIT, help="wait before re-checking files still wrong (CDN propagation), s")
+    p.add_argument("--max-rounds", type=int, default=None)
+    p.set_defaults(fn=cmd_verify_served)
     p = sub.add_parser("compare"); p.add_argument("a", type=Path); p.add_argument("b", type=Path); p.add_argument("--json", type=Path)
     p.set_defaults(fn=cmd_compare)
     p = sub.add_parser("drill"); p.add_argument("--new", type=Path, required=True); p.add_argument("--legacy", type=Path, required=True)

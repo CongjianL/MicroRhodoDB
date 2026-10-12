@@ -28,8 +28,7 @@ restored exactly (and every other repository path is served again). Then verify:
 
 ```bash
 python web/scripts/site_rollback.py verify-served --base https://congjianl.github.io/MicroRhodoDB/ \
-  --sums web/release/rollback/legacy_fab9182044c4.sha256 \
-  --paths index.html site/index.html site/app.js site/data.js site/style.css
+  --sums web/release/rollback/legacy_fab9182044c4.sha256 --deadline 900   # all 334 manifest files
 cd web && SMOKE_BASE_URL=https://congjianl.github.io/MicroRhodoDB/ SMOKE_LEGACY=1 npx playwright test -c playwright.smoke.config.ts
 ```
 
@@ -41,8 +40,8 @@ Actions > deploy-site > Run workflow on `main`: `kind=legacy-rollback`,
 `source_sha=fab9182044c45670c869c8778fd8d48932bd35b8`,
 `confirm=deploy legacy-rollback fab9182044c45670c869c8778fd8d48932bd35b8`, `reason=<incident link>`.
 The build job runs `site_rollback.py legacy-build`, which archives that commit and refuses to continue unless
-every file matches the committed manifest; hidden files (`.nojekyll`) are kept. verify-live compares the live
-legacy files with the manifest. Local rehearsal:
+every file matches the committed manifest; hidden files (`.nojekyll`) are kept. verify-live compares all 334 live
+legacy files with the manifest (PR-7a; previously 5 paths), using the same bounded verifier as website deployments. Local rehearsal:
 
 ```bash
 python web/scripts/site_rollback.py legacy-build --ref fab9182044c45670c869c8778fd8d48932bd35b8 --out /tmp/mrdb-legacy

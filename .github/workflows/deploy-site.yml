@@ -49,7 +49,8 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: read
-      actions: read
+      actions: read   # environment protection and workflow runs (release gate OPS-2, CI-1)
+      pages: read     # Pages source setting (release gate OPS-1); read-only
     outputs:
       sha: ${{ steps.check.outputs.sha }}
     steps:
@@ -239,7 +240,7 @@ jobs:
     name: Post-deployment verification of the live site
     needs: [preflight, deploy]
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 35   # verify-served total deadline 15 min + live smoke tests
     permissions:
       contents: read
     steps:
@@ -256,15 +257,17 @@ jobs:
         with:
           name: mrdb-site-release-${{ needs.preflight.outputs.sha }}
           path: ${{ runner.temp }}/record
-      - name: Live files equal the verified artifact (all files, via SHA256SUMS)
+      - name: Live files equal the verified artifact (all files, full SHA-256, via SHA256SUMS)
         if: inputs.kind == 'website'
-        run: |
-          # Pages/CDN propagation: retry for up to ~10 minutes before failing.
-          for i in 1 2 3 4 5 6 7 8 9 10; do
-            if python web/scripts/site_rollback.py verify-served --base https://congjianl.github.io/MicroRhodoDB/ --sums "$RUNNER_TEMP/record/site/SHA256SUMS"; then exit 0; fi
-            echo "attempt $i: live site does not match yet"; sleep 60
-          done
-          echo "::error::live site does not match the verified artifact"; exit 1
+        # One bounded run instead of a shell retry loop: 16 concurrent requests, 30 s per request (also while the body
+        # streams), transient errors retried per file, files still 404/stale re-checked every 30 s (Pages/CDN
+        # propagation) until all match or the 15-minute total deadline expires.
+        run: >-
+          python web/scripts/site_rollback.py verify-served
+          --base https://congjianl.github.io/MicroRhodoDB/
+          --sums "$RUNNER_TEMP/record/site/SHA256SUMS"
+          --workers 16 --request-timeout 30 --retries 3 --round-wait 30 --deadline 900
+          --json "$RUNNER_TEMP/verify_served.json"
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         if: inputs.kind == 'website'
         with:
@@ -282,16 +285,16 @@ jobs:
           npm ci
           npx playwright install --with-deps chromium
           npx playwright test -c playwright.smoke.config.ts
-      - name: Live legacy files equal the legacy manifest
+      - name: Live legacy files equal the legacy manifest (all 334 files, full SHA-256)
         if: inputs.kind == 'legacy-rollback'
         env:
           SHA: ${{ needs.preflight.outputs.sha }}
-        run: |
-          for i in 1 2 3 4 5 6 7 8 9 10; do
-            if python web/scripts/site_rollback.py verify-served --base https://congjianl.github.io/MicroRhodoDB/ --sums "web/release/rollback/legacy_${SHA:0:12}.sha256" --paths index.html site/index.html site/app.js site/data.js site/style.css; then exit 0; fi
-            echo "attempt $i: live site does not match yet"; sleep 60
-          done
-          echo "::error::live site does not match the legacy manifest"; exit 1
+        run: >-
+          python web/scripts/site_rollback.py verify-served
+          --base https://congjianl.github.io/MicroRhodoDB/
+          --sums "web/release/rollback/legacy_${SHA:0:12}.sha256"
+          --workers 16 --request-timeout 30 --retries 3 --round-wait 30 --deadline 900
+          --json "$RUNNER_TEMP/verify_served.json"
       - name: On failure - follow the rollback runbook
         if: failure()
         run: |

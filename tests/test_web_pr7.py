@@ -71,7 +71,7 @@ def test_deploy_workflow_permissions_are_minimal_and_job_scoped():
     wf = load_wf("deploy-site.yml")
     assert wf["permissions"] == {}
     perms = {jid: job.get("permissions") for jid, job in wf["jobs"].items()}
-    assert perms["preflight"] == {"contents": "read", "actions": "read"}
+    assert perms["preflight"] == {"contents": "read", "actions": "read", "pages": "read"}
     assert perms["build"] == {"contents": "read"}
     assert perms["deploy"] == {"pages": "write", "id-token": "write"}
     assert perms["verify-live"] == {"contents": "read"}
@@ -178,60 +178,47 @@ def test_web_data_runs_artifact_tests_after_build():
 
 
 # --------------------------------------------------------------------------------------- release gate
-def test_gate_blocks_production_now_and_never_blocks_report_mode(capsys):
-    assert G.main(["--mode", "report"]) == 0
-    assert G.main(["--mode", "production"]) == 3
-    res = G.evaluate(REPO)
-    ids = {b["id"] for b in json.loads((REPO / G.BLOCKERS).read_text())["blockers"]}
-    assert {"MD-1", "MD-2", "MD-3", "MD-4", "MD-5", "RA-1", "RA-2", "OPS-1", "OPS-2", "CI-1", "VER-1", "ACC-1"} <= ids
-    assert set(res["unresolved"]) == ids and res["production_allowed"] is False
+# PR-7a: every gate test is independent of the CURRENT state of release_blockers.json and of the repository
+# metadata. The real checklist is only validated structurally; positive and negative production paths run on
+# synthetic repositories with a synthetic, offline GitHub/doi.org API, so the suite keeps passing (and keeps
+# guarding the gate) after the maintainers resolve the blockers.
+GATE_SHA = "a" * 40
+REC = {"decided_by": "CongjianL", "decided_at": "2026-10-01",
+       "reference": "https://github.com/CongjianL/MicroRhodoDB/issues/1"}
 
 
-def test_checklist_is_open_and_resolution_only_by_maintainer():
-    data = json.loads((REPO / G.BLOCKERS).read_text())
-    for b in data["blockers"]:
-        assert b["status"] == "open" and b["resolution"] is None, b["id"]
-        assert b["evidence"] and b["required_decision"] and b["blocks"] == ["production"]
+def _b(i, status="open", resolution=None):
+    return {"id": i, "title": i, "category": "t", "blocks": ["production"], "status": status, "resolution": resolution,
+            "evidence": "synthetic", "required_decision": "synthetic"}
 
 
 def _fake(monkeypatch, tmp_path, blockers, checks):
     p = tmp_path / "blockers.json"
     p.write_text(json.dumps({"version": 1, "blockers": blockers}))
     monkeypatch.setattr(G, "CHECKS", checks)
+    monkeypatch.setattr(G, "MANDATORY_BLOCKERS", ())
     return G.evaluate(REPO, blockers_path=p)
-
-
-REC = {"decided_by": "maintainer", "decided_at": "2026-10-12", "reference": "https://example.invalid/issue/1"}
-
-
-def _b(i, status="open", resolution=None):
-    return {"id": i, "title": i, "category": "t", "blocks": ["production"], "status": status, "resolution": resolution}
 
 
 def test_gate_requires_record_and_passing_check(monkeypatch, tmp_path):
     checks = {"A": lambda r, c: (True, "ok"), "B": lambda r, c: (False, "fails"), "C": lambda r, c: (True, "ok"),
-              "E": lambda r, c: (None, "offline")}
+              "E": lambda r, c: (None, "offline"), "G": lambda r, c: ("yes", "truthy but not True")}
     res = _fake(monkeypatch, tmp_path, [_b("A", "resolved", REC), _b("B", "resolved", REC), _b("C"),
                                         _b("D", "resolved", REC), _b("E", "resolved", REC),
-                                        _b("F", "resolved", {**REC, "reference": ""})], checks)
+                                        _b("F", "resolved", {**REC, "reference": ""}), _b("G", "resolved", REC)], checks)
     st = {b["id"]: (b["resolved"], b["state"]) for b in res["blockers"]}
     assert st["A"] == (True, "resolved")
     assert st["B"] == (False, "claimed resolved but the automated check does not pass")
     assert st["C"] == (False, "automated check passes but no maintainer resolution record")
     assert st["D"] == (True, "resolved")          # manual-only blocker with a complete record
     assert st["E"][0] is False                    # undecidable check (offline) never counts as passing
-    assert st["F"][0] is False                    # incomplete record
-    assert res["unresolved"] == ["B", "C", "E", "F"]
+    assert st["F"][0] is False and st["F"][1].startswith("invalid resolution record")
+    assert st["G"][0] is False                    # only exactly True passes
+    assert res["unresolved"] == ["B", "C", "E", "F", "G"]
 
 
-def test_gate_allows_production_only_when_everything_resolved(monkeypatch, tmp_path):
-    p = tmp_path / "blockers.json"
-    p.write_text(json.dumps({"version": 1, "blockers": [_b("A", "resolved", REC)]}))
-    monkeypatch.setattr(G, "CHECKS", {"A": lambda r, c: (True, "ok")})
-    monkeypatch.setattr(G, "BLOCKERS", p)
-    assert G.main(["--mode", "production"]) == 0
-    monkeypatch.setattr(G, "CHECKS", {"A": lambda r, c: (False, "regressed")})
-    assert G.main(["--mode", "production"]) == 3
+# ---- synthetic repository + synthetic online API for end-to-end production-path tests
+DB_ROW = "| `releases/v1.6.0/db/microrhododb_v1.6.0.sqlite` | 33464320 | `" + "3" * 64 + "` |\n"
 
 
 def _meta_repo(tmp_path: Path, **over) -> Path:
@@ -239,6 +226,7 @@ def _meta_repo(tmp_path: Path, **over) -> Path:
     (r / "web").mkdir(parents=True)
     (r / "tools").mkdir()
     (r / "releases/v1.6.0").mkdir(parents=True)
+    (r / "docs/website").mkdir(parents=True)
     files = {
         "LICENSE": "The content is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0).\n"
                    "Source code under src/ is released under the MIT License.\n",
@@ -258,6 +246,316 @@ def _meta_repo(tmp_path: Path, **over) -> Path:
     return r
 
 
+def _release_ready_repo(tmp_path: Path, blockers=None, **over) -> Path:
+    """Synthetic repository in which every mandatory blocker is correctly resolved (all metadata consistent)."""
+    files = {"CITATION.cff": "cff-version: 1.2.0\nversion: 1.6.0\ndate-released: 2026-10-10\nlicense: CC-BY-4.0\n"
+                             "doi: 10.5281/zenodo.0000001\n",
+             "BINARIES.md": "Archive `MicroRhodoDB_v1.6.0.tar.gz` (Zenodo).\n\n" + DB_ROW,
+             "MAINTENANCE.md": "- Contact: GitHub issues\n- Archive: Zenodo\n"}
+    files.update(over)
+    r = _meta_repo(tmp_path, **files)
+    if blockers is None:
+        blockers = [_b(i, "resolved", dict(REC)) for i in G.MANDATORY_BLOCKERS]
+    (r / G.BLOCKERS).write_text(json.dumps({"version": 1, "blockers": blockers}))
+    return r
+
+
+def _good_api():
+    return {
+        "/releases/tags/v1.6.0": {"published_at": "2026-10-10T08:00:00Z", "assets": [
+            {"name": "microrhododb_v1.6.0.sqlite", "size": 33464320},
+            {"name": "MicroRhodoDB_v1.6.0.tar.gz", "size": 10}, {"name": "MicroRhodoDB_v1.6.0.tar.gz.sha256", "size": 92}]},
+        "/environments/github-pages": {
+            "protection_rules": [{"type": "required_reviewers", "prevent_self_review": False,
+                                  "reviewers": [{"type": "User", "reviewer": {"login": "CongjianL"}}]},
+                                 {"type": "branch_policy"}],
+            "deployment_branch_policy": {"protected_branches": False, "custom_branch_policies": True},
+            "can_admins_bypass": False},
+        "/environments/github-pages/deployment-branch-policies": {"branch_policies": [{"name": "main", "type": "branch"}]},
+        "/pages": {"build_type": "workflow", "source": None},
+        "/actions/runs": {"workflow_runs": [{"id": 1, "name": "web-data", "path": ".github/workflows/web-data.yml",
+                                             "head_sha": GATE_SHA, "status": "completed", "conclusion": "success"}]},
+        "doi": {"responseCode": 1},
+    }
+
+
+def _install_api(monkeypatch, api: dict):
+    prefix = f"{G.GH_API}/repos/{G.OWNER_REPO}"
+    calls = []
+
+    def fake(req):
+        url = req.full_url
+        calls.append(url)
+        key = "doi" if url.startswith("https://doi.org/") else url[len(prefix):].split("?")[0] if url.startswith(prefix) else None
+        if key not in api:
+            raise urllib.error.URLError(f"synthetic API: no route for {url}")
+        v = api[key]
+        if isinstance(v, BaseException):
+            raise v
+        return json.loads(json.dumps(v))
+    monkeypatch.setattr(G, "_open_json", fake)
+    monkeypatch.setattr(G.urllib.request, "urlopen", lambda *a, **k: (_ for _ in ()).throw(AssertionError("real network used")))
+    return calls
+
+
+def _prod(repo: Path, *extra) -> int:
+    return G.main(["--mode", "production", "--online", "--sha", GATE_SHA, "--repo", str(repo), *extra])
+
+
+def test_gate_positive_path_fully_resolved_and_authorised_allows_production(monkeypatch, tmp_path, capsys):
+    repo = _release_ready_repo(tmp_path)
+    calls = _install_api(monkeypatch, _good_api())
+    res = G.evaluate(repo, online=True, sha=GATE_SHA)
+    assert res["checklist_problems"] == [] and res["unresolved"] == [] and res["production_allowed"] is True
+    assert {b["id"] for b in res["blockers"] if b["resolved"]} == set(G.MANDATORY_BLOCKERS)
+    assert {b["id"]: b["check"] for b in res["blockers"]} == {**{i: True for i in G.CHECKS}, "ACC-1": None}
+    assert _prod(repo, "--json", str(tmp_path / "gate.json")) == 0
+    assert json.loads((tmp_path / "gate.json").read_text())["production_allowed"] is True
+    assert "no unresolved production blockers" in capsys.readouterr().out
+    assert any(u.endswith("/pages") for u in calls) and any("/actions/runs?head_sha=" + GATE_SHA in u for u in calls)
+
+
+@pytest.mark.parametrize("bid", ["MD-1", "MD-2", "MD-3", "MD-4", "MD-5", "RA-1", "RA-2", "OPS-1", "OPS-2", "CI-1", "VER-1", "ACC-1"])
+def test_gate_missing_maintainer_decision_blocks(monkeypatch, tmp_path, bid):
+    bl = [_b(i, "resolved", dict(REC)) if i != bid else _b(i) for i in G.MANDATORY_BLOCKERS]
+    repo = _release_ready_repo(tmp_path, blockers=bl)
+    _install_api(monkeypatch, _good_api())
+    assert _prod(repo) == 3
+    res = G.evaluate(repo, online=True, sha=GATE_SHA)
+    assert res["unresolved"] == [bid] and res["production_allowed"] is False
+
+
+INVALID_RESOLUTIONS = {
+    "status-not-exactly-resolved": ("Resolved", REC),
+    "status-waived": ("waived", REC),
+    "no-record": ("resolved", None),
+    "record-not-a-dict": ("resolved", "approved"),
+    "missing-decided_by": ("resolved", {**REC, "decided_by": ""}),
+    "template-decided_by": ("resolved", {**REC, "decided_by": "<github login>"}),
+    "decided_by-not-a-login": ("resolved", {**REC, "decided_by": "the maintainers"}),
+    "template-date": ("resolved", {**REC, "decided_at": "YYYY-MM-DD"}),
+    "impossible-date": ("resolved", {**REC, "decided_at": "2026-02-30"}),
+    "future-date": ("resolved", {**REC, "decided_at": "2999-01-01"}),
+    "missing-reference": ("resolved", {**REC, "reference": "   "}),
+    "placeholder-reference": ("resolved", {**REC, "reference": "<<PLACEHOLDER: issue URL>>"}),
+    "http-reference": ("resolved", {**REC, "reference": "http://github.com/CongjianL/MicroRhodoDB/issues/1"}),
+    "not-a-url": ("resolved", {**REC, "reference": "approved in a call"}),
+    "reserved-host": ("resolved", {**REC, "reference": "https://example.invalid/issue/1"}),
+    "example-host": ("resolved", {**REC, "reference": "https://www.example.org/x"}),
+}
+
+
+@pytest.mark.parametrize("case", sorted(INVALID_RESOLUTIONS))
+@pytest.mark.parametrize("bid", ["MD-4", "OPS-1", "ACC-1"])  # automated check / online check / manual-only
+def test_gate_invalid_resolution_blocks(monkeypatch, tmp_path, case, bid):
+    status, rec = INVALID_RESOLUTIONS[case]
+    bl = [_b(i, "resolved", dict(REC)) if i != bid else _b(i, status, rec) for i in G.MANDATORY_BLOCKERS]
+    repo = _release_ready_repo(tmp_path, blockers=bl)
+    _install_api(monkeypatch, _good_api())
+    assert _prod(repo) == 3
+    res = G.evaluate(repo, online=True, sha=GATE_SHA)
+    assert res["unresolved"] == [bid]
+    entry = next(b for b in res["blockers"] if b["id"] == bid)
+    assert entry["resolved"] is False and entry["has_resolution_record"] is False
+
+
+def _api_with(**changes):
+    api = _good_api()
+    for k, v in changes.items():
+        api[k.replace("__", "/").replace("_DASH_", "-")] = v
+    return api
+
+
+FAILED_CHECKS = {
+    # id: (file overrides, api overrides)
+    "MD-1": ({"README.md": "Data: CC BY 4.0. Code: Apache-2.0.\n"}, {}),
+    "MD-2": ({"CITATION.cff": "version: 1.6.0\ndate-released: 2026-10-09\nlicense: CC-BY-4.0\ndoi: 10.5281/zenodo.0000001\n"}, {}),
+    "MD-2/github-release-date": ({}, {"/releases/tags/v1.6.0": {**_good_api()["/releases/tags/v1.6.0"], "published_at": "2026-10-11T00:00:00Z"}}),
+    "MD-4": ({"MAINTENANCE.md": "- Contact: <<PLACEHOLDER: e-mail>>\n- Archive: Zenodo\n"}, {}),
+    "MD-5": ({"MAINTENANCE.md": "- Contact: GitHub issues\n- Archive: Zenodo `<<PLACEHOLDER: hosting term>>`\n"}, {}),
+    "RA-1": ({}, {"/releases/tags/v1.6.0": {"published_at": "2026-10-10T08:00:00Z", "assets": [{"name": "microrhododb_v1.6.0.sqlite", "size": 33464320}]}}),
+    "RA-1/size-mismatch": ({}, {"/releases/tags/v1.6.0": {**_good_api()["/releases/tags/v1.6.0"], "assets": [
+        {"name": "microrhododb_v1.6.0.sqlite", "size": 1}, {"name": "MicroRhodoDB_v1.6.0.tar.gz", "size": 10},
+        {"name": "MicroRhodoDB_v1.6.0.tar.gz.sha256", "size": 92}]}}),
+    "RA-2": ({}, {"doi": {"responseCode": 100}}),
+    "OPS-1": ({}, {"/pages": {"build_type": "legacy", "source": {"branch": "main", "path": "/"}}}),
+    "OPS-1/missing-build_type": ({}, {"/pages": {}}),
+    "OPS-2": ({}, {"/environments/github-pages": {**_good_api()["/environments/github-pages"], "protection_rules": [{"type": "branch_policy"}]}}),
+    "OPS-2/reviewer-rule-without-reviewers": ({}, {"/environments/github-pages": {**_good_api()["/environments/github-pages"],
+                                                   "protection_rules": [{"type": "required_reviewers", "reviewers": []}]}}),
+    "OPS-2/extra-branch": ({}, {"/environments/github-pages/deployment-branch-policies": {"branch_policies": [
+        {"name": "main", "type": "branch"}, {"name": "website/pr-1-exporter", "type": "branch"}]}}),
+    "OPS-2/tag-named-main": ({}, {"/environments/github-pages/deployment-branch-policies": {"branch_policies": [{"name": "main", "type": "tag"}]}}),
+    "OPS-2/policy-type-missing": ({}, {"/environments/github-pages/deployment-branch-policies": {"branch_policies": [{"name": "main"}]}}),
+    "OPS-2/policy-list-incomplete": ({}, {"/environments/github-pages/deployment-branch-policies": {
+        "total_count": 2, "branch_policies": [{"name": "main", "type": "branch"}]}}),
+    "OPS-2/all-branches": ({}, {"/environments/github-pages": {**_good_api()["/environments/github-pages"], "deployment_branch_policy": None}}),
+    "OPS-2/protected-branches": ({}, {"/environments/github-pages": {**_good_api()["/environments/github-pages"],
+                                      "deployment_branch_policy": {"protected_branches": True, "custom_branch_policies": False}}}),
+    "CI-1": ({}, {"/actions/runs": {"workflow_runs": [{**_good_api()["/actions/runs"]["workflow_runs"][0], "conclusion": "failure"}]}}),
+    "CI-1/impostor-workflow-name": ({}, {"/actions/runs": {"workflow_runs": [{**_good_api()["/actions/runs"]["workflow_runs"][0],
+                                                                              "path": ".github/workflows/fake.yml"}]}}),
+    "CI-1/other-commit": ({}, {"/actions/runs": {"workflow_runs": [{**_good_api()["/actions/runs"]["workflow_runs"][0], "head_sha": "b" * 40}]}}),
+    "CI-1/no-runs": ({}, {"/actions/runs": {"workflow_runs": []}}),
+    "VER-1": ({"web/package.json": json.dumps({"license": "MIT", "version": "2.0.0-rc1"})}, {}),
+}
+
+
+@pytest.mark.parametrize("case", sorted(FAILED_CHECKS))
+def test_gate_failed_automated_check_blocks_despite_valid_record(monkeypatch, tmp_path, case):
+    files, api_over = FAILED_CHECKS[case]
+    bid = case.split("/")[0]
+    repo = _release_ready_repo(tmp_path, **files)
+    api = _good_api()
+    api.update(api_over)
+    _install_api(monkeypatch, api)
+    assert _prod(repo) == 3
+    res = G.evaluate(repo, online=True, sha=GATE_SHA)
+    entry = next(b for b in res["blockers"] if b["id"] == bid)
+    assert bid in res["unresolved"] and entry["has_resolution_record"] is True and entry["check"] is False, entry
+
+
+API_FAILURES = [
+    urllib.error.URLError("connection refused"),
+    urllib.error.HTTPError("https://api.github.com/x", 403, "rate limited", {}, None),
+    urllib.error.HTTPError("https://api.github.com/x", 404, "Not Found", {}, None),
+    ConnectionResetError("reset by peer"),
+    TimeoutError("timed out"),
+    ValueError("invalid JSON"),
+]
+
+
+@pytest.mark.parametrize("route,bids", [("/releases/tags/v1.6.0", {"RA-1", "MD-2"}), ("/pages", {"OPS-1"}),
+                                        ("/environments/github-pages", {"OPS-2"}),
+                                        ("/environments/github-pages/deployment-branch-policies", {"OPS-2"}),
+                                        ("/actions/runs", {"CI-1"}), ("doi", {"MD-3", "RA-2"})])
+@pytest.mark.parametrize("err", API_FAILURES, ids=lambda e: type(e).__name__ + str(getattr(e, "code", "")))
+def test_gate_api_failure_is_fail_closed(monkeypatch, tmp_path, route, bids, err):
+    repo = _release_ready_repo(tmp_path)
+    api = _good_api()
+    api[route] = err
+    _install_api(monkeypatch, api)
+    assert _prod(repo) == 3
+    res = G.evaluate(repo, online=True, sha=GATE_SHA)
+    assert set(res["unresolved"]) == bids
+    assert all(b["check"] is None for b in res["blockers"] if b["id"] in bids)
+
+
+@pytest.mark.parametrize("route", ["/releases/tags/v1.6.0", "/pages", "/environments/github-pages",
+                                   "/environments/github-pages/deployment-branch-policies", "/actions/runs"])
+@pytest.mark.parametrize("payload", [[], "ok", {"unexpected": True}], ids=["list", "str", "empty-shape"])
+def test_gate_malformed_api_response_is_fail_closed(monkeypatch, tmp_path, route, payload):
+    repo = _release_ready_repo(tmp_path)
+    api = _good_api()
+    api[route] = payload
+    _install_api(monkeypatch, api)
+    assert _prod(repo) == 3
+
+
+def test_gate_unexpected_exception_in_a_check_blocks(monkeypatch, tmp_path):
+    repo = _release_ready_repo(tmp_path)
+    _install_api(monkeypatch, _good_api())
+
+    def boom(r, c):
+        raise RuntimeError("bug")
+    monkeypatch.setitem(G.CHECKS, "VER-1", boom)
+    assert _prod(repo) == 3
+    e = next(b for b in G.evaluate(repo, online=True, sha=GATE_SHA)["blockers"] if b["id"] == "VER-1")
+    assert e["check"] is None and "RuntimeError" in e["check_detail"]
+
+
+def _tamper(kind):
+    bl = [_b(i, "resolved", dict(REC)) for i in G.MANDATORY_BLOCKERS]
+    if kind == "delete-mandatory":
+        bl = [b for b in bl if b["id"] != "ACC-1"]
+    elif kind == "duplicate":
+        bl.append(_b("ACC-1"))
+    elif kind == "duplicate-both-resolved":
+        bl.append(_b("ACC-1", "resolved", dict(REC)))
+    elif kind == "rescope-blocks-empty":
+        bl[0]["blocks"] = []
+    elif kind == "rescope-preview-only":
+        bl[0]["blocks"] = ["preview"]
+    elif kind == "rename-id":
+        bl[0]["id"] = "MD-1-waived"
+    return bl
+
+
+@pytest.mark.parametrize("kind", ["delete-mandatory", "duplicate", "duplicate-both-resolved", "rename-id",
+                                  "rescope-blocks-empty", "rescope-preview-only"])
+def test_gate_checklist_tampering_cannot_remove_a_blocker(monkeypatch, tmp_path, kind):
+    repo = _release_ready_repo(tmp_path, blockers=_tamper(kind))
+    _install_api(monkeypatch, _good_api())
+    res = G.evaluate(repo, online=True, sha=GATE_SHA)
+    assert res["production_allowed"] is False and res["checklist_problems"]
+    assert _prod(repo) == 3
+
+
+@pytest.mark.parametrize("content", ["", "{not json", json.dumps({"blockers": "none"}), json.dumps([])])
+def test_gate_unreadable_checklist_blocks(monkeypatch, tmp_path, content):
+    repo = _release_ready_repo(tmp_path)
+    (repo / G.BLOCKERS).write_text(content)
+    _install_api(monkeypatch, _good_api())
+    assert _prod(repo) == 3
+    assert set(G.evaluate(repo, online=True, sha=GATE_SHA)["unresolved"]) == set(G.MANDATORY_BLOCKERS)
+
+
+def test_gate_production_requires_online_and_full_sha(monkeypatch, tmp_path):
+    repo = _release_ready_repo(tmp_path)
+    _install_api(monkeypatch, _good_api())
+    assert G.main(["--mode", "production", "--repo", str(repo)]) == 2
+    assert G.main(["--mode", "production", "--online", "--repo", str(repo)]) == 2
+    assert G.main(["--mode", "production", "--sha", GATE_SHA, "--repo", str(repo)]) == 2
+    assert G.main(["--mode", "production", "--online", "--sha", "abc1234", "--repo", str(repo)]) == 2
+    assert _prod(repo) == 0  # the same repository passes once the prerequisites are given
+
+
+def test_offline_evaluation_can_never_allow_production(tmp_path):
+    """Even with every blocker of the REAL checklist marked resolved, the online-only checks stay undecided offline."""
+    data = json.loads((REPO / G.BLOCKERS).read_text())
+    for b in data["blockers"]:
+        b["status"], b["resolution"] = "resolved", dict(REC)
+    p = tmp_path / "all_resolved.json"
+    p.write_text(json.dumps(data))
+    res = G.evaluate(REPO, online=False, blockers_path=p)
+    assert res["production_allowed"] is False
+    assert {"RA-1", "OPS-1", "OPS-2", "CI-1"} <= set(res["unresolved"])
+
+
+@pytest.mark.parametrize("resolved", [True, False])
+def test_report_mode_never_blocks(monkeypatch, tmp_path, resolved):
+    bl = None if resolved else [_b(i) for i in G.MANDATORY_BLOCKERS]
+    repo = _release_ready_repo(tmp_path, blockers=bl)
+    _install_api(monkeypatch, _good_api())
+    assert G.main(["--mode", "report", "--repo", str(repo)]) == 0
+    assert G.main(["--mode", "report", "--online", "--sha", GATE_SHA, "--repo", str(repo)]) == 0
+    assert G.main(["--mode", "report"]) == 0  # the real repository, whatever its current state
+
+
+def test_real_checklist_is_well_formed_whatever_its_state():
+    data = json.loads((REPO / G.BLOCKERS).read_text())
+    assert G.checklist_problems(data) == []
+    ids = [b["id"] for b in data["blockers"]]
+    assert set(G.MANDATORY_BLOCKERS) <= set(ids) and len(ids) == len(set(ids))
+    for b in data["blockers"]:
+        assert b["status"] in G.VALID_STATUS and b["blocks"] == ["production"], b["id"]
+        assert b["evidence"] and b["required_decision"] and b["title"], b["id"]
+        if b["status"] == "open":
+            assert b["resolution"] is None, b["id"]
+        else:
+            assert G.resolution_problems(b) == [], (b["id"], G.resolution_problems(b))
+    assert set(data["resolution_template"]) >= set(G.RESOLUTION_FIELDS)
+
+
+def test_real_repository_checks_are_well_formed_whatever_their_result():
+    ctx = {"online": False, "blocker": {}, "release": None}
+    for bid, fn in G.CHECKS.items():
+        ok, detail = fn(REPO, {**ctx, "blocker": {"id": bid}})
+        assert ok in (True, False, None) and isinstance(detail, str) and detail, bid
+    for bid in ("RA-1", "OPS-1", "OPS-2", "CI-1"):  # online-only checks are undecided offline
+        assert G.CHECKS[bid](REPO, ctx)[0] is None, bid
+
+
 def test_metadata_checks_on_synthetic_repositories(tmp_path):
     good = _meta_repo(tmp_path)
     ctx = {"online": False, "blocker": {}}
@@ -268,6 +566,8 @@ def test_metadata_checks_on_synthetic_repositories(tmp_path):
     assert G.check_ver1_version(good, ctx)[0] is True
     assert G.check_md3_doi(good, ctx)[0] is False
     assert G.check_md3_doi(good, {**ctx, "blocker": {"resolution": {"alternative_citation_policy": "cite tag + URL"}}})[0] is True
+    assert G.check_md3_doi(good, {**ctx, "blocker": {"resolution": {"alternative_citation_policy": "<<PLACEHOLDER>>"}}})[0] is False
+    assert G.check_md2_dates(good, {**ctx, "online": True, "release": None, "release_error": "HTTP 403"})[0] is None
     bad = _meta_repo(tmp_path / "b", **{"README.md": "Data: CC BY 4.0. Code: Apache-2.0.\n",
                                         "CITATION.cff": "version: 1.6.0\ndate-released: 2026-10-09\nlicense: CC-BY-4.0\n",
                                         "MAINTENANCE.md": "- Contact: <<PLACEHOLDER: e-mail>>\n",
@@ -277,22 +577,22 @@ def test_metadata_checks_on_synthetic_repositories(tmp_path):
     assert G.check_md4_contact(bad, ctx)[0] is False
     assert G.check_md5_maintenance(bad, ctx)[0] is False
     assert G.check_ver1_version(bad, ctx)[0] is False
+    assert G.check_md1_licence(_meta_repo(tmp_path / "c", **{"README.md": "no statement\n"}), ctx)[0] is False
+    capital = _meta_repo(tmp_path / "d", **{"LICENSE": "Licensed under the Creative Commons Attribution 4.0 International "
+                                                       "(CC BY 4.0).\nSource code is released under the MIT License.\n"})
+    assert G.check_md1_licence(capital, ctx)[0] is True  # sentence case must not block a correct resolution
 
 
-def test_current_repository_metadata_checks_fail_for_the_documented_reasons():
-    ctx = {"online": False, "blocker": {}}
-    ok, detail = G.check_md1_licence(REPO, ctx)
-    assert ok is False and "MIT" in detail and "CC-BY-4.0" in detail
-    ok, detail = G.check_md2_dates(REPO, ctx)
-    assert ok is False and "2026-10-09" in detail and "2026-10-10" in detail
-    assert G.check_md3_doi(REPO, ctx)[0] is False
-    assert G.check_md4_contact(REPO, ctx)[0] is False
-    assert G.check_md5_maintenance(REPO, ctx)[0] is False
-    assert G.check_ver1_version(REPO, ctx)[0] is False
-    ok, detail = G.check_ra1_release_assets(REPO, ctx)
-    assert ok is None and "not checked offline" in detail
-    ok, detail = G.check_ra1_release_assets(REPO, {**ctx, "release": {"assets": [{"name": "microrhododb_v1.6.0.sqlite", "size": 33464320}]}})
-    assert ok is False and "MicroRhodoDB_v1.6.0.tar.gz" in detail and "microrhododb_v1.5.0.sqlite" in detail
+def test_binaries_assets_are_compared_with_the_release(tmp_path):
+    repo = _release_ready_repo(tmp_path)
+    ctx = {"online": True, "blocker": {}}
+    assert G.check_ra1_release_assets(repo, {**ctx, "release": _good_api()["/releases/tags/v1.6.0"]})[0] is True
+    ok, detail = G.check_ra1_release_assets(repo, {**ctx, "release": {"assets": [{"name": "microrhododb_v1.6.0.sqlite", "size": 33464320}]}})
+    assert ok is False and "MicroRhodoDB_v1.6.0.tar.gz" in detail
+    assert G.check_ra1_release_assets(repo, {**ctx, "release": None, "release_error": "HTTP 500"})[0] is None
+    assert G.check_ra1_release_assets(repo, {"online": False, "release": None})[0] is None
+    empty = _release_ready_repo(tmp_path / "e", **{"BINARIES.md": ""})
+    assert G.check_ra1_release_assets(empty, {**ctx, "release": {"assets": []}})[0] is False
 
 
 # ---------------------------------------------------------------------------------- contract / exporter
@@ -525,3 +825,271 @@ def test_serve_artifact_behaves_like_pages(tmp_path):
     finally:
         srv.shutdown()
         srv.server_close()
+
+
+# ------------------------------------------------------------------- post-deployment verifier (PR-7a)
+class _FaultServer:
+    """Local HTTP server with injectable latency and faults, standing in for GitHub Pages / its CDN.
+
+    files: path -> current bytes. old: path -> stale bytes served until `propagate_at[path]` (monotonic time);
+    missing_until: path -> serve 404 until that time. faults: path -> list of per-request modes consumed in order
+    ('503', 'reset', 'truncate', 'stall', 'drip', 'ok'); 'always:<mode>' repeats forever.
+    """
+
+    def __init__(self, files, latency=0.0, stall=5.0, drip_interval=0.2):
+        import http.server
+        self.files, self.latency, self.stall, self.drip_interval = files, latency, stall, drip_interval
+        self.old, self.propagate_at, self.missing_until, self.faults = {}, {}, {}, {}
+        self.lock = threading.Lock()
+        self.in_flight = self.max_in_flight = self.requests = 0
+        outer = self
+
+        class H(http.server.BaseHTTPRequestHandler):
+            protocol_version = "HTTP/1.1"
+
+            def log_message(self, *a):
+                pass
+
+            def do_GET(self):
+                with outer.lock:
+                    outer.requests += 1
+                    outer.in_flight += 1
+                    outer.max_in_flight = max(outer.max_in_flight, outer.in_flight)
+                try:
+                    outer.handle(self)
+                finally:
+                    with outer.lock:
+                        outer.in_flight -= 1
+
+        self.srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), H)
+        self.srv.daemon_threads = True
+        self.base = f"http://127.0.0.1:{self.srv.server_address[1]}/MicroRhodoDB/"
+        threading.Thread(target=self.srv.serve_forever, daemon=True).start()
+
+    def mode(self, rel):
+        with self.lock:
+            q = self.faults.get(rel)
+            if not q:
+                return "ok"
+            if q[0].startswith("always:"):
+                return q[0].split(":", 1)[1]
+            return q.pop(0)
+
+    def handle(self, h):
+        import time as _t
+        from urllib.parse import unquote, urlsplit
+        if self.latency:
+            _t.sleep(self.latency)
+        rel = unquote(urlsplit(h.path).path)[len("/MicroRhodoDB/"):]
+        m = self.mode(rel)
+        now = _t.monotonic()
+        if m == "reset":
+            h.close_connection = True
+            return
+        if m == "stall":
+            _t.sleep(self.stall)
+        if m == "503" or rel not in self.files or now < self.missing_until.get(rel, 0):
+            code = 503 if m == "503" else 404
+            h.send_response(code)
+            h.send_header("Content-Length", "0")
+            h.end_headers()
+            return
+        body = self.old[rel] if now < self.propagate_at.get(rel, 0) else self.files[rel]
+        h.send_response(200)
+        h.send_header("Content-Length", str(len(body)))
+        h.end_headers()
+        if m == "truncate":
+            h.wfile.write(body[: len(body) // 2])
+            h.wfile.flush()
+            h.close_connection = True
+            return
+        if m == "drip":
+            for i in range(len(body)):
+                h.wfile.write(body[i:i + 1])
+                h.wfile.flush()
+                _t.sleep(self.drip_interval)
+            return
+        h.wfile.write(body)
+
+    def close(self):
+        self.srv.shutdown()
+        self.srv.server_close()
+
+
+def _site(n, size=64):
+    files = {f"site/data/f{i:04d}.json": (f'{{"i": {i}, "pad": "' + "x" * size + '"}').encode() for i in range(n)}
+    return files, {k: R.sha256_bytes(v) for k, v in files.items()}
+
+
+@pytest.fixture
+def fault_server():
+    servers = []
+
+    def make(files, **kw):
+        s = _FaultServer(files, **kw)
+        servers.append(s)
+        return s
+    yield make
+    for s in servers:
+        s.close()
+
+
+def test_verifier_uses_bounded_concurrency_on_a_delayed_network(fault_server):
+    import time as _t
+    files, sums = _site(240)
+    srv = fault_server(files, latency=0.05)  # 50 ms per request: sequential would take >= 12 s
+    t0 = _t.monotonic()
+    res = R.verify_served(srv.base, sums, workers=12, deadline=60, round_wait=0.1)
+    elapsed = _t.monotonic() - t0
+    assert res["failed"] == [] and res["ok"] == 240 and res["rounds"] == 1 and res["requests"] == 240
+    assert 1 < srv.max_in_flight <= 12 and res["max_in_flight"] <= 12
+    assert elapsed < 6, elapsed
+
+
+def test_verifier_retries_transient_failures_per_file(fault_server):
+    files, sums = _site(20)
+    srv = fault_server(files, stall=3.0)
+    names = sorted(files)
+    srv.faults = {names[0]: ["503", "503"], names[1]: ["reset"], names[2]: ["truncate"], names[3]: ["stall"]}
+    res = R.verify_served(srv.base, sums, workers=4, request_timeout=1.0, retries=3, backoff=0.05, deadline=30,
+                          max_rounds=1)
+    assert res["failed"] == [] and res["ok"] == 20 and res["rounds"] == 1
+    assert res["retries"] == 5 and res["requests"] == 25
+
+
+def test_verifier_never_accepts_a_truncated_or_partial_body(fault_server):
+    files, sums = _site(3, size=200_000)
+    srv = fault_server(files)
+    srv.faults = {sorted(files)[0]: ["always:truncate"]}
+    res = R.verify_served(srv.base, sums, workers=2, retries=2, backoff=0.01, deadline=20, max_rounds=1)
+    assert res["ok"] == 2 and len(res["failed"]) == 1 and "truncated body" in res["failed"][0]
+
+
+def test_verifier_hashes_the_full_file(fault_server):
+    big = bytes(range(256)) * 8192  # 2 MiB
+    files = {"site/big.bin": big[:-1] + b"\x00"}  # differs only in the last byte
+    srv = fault_server(files)
+    res = R.verify_served(srv.base, {"site/big.bin": R.sha256_bytes(big)}, deadline=10, round_wait=0.1, max_rounds=2)
+    assert res["ok"] == 0 and "served bytes differ" in res["failed"][0] and res["requests"] == 2
+
+
+def test_verifier_slow_drip_body_hits_the_per_request_deadline(fault_server):
+    import time as _t
+    files, sums = _site(1, size=200)
+    srv = fault_server(files, drip_interval=0.1)  # a byte every 100 ms: no socket timeout ever fires
+    srv.faults = {next(iter(files)): ["always:drip"]}
+    t0 = _t.monotonic()
+    res = R.verify_served(srv.base, sums, request_timeout=0.6, retries=1, backoff=0.01, deadline=20, max_rounds=1)
+    assert res["ok"] == 0 and "request deadline" in res["failed"][0]
+    assert _t.monotonic() - t0 < 4
+
+
+def test_verifier_total_deadline_bounds_a_hanging_cdn(fault_server):
+    import time as _t
+    files, sums = _site(40)
+    srv = fault_server(files, stall=20.0)
+    srv.faults = {k: ["always:stall"] for k in files}
+    t0 = _t.monotonic()
+    res = R.verify_served(srv.base, sums, workers=8, request_timeout=10, retries=3, deadline=1.5, round_wait=0.1)
+    elapsed = _t.monotonic() - t0
+    assert res["ok"] == 0 and len(res["failed"]) == 40 and res["deadline_exceeded"] is True
+    assert elapsed < 1.5 + 3.0, elapsed
+    assert all("deadline" in f or "timeout" in f.lower() or "timed out" in f for f in res["failed"]), res["failed"][:3]
+
+
+def test_verify_served_process_exits_promptly_at_the_total_deadline(fault_server, tmp_path):
+    """The CLI process (not only the function) must end near the deadline: no worker may keep a request open
+    beyond the remaining total time, otherwise interpreter shutdown waits for it."""
+    import time as _t
+    files, sums = _site(16)
+    srv = fault_server(files, stall=30.0)
+    srv.faults = {k: ["always:stall"] for k in files}
+    man = tmp_path / "SHA256SUMS"
+    man.write_text("".join(f"{h}  {p}\n" for p, h in sorted(sums.items())))
+    t0 = _t.monotonic()
+    r = subprocess.run([sys.executable, str(SCRIPTS / "site_rollback.py"), "verify-served", "--base", srv.base,
+                        "--sums", str(man), "--workers", "4", "--request-timeout", "20", "--deadline", "1.5"],
+                       capture_output=True, text=True, timeout=60)
+    elapsed = _t.monotonic() - t0
+    assert r.returncode == 1 and "SERVED_SITE_DIFFERS" in r.stdout
+    assert elapsed < 1.5 + 4.0, elapsed
+
+
+def test_verifier_rechecks_only_unpropagated_files_until_the_cdn_converges(fault_server):
+    import time as _t
+    files, sums = _site(60)
+    srv = fault_server(files)
+    names = sorted(files)
+    now = _t.monotonic()
+    for k in names[:10]:   # stale copy still at the edge
+        srv.old[k] = b'{"stale": true}'
+        srv.propagate_at[k] = now + 1.0
+    for k in names[10:15]:  # new file not yet at the edge
+        srv.missing_until[k] = now + 1.0
+    res = R.verify_served(srv.base, sums, workers=8, deadline=30, round_wait=0.4)
+    assert res["failed"] == [] and res["ok"] == 60 and res["rounds"] >= 2
+    # later rounds re-request only the 15 lagging files, never the 45 already verified
+    assert res["requests"] <= 60 + 15 * (res["rounds"] - 1)
+
+
+def test_verifier_partial_propagation_that_never_converges_fails_at_the_deadline(fault_server):
+    import time as _t
+    files, sums = _site(30)
+    srv = fault_server(files)
+    names = sorted(files)
+    for k in names[:3]:
+        srv.old[k] = b"old deployment"
+        srv.propagate_at[k] = float("inf")
+    srv.missing_until[names[3]] = float("inf")
+    t0 = _t.monotonic()
+    res = R.verify_served(srv.base, sums, workers=8, deadline=2.0, round_wait=0.3)
+    assert _t.monotonic() - t0 < 2.0 + 3.0
+    assert res["ok"] == 26 and res["deadline_exceeded"] is True and res["rounds"] >= 3
+    failed = dict(f.split(": ", 1) for f in res["failed"])
+    assert set(failed) == set(names[:4])
+    assert all("served bytes differ" in failed[k] for k in names[:3]) and "HTTP 404" in failed[names[3]]
+
+
+def test_verify_served_cli_exit_codes_and_manifest_paths(fault_server, tmp_path, capsys):
+    files, sums = _site(5)
+    files["site/.hidden"] = b"h"
+    sums["site/.hidden"] = R.sha256_bytes(b"h")
+    srv = fault_server(files)
+    man = tmp_path / "SHA256SUMS"
+    man.write_text("".join(f"{h}  {p}\n" for p, h in sorted(sums.items())))
+    common = ["verify-served", "--base", srv.base, "--sums", str(man), "--deadline", "10", "--round-wait", "0.1"]
+    assert R.main(common) == 0
+    assert R.main(common + ["--exclude-hidden", "--json", str(tmp_path / "v.json")]) == 0
+    assert json.loads((tmp_path / "v.json").read_text())["checked"] == 5
+    assert R.main(common + ["--paths", "site/not-in-manifest.json", "--max-rounds", "1"]) == 1
+    srv.files[sorted(files)[0]] = b"tampered"
+    assert R.main(common + ["--max-rounds", "1"]) == 1
+    assert "SERVED_SITE_DIFFERS" in capsys.readouterr().out
+
+
+def test_deploy_workflow_live_verification_is_bounded_and_covers_every_file():
+    wf = load_wf("deploy-site.yml")
+    steps = [st for st in wf["jobs"]["verify-live"]["steps"] if "verify-served" in st.get("run", "")]
+    assert len(steps) == 2
+    for st in steps:
+        run = st["run"]
+        for flag in ("--workers 16", "--request-timeout 30", "--retries 3", "--round-wait 30", "--deadline 900"):
+            assert flag in run, flag
+        assert "--paths" not in run and "for i in" not in run and "sleep" not in run  # no unbounded shell loop
+    assert wf["jobs"]["verify-live"]["timeout-minutes"] * 60 > 900
+
+
+def test_release_blocker_resolutions_cannot_skip_mandatory_validation():
+    """The gate only decides whether preflight passes; every validation step in build/verify-live is unconditional
+    for website deployments (no step reads the gate result, nothing is continue-on-error)."""
+    wf = load_wf("deploy-site.yml")
+    text = (WFD / "deploy-site.yml").read_text()
+    assert "continue-on-error" not in text and "release_gate.json" not in text.split("verify-live:")[0].split("build:")[1]
+    allowed_if = {None, "inputs.kind == 'website'", "inputs.kind == 'legacy-rollback'", "always() && inputs.kind == 'website'",
+                  "failure()"}
+    for jid in ("build", "deploy", "verify-live"):
+        for st in wf["jobs"][jid]["steps"]:
+            assert st.get("if") in allowed_if, (jid, st.get("name"), st.get("if"))
+    gate = next(st for st in wf["jobs"]["preflight"]["steps"] if "release_gate.py" in st.get("run", ""))
+    assert gate["if"] == "inputs.kind == 'website'" and "continue-on-error" not in gate
+    assert wf["jobs"]["build"]["needs"] == "preflight"

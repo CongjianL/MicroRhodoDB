@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "Release-blocker checklist for the first production deployment of MicroRhodoDB website 2.0 (dataset v1.6.0). Read by web/scripts/release_gate.py. A blocker is resolved only when status is 'resolved' with a maintainer resolution record (decided_by, decided_at, reference) AND its automated check passes. Only the maintainer may change status; the gate and the deployment tooling never do. Blockers stop production deployment only; local development, tests and preview builds are not blocked.",
+  "description": "Release-blocker checklist for the first production deployment of MicroRhodoDB website 2.0 (dataset v1.6.0). Read by web/scripts/release_gate.py. A blocker is resolved only when status is 'resolved' with a valid maintainer resolution record (decided_by = GitHub login, decided_at = YYYY-MM-DD not in the future, reference = https URL on a non-reserved host; no placeholders) AND its automated check passes. The 12 blockers in this file are mandatory: removing one, re-scoping it away from 'production', duplicating it or using a status other than 'open'/'resolved' blocks production. Production mode requires --online and the full 40-character --sha (exit 2 otherwise). Only the maintainer may change status; the gate and the deployment tooling never do. Blockers stop production deployment only; local development, tests and preview builds are not blocked.",
   "resolution_template": {
     "decided_by": "GitHub login of the maintainer",
     "decided_at": "YYYY-MM-DD",
@@ -102,7 +102,7 @@
       "resolution": null,
       "title": "GitHub Pages source must be switched to 'GitHub Actions' by the maintainer",
       "evidence": "Production is served by the legacy branch-based 'pages build and deployment' (main, repository root; latest deployment main fab9182 at 2026-10-11T04:07:40Z). actions/deploy-pages requires Settings > Pages > Source = GitHub Actions. The switch is a repository setting that only the maintainer may change, immediately before an authorised deployment (see PR7_DEPLOYMENT_RUNBOOK.md).",
-      "required_decision": "Maintainer records the switch (or the decision to switch at deployment time) with a reference."
+      "required_decision": "Maintainer switches Settings > Pages > Source to 'GitHub Actions' immediately before an authorised deployment and records it with a reference. Automated check (online): GET /repos/{owner}/{repo}/pages must report build_type == 'workflow'; any API error or another value fails closed."
     },
     {
       "id": "OPS-2",
@@ -114,7 +114,7 @@
       "resolution": null,
       "title": "github-pages environment allows PR branches and has no required reviewers",
       "evidence": "docs/website/pr6a/evidence/github_environments.json and github_pages_branch_policies.json (queried 2026-10-11T20:19:32Z): protection rules = [branch_policy] only (no required reviewers); custom deployment-branch policies = 'None' (a policy literally named None), 'main', 'website/pr-1-exporter', 'website/pr-3-protein-entry'; can_admins_bypass = true.",
-      "required_decision": "Maintainer restricts deployment branches to main and adds a required reviewer (Settings > Environments > github-pages). Optionally disallow admin bypass."
+      "required_decision": "Maintainer restricts deployment branches to main and adds a required reviewer (Settings > Environments > github-pages). Automated check (online): a required_reviewers rule with at least one reviewer, custom branch policies only, exactly one policy named 'main' of type 'branch'. Enabling 'Prevent self-review' and disallowing admin bypass are recommended; the gate reports both but does not enforce them (maintainer decision)."
     },
     {
       "id": "CI-1",
