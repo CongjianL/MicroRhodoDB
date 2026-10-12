@@ -74,7 +74,17 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
+          fetch-depth: 0
           persist-credentials: false
+      # PR-7b: require the complete historical rollback baseline before running tests.
+      - name: Verify legacy rollback baseline
+        run: |
+          set -eu
+          LEGACY_SHA="fab9182044c45670c869c8778fd8d48932bd35b8"
+          git cat-file -e "${LEGACY_SHA}^{commit}"
+          git cat-file -e "${LEGACY_SHA}:site/app.js"
+          git cat-file -e "${LEGACY_SHA}:site/data.js"
+          echo "Legacy rollback baseline verified: ${LEGACY_SHA}"
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: "3.11"
