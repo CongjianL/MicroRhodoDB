@@ -1,0 +1,362 @@
+{
+  "A0A411LJN5": {
+    "items": [
+      {
+        "access": "full_text",
+        "consistent_with_db": "consistent",
+        "doi": null,
+        "evidence_id": "HLcb24f5899f5b",
+        "habitat_text": "International Space Station (ISS)",
+        "locator": "Abstract",
+        "parent_decision_reason": "accepted",
+        "parent_verified": true,
+        "pmid": "32554796",
+        "quote": "The draft genome sequences of three Sphingomonas strains isolated from the International Space Station (ISS) were assembled.",
+        "reviewer_scope": "isolate",
+        "scope": "isolate",
+        "source_sha256": "c193aed90434099b5e2da0d83826f891539975419621de41abb23fa33e618bf0",
+        "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7303416/fullTextXML",
+        "strain_named": "FKI-L5-BR-P1 (one of the three strains, Table 1)",
+        "verify_request_key": "7d0c7dfd69241f1c663b35945bc568233b958206e77d918f19e80ce54b3fa14e"
+      },
+      {
+        "access": "full_text",
+        "consistent_with_db": "inconsistent",
+        "doi": null,
+        "evidence_id": "HL9cf6f02ec398",
+        "habitat_text": "cleanroom floor",
+        "locator": "Table 1, row 'Sphingomonas paucimobilis FKI-L5-BR-P1', column 'Isolation location'",
+        "parent_decision_reason": "accepted",
+        "parent_verified": true,
+        "pmid": "32554796",
+        "quote": "KSC-PHSF a cleanroom floor",
+        "reviewer_scope": "isolate",
+        "scope": "isolate",
+        "source_sha256": "c193aed90434099b5e2da0d83826f891539975419621de41abb23fa33e618bf0",
+        "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7303416/fullTextXML",
+        "strain_named": "Sphingomonas paucimobilis FKI-L5-BR-P1",
+        "verify_request_key": "7d0c7dfd69241f1c663b35945bc568233b958206e77d918f19e80ce54b3fa14e"
+      },
+      {
+        "access": "full_text",
+        "consistent_with_db": "not_applicable",
+        "doi": "10.1038/s42004-023-00884-8",
+        "evidence_id": "HL5a0b09573eb0",
+        "habitat_text": "hospital ventilation",
+        "locator": "Introduction, para 7",
+        "parent_decision_reason": "accepted",
+        "parent_verified": true,
+        "pmid": "37130895",
+        "quote": "Here we report a comprehensive structure-function study of Spa R from genome of strictly aerobic bacteria Sphingomonas paucimobilis 25 , isolated from hospital ventilation and found in a range of water and land habitats, and clinical samples 12 .",
+        "reviewer_scope": "organism",
+        "scope": "organism",
+        "source_sha256": "ad148ce3ca09a67b5a9c46a3d146ba1426fda6307d0e061f062deb089dbe1ef0",
+        "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10154332/fullTextXML",
+        "strain_named": null,
+        "verify_request_key": "f211b9560877f20195f7a38eccc2a3df5e71db0361ba10d3933b867f377167f4"
+      }
+    ],
+    "literature_status": "ISOLATE_EVIDENCE",
+    "notes": "CONFLICT: Bijlani et al. abstract says the three strains were isolated from the ISS, but Table 1 gives isolation location \"KSC-PHSF a cleanroom floor\" (Kennedy Space Center ground facility) for FKI-L5-BR-P1. Record also lists FDAARGOS_881 (not covered).",
+    "reviewer_literature_status": "ISOLATE_EVIDENCE",
+    "sources_checked": [
+      {
+        "access": "full_text",
+        "doi": "10.1038/s42004-023-00884-8",
+        "found_habitat_statement": true,
+        "pmid": "37130895",
+        "title": "Mirror proteorhodopsins.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10154332/fullTextXML"
+      },
+      {
+        "access": "not_accessible",
+        "doi": null,
+        "found_habitat_statement": false,
+        "pmid": null,
+        "title": "Draft Genome Sequences of Sphingomonas sp. Isolated from the International Space Station.",
+        "url": null
+      },
+      {
+        "access": "not_accessible",
+        "doi": null,
+        "found_habitat_statement": false,
+        "pmid": null,
+        "title": "FDA dAtabase for Regulatory Grade micrObial Sequences (FDA-ARGOS): Supporting development and validation of Infectious Disease Dx tests.",
+        "url": null
+      },
+      {
+        "access": "full_text",
+        "doi": null,
+        "found_habitat_statement": true,
+        "pmid": "32554796",
+        "step": 3,
+        "title": "Draft Genome Sequences of <i>Sphingomonas</i> Species Associated with the International Space Station.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7303416/fullTextXML"
+      }
+    ]
+  },
+  "A0A495RAM9": {
+    "items": [],
+    "literature_status": "LOOKUP_FAILED",
+    "notes": "[second pass] Retry: J Bacteriol 2010 (20802037) read in full (H. marismortui only); 23565724, 24941450 not accessible. | First pass: DB pubs concern H. marismortui (abstract only); KMG-II submission. Step-3 search did not retrieve the species description.",
+    "reviewer_literature_status": "LOOKUP_FAILED",
+    "sources_checked": [
+      {
+        "access": "full_text",
+        "doi": "10.1038/s41598-018-33984-w",
+        "found_habitat_statement": false,
+        "pmid": "30349075",
+        "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML"
+      },
+      {
+        "access": "full_text",
+        "doi": "10.1038/s42003-021-01878-9",
+        "found_habitat_statement": false,
+        "pmid": "33742139",
+        "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML"
+      },
+      {
+        "access": "full_text",
+        "doi": "10.1128/jb.00642-10",
+        "found_habitat_statement": false,
+        "pmid": "20802037",
+        "title": "A novel six-rhodopsin system in a single archaeon.",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2976437/"
+      },
+      {
+        "access": "abstract_only",
+        "doi": "10.1111/mmi.12208",
+        "found_habitat_statement": false,
+        "pmid": "23565724",
+        "title": "Insight into a single halobacterium using a dual-bacteriorhodopsin system with different functionally optimized pH ranges to cope with periplasmic pH changes associated with continuous light illumination.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23565724%20AND%20SRC:MED&resultType=core&format=json"
+      },
+      {
+        "access": "abstract_only",
+        "doi": "10.1021/jp503629v",
+        "found_habitat_statement": false,
+        "pmid": "24941450",
+        "title": "Photochemistry of a dual-bacteriorhodopsin system in Haloarcula marismortui: HmbRI and HmbRII.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:24941450%20AND%20SRC:MED&resultType=core&format=json"
+      },
+      {
+        "access": "not_accessible",
+        "doi": null,
+        "found_habitat_statement": false,
+        "pmid": null,
+        "title": "step-3 Europe PMC search: \"Haloarcula quadrata\"",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Haloarcula%20quadrata\""
+      }
+    ]
+  },
+  "A0ABX5PZH6": {
+    "items": [
+      {
+        "access": "abstract_only",
+        "consistent_with_db": "not_applicable",
+        "doi": "10.1099/ijs.0.63847-0",
+        "evidence_id": "HL33b0ab61c29c",
+        "habitat_text": "sea water",
+        "locator": "Abstract (step-3 species description)",
+        "parent_decision_reason": "accepted",
+        "parent_verified": true,
+        "pmid": "16403885",
+        "quote": "A Gram-negative, non-motile, non-spore-forming and rod-shaped bacterial strain, DSW-6T, was isolated from sea water and subjected to a polyphasic study.",
+        "reviewer_scope": "isolate",
+        "scope": "isolate",
+        "source_sha256": "23b6c101ed4999ec28e4250ef10edfafc6195eb9fab0670865a4d7dfd52dda8b",
+        "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16403885%20AND%20SRC:MED&resultType=core&format=json",
+        "strain_named": "DSW-6T",
+        "verify_request_key": "3d68765c5e88b48aa251a01a46f49b5b7bee5bc49336f1c40a2012e8c46e4c5c"
+      }
+    ],
+    "literature_status": "ISOLATE_EVIDENCE",
+    "notes": "Type strain DSW-6T isolated from sea water; the same abstract gives DSM 17205 as a culture-collection equivalent of DSW-6T, so isolate scope. JPPB 2017 abstract only.",
+    "reviewer_literature_status": "ISOLATE_EVIDENCE",
+    "sources_checked": [
+      {
+        "access": "full_text",
+        "doi": "10.1038/s41598-018-33984-w",
+        "found_habitat_statement": false,
+        "pmid": "30349075",
+        "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML"
+      },
+      {
+        "access": "full_text",
+        "doi": "10.1038/s42003-021-01878-9",
+        "found_habitat_statement": false,
+        "pmid": "33742139",
+        "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML"
+      },
+      {
+        "access": "abstract_only",
+        "doi": "10.1099/ijs.0.63847-0",
+        "found_habitat_statement": true,
+        "pmid": "16403885",
+        "title": "Donghaeana dokdonensis gen. nov., sp. nov., isolated from sea water.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Donghaeana%20dokdonensis\""
+      }
+    ]
+  },
+  "N0DKS8": {
+    "items": [
+      {
+        "access": "abstract_only",
+        "consistent_with_db": "not_applicable",
+        "doi": "10.1038/ncomms2689",
+        "evidence_id": "HL6f3dc1b39f43",
+        "habitat_text": "marine flavobacterium",
+        "locator": "Abstract",
+        "parent_decision_reason": "accepted",
+        "parent_verified": true,
+        "pmid": "23575682",
+        "quote": "We discover that the marine flavobacterium Krokinobacter eikastus possesses two rhodopsins, the first, KR1, being a prototypical proton pump, while the second, KR2, pumps sodium ions outward.",
+        "reviewer_scope": "organism",
+        "scope": "organism",
+        "source_sha256": "48c280b68671a1a43ca8689cad6cc1c9e88e662bfe988617b01961fb5bff96ea",
+        "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23575682%20AND%20SRC:MED&resultType=core&format=json",
+        "strain_named": null,
+        "verify_request_key": "d25a302fc95a7124f0c4e91b410e733dc26271b8bb3f6c5ef39c2fe187c238ff"
+      },
+      {
+        "access": "abstract_only",
+        "consistent_with_db": "not_applicable",
+        "doi": "10.1099/ijs.0.63841-0",
+        "evidence_id": "HLa8d999a984d6",
+        "habitat_text": "marine-sediment samples",
+        "locator": "Abstract (step-3 source)",
+        "parent_decision_reason": "accepted",
+        "parent_verified": true,
+        "pmid": "16449433",
+        "quote": "Five strains belonging to the family Flavobacteriaceae were isolated from marine-sediment samples collected in Sagami and Tokyo bays on the Pacific coastline of Japan.",
+        "reviewer_scope": "organism",
+        "scope": "organism",
+        "source_sha256": "1e277aab30b62e0c2fbc019e29324194bf8af2e3e0efe704472bb4c848aec0f1",
+        "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16449433%20AND%20SRC:MED&resultType=core&format=json",
+        "strain_named": null,
+        "verify_request_key": "3f2a161d0134e671398879a92107058313c56190537ecd15456f24c7ebdba4d2"
+      }
+    ],
+    "literature_status": "ORGANISM_CONTEXT",
+    "notes": "Species-level \"marine flavobacterium\" (Nat Commun 2013 abstract; full text not accessible). Step-3 genus description (PMID 16449433) abstract: strains from marine sediment of Sagami/Tokyo bays but NBRC 100814 not named in abstract.",
+    "reviewer_literature_status": "ORGANISM_CONTEXT",
+    "sources_checked": [
+      {
+        "access": "full_text",
+        "doi": "10.1038/s41598-018-33984-w",
+        "found_habitat_statement": false,
+        "pmid": "30349075",
+        "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML"
+      },
+      {
+        "access": "full_text",
+        "doi": "10.1038/s42003-021-01878-9",
+        "found_habitat_statement": false,
+        "pmid": "33742139",
+        "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML"
+      },
+      {
+        "access": "abstract_only",
+        "doi": "10.1038/ncomms2689",
+        "found_habitat_statement": true,
+        "pmid": "23575682",
+        "title": "A light-driven sodium ion pump in marine bacteria.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23575682%20AND%20SRC:MED&resultType=core&format=json"
+      },
+      {
+        "access": "abstract_only",
+        "doi": "10.1038/s41586-020-2307-8",
+        "found_habitat_statement": false,
+        "pmid": "32499654",
+        "title": "Femtosecond-to-millisecond structural changes in a light-driven sodium pump.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:32499654%20AND%20SRC:MED&resultType=core&format=json"
+      },
+      {
+        "access": "abstract_only",
+        "doi": "10.1038/nsmb.3002",
+        "found_habitat_statement": false,
+        "pmid": "25849142",
+        "title": "Crystal structure of a light-driven sodium pump.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:25849142%20AND%20SRC:MED&resultType=core&format=json"
+      },
+      {
+        "access": "abstract_only",
+        "doi": "10.1038/nature14322",
+        "found_habitat_statement": false,
+        "pmid": "25849775",
+        "title": "Structural basis for Na(+) transport mechanism by a light-driven Na(+) pump.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:25849775%20AND%20SRC:MED&resultType=core&format=json"
+      },
+      {
+        "access": "full_text",
+        "doi": "10.1126/sciadv.1602952",
+        "found_habitat_statement": false,
+        "pmid": "28508075",
+        "title": "Fast iodide-SAD phasing for high-throughput membrane protein structure determination.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5429034/fullTextXML"
+      },
+      {
+        "access": "full_text",
+        "doi": "10.1126/sciadv.aav2671",
+        "found_habitat_statement": false,
+        "pmid": "30989112",
+        "title": "Structure and mechanisms of sodium-pumping KR2 rhodopsin.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6457933/fullTextXML"
+      },
+      {
+        "access": "not_accessible",
+        "doi": "10.3390/cryst10060496",
+        "found_habitat_statement": false,
+        "pmid": null,
+        "title": "Crystal Structure of the N112A Mutant of the Light-Driven Sodium Pump KR2.",
+        "url": null
+      },
+      {
+        "access": "full_text",
+        "doi": "10.1038/s41467-020-16032-y",
+        "found_habitat_statement": false,
+        "pmid": "32358514",
+        "title": "Molecular mechanism of light-driven sodium pumping.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7195465/fullTextXML"
+      },
+      {
+        "access": "full_text",
+        "doi": "10.1038/s42003-022-03233-y",
+        "found_habitat_statement": false,
+        "pmid": "35422073",
+        "title": "High-pressure crystallography shows noble gas intervention into protein-lipid interaction and suggests a model for anaesthetic action.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9010423/fullTextXML"
+      },
+      {
+        "access": "full_text",
+        "doi": "10.1038/s41467-023-43523-5",
+        "found_habitat_statement": false,
+        "pmid": "38042952",
+        "title": "A multi-reservoir extruder for time-resolved serial protein crystallography and compound screening at X-ray free-electron lasers.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10693631/fullTextXML"
+      },
+      {
+        "access": "full_text",
+        "doi": "10.1038/s41598-025-25449-8",
+        "found_habitat_statement": false,
+        "pmid": "41203717",
+        "title": "Viscoelastic characterization of the lipid cubic phase provides insights into high-viscosity extrusion injection for XFEL experiments.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12594810/fullTextXML"
+      },
+      {
+        "access": "abstract_only",
+        "doi": null,
+        "found_habitat_statement": true,
+        "pmid": "16449433",
+        "title": "Krokinobacter gen. nov., with three novel species, in the family Flavobacteriaceae.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Krokinobacter%20eikastus\"%20sp.%20nov."
+      }
+    ]
+  }
+}
