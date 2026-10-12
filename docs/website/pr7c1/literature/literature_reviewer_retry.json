@@ -1,0 +1,1663 @@
+{
+ "A0A0C3TEH9": {
+  "literature_status": "NOT_REPORTED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "26113638",
+    "doi": "10.1126/science.aaa7484",
+    "title": "NEUROSCIENCE. Natural light-gated anion channels: A family of microbial rhodopsins for advanced optogenetics.",
+    "access": "full_text",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=4764398&rettype=xml",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "30158697",
+    "doi": "10.1038/s41586-018-0504-5",
+    "title": "Structural mechanisms of selectivity and gating in anion channelrhodopsins.",
+    "access": "full_text",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=6317992&rettype=xml",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "23201678",
+    "doi": "10.1038/nature11681",
+    "title": "Algal genomes reveal evolutionary mosaicism and the fate of nucleomorphs.",
+    "access": "full_text",
+    "url": "https://www.nature.com/articles/nature11681",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: \"Guillardia theta\" CCMP2712 isolated",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Guillardia%20theta\"%20CCMP2712%20isolated",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: Guillardia genome paper (Nature 2012) main text now read via nature.com; Methods Summary only says axenic cultures from single-cell isolates (Bigelow Laboratory) - culture origin, not habitat; full methods in SI (not read). All other in-scope texts full, no habitat. | First pass: Genome paper (Nature 2012) full text not accessible; available full texts (Science 2015, Nature 2018, eLife) contain no habitat statement. Step-3 search found no strain origin."
+ },
+ "A0A1Y1HT90": {
+  "literature_status": "NOT_REPORTED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "40533461",
+    "doi": "10.1038/s41467-025-59299-9",
+    "title": "Cryo-EM structure of a blue-shifted channelrhodopsin from Klebsormidium nitens.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12177036/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "24865297",
+    "doi": "10.1038/ncomms4978",
+    "title": "Klebsormidium flaccidum genome reveals primary factors for plant terrestrial adaptation.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4052687/fullTextXML",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: no change. Step-3 targeted search for NIES-2285 origin STILL NOT PERFORMED (iteration budget exhausted) - parent should run it (e.g., NIES collection/original strain description). | First pass: Both in-scope papers read in full (24865297 genome paper, 40533461); NIES-2285 origin not stated. Step-3 search for NIES-2285 origin NOT performed (budget) - parent may run it."
+ },
+ "A0A3G1I4H9": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "39232582",
+    "doi": "10.1016/j.molcel.2024.08.016",
+    "title": "The high-light-sensitivity mechanism and optogenetic properties of the bacteriorhodopsin-like channelrhodopsin GtCCR4.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "37165048",
+    "doi": "10.1038/s41598-023-34687-7",
+    "title": "A light-gated cation channel with high reactivity to weak light.",
+    "access": "full_text",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=10172181&rettype=xml",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": "10.3390/app9173440",
+    "title": "Ion Channel Properties of a Cation Channelrhodopsin, Gt_CCR4",
+    "access": "abstract_only",
+    "url": "https://www.mdpi.com/2076-3417/9/17/3440",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: Sci Rep 2023 (37165048) read in full, no habitat; MDPI app9173440 seen only via WebFetch highlights (no habitat); Mol Cell 2024 and UniProt DTD paper (Yamauchi 2017 Biophys Physicobiol) not accessed. | First pass: 37165048, 39232582, 10.3390/app9173440 and the UniProt DTD-channel paper not accessed in full; no step-3 hit giving CCMP2712 origin."
+ },
+ "A0A495RAM9": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "20802037",
+    "doi": "10.1128/jb.00642-10",
+    "title": "A novel six-rhodopsin system in a single archaeon.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2976437/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "23565724",
+    "doi": "10.1111/mmi.12208",
+    "title": "Insight into a single halobacterium using a dual-bacteriorhodopsin system with different functionally optimized pH ranges to cope with periplasmic pH changes associated with continuous light illumination.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23565724%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "24941450",
+    "doi": "10.1021/jp503629v",
+    "title": "Photochemistry of a dual-bacteriorhodopsin system in Haloarcula marismortui: HmbRI and HmbRII.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:24941450%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: \"Haloarcula quadrata\"",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Haloarcula%20quadrata\"",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: J Bacteriol 2010 (20802037) read in full (H. marismortui only); 23565724, 24941450 not accessible. | First pass: DB pubs concern H. marismortui (abstract only); KMG-II submission. Step-3 search did not retrieve the species description."
+ },
+ "A0A6P3CW41": {
+  "literature_status": "ORGANISM_CONTEXT",
+  "items": [
+   {
+    "pmid": "26578511",
+    "doi": "10.1074/jbc.m115.688614",
+    "quote": "Functional characterization was performed with a microbial rhodopsin from the cyanobacterium Mastigocladopsis repens , which was isolated from soil at Punta de la Mora, Tarragona in Spain.",
+    "locator": "Introduction (final paragraph)",
+    "scope": "organism",
+    "habitat_text": "isolated from soil at Punta de la Mora, Tarragona in Spain",
+    "strain_named": "Mastigocladopsis repens (no strain designation)",
+    "consistent_with_db": "not_applicable",
+    "access": "full_text",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4697170/",
+    "parent_verified": false
+   },
+   {
+    "pmid": "26578511",
+    "doi": "10.1074/jbc.m115.688614",
+    "quote": "M. repens, isolated from the surface of soft powdery calcareous soil, is a blue-green alga belonging to the cyanobacterial order Stigonematales and was morphologically characterized according to the filaments it forms, which have many branches ( 23 ).",
+    "locator": "Results and Discussion, first paragraph",
+    "scope": "organism",
+    "habitat_text": "isolated from the surface of soft powdery calcareous soil",
+    "strain_named": "M. repens (no strain designation)",
+    "consistent_with_db": "not_applicable",
+    "access": "full_text",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4697170/",
+    "parent_verified": false
+   }
+  ],
+  "sources_checked": [
+   {
+    "pmid": "26578511",
+    "doi": "10.1074/jbc.m115.688614",
+    "title": "Characterization of a Cyanobacterial Chloride-pumping Rhodopsin and Its Conversion into a Proton Pump.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4697170/",
+    "found_habitat_statement": true
+   },
+   {
+    "pmid": "32721401",
+    "doi": "10.1016/j.jmb.2020.07.016",
+    "title": "Structure-Based Functional Modification Study of a Cyanobacterial Chloride Pump for Transporting Multiple Anions.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "The crystal structure of light-driven cyanobacterial chloride importer from Mastigocladopsis repens with Bromide ion.",
+    "access": "not_accessible",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "The crystal structure of light-driven cyanobacterial chloride importer from Mastigocladopsis repens.",
+    "access": "not_accessible",
+    "url": null,
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: JBC 2015 (26578511) read in full via PMC HTML; M. repens soil origin stated at species level (record has no strain identifiers, paper names no strain). JMB 2020 not accessed. | First pass: 26578511 (JBC, PMC non-OA) and 32721401 (JMB) not accessed; UniProt refs are PDB submissions."
+ },
+ "A0A977XLG0": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "36859551",
+    "doi": "10.1038/s41586-023-05774-6",
+    "title": "Phototrophy by antenna-containing rhodopsin pumps in aquatic environments.",
+    "access": "abstract_only",
+    "url": "https://www.nature.com/articles/s41586-023-05774-6",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: Nature 2023 nature.com page paywalled (abstract/legends/acknowledgements only; acknowledgements mention Lake Kinneret, Atlantic, Red Sea sampling but not tied to this record); bioRxiv not read. | First pass: 36859551 (Nature) not accessible; bioRxiv preprint not read."
+ },
+ "A0A9X9ZA75": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "28257611",
+    "doi": "10.1021/jacs.6b12139",
+    "title": "Demonstration of a Light-Driven SO<sub>4</sub><sup>2-</sup> Transporter and Its Spectroscopic Characteristics.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:28257611%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "36309497",
+    "doi": "10.1038/s41467-022-34019-9",
+    "title": "Structural insights into light-driven anion pumping in cyanobacteria.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9617919/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "15572765",
+    "doi": "10.1107/s0907444904019158",
+    "title": "Coot: model-building tools for molecular graphics.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:15572765%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: \"Synechocystis sp. PCC 7509\"",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Synechocystis%20sp.%20PCC%207509\"",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: no new accessible full text found for remaining in-scope primary sources (non-OA journals); unchanged. | First pass: JACS 2017 abstract only; Nat Commun 2022 full text no habitat; Coot DB citation is software. Step-3 search found nothing."
+ },
+ "A0AA82WPB4": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "37386213",
+    "doi": "10.1038/s41594-023-01020-9",
+    "title": "Mechanisms of inward transmembrane proton translocation.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:37386213%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: NSMB 2023 nature.com page paywalled (abstract/legends only); no habitat. | First pass: NSMB 2023 full text not accessible (abstract only, no habitat); no strain named so no step-3 search."
+ },
+ "A0ABF7PQA2": {
+  "literature_status": "NOT_REPORTED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "37474513",
+    "doi": "10.1038/s41467-023-40041-2",
+    "title": "Structures of channelrhodopsin paralogs in peptidiscs explain their contrasting K<sup>+</sup> and Na<sup>+</sup> selectivities.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10359266/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "35726059",
+    "doi": "10.1038/s41593-022-01094-6",
+    "title": "Kalium channelrhodopsins are natural light-gated potassium channels that mediate optogenetic inhibition.",
+    "access": "full_text",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=9854242&rettype=xml",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": "10.1063/1.470117",
+    "title": "A smooth particle mesh Ewald method",
+    "access": "abstract_only",
+    "url": "https://doi.org/10.1063/1.470117",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "39900567",
+    "doi": "10.1038/s41467-025-56491-9",
+    "title": "Structural insights into light-gating of potassium-selective channelrhodopsin.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11790859/fullTextXML",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: 10.1063/1.470117 identified (abstract) as Essmann et al. 1995 \"A smooth particle mesh Ewald method\" (J Chem Phys) - computational methods paper, no organism; judged out of scope. Other in-scope texts full, no habitat. | First pass: Nat Neurosci 2022, Nat Commun 2023 and 2025 read in full, no habitat. DB pub 10.1063/1.470117 is a molecular-dynamics methods paper (not organism-related, not accessible) - ignored; flag."
+ },
+ "A0ABQ7GHC2": {
+  "literature_status": "ORGANISM_CONTEXT",
+  "items": [
+   {
+    "pmid": "22196724",
+    "doi": "10.1016/j.cell.2011.12.004",
+    "quote": "Typically found in hyper-saline environments such as evaporation salt fields, the unicellular (oval with two flagella) green alga Dunaliella salina is salt tolerant.",
+    "locator": "Results/Table 1 region (new ChRs; D. salina paragraph)",
+    "scope": "organism",
+    "habitat_text": "hyper-saline environments such as evaporation salt fields",
+    "strain_named": "Dunaliella salina (no strain designation)",
+    "consistent_with_db": "not_applicable",
+    "access": "full_text",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4166436/",
+    "parent_verified": false
+   }
+  ],
+  "sources_checked": [
+   {
+    "pmid": "22196724",
+    "doi": "10.1016/j.cell.2011.12.004",
+    "title": "The microbial opsin family of optogenetic tools.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4166436/",
+    "found_habitat_statement": true
+   },
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "37213053",
+    "doi": "10.1007/s12223-023-01062-y",
+    "title": "Ethanol as a carotenoid production stimulator in Dunaliella salina CCAP 19/18.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false,
+    "step": 3
+   }
+  ],
+  "notes": "Retry: Cell 2011 review (22196724) read in full via PMC HTML; species-level habitat statement for D. salina (strain CCAP 19/18 not mentioned). | First pass: 22196724 (Cell review) not accessed in full; UniProt refs are untitled submissions; step-3 search found 37213053 (abstract, no habitat)."
+ },
+ "A0ABR7ZCQ4": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "12622809",
+    "doi": "10.1046/j.1365-2958.2003.03395.x",
+    "title": "Demonstration of a sensory rhodopsin in eubacteria.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "15459346",
+    "doi": "10.1126/science.1103943",
+    "title": "Anabaena sensory rhodopsin: a photochromic color sensor at 2.0 A.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5017883/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "22872645",
+    "doi": "10.1074/jbc.m112.390864",
+    "title": "Photo-induced regulation of the chromatic adaptive gene expression by Anabaena sensory rhodopsin.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3463315/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "28501588",
+    "doi": "10.1016/j.jmb.2017.05.005",
+    "title": "Oligomeric Structure of Anabaena Sensory Rhodopsin in a Lipid Bilayer Environment by Combining Solid-State NMR and Long-range DEER Constraints.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "32943748",
+    "doi": "10.1038/s41396-020-00775-z",
+    "title": "Comparative genomics reveals insights into cyanobacterial evolution and habitat adaptation.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7852516/",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: ISME J 2020 main text read in full via PMC HTML; habitats per strain only in Supplementary Table S1 (not accessed); strains provided by FACHB collection (culture origin). 12622809, 28501588 etc. still not accessible. | First pass: DB pubs concern Anabaena (Nostoc) sp. PCC 7120 ASR, not A. cylindrica; 12622809 and 28501588 not accessible. UniProt genome paper 32943748 (ISME J) read via WebFetch highlights only (PMC HTML captcha-blocked): habitats derived from isolation sources, per-strain values only in Supplementary Table S1 (not accessed). Step-3 EPMC search \"Anabaena cylindrica\" AND \"FACHB-318\": 0 hits."
+ },
+ "A0ABY3LD08": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "26970049",
+    "doi": "10.1111/php.12585",
+    "title": "Functional and Photochemical Characterization of a Light-Driven Proton Pump from the Gammaproteobacterium Pantoea vagans.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:26970049%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: \"Pantoea vagans\" Melanaphis ET-90",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Pantoea%20vagans\"%20Melanaphis%20ET-90",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: no new accessible full text found for remaining in-scope primary sources (non-OA journals); unchanged. | First pass: DB pub (Photochem Photobiol 2016) abstract only; UniProt submission title mentions aphid corpses but is not a paper; step-3 search returned no hits."
+ },
+ "A0ACD6B968": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "12622809",
+    "doi": "10.1046/j.1365-2958.2003.03395.x",
+    "title": "Demonstration of a sensory rhodopsin in eubacteria.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:12622809%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "15459346",
+    "doi": "10.1126/science.1103943",
+    "title": "Anabaena sensory rhodopsin: a photochromic color sensor at 2.0 A.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5017883/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "22872645",
+    "doi": "10.1074/jbc.m112.390864",
+    "title": "Photo-induced regulation of the chromatic adaptive gene expression by Anabaena sensory rhodopsin.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3463315/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "28501588",
+    "doi": "10.1016/j.jmb.2017.05.005",
+    "title": "Oligomeric Structure of Anabaena Sensory Rhodopsin in a Lipid Bilayer Environment by Combining Solid-State NMR and Long-range DEER Constraints.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:28501588%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "11759840",
+    "doi": "10.1093/dnares/8.5.205",
+    "title": "Complete genomic sequence of the filamentous nitrogen-fixing cyanobacterium Anabaena sp. strain PCC 7120.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:11759840%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "24013819",
+    "doi": "10.1038/nmeth.2635",
+    "title": "Solid-state NMR spectroscopy structure determination of a lipid-embedded heptahelical membrane protein.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:24013819%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "40156665",
+    "doi": "10.1007/s10858-025-00467-w",
+    "title": "Membrane protein structure determination from Paramagnetic Relaxation Enhancement and internuclear distance restraints.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:40156665%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: Anabaena PCC 7120 origin isolated",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=Anabaena%20PCC%207120%20origin%20isolated",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: JBC 2012 (22872645) and Science 2004 author manuscript (15459346) read in full, no habitat; DNA Res 2001 genome (Cloudflare-blocked), Mol Microbiol 2003, JMB 2017, Nat Methods 2013 not accessible. | First pass: DNA Res genome and Anabaena SR papers abstract only; step-3 found nothing."
+ },
+ "A7WQE8": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "23586665",
+    "doi": "10.1021/bi301412n",
+    "title": "Photocycle and vectorial proton transfer in a rhodopsin from the eukaryote Oxyrrhis marina.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23586665%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "17360573",
+    "doi": "10.1073/pnas.0700258104",
+    "title": "Spliced leader RNA trans-splicing in dinoflagellates.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1838650/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: \"Oxyrrhis marina\" rhodopsin",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Oxyrrhis%20marina\"%20rhodopsin",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: PNAS 2007 (17360573) read in full via PMC HTML; strain info is in SI Table 1 (not accessed); Biochemistry 2013 not accessible. | First pass: PNAS 2007 and Biochemistry 2013 abstract only; step-3 search found no strain origin."
+ },
+ "F2TZN0": {
+  "literature_status": "ISOLATE_EVIDENCE",
+  "items": [
+   {
+    "pmid": "21699890",
+    "doi": "10.1016/j.ydbio.2011.06.003",
+    "quote": "A single choanoflagellate rosette colony was isolated by Tom Nerad from mud core samples collected near Hog Island, Virginia, USA (37.45278° N 75.67521° W) in February 2000. After propagation in growth media ( King et al., 2009 ), the choanoflagellate culture (containing associated environmental bacteria) was deposited under strain designation ATCC 50818 (American Tissue Culture Collection, Manassas, VA).",
+    "locator": "Material and methods, Initial isolation of choanoflagellate S. rosetta",
+    "scope": "isolate",
+    "habitat_text": "mud core samples collected near Hog Island, Virginia, USA",
+    "strain_named": "ATCC 50818",
+    "consistent_with_db": "not_applicable",
+    "access": "full_text",
+    "source_url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=3156392&rettype=xml",
+    "parent_verified": false
+   }
+  ],
+  "sources_checked": [
+   {
+    "pmid": "28976747",
+    "doi": "10.1021/acs.biochem.7b00519",
+    "title": "Purification and Characterization of RhoPDE, a Retinylidene/Phosphodiesterase Fusion Protein and Potential Optogenetic Tool from the Choanoflagellate Salpingoeca rosetta.",
+    "access": "full_text",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=5685503&rettype=xml",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "28302718",
+    "doi": "10.1074/jbc.m117.775569",
+    "title": "A unique choanoflagellate enzyme rhodopsin exhibits light-dependent cyclic nucleotide phosphodiesterase activity.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5418051/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "29483295",
+    "doi": "10.1042/bcj20180010",
+    "title": "A novel rhodopsin phosphodiesterase from Salpingoeca rosetta shows light-enhanced substrate affinity.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "Annotation of Salpingoeca rosetta.",
+    "access": "not_accessible",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33154353",
+    "doi": "10.1038/s41467-020-19376-7",
+    "title": "Structural insights into the mechanism of rhodopsin phosphodiesterase.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7644710/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "21699890",
+    "doi": "10.1016/j.ydbio.2011.06.003",
+    "title": "Cell differentiation and morphogenesis in the colony-forming choanoflagellate Salpingoeca rosetta.",
+    "access": "full_text",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=3156392&rettype=xml",
+    "found_habitat_statement": true,
+    "step": 3
+   }
+  ],
+  "notes": "Retry: step-3 paper Dayel et al. 2011 (21699890) now full text (PMC efetch) - states ATCC 50818 isolated from mud core samples near Hog Island, VA. 28976747 and 28302718 read in full, no habitat. | First pass: 28976747, 28302718 (PMC non-OA), 29483295 not accessed; step-3 21699890 abstract has no habitat."
+ },
+ "H2EZZ6": {
+  "literature_status": "NOT_REPORTED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "23995841",
+    "doi": "10.1074/jbc.m113.505495",
+    "title": "Characterization of a highly efficient blue-shifted channelrhodopsin from the marine alga Platymonas subcordiformis.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3795289/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "22196724",
+    "doi": "10.1016/j.cell.2011.12.004",
+    "title": "The microbial opsin family of optogenetic tools.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4166436/",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: JBC 2013 (23995841; concerns Platymonas subcordiformis) and Cell 2011 (22196724) read in full; no Pleodorina habitat. All in-scope sources full text. | First pass: JBC 2013 and Cell 2011 full texts not retrievable; no strain."
+ },
+ "I4DST7": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "23625688",
+    "doi": "10.1002/prot.24316",
+    "title": "Crystal structure of deltarhodopsin-3 from Haloterrigena thermotolerans.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23625688%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: \"Haloterrigena thermotolerans\"",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Haloterrigena%20thermotolerans\"",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: no new accessible full text found for remaining in-scope primary sources (non-OA journals); unchanged. | First pass: Proteins 2013 abstract only; step-3 search found no species description."
+ },
+ "L1IFZ3": {
+  "literature_status": "NOT_REPORTED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "26113638",
+    "doi": "10.1126/science.aaa7484",
+    "title": "NEUROSCIENCE. Natural light-gated anion channels: A family of microbial rhodopsins for advanced optogenetics.",
+    "access": "full_text",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=4764398&rettype=xml",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "23201678",
+    "doi": "10.1038/nature11681",
+    "title": "Algal genomes reveal evolutionary mosaicism and the fate of nucleomorphs.",
+    "access": "full_text",
+    "url": "https://www.nature.com/articles/nature11681",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: \"Guillardia theta\" CCMP2712 isolated",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Guillardia%20theta\"%20CCMP2712%20isolated",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: genome paper main text now read (nature.com); no habitat; all in-scope sources full text. | First pass: Genome paper (Nature 2012) full text not accessible; available full texts (Science 2015, Nature 2018, eLife) contain no habitat statement. Step-3 search found no strain origin."
+ },
+ "L1J207": {
+  "literature_status": "NOT_REPORTED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "26113638",
+    "doi": "10.1126/science.aaa7484",
+    "title": "NEUROSCIENCE. Natural light-gated anion channels: A family of microbial rhodopsins for advanced optogenetics.",
+    "access": "full_text",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=4764398&rettype=xml",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "30158697",
+    "doi": "10.1038/s41586-018-0504-5",
+    "title": "Structural mechanisms of selectivity and gating in anion channelrhodopsins.",
+    "access": "full_text",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=6317992&rettype=xml",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "23201678",
+    "doi": "10.1038/nature11681",
+    "title": "Algal genomes reveal evolutionary mosaicism and the fate of nucleomorphs.",
+    "access": "full_text",
+    "url": "https://www.nature.com/articles/nature11681",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "30614787",
+    "doi": "10.7554/elife.41741",
+    "title": "Crystal structure of a natural light-gated anion channelrhodopsin.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6336409/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33998458",
+    "doi": "10.7554/elife.65903",
+    "title": "The crystal structure of bromide-bound <i>Gt</i>ACR1 reveals a pre-activated state in the transmembrane anion tunnel.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8172240/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: \"Guillardia theta\" CCMP2712 isolated",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Guillardia%20theta\"%20CCMP2712%20isolated",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: genome paper main text now read (nature.com); no habitat; all in-scope sources full text. | First pass: Genome paper (Nature 2012) full text not accessible; available full texts (Science 2015, Nature 2018, eLife) contain no habitat statement. Step-3 search found no strain origin."
+ },
+ "L1K1K8": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "23201678",
+    "doi": "10.1038/nature11681",
+    "title": "Algal genomes reveal evolutionary mosaicism and the fate of nucleomorphs.",
+    "access": "full_text",
+    "url": "https://www.nature.com/articles/nature11681",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "29078348",
+    "doi": "10.1073/pnas.1710702114",
+    "title": "Bacteriorhodopsin-like channelrhodopsins: Alternative mechanism for control of cation conductance.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5692563/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "39232582",
+    "doi": "10.1016/j.molcel.2024.08.016",
+    "title": "The high-light-sensitivity mechanism and optogenetic properties of the bacteriorhodopsin-like channelrhodopsin GtCCR4.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:39232582%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: \"Guillardia theta\" CCMP2712 isolated",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Guillardia%20theta\"%20CCMP2712%20isolated",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: genome paper and PNAS 2017 (29078348, PMC HTML) read in full, no habitat; Mol Cell 2024 (39232582) still not accessible. | First pass: Genome paper (Nature 2012) full text not accessible; available full texts (Science 2015, Nature 2018, eLife) contain no habitat statement. Step-3 search found no strain origin."
+ },
+ "M0JSR0": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "20802037",
+    "doi": "10.1128/jb.00642-10",
+    "title": "A novel six-rhodopsin system in a single archaeon.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2976437/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "23565724",
+    "doi": "10.1111/mmi.12208",
+    "title": "Insight into a single halobacterium using a dual-bacteriorhodopsin system with different functionally optimized pH ranges to cope with periplasmic pH changes associated with continuous light illumination.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "24941450",
+    "doi": "10.1021/jp503629v",
+    "title": "Photochemistry of a dual-bacteriorhodopsin system in Haloarcula marismortui: HmbRI and HmbRII.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "25393412",
+    "doi": "10.1371/journal.pgen.1004784",
+    "title": "Phylogenetically driven sequencing of extremely halophilic archaea reveals strategies for static and dynamic osmo-response.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4230888/fullTextXML",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: J Bacteriol 2010 (20802037) read in full (H. marismortui; no H. vallismortis habitat); 25393412 environments only in Table S1 (not accessed); 23565724, 24941450 not accessible. | First pass: 25393412 full text: environments only in Table S1 (not accessed); 20802037, 23565724, 24941450 not accessed in full; step-3 search found no original description text."
+ },
+ "P0DMH7": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "11016950",
+    "doi": "10.1073/pnas.190337797",
+    "title": "Genome sequence of Halobacterium species NRC-1.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC17314/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "29882660",
+    "doi": "10.1021/acs.chemrev.7b00715",
+    "title": "Microbial Halorhodopsins: Light-Driven Chloride Pumps.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:29882660%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "7107607",
+    "doi": "10.1016/s0021-9258(18)34020-1",
+    "title": "Halorhodopsin is a light-driven chloride pump.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:7107607%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: Halobacterium NRC-1 origin isolated",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=Halobacterium%20NRC-1%20origin%20isolated",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: NRC-1 genome paper (11016950) read in full via PMC HTML - no origin/habitat for NRC-1; 7107607 (JBC 1982) and 29882660 not accessible. | First pass: NRC-1 genome paper (PNAS 2000) and other papers abstract-only; no habitat. Step-3 search found no NRC-1 origin statement."
+ },
+ "P0DMH8": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "11016950",
+    "doi": "10.1073/pnas.190337797",
+    "title": "Genome sequence of Halobacterium species NRC-1.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC17314/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "1465418",
+    "doi": "10.1073/pnas.89.24.11915",
+    "title": "Primary structure of an archaebacterial transducer, a methyl-accepting protein associated with sensory rhodopsin I.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:1465418%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "6959114",
+    "doi": "10.1073/pnas.79.20.6250",
+    "title": "Identification of a third rhodopsin-like pigment in phototactic Halobacterium halobium.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:6959114%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "2036407",
+    "doi": "10.1021/bi00236a010",
+    "title": "Conformational changes in sensory rhodopsin I: similarities and differences with bacteriorhodopsin, halorhodopsin, and rhodopsin.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:2036407%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "9153084",
+    "doi": "10.1093/protein/10.3.197",
+    "title": "Three-dimensional model of sensory rhodopsin I reveals important restraints between the protein and the chromophore.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:9153084%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: Halobacterium NRC-1 origin isolated",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=Halobacterium%20NRC-1%20origin%20isolated",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: NRC-1 genome paper read in full, no habitat; 1465418 and 6959114 are scanned-page PMC records (no text), 2036407, 9153084 not accessible. | First pass: NRC-1 genome paper (PNAS 2000) and other papers abstract-only; no habitat. Step-3 search found no NRC-1 origin statement."
+ },
+ "P15647": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "30021110",
+    "doi": "10.1016/j.bpj.2018.06.009",
+    "title": "Light-Driven Chloride Transport Kinetics of Halorhodopsin.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6051019/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "8204571",
+    "doi": "10.1021/bi00187a002",
+    "title": "Blue halorhodopsin from Natronobacterium pharaonis: wavelength regulation by anions.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "7578054",
+    "doi": "10.1021/bi00044a027",
+    "title": "Light-driven chloride ion transport by halorhodopsin from Natronobacterium pharaonis. 1. The photochemical cycle.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "21871461",
+    "doi": "10.1016/j.jmb.2011.08.021",
+    "title": "Crystal structures of an O-like blue form and an anion-free yellow form of pharaonis halorhodopsin.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "2104837",
+    "doi": "10.1016/s0021-9258(19)40006-9",
+    "title": "The primary structure of a halorhodopsin from Natronobacterium pharaonis. Structural, functional and evolutionary implications for bacterial rhodopsins and halorhodopsins.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: BPJ 2018 (30021110) read in full, no habitat; 2104837, 8204571, 7578054, 21871461 not accessible. | First pass: Most papers (2104837, 8204571, 21871461, 7578054, 30021110) abstract-only/non-OA; no habitat found."
+ },
+ "P29563": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "1654776",
+    "doi": "10.1016/0003-9861(91)90014-a",
+    "title": "Archaerhodopsin-2, from Halobacterium sp. aus-2 further reveals essential amino acid residues for light-driven proton pumps.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:1654776%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "16540121",
+    "doi": "10.1016/j.jmb.2006.02.032",
+    "title": "Crystal structures of archaerhodopsin-1 and -2: Common structural motif in archaeal light-driven proton pumps.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16540121%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "8073078",
+    "doi": "10.1111/j.1751-1097.1994.tb03945.x",
+    "title": "pH dependence of the absorption spectra and photochemical transformations of the archaerhodopsins.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:8073078%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: \"aus-2\" Halobacterium",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"aus-2\"%20Halobacterium",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: no new accessible full text found for remaining in-scope primary sources (non-OA journals); unchanged. | First pass: ABB 1991 and other papers abstract-only; step-3 search for aus-2 returned nothing."
+ },
+ "P42196": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "9598990",
+    "doi": "10.1016/s0014-5793(98)00322-6",
+    "title": "Heterologous coexpression of the blue light receptor psRII and its transducer pHtrII from Natronobacterium pharaonis in the Halobacterium salinarium strain Pho81/w restores negative phototaxis.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "12368857",
+    "doi": "10.1038/nature01109",
+    "title": "Molecular basis of transmembrane signalling by sensory rhodopsin II-transducer complex.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "1597180",
+    "doi": "10.1111/j.1432-1033.1992.tb16935.x",
+    "title": "Biochemical and photochemical properties of the photophobic receptors from Halobacterium halobium and Natronobacterium pharaonis.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "9144172",
+    "doi": "10.1073/pnas.94.10.4960",
+    "title": "Constitutive signaling by the phototaxis receptor sensory rhodopsin II from disruption of its protonated Schiff base-Asp-73 interhelical salt bridge.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC24613/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "2252905",
+    "doi": "10.1021/bi00488a038",
+    "title": "Color regulation in the archaebacterial phototaxis receptor phoborhodopsin (sensory rhodopsin II).",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "7708770",
+    "doi": "10.1073/pnas.92.7.3036",
+    "title": "The primary structure of sensory rhodopsin II: a member of an additional retinal protein subgroup is coexpressed with its transducer, the halobacterial transducer of rhodopsin II.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "11452084",
+    "doi": "10.1126/science.1062977",
+    "title": "Crystal structure of sensory rhodopsin II at 2.4 angstroms: insights into color tuning and transducer interaction.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4996266/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "11504917",
+    "doi": "10.1073/pnas.181203898",
+    "title": "X-ray structure of sensory rhodopsin II at 2.1-A resolution.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC56927/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "11937052",
+    "doi": "10.1016/s0969-2126(02)00736-0",
+    "title": "Early structural rearrangements in the photocycle of an integral membrane sensory receptor.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: 9144172, 11504917, 11452084 (author ms) read in full, no habitat; 7708770 scanned-only; others not accessible. | First pass: 7708770, 9144172 (PMC non-OA) and others not accessed in full; no habitat found."
+ },
+ "P96787": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "9878396",
+    "doi": "10.1006/jmbi.1998.2286",
+    "title": "Evolution of the archaeal rhodopsins: evolution rate changes by gene duplication and functional differentiation.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "22120467",
+    "doi": "10.1038/nmeth.1782",
+    "title": "Optical recording of action potentials in mammalian neurons using a microbial rhodopsin.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3248630/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33504778",
+    "doi": "10.1038/s41467-020-20596-0",
+    "title": "Structures of the archaerhodopsin-3 transporter reveal that disordering of internal water networks underpins receptor sensitization.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7840839/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: no new accessible full text found for remaining in-scope primary sources (non-OA journals); unchanged. | First pass: 9878396 abstract only; OA papers (22120467, 33504778) contain no habitat statement."
+ },
+ "Q48314": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "8541296",
+    "doi": "10.1016/0005-2736(95)00211-1",
+    "title": "Over-expression of a new photo-active halorhodopsin in Halobacterium salinarium.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:8541296%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: Halobacterium \"strain shark\"",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=Halobacterium%20\"strain%20shark\"",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: no new accessible full text found for remaining in-scope primary sources (non-OA journals); unchanged. | First pass: BBA 1995 abstract only; step-3 search for strain shark found nothing."
+ },
+ "Q48315": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "8541296",
+    "doi": "10.1016/0005-2736(95)00211-1",
+    "title": "Over-expression of a new photo-active halorhodopsin in Halobacterium salinarium.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: no new accessible full text found for remaining in-scope primary sources (non-OA journals); unchanged. | First pass: 8541296 abstract only; no habitat."
+ },
+ "Q6J4G7": {
+  "literature_status": "ORGANISM_CONTEXT",
+  "items": [
+   {
+    "pmid": "15466697",
+    "doi": "10.1073/pnas.0403999101",
+    "quote": "For the phylogenetic study of the PR family of proteins, 75 PR sequences were assembled, representing samples from the central northern Pacific, eastern Pacific, and Southern oceans, the Mediterranean Sea, and the Red Sea.",
+    "locator": "Materials and Methods, Sequence Data (record EMBL AY601905 is in the listed accession set)",
+    "scope": "organism",
+    "habitat_text": "the Red Sea",
+    "strain_named": "75-PR sequence data set (no per-clone origin given)",
+    "consistent_with_db": "not_applicable",
+    "access": "full_text",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC522022/",
+    "parent_verified": false
+   }
+  ],
+  "sources_checked": [
+   {
+    "pmid": "34226545",
+    "doi": "10.1038/s41467-021-24429-6",
+    "title": "Cryo-EM structure and dynamics of the green-light absorbing proteorhodopsin.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8257665/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "15466697",
+    "doi": "10.1073/pnas.0403999101",
+    "title": "Darwinian adaptation of proteorhodopsin to different light intensities in the marine environment.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC522022/",
+    "found_habitat_statement": true
+   },
+   {
+    "pmid": "32647827",
+    "doi": "10.1016/j.yjsbx.2020.100024",
+    "title": "Cryo-electron microscopic and X-ray crystallographic analysis of the light-driven proton pump proteorhodopsin reveals a pentameric assembly.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7337067/fullTextXML",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: PNAS 2004 (15466697) read in full via PMC HTML; only data-set-level statement of sample origins (incl. Red Sea); record EMBL AY601905 is in the accession list but no per-sequence origin given. Organism-scope only. | First pass: PNAS 2004 full text not retrievable (abstract has no habitat); Nat Commun 2021 and JSB X 2020 full texts no habitat."
+ },
+ "Q6R5N7": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "16075162",
+    "doi": "10.1007/s00792-005-0468-x",
+    "title": "Genetic cloning and functional expression in Escherichia coli of an archaerhodopsin gene from Halorubrum xinjiangense.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16075162%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: \"Halorubrum xinjiangense\"",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Halorubrum%20xinjiangense\"",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: no new accessible full text found for remaining in-scope primary sources (non-OA journals); unchanged. | First pass: Extremophiles 2005 abstract only (strain BD-1(T)); step-3 search did not retrieve the species description."
+ },
+ "Q8RUT8": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "12060707",
+    "doi": "10.1073/pnas.122243399",
+    "title": "Two rhodopsins mediate phototaxis to low- and high-intensity light in Chlamydomonas reinhardtii.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC124360/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "14615590",
+    "doi": "10.1073/pnas.1936192100",
+    "title": "Channelrhodopsin-2, a directly light-gated cation-selective membrane channel.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC283525/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "Archaeal-type opsins in Chlamydomonas.",
+    "access": "not_accessible",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "22266941",
+    "doi": "10.1038/nature10870",
+    "title": "Crystal structure of the channelrhodopsin light-gated cation channel.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4160518/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "25975962",
+    "doi": "10.1038/ncomms8177",
+    "title": "Atomistic design of microbial opsin-based blue-shifted optogenetics tools.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4479019/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "29170206",
+    "doi": "10.1126/science.aan8862",
+    "title": "Structural insights into ion conduction by channelrhodopsin 2.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33752801",
+    "doi": "10.7554/elife.62389",
+    "title": "Time-resolved serial femtosecond crystallography reveals early structural changes in channelrhodopsin.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7987342/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "39181878",
+    "doi": "10.1038/s41467-024-51811-x",
+    "title": "Channelrhodopsins with distinct chromophores and binding patterns.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11344840/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "39680650",
+    "doi": "10.1021/jacs.4c15402",
+    "title": "Structural Insights Into the Opening Mechanism of C1C2 Channelrhodopsin.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11726564/fullTextXML",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: 12060707, 14615590, 22266941 read in full via PMC HTML, no habitat (lab strains CC/495 only); 29170206 and UniProt submission not accessible. | First pass: Lab alga, no strain. No habitat statements in OA texts; several primary/UniProt papers (14615590, 12089443, 29170206, 22266941 non-OA) not accessed."
+ },
+ "Q93WP2": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "12089443",
+    "doi": "10.1126/science.1072068",
+    "title": "Channelrhodopsin-1: a light-gated proton channel in green algae.",
+    "access": "abstract_only",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "36982741",
+    "doi": "10.3390/ijms24065667",
+    "title": "The Mechanism of the Channel Opening in Channelrhodopsin-2: A Molecular Dynamics Simulation.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10057421/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "39680650",
+    "doi": "10.1021/jacs.4c15402",
+    "title": "Structural Insights Into the Opening Mechanism of C1C2 Channelrhodopsin.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11726564/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "18552201",
+    "doi": "10.1105/tpc.108.057919",
+    "title": "Channelrhodopsin-1 initiates phototaxis and photophobic responses in chlamydomonas by immediate light-induced depolarization.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2483371/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "Archaeal-type opsins in Chlamydomonas.",
+    "access": "not_accessible",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "22266941",
+    "doi": "10.1038/nature10870",
+    "title": "Crystal structure of the channelrhodopsin light-gated cation channel.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4160518/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33752801",
+    "doi": "10.7554/elife.62389",
+    "title": "Time-resolved serial femtosecond crystallography reveals early structural changes in channelrhodopsin.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7987342/fullTextXML",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: 18552201 and 22266941 read in full, no habitat; 12089443 (Science 2002) not accessible. | First pass: As Q8RUT8; 12089443 (Science), 18552201 (Plant Cell) not accessed."
+ },
+ "Q9UW81": {
+  "literature_status": "LOOKUP_FAILED",
+  "items": [],
+  "sources_checked": [
+   {
+    "pmid": "30349075",
+    "doi": "10.1038/s41598-018-33984-w",
+    "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "33742139",
+    "doi": "10.1038/s42003-021-01878-9",
+    "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+    "access": "full_text",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "15274618",
+    "doi": "10.1021/bi049158c",
+    "title": "FTIR spectroscopy of the K photointermediate of Neurospora rhodopsin: structural changes of the retinal, protein, and water molecules after photoisomerization.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:15274618%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "10393943",
+    "doi": "10.1073/pnas.96.14.8034",
+    "title": "The nop-1 gene of Neurospora crassa encodes a seven transmembrane helix retinal-binding protein homologous to archaeal rhodopsins.",
+    "access": "full_text",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC22183/",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "12403457",
+    "doi": "10.1562/0031-8655(2002)076<0341:aftiso>2.0.co;2",
+    "title": "A Fourier transform infrared study of Neurospora rhodopsin: similarities with archaeal rhodopsins.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:12403457%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": "2",
+    "title": null,
+    "access": "not_accessible",
+    "url": null,
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "10571987",
+    "doi": "10.1021/bi9916170",
+    "title": "A eukaryotic protein, NOP-1, binds retinal to form an archaeal rhodopsin-like photochemically reactive pigment.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:10571987%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "12712197",
+    "doi": "10.1038/nature01554",
+    "title": "The genome sequence of the filamentous fungus Neurospora crassa.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:12712197%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "11435422",
+    "doi": "10.1074/jbc.m102652200",
+    "title": "Photochemical reaction cycle and proton transfers in Neurospora rhodopsin.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:11435422%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": "12403457",
+    "doi": "10.1562/0031-8655(2002)076<0341:aftiso>2.0.co;2",
+    "title": "A Fourier transform infrared study of Neurospora rhodopsin: similarities with archaeal rhodopsins.",
+    "access": "abstract_only",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:12403457%20AND%20SRC:MED&resultType=core&format=json",
+    "found_habitat_statement": false
+   },
+   {
+    "pmid": null,
+    "doi": null,
+    "title": "step-3 Europe PMC search: \"Neurospora crassa\" 74-OR23-1A origin",
+    "access": "not_accessible",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=\"Neurospora%20crassa\"%2074-OR23-1A%20origin",
+    "found_habitat_statement": false
+   }
+  ],
+  "notes": "Retry: nop-1 PNAS 1999 (10393943) read in full - strain 74-OR23-1A obtained from R. Weiss (culture origin, not habitat); genome paper and others not accessible. | First pass: Genome and nop-1 papers abstract only; laboratory strain, step-3 found nothing."
+ }
+}

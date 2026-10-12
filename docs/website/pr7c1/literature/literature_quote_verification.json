@@ -1,0 +1,730 @@
+{
+  "A0A060H1D7#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "d955aa4364d02d7d62097a9014bf2e251f4d456ea7fe23a294a7519ea51660f4",
+    "source_sha256": "5e4d399ae79e7cd19c007a551ec6b57d36988fb64ddee8885884716c09f13413",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:26268609%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A0A089ZH82#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "d086739a0416f3728387a24272641ec452dcfb1e3210ad734feff361c74cab9f",
+    "source_sha256": "ae63a63dfd2ea82931993df80768768144a929b99226b62838cc37ce336df907",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A24639207%20AND%20SRC%3AMED&format=json&resultType=core"
+  },
+  "A0A0D1E071#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "ffbfe93d9ed3768b500a20788a220bc42eb765acbe27d673c6b81d0b3b73fef4",
+    "source_sha256": "c542f7152a87a87e30237be6dc78268d2a1a1e14a53bf2dff2f5b8965b6af46c",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6467936/fullTextXML"
+  },
+  "A0A0D1EC87#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "ffbfe93d9ed3768b500a20788a220bc42eb765acbe27d673c6b81d0b3b73fef4",
+    "source_sha256": "c542f7152a87a87e30237be6dc78268d2a1a1e14a53bf2dff2f5b8965b6af46c",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6467936/fullTextXML"
+  },
+  "A0A0G9MK34#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "53edddbfc42c8b26f3edc6201641d2c4693513d932c7c6980a721bf6ccf3cb64",
+    "source_sha256": "b3b4ae7e3f66410b382709e6cef536d52ceadeddc5c6a8e25fd63fddb5e2c513",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:19671726%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A0A0M5L0M3#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "319124fe552edc3992c9c9f95d72ab7cf1df45f2e935936671bf2f644895e1dc",
+    "source_sha256": "8bd7968f52887c3ed2877d71b8634254de7e6cab7b2dc3e6d1abf2cc27dbc8fa",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4616169/fullTextXML"
+  },
+  "A0A0M7BDG0#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "0da5480ab87c19628f69107b9ec4b2284130d1a21f6a3b2a16ce361d379b6602",
+    "source_sha256": "cf65f868088036f0cc3b53393df0c5a14304dcf50af32d6d0d73f04f1e457e26",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16403865%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A0A0P6XBM7#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "5aab5b386ad19c9d64af1af748f92ff4a1633a6d68cdeeab421d88b390eda4aa",
+    "source_sha256": "082f2d89503d5e2b021e2682cffe277c7a25898eace6a38fe1675741a6effdcd",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:17911301%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A0A0P6XBM7#1": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "e30a239d8a20a25c042526004f46f215f2ff4c743ae866ddcd3f28e9617d06c7",
+    "source_sha256": "50a96067755ae66226fdd6e4281176f100a733a3bb89374f9ea815bd1e3493cb",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4574363/fullTextXML"
+  },
+  "A0A0W0GG67#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "6835da48e6ff2c260d9af2ab902504bea86d3a7beec5ec8f70c5f77bf3fea221",
+    "source_sha256": "335305dbfcd5b81f7abc2d31cd4690db840c69dfc9113a636f843f65a7f3da7d",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4918011/fullTextXML"
+  },
+  "A0A1C7DB83#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "c38dd111e0a6474d688bdcb3219fa10dd1d4b7bdcc76f8471af161acb2874700",
+    "source_sha256": "2a941ca1f44088ffbc5c37d97897c805775f18e3d85187493197d30df591b277",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:20418413%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A0A1I3DJQ0#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "edc4ec786245e4451c86a701788cb0c6f6c738baad343494d3b5936304760e2f",
+    "source_sha256": "a52d3174b610eb174f673bf1f193d29a109aa1d593203a732f0deac0403d1734",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12227055/fullTextXML"
+  },
+  "A0A1U7EZ03#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "d5a8b6604dc9c248914f6a71a35e91e99d4e0c713995fbec6fa184bb5407bb8d",
+    "source_sha256": "727b733290cf6d39d0d0b683dc323279dae2ed12a4e3fea57c46a0631fc05992",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16169924%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A0A411LJN5#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "7d0c7dfd69241f1c663b35945bc568233b958206e77d918f19e80ce54b3fa14e",
+    "source_sha256": "c193aed90434099b5e2da0d83826f891539975419621de41abb23fa33e618bf0",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7303416/fullTextXML"
+  },
+  "A0A411LJN5#1": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "7d0c7dfd69241f1c663b35945bc568233b958206e77d918f19e80ce54b3fa14e",
+    "source_sha256": "c193aed90434099b5e2da0d83826f891539975419621de41abb23fa33e618bf0",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7303416/fullTextXML"
+  },
+  "A0A411LJN5#2": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "f211b9560877f20195f7a38eccc2a3df5e71db0361ba10d3933b867f377167f4",
+    "source_sha256": "ad148ce3ca09a67b5a9c46a3d146ba1426fda6307d0e061f062deb089dbe1ef0",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10154332/fullTextXML"
+  },
+  "A0A4P9TF16#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "4515c7f8b6f74b11839119c34cae7425ae2dbebeeed0ba5b98a752432ec96ebc",
+    "source_sha256": "acd10523f1aea02c357435583603afaf9ef56536cb0611f1dba24d0f6289d78e",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:31416876%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A0A517QXI7#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "d7765bc0e7764758142fab053e267c67f3f674bcfe06d3f6e59f6b0d840d2920",
+    "source_sha256": "c6056331e537a41d51ac634b988b2abd94307e3499325f397af99cbb26ba592b",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:37584762%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A0A5B2VFD4#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "f8a71040767a66d0d68daf156bcb9a46a620db779956fba12dfae50041b34bea",
+    "source_sha256": "8c23e44174c38aebe94c9f3a3b1e4048bc5b5ba7a12241f73ec200481a573deb",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:35225758%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A0A6P3CW41#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "0a3da4768aaba36e7151d221a553e80445a389f6eb44775b4d573a51220e72a9",
+    "source_sha256": "e958cfb471b53e156b2164683deebefcd659a5bb81dedfecf9b03309c1903eb4",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4697170/"
+  },
+  "A0A6P3CW41#1": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "0a3da4768aaba36e7151d221a553e80445a389f6eb44775b4d573a51220e72a9",
+    "source_sha256": "e958cfb471b53e156b2164683deebefcd659a5bb81dedfecf9b03309c1903eb4",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4697170/"
+  },
+  "A0A7U2HUJ7#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "49508499110ed2691343cec5793e127a13fa81e9f8e8b5f000b87e7840321c28",
+    "source_sha256": "fc18662f405e31c3076421e2f65724a7cca80146f17f0108a8b83926123fd182",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8146201/fullTextXML"
+  },
+  "A0A7U2HUL1#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "49508499110ed2691343cec5793e127a13fa81e9f8e8b5f000b87e7840321c28",
+    "source_sha256": "fc18662f405e31c3076421e2f65724a7cca80146f17f0108a8b83926123fd182",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8146201/fullTextXML"
+  },
+  "A0A840I7T6#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "b2c6579c5c46d8bc0b97a48880619e6760f6bdc1081723d02ded211982626b1b",
+    "source_sha256": "1d51fc0f2b40886ff205b48fb90cc620be30fae37d97ece0ab905c73bcf62c77",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23087169%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A0AAJ0LKB3#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "49a472de24301057882b079acc3c9f6f9bccee9828c3f2c69cb0d55cb5d9de14",
+    "source_sha256": "9bad3dafbf0551e5c3cd7c17e6b0b2f7409984ed766ca3a25daa762085d13f2d",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:29356878%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A0AAJ6N6B2#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "bfb7c7eb4f0a6c6c7cc9db905999e08f75ce5bb41623a11571d7e962b85b43a9",
+    "source_sha256": "38a4bfaf3b9beb571f91c145e5df40d915d04a93e6973e385e5aed9542be9244",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11528372/fullTextXML"
+  },
+  "A0ABF7PQ03#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "edc4ec786245e4451c86a701788cb0c6f6c738baad343494d3b5936304760e2f",
+    "source_sha256": "a52d3174b610eb174f673bf1f193d29a109aa1d593203a732f0deac0403d1734",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12227055/fullTextXML"
+  },
+  "A0ABF7PQ03#1": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "edc4ec786245e4451c86a701788cb0c6f6c738baad343494d3b5936304760e2f",
+    "source_sha256": "a52d3174b610eb174f673bf1f193d29a109aa1d593203a732f0deac0403d1734",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12227055/fullTextXML"
+  },
+  "A0ABF7PQ05#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "edc4ec786245e4451c86a701788cb0c6f6c738baad343494d3b5936304760e2f",
+    "source_sha256": "a52d3174b610eb174f673bf1f193d29a109aa1d593203a732f0deac0403d1734",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12227055/fullTextXML"
+  },
+  "A0ABQ7GHC2#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "58f407471750bf56d727a7bc7c528d58d591de7c49d83b8bb1822752923d271f",
+    "source_sha256": "ddf43540d6074a9cbd0da9206d820faad724b181ba474a6cc8bc598ab7938918",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4166436/"
+  },
+  "A0ABW8X909#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "e2f46b2dffa31d358c88df610a36c41680a671c490552f0285299e427ecd440b",
+    "source_sha256": "c57a355318d8eb1690e841800056183a6b5e7ce47a292790f648b0f19ae24388",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:25838485%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A0ABX5PZH6#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "3d68765c5e88b48aa251a01a46f49b5b7bee5bc49336f1c40a2012e8c46e4c5c",
+    "source_sha256": "23b6c101ed4999ec28e4250ef10edfafc6195eb9fab0670865a4d7dfd52dda8b",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16403885%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A0ABX5Q1D8#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "3d68765c5e88b48aa251a01a46f49b5b7bee5bc49336f1c40a2012e8c46e4c5c",
+    "source_sha256": "23b6c101ed4999ec28e4250ef10edfafc6195eb9fab0670865a4d7dfd52dda8b",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16403885%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A0AC62AE26#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "edc4ec786245e4451c86a701788cb0c6f6c738baad343494d3b5936304760e2f",
+    "source_sha256": "a52d3174b610eb174f673bf1f193d29a109aa1d593203a732f0deac0403d1734",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12227055/fullTextXML"
+  },
+  "A0AC62AE26#1": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "edc4ec786245e4451c86a701788cb0c6f6c738baad343494d3b5936304760e2f",
+    "source_sha256": "a52d3174b610eb174f673bf1f193d29a109aa1d593203a732f0deac0403d1734",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12227055/fullTextXML"
+  },
+  "A0ACE3JIR6#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "c95f8c1a820f6b7800d566557a73ede9100dd093dfcbaffbe1c13b6fcebdec76",
+    "source_sha256": "2b10d0b7eba3ddb23d534655b57b0772b00e5ff164130be5bf04a2445261bf29",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:22374951%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "A6W8Z2#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "2ed666ae8b3e0bb427e8fa406e99b789f6054b0f60acecddf648bf48b4ca4f5a",
+    "source_sha256": "c2936cbe41fe394bdb218693387feaebe9a2601e3e1cca080961a17794aa9cfc",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:19057647%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "B0R2U4#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "127ea15abb5ceabe4d51e8d9dd34e22cea38bccadffaa3cca8e9f4ab911b08ad",
+    "source_sha256": "389b931fdfc0ead4818a82905b25b4051f517e41b19a9b060d3280c701c83dd9",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:37379421%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "B0R5N9#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "127ea15abb5ceabe4d51e8d9dd34e22cea38bccadffaa3cca8e9f4ab911b08ad",
+    "source_sha256": "389b931fdfc0ead4818a82905b25b4051f517e41b19a9b060d3280c701c83dd9",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:37379421%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "B0R633#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "127ea15abb5ceabe4d51e8d9dd34e22cea38bccadffaa3cca8e9f4ab911b08ad",
+    "source_sha256": "389b931fdfc0ead4818a82905b25b4051f517e41b19a9b060d3280c701c83dd9",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:37379421%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "B1YFV8#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "74dff9c254f560e1574abb1fe8b1e2b7dc0c3e069f32487a82dc85fcf28d2065",
+    "source_sha256": "2204f53e90b3ddaa3281d194f57864d6216a12be81c3c0fcc20edf861348c50a",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC2615787/fullTextXML"
+  },
+  "B1YFV8#1": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "6d648220f03bb80a6f8397a88e0743393181f6a72ec3b47cb8989276ada4e784",
+    "source_sha256": "22d8ede8fea154619621e6335beb6dfaff7784e19c19c14d49b3c870f5659b03",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16489412%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "D2RRQ8#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "0c4551b9d3de4e81fb885324fe25002573ce1f497cd1f3fc16279f1711ded770",
+    "source_sha256": "fe781d6d9a6e2ee413e9f52ac4bbb960d201b51ed33427f0fb4c1c4cfc3bbeea",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3035258/fullTextXML"
+  },
+  "F2TZN0#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "d1920558d3b41aed68baa69d38dddf961766e461cdf9713149f631dbc3c57048",
+    "source_sha256": "2dedd478cfd66b7ded13eecfd61d29014fddfe1f684bfb0b5204c11ce94937c8",
+    "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=3156392&rettype=xml"
+  },
+  "G0LFX8#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "6e79ceca3d0358299f76d889b86248fc4d43d1c6c6b961eea2e996956b88b54a",
+    "source_sha256": "8e400254ebe1a9724d2ecc0c95107f343fcde68d15ff8be29b8e6e9e0a5cb290",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3119063/fullTextXML"
+  },
+  "G0LFX8#1": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "6e79ceca3d0358299f76d889b86248fc4d43d1c6c6b961eea2e996956b88b54a",
+    "source_sha256": "8e400254ebe1a9724d2ecc0c95107f343fcde68d15ff8be29b8e6e9e0a5cb290",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3119063/fullTextXML"
+  },
+  "G1K3Q0#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "b65c04da62ab302d712ee16b8a315c0e9c379586535c29565019b59e6b0bda4a",
+    "source_sha256": "97cdaf8064af15729c6d0984bf10ea239f193a13b6357375b19ad3feeea1336e",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:21726566%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "G3CEP6#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "1d60c3f5c563954760084156547ab18e503589577712f78e183ce02805730e06",
+    "source_sha256": "c69006ac17a83630f3b70e8b1b2c43113a0030f4e1b93f7b59c54020f524c5ee",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:26527138%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "H2BW50#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "86b50401ecd39a4b944c75736e41657ff629e1d3a629439e1825f7d5befaff49",
+    "source_sha256": "6f9b4def5bfc34aed39ca2d15729f24958185308b2249b56ae7cfbeff27a91c3",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3570806/fullTextXML"
+  },
+  "H9ZSC3#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "32e026b49a79dd3c616f7566ddb90d4c63b7782bad201c5a0e576f32c550d6ba",
+    "source_sha256": "24a89c71df90cf6e0098c61f2a3cb356cfd3cb5548c7b47ba4024e789d6acd7b",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3569359/fullTextXML"
+  },
+  "I0YUS5#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "660db40fa99cac4f3a029635a1f085f66bcf5f7872270145d0801c97af38aa16",
+    "source_sha256": "205d4db9ac7d6fdfb11b9c2d39119b7edc05693b5a5e666f8b83a3439016a7e8",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3446292/fullTextXML"
+  },
+  "I0YUS5#1": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "323ff25755d962cd50a586f436e3a5c782b39090c8c7f17266f770ac0985a1c1",
+    "source_sha256": "ff54e068f06650d5db36451eaa4cbf65a1d1571a9ea0422ffc836ba5dc31d3be",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4657025/fullTextXML"
+  },
+  "N0DKS8#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "d25a302fc95a7124f0c4e91b410e733dc26271b8bb3f6c5ef39c2fe187c238ff",
+    "source_sha256": "48c280b68671a1a43ca8689cad6cc1c9e88e662bfe988617b01961fb5bff96ea",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23575682%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "N0DKS8#1": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "3f2a161d0134e671398879a92107058313c56190537ecd15456f24c7ebdba4d2",
+    "source_sha256": "1e277aab30b62e0c2fbc019e29324194bf8af2e3e0efe704472bb4c848aec0f1",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16449433%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "N0DLS5#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "d25a302fc95a7124f0c4e91b410e733dc26271b8bb3f6c5ef39c2fe187c238ff",
+    "source_sha256": "48c280b68671a1a43ca8689cad6cc1c9e88e662bfe988617b01961fb5bff96ea",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23575682%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "N0DLS5#1": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "3f2a161d0134e671398879a92107058313c56190537ecd15456f24c7ebdba4d2",
+    "source_sha256": "1e277aab30b62e0c2fbc019e29324194bf8af2e3e0efe704472bb4c848aec0f1",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16449433%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "P02945#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "43a91d324950277fe23f71bb27d1cb7bd644ee397c6a7909f267ddbb6ddc826d",
+    "source_sha256": "efc32c29be1493de66ae36f7978dfb0e2c606238d1226a71874d7ac10c64a4b4",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:8478333%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "P42197#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "844fabd519ee7c34a15bdb8e0474caee06ec72dd662531c1b3f629ef66e30d93",
+    "source_sha256": "d0bd6172b7dde6fdf47d4ae1fd4351c6a84f7a60044e9c8136eaa7db1a4a5c7e",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:667737%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "P69051#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "35aa9899d5dd96476d5731479168df1ef2c41a738ac918c57f810040eefab850",
+    "source_sha256": "6f46503410b5337ba4432a2f56152c1f16e00d40fae0fecf07f5e6ef5445860f",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:2833260%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "P69052#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "43a91d324950277fe23f71bb27d1cb7bd644ee397c6a7909f267ddbb6ddc826d",
+    "source_sha256": "efc32c29be1493de66ae36f7978dfb0e2c606238d1226a71874d7ac10c64a4b4",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:8478333%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "P94854#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "844fabd519ee7c34a15bdb8e0474caee06ec72dd662531c1b3f629ef66e30d93",
+    "source_sha256": "d0bd6172b7dde6fdf47d4ae1fd4351c6a84f7a60044e9c8136eaa7db1a4a5c7e",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:667737%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q0FYH0#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "4308ce852f0bd8036681c8b62d304a09930b7ab037914ac851712a39f7a227d8",
+    "source_sha256": "fbaa0604a91c97c6740e4eb8cd8fb34d0b2d589428b58951fe7064439603a55b",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:20639329%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q18DH5#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "86c9c45f534b25a2825101cc42a5fa8de74ffccad7d6f6d2f809a2bdb0b466c6",
+    "source_sha256": "b91a6c3cd144c7f1a89fc49c7b6ebc0efd6c62bcc5eb7b74d8fe5ba4a4eb83cf",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC1544339/fullTextXML"
+  },
+  "Q18DH8#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "86c9c45f534b25a2825101cc42a5fa8de74ffccad7d6f6d2f809a2bdb0b466c6",
+    "source_sha256": "b91a6c3cd144c7f1a89fc49c7b6ebc0efd6c62bcc5eb7b74d8fe5ba4a4eb83cf",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC1544339/fullTextXML"
+  },
+  "Q1AUE6#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "1ea51030ce76bb1d31b6cefd5a8378ea1ec68163fda9b2153020441995f8663a",
+    "source_sha256": "904b948ad959bed886358d0163e1fbfc5f99543c1abd3755fb9169de7232f074",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5349596/fullTextXML"
+  },
+  "Q1AUE6#1": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "1ea51030ce76bb1d31b6cefd5a8378ea1ec68163fda9b2153020441995f8663a",
+    "source_sha256": "904b948ad959bed886358d0163e1fbfc5f99543c1abd3755fb9169de7232f074",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5349596/fullTextXML"
+  },
+  "Q2RZM2#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "d807749c66302297cc4ff82d7ec81a46f8caf2c5864b4d93bb10035e6dfda763",
+    "source_sha256": "3d321d87fd7337a39625ee4b9be06c62186c6a15a277f0736251c48d039942cd",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16330755%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q2S2F8#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "d807749c66302297cc4ff82d7ec81a46f8caf2c5864b4d93bb10035e6dfda763",
+    "source_sha256": "3d321d87fd7337a39625ee4b9be06c62186c6a15a277f0736251c48d039942cd",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:16330755%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q53496#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "68971c513d8e0aff4706f41de1329bff2cf612ca8469969c067f04894e584f17",
+    "source_sha256": "481ac09d4404dc55d8cc3be0c7b68e9d90ec1fceed01e85823206b9f7f4213d8",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:7803445%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q5UXM9#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "c249681d1018a9617c2285860e8be4e4d3234d2766df6702a10d38b36257c038",
+    "source_sha256": "f1176a079d2ba2361cc19fdd58693f457c068bad759a90951aec3fd56760e309",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:15520287%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q5UXY6#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "c249681d1018a9617c2285860e8be4e4d3234d2766df6702a10d38b36257c038",
+    "source_sha256": "f1176a079d2ba2361cc19fdd58693f457c068bad759a90951aec3fd56760e309",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:15520287%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q5UXY6#1": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "113e0980c85924d8b3158bc00a092c0c68185927200dcaf63b3b1f97a4d01eda",
+    "source_sha256": "b44b71a591ce32dd409b565ad55a66857b36314722cc73bd40baefdd6376d570",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23565724%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q5V0R5#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "c249681d1018a9617c2285860e8be4e4d3234d2766df6702a10d38b36257c038",
+    "source_sha256": "f1176a079d2ba2361cc19fdd58693f457c068bad759a90951aec3fd56760e309",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:15520287%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q5V0R5#1": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "113e0980c85924d8b3158bc00a092c0c68185927200dcaf63b3b1f97a4d01eda",
+    "source_sha256": "b44b71a591ce32dd409b565ad55a66857b36314722cc73bd40baefdd6376d570",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23565724%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q5V1N0#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "c249681d1018a9617c2285860e8be4e4d3234d2766df6702a10d38b36257c038",
+    "source_sha256": "f1176a079d2ba2361cc19fdd58693f457c068bad759a90951aec3fd56760e309",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:15520287%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q5V4H7#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "c249681d1018a9617c2285860e8be4e4d3234d2766df6702a10d38b36257c038",
+    "source_sha256": "f1176a079d2ba2361cc19fdd58693f457c068bad759a90951aec3fd56760e309",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:15520287%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q5V5V3#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "c249681d1018a9617c2285860e8be4e4d3234d2766df6702a10d38b36257c038",
+    "source_sha256": "f1176a079d2ba2361cc19fdd58693f457c068bad759a90951aec3fd56760e309",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:15520287%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q6J4G7#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "da3711e1857ed02aa1998a66b1679bee92a3c2f0e3afc1e824948ecc1e414adb",
+    "source_sha256": "3ba4bd69066e8a7c57ac2933328f7785fc277b6f4ce12884ff73d49ad15425f0",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC522022/"
+  },
+  "Q70LL3#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "cf25b6860435b44e8667037bcf7502f846ad46c53aa953fc90d0b10f13bcecc0",
+    "source_sha256": "1d29e6b8ca14b160df94a342753cdb2b3c437f85761f48ee6ffded6731358777",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4295100/fullTextXML"
+  },
+  "Q7NP59#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "038edcb698bb0d297b3e27b6ede55f3ddfc4a83b258b5aaec00ae8f80f645b78",
+    "source_sha256": "7aa410f147c625b23792566b51d85839bbc23dc736f5a0f4068e0e0d79167c4e",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4210194/fullTextXML"
+  },
+  "Q9AFF7#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "9cf903274973264150bc750ec458d7fdcd2f66c63a27fb172511b4cd60de288f",
+    "source_sha256": "ae48dce32bf6ec29f4c867ca1a2d162f1b7da3fe0a73e93024271eb7e7fbbc10",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:24100316%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q9AFF7#1": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "6ff66106cbaff3e877e072ad875b7e965f804e2e07be8b53378ad13ccc816da2",
+    "source_sha256": "fd2509629bc7217f108912d32be6ef9b12cc4e60eb01c7c65edfd5b2462616d4",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:12821661%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q9F7P4#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "d49a31742fea13f7d323c76f8e42f1c3337c559ab48710234c2aa84dcd8db417",
+    "source_sha256": "69dcc7d2f3dfff661f557c48e6ca60cbf1f0d98f33d8836080d8d72aae750db9",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:10988064%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "Q9HGT7#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "8981e296284f24d6a06e20128d3c7c3d8d147e4e861994fc60ff6ea4351ca16b",
+    "source_sha256": "84f35874bcc8688b2089a7ec271322e50b7f4084d71b675b0ec149a9d613273f",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:11341726%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "S0ELR6#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "270a81c33c34f8bca443a11227d2d4b2a88a6d7d5368f06455c3e2b5564bafc9",
+    "source_sha256": "a181b6e9cc3bb0d73da0f3a355c4abe2d7c5c3dec95e949dad744724c5cdad9a",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3694855/fullTextXML"
+  },
+  "S2D2R9#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "b1dc28769656ec189d4170a3d805f5b035aad7a1b05a795db1ec9751bfa6a7b1",
+    "source_sha256": "c952bfcea555942e409fdc643d0db3d84a472085528e84a616d094b31677ff1f",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3715674/fullTextXML"
+  },
+  "S2D3K4#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "b1dc28769656ec189d4170a3d805f5b035aad7a1b05a795db1ec9751bfa6a7b1",
+    "source_sha256": "c952bfcea555942e409fdc643d0db3d84a472085528e84a616d094b31677ff1f",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3715674/fullTextXML"
+  },
+  "S5DM51#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "dfc4cf6cba72e5b702f49575b8d04c23bed7f2d1dc41507e6eccf3cacd55c2fa",
+    "source_sha256": "a27016b47e5b032627c903bdbc1a047ac14b5dcb37469a7c44d6eacfd18e36f7",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3747508/fullTextXML"
+  },
+  "W8VZ79#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "e50d753d2f278e06da2e1e77d427b2e89388255bf31e796f90ae8508e20d0c91",
+    "source_sha256": "e30ce21b729f91352f34c32120d608303a8606365a7644cdb3690ab0daf46c56",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:22736101%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "W8VZ92#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "e50d753d2f278e06da2e1e77d427b2e89388255bf31e796f90ae8508e20d0c91",
+    "source_sha256": "e30ce21b729f91352f34c32120d608303a8606365a7644cdb3690ab0daf46c56",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:22736101%20AND%20SRC:MED&resultType=core&format=json"
+  },
+  "W8VZW3#0": {
+    "habitat_text_in_quote": true,
+    "http_status": 200,
+    "quote_found_in_source": true,
+    "request_key": "e50d753d2f278e06da2e1e77d427b2e89388255bf31e796f90ae8508e20d0c91",
+    "source_sha256": "e30ce21b729f91352f34c32120d608303a8606365a7644cdb3690ab0daf46c56",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:22736101%20AND%20SRC:MED&resultType=core&format=json"
+  }
+}

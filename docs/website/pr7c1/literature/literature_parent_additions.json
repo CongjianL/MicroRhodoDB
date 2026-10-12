@@ -1,0 +1,91 @@
+{
+ "A0A089ZH82": {
+  "items": [
+   {
+    "access": "abstract",
+    "consistent_with_db": "inconsistent",
+    "doi": "10.1007/s00253-014-5584-2",
+    "habitat_text": "full-scale agricultural biogas plants",
+    "locator": "Abstract, sentences 1 and last",
+    "pmid": "24639207",
+    "quote": "In this study, methanogenic Archaea were isolated from five full-scale agricultural biogas plants (BGPs) located in Rhineland-Palatinate and Saarland, Germany, digesting maize silage and cattle manure.",
+    "scope": "isolate",
+    "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A24639207%20AND%20SRC%3AMED&format=json&resultType=core",
+    "strain_named": "Mb9 (named only in the last sentence of the abstract)"
+   }
+  ],
+  "replace_sources": [
+   {
+    "access": "search_results",
+    "doi": null,
+    "found_habitat_statement": true,
+    "note": "parent re-run: 4 hits; PMID 24639207 (isolation of Methanobacterium isolates incl. Mb9 from biogas plants)",
+    "pmid": null,
+    "title": "step-3 Europe PMC search: \"Methanobacterium formicicum\" Mb9",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22Methanobacterium%20formicicum%22%20Mb9&format=json&resultType=lite&pageSize=100"
+   }
+  ]
+ },
+ "A0A0C3TEH9": {
+  "replace_sources": [
+   {
+    "access": "search_results",
+    "doi": null,
+    "found_habitat_statement": false,
+    "note": "parent re-run: 34 hits, titles screened; none describes the isolation of CCMP2712",
+    "pmid": null,
+    "title": "step-3 Europe PMC search: \"Guillardia theta\" CCMP2712 isolated",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22Guillardia%20theta%22%20CCMP2712%20isolated&format=json&resultType=lite&pageSize=100"
+   }
+  ]
+ },
+ "A0A1Y1HT90": {
+  "add_sources": [
+   {
+    "access": "search_results",
+    "doi": null,
+    "found_habitat_statement": false,
+    "note": "parent: 50 hits screened by title; none is an isolation/strain description (genome paper 24865297 already read in full by reviewer)",
+    "pmid": null,
+    "title": "step-3 Europe PMC search: \"NIES-2285\" OR \"NIES 2285\"",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22NIES-2285%22%20OR%20%22NIES%202285%22&format=json&resultType=core&pageSize=50"
+   },
+   {
+    "access": "not_a_literature_source",
+    "doi": null,
+    "found_habitat_statement": false,
+    "note": "returned the collection home page, no strain data; culture catalogues are outside the literature scope and this does not affect the status",
+    "pmid": null,
+    "title": "NIES culture collection strain page (BioSample isol_growth_condt link)",
+    "url": "https://mcc.nies.go.jp/strainList.do?strainId=2677"
+   }
+  ]
+ },
+ "L1IFZ3": {
+  "replace_sources": [
+   {
+    "access": "search_results",
+    "doi": null,
+    "found_habitat_statement": false,
+    "note": "parent re-run: 34 hits, titles screened; none describes the isolation of CCMP2712",
+    "pmid": null,
+    "title": "step-3 Europe PMC search: \"Guillardia theta\" CCMP2712 isolated",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22Guillardia%20theta%22%20CCMP2712%20isolated&format=json&resultType=lite&pageSize=100"
+   }
+  ]
+ },
+ "L1J207": {
+  "replace_sources": [
+   {
+    "access": "search_results",
+    "doi": null,
+    "found_habitat_statement": false,
+    "note": "parent re-run: 34 hits, titles screened; none describes the isolation of CCMP2712",
+    "pmid": null,
+    "title": "step-3 Europe PMC search: \"Guillardia theta\" CCMP2712 isolated",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22Guillardia%20theta%22%20CCMP2712%20isolated&format=json&resultType=lite&pageSize=100"
+   }
+  ]
+ },
+ "_about": "Parent step-3 searches performed after the reviewer passes (PR-7c.1). 'items' are appended to the reviewer items and verified by litverify like all other items; 'replace_sources' replaces reviewer source entries with the same title (searches the reviewers marked not_accessible were re-run by the parent through the audit HTTP cache and returned results); 'add_sources' are appended."
+}

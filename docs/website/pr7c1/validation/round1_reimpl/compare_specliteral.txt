@@ -1,0 +1,39 @@
+primary_grade                     5462/5466 ['A0AAW0FFT2', 'A0AAW0GV67', 'A0AAW0GVD9', 'A0AAW0GVT7']
+db_habitat_status                 5462/5466 ['A0AAW0FFT2', 'A0AAW0GV67', 'A0AAW0GVD9', 'A0AAW0GVT7']
+db_chain_status                   5466/5466 
+literature_status                 5466/5466 
+not_reported_scope                5462/5466 ['A0AAW0FFT2', 'A0AAW0GV67', 'A0AAW0GVD9', 'A0AAW0GVT7']
+has_usable_habitat                5462/5466 ['A0AAW0FFT2', 'A0AAW0GV67', 'A0AAW0GVD9', 'A0AAW0GVT7']
+conflict_roles                    5466/5466 
+conflict_scope                    5466/5466 
+conflict_kind                     5466/5466 
+linkage_route                     5466/5466 
+mapping_confidence                5461/5466 ['A0A411LJN5', 'A0AAW0FFT2', 'A0AAW0GV67', 'A0AAW0GVD9', 'A0AAW0GVT7']
+sample_type                       5466/5466 
+flags                             5462/5466 ['A0AAW0FFT2', 'A0AAW0GV67', 'A0AAW0GVD9', 'A0AAW0GVT7']
+env_broad_scale_normalized        5462/5466 ['A0AAW0FFT2', 'A0AAW0GV67', 'A0AAW0GVD9', 'A0AAW0GVT7']
+env_local_scale_normalized        5462/5466 ['A0AAW0FFT2', 'A0AAW0GV67', 'A0AAW0GVD9', 'A0AAW0GVT7']
+env_medium_normalized             5466/5466 
+isolation_source_normalized       5462/5466 ['A0A232LUP6', 'A0A317SUC3', 'A0ACC0U1V3', 'M1HVR3']
+host_normalized                   5466/5466 
+sample_material                   5458/5466 ['A0A232LUP6', 'A0A317SUC3', 'A0AAW0FFT2', 'A0AAW0GV67', 'A0AAW0GVD9']
+habitat_nonstandard               5426/5466 ['A0A7U4E450', 'A0AAI8YRG3', 'A0AAI8YXB9', 'A0AAI8Z8P8', 'A0ABP1D9G7']
+biosamples                        5466/5466 
+chain_failures                    5466/5466 
+env_broad_scale_original          5462/5466 ['A0AAW0FFT2', 'A0AAW0GV67', 'A0AAW0GVD9', 'A0AAW0GVT7']
+env_local_scale_original          5462/5466 ['A0AAW0FFT2', 'A0AAW0GV67', 'A0AAW0GVD9', 'A0AAW0GVT7']
+env_medium_original               5466/5466 
+isolation_source_original         5462/5466 ['A0A232LUP6', 'A0A317SUC3', 'A0ACC0U1V3', 'M1HVR3']
+host_original                     5466/5466 
+env_broad_scale_envo_ids          5466/5466 
+env_local_scale_envo_ids          5466/5466 
+env_medium_envo_ids               5466/5466 
+isolation_source_envo_ids         5466/5466 
+host_envo_ids                     5466/5466 
+country                           5466/5466 
+lat_lon                           5466/5466 
+lat                               5466/5466 
+lon                               5466/5466 
+collection_date                   5466/5466 
+depth                             5466/5466 
+molecule_types                    5466/5466 

@@ -1,0 +1,91 @@
+{
+  "killed": 13,
+  "n_mutations": 13,
+  "results": [
+    {
+      "file": "",
+      "mutation": "none (baseline)",
+      "pytest": "69 passed, 1 skipped",
+      "tests_failed": false
+    },
+    {
+      "file": "classify.py",
+      "mutation": "failure_not_graded_lookup_failed",
+      "pytest": "1 failed, 31 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "classify.py",
+      "mutation": "culture_value_counted_as_habitat",
+      "pytest": "1 failed, 18 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "classify.py",
+      "mutation": "tissue_value_counted_as_habitat",
+      "pytest": "1 failed, 19 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "classify.py",
+      "mutation": "agreement_ignores_punctuation",
+      "pytest": "1 failed, 46 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "normalize.py",
+      "mutation": "geography_counted_as_habitat",
+      "pytest": "1 failed",
+      "tests_failed": true
+    },
+    {
+      "file": "retrieve.py",
+      "mutation": "ncbi_numeric_uid_mapping",
+      "pytest": "1 failed, 41 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "normalize.py",
+      "mutation": "missing_token_not_applicable_accepted",
+      "pytest": "1 failed, 2 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "classify.py",
+      "mutation": "unverified_literature_accepted",
+      "pytest": "1 failed, 51 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "classify.py",
+      "mutation": "host_self_not_ignored",
+      "pytest": "1 failed, 26 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "classify.py",
+      "mutation": "placeholder_counted_as_habitat",
+      "pytest": "1 failed, 22 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "summarize.py",
+      "mutation": "mrdb_rollup_collapses_failure",
+      "pytest": "1 failed, 60 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "literature.py",
+      "mutation": "unverified_quote_kept",
+      "pytest": "1 failed, 58 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "literature.py",
+      "mutation": "inaccessible_literature_reported_absent",
+      "pytest": "1 failed, 58 passed",
+      "tests_failed": true
+    }
+  ],
+  "survived": []
+}

@@ -1,0 +1,795 @@
+source	attribute	n_samples	role
+sample_ena	ATCC	1	
+sample_ena	ArrayExpress-Sex	1	
+sample_ena	ArrayExpress-Species	1	
+sample_ena	Assembly Method	1	
+sample_ena	Assembly Name	1	
+sample_ena	BioSampleModel	2498	
+sample_ena	Biotic Relationship	5	
+sample_ena	Broad-scale Environmental Context	1	env_broad_scale
+sample_ena	CULTURE_COLLECTION	1	
+sample_ena	Cell Shape	1	
+sample_ena	Collected by	2	
+sample_ena	Collector	2	
+sample_ena	Culture Collection ID	1	
+sample_ena	Depth	1	depth
+sample_ena	Diseases	15	
+sample_ena	ENA-CHECKLIST	166	checklist
+sample_ena	ENA-FIRST-PUBLIC	2531	
+sample_ena	ENA-LAST-UPDATE	2543	
+sample_ena	Environment (Biome)	1	env_broad_scale
+sample_ena	Environment (Feature)	1	env_local_scale
+sample_ena	Environment (Material)	1	env_medium
+sample_ena	Environmental Medium	1	env_medium
+sample_ena	Environmental Package	1	
+sample_ena	Event Date/Time	1	
+sample_ena	Funding Program	5	
+sample_ena	GAL	1	
+sample_ena	GAL_sample_id	1	
+sample_ena	GCM-tag	82	
+sample_ena	GOLD Stamp ID	37	
+sample_ena	Gene Calling Method	3	
+sample_ena	Gram Staining	15	
+sample_ena	Greengenes ID	6	
+sample_ena	HOST	1	host
+sample_ena	INSDC secondary accession	1057	
+sample_ena	Identified by	2	
+sample_ena	Is the sequenced pathogen host associated?	1	
+sample_ena	Isolate	1	isolate
+sample_ena	Isolate collected by	1	
+sample_ena	Isolation Comments	6	
+sample_ena	Isolation Site	3	habitat_nonstandard
+sample_ena	Latitude End	1	
+sample_ena	Latitude Start	1	
+sample_ena	Local-scale Environmental Context	1	env_local_scale
+sample_ena	Longitude End	1	
+sample_ena	Longitude Start	1	
+sample_ena	MATING TYPE	1	
+sample_ena	MUTANT	1	
+sample_ena	Marine Region	1	
+sample_ena	Mating type	1	
+sample_ena	Motility	2	
+sample_ena	NCBI submission package	2218	package
+sample_ena	Number of Reads	1	
+sample_ena	Organism Display Name	16	
+sample_ena	Oxygen Requirement	4	
+sample_ena	Project Name	1	
+sample_ena	Proposed Locus_Tag	19	
+sample_ena	Protocol Label	1	
+sample_ena	SAMPLE_ALIAS	1	
+sample_ena	SAMPLE_ID	1	
+sample_ena	SOURCE_TYPE	1	
+sample_ena	STRAIN	25	strain
+sample_ena	Salinity	1	
+sample_ena	Sample Description	1	
+sample_ena	Sample Number	19	
+sample_ena	Sample Type	1	sample_material
+sample_ena	Sample name	5	
+sample_ena	Sampling Campaign	1	
+sample_ena	Sampling Platform	1	
+sample_ena	Sampling Site	1	
+sample_ena	Sequence Depth	1	
+sample_ena	Sequence Technology	1	
+sample_ena	Source of Isolate	1	habitat_nonstandard
+sample_ena	Sporulation	6	
+sample_ena	Strain	26	strain
+sample_ena	Tax ID	8	
+sample_ena	Temperature	1	
+sample_ena	Temperature Optimum	3	
+sample_ena	Temperature Range	4	
+sample_ena	Type Strain	14	
+sample_ena	Type material	1	
+sample_ena	Wu Yingying	1	
+sample_ena	Xie Jianmin	1	
+sample_ena	abs_air_humidity	1	
+sample_ena	adjacent_environment	1	
+sample_ena	age	5	
+sample_ena	agrochem_addition	1	
+sample_ena	air_temp	1	
+sample_ena	air_temp_regm	1	
+sample_ena	alkalinity	3	
+sample_ena	alkyl_diethers	1	
+sample_ena	alt_elev	16	
+sample_ena	alternate id	1	
+sample_ena	alternate_ID	2	
+sample_ena	altitude	51	
+sample_ena	aminopept_act	1	
+sample_ena	ammonium	4	
+sample_ena	ances_data	1	
+sample_ena	anim_water_method	1	
+sample_ena	annotation source	2	
+sample_ena	anonymized_name	1	
+sample_ena	antibiotic_regm	1	
+sample_ena	aquaculture origin	3	
+sample_ena	assembly	2	
+sample_ena	assembly quality	4	
+sample_ena	assembly software	4	
+sample_ena	atmospheric_data	1	
+sample_ena	attribute_package	1	
+sample_ena	bac_prod	1	
+sample_ena	bac_resp	1	
+sample_ena	bacteria_carb_prod	1	
+sample_ena	binning parameters	4	
+sample_ena	binning software	4	
+sample_ena	bio_material	2	
+sample_ena	biomass	2	
+sample_ena	biomaterial provider	8	
+sample_ena	biomaterial-provider	1	
+sample_ena	biomaterial_provider	88	
+sample_ena	biome	434	env_broad_scale
+sample_ena	biotic relationship	15	
+sample_ena	biotic_relationship	59	
+sample_ena	body_site	2	host_detail
+sample_ena	carb_dioxide	1	
+sample_ena	carb_nitro_ratio	1	
+sample_ena	cell shape	12	
+sample_ena	cell_line	1	sample_material
+sample_ena	cell_type	2	sample_material
+sample_ena	chem_administration	3	
+sample_ena	chem_mutagen	1	
+sample_ena	chloride	2	
+sample_ena	chlorophyll	1	
+sample_ena	climate_environment	1	
+sample_ena	clone	1	
+sample_ena	collected by	13	
+sample_ena	collected-by	2	
+sample_ena	collected_by	241	
+sample_ena	collecting institution	4	
+sample_ena	collection   date	1	collection_date
+sample_ena	collection date	131	collection_date
+sample_ena	collection-date	23	collection_date
+sample_ena	collection_date	1829	collection_date
+sample_ena	collection_method	2	
+sample_ena	collector ORCID ID	1	
+sample_ena	collector name	2	
+sample_ena	common name	114	
+sample_ena	completeness score	4	
+sample_ena	completeness software	4	
+sample_ena	contamination score	4	
+sample_ena	country	48	country
+sample_ena	crop_rotation	1	
+sample_ena	cult_isol_date	1	
+sample_ena	cultivar	40	
+sample_ena	culture collection	12	
+sample_ena	culture-collection	398	
+sample_ena	culture_collection	278	
+sample_ena	culture_or_strain_id	1	
+sample_ena	depth	179	depth
+sample_ena	dev-stage	2	sample_material
+sample_ena	dev_stage	8	sample_material
+sample_ena	diss_inorg_carb	2	
+sample_ena	diss_inorg_nitro	1	
+sample_ena	diss_inorg_phosp	1	
+sample_ena	diss_org_carb	1	
+sample_ena	diss_org_nitro	1	
+sample_ena	diss_oxygen	2	
+sample_ena	ecotype	42	
+sample_ena	elev	63	
+sample_ena	elevation	2	
+sample_ena	encoded_traits	2	
+sample_ena	energy source	1	
+sample_ena	env biome	15	env_broad_scale
+sample_ena	env broad scale	4	env_broad_scale
+sample_ena	env feature	15	env_local_scale
+sample_ena	env local scale	4	env_local_scale
+sample_ena	env medium	4	env_medium
+sample_ena	env_biome	199	env_broad_scale
+sample_ena	env_broad_scale	398	env_broad_scale
+sample_ena	env_feature	167	env_local_scale
+sample_ena	env_local_scale	359	env_local_scale
+sample_ena	env_material	185	env_medium
+sample_ena	env_medium	380	env_medium
+sample_ena	env_package	105	
+sample_ena	environment	17	habitat_nonstandard
+sample_ena	environment (biome)	13	env_broad_scale
+sample_ena	environment (feature)	13	env_local_scale
+sample_ena	environment (material)	13	env_medium
+sample_ena	environment biome	1	env_broad_scale
+sample_ena	environment_biome	1	env_broad_scale
+sample_ena	environmental package	1	
+sample_ena	environmental sample	1	environmental_sample
+sample_ena	environmental-sample	1	environmental_sample
+sample_ena	environmental_sample	1	environmental_sample
+sample_ena	estimated size	23	
+sample_ena	estimated_size	395	
+sample_ena	event date/time	3	
+sample_ena	extrachrom_elements	4	
+sample_ena	feature	434	env_local_scale
+sample_ena	feature prediction	4	
+sample_ena	fertilizer_regm	1	
+sample_ena	finishing strategy	2	
+sample_ena	finishing strategy (depth of coverage)	1	
+sample_ena	food_origin	1	
+sample_ena	food_source	1	
+sample_ena	forma	2	
+sample_ena	forma_specialis	1	
+sample_ena	fungicide_regm	1	
+sample_ena	genbank_accession	1	
+sample_ena	genotype	9	
+sample_ena	geo   loc   name	1	country
+sample_ena	geo loc name	88	country
+sample_ena	geo-loc-name	5	country
+sample_ena	geo_loc_name	1811	country
+sample_ena	geographic location (altitude)	2	
+sample_ena	geographic location (country and/or sea)	58	country
+sample_ena	geographic location (country and/or sea, region)	14	
+sample_ena	geographic location (country and/or sea,region)	5	
+sample_ena	geographic location (countryand/orsea,region)	4	
+sample_ena	geographic location (depth)	5	depth
+sample_ena	geographic location (elevation)	3	
+sample_ena	geographic location (latitude)	15	lat
+sample_ena	geographic location (longitude)	15	lon
+sample_ena	geographic location (region and locality)	15	country
+sample_ena	growth_med	6	
+sample_ena	habitat	5	habitat_nonstandard
+sample_ena	health_disease_stat	1	
+sample_ena	health_state	4	
+sample_ena	host	698	host
+sample_ena	host body habitat	1	host_detail
+sample_ena	host common name	2	host_detail
+sample_ena	host cultivar	1	
+sample_ena	host disease	1	
+sample_ena	host health state	2	
+sample_ena	host scientific name	7	host
+sample_ena	host taxid	1	host_detail
+sample_ena	host_age	11	
+sample_ena	host_common_name	1	host_detail
+sample_ena	host_description	11	host_detail
+sample_ena	host_disease	35	
+sample_ena	host_disease_outcome	10	
+sample_ena	host_disease_stage	9	
+sample_ena	host_genotype	3	
+sample_ena	host_health_state	9	
+sample_ena	host_height	1	
+sample_ena	host_length	1	
+sample_ena	host_life_stage	2	
+sample_ena	host_note	1	
+sample_ena	host_phenotype	1	
+sample_ena	host_sex	10	
+sample_ena	host_spec_range	5	
+sample_ena	host_subject_id	8	
+sample_ena	host_taxid	13	host_detail
+sample_ena	host_tissue_sampled	30	host_detail
+sample_ena	host_tot_mass	1	
+sample_ena	identification method	1	
+sample_ena	identified by	6	
+sample_ena	identified_by	90	
+sample_ena	identifier_affiliation	2	
+sample_ena	individual_name	20	
+sample_ena	indoor space	1	
+sample_ena	investigation type	28	investigation_type
+sample_ena	investigation_type	113	investigation_type
+sample_ena	isol growth condt	4	
+sample_ena	isol_growth_condt	997	
+sample_ena	isolate	123	isolate
+sample_ena	isolate-name-alias	2	
+sample_ena	isolate_name_alias	12	
+sample_ena	isolation   source	1	isolation_source
+sample_ena	isolation and growth condition	3	
+sample_ena	isolation site	10	habitat_nonstandard
+sample_ena	isolation source	57	isolation_source
+sample_ena	isolation source host-associated	1	isolation_source
+sample_ena	isolation source non-host-associated�	2	isolation_source
+sample_ena	isolation-source	80	isolation_source
+sample_ena	isolation_method	1	
+sample_ena	isolation_source	1231	isolation_source
+sample_ena	known pathogenicity	2	
+sample_ena	lab_host	3	
+sample_ena	label	1	
+sample_ena	laboratory_host_strain(s)	1	
+sample_ena	laboratory_host_strain_used_for_isolation	1	
+sample_ena	last_updated_by	2	
+sample_ena	lat   lon	1	lat_lon
+sample_ena	lat lon	45	lat_lon
+sample_ena	lat-lon	9	lat_lon
+sample_ena	lat_lon	1121	lat_lon
+sample_ena	latitude start	3	
+sample_ena	library construction method	2	
+sample_ena	library description	3	
+sample_ena	library type	3	
+sample_ena	lifestage	2	
+sample_ena	light_type	1	
+sample_ena	locus_tag prefix	1	
+sample_ena	locus_tag_prefix	158	
+sample_ena	longitude start	3	
+sample_ena	magnesium	2	
+sample_ena	material	434	env_medium
+sample_ena	mating_type	12	
+sample_ena	metagenome source	1	metagenome_source
+sample_ena	metagenome-source	1	metagenome_source
+sample_ena	metagenomic	2	
+sample_ena	metagenomic source	4	metagenome_source
+sample_ena	methane	2	
+sample_ena	microbial_biomass	1	
+sample_ena	microbial_biomass_meth	1	
+sample_ena	misc_param: HMP body site	1	
+sample_ena	misc_param: HMP supersite	1	
+sample_ena	missing	3	
+sample_ena	motility	9	
+sample_ena	n_alkanes	2	
+sample_ena	nat-host	14	host
+sample_ena	nat_host	5	host
+sample_ena	neg_cont_type	1	
+sample_ena	nitrate	1	
+sample_ena	nitrite	3	
+sample_ena	note	28	
+sample_ena	note_collection_date	1	
+sample_ena	nucleic acid amplification	2	
+sample_ena	nucleic acid extraction	1	
+sample_ena	num replicons	4	
+sample_ena	num_replicons	780	
+sample_ena	observed biotic relationship	2	
+sample_ena	occup_samp	1	
+sample_ena	occupant_dens_samp	1	
+sample_ena	organism	2398	organism
+sample_ena	organism part	2	
+sample_ena	organism_count	1	
+sample_ena	organism_subgenus	1	
+sample_ena	orgmod-note	1	
+sample_ena	orgmod_note	11	
+sample_ena	original collection date	2	
+sample_ena	original geographic location	1	
+sample_ena	oxy_stat_samp	12	
+sample_ena	pH of water above sediment (in situ)	1	
+sample_ena	pH of water above sediment (lab)	1	
+sample_ena	particle_class	2	
+sample_ena	passage_history	12	
+sample_ena	pathogenicity	26	
+sample_ena	pathotype	7	
+sample_ena	perturbation	20	
+sample_ena	petroleum_hydrocarb	2	
+sample_ena	ph	10	
+sample_ena	phenotypes	6	
+sample_ena	phosphate	1	
+sample_ena	physiological state	1	
+sample_ena	plant developmental stage	1	
+sample_ena	plant growth medium	1	
+sample_ena	plant structure	1	host_detail
+sample_ena	plant treatment	1	
+sample_ena	plant-associated environmental package	2	
+sample_ena	plant_body_site	1	host_detail
+sample_ena	ploidy	404	
+sample_ena	pos_cont_type	1	
+sample_ena	project name	48	
+sample_ena	project_name	199	
+sample_ena	project_type	1	
+sample_ena	propagation	395	
+sample_ena	protocol label	3	
+sample_ena	receipt date	7	
+sample_ena	redox potential	1	
+sample_ena	redox_potential	1	
+sample_ena	ref biomaterial	4	
+sample_ena	ref_biomaterial	658	
+sample_ena	reference database(s)	4	
+sample_ena	refseq_accession	1	
+sample_ena	rel_air_humidity	1	
+sample_ena	rel_to_oxygen	51	
+sample_ena	relationship to oxygen	1	
+sample_ena	replicate	1	
+sample_ena	salinity	9	
+sample_ena	samp mat process	1	
+sample_ena	samp_collect_device	8	
+sample_ena	samp_salinity	1	
+sample_ena	samp_size	3	
+sample_ena	samp_store_dur	2	
+sample_ena	samp_store_loc	8	
+sample_ena	samp_store_temp	4	
+sample_ena	samp_vol_we_dna_ext	7	
+sample_ena	sample   title	1	
+sample_ena	sample collection method	1	
+sample_ena	sample comment	1	
+sample_ena	sample coordinator	1	
+sample_ena	sample coordinator ORCID ID	1	
+sample_ena	sample coordinator affiliation	1	
+sample_ena	sample derived from	5	
+sample_ena	sample derived-from	1	
+sample_ena	sample label	1	
+sample_ena	sample name	24	
+sample_ena	sample number	1	
+sample_ena	sample type	33	sample_material
+sample_ena	sample-type	2	sample_material
+sample_ena	sample_name	160	
+sample_ena	sample_type	790	sample_material
+sample_ena	sampling campaign	3	
+sample_ena	sampling platform	3	
+sample_ena	sampling site	3	
+sample_ena	scientific_name	169	organism
+sample_ena	seabed habitat	3	habitat_nonstandard
+sample_ena	secondary accessions	1	
+sample_ena	sediment type	1	
+sample_ena	sediment_type	1	
+sample_ena	sequenced_by	1	
+sample_ena	sequencing method	12	
+sample_ena	serotype	9	
+sample_ena	serovar	8	
+sample_ena	sex	4	
+sample_ena	shell length	3	
+sample_ena	shell width	3	
+sample_ena	shellfish soft tissue weight	3	
+sample_ena	shellfish total weight	3	
+sample_ena	sieving	1	
+sample_ena	silicate	1	
+sample_ena	sodium	2	
+sample_ena	soil environmental package	2	
+sample_ena	soil_type	1	
+sample_ena	soil_type_meth	1	
+sample_ena	sop	1	
+sample_ena	source material identifier	1	
+sample_ena	source_mat_id	1	
+sample_ena	source_material_id	21	
+sample_ena	source_type	1	
+sample_ena	space_typ_state	1	
+sample_ena	specific host	13	host
+sample_ena	specific_host	6	host
+sample_ena	specimen id	1	
+sample_ena	specimen voucher	1	
+sample_ena	specimen_id	1	
+sample_ena	specimen_voucher	11	
+sample_ena	store_cond	1	
+sample_ena	strain	2186	strain
+sample_ena	strain number	2	
+sample_ena	sub_species	1	
+sample_ena	subgroup	7	
+sample_ena	subspecf_gen_lin	2	
+sample_ena	subsrc_note	4	
+sample_ena	subtype	7	
+sample_ena	sulfate	2	
+sample_ena	sulfide	2	
+sample_ena	taxonomic identity marker	4	
+sample_ena	teleomorph	1	
+sample_ena	temp	26	
+sample_ena	temperature	2	
+sample_ena	temperature optimum	6	
+sample_ena	temperature range	16	
+sample_ena	tidal_stage	2	
+sample_ena	tissue	8	sample_material
+sample_ena	tissue-type	4	sample_material
+sample_ena	tissue_type	2	sample_material
+sample_ena	tolid	1	
+sample_ena	tot_diss_nitro	1	
+sample_ena	total depth of water column	2	
+sample_ena	trophic_level	35	
+sample_ena	typ_occupant_dens	1	
+sample_ena	type material	49	
+sample_ena	type-material	1113	
+sample_ena	type_material	1	
+sample_ena	type_status	1	
+sample_ena	type_strain	4	
+sample_ena	ventilation_type	1	
+sample_ena	water environmental package	3	
+sample_ncbi	ATCC	1	
+sample_ncbi	Alias	15	
+sample_ncbi	ArrayExpress-Species	1	
+sample_ncbi	Assembly Method	1	
+sample_ncbi	Assembly Name	1	
+sample_ncbi	BioSampleModel	3	
+sample_ncbi	Broker name	13	
+sample_ncbi	Cell Shape	13	
+sample_ncbi	Collector	2	
+sample_ncbi	Culture Collection ID	1	
+sample_ncbi	ENA checklist	15	checklist
+sample_ncbi	ENA first public	80	
+sample_ncbi	ENA last update	62	
+sample_ncbi	ENA-CHECKLIST	150	checklist
+sample_ncbi	ENA-FIRST-PUBLIC	66	
+sample_ncbi	ENA-LAST-UPDATE	67	
+sample_ncbi	Energy Source	1	
+sample_ncbi	External Id	139	
+sample_ncbi	Funding Program	5	
+sample_ncbi	GAL	1	
+sample_ncbi	GAL_sample_id	1	
+sample_ncbi	GCM-tag	33	
+sample_ncbi	GOLD Stamp ID	37	
+sample_ncbi	Gene Calling Method	3	
+sample_ncbi	Gram Staining	15	
+sample_ncbi	Greengenes ID	6	
+sample_ncbi	Habitat	3	habitat_nonstandard
+sample_ncbi	INSDC center alias	108	
+sample_ncbi	INSDC center name	167	
+sample_ncbi	INSDC first public	142	
+sample_ncbi	INSDC last update	154	
+sample_ncbi	INSDC status	159	
+sample_ncbi	Isolate collected by	1	
+sample_ncbi	Isolation Comments	6	
+sample_ncbi	Isolation Site	13	habitat_nonstandard
+sample_ncbi	MUTANT	1	
+sample_ncbi	Motility	11	
+sample_ncbi	Number of Reads	1	
+sample_ncbi	Organism Display Name	16	
+sample_ncbi	Oxygen Requirement	4	
+sample_ncbi	Phenotypes	6	
+sample_ncbi	Proposed Locus_Tag	19	
+sample_ncbi	SAMPLE_ALIAS	1	
+sample_ncbi	SAMPLE_ID	1	
+sample_ncbi	SRA accession	15	
+sample_ncbi	Sample Number	20	
+sample_ncbi	Sequence Depth	1	
+sample_ncbi	Sequence Technology	1	
+sample_ncbi	Sporulation	6	
+sample_ncbi	Submitter Id	152	
+sample_ncbi	Tax ID	8	
+sample_ncbi	Temperature Optimum	9	
+sample_ncbi	Temperature Range	20	
+sample_ncbi	Title	15	
+sample_ncbi	Type material	1	
+sample_ncbi	Wu Yingying	1	
+sample_ncbi	Xie Jianmin	1	
+sample_ncbi	abs_air_humidity	1	
+sample_ncbi	adjacent_environment	1	
+sample_ncbi	age	3	
+sample_ncbi	agrochem_addition	1	
+sample_ncbi	air_temp	1	
+sample_ncbi	air_temp_regm	1	
+sample_ncbi	alkalinity	3	
+sample_ncbi	alkyl_diethers	1	
+sample_ncbi	alt_elev	16	
+sample_ncbi	alternate_ID	3	
+sample_ncbi	altitude	52	
+sample_ncbi	aminopept_act	1	
+sample_ncbi	ammonium	4	
+sample_ncbi	ances_data	1	
+sample_ncbi	anim_water_method	1	
+sample_ncbi	annotation source	2	
+sample_ncbi	anonymized name	1	
+sample_ncbi	antibiotic_regm	1	
+sample_ncbi	assembly	2	
+sample_ncbi	assembly quality	4	
+sample_ncbi	assembly software	4	
+sample_ncbi	atmospheric_data	1	
+sample_ncbi	attribute_package	1	
+sample_ncbi	bac_prod	1	
+sample_ncbi	bac_resp	1	
+sample_ncbi	bacteria_carb_prod	1	
+sample_ncbi	binning parameters	4	
+sample_ncbi	binning software	4	
+sample_ncbi	bio_material	2	
+sample_ncbi	biomass	2	
+sample_ncbi	biomaterial_provider	100	
+sample_ncbi	biotic_relationship	81	
+sample_ncbi	broker name	29	
+sample_ncbi	build_occup_type	1	
+sample_ncbi	building_setting	1	
+sample_ncbi	carb_dioxide	1	
+sample_ncbi	carb_nitro_ratio	1	
+sample_ncbi	cell_line	1	sample_material
+sample_ncbi	cell_type	2	sample_material
+sample_ncbi	chem_administration	4	
+sample_ncbi	chem_mutagen	1	
+sample_ncbi	chloride	2	
+sample_ncbi	chlorophyll	1	
+sample_ncbi	climate_environment	1	
+sample_ncbi	clone	1	
+sample_ncbi	collected_by	262	
+sample_ncbi	collecting institution	2	
+sample_ncbi	collection_date	2050	collection_date
+sample_ncbi	collection_method	2	
+sample_ncbi	collector ORCID ID	1	
+sample_ncbi	collector name	2	
+sample_ncbi	common name	12	
+sample_ncbi	completeness score	4	
+sample_ncbi	completeness software	4	
+sample_ncbi	contamination score	4	
+sample_ncbi	crop_rotation	1	
+sample_ncbi	cult_isol_date	1	
+sample_ncbi	cultivar	44	
+sample_ncbi	culture_collection	697	
+sample_ncbi	culture_or_strain_id	1	
+sample_ncbi	depth	199	depth
+sample_ncbi	derived_from	1	
+sample_ncbi	description	13	
+sample_ncbi	dev_stage	11	sample_material
+sample_ncbi	disease	15	
+sample_ncbi	diss_inorg_carb	2	
+sample_ncbi	diss_inorg_nitro	1	
+sample_ncbi	diss_inorg_phosp	1	
+sample_ncbi	diss_org_carb	1	
+sample_ncbi	diss_org_nitro	1	
+sample_ncbi	diss_oxygen	2	
+sample_ncbi	ecotype	47	
+sample_ncbi	elev	86	
+sample_ncbi	encoded_traits	2	
+sample_ncbi	env_broad_scale	1116	env_broad_scale
+sample_ncbi	env_local_scale	1066	env_local_scale
+sample_ncbi	env_medium	1071	env_medium
+sample_ncbi	env_package	121	
+sample_ncbi	environment	17	habitat_nonstandard
+sample_ncbi	environmental sample	1	environmental_sample
+sample_ncbi	environmental-sample	2	environmental_sample
+sample_ncbi	estimated_size	449	
+sample_ncbi	extrachrom_elements	4	
+sample_ncbi	feature prediction	4	
+sample_ncbi	fertilizer_regm	1	
+sample_ncbi	filter_type	1	
+sample_ncbi	finishing strategy	2	
+sample_ncbi	finishing strategy (depth of coverage)	1	
+sample_ncbi	food_origin	1	
+sample_ncbi	food_source	1	
+sample_ncbi	forma	1	
+sample_ncbi	fungicide_regm	1	
+sample_ncbi	gcm_tag	49	
+sample_ncbi	genbank_accession	1	
+sample_ncbi	genotype	9	
+sample_ncbi	geo_loc_name	2085	country
+sample_ncbi	geographic location (altitude)	2	
+sample_ncbi	geographic location (depth)	5	depth
+sample_ncbi	geographic location (elevation)	3	
+sample_ncbi	geographic location (latitude)	15	lat
+sample_ncbi	geographic location (longitude)	15	lon
+sample_ncbi	geographic location (region and locality)	15	country
+sample_ncbi	growth_med	6	
+sample_ncbi	habitat	2	habitat_nonstandard
+sample_ncbi	health_state	5	
+sample_ncbi	heat_cool_type	1	
+sample_ncbi	host	789	host
+sample_ncbi	host cultivar	1	
+sample_ncbi	host_age	11	
+sample_ncbi	host_body_habitat	1	host_detail
+sample_ncbi	host_common_name	3	host_detail
+sample_ncbi	host_description	11	host_detail
+sample_ncbi	host_disease	37	
+sample_ncbi	host_disease_outcome	10	
+sample_ncbi	host_disease_stage	9	
+sample_ncbi	host_genotype	3	
+sample_ncbi	host_health_state	10	
+sample_ncbi	host_height	1	
+sample_ncbi	host_length	1	
+sample_ncbi	host_life_stage	2	
+sample_ncbi	host_note	1	
+sample_ncbi	host_phenotype	1	
+sample_ncbi	host_sex	10	
+sample_ncbi	host_subject_id	8	
+sample_ncbi	host_taxid	19	host_detail
+sample_ncbi	host_tissue_sampled	30	host_detail
+sample_ncbi	host_tot_mass	1	
+sample_ncbi	identification method	1	
+sample_ncbi	identified_by	99	
+sample_ncbi	identifier_affiliation	2	
+sample_ncbi	individual name	4	
+sample_ncbi	individual_name	16	
+sample_ncbi	indoor_space	1	
+sample_ncbi	investigation_type	141	investigation_type
+sample_ncbi	is the sequenced pathogen host associated?	1	
+sample_ncbi	isol_growth_condt	1058	
+sample_ncbi	isolate	128	isolate
+sample_ncbi	isolate_name_alias	15	
+sample_ncbi	isolation source host associated	1	isolation_source
+sample_ncbi	isolation source non-host-associated�	2	isolation_source
+sample_ncbi	isolation_method	1	
+sample_ncbi	isolation_source	1416	isolation_source
+sample_ncbi	lab_host	3	
+sample_ncbi	label	1	
+sample_ncbi	laboratory_host_strain(s)	1	
+sample_ncbi	laboratory_host_strain_used_for_isolation	1	
+sample_ncbi	lat_lon	1241	lat_lon
+sample_ncbi	library construction method	2	
+sample_ncbi	library description	3	
+sample_ncbi	library type	3	
+sample_ncbi	life_stage	2	
+sample_ncbi	light_type	1	
+sample_ncbi	locus_tag prefix	1	
+sample_ncbi	locus_tag_prefix	158	
+sample_ncbi	magnesium	2	
+sample_ncbi	mating_type	13	
+sample_ncbi	metagenome_source	2	metagenome_source
+sample_ncbi	metagenomic	2	
+sample_ncbi	metagenomic source	4	metagenome_source
+sample_ncbi	methane	2	
+sample_ncbi	microbial_biomass	1	
+sample_ncbi	microbial_biomass_meth	1	
+sample_ncbi	misc_param: HMP body site	1	
+sample_ncbi	misc_param: HMP supersite	1	
+sample_ncbi	missing	3	
+sample_ncbi	n_alkanes	2	
+sample_ncbi	neg_cont_type	1	
+sample_ncbi	nitrate	1	
+sample_ncbi	nitrite	3	
+sample_ncbi	note	28	
+sample_ncbi	note_collection_date	1	
+sample_ncbi	nucleic acid amplification	2	
+sample_ncbi	nucleic acid extraction	1	
+sample_ncbi	num_replicons	838	
+sample_ncbi	occup_samp	1	
+sample_ncbi	occupant_dens_samp	1	
+sample_ncbi	organism	1	organism
+sample_ncbi	organism_count	1	
+sample_ncbi	organism_subgenus	1	
+sample_ncbi	orgmod_note	12	
+sample_ncbi	original collection date	2	
+sample_ncbi	original geographic location	1	
+sample_ncbi	oxy_stat_samp	12	
+sample_ncbi	pH of water above sediment (in situ)	1	
+sample_ncbi	pH of water above sediment (lab)	1	
+sample_ncbi	particle_class	2	
+sample_ncbi	passage_history	12	
+sample_ncbi	pathogenicity	28	
+sample_ncbi	pathotype	7	
+sample_ncbi	perturbation	20	
+sample_ncbi	petroleum_hydrocarb	2	
+sample_ncbi	ph	10	
+sample_ncbi	phosphate	1	
+sample_ncbi	physiological state	1	
+sample_ncbi	plant developmental stage	1	
+sample_ncbi	plant treatment	1	
+sample_ncbi	plant-associated environmental package	2	
+sample_ncbi	plant_body_site	1	host_detail
+sample_ncbi	plant_growth_med	1	
+sample_ncbi	plant_struc	1	host_detail
+sample_ncbi	ploidy	437	
+sample_ncbi	pos_cont_type	1	
+sample_ncbi	project_name	248	
+sample_ncbi	project_type	1	
+sample_ncbi	propagation	429	
+sample_ncbi	receipt date	7	
+sample_ncbi	redox_potential	2	
+sample_ncbi	ref_biomaterial	707	
+sample_ncbi	reference database(s)	4	
+sample_ncbi	refseq_accession	1	
+sample_ncbi	rel_air_humidity	1	
+sample_ncbi	rel_to_oxygen	52	
+sample_ncbi	replicate	1	
+sample_ncbi	salinity	9	
+sample_ncbi	samp_collect_device	8	
+sample_ncbi	samp_collect_method	1	
+sample_ncbi	samp_mat_process	1	
+sample_ncbi	samp_salinity	1	
+sample_ncbi	samp_size	3	
+sample_ncbi	samp_store_dur	2	
+sample_ncbi	samp_store_loc	8	
+sample_ncbi	samp_store_temp	4	
+sample_ncbi	samp_vol_we_dna_ext	7	
+sample_ncbi	sample   title	1	
+sample_ncbi	sample comment	1	
+sample_ncbi	sample coordinator	1	
+sample_ncbi	sample coordinator ORCID ID	1	
+sample_ncbi	sample coordinator affiliation	1	
+sample_ncbi	sample derived from	5	
+sample_ncbi	sample_label	1	
+sample_ncbi	sample_name	357	
+sample_ncbi	sample_type	845	sample_material
+sample_ncbi	scientific_name	63	organism
+sample_ncbi	secondary accessions	1	
+sample_ncbi	sediment_type	2	
+sample_ncbi	sequenced_by	1	
+sample_ncbi	sequencing method	12	
+sample_ncbi	serotype	9	
+sample_ncbi	serovar	7	
+sample_ncbi	sex	4	
+sample_ncbi	sieving	1	
+sample_ncbi	silicate	1	
+sample_ncbi	sodium	2	
+sample_ncbi	soil environmental package	2	
+sample_ncbi	soil_type	1	
+sample_ncbi	soil_type_meth	1	
+sample_ncbi	sop	1	
+sample_ncbi	source material identifier	1	
+sample_ncbi	source_material_id	22	
+sample_ncbi	source_type	2	
+sample_ncbi	space_typ_state	1	
+sample_ncbi	specimen id	1	
+sample_ncbi	specimen_id	1	
+sample_ncbi	specimen_voucher	12	
+sample_ncbi	store_cond	1	
+sample_ncbi	strain	2254	strain
+sample_ncbi	strain number	2	
+sample_ncbi	subgroup	7	
+sample_ncbi	subspecf_gen_lin	2	
+sample_ncbi	subsrc_note	4	
+sample_ncbi	subtype	7	
+sample_ncbi	sulfate	2	
+sample_ncbi	sulfide	2	
+sample_ncbi	taxonomic identity marker	4	
+sample_ncbi	teleomorph	1	
+sample_ncbi	temp	28	
+sample_ncbi	tidal_stage	2	
+sample_ncbi	tissue	19	sample_material
+sample_ncbi	tolid	1	
+sample_ncbi	tot_depth_water_col	2	
+sample_ncbi	tot_diss_nitro	1	
+sample_ncbi	trophic_level	35	
+sample_ncbi	typ_occupant_dens	1	
+sample_ncbi	type-material	1270	
+sample_ncbi	type_material	1	
+sample_ncbi	type_status	1	
+sample_ncbi	type_strain	18	
+sample_ncbi	ventilation_type	1	
+sample_ncbi	water environmental package	3	

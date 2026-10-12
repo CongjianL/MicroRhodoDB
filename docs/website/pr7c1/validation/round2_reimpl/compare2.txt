@@ -1,0 +1,243 @@
+== Record table: 5466 production records, 5466 reimpl records, 39 columns compared
+primary_grade                     5466/5466 MATCH
+db_habitat_status                 5466/5466 MATCH
+db_chain_status                   5466/5466 MATCH
+literature_status                 5466/5466 MATCH
+not_reported_scope                5466/5466 MATCH
+has_usable_habitat                5466/5466 MATCH
+conflict_roles                    5466/5466 MATCH
+conflict_scope                    5466/5466 MATCH
+conflict_kind                     5466/5466 MATCH
+linkage_route                     5466/5466 MATCH
+mapping_confidence                5466/5466 MATCH
+sample_type                       5466/5466 MATCH
+flags                             5466/5466 MATCH
+env_broad_scale_normalized        5466/5466 MATCH
+env_local_scale_normalized        5466/5466 MATCH
+env_medium_normalized             5466/5466 MATCH
+isolation_source_normalized       5466/5466 MATCH
+host_normalized                   5466/5466 MATCH
+sample_material                   5466/5466 MATCH
+habitat_nonstandard               5466/5466 MATCH
+biosamples                        5466/5466 MATCH
+chain_failures                    5466/5466 MATCH
+env_broad_scale_original          5466/5466 MATCH
+env_local_scale_original          5466/5466 MATCH
+env_medium_original               5466/5466 MATCH
+isolation_source_original         5466/5466 MATCH
+host_original                     5466/5466 MATCH
+env_broad_scale_envo_ids          5466/5466 MATCH
+env_local_scale_envo_ids          5466/5466 MATCH
+env_medium_envo_ids               5466/5466 MATCH
+isolation_source_envo_ids         5466/5466 MATCH
+host_envo_ids                     5466/5466 MATCH
+country                           5466/5466 MATCH
+lat_lon                           5466/5466 MATCH
+lat                               5466/5466 MATCH
+lon                               5466/5466 MATCH
+collection_date                   5466/5466 MATCH
+depth                             5466/5466 MATCH
+molecule_types                    5466/5466 MATCH
+
+== Mismatching cells (every record)
+
+Columns with mismatches: 0; records with any mismatch: 0
+
+== Evidence rows (database items only; literature rows are not re-implemented)
+production DB rows: 105659; reimpl rows: 105662
+identical evidence_id: 79819 (ids differ where field_original presentation differs)
+content-key multiset: rows only in production 0; rows only in reimpl 3
+   REIMPL-only x1 ('A0A2T1DCP3', 'ena_biosample', 'SAMN08617406', '0', 'sample_title', 'Phormidesmis priestleyi ULC007')
+   REIMPL-only x1 ('A0A2T1DCP3', 'ncbi_biosample', 'SAMN08617406', '0', 'sample_title', 'Phormidesmis priestleyi ULC007')
+   REIMPL-only x1 ('A0ABM9RL04', 'ena_biosample', 'SAMEA1572090', '0', 'sample_description', '')
+field_original presentation differences on content-matched rows: 27446
+     9808  PROD sample_title <- reimpl sample title
+     6109  PROD sample_description <- reimpl sample description
+     4919  PROD package <- reimpl ncbi submission package
+     4859  PROD <name> (harmonized: <h>)
+      892  PROD organism <- reimpl scientific_name
+      743  PROD scientific_name <- reimpl organism
+       52  PROD host_description <- reimpl host_tissue_sampled
+       52  PROD host_tissue_sampled <- reimpl host_description
+        4  PROD dev_stage <- reimpl tissue
+        4  PROD tissue <- reimpl dev_stage
+        2  PROD cell_type <- reimpl tissue_type
+        2  PROD tissue_type <- reimpl cell_type
+  value_status         103894/104053
+     summary (role, value, PROD, REIMPL): count
+       ('isolate', 'missing', 'context', 'reported_missing'): 87
+       ('strain', 'not applicable', 'context', 'reported_missing'): 24
+       ('strain', 'missing', 'context', 'reported_missing'): 17
+       ('isolate', 'not applicable', 'context', 'reported_missing'): 10
+       ('isolate', 'not collected', 'context', 'reported_missing'): 6
+       ('host_detail', 'not applicable', 'context', 'reported_missing'): 4
+       ('strain', 'n/a', 'context', 'reported_missing'): 4
+       ('host_detail', 'missing', 'context', 'reported_missing'): 2
+       ('isolate', 'not provided', 'context', 'reported_missing'): 2
+       ('investigation_type', 'missing', 'context', 'reported_missing'): 2
+       ('strain', '', 'context', 'reported_missing'): 1
+     A0A022XLX9 ena_biosample SAMN01091664 host_detail 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A022XWS4 ena_biosample SAMN01091664 host_detail 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A099J2X0 ncbi_biosample SAMN02863076 host_detail 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A099J2X0 ena_biosample SAMN02863076 host_detail 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D1YR20 ncbi_biosample SAMN03176947 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D1YR20 ena_biosample SAMN03176947 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D1Z2G5 ncbi_biosample SAMN03176948 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D1Z2G5 ena_biosample SAMN03176948 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D1Z3A4 ncbi_biosample SAMN03176949 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D1Z3A4 ena_biosample SAMN03176949 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D1ZHM5 ena_biosample SAMN03176946 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D1ZHM5 ncbi_biosample SAMN03176946 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D1ZKH7 ncbi_biosample SAMN03176949 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D1ZKH7 ena_biosample SAMN03176949 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D1ZPU8 ena_biosample SAMN03176949 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D1ZPU8 ncbi_biosample SAMN03176949 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D1ZR18 ncbi_biosample SAMN03176947 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D1ZR18 ena_biosample SAMN03176947 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2A606 ncbi_biosample SAMN03176949 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2A606 ena_biosample SAMN03176949 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2ARP1 ncbi_biosample SAMN03176945 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2ARP1 ena_biosample SAMN03176945 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2AXV0 ena_biosample SAMN03176946 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2AXV0 ncbi_biosample SAMN03176946 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2B7C8 ncbi_biosample SAMN03176947 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2B7C8 ena_biosample SAMN03176947 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2BC45 ena_biosample SAMN03176946 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2BC45 ncbi_biosample SAMN03176946 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2CG86 ncbi_biosample SAMN03176946 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2CG86 ena_biosample SAMN03176946 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2CJK7 ncbi_biosample SAMN03176944 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2CJK7 ena_biosample SAMN03176944 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2CMW2 ena_biosample SAMN03176944 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2CMW2 ncbi_biosample SAMN03176944 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2DJD7 ncbi_biosample SAMN03176945 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2DJD7 ena_biosample SAMN03176945 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2DME7 ncbi_biosample SAMN03176945 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2DME7 ena_biosample SAMN03176945 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2DQ35 ncbi_biosample SAMN03176945 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2DQ35 ena_biosample SAMN03176945 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2E6Y3 ena_biosample SAMN03176944 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2E6Y3 ncbi_biosample SAMN03176944 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2EFN1 ena_biosample SAMN03176943 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2EFN1 ncbi_biosample SAMN03176943 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2EVL5 ena_biosample SAMN03176944 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2EVL5 ncbi_biosample SAMN03176944 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2F2B4 ena_biosample SAMN03176944 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2F2B4 ncbi_biosample SAMN03176944 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2FVJ8 ncbi_biosample SAMN03176943 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2FVJ8 ena_biosample SAMN03176943 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2GJG4 ena_biosample SAMN03176943 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A0D2GJG4 ncbi_biosample SAMN03176943 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A167E6W7 ena_biosample SAMN04417247 isolate 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A167E6W7 ncbi_biosample SAMN04417247 isolate 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A1E3BB88 ncbi_biosample SAMN03278705 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A1Q6DUI7 ncbi_biosample SAMN05770050 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A2N5SXN7 ncbi_biosample SAMN07514589 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A2N5TCT6 ncbi_biosample SAMN07514589 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A401GF39 ena_biosample SAMD00076077 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A401GF39 ncbi_biosample SAMD00076077 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A401GF39 ena_biosample SAMD00076077 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A401GF39 ncbi_biosample SAMD00076077 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A401GI95 ncbi_biosample SAMD00076077 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A401GI95 ena_biosample SAMD00076077 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A401GI95 ena_biosample SAMD00076077 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A401GI95 ncbi_biosample SAMD00076077 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A411LJN5 ena_biosample SAMN14792647 isolate 'Not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A411LJN5 ena_biosample SAMN13450411 host_detail 'Not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A411LJN5 ena_biosample SAMN13450411 isolate 'Not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A411LJN5 ncbi_biosample SAMN13450411 isolate 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A411LJN5 ncbi_biosample SAMN13450411 host_detail 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A411LJN5 ncbi_biosample SAMN14792647 isolate 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A5B0NEN6 ncbi_biosample SAMN11533737 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A5B0NEN6 ena_biosample SAMN11533737 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A5B0NGV4 ncbi_biosample SAMN11533737 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A5B0NGV4 ena_biosample SAMN11533737 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A5B0PGW1 ncbi_biosample SAMN11533737 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A5B0PGW1 ena_biosample SAMN11533737 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A6M0Q3T1 ena_biosample SAMN14089839 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A6M0Q3T1 ncbi_biosample SAMN14089839 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A8E0QZF8 ena_biosample SAMD00166942 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A8E0QZF8 ncbi_biosample SAMD00166942 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A8E0QZF8 ncbi_biosample SAMD00166942 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A8E0QZF8 ena_biosample SAMD00166942 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A8H4IVV9 ena_biosample SAMN13735646 isolate 'not collected' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A8H4IVV9 ncbi_biosample SAMN13735646 isolate 'not collected' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A8H4IX04 ena_biosample SAMN13735646 isolate 'not collected' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A8H4IX04 ncbi_biosample SAMN13735646 isolate 'not collected' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9P6VY39 ena_biosample SAMN08581131 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9P6VY39 ncbi_biosample SAMN08581131 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9P6W2T3 ncbi_biosample SAMN08581131 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9P6W2T3 ena_biosample SAMN08581131 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9P7B641 ncbi_biosample SAMN08581130 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9P7B6V4 ncbi_biosample SAMN08581130 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9W6ZE22 ncbi_biosample SAMD00513341 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9W6ZE22 ena_biosample SAMD00513341 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9W7A2T5 ncbi_biosample SAMD00513341 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9W7A2T5 ena_biosample SAMD00513341 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9W7DS92 ncbi_biosample SAMD00513341 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9W7DS92 ena_biosample SAMD00513341 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9W7L0V6 ncbi_biosample SAMD00513342 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9W7L0V6 ena_biosample SAMD00513342 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9W7LDL9 ncbi_biosample SAMD00513342 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0A9W7LDL9 ena_biosample SAMD00513342 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0AAN5YS24 ena_biosample SAMD00166944 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0AAN5YS24 ena_biosample SAMD00166944 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0AAN5YS24 ncbi_biosample SAMD00166944 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0AAN5YS24 ncbi_biosample SAMD00166944 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABM9RL04 ena_biosample SAMEA1572090 strain '' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABQ1AAB0 ena_biosample SAMD00166944 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABQ1AAB0 ncbi_biosample SAMD00166944 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABQ1AAB0 ncbi_biosample SAMD00166944 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABQ1AAB0 ena_biosample SAMD00166944 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABQ1AJ57 ena_biosample SAMD00166942 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABQ1AJ57 ncbi_biosample SAMD00166942 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABQ1AJ57 ncbi_biosample SAMD00166942 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABQ1AJ57 ena_biosample SAMD00166942 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABQ6MJC5 ena_biosample SAMD00513343 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABQ6MJC5 ncbi_biosample SAMD00513343 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABQ6MPT4 ena_biosample SAMD00513343 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABQ6MPT4 ncbi_biosample SAMD00513343 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABQ6NA16 ncbi_biosample SAMD00513343 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABQ6NA16 ena_biosample SAMD00513343 strain 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABR4NMB7 ncbi_biosample SAMN36816214 isolate 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABR4NMB7 ena_biosample SAMN36816214 isolate 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABR4NXZ9 ncbi_biosample SAMN36816214 isolate 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABR4NXZ9 ena_biosample SAMN36816214 isolate 'not applicable' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABS2D0C9 ncbi_biosample SAMN15905582 isolate 'not collected' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABS2D0C9 ena_biosample SAMN15905582 isolate 'not collected' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABW6HNJ6 ncbi_biosample SAMN42107693 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABW6HNJ6 ena_biosample SAMN42107693 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABW6HT10 ncbi_biosample SAMN42107694 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABW6HT10 ena_biosample SAMN42107694 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABY5L7H1 ena_biosample SAMN29636101 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABY5L7H1 ncbi_biosample SAMN29636101 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABY8TL62 ncbi_biosample SAMN06733347 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABY8TPA0 ncbi_biosample SAMN06733347 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABY8TQA0 ncbi_biosample SAMN06733347 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABY8UC15 ncbi_biosample SAMN06733347 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABY9RBS1 ena_biosample SAMN37256843 isolate 'not provided' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABY9RBS1 ncbi_biosample SAMN37256843 isolate 'not provided' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABZ2FQU4 ncbi_biosample SAMN38209873 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABZ2FQU4 ena_biosample SAMN38209873 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABZ2J392 ncbi_biosample SAMN40212058 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ABZ2J392 ena_biosample SAMN40212058 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ACH2QRF0 ncbi_biosample SAMN42730191 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ACH2QRF0 ena_biosample SAMN42730191 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ACH3LS66 ncbi_biosample SAMN36368281 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     A0ACH3LS66 ena_biosample SAMN36368281 isolate 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     E2SE77 ncbi_biosample SAMN00139180 investigation_type 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     E2SE77 ena_biosample SAMN00139180 investigation_type 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     G2QJC7 ncbi_biosample SAMN00739435 strain 'n/a' | PROD: 'context' | REIMPL: 'reported_missing'
+     G2QJC7 ena_biosample SAMN00739435 strain 'n/a' | PROD: 'context' | REIMPL: 'reported_missing'
+     G2QN42 ena_biosample SAMN00739435 strain 'n/a' | PROD: 'context' | REIMPL: 'reported_missing'
+     G2QN42 ncbi_biosample SAMN00739435 strain 'n/a' | PROD: 'context' | REIMPL: 'reported_missing'
+     U7PL42 ncbi_biosample SAMN00103270 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     U7PL42 ena_biosample SAMN00103270 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     U7PWK4 ena_biosample SAMN00103270 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+     U7PWK4 ncbi_biosample SAMN00103270 strain 'missing' | PROD: 'context' | REIMPL: 'reported_missing'
+  value_normalized     104053/104053
+  envo_ids             104053/104053
+  mapping_confidence   104053/104053
+
+VERDICT (record table, 39 columns): EXACT_MATCH
+Evidence (content key): 0 prod-only rows, 3 reimpl-only rows, 159 field-value mismatches

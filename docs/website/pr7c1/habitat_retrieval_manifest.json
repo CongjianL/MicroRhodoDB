@@ -1,0 +1,79 @@
+{
+  "audit_id": "PR-7c.1",
+  "audit_version": "1.0.0",
+  "base_commit": "932eb567a199f9eef25f7e04ac2aaa745e17156c",
+  "database": "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite",
+  "database_sha256": "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f",
+  "entity_counts": {
+    "assembly": 0,
+    "cds": 5777,
+    "envo": 112,
+    "insdc_flatfile": 27,
+    "proteome": 7,
+    "sample_ena": 2414,
+    "sample_ncbi": 2414,
+    "sequence": 27,
+    "study": 1979,
+    "uniparc": 24,
+    "uniprot": 5466,
+    "wgs_set": 16
+  },
+  "grades": {
+    "AMBIGUOUS": 137,
+    "DIRECT_SAMPLE": 2631,
+    "NOT_REPORTED": 2645,
+    "ORGANISM_CONTEXT_ONLY": 36,
+    "VERIFIED_ISOLATE": 17
+  },
+  "literature_file": "docs/website/pr7c1/literature/literature_evidence.json",
+  "literature_sha256": "dbcc2bb88652901d71eec1adce621f9e6bc078871195ffd40eaf5faefb967768",
+  "mode": "full",
+  "n_literature_verification_requests": 62,
+  "n_requests": 419,
+  "n_searched": 5466,
+  "n_source_records": 5466,
+  "outputs": {
+    "figures/fig_habitat_chain_funnel.svg": "fee71ae3742c5e548d11be881082ee2b8a42ffd29b3457fd370b69fa853eee25",
+    "figures/fig_habitat_field_completeness.svg": "7b362062907b52272a38c71584d31d84290b8f2d35e30a503cb83e1cade7929f",
+    "figures/fig_habitat_grade_by_domain.svg": "51df56486e5c26b579606564c5315e23ca2e506176b41a2845033c7d5b54b2a7",
+    "figures/fig_habitat_grade_by_status_group.svg": "5c6712ee47ef61e288fff49529a689c9798e67e1ca96be7128d905ef23438834",
+    "habitat_attribute_inventory.tsv": "b0584636d11fbae474b69e020019c84cae544eac39d597c43f5312cee64bf053",
+    "habitat_coverage_summary.tsv": "07e5e5209a34025e0ae916f189ed1c9e2bf02e51d1b3723aba6db76e231a6d82",
+    "habitat_evidence.tsv": "ee1b62127f000a9927a2c0306c6299542b08127714d06c5c781785838b6af882",
+    "habitat_provenance_links.tsv": "1dabc739be9404677b4da336d38a70d1d1ce270eef697f0743f98a91197e2d85",
+    "habitat_record_availability.tsv": "b258cc52e35f29557e5ab657d78ba4a6e075a4214072bda9fc545b6db61367f5",
+    "habitat_requests.tsv": "7046ae2db4f244b0464e2cf54ea736f8ae5bc21234d8ea0c6cca3917372cf5d0"
+  },
+  "python": "3.11.16",
+  "request_outcomes": {
+    "eutils.ncbi.nlm.nih.gov 200 ok=True": 38,
+    "rest.uniprot.org 200 ok=True": 70,
+    "www.ebi.ac.uk 200 ok=True": 226,
+    "www.ebi.ac.uk 400 ok=True": 84,
+    "www.ebi.ac.uk 404 ok=True": 1
+  },
+  "requests_by_host": {
+    "eutils.ncbi.nlm.nih.gov": 38,
+    "rest.uniprot.org": 70,
+    "www.ebi.ac.uk": 311
+  },
+  "retrieval_window_utc": [
+    "2026-10-12T10:11:22Z",
+    "2026-10-12T10:24:47Z"
+  ],
+  "rules": {
+    "agreement": "normalized string equality (lower case, whitespace collapsed) or identical explicit ENVO-ID sets",
+    "multi_value_separator": " || ",
+    "no_inference": "no habitat or ENVO ID is inferred from taxonomy, organism name, similarity or geography",
+    "usable_roles": [
+      "env_broad_scale",
+      "env_local_scale",
+      "env_medium",
+      "isolation_source",
+      "host"
+    ]
+  },
+  "uniprot_release_headers": {
+    "2026_03": 70
+  }
+}
