@@ -1,6 +1,11 @@
-# PR-7c.1 habitat field dictionary
+# PR-7c.1 habitat field dictionary (revised by PR-7c.1a)
 
-This document is the normative specification of the PR-7c.1 habitat metadata availability audit.
+This document is the normative specification of the PR-7c.1 habitat metadata availability audit, as
+corrected by PR-7c.1a (audit version 1.1.0). PR-7c.1a separates the **physical sampling habitat** (where
+the sample was taken: `env_broad_scale`, `env_local_scale`, `env_medium`, `isolation_source`) from
+**host association** (`host`), treats a bare `0` in the MIxS environment fields as an invalid placeholder,
+classifies ambiguity, and distinguishes database-level absence from literature that was not reviewed or
+was inaccessible. The PR-7c.1 grade is kept per record as `pr7c1_grade` (transition tables only).
 It is written so that the classification can be re-implemented independently from two inputs:
 
 1. the frozen record identity (5,466 v1.6.0 source protein records; `tools/habitat_audit/baseline.py`), and
@@ -15,27 +20,46 @@ A lookup failure or an unsearched source is never reported as NOT_REPORTED.
 
 | Grade | Meaning |
 |---|---|
-| `DIRECT_SAMPLE` | At least one usable value in a usable habitat role, from an INSDC source feature or a BioSample linked to the record's own sequence/assembly, and no disagreement (section 6). |
-| `VERIFIED_ISOLATE` | No usable database value; a parent-verified literature quote states where the same strain/isolate/clone was isolated. |
+| `DIRECT_SAMPLE` | At least one usable value in a **physical** habitat role (`env_broad_scale`, `env_local_scale`, `env_medium`, `isolation_source`), from an INSDC source feature or a BioSample linked to the record's own sequence/assembly, and no physical-role disagreement (section 6). A usable `host` alone never makes a record `DIRECT_SAMPLE`. |
+| `VERIFIED_ISOLATE` | No usable physical database value; a parent-verified literature quote states where the same strain/isolate/clone was isolated. |
 | `ORGANISM_CONTEXT_ONLY` | No usable database value and no isolate-level quote; a parent-verified quote describes the habitat of the species/organism in general. Not a sample habitat. |
-| `AMBIGUOUS` | Usable values disagree within a habitat role (strict rule, section 6), or a verified literature isolate quote is marked inconsistent with the database value. |
-| `NOT_REPORTED` | The chain completed without failure and no usable habitat value exists (and no literature isolate/organism item applies). |
+| `AMBIGUOUS` | Usable values disagree within a physical habitat role (strict rule, section 6), or a verified literature isolate quote is marked inconsistent with the database value while a usable physical DB value exists. A disagreement in `host` only is reported on the host axis (`host_association_status = AMBIGUOUS`), not here. |
+| `NOT_REPORTED` | The chain completed without failure and no usable physical habitat value exists (and no literature isolate/organism item applies). The record may still report a host (`host_association_only`). |
 | `LOOKUP_FAILED` | At least one required lookup in the chain failed (network/HTTP error, unparseable response, ambiguous sample match). |
 | `NOT_SEARCHED` | The record was not searched in this run (pilot mode only; the full run searched all 5,466 records). |
 
 Grade precedence for one record (first match wins):
 `LOOKUP_FAILED` > `AMBIGUOUS` > `DIRECT_SAMPLE` > `VERIFIED_ISOLATE` > `ORGANISM_CONTEXT_ONLY` > `NOT_REPORTED`.
 
-`has_usable_habitat` = 1 iff grade is `DIRECT_SAMPLE` or `VERIFIED_ISOLATE`.
+`primary_grade` is the physical-habitat grade. `has_usable_habitat` = 1 iff grade is `DIRECT_SAMPLE` or
+`VERIFIED_ISOLATE` (physical habitat only).
+
+**Host-association axis** (PR-7c.1a; independent of `primary_grade`):
+- `host_association_status`: `LOOKUP_FAILED` (any chain failure) > `AMBIGUOUS` (usable `host` values disagree,
+  section 6) > `REPORTED` (at least one usable `host` value) > `NOT_REPORTED`; `NOT_SEARCHED` for unsearched records.
+- `has_host_association` = 1 iff `host_association_status` is `REPORTED` or `AMBIGUOUS`.
+- `host_ambiguity_class`: section 6, computed on `host` conflicts only (empty unless host `AMBIGUOUS`).
+- Host taxonomy is not in the retrieval cache, so host names are **not** reconciled as synonyms; a host
+  disagreement stays `AMBIGUOUS` with both raw values in `host_original`.
+
+**Legacy grade** `pr7c1_grade`: the PR-7c.1 grade computed exactly as before (all five roles usable, `host`
+counted as habitat, the `0` placeholder counted as usable, literature conflict against any usable value).
+It equals the committed PR-7c.1 `primary_grade` for every record and is used only for transition tables.
 
 Companion columns:
-- `db_habitat_status`: the database-only grade (`LOOKUP_FAILED` > `AMBIGUOUS` (DB conflict only) > `DIRECT_SAMPLE` > `NOT_REPORTED`).
+- `db_habitat_status`: the database-only physical grade (`LOOKUP_FAILED` > `AMBIGUOUS` (physical DB conflict only) > `DIRECT_SAMPLE` > `NOT_REPORTED`).
 - `db_chain_status`: `INCOMPLETE` (any failure), `NO_LINK` (no link of any kind), else `COMPLETE`.
 - `literature_status`: `NOT_SEARCHED` for records outside the literature subset (110 records = 107 characterized
   union 15 seeds); otherwise the final status in `literature_evidence.json` (section 9).
-- `not_reported_scope` (only when grade is `NOT_REPORTED`): `database_and_literature` when `literature_status`
-  is `NOT_REPORTED`; otherwise `database_chain_only` (the literature was not searched, or was searched but
-  a source could not be accessed).
+- `not_reported_scope` (only when grade is `NOT_REPORTED`; the database chain always completed without
+  failure and gave no usable physical value):
+  - `database_only_literature_not_reviewed`: `literature_status = NOT_SEARCHED` (record outside the 110-record
+    literature subset; literature absence is **not** established);
+  - `database_only_literature_inaccessible`: `literature_status = LOOKUP_FAILED` (literature reviewed but a
+    source was inaccessible or the search was incomplete; absence **not** established; no annotation is added);
+  - `database_and_literature`: `literature_status = NOT_REPORTED` (absent in both);
+  - any other literature status `S`: `database_only_literature_<s>` (lower case; does not occur in this run).
+  PR-7c.1 used `database_chain_only` for both of the first two cases.
 
 ## 2. Source chain and linkage routes
 
@@ -103,7 +127,11 @@ Literature: `"HL"` + 12 hex of SHA-256 of `pmid|doi|quote|scope` followed by the
 
 Tag key: remove characters outside printable ASCII, lower case, collapse runs of `_`, `-` and whitespace to one space.
 
-**Usable habitat roles** (the only roles that can make a record `DIRECT_SAMPLE`):
+**Value-checked habitat roles** (`HABITAT_ROLES`; section 5 applies to all five). Only the four
+**physical** roles (`PHYSICAL_ROLES`: `env_broad_scale`, `env_local_scale`, `env_medium`, `isolation_source`)
+can make a record `DIRECT_SAMPLE`; `host` (`HOST_ROLES`) is the host-association axis. The three MIxS
+environment roles (`MIXS_ENV_ROLES`: `env_broad_scale`, `env_local_scale`, `env_medium`) are subject to the
+zero-placeholder rule (section 5).
 
 | Role | Tags |
 |---|---|
@@ -142,16 +170,23 @@ Applied in this order (first match wins):
 1. `reported_missing`: normalized value empty or matching (case-insensitive; `.` and `?` are literal characters)
    `^(missing|not collected|not applicable|not provided|not available|not determined|restricted access|unknown|unspecified|na|n/a|n\.a\.|none|null|nan|-|--|\.|\?)(\s*[:;,(].*)?$`.
    The list is literal: other placeholder-like tokens (e.g. `0`, `no`) are not missing and are evaluated by the
-   following rules (12 values of `0` are `usable` in the full run).
-2. `host_is_self` (role `host` only): the host equals the record's own organism: the host taxid equals the
+   following rules.
+2. `invalid_placeholder` (PR-7c.1a; roles `env_broad_scale`, `env_local_scale`, `env_medium` only): the
+   normalized value fully matches `^0+(\.0+)?$` (e.g. `0`, `00`, `0.0`). Sets flag `invalid_placeholder_value`.
+   The value is kept in the evidence table (provenance) but is not usable. ENVO-like digit strings such as
+   `00000316` do not match and are unchanged; the rule is not applied to `isolation_source` or `host`.
+   In the full run exactly 12 items match (A0ABS3TAH3 and A0ABS3TE24: env_broad_scale, env_local_scale and
+   env_medium `0`, each in the ENA and NCBI copy of the BioSample); both records keep their usable
+   `isolation_source = soil` and stay `DIRECT_SAMPLE`.
+3. `host_is_self` (role `host` only): the host equals the record's own organism: the host taxid equals the
    record taxid; or the normalized host equals a normalized organism name (UniProt organism, DB organism,
    source-feature `scientific_name`); or, for non-viral organisms only, the first two words match a
    two-word organism binomial that does not end with `sp`/`sp.`. Sets flag `host_is_self_ignored`.
-3. `uninformative_placeholder`: all explicit ENVO IDs are root/placeholder classes
+4. `uninformative_placeholder`: all explicit ENVO IDs are root/placeholder classes
    (ENVO:00010483, 00000428, 01000254, 00002297, 01001110, 00002036, 01000813), or the value with ENVO IDs
    removed is one of: environmental material, environment material, biome, environmental feature,
    environment, environmental system, environmental sample, other, sample.
-4. `moved_to_material` (culture): the normalized value, with one trailing `.` removed, fully matches
+5. `moved_to_material` (culture): the normalized value, with one trailing `.` removed, fully matches
    (case-insensitive) any of these alternatives (`normalize.CULTURE_RE`):
    - `(axenic |pure |unialgal |clonal |laboratory |lab |cell |stock |batch |continuous )?cultures?`
    - `culture collection`; `strain collection`; `laboratory`; `cultured cells`
@@ -163,18 +198,20 @@ Applied in this order (first match wins):
      `culture medium`); multi-word prefixes such as `liquid culture medium` are not matched.
    A culture mentioned inside a longer habitat description (e.g. "enrichment culture from lake sediment")
    is not matched.
-5. `moved_to_material` (tissue; role `isolation_source` only): the normalized value, with one trailing `.`
+6. `moved_to_material` (tissue; role `isolation_source` only): the normalized value, with one trailing `.`
    removed, equals one of exactly these terms (`normalize.TISSUE_TERMS`): leaf, leaves, root, roots, stem, stems,
    shoot, shoots, flower, flowers, seed, seeds, fruit, fruiting body, fruiting bodies, mycelium, mycelia, hyphae,
    spores, conidia, whole organism, whole body, whole plant, whole cell, whole cells, cells, cell, tissue,
    thallus, sporophyte, gametophyte, protonema, rhizoid, blade, frond; unless the same sample entity also
-   reports a non-self host (then the tissue is a host-associated isolation source and stays usable).
+   reports a non-self host (then the tissue is a host-associated isolation source and stays usable as a
+   physical value; flag `host_associated_isolation_source`, and `host_tissue_isolation_source_only` when such
+   tissue terms are the record's only usable physical values, as a sensitivity marker).
    The tissue rule does not apply to `env_broad_scale`, `env_local_scale` or `env_medium` (e.g. env_medium
    `leaf` stays usable).
-6. `usable`.
+7. `usable`.
 
 `moved_to_material` and `material` values are listed in `sample_material`; when such a value exists and the
-grade is not `DIRECT_SAMPLE`/`AMBIGUOUS`, flag `tissue_or_culture_only` is set.
+physical grade is not `DIRECT_SAMPLE`/`AMBIGUOUS`, flag `tissue_or_culture_only` is set.
 
 **ENVO IDs**: only IDs written in the value (`ENVO[:_ ]?\d{7,8}`, zero-padded to 8). Each is checked in OLS:
 `not_found` sets `envo_id_invalid` and the ID is dropped from the item; `failed` sets `envo_lookup_failed`
@@ -184,10 +221,14 @@ grade is not `DIRECT_SAMPLE`/`AMBIGUOUS`, flag `tissue_or_culture_only` is set.
 
 ## 6. Agreement rule and conflicts
 
-Within each usable habitat role, usable items are grouped by union-find: two items agree when their
+Within each of the five habitat roles, usable items are grouped by union-find: two items agree when their
 `value_normalized` strings are equal, or both have the same non-empty explicit ENVO-ID set. More than one group
-in any role is a conflict: grade `AMBIGUOUS`, flag `conflict`, the role listed in `conflict_roles`.
-Roles are evaluated independently (an `isolation_source` and an `env_medium` value never conflict).
+in a role is a conflict, listed in `conflict_roles` (raw observation over all five roles, with `conflict_scope`
+and `conflict_kind`). A conflict in a **physical** role makes the grade `AMBIGUOUS` (flag `conflict`); a
+conflict in `host` makes `host_association_status = AMBIGUOUS` (flag `host_conflict`) and does not change the
+physical grade. Roles are evaluated independently (an `isolation_source` and an `env_medium` value never
+conflict). No conflicting value is ever chosen, merged or dropped: all distinct usable values stay in the
+`<role>_original` cell joined by ` || `.
 
 Descriptive diagnostics (never change the grade):
 - `conflict_kind` per role: `punctuation_only` (groups identical after replacing non-alphanumerics with spaces),
@@ -195,14 +236,35 @@ Descriptive diagnostics (never change the grade):
 - `conflict_scope` per role: `within_sample_unit` when all disagreeing items belong to one sample unit
   (a source-feature item belongs to its link's BioSample when the link has exactly one), else `across_sample_units`.
 
+**Ambiguity interpretation** (PR-7c.1a; descriptive, never resolves a value). `ambiguity_class` (physical
+axis, set iff grade `AMBIGUOUS`) and `host_ambiguity_class` (host axis, set iff host `AMBIGUOUS`) are computed
+from that axis's conflicting roles, first match wins:
+1. `LITERATURE_VS_DATABASE`: no database-internal conflict on the axis; a verified isolate literature item is
+   `inconsistent` with the database (physical axis only; flag `literature_conflict`).
+2. `FORMATTING_ONLY`: every conflicting role is `punctuation_only` (case and whitespace are already ignored by
+   the agreement rule, so the values differ only in punctuation/separators).
+3. `NESTED_WORDING`: every conflicting role is `punctuation_only` or `token_subset` (one value's words contain
+   the other's, e.g. `sediment` vs `lake sediment`).
+4. `DISTINCT_SAME_SAMPLE`: some role is `distinct_values`, and every `distinct_values` role is
+   `within_sample_unit`: different wording inside one sample unit (e.g. ENA vs NCBI copy, or source feature vs
+   its BioSample). This may be a synonym or a submitter inconsistency; it is **not** resolved, because no
+   synonym resource is applied.
+5. `DISTINCT_ACROSS_SAMPLES`: some `distinct_values` role spans more than one sample unit: a genuine
+   environmental-conflict candidate (e.g. the same protein sequenced from different samples).
+Classes 2-3 are formatting differences; 4 is unresolved wording or synonym difference; 5 (and 1) are
+candidate genuine conflicts. The grade stays `AMBIGUOUS` for every class.
+
 `multi_sample` (DIRECT_SAMPLE only): more than one evidence unit, where units are the record's BioSamples plus
 each CDS/sequence/UniParc link that has no BioSample.
 
 Other flags: `geo_discordant` / `date_discordant` when more than one distinct country / collection date exists
 after light normalization (whitespace around `:`,`,`,`;` removed; `DD-Mon-YYYY` and `Mon-YYYY` dates converted
-to ISO); `free_text_context_only` when the record has no usable habitat-role item (database chain only) but at least one
+to ISO); `free_text_context_only` when the record has no usable item in any of the five habitat roles
+(including `host`; meaning unchanged from PR-7c.1; database chain only) but at least one
 non-empty `sample_title` or `sample_description` item exists;
-`habitat_reported_missing` when a habitat role carries a missing-value token; `engineered_record`.
+`habitat_reported_missing` when a habitat role carries a missing-value token; `invalid_placeholder_value`
+(section 5); `host_association_only` when the record has a usable `host` and no usable physical value;
+`host_conflict`, `literature_conflict` (above); `engineered_record`.
 
 ## 7. Sample type (`sample_type`, explicit fields only)
 
@@ -215,12 +277,18 @@ types mRNA/transcribed RNA); else `UNKNOWN`.
 ## 8. Record-table cells
 
 Multiple distinct values in one cell are sorted and joined by ` || `; ID lists by `;`.
-Habitat columns (`<role>_original`, `<role>_normalized`, `<role>_envo_ids`) contain usable values only.
+Habitat columns (`<role>_original`, `<role>_normalized`, `<role>_envo_ids`) contain usable values only; the
+`host_*` columns are the host-association values (not physical habitat).
 `habitat_nonstandard` lists each distinct `nonstandard_context` item as `<field_original>: <value_original>`
 (the submitted tag, unmodified, then a colon and a space); `sample_material` lists the distinct `value_original`
 of `material` and `moved_to_material` items.
-`mapping_confidence`: DIRECT_SAMPLE = HIGH if any usable item is HIGH else MEDIUM; VERIFIED_ISOLATE = LITERATURE;
-AMBIGUOUS = HIGH/MEDIUM by the same rule, or LITERATURE when only a literature conflict exists; otherwise empty.
+`mapping_confidence` (physical axis): DIRECT_SAMPLE = HIGH if any usable physical item is HIGH else MEDIUM;
+VERIFIED_ISOLATE = LITERATURE; AMBIGUOUS = HIGH/MEDIUM by the same rule, or LITERATURE when only a literature
+conflict exists; otherwise empty.
+`evidence_ids`: every `usable` database item (all five roles, so host evidence stays traceable) plus verified
+literature isolate items; `invalid_placeholder` items are not listed.
+New PR-7c.1a columns: `ambiguity_class`, `host_association_status`, `has_host_association`,
+`host_ambiguity_class`, `pr7c1_grade` (section 1 and 6).
 
 ## 9. Literature (110-record subset)
 
@@ -247,7 +315,11 @@ AMBIGUOUS = HIGH/MEDIUM by the same rule, or LITERATURE when only a literature c
 - Consistency between a literature isolate quote and the DB value is a reviewer semantic judgement
   (`consistent`, `inconsistent` only for a genuine contradiction, `not_applicable`), because prose has no
   normalized form. This is a deliberate deviation from the strict string rule of section 6. An `inconsistent`
-  verified isolate item makes the record `AMBIGUOUS` only when the record also has a usable DB value.
+  verified isolate item makes the record `AMBIGUOUS` only when the record also has a usable physical DB value
+  (PR-7c.1a; a usable `host` alone is not a habitat the literature can contradict).
+- The 24 records with `literature_status = LOOKUP_FAILED` keep that status and carry no literature item;
+  no annotation is invented for them (23 are `NOT_REPORTED` with scope `database_only_literature_inaccessible`,
+  1 is `DIRECT_SAMPLE` from its database value).
 - Parent step-3 searches (after the reviewer passes) are recorded in `literature_parent_additions.json`; their
   items go through the same quote verification and parent decisions as reviewer items.
 - Literature evidence rows have role `literature_isolate`, `organism_context` or `literature_rejected`;
@@ -266,17 +338,29 @@ Long format: `unit, stratum_type, stratum, metric, numerator, denominator, perce
 Units `source_record`, `mrdb_accession`. Strata: all, status_group_audit, domain, phylum, source_release,
 evidence_level, reviewed, counted, is_characterized, literature_subset, sample_type, mapping_confidence.
 
-Metrics: `grade:<G>`; `usable_habitat_any_source` and `_of_searched`; `usable_field:<role>`;
+Metrics: `grade:<G>` (physical grade); `usable_habitat_any_source` and `_of_searched` (physical habitat);
+`usable_field:<role>` (four physical roles only); `host_field:host`;
 `reported_field:<habitat_nonstandard|country|collection_date|lat_lon|sample_material>`; `funnel:<stage>`;
 `flag:<flag>`; `literature_status:<S>`; `ambiguous_role_conflict_scope:<scope>` and
 `ambiguous_role_conflict_kind:<kind>` (denominator = conflicting role instances);
 `ambiguous_all_roles_punctuation_only`; `ambiguous_all_roles_within_sample_unit`;
 `not_reported_with_nonstandard_habitat_tag`; `mrdb_mixed_source_grades`; `mrdb_multiple_source_records`.
+The `ambiguous_role_*` and `ambiguous_all_roles_*` diagnostics count physical roles of physical-`AMBIGUOUS`
+records only.
+
+PR-7c.1a metrics (source_record unit): `host_association:<status>` (denominator = records in the stratum),
+`has_host_association`, `host_association_only` (flag of that name), `physical_habitat_and_host_association`
+(`has_usable_habitat = 1` and `has_host_association = 1`, so VERIFIED_ISOLATE counts and physical-`AMBIGUOUS`
+does not);
+(stratum `all` only) `ambiguity_class:<C>` (denominator = physical `AMBIGUOUS` records),
+`host_ambiguity_class:<C>` (denominator = host `AMBIGUOUS` records), `not_reported_scope:<S>`
+(denominator = `NOT_REPORTED` records), `pr7c1_grade_transition:<old>-><new>` (denominator = all records).
 
 Funnel stages (monotone): `searched` -> `insdc_link_found` (no `no_insdc_link`) -> `insdc_record_resolved`
 (no `insdc_record_unresolved` and no coding/sequence/UniParc/proteome failure) -> `habitat_field_present`
-(any DB habitat-role item) -> `informative_habitat_value` (any habitat-role item that is not
-`reported_missing`/`uninformative_placeholder`) -> `direct_sample`.
+(any DB physical-role item) -> `informative_habitat_value` (any physical-role item that is not
+`reported_missing`/`uninformative_placeholder`/`invalid_placeholder`) -> `direct_sample`. (PR-7c.1 counted
+`host` items in the funnel.)
 
 ## 12. Output tables
 
@@ -291,3 +375,13 @@ Funnel stages (monotone): `searched` -> `insdc_link_found` (no `no_insdc_link`) 
 - `habitat_coverage_summary.tsv`: section 11.
 - `habitat_retrieval_manifest.json`: request counts by host/outcome, retrieval window, UniProt release headers,
   entity counts, literature file SHA-256, rule identifiers and SHA-256 of every output.
+
+**Generated-file whitespace.** TSV rows whose last column is empty end with a tab: this is a structural empty
+field, not trailing whitespace, and is declared with `*.tsv -whitespace` in `.gitattributes`. SVG figures
+are written with trailing whitespace stripped per line (matplotlib emits path data such as `M 0 0 `); geometry
+and text are unchanged.
+
+**Paths.** No absolute machine path is used. The cache defaults to `<repo>/work/habitat_cache` (override with
+`MRDB_HABITAT_CACHE` or `--cache`); the work directory to `<repo>/work/pr7c1_work` (`MRDB_HABITAT_WORK` or
+`--work`). `work/` is gitignored. Offline replay: `python -m tools.habitat_audit.run full --offline
+[--cache DIR] --out DIR`.

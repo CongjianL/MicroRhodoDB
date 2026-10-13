@@ -83,3 +83,31 @@ re-fetched every literature quote.
 - Branches with no real-data occurrences (request failures, unresolvable samples, assembly fallback, ENVO
   lookup failures, `host_is_self`) are covered only by synthetic tests and failure injection in
   `tests/test_habitat_audit_pr7c1.py` and by the mutation audit.
+
+## 5. PR-7c.1a round-3 re-implementation (scientific semantics correction)
+
+Artifacts: `validation/round3_pr7c1a/` (`reimpl3.py`, `compare3.py`, `compare3.txt`, `denominators3.py`,
+`denominators3.txt`, `REIMPL3_REPORT.md`). A separate validator re-implemented the corrected rules from the
+revised dictionary (v3), starting from the round-2 independent script and without reading production code,
+and only then compared with the PR-7c.1a outputs. Verdict: **PASS**.
+
+- Record table: 45 shared columns x 5,466 records (245,970 cells). All classification and habitat columns
+  match, including `primary_grade`, `pr7c1_grade`, `host_association_status`, `ambiguity_class`,
+  `host_ambiguity_class`, `not_reported_scope`, `mapping_confidence`, `flags` and all 15 role columns.
+  3 `evidence_ids` cells differed only through literature evidence-ID hashing of a null DOI (production hashes
+  the string `None`); after mapping those IDs, 0 cells differ.
+- Evidence table: 105,750 rows; `value_status` identical for every shared row (`invalid_placeholder` = 12).
+  Residual differences are serialization conventions (envo_ids order within one item; literature-row
+  `entity_accession`, `linkage_route`, `mapping_confidence`) that are outside the dictionary's record-level
+  rules and do not affect any record value.
+- Denominators: 63/63 recomputed summary rows (grades, physical fields, host axis, ambiguity classes with
+  denominators 59 and 84, NOT_REPORTED scopes with denominator 2,831, transitions, flags) match numerator,
+  denominator and percent. `pr7c1_grade` equals the PR-7c.1 `primary_grade` on 5,466/5,466 records, and
+  every column change from PR-7c.1 is explained by host separation, the two zero-placeholder records or the
+  scope renaming.
+- The metric `physical_habitat_and_host_association` was under-specified in the v3 draft (548 vs 569 under
+  the alternative reading); the dictionary now defines it as `has_usable_habitat = 1` and
+  `has_host_association = 1`.
+- The validator's scientific notes are recorded as limitations, not changes: 4 DISTINCT_SAME_SAMPLE records
+  differ by a typo, and 8 of 10 DISTINCT_ACROSS_SAMPLES records are depth/layer or neighbouring-lake
+  differences; only B2D007 and F6LYH6 span habitat types.

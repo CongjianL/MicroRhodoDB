@@ -1,0 +1,6 @@
+# PR-7c.1a: generated audit tables. A row whose last column is empty ends with a tab; that tab is a
+# structural empty TSV field, not trailing whitespace, so whitespace checks are disabled for TSVs.
+*.tsv -whitespace
+# Validator logs preserved verbatim from the independent validation rounds (scientific record; not rewritten).
+validation/round1_reimpl/compare_sensitivity.txt -whitespace
+validation/round1_reimpl/compare_specliteral.txt -whitespace

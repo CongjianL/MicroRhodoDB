@@ -1,6 +1,6 @@
 {
-  "audit_id": "PR-7c.1",
-  "audit_version": "1.0.0",
+  "audit_id": "PR-7c.1a",
+  "audit_version": "1.1.0",
   "base_commit": "932eb567a199f9eef25f7e04ac2aaa745e17156c",
   "database": "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite",
   "database_sha256": "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f",
@@ -19,11 +19,16 @@
     "wgs_set": 16
   },
   "grades": {
-    "AMBIGUOUS": 137,
-    "DIRECT_SAMPLE": 2631,
-    "NOT_REPORTED": 2645,
+    "AMBIGUOUS": 59,
+    "DIRECT_SAMPLE": 2523,
+    "NOT_REPORTED": 2831,
     "ORGANISM_CONTEXT_ONLY": 36,
     "VERIFIED_ISOLATE": 17
+  },
+  "host_association": {
+    "AMBIGUOUS": 84,
+    "NOT_REPORTED": 4711,
+    "REPORTED": 671
   },
   "literature_file": "docs/website/pr7c1/literature/literature_evidence.json",
   "literature_sha256": "dbcc2bb88652901d71eec1adce621f9e6bc078871195ffd40eaf5faefb967768",
@@ -33,16 +38,23 @@
   "n_searched": 5466,
   "n_source_records": 5466,
   "outputs": {
-    "figures/fig_habitat_chain_funnel.svg": "fee71ae3742c5e548d11be881082ee2b8a42ffd29b3457fd370b69fa853eee25",
-    "figures/fig_habitat_field_completeness.svg": "7b362062907b52272a38c71584d31d84290b8f2d35e30a503cb83e1cade7929f",
-    "figures/fig_habitat_grade_by_domain.svg": "51df56486e5c26b579606564c5315e23ca2e506176b41a2845033c7d5b54b2a7",
-    "figures/fig_habitat_grade_by_status_group.svg": "5c6712ee47ef61e288fff49529a689c9798e67e1ca96be7128d905ef23438834",
+    "figures/fig_habitat_chain_funnel.svg": "0b1f0401d9b01379a27413cf8c019bbaf83c25b7ca76277613fe30bc016e1447",
+    "figures/fig_habitat_field_completeness.svg": "e37101e0790587ce9b5919b03db914a5c6f133bd6592efc4546d5a4f71d6ebfe",
+    "figures/fig_habitat_grade_by_domain.svg": "2e3f6e4a6ea2ef24a57530f3cfe4813896e418401b1cbab9b4843a69140fd02b",
+    "figures/fig_habitat_grade_by_status_group.svg": "a1fb2367570333667034a67d60d21f88b3621571b878a1fb6179584426275311",
     "habitat_attribute_inventory.tsv": "b0584636d11fbae474b69e020019c84cae544eac39d597c43f5312cee64bf053",
-    "habitat_coverage_summary.tsv": "07e5e5209a34025e0ae916f189ed1c9e2bf02e51d1b3723aba6db76e231a6d82",
-    "habitat_evidence.tsv": "ee1b62127f000a9927a2c0306c6299542b08127714d06c5c781785838b6af882",
+    "habitat_coverage_summary.tsv": "45b238062e61377eea5e60c9233f9616ecfeb12c9677ce0661223c8623926bf8",
+    "habitat_evidence.tsv": "1053f967b7fde56b8c45958a749d35a33e2c5a3fd065b03d35fb4d73a58fdc4f",
     "habitat_provenance_links.tsv": "1dabc739be9404677b4da336d38a70d1d1ce270eef697f0743f98a91197e2d85",
-    "habitat_record_availability.tsv": "b258cc52e35f29557e5ab657d78ba4a6e075a4214072bda9fc545b6db61367f5",
+    "habitat_record_availability.tsv": "b6ebfba238a7e3ccad27af6ec3ea093dbd4f125501709d500f0e84504441327b",
     "habitat_requests.tsv": "7046ae2db4f244b0464e2cf54ea736f8ae5bc21234d8ea0c6cca3917372cf5d0"
+  },
+  "pr7c1_grades": {
+    "AMBIGUOUS": 137,
+    "DIRECT_SAMPLE": 2631,
+    "NOT_REPORTED": 2645,
+    "ORGANISM_CONTEXT_ONLY": 36,
+    "VERIFIED_ISOLATE": 17
   },
   "python": "3.11.16",
   "request_outcomes": {
@@ -63,9 +75,19 @@
   ],
   "rules": {
     "agreement": "normalized string equality (lower case, whitespace collapsed) or identical explicit ENVO-ID sets",
+    "host_association_roles": [
+      "host"
+    ],
+    "invalid_placeholder": "whole-value zero (^0+(\\.0+)?$) in env_broad_scale/env_local_scale/env_medium",
     "multi_value_separator": " || ",
     "no_inference": "no habitat or ENVO ID is inferred from taxonomy, organism name, similarity or geography",
-    "usable_roles": [
+    "physical_habitat_roles": [
+      "env_broad_scale",
+      "env_local_scale",
+      "env_medium",
+      "isolation_source"
+    ],
+    "value_checked_roles": [
       "env_broad_scale",
       "env_local_scale",
       "env_medium",

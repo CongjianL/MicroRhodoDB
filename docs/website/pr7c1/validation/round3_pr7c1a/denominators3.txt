@@ -1,0 +1,217 @@
+records: 5466 (39f5cad: 5466)
+====================================================================================================
+A. Coverage summary (unit=source_record, stratum_type=all): numerator and denominator
+  ambiguity_class:DISTINCT_ACROSS_SAMPLES                                prod    10/   59 (16.95%)  indep    10/   59  OK
+  ambiguity_class:DISTINCT_SAME_SAMPLE                                   prod    19/   59 (32.20%)  indep    19/   59  OK
+  ambiguity_class:FORMATTING_ONLY                                        prod     9/   59 (15.25%)  indep     9/   59  OK
+  ambiguity_class:LITERATURE_VS_DATABASE                                 prod     1/   59 (1.69%)  indep     1/   59  OK
+  ambiguity_class:NESTED_WORDING                                         prod    20/   59 (33.90%)  indep    20/   59  OK
+  flag:conflict                                                          prod    59/ 5466 (1.08%)  indep    59/ 5466  OK
+  flag:date_discordant                                                   prod    12/ 5466 (0.22%)  indep    12/ 5466  OK
+  flag:engineered_record                                                 prod     6/ 5466 (0.11%)  indep     6/ 5466  OK
+  flag:envo_id_invalid                                                   prod     6/ 5466 (0.11%)  indep     6/ 5466  OK
+  flag:free_text_context_only                                            prod  2536/ 5466 (46.40%)  indep  2536/ 5466  OK
+  flag:geo_discordant                                                    prod    91/ 5466 (1.66%)  indep    91/ 5466  OK
+  flag:habitat_reported_missing                                          prod  1916/ 5466 (35.05%)  indep  1916/ 5466  OK
+  flag:host_associated_isolation_source                                  prod    42/ 5466 (0.77%)  indep    42/ 5466  OK
+  flag:host_association_only                                             prod   186/ 5466 (3.40%)  indep   186/ 5466  OK
+  flag:host_conflict                                                     prod    84/ 5466 (1.54%)  indep    84/ 5466  OK
+  flag:host_tissue_isolation_source_only                                 prod    23/ 5466 (0.42%)  indep    23/ 5466  OK
+  flag:invalid_placeholder_value                                         prod     2/ 5466 (0.04%)  indep     2/ 5466  OK
+  flag:literature_conflict                                               prod     1/ 5466 (0.02%)  indep     1/ 5466  OK
+  flag:multi_sample                                                      prod    56/ 5466 (1.02%)  indep    56/ 5466  OK
+  flag:multiple_biosamples                                               prod     1/ 5466 (0.02%)  indep     1/ 5466  OK
+  flag:no_biosample_link                                                 prod   548/ 5466 (10.03%)  indep   548/ 5466  OK
+  flag:no_insdc_link                                                     prod    18/ 5466 (0.33%)  indep    18/ 5466  OK
+  flag:sample_copy_absent                                                prod    24/ 5466 (0.44%)  indep    24/ 5466  OK
+  flag:tissue_or_culture_only                                            prod   382/ 5466 (6.99%)  indep   382/ 5466  OK
+  flag:uniparc_embl_link                                                 prod     6/ 5466 (0.11%)  indep     6/ 5466  OK
+  flag:uniprot_inactive                                                  prod     6/ 5466 (0.11%)  indep     6/ 5466  OK
+  grade:AMBIGUOUS                                                        prod    59/ 5466 (1.08%)  indep    59/ 5466  OK
+  grade:DIRECT_SAMPLE                                                    prod  2523/ 5466 (46.16%)  indep  2523/ 5466  OK
+  grade:LOOKUP_FAILED                                                    prod     0/ 5466 (0.00%)  indep     0/ 5466  OK
+  grade:NOT_REPORTED                                                     prod  2831/ 5466 (51.79%)  indep  2831/ 5466  OK
+  grade:NOT_SEARCHED                                                     prod     0/ 5466 (0.00%)  indep     0/ 5466  OK
+  grade:ORGANISM_CONTEXT_ONLY                                            prod    36/ 5466 (0.66%)  indep    36/ 5466  OK
+  grade:VERIFIED_ISOLATE                                                 prod    17/ 5466 (0.31%)  indep    17/ 5466  OK
+  has_host_association                                                   prod   755/ 5466 (13.81%)  indep   755/ 5466  OK
+  host_ambiguity_class:DISTINCT_ACROSS_SAMPLES                           prod     0/   84 (0.00%)  indep     0/   84  OK
+  host_ambiguity_class:DISTINCT_SAME_SAMPLE                              prod    60/   84 (71.43%)  indep    60/   84  OK
+  host_ambiguity_class:FORMATTING_ONLY                                   prod     1/   84 (1.19%)  indep     1/   84  OK
+  host_ambiguity_class:LITERATURE_VS_DATABASE                            prod     0/   84 (0.00%)  indep     0/   84  OK
+  host_ambiguity_class:NESTED_WORDING                                    prod    23/   84 (27.38%)  indep    23/   84  OK
+  host_association:AMBIGUOUS                                             prod    84/ 5466 (1.54%)  indep    84/ 5466  OK
+  host_association:LOOKUP_FAILED                                         prod     0/ 5466 (0.00%)  indep     0/ 5466  OK
+  host_association:NOT_REPORTED                                          prod  4711/ 5466 (86.19%)  indep  4711/ 5466  OK
+  host_association:NOT_SEARCHED                                          prod     0/ 5466 (0.00%)  indep     0/ 5466  OK
+  host_association:REPORTED                                              prod   671/ 5466 (12.28%)  indep   671/ 5466  OK
+  host_association_only                                                  prod   186/ 5466 (3.40%)  indep   186/ 5466  OK
+  host_field:host                                                        prod   755/ 5466 (13.81%)  indep   755/ 5466  OK
+  not_reported_scope:database_and_literature                             prod    12/ 2831 (0.42%)  indep    12/ 2831  OK
+  not_reported_scope:database_only_literature_inaccessible               prod    23/ 2831 (0.81%)  indep    23/ 2831  OK
+  not_reported_scope:database_only_literature_not_reviewed               prod  2796/ 2831 (98.76%)  indep  2796/ 2831  OK
+  physical_habitat_and_host_association                                  prod   548/ 5466 (10.03%)  indep   548/ 5466  OK
+  pr7c1_grade_transition:AMBIGUOUS->AMBIGUOUS                            prod    59/ 5466 (1.08%)  indep    59/ 5466  OK
+  pr7c1_grade_transition:AMBIGUOUS->DIRECT_SAMPLE                        prod    63/ 5466 (1.15%)  indep    63/ 5466  OK
+  pr7c1_grade_transition:AMBIGUOUS->NOT_REPORTED                         prod    15/ 5466 (0.27%)  indep    15/ 5466  OK
+  pr7c1_grade_transition:DIRECT_SAMPLE->DIRECT_SAMPLE                    prod  2460/ 5466 (45.01%)  indep  2460/ 5466  OK
+  pr7c1_grade_transition:DIRECT_SAMPLE->NOT_REPORTED                     prod   171/ 5466 (3.13%)  indep   171/ 5466  OK
+  pr7c1_grade_transition:NOT_REPORTED->NOT_REPORTED                      prod  2645/ 5466 (48.39%)  indep  2645/ 5466  OK
+  pr7c1_grade_transition:ORGANISM_CONTEXT_ONLY->ORGANISM_CONTEXT_ONLY    prod    36/ 5466 (0.66%)  indep    36/ 5466  OK
+  pr7c1_grade_transition:VERIFIED_ISOLATE->VERIFIED_ISOLATE              prod    17/ 5466 (0.31%)  indep    17/ 5466  OK
+  usable_field:env_broad_scale                                           prod   862/ 5466 (15.77%)  indep   862/ 5466  OK
+  usable_field:env_local_scale                                           prod   623/ 5466 (11.40%)  indep   623/ 5466  OK
+  usable_field:env_medium                                                prod   767/ 5466 (14.03%)  indep   767/ 5466  OK
+  usable_field:isolation_source                                          prod  2326/ 5466 (42.55%)  indep  2326/ 5466  OK
+  usable_habitat_any_source                                              prod  2540/ 5466 (46.47%)  indep  2540/ 5466  OK
+in-scope summary rows: 63; matching numerator+denominator+percent: 63; mismatches: []
+independently non-zero metrics absent from the summary: []
+info: alternative physical_habitat_and_host_association (any usable physical value AND host) = 569
+info: usable_habitat_any_source_of_searched prod=(2540, 5466, '46.47')
+====================================================================================================
+B. 39f5cad (PR-7c.1) record table vs current record table
+pr7c1_grade == 39f5cad primary_grade: 5466 of 5466
+columns in 39f5cad: 69; shared with current: 69; columns removed: []
+new columns: ['ambiguity_class', 'host_association_status', 'has_host_association', 'host_ambiguity_class', 'pr7c1_grade']
+changed columns (records): {'primary_grade': 249, 'db_habitat_status': 249, 'not_reported_scope': 2819, 'has_usable_habitat': 234, 'env_broad_scale_original': 2, 'env_broad_scale_normalized': 2, 'env_local_scale_original': 2, 'env_local_scale_normalized': 2, 'env_medium_original': 2, 'env_medium_normalized': 2, 'mapping_confidence': 186, 'flags': 294, 'evidence_ids': 2}
+unchanged columns: ['mrdb_acc', 'counted', 'is_engineered', 'membership_status', 'status_group', 'status_group_audit', 'evidence_level', 'domain', 'phylum', 'reviewed', 'source_release', 'sequence_sha256', 'seq_group_size', 'exact_duplicate_of', 'is_seed', 'is_characterized', 'db_chain_status', 'literature_status', 'conflict_roles', 'conflict_scope', 'conflict_kind', 'chain_failures', 'env_broad_scale_envo_ids', 'env_local_scale_envo_ids', 'env_medium_envo_ids', 'isolation_source_original', 'isolation_source_normalized', 'isolation_source_envo_ids', 'host_original', 'host_normalized', 'host_envo_ids', 'habitat_nonstandard', 'sample_material', 'country', 'lat_lon', 'lat', 'lon', 'collection_date', 'depth', 'sample_type', 'molecule_types', 'uniprot_status', 'uniprot_organism', 'uniprot_taxon_id', 'embl_protein_ids', 'insdc_accessions', 'proteomes', 'assemblies', 'biosamples', 'bioprojects', 'linkage_route', 'organism_context_text', 'organism_context_refs', 'literature_isolate_text', 'literature_isolate_refs']
+  primary_grade                changed   249: {'host_separation (DIRECT_SAMPLE -> NOT_REPORTED)': 171, 'host_separation (AMBIGUOUS -> DIRECT_SAMPLE)': 63, 'host_separation (AMBIGUOUS -> NOT_REPORTED)': 15}; UNEXPLAINED 0 []
+  db_habitat_status            changed   249: {'host_separation (DIRECT_SAMPLE -> NOT_REPORTED)': 171, 'host_separation (AMBIGUOUS -> DIRECT_SAMPLE)': 63, 'host_separation (AMBIGUOUS -> NOT_REPORTED)': 15}; UNEXPLAINED 0 []
+  not_reported_scope           changed  2819: {'new_NOT_REPORTED_after_host_separation:database_only_literature_not_reviewed': 185, 'scope_renamed:database_only_literature_not_reviewed': 2611, 'scope_renamed:database_only_literature_inaccessible': 22, 'new_NOT_REPORTED_after_host_separation:database_only_literature_inaccessible': 1}; UNEXPLAINED 0 []
+  has_usable_habitat           changed   234: {'host_separation (DIRECT_SAMPLE -> NOT_REPORTED)': 171, 'host_separation (AMBIGUOUS -> DIRECT_SAMPLE)': 63}; UNEXPLAINED 0 []
+  env_broad_scale_original     changed     2: {'zero_placeholder_record': 2}; UNEXPLAINED 0 []
+  env_broad_scale_normalized   changed     2: {'zero_placeholder_record': 2}; UNEXPLAINED 0 []
+  env_local_scale_original     changed     2: {'zero_placeholder_record': 2}; UNEXPLAINED 0 []
+  env_local_scale_normalized   changed     2: {'zero_placeholder_record': 2}; UNEXPLAINED 0 []
+  env_medium_original          changed     2: {'zero_placeholder_record': 2}; UNEXPLAINED 0 []
+  env_medium_normalized        changed     2: {'zero_placeholder_record': 2}; UNEXPLAINED 0 []
+  mapping_confidence           changed   186: {'host_separation (DIRECT_SAMPLE -> NOT_REPORTED)': 171, 'host_separation (AMBIGUOUS -> NOT_REPORTED)': 15}; UNEXPLAINED 0 []
+  flags                        changed   294: {'new PR-7c.1a flag(s) only': 88, 'grade/axis-dependent flag change': 204, 'zero_placeholder_record': 2}; UNEXPLAINED 0 []
+  evidence_ids                 changed     2: {'zero_placeholder_record': 2}; UNEXPLAINED 0 []
+  flags added (records): {'host_association_only': 186, 'host_conflict': 84, 'host_associated_isolation_source': 42, 'tissue_or_culture_only': 134, 'host_tissue_isolation_source_only': 23, 'literature_conflict': 1, 'invalid_placeholder_value': 2}
+  flags removed (records): {'conflict': 78}
+  evidence_ids A0ABS3TAH3 removed=['HE272ddfaa69f3', 'HE3a63631b27ae', 'HE7536c5db74b7', 'HE830b3fe9b148', 'HEd73870c24f7e', 'HEe4b545cfcd51'] added=[]
+  evidence_ids A0ABS3TE24 removed=['HE10318cc22d28', 'HE4cf10639c253', 'HEb49a685ac101', 'HEc179b7ca88d3', 'HEce366c0a390c', 'HEec0241ea7485'] added=[]
+  env_broad_scale_original A0ABS3TAH3: '0' -> ''
+  env_broad_scale_original A0ABS3TE24: '0' -> ''
+  env_broad_scale_normalized A0ABS3TAH3: '0' -> ''
+  env_broad_scale_normalized A0ABS3TE24: '0' -> ''
+  env_local_scale_original A0ABS3TAH3: '0' -> ''
+  env_local_scale_original A0ABS3TE24: '0' -> ''
+  env_local_scale_normalized A0ABS3TAH3: '0' -> ''
+  env_local_scale_normalized A0ABS3TE24: '0' -> ''
+  env_medium_original A0ABS3TAH3: '0' -> ''
+  env_medium_original A0ABS3TE24: '0' -> ''
+  env_medium_normalized A0ABS3TAH3: '0' -> ''
+  env_medium_normalized A0ABS3TE24: '0' -> ''
+====================================================================================================
+C. Spot checks
+(a) usable host and no usable physical value: 186; flag host_association_only: 186; 39f5cad grade among them: {'DIRECT_SAMPLE': 171, 'AMBIGUOUS': 15}
+    current grade among them: {'NOT_REPORTED': 186}
+(b) A0ABS3TAH3 grade=DIRECT_SAMPLE pr7c1=DIRECT_SAMPLE isolation_source='soil' env_broad/local/medium=''/''/'' flags_has_ipv=True
+    zero items: 8, statuses {'invalid_placeholder': 6, 'depth': 2}, roles {'env_broad_scale': 2, 'env_medium': 2, 'depth': 2, 'env_local_scale': 2}, sources {'ncbi_biosample': 4, 'ena_biosample': 4}; zero ids in evidence_ids: 0
+    isolation_source items: [('ena_biosample', 'soil', 'usable'), ('ncbi_biosample', 'soil', 'usable'), ('insdc_source_feature', 'soil', 'usable')]
+(b) A0ABS3TE24 grade=DIRECT_SAMPLE pr7c1=DIRECT_SAMPLE isolation_source='soil' env_broad/local/medium=''/''/'' flags_has_ipv=True
+    zero items: 8, statuses {'invalid_placeholder': 6, 'depth': 2}, roles {'env_medium': 2, 'depth': 2, 'env_broad_scale': 2, 'env_local_scale': 2}, sources {'ncbi_biosample': 4, 'ena_biosample': 4}; zero ids in evidence_ids: 0
+    isolation_source items: [('insdc_source_feature', 'soil', 'usable'), ('ena_biosample', 'soil', 'usable'), ('ncbi_biosample', 'soil', 'usable')]
+(c) A0A6N7QP32 env_local_scale_original='00000316' grade=DIRECT_SAMPLE pr7c1=DIRECT_SAMPLE; items [('00000316', 'usable'), ('00000316', 'usable')]; 39f5cad value '00000316'
+(d) literature LOOKUP_FAILED records: 24; literature evidence rows for them: 0; grades {'NOT_REPORTED': 23, 'DIRECT_SAMPLE': 1}; scopes {'database_only_literature_inaccessible': 23, '': 1}; literature_isolate_text/organism_context_text non-empty: 0/0; HL ids in evidence_ids: 0
+    39f5cad scope for these: {'database_chain_only': 22, '': 2}
+(e) ambiguity_class among physical AMBIGUOUS (n=59): {'DISTINCT_SAME_SAMPLE': 19, 'NESTED_WORDING': 20, 'FORMATTING_ONLY': 9, 'LITERATURE_VS_DATABASE': 1, 'DISTINCT_ACROSS_SAMPLES': 10}
+    host_ambiguity_class among host AMBIGUOUS (n=84): {'DISTINCT_SAME_SAMPLE': 60, 'NESTED_WORDING': 23, 'FORMATTING_ONLY': 1}
+    ambiguity_class = FORMATTING_ONLY (n=9), examples:
+      A0A133UED7  conflict_kind=isolation_source:punctuation_only  conflict_scope=isolation_source:within_sample_unit
+        isolation_source  insdc_source_feature  KXA92520.1     'single cell amplified by MDA deep sea brine'
+        isolation_source  ncbi_biosample        SAMN03941561   'single cell amplified by MDA; deep sea brine'
+        isolation_source  ena_biosample         SAMN03941561   'single cell amplified by MDA; deep sea brine'
+      A0A133UK53  conflict_kind=isolation_source:punctuation_only  conflict_scope=isolation_source:within_sample_unit
+        isolation_source  insdc_source_feature  KXA94607.1     'single cell amplified by MDA deep sea brine'
+        isolation_source  ncbi_biosample        SAMN03941696   'single cell amplified by MDA; deep sea brine'
+        isolation_source  ena_biosample         SAMN03941696   'single cell amplified by MDA; deep sea brine'
+      A0A133UKC1  conflict_kind=isolation_source:punctuation_only  conflict_scope=isolation_source:within_sample_unit
+        isolation_source  ena_biosample         SAMN03941695   'single cell amplified by MDA; deep sea brine'
+        isolation_source  ncbi_biosample        SAMN03941695   'single cell amplified by MDA; deep sea brine'
+        isolation_source  insdc_source_feature  KXA94657.1     'single cell amplified by MDA deep sea brine'
+    ambiguity_class = NESTED_WORDING (n=20), examples:
+      A0A0H4J240  conflict_kind=isolation_source:token_subset  conflict_scope=isolation_source:within_sample_unit
+        isolation_source  insdc_source_feature  AKO65788.1     'seawater sample collected from Red Sea at 20 m depth'
+        isolation_source  ena_biosample         SAMN03377047   'Seawater sample collected from Red Sea (Saudi Arabia) at 20 m depth'
+        isolation_source  ncbi_biosample        SAMN03377047   'Seawater sample collected from Red Sea (Saudi Arabia) at 20 m depth'
+      A0A139X2U3  conflict_kind=isolation_source:token_subset  conflict_scope=isolation_source:within_sample_unit
+        isolation_source  ena_biosample         SAMN02469880   'Crystal Cave, a limestone cave'
+        isolation_source  ncbi_biosample        SAMN02469880   'Crystal Cave, a limestone cave'
+        isolation_source  insdc_source_feature  KYC39018.1     'a limestone cave'
+      A0A178F9M5  conflict_kind=isolation_source:token_subset  conflict_scope=isolation_source:within_sample_unit
+        isolation_source  ena_biosample         SAMN03952792   'hair'
+        isolation_source  insdc_source_feature  OAL69131.1     'human hair'
+        isolation_source  ncbi_biosample        SAMN03952792   'hair'
+    ambiguity_class = DISTINCT_SAME_SAMPLE (n=19), examples:
+      A0A021VMW3  conflict_kind=isolation_source:distinct_values  conflict_scope=isolation_source:within_sample_unit
+        isolation_source  insdc_source_feature  EYR62506.1     'iron mining powder'
+        isolation_source  ncbi_biosample        SAMN02690685   'iron mine of Hongshan'
+        isolation_source  ena_biosample         SAMN02690685   'iron mine of Hongshan'
+      A0A021VV84  conflict_kind=isolation_source:distinct_values  conflict_scope=isolation_source:within_sample_unit
+        isolation_source  insdc_source_feature  EYR65038.1     'iron mining powder'
+        isolation_source  ena_biosample         SAMN02690685   'iron mine of Hongshan'
+        isolation_source  ncbi_biosample        SAMN02690685   'iron mine of Hongshan'
+      A0A178ZEC0  conflict_kind=isolation_source:distinct_values;host:distinct_values  conflict_scope=isolation_source:within_sample_unit;host:within_sample_unit
+        isolation_source  ena_biosample         SAMN04497957   'spine of Japecanga plant (Smilax species, Smilacaceae)'
+        isolation_source  ncbi_biosample        SAMN04497957   'spine of Japecanga plant (Smilax species, Smilacaceae)'
+        isolation_source  insdc_source_feature  OAP57523.1     'spine of Smilax japicanga'
+    ambiguity_class = DISTINCT_ACROSS_SAMPLES (n=10), examples:
+      B2D007  conflict_kind=isolation_source:distinct_values  conflict_scope=isolation_source:across_sample_units
+        isolation_source  insdc_source_feature  ACB55058.1     'Baltic Sea at 15m depth'
+        isolation_source  insdc_source_feature  ACB55071.1     'Lake Kinneret'
+        isolation_source  insdc_source_feature  ACB55059.1     'Baltic Sea at 15m depth'
+        isolation_source  insdc_source_feature  ACB55075.1     'Lake L658 at 3m depth'
+        isolation_source  insdc_source_feature  ACB55069.1     'Lake Kinneret at 2m depth'
+        isolation_source  insdc_source_feature  ACB55061.1     'Baltic Sea at 50m depth'
+        isolation_source  insdc_source_feature  ACB55064.1     'Baltic Sea at 0m depth'
+        isolation_source  insdc_source_feature  ACB55100.1     'Lake L658 at 3m depth'
+      B2D030  conflict_kind=isolation_source:distinct_values  conflict_scope=isolation_source:across_sample_units
+        isolation_source  insdc_source_feature  ACB55082.1     'Lake Kinneret at 6m depth'
+        isolation_source  insdc_source_feature  ACB55093.1     'Lake Kinneret at 2m depth'
+        isolation_source  insdc_source_feature  ACB55097.1     'Lake Kinneret at 6m depth'
+        isolation_source  insdc_source_feature  ACB55081.1     'Lake Kinneret at 6m depth'
+      B2D032  conflict_kind=isolation_source:distinct_values  conflict_scope=isolation_source:across_sample_units
+        isolation_source  insdc_source_feature  ACB55083.1     'Lake Kinneret at 6m depth'
+        isolation_source  insdc_source_feature  ACB55084.1     'Lake Kinneret at 2m depth'
+    ambiguity_class = LITERATURE_VS_DATABASE (n=1), examples:
+      A0A411LJN5  conflict_kind=  conflict_scope=
+        isolation_source  ena_biosample         SAMN14792647   'International Space Station'
+        isolation_source  ncbi_biosample        SAMN14792647   'International Space Station'
+        isolation_source  insdc_source_feature  NNG59570.1     'International Space Station'
+        literature organism_context: 'Here we report a comprehensive structure-function study of Spa R from genome of strictly aerobic bacteria Sphingomonas paucimobilis 25 , isolated from hospital ventilation and found in a range of wate'
+        literature literature_isolate: 'KSC-PHSF a cleanroom floor'
+        literature literature_isolate: 'The draft genome sequences of three Sphingomonas strains isolated from the International Space Station (ISS) were assembled.'
+    host_ambiguity_class = FORMATTING_ONLY (n=1), examples:
+      A0ABR1H522  conflict_kind=host:punctuation_only  conflict_scope=host:within_sample_unit
+        host              ena_biosample         SAMN35642710   'Liriodendron tulipifera [tulip-poplar]'
+        host              insdc_source_feature  KAK7416077.1   'Liriodendron tulipifera tulip-poplar'
+        host              ncbi_biosample        SAMN35642710   'Liriodendron tulipifera [tulip-poplar]'
+    host_ambiguity_class = NESTED_WORDING (n=23), examples:
+      A0A0D2IC59  conflict_kind=host:token_subset  conflict_scope=host:within_sample_unit
+        host              insdc_source_feature  KIX94736.1     'Syagrus romanzoffiana'
+        host              ena_biosample         SAMN02567659   'Syagrus romanzoffiana (palm)'
+        host              ncbi_biosample        SAMN02567659   'Syagrus romanzoffiana (palm)'
+      A0A0D2IWV0  conflict_kind=host:token_subset  conflict_scope=host:within_sample_unit
+        host              insdc_source_feature  KIY01447.1     'Syagrus romanzoffiana'
+        host              ncbi_biosample        SAMN02567659   'Syagrus romanzoffiana (palm)'
+        host              ena_biosample         SAMN02567659   'Syagrus romanzoffiana (palm)'
+      A0A0D2KBA2  conflict_kind=host:token_subset  conflict_scope=host:within_sample_unit
+        host              ncbi_biosample        SAMN02567659   'Syagrus romanzoffiana (palm)'
+        host              insdc_source_feature  KIX93853.1     'Syagrus romanzoffiana'
+        host              ena_biosample         SAMN02567659   'Syagrus romanzoffiana (palm)'
+    host_ambiguity_class = DISTINCT_SAME_SAMPLE (n=60), examples:
+      A0A0A2J7B6  conflict_kind=host:distinct_values  conflict_scope=host:within_sample_unit
+        host              ena_biosample         SAMN02928573   'apple'
+        host              ncbi_biosample        SAMN02928573   'apple'
+        host              insdc_source_feature  KGO53735.1     'Malus domestica'
+      A0A0F8A5E4  conflict_kind=host:distinct_values  conflict_scope=host:within_sample_unit
+        host              ncbi_biosample        SAMN02777955   'soybean cyst nematode'
+        host              insdc_source_feature  KJZ75184.1     'Heterodera glycines'
+        host              ena_biosample         SAMN02777955   'soybean cyst nematode'
+      A0A0F8A5R8  conflict_kind=host:distinct_values  conflict_scope=host:within_sample_unit
+        host              ncbi_biosample        SAMN02777955   'soybean cyst nematode'
+        host              ena_biosample         SAMN02777955   'soybean cyst nematode'
+        host              insdc_source_feature  KJZ75804.1     'Heterodera glycines'

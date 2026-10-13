@@ -1,0 +1,294 @@
+====================================================================================================
+RECORD TABLE: reimpl rows=5466, production rows=5466
+keys only in reimpl: 0; only in production: 0; shared: 5466
+reimpl-only columns: []
+shared columns compared (45): ['primary_grade', 'pr7c1_grade', 'db_habitat_status', 'db_chain_status', 'literature_status', 'not_reported_scope', 'has_usable_habitat', 'host_association_status', 'has_host_association', 'ambiguity_class', 'host_ambiguity_class', 'conflict_roles', 'conflict_scope', 'conflict_kind', 'chain_failures', 'env_broad_scale_original', 'env_broad_scale_normalized', 'env_broad_scale_envo_ids', 'env_local_scale_original', 'env_local_scale_normalized', 'env_local_scale_envo_ids', 'env_medium_original', 'env_medium_normalized', 'env_medium_envo_ids', 'isolation_source_original', 'isolation_source_normalized', 'isolation_source_envo_ids', 'host_original', 'host_normalized', 'host_envo_ids', 'country', 'lat_lon', 'lat', 'lon', 'collection_date', 'depth', 'habitat_nonstandard', 'sample_material', 'sample_type', 'molecule_types', 'biosamples', 'linkage_route', 'mapping_confidence', 'flags', 'evidence_ids']
+cells compared: 245970; mismatching cells: 3
+per-column mismatch counts:
+  primary_grade                    0
+  pr7c1_grade                      0
+  db_habitat_status                0
+  db_chain_status                  0
+  literature_status                0
+  not_reported_scope               0
+  has_usable_habitat               0
+  host_association_status          0
+  has_host_association             0
+  ambiguity_class                  0
+  host_ambiguity_class             0
+  conflict_roles                   0
+  conflict_scope                   0
+  conflict_kind                    0
+  chain_failures                   0
+  env_broad_scale_original         0
+  env_broad_scale_normalized       0
+  env_broad_scale_envo_ids         0
+  env_local_scale_original         0
+  env_local_scale_normalized       0
+  env_local_scale_envo_ids         0
+  env_medium_original              0
+  env_medium_normalized            0
+  env_medium_envo_ids              0
+  isolation_source_original        0
+  isolation_source_normalized      0
+  isolation_source_envo_ids        0
+  host_original                    0
+  host_normalized                  0
+  host_envo_ids                    0
+  country                          0
+  lat_lon                          0
+  lat                              0
+  lon                              0
+  collection_date                  0
+  depth                            0
+  habitat_nonstandard              0
+  sample_material                  0
+  sample_type                      0
+  molecule_types                   0
+  biosamples                       0
+  linkage_route                    0
+  mapping_confidence               0
+  flags                            0
+  evidence_ids                     3
+rows with >=1 mismatching cell: 3 of 5466
+mismatch examples (up to 50):
+  [evidence_ids] A0A0M5L0M3
+      reimpl    : 'HL74ebe0fa29ef'
+      production: 'HL7f2f67aa50bc'
+  [evidence_ids] A0A0P6XBM7
+      reimpl    : 'HE07687b54dda0;HE31174b97435e;HE45ab6f762180;HE7cefeab098d3;HE91b3cdca3ce2;HEe1f5fd8b5164;HEe8b2222c0631;HL1bd32a0ba2ea;HL7cce8a2641e7'
+      production: 'HE07687b54dda0;HE31174b97435e;HE45ab6f762180;HE7cefeab098d3;HE91b3cdca3ce2;HEe1f5fd8b5164;HEe8b2222c0631;HL7cce8a2641e7;HLa03ff508a65d'
+  [evidence_ids] A0A411LJN5
+      reimpl    : 'HE58518a194058;HEb68e5881635a;HEfa507a53fbb2;HL9c40724129a6;HLe7baa4262cb3'
+      production: 'HE58518a194058;HEb68e5881635a;HEfa507a53fbb2;HL9cf6f02ec398;HLcb24f5899f5b'
+====================================================================================================
+EVIDENCE TABLE: reimpl rows=105750, production rows=105750
+keys only in reimpl: 6; only in production: 6; shared: 105744
+  only reimpl: HL1348484f7f46
+  only reimpl: HL1bd32a0ba2ea
+  only reimpl: HL74ebe0fa29ef
+  only reimpl: HL9c40724129a6
+  only reimpl: HLc1969f521312
+  only reimpl: HLe7baa4262cb3
+  only production: HL5bfbee19ea29
+  only production: HL7f2f67aa50bc
+  only production: HL9cf6f02ec398
+  only production: HLa03ff508a65d
+  only production: HLb0beba0b4f2e
+  only production: HLcb24f5899f5b
+reimpl-only columns: []
+shared columns compared (12): ['source_acc', 'evidence_source', 'entity_accession', 'link_index', 'field_original', 'role', 'value_original', 'value_normalized', 'linkage_route', 'mapping_confidence', 'envo_ids', 'value_status']
+cells compared: 1268928; mismatching cells: 207
+per-column mismatch counts:
+  source_acc                       0
+  evidence_source                  0
+  entity_accession                 85
+  link_index                       0
+  field_original                   0
+  role                             0
+  value_original                   0
+  value_normalized                 0
+  linkage_route                    85
+  mapping_confidence               29
+  envo_ids                         8
+  value_status                     0
+rows with >=1 mismatching cell: 93 of 105744
+mismatch examples (up to 50):
+  [entity_accession] HL0d5b60411b6d
+      reimpl    : ''
+      production: '21701686'
+  [entity_accession] HL134f9abae703
+      reimpl    : ''
+      production: '15520287'
+  [entity_accession] HL167331431ada
+      reimpl    : ''
+      production: '16403885'
+  [entity_accession] HL17c1bbd76db5
+      reimpl    : ''
+      production: '22736101'
+  [entity_accession] HL1ad7d07fd5dd
+      reimpl    : ''
+      production: '23565724'
+  [entity_accession] HL21b6a09b6f4b
+      reimpl    : ''
+      production: '8478333'
+  [entity_accession] HL2223e2b94ca0
+      reimpl    : ''
+      production: '22630137'
+  [entity_accession] HL23cd9da13f7b
+      reimpl    : ''
+      production: '25838485'
+  [entity_accession] HL24be5b1b91ff
+      reimpl    : ''
+      production: '25347537'
+  [entity_accession] HL25c5dcc6fa6b
+      reimpl    : ''
+      production: '15520287'
+  [entity_accession] HL25f1ee876ef2
+      reimpl    : ''
+      production: '37379421'
+  [entity_accession] HL277a8dceb89b
+      reimpl    : ''
+      production: '26268609'
+  [entity_accession] HL33b0ab61c29c
+      reimpl    : ''
+      production: '16403885'
+  [entity_accession] HL3c7efef9be91
+      reimpl    : ''
+      production: '16169924'
+  [entity_accession] HL3d9fcd2c64e7
+      reimpl    : ''
+      production: '8478333'
+  [entity_accession] HL3e1cbd813492
+      reimpl    : ''
+      production: '24639207'
+  [entity_accession] HL408257e208ff
+      reimpl    : ''
+      production: '40614199'
+  [entity_accession] HL420da0044223
+      reimpl    : ''
+      production: '40614199'
+  [entity_accession] HL421626182b39
+      reimpl    : ''
+      production: '21304683'
+  [entity_accession] HL468110807e8f
+      reimpl    : ''
+      production: '37584762'
+  [entity_accession] HL4f53fcc93070
+      reimpl    : ''
+      production: '7803445'
+  [entity_accession] HL5009f624ee8d
+      reimpl    : ''
+      production: '667737'
+  [entity_accession] HL5a0b09573eb0
+      reimpl    : ''
+      production: '37130895'
+  [entity_accession] HL5e31d44997cd
+      reimpl    : ''
+      production: '16820047'
+  [entity_accession] HL5edffac5707d
+      reimpl    : ''
+      production: '40614199'
+  [entity_accession] HL5f45629d3a38
+      reimpl    : ''
+      production: '667737'
+  [entity_accession] HL60a95cad7eb9
+      reimpl    : ''
+      production: '10988064'
+  [entity_accession] HL64937a1baec7
+      reimpl    : ''
+      production: '23087169'
+  [entity_accession] HL691c3d9d813c
+      reimpl    : ''
+      production: '16330755'
+  [entity_accession] HL6b97c68012d9
+      reimpl    : ''
+      production: '16820047'
+  [entity_accession] HL6dd689db23a9
+      reimpl    : ''
+      production: '16330755'
+  [entity_accession] HL6ebf74f9c6aa
+      reimpl    : ''
+      production: '40614199'
+  [entity_accession] HL6f3dc1b39f43
+      reimpl    : ''
+      production: '23575682'
+  [entity_accession] HL766db620dc4e
+      reimpl    : ''
+      production: '31024506'
+  [entity_accession] HL7798ef15dcdc
+      reimpl    : ''
+      production: '23575682'
+  [entity_accession] HL782e45e2e7eb
+      reimpl    : ''
+      production: '15520287'
+  [entity_accession] HL79d247958346
+      reimpl    : ''
+      production: '26527138'
+  [entity_accession] HL7b6d045c09c0
+      reimpl    : ''
+      production: '23959135'
+  [entity_accession] HL7cce8a2641e7
+      reimpl    : ''
+      production: '17911301'
+  [entity_accession] HL7d0f0b24b8ac
+      reimpl    : ''
+      production: '15520287'
+  [entity_accession] HL803d7dd37e51
+      reimpl    : ''
+      production: '31024506'
+  [entity_accession] HL80873c176ae0
+      reimpl    : ''
+      production: '24100316'
+  [entity_accession] HL8197a0134f15
+      reimpl    : ''
+      production: '40614199'
+  [entity_accession] HL86b1c939e585
+      reimpl    : ''
+      production: '20639329'
+  [entity_accession] HL8f71792ab7ed
+      reimpl    : ''
+      production: '20418413'
+  [entity_accession] HL936f2b79020a
+      reimpl    : ''
+      production: '26578511'
+  [entity_accession] HL9451091d8580
+      reimpl    : ''
+      production: '23450183'
+  [entity_accession] HL95241b1dd6ae
+      reimpl    : ''
+      production: '31416876'
+  [entity_accession] HL96b7f0d7eab9
+      reimpl    : ''
+      production: '23405355'
+  [entity_accession] HL9755c1db3320
+      reimpl    : ''
+      production: '22736101'
+====================================================================================================
+value_status distribution (reimpl vs production):
+  context                                                        52753   52753
+  date                                                            6878    6878
+  depth                                                            415     415
+  geography                                                      10815   10815
+  invalid_placeholder                                               12      12
+  material                                                        2707    2707
+  moved_to_material                                                 90      90
+  nonstandard_context                                              125     125
+  organism_context                                                  55      55
+  rejected:geography_only                                            2       2
+  rejected:geography_only_dataset_level_not_per_clone                1       1
+  reported_missing                                               19576   19576
+  uninformative_placeholder                                         13      13
+  usable                                                         12308   12308
+invalid_placeholder rows (production):
+  HE272ddfaa69f3 A0ABS3TAH3 ncbi_biosample env_broad_scale '0'
+  HE3a63631b27ae A0ABS3TAH3 ena_biosample env_medium '0'
+  HE7536c5db74b7 A0ABS3TAH3 ncbi_biosample env_medium '0'
+  HE830b3fe9b148 A0ABS3TAH3 ncbi_biosample env_local_scale '0'
+  HEd73870c24f7e A0ABS3TAH3 ena_biosample env_local_scale '0'
+  HEe4b545cfcd51 A0ABS3TAH3 ena_biosample env_broad_scale '0'
+  HE10318cc22d28 A0ABS3TE24 ncbi_biosample env_medium '0'
+  HE4cf10639c253 A0ABS3TE24 ena_biosample env_medium '0'
+  HEb49a685ac101 A0ABS3TE24 ena_biosample env_broad_scale '0'
+  HEc179b7ca88d3 A0ABS3TE24 ncbi_biosample env_broad_scale '0'
+  HEce366c0a390c A0ABS3TE24 ena_biosample env_local_scale '0'
+  HEec0241ea7485 A0ABS3TE24 ncbi_biosample env_local_scale '0'
+literature rows: reimpl 91, production 91; content tuples only reimpl 0, only production 0
+====================================================================================================
+RESIDUAL ANALYSIS
+literature rows paired by (source_acc, field_original, value_original) with different evidence_id: 6
+  A0A0M5L0M3 isolate reimpl=HL74ebe0fa29ef production=HL7f2f67aa50bc; str(None)-serialized hash=HL7f2f67aa50bc match=True (pmid='26494659' doi=None)
+  A0A0P6XBM7 isolate reimpl=HL1bd32a0ba2ea production=HLa03ff508a65d; str(None)-serialized hash=HLa03ff508a65d match=True (pmid='26383658' doi=None)
+  A0A411LJN5 isolate reimpl=HLe7baa4262cb3 production=HLcb24f5899f5b; str(None)-serialized hash=HLcb24f5899f5b match=True (pmid='32554796' doi=None)
+  A0A411LJN5 isolate reimpl=HL9c40724129a6 production=HL9cf6f02ec398; str(None)-serialized hash=HL9cf6f02ec398 match=True (pmid='32554796' doi=None)
+  A0A7U2HUJ7 organism reimpl=HL1348484f7f46 production=HLb0beba0b4f2e; str(None)-serialized hash=HLb0beba0b4f2e match=True (pmid='34034667' doi=None)
+  A0A7U2HUL1 organism reimpl=HLc1969f521312 production=HL5bfbee19ea29; str(None)-serialized hash=HL5bfbee19ea29 match=True (pmid='34034667' doi=None)
+  differing literature ids reproduced when a null pmid/doi is serialized as 'None': 6 of 6
+record evidence_ids mismatches after literature-id mapping: 0
+evidence envo_ids mismatches: 8; equal after sorting the reimpl IDs: 8
+column entity_accession mismatches: 85 (evidence_source of mismatching rows: {'literature': 85})
+   production values for literature rows (examples): ['10988064', '11341726', '12821661', '15466697', '15520287']
+column linkage_route mismatches: 85 (evidence_source of mismatching rows: {'literature': 85})
+   production values for literature rows (examples): ['literature']
+column mapping_confidence mismatches: 29 (evidence_source of mismatching rows: {'literature': 29})
+   production values for literature rows (examples): ['LITERATURE']

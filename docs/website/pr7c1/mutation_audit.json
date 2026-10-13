@@ -1,11 +1,11 @@
 {
-  "killed": 13,
-  "n_mutations": 13,
+  "killed": 22,
+  "n_mutations": 22,
   "results": [
     {
       "file": "",
       "mutation": "none (baseline)",
-      "pytest": "69 passed, 1 skipped",
+      "pytest": "101 passed, 1 skipped",
       "tests_failed": false
     },
     {
@@ -84,6 +84,60 @@
       "file": "literature.py",
       "mutation": "inaccessible_literature_reported_absent",
       "pytest": "1 failed, 58 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "classify.py",
+      "mutation": "host_counted_as_physical_habitat",
+      "pytest": "1 failed, 27 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "classify.py",
+      "mutation": "host_conflict_counted_as_physical_conflict",
+      "pytest": "1 failed, 61 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "classify.py",
+      "mutation": "literature_conflict_against_host_only",
+      "pytest": "1 failed, 90 passed, 1 skipped",
+      "tests_failed": true
+    },
+    {
+      "file": "classify.py",
+      "mutation": "zero_placeholder_ignored",
+      "pytest": "1 failed, 61 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "normalize.py",
+      "mutation": "zero_placeholder_applied_to_isolation_source",
+      "pytest": "1 failed, 74 passed, 1 skipped",
+      "tests_failed": true
+    },
+    {
+      "file": "classify.py",
+      "mutation": "ambiguity_formatting_collapsed",
+      "pytest": "1 failed, 61 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "classify.py",
+      "mutation": "ambiguity_scope_collapsed",
+      "pytest": "1 failed, 61 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "classify.py",
+      "mutation": "not_reported_scope_collapsed",
+      "pytest": "1 failed, 57 passed",
+      "tests_failed": true
+    },
+    {
+      "file": "common.py",
+      "mutation": "hardcoded_machine_cache_path",
+      "pytest": "1 failed, 57 passed",
       "tests_failed": true
     }
   ],
