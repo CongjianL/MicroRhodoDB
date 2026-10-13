@@ -1,0 +1,1202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://congjianl.github.io/MicroRhodoDB/schemas/habitat-1.0.0.json",
+  "title": "MicroRhodoDB habitat sidecar, schema 1.0.0 (dataset v1.6.0; source audit PR-7c.1a)",
+  "description": "Observed environmental metadata per source record, copied verbatim from the PR-7c.1a audit. Not inferred habitats.",
+  "x-files": {
+    "v1.6.0/habitat/manifest.json": "HabitatManifest",
+    "v1.6.0/habitat/summary.json": "HabitatSummary",
+    "v1.6.0/habitat/records/*.json": "HabitatRecordFile"
+  },
+  "$defs": {
+    "AmbiguityClass": {
+      "enum": [
+        "FORMATTING_ONLY",
+        "NESTED_WORDING",
+        "DISTINCT_SAME_SAMPLE",
+        "DISTINCT_ACROSS_SAMPLES",
+        "LITERATURE_VS_DATABASE"
+      ]
+    },
+    "EnvoId": {
+      "type": "string",
+      "pattern": "^ENVO:[0-9]{8}$"
+    },
+    "EvidenceId": {
+      "type": "string",
+      "pattern": "^H[EL][0-9a-f]{12}$"
+    },
+    "HabitatAccessions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assemblies",
+        "bioprojects",
+        "biosamples",
+        "embl_protein_ids",
+        "insdc",
+        "proteomes"
+      ],
+      "properties": {
+        "biosamples": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^SAM[NED][A-Z]?[0-9]+$"
+          },
+          "uniqueItems": true
+        },
+        "bioprojects": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^PRJ[NED][A-Z][0-9]+$"
+          },
+          "uniqueItems": true
+        },
+        "insdc": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]{1,6}[0-9]{5,12}(\\.[0-9]+)?$"
+          },
+          "uniqueItems": true
+        },
+        "embl_protein_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]{3}[0-9]{5,7}(\\.[0-9]+)?$"
+          },
+          "uniqueItems": true
+        },
+        "proteomes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^UP[0-9]{9}$"
+          },
+          "uniqueItems": true
+        },
+        "assemblies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^GC[AF]_[0-9]{9}\\.[0-9]+$"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "HabitatAudit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "accepted_commit",
+        "audit_id",
+        "audit_version",
+        "base_commit",
+        "status",
+        "status_reason"
+      ],
+      "properties": {
+        "audit_id": {
+          "const": "PR-7c.1a"
+        },
+        "audit_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accepted_commit": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "base_commit": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "status": {
+          "enum": [
+            "PR7C1_AUDIT_PARTIAL",
+            "PR7C1_AUDIT_COMPLETE"
+          ]
+        },
+        "status_reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "HabitatGrade": {
+      "enum": [
+        "DIRECT_SAMPLE",
+        "VERIFIED_ISOLATE",
+        "ORGANISM_CONTEXT_ONLY",
+        "AMBIGUOUS",
+        "NOT_REPORTED",
+        "LOOKUP_FAILED",
+        "NOT_SEARCHED"
+      ]
+    },
+    "HabitatItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "browser_url",
+        "entity_accession",
+        "envo_ids",
+        "evidence_id",
+        "evidence_source",
+        "field",
+        "link_index",
+        "linkage_route",
+        "literature",
+        "mapping_confidence",
+        "quarantine",
+        "role",
+        "source_url",
+        "value",
+        "value_status"
+      ],
+      "properties": {
+        "evidence_id": {
+          "$ref": "#/$defs/EvidenceId"
+        },
+        "evidence_source": {
+          "enum": [
+            "ena_biosample",
+            "ncbi_biosample",
+            "insdc_source_feature",
+            "literature"
+          ]
+        },
+        "entity_accession": {
+          "type": "string",
+          "minLength": 1
+        },
+        "link_index": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "field": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "env_broad_scale",
+            "env_local_scale",
+            "env_medium",
+            "isolation_source",
+            "habitat_nonstandard",
+            "literature_isolate",
+            "literature_rejected",
+            "host",
+            "host_detail",
+            "country",
+            "lat_lon",
+            "lat",
+            "lon",
+            "collection_date",
+            "depth",
+            "sample_material",
+            "environmental_sample",
+            "metagenome_source",
+            "organism_context"
+          ]
+        },
+        "value_status": {
+          "$ref": "#/$defs/ValueStatus"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "envo_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EnvoId"
+          },
+          "uniqueItems": true
+        },
+        "linkage_route": {
+          "enum": [
+            "cds_protein_id",
+            "proteome_assembly",
+            "insdc_flatfile_biosample",
+            "uniparc_embl_protein",
+            "literature"
+          ]
+        },
+        "mapping_confidence": {
+          "anyOf": [
+            {
+              "enum": [
+                "HIGH",
+                "MEDIUM",
+                "LITERATURE"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "browser_url": {
+          "type": "string",
+          "pattern": "^https://[A-Za-z0-9.-]+/\\S*$"
+        },
+        "source_url": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^https://[A-Za-z0-9.-]+/\\S*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "quarantine": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Quarantine"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "literature": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/HabitatLiterature"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "HabitatItems": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "collection",
+        "host",
+        "organism_context",
+        "physical"
+      ],
+      "properties": {
+        "physical": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/HabitatItem"
+              }
+            ],
+            "properties": {
+              "role": {
+                "enum": [
+                  "env_broad_scale",
+                  "env_local_scale",
+                  "env_medium",
+                  "isolation_source",
+                  "habitat_nonstandard",
+                  "literature_isolate",
+                  "literature_rejected"
+                ]
+              }
+            }
+          }
+        },
+        "host": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/HabitatItem"
+              }
+            ],
+            "properties": {
+              "role": {
+                "enum": [
+                  "host",
+                  "host_detail"
+                ]
+              }
+            }
+          }
+        },
+        "collection": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/HabitatItem"
+              }
+            ],
+            "properties": {
+              "role": {
+                "enum": [
+                  "country",
+                  "lat_lon",
+                  "lat",
+                  "lon",
+                  "collection_date",
+                  "depth",
+                  "sample_material",
+                  "environmental_sample",
+                  "metagenome_source"
+                ]
+              }
+            }
+          }
+        },
+        "organism_context": {
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/$defs/HabitatItem"
+              }
+            ],
+            "properties": {
+              "role": {
+                "enum": [
+                  "organism_context"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "HabitatLiterature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "access",
+        "consistent_with_db",
+        "doi",
+        "locator",
+        "pmid",
+        "scope",
+        "source_sha256"
+      ],
+      "properties": {
+        "pmid": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[0-9]+$"
+        },
+        "doi": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^10\\."
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "locator": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scope": {
+          "enum": [
+            "organism",
+            "isolate",
+            "rejected"
+          ]
+        },
+        "access": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "consistent_with_db": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "HabitatManifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "audit",
+        "counts",
+        "dataset_release",
+        "display_groups",
+        "evidence_id_rules",
+        "files",
+        "habitat_schema_version",
+        "inputs",
+        "n_files",
+        "retrieval",
+        "schema",
+        "total_bytes"
+      ],
+      "properties": {
+        "habitat_schema_version": {
+          "const": "1.0.0"
+        },
+        "dataset_release": {
+          "const": "1.6.0"
+        },
+        "schema": {
+          "const": "web/src/data/schemas/habitat.schema.json"
+        },
+        "audit": {
+          "$ref": "#/$defs/HabitatAudit"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^docs/website/pr7c1/"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          }
+        },
+        "retrieval": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cache_sha256",
+            "database_sha256",
+            "n_requests",
+            "network_requests_during_export",
+            "uniprot_release_headers"
+          ],
+          "properties": {
+            "cache_sha256": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "uniprot_release_headers": {},
+            "n_requests": {},
+            "database_sha256": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "network_requests_during_export": {
+              "const": 0
+            }
+          }
+        },
+        "evidence_id_rules": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "HE",
+            "HL",
+            "empty_value",
+            "null_serialization",
+            "recomputed"
+          ],
+          "properties": {
+            "HE": {
+              "type": "string",
+              "minLength": 1
+            },
+            "HL": {
+              "type": "string",
+              "minLength": 1
+            },
+            "null_serialization": {
+              "const": "None"
+            },
+            "empty_value": {
+              "type": "string",
+              "minLength": 1
+            },
+            "recomputed": {
+              "type": "integer"
+            }
+          }
+        },
+        "counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "display_items",
+            "mrdb_accessions",
+            "multi_source_grades_differ",
+            "multi_source_mrdb",
+            "source_records"
+          ],
+          "properties": {
+            "source_records": {
+              "type": "integer"
+            },
+            "mrdb_accessions": {
+              "type": "integer"
+            },
+            "display_items": {
+              "type": "integer"
+            },
+            "multi_source_mrdb": {
+              "type": "integer"
+            },
+            "multi_source_grades_differ": {
+              "type": "integer"
+            }
+          }
+        },
+        "display_groups": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "collection",
+            "host",
+            "organism_context",
+            "physical"
+          ],
+          "properties": {
+            "physical": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "host": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "collection": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "organism_context": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "bytes",
+              "path",
+              "records",
+              "sha256"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^habitat/(records/MRDB[0-9]{6}|summary)\\.json$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "bytes": {
+                "type": "integer"
+              },
+              "records": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "n_files": {
+          "type": "integer"
+        },
+        "total_bytes": {
+          "type": "integer"
+        }
+      }
+    },
+    "HabitatMetric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "definition",
+        "denominator",
+        "id",
+        "numerator",
+        "percent"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z_]+(:[A-Za-z_]+)?$"
+        },
+        "numerator": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "denominator": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "percent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "definition": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "HabitatMissingness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "database",
+        "literature"
+      ],
+      "properties": {
+        "database": {
+          "enum": [
+            "not_reported_in_linked_sample_records",
+            "no_traceable_sample_link"
+          ]
+        },
+        "literature": {
+          "enum": [
+            "not_reviewed",
+            "inaccessible",
+            "reviewed_not_reported"
+          ]
+        }
+      }
+    },
+    "HabitatRecordFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "audit_id",
+        "dataset_release",
+        "habitat_schema_version",
+        "mrdb_acc",
+        "n_source_records",
+        "source_grades_differ",
+        "sources"
+      ],
+      "properties": {
+        "habitat_schema_version": {
+          "const": "1.0.0"
+        },
+        "dataset_release": {
+          "const": "1.6.0"
+        },
+        "mrdb_acc": {
+          "$ref": "#/$defs/MrdbAcc"
+        },
+        "audit_id": {
+          "const": "PR-7c.1a"
+        },
+        "n_source_records": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "source_grades_differ": {
+          "type": "boolean"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/HabitatSourceEntry"
+          }
+        }
+      }
+    },
+    "HabitatSourceChecked": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "access",
+        "doi",
+        "found_habitat_statement",
+        "pmid",
+        "title"
+      ],
+      "properties": {
+        "pmid": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^[0-9]+$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "doi": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "access": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "found_habitat_statement": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "HabitatSourceEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "accessions",
+        "ambiguity_class",
+        "conflicts",
+        "db_chain_status",
+        "db_habitat_status",
+        "flags",
+        "grade",
+        "has_host_association",
+        "has_usable_physical_habitat",
+        "host_ambiguity_class",
+        "host_association_status",
+        "is_mrdb_representative",
+        "items",
+        "linkage",
+        "literature_sources_checked",
+        "literature_status",
+        "missingness",
+        "mrdb_acc",
+        "not_reported_scope",
+        "record_evidence_ids",
+        "sample_link",
+        "source_acc"
+      ],
+      "properties": {
+        "source_acc": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[A-Z0-9]{6,10}$"
+        },
+        "mrdb_acc": {
+          "$ref": "#/$defs/MrdbAcc"
+        },
+        "is_mrdb_representative": {
+          "type": "boolean"
+        },
+        "grade": {
+          "$ref": "#/$defs/HabitatGrade"
+        },
+        "db_habitat_status": {
+          "enum": [
+            "NOT_REPORTED",
+            "DIRECT_SAMPLE",
+            "AMBIGUOUS"
+          ]
+        },
+        "db_chain_status": {
+          "enum": [
+            "COMPLETE",
+            "NO_LINK"
+          ]
+        },
+        "sample_link": {
+          "enum": [
+            "traceable",
+            "none"
+          ]
+        },
+        "literature_status": {
+          "$ref": "#/$defs/LiteratureStatus"
+        },
+        "not_reported_scope": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/NotReportedScope"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "missingness": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/HabitatMissingness"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "has_usable_physical_habitat": {
+          "type": "boolean"
+        },
+        "ambiguity_class": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AmbiguityClass"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "host_association_status": {
+          "$ref": "#/$defs/HostStatus"
+        },
+        "has_host_association": {
+          "type": "boolean"
+        },
+        "host_ambiguity_class": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AmbiguityClass"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "role",
+              "scope"
+            ],
+            "properties": {
+              "role": {
+                "type": "string",
+                "minLength": 1
+              },
+              "scope": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[a-z_]+$"
+          },
+          "uniqueItems": true
+        },
+        "linkage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mapping_confidence",
+            "molecule_types",
+            "route",
+            "sample_type"
+          ],
+          "properties": {
+            "route": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "mapping_confidence": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "sample_type": {
+              "type": "string",
+              "minLength": 1
+            },
+            "molecule_types": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "accessions": {
+          "$ref": "#/$defs/HabitatAccessions"
+        },
+        "literature_sources_checked": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/HabitatSourceChecked"
+          }
+        },
+        "record_evidence_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EvidenceId"
+          },
+          "uniqueItems": true
+        },
+        "items": {
+          "$ref": "#/$defs/HabitatItems"
+        }
+      }
+    },
+    "HabitatSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "audit_id",
+        "audit_status",
+        "audit_status_reason",
+        "cross_checked_against_audit",
+        "dataset_release",
+        "denominators",
+        "habitat_schema_version",
+        "interpretation",
+        "metrics"
+      ],
+      "properties": {
+        "habitat_schema_version": {
+          "const": "1.0.0"
+        },
+        "dataset_release": {
+          "const": "1.6.0"
+        },
+        "audit_id": {
+          "const": "PR-7c.1a"
+        },
+        "audit_status": {
+          "enum": [
+            "PR7C1_AUDIT_PARTIAL",
+            "PR7C1_AUDIT_COMPLETE"
+          ]
+        },
+        "audit_status_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "denominators": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mrdb_accessions",
+            "source_records"
+          ],
+          "properties": {
+            "source_records": {
+              "type": "integer"
+            },
+            "mrdb_accessions": {
+              "type": "integer"
+            }
+          }
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/HabitatMetric"
+          }
+        },
+        "cross_checked_against_audit": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "interpretation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "HostStatus": {
+      "enum": [
+        "REPORTED",
+        "AMBIGUOUS",
+        "NOT_REPORTED",
+        "LOOKUP_FAILED",
+        "NOT_SEARCHED"
+      ]
+    },
+    "LiteratureStatus": {
+      "enum": [
+        "NOT_SEARCHED",
+        "ORGANISM_CONTEXT",
+        "ISOLATE_EVIDENCE",
+        "LOOKUP_FAILED",
+        "NOT_REPORTED"
+      ]
+    },
+    "MrdbAcc": {
+      "type": "string",
+      "pattern": "^MRDB[0-9]{6}$"
+    },
+    "NotReportedScope": {
+      "enum": [
+        "database_only_literature_not_reviewed",
+        "database_only_literature_inaccessible",
+        "database_and_literature"
+      ]
+    },
+    "Quarantine": {
+      "enum": [
+        "envo_id_not_found_in_ols",
+        "unprefixed_numeric_identifier"
+      ]
+    },
+    "ValueStatus": {
+      "enum": [
+        "usable",
+        "reported_missing",
+        "invalid_placeholder",
+        "uninformative_placeholder",
+        "moved_to_material",
+        "nonstandard_context",
+        "material",
+        "geography",
+        "date",
+        "depth",
+        "context",
+        "organism_context",
+        "rejected:geography_only",
+        "rejected:geography_only_dataset_level_not_per_clone"
+      ]
+    }
+  }
+}

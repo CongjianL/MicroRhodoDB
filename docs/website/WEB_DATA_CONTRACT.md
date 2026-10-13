@@ -570,3 +570,35 @@ reconciled.
   no SQL) is derived independently from `refpkg/MR_RT_003/tips.tsv`.
 - **Drilldown golden.** `tests/data/web_drilldown_golden_v160.json` (453 sets: n and SHA-256 of sorted source
   accessions) is generated from the frozen SQLite by `web/scripts/pr5a_drilldown_golden.py`.
+
+## 16. Habitat sidecar (PR-7c.2, additive; core schema stays 1.4.0)
+
+PR-7c.2 adds `data/v1.6.0/habitat/` (5,301 files) and changes no other exported file. For the same repository
+state, a `--no-habitat` export is byte-identical to the output of the 361039e exporter, and the default export
+differs from it only by the new `habitat/` files and by `export_manifest.json`, which lists them. (As before,
+exports made at different commits differ in the exporter fields of `manifest.json`.) The sidecar has its own schema,
+`web/src/data/schemas/habitat.schema.json` (habitat schema 1.0.0), with generated types in
+`web/src/data/habitatTypes.ts`.
+
+- **Source.** `tools/habitat_export/build.py`, called by the exporter, reads only the accepted PR-7c.1a tables in
+  `docs/website/pr7c1/` (record availability, evidence, coverage summary, retrieval manifest, literature evidence).
+  Their SHA-256 values are pinned in `tools/habitat_export/contract.json`; a missing or changed input stops the export
+  with `BLOCKED_HABITAT_SOURCE` (exit code 5). The SQLite database and the network are not used. Habitat data are
+  displayed, not reclassified: grades, statuses, flags and values are copied verbatim.
+- **Files.** `habitat/records/<MRDB>.json` (one per MRDB accession; one entry per source record, representative
+  first), `habitat/summary.json` (release-level counts with explicit denominators, cross-checked against the audit
+  coverage summary) and `habitat/manifest.json` (audit id/version/commit, pinned input hashes, cache hash, evidence-ID
+  rules, SHA-256 and size of every other habitat file).
+- **Items.** Only display roles are exported, in four groups: `physical` (MIxS env_*, isolation source, non-standard
+  habitat fields, literature isolate and rejected statements), `host` (host, host detail), `collection` (geography,
+  date, depth, material, environmental-sample flags) and `organism_context` (organism-level literature context).
+  Each item keeps its evidence ID, evidence source, entity accession, field, role, value status, verbatim value,
+  OLS-verified ENVO IDs and provenance URLs. A null item value means the field is present with an empty string
+  (principle: no empty strings are exported).
+- **Quarantine.** An item whose value carries an ENVO ID that OLS did not find, or a bare digit string in a MIxS
+  env_* role, has `quarantine` set and is never linked as an ontology term (14 items, 7 records).
+- **No sample link.** `sample_link = "none"` (18 records, `db_chain_status = NO_LINK`) means no INSDC or sample record
+  could be checked; missingness is then `no_traceable_sample_link`, never "not reported in the linked sample records".
+- **Evidence IDs.** All HE and HL identifiers are recomputed during export (rules in `habitat/manifest.json` and
+  `docs/website/pr7c1/habitat_field_dictionary.md` section 3, including the literal `None` rule for null fields).
+- **Loading.** The website fetches one habitat file per record view, lazily; no other page requests `habitat/`.

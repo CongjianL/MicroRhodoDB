@@ -22,7 +22,7 @@ test.describe("Protein Entry: MRDB000001 (175 PDB entries)", () => {
     await page.goto("#/record/MRDB000001");
     const rec = page.getByTestId("record-page");
     await expect(rec).toHaveAttribute("data-focus", "P02945");
-    for (const s of ["overview", "sequence", "viewer", "experimental", "predicted", "phylogeny", "evidence", "publications"]) {
+    for (const s of ["overview", "sequence", "viewer", "experimental", "predicted", "phylogeny", "evidence", "habitat", "publications"]) {
       await expect(page.getByTestId(`section-${s}`)).toBeAttached();
     }
     await expect(page.getByTestId("pdb-count-focused")).toHaveAttribute("data-n", "174");

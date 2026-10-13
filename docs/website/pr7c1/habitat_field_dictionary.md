@@ -122,6 +122,12 @@ Each BioSample's items are attached once, to the first link (in `link_index` ord
 `evidence_id` = `"HE"` + first 12 hex of SHA-256 of
 `source_acc|evidence_source|entity_accession|link_index|field_original|value_original`.
 Literature: `"HL"` + 12 hex of SHA-256 of `pmid|doi|quote|scope` followed by the source accession.
+Serialization rule (formal specification added in PR-7c.2; no identifier changed): each of `pmid`, `doi`,
+`quote` and `scope` is rendered with Python `str()` of the stored value, so a null field (for example a missing
+DOI) contributes the literal four characters `None`; the source accession follows `scope` with no separator. For
+`"HE"` identifiers every field is the TSV string as written (an empty `link_index` or `value_original` contributes
+the empty string). `tools/habitat_export/build.py` recomputes all 105,659 HE and 91 HL identifiers with these rules
+and fails closed on any mismatch.
 
 ## 4. Roles (`normalize.ROLE_MAP`)
 

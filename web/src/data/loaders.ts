@@ -10,6 +10,7 @@
  */
 import { useEffect, useState } from "react";
 import { DataError, fetchText } from "./fetchText";
+import type { HabitatRecordFile, HabitatSummary } from "./habitatTypes";
 import type {
   Accessions, Clades, CladeTips, Current, Downloads, EvidenceIndex, Explorer, ExportManifest, Manifest, MrdbEntry, Publications,
   RecordsIndex, StructuresIndex, Summary, Tips, Vocabulary, Watchlist,
@@ -104,6 +105,27 @@ export function loadRecord(mrdbAcc: string): Promise<MrdbEntry | null> {
     return parseJson<MrdbEntry>(body, url);
   });
 }
+
+/**
+ * PR-7c.2 habitat sidecar: one file per MRDB accession, fetched only by the record page's habitat section.
+ * A missing file (404) resolves to null so the section can degrade without affecting the rest of the page.
+ */
+export function loadHabitat(mrdbAcc: string): Promise<HabitatRecordFile | null> {
+  if (!/^MRDB\d{6}$/.test(mrdbAcc)) return Promise.resolve(null);
+  return once(`habitat/records/${mrdbAcc}`, async () => {
+    const url = await releaseUrl(`habitat/records/${mrdbAcc}.json`);
+    let body: string;
+    try {
+      body = await fetchText(url);
+    } catch (e) {
+      if (e instanceof DataError && e.status === 404) return null;
+      throw e;
+    }
+    return parseJson<HabitatRecordFile>(body, url);
+  });
+}
+/** Release-level habitat counts; fetched only when the "About these data" panel is opened. */
+export const loadHabitatSummary = () => json<HabitatSummary>("habitat/summary.json");
 
 /** Parse corpus.fasta ("> SOURCE MRDB" headers, one sequence line) into source_acc -> sequence. */
 export function parseCorpusFasta(fa: string): Map<string, string> {

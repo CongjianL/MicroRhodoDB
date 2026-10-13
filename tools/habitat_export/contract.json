@@ -1,0 +1,43 @@
+{
+  "_comment": "PR-7c.2 habitat sidecar contract: the accepted PR-7c.1a audit outputs are the only inputs. Any SHA-256 mismatch stops the export with BLOCKED_HABITAT_SOURCE. Do not edit without a new accepted habitat audit.",
+  "audit": {
+    "audit_id": "PR-7c.1a",
+    "audit_version": "1.1.0",
+    "accepted_commit": "361039ea1d87184092b38ffb584e816332994cf0",
+    "base_commit": "932eb567a199f9eef25f7e04ac2aaa745e17156c",
+    "status": "PR7C1_AUDIT_PARTIAL",
+    "status_reason": "24 of the 110 literature-subset records are literature LOOKUP_FAILED; the database chain has 0 LOOKUP_FAILED of 5,466 records."
+  },
+  "inputs": {
+    "docs/website/pr7c1/habitat_record_availability.tsv": "b6ebfba238a7e3ccad27af6ec3ea093dbd4f125501709d500f0e84504441327b",
+    "docs/website/pr7c1/habitat_evidence.tsv": "1053f967b7fde56b8c45958a749d35a33e2c5a3fd065b03d35fb4d73a58fdc4f",
+    "docs/website/pr7c1/habitat_coverage_summary.tsv": "45b238062e61377eea5e60c9233f9616ecfeb12c9677ce0661223c8623926bf8",
+    "docs/website/pr7c1/habitat_retrieval_manifest.json": "e46135b6c2ba2516fb1f1b8f6f69bbf170a76f4c481775c4ae08ac981b73c4f9",
+    "docs/website/pr7c1/literature/literature_evidence.json": "dbcc2bb88652901d71eec1adce621f9e6bc078871195ffd40eaf5faefb967768"
+  },
+  "retrieval_cache": {
+    "file": "habitat_cache.tar.gz (not in git; preserved with the PR-7c.1 package)",
+    "sha256": "02f28a9bb7076b6d2cc4fe0f4212ca525615ed4ee88dbedd37e13b5b1106213a"
+  },
+  "expected": {
+    "source_records": 5466,
+    "mrdb_accessions": 5299,
+    "multi_source_mrdb": 129,
+    "multi_source_grades_differ": 43,
+    "grades": {"DIRECT_SAMPLE": 2523, "VERIFIED_ISOLATE": 17, "ORGANISM_CONTEXT_ONLY": 36, "AMBIGUOUS": 59, "NOT_REPORTED": 2831, "LOOKUP_FAILED": 0, "NOT_SEARCHED": 0},
+    "physical_habitat_usable": 2540,
+    "has_host_association": 755,
+    "host_association_only": 186,
+    "host_without_usable_physical_habitat": 207,
+    "physical_ambiguous": 59,
+    "host_ambiguous": 84,
+    "no_traceable_sample_link": 18,
+    "literature_lookup_failed": 24,
+    "host_tissue_isolation_source_only": 23,
+    "quarantined_items": 14,
+    "quarantined_records": 7,
+    "invalid_placeholder_items": 12,
+    "evidence_rows": 105750,
+    "max_file_bytes": 65536
+  }
+}

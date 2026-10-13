@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """Deterministic SQLite -> static JSON exporter for the MicroRhodoDB website (dataset v1.6.0).
 
-Implements docs/website/WEB_DATA_CONTRACT.md. Standard library only.
+Implements docs/website/WEB_DATA_CONTRACT.md. Standard library only (plus jsonschema for the habitat sidecar).
 
     python tools/export_web_data.py                       # repo root as cwd; writes web/public/data/
     python tools/export_web_data.py --db PATH --repo . --out web/public/data
@@ -11,7 +11,12 @@ Inputs (all opened read-only, all checksum-verified before anything is written):
     refpkg/MR_RT_003/{tree,clades,tips.tsv}            SHA-256 must match refpkg/MR_RT_003/SHA256SUMS
     releases/*/structures/<acc>_esmfold.pdb            SHA-256 must equal PREDICTED_SHA256
 
-Exit codes: 0 ok; 2 BLOCKED_DATA_SOURCE; 3 STRUCTURE_SOURCE_ANOMALY; 4 CONTRACT_VIOLATION.
+Habitat sidecar (PR-7c.2, additive): tools/habitat_export/build.py writes data/v1.6.0/habitat/ from the accepted
+PR-7c.1a audit tables in docs/website/pr7c1/ (SHA-256 pinned in tools/habitat_export/contract.json; validated
+against web/src/data/schemas/habitat.schema.json, which needs the jsonschema package). It never reads the SQLite
+habitat data or the network. --no-habitat omits it; every other file is byte-identical either way.
+
+Exit codes: 0 ok; 2 BLOCKED_DATA_SOURCE; 3 STRUCTURE_SOURCE_ANOMALY; 4 CONTRACT_VIOLATION; 5 BLOCKED_HABITAT_SOURCE.
 No output file contains a wall-clock timestamp; two runs with the same inputs and exporter commit are
 byte-identical (checked by tests/test_web_export.py). site/data.js is never read.
 """
@@ -125,7 +130,8 @@ BOOL_V_MASTER = {"call_conflict", "is_engineered", "counts_eligible"}
 
 
 class ExportError(Exception):
-    CODES = {"BLOCKED_DATA_SOURCE": 2, "STRUCTURE_SOURCE_ANOMALY": 3, "CONTRACT_VIOLATION": 4}
+    CODES = {"BLOCKED_DATA_SOURCE": 2, "STRUCTURE_SOURCE_ANOMALY": 3, "CONTRACT_VIOLATION": 4,
+             "BLOCKED_HABITAT_SOURCE": 5}
 
     def __init__(self, code, msg):
         super().__init__(f"{code}: {msg}")
@@ -839,7 +845,25 @@ def rows(con, sql, *args):
     return [dict(zip(names, r)) for r in cur.fetchall()]
 
 
-def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
+def build_habitat(repo, by_source, representative):
+    """PR-7c.2 habitat sidecar: {path relative to data/v<release>/: (bytes, n)}; HabitatError -> ExportError."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    try:
+        from habitat_export.build import HabitatError, build
+    finally:
+        sys.path.pop(0)
+    try:
+        import jsonschema  # noqa: F401  (habitat schema validation is mandatory; fail closed without it)
+    except ImportError:
+        raise ExportError("CONTRACT_VIOLATION", "the habitat sidecar requires the jsonschema package "
+                          "(or pass --no-habitat)")
+    try:
+        return build(repo, by_source, representative, release=DATASET_RELEASE)
+    except HabitatError as e:
+        raise ExportError(e.code, str(e).split(": ", 1)[1])
+
+
+def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256, habitat=True):
     repo, db, out = Path(repo).resolve(), Path(db).resolve(), Path(out).resolve()
     db_sha, refpkg_sha = verify_inputs(repo, db, expected_sha)
     commit, dirty = git_state(repo)
@@ -1223,6 +1247,12 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256):
     put(R + "accessions.json", dumps({"dataset_release": DATASET_RELEASE,
                                       "by_source": {a: r["mrdb_acc"] for a, r in sorted(amap.items())},
                                       "by_mrdb": by_mrdb}), len(amap))
+    if habitat:  # PR-7c.2 sidecar: additive files under habitat/, no change to any other output
+        hab = build_habitat(repo, {a: r["mrdb_acc"] for a, r in amap.items()},
+                            {ma: v["representative_source_acc"] for ma, v in by_mrdb.items()})
+        for rel, (data, n) in sorted(hab.items()):
+            require(rel.startswith("habitat/"), f"habitat output outside habitat/: {rel}")
+            put(R + rel, data, n)
     put(R + "sequences/corpus.fasta",
         "".join(f">{v['source_acc']} {v['mrdb_acc']}\n{prot[v['source_acc']]['sequence']}\n" for v in V), len(V))
 
@@ -1599,11 +1629,13 @@ def main(argv=None):
     ap.add_argument("--db", default=None, help=f"default: <repo>/{DB_REL}")
     ap.add_argument("--out", default=None, help="default: <repo>/web/public/data")
     ap.add_argument("--expected-sha256", default=EXPECTED_DB_SHA256)
+    ap.add_argument("--no-habitat", action="store_true",
+                    help="omit the PR-7c.2 habitat sidecar (data/v1.6.0/habitat/); used to prove the core is unchanged")
     a = ap.parse_args(argv)
     repo = Path(a.repo)
     try:
         em = export(repo, Path(a.db) if a.db else repo / DB_REL, Path(a.out) if a.out else repo / "web/public/data",
-                    a.expected_sha256)
+                    a.expected_sha256, habitat=not a.no_habitat)
     except ExportError as e:
         print(str(e), file=sys.stderr)
         return ExportError.CODES[e.code]

@@ -32,6 +32,7 @@ DB = Path(os.environ.get("MRDB_DB", REPO / "releases/v1.6.0/db/microrhododb_v1.6
 DB_SHA256 = "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f"
 EXPORTER = REPO / "tools/export_web_data.py"
 SCHEMA = REPO / "web/src/data/schemas/web-data.schema.json"
+HABITAT_SCHEMA = REPO / "web/src/data/schemas/habitat.schema.json"
 FROZEN = REPO / "docs/website/baseline/frozen_sha256_fab9182.txt"
 TREE = REPO / "refpkg/MR_RT_003/tree/MR_RT_003.rooted.treefile"
 RUN1 = REPO / "refpkg/MR_RT_003/tree/run1.treefile"
@@ -860,24 +861,28 @@ def test_json_schema_all_payloads(out):
     import jsonschema
     schema = json.loads(SCHEMA.read_text())
     jsonschema.Draft202012Validator.check_schema(schema)
+    # PR-7c.2: the habitat sidecar (v1.6.0/habitat/**) has its own schema; every other file uses the core schema.
+    hschema = json.loads(HABITAT_SCHEMA.read_text())
+    jsonschema.Draft202012Validator.check_schema(hschema)
     validators = {}
     files = [f for f in all_files(out) if f.endswith(".json")]
     seen = collections.Counter()
     errors = []
     for f in files:
-        pats = [p for p in schema["x-files"] if fnmatch.fnmatch(f, p)]
+        sch = hschema if f.startswith(f"{REL}/habitat/") else schema
+        pats = [p for p in sch["x-files"] if fnmatch.fnmatch(f, p)]
         assert len(pats) == 1, (f, pats)
-        name = schema["x-files"][pats[0]]
+        name = sch["x-files"][pats[0]]
         if name not in validators:
             validators[name] = jsonschema.Draft202012Validator(
-                {"$schema": schema["$schema"], "$defs": schema["$defs"], "$ref": f"#/$defs/{name}"})
+                {"$schema": sch["$schema"], "$defs": sch["$defs"], "$ref": f"#/$defs/{name}"})
         errs = list(validators[name].iter_errors(json.loads((out / f).read_text(encoding="utf-8"))))
         if errs:
             errors.append((f, errs[0].message))
         seen[pats[0]] += 1
     assert not errors, errors[:5]
-    assert set(seen) == set(schema["x-files"])
-    assert len(files) == 5318  # 5,315 in schema 1.0.0 + vocabulary.json (1.1.0) + phylogeny/explorer.json (1.2.0) + downloads.json (1.4.0)
+    assert set(seen) == set(schema["x-files"]) | set(hschema["x-files"])
+    assert len(files) == 5318 + 5301  # 5,315 in schema 1.0.0 + vocabulary.json (1.1.0) + phylogeny/explorer.json (1.2.0) + downloads.json (1.4.0); + habitat sidecar (PR-7c.2: 5,299 records + summary + manifest)
 
 
 def test_typescript_types_up_to_date():

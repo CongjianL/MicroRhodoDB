@@ -19,6 +19,7 @@ import { ErrorState, LoadingSkeleton } from "../components/States";
 import { loadAccessions, loadClades, loadRecord, loadVocabulary, releaseFileUrl, useResource } from "../data/loaders";
 import type { Clades, MrdbEntry, SourceRecord, Vocabulary } from "../data/types";
 import { EvidenceSection } from "../features/entry/EvidenceSection";
+import { HabitatSection } from "../features/entry/HabitatSection";
 import { OverviewSection } from "../features/entry/OverviewSection";
 import { PhylogenySection } from "../features/entry/PhylogenySection";
 import { PublicationsSection } from "../features/entry/PublicationsSection";
@@ -227,6 +228,7 @@ function RecordView({ entry, focus, via, routeAcc, params, clades, vocab }: {
           <PredictedSection src={src} releaseUrl={releaseUrl} onView={onView} />
           <PhylogenySection entry={entry} src={src} clades={clades} vocab={vocab} caveats={caveats} />
           <EvidenceSection entry={entry} src={src} vocab={vocab} />
+          <HabitatSection entry={entry} src={src} />
           <PublicationsSection src={src} />
         </div>
       </div>

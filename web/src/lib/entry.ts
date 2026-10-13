@@ -17,6 +17,7 @@ export const SECTIONS = [
   { id: "predicted", label: "Predicted structures" },
   { id: "phylogeny", label: "Phylogenetic placement" },
   { id: "evidence", label: "Functional evidence" },
+  { id: "habitat", label: "Ecology and habitat" },
   { id: "publications", label: "Publications" },
 ] as const;
 export type SectionId = (typeof SECTIONS)[number]["id"];
