@@ -1,0 +1,40 @@
+replay commit: 76f5e6deae9d9d41f8aff11ded22897122d366e7
+379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f  releases/v1.6.0/db/microrhododb_v1.6.0.sqlite
+02f28a9bb7076b6d2cc4fe0f4212ca525615ed4ee88dbedd37e13b5b1106213a  habitat_cache.tar.gz
+porcelain(before): 0 lines
+[run] mode=full records=5466 offline=True
+[uniprot] 5466 accessions
+[ena coding] 5777 protein ids
+[ena sequence] 27 parent accessions
+[insdc flatfile] 27 unresolved parent records
+[proteome] 7 proteomes (records without EMBL xrefs)
+[samples] 2414 sample accessions (ENA XML + NCBI)
+[studies] 1979 study accessions
+[ols] 112 explicit ENVO ids
+[run] done in 11.0s cache={'hit': 438, 'fetched': 0, 'failed': 0, 'retried_ok': 0}
+
+real	0m11.615s
+user	0m12.200s
+sys	0m0.400s
+audit rc=0
+IDENTICAL habitat_attribute_inventory.tsv
+IDENTICAL habitat_coverage_summary.tsv
+IDENTICAL habitat_evidence.tsv
+IDENTICAL habitat_provenance_links.tsv
+IDENTICAL habitat_record_availability.tsv
+IDENTICAL habitat_requests.tsv
+IDENTICAL habitat_retrieval_manifest.json
+IDENTICAL figures/fig_habitat_chain_funnel.svg
+IDENTICAL figures/fig_habitat_field_completeness.svg
+IDENTICAL figures/fig_habitat_grade_by_domain.svg
+IDENTICAL figures/fig_habitat_grade_by_status_group.svg
+exported 10626 files, 60,866,233 bytes; export_manifest sha256 db432f7af1d461ac21b49b0071716d5b6fb95cc28ded0c17c577b3f36d3ae01e
+export rc=0
+HABITAT_IDENTICAL_TO_WORKING_TREE_EXPORT
+Files export/v1.6.0/export_manifest.json and web/public/data/v1.6.0/export_manifest.json differ
+Files export/v1.6.0/manifest.json and web/public/data/v1.6.0/manifest.json differ
+a3b45f175d4a5eff08ad98fab3743c13a4915f83f4e81aa14a50b2d93862daf9  export/v1.6.0/habitat/manifest.json
+..............................s.................................         [100%]
+135 passed, 1 skipped in 85.71s (0:01:25)
+porcelain(after, excluding ignored): 0 lines
+note: the only differences vs the working-tree export are git_dirty=true/false in manifest.json and export_manifest.json (working tree had untracked docs/website/pr7c2/ outputs); downloads.json and every data file, including habitat/, are byte-identical. REPLAY_PASS

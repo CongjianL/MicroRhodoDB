@@ -1,0 +1,1445 @@
+{
+ "env": {
+  "chromium": "153.0.8010.12",
+  "runs": 3,
+  "baseURL": "http://127.0.0.1:4181/MicroRhodoDB/site/",
+  "mode": "perf",
+  "profiles": {
+   "desktop": {
+    "viewport": {
+     "width": 1440,
+     "height": 900
+    },
+    "deviceScaleFactor": 1,
+    "isMobile": false,
+    "hasTouch": false,
+    "net": {
+     "latency": 40,
+     "downloadThroughput": 1310720,
+     "uploadThroughput": 1310720
+    },
+    "cpu": 1
+   },
+   "mobile": {
+    "viewport": {
+     "width": 375,
+     "height": 812
+    },
+    "deviceScaleFactor": 2,
+    "isMobile": true,
+    "hasTouch": true,
+    "net": {
+     "latency": 562.5,
+     "downloadThroughput": 188743.68,
+     "uploadThroughput": 86400
+    },
+    "cpu": 4
+   }
+  },
+  "node": "v22.21.1",
+  "python": "3.11.16",
+  "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.39",
+  "server": "scripts/serve_perf.py (gzip level 6 for text, Cache-Control: no-store, HTTP/1.1, loopback)"
+ },
+ "bundles": {
+  "files": [
+   {
+    "file": "AboutPage-huqo8eGY.js",
+    "raw": 5837,
+    "gzip": 2183,
+    "brotli": 1843
+   },
+   {
+    "file": "Badges-X4gNSxLQ.js",
+    "raw": 1767,
+    "gzip": 691,
+    "brotli": 614
+   },
+   {
+    "file": "BarChart-D7vGfgQQ.js",
+    "raw": 3613,
+    "gzip": 1590,
+    "brotli": 1418
+   },
+   {
+    "file": "BrowsePage-Gw4xZ-cD.js",
+    "raw": 79174,
+    "gzip": 22451,
+    "brotli": 19710
+   },
+   {
+    "file": "CitationPage-CYoNOf9W.js",
+    "raw": 4413,
+    "gzip": 1682,
+    "brotli": 1450
+   },
+   {
+    "file": "CladePage-CHZsvX8Q.js",
+    "raw": 25144,
+    "gzip": 6252,
+    "brotli": 5682
+   },
+   {
+    "file": "CladeSupportNotice-D4KiEPIy.js",
+    "raw": 1092,
+    "gzip": 655,
+    "brotli": 578
+   },
+   {
+    "file": "DownloadsPage-OGGa5L0Q.js",
+    "raw": 9916,
+    "gzip": 2705,
+    "brotli": 2365
+   },
+   {
+    "file": "EvidencePage-fdWQ63jR.js",
+    "raw": 26929,
+    "gzip": 6559,
+    "brotli": 5797
+   },
+   {
+    "file": "HelpPage-Bsj8fg0e.js",
+    "raw": 7173,
+    "gzip": 2817,
+    "brotli": 2309
+   },
+   {
+    "file": "HomePage-p6B_z7qP.js",
+    "raw": 14966,
+    "gzip": 4920,
+    "brotli": 4333
+   },
+   {
+    "file": "MethodsPage-BD4VWB9T.js",
+    "raw": 13098,
+    "gzip": 4296,
+    "brotli": 3670
+   },
+   {
+    "file": "Paged-BCuB5DzA.js",
+    "raw": 613,
+    "gzip": 416,
+    "brotli": 359
+   },
+   {
+    "file": "PhylogenyPage-Bjb3be1C.js",
+    "raw": 28310,
+    "gzip": 9382,
+    "brotli": 8386
+   },
+   {
+    "file": "PlaceholderPage-VpxSVEsa.js",
+    "raw": 848,
+    "gzip": 441,
+    "brotli": 379
+   },
+   {
+    "file": "Provenance-DDOVgHqO.js",
+    "raw": 2850,
+    "gzip": 1023,
+    "brotli": 879
+   },
+   {
+    "file": "RecordPage-r1okQ-Pg.js",
+    "raw": 51986,
+    "gzip": 13611,
+    "brotli": 12143
+   },
+   {
+    "file": "SearchPage-LVPn7B7Z.js",
+    "raw": 22638,
+    "gzip": 7633,
+    "brotli": 6815
+   },
+   {
+    "file": "StatisticsPage-BRLGI_Nb.js",
+    "raw": 22719,
+    "gzip": 6385,
+    "brotli": 5622
+   },
+   {
+    "file": "StructureViewer-C5Zu1p3o.js",
+    "raw": 17934,
+    "gzip": 6653,
+    "brotli": 5981
+   },
+   {
+    "file": "StructuresPage-DiWo_3Iz.js",
+    "raw": 16484,
+    "gzip": 4826,
+    "brotli": 4279
+   },
+   {
+    "file": "TreePreview-DanxAEKn.js",
+    "raw": 5157,
+    "gzip": 2147,
+    "brotli": 1984
+   },
+   {
+    "file": "WatchlistPage-DSnQQgWq.js",
+    "raw": 9634,
+    "gzip": 3359,
+    "brotli": 2924
+   },
+   {
+    "file": "browse-CmAiFNXv.js",
+    "raw": 5033,
+    "gzip": 2067,
+    "brotli": 1906
+   },
+   {
+    "file": "chartColors-n2BareSK.js",
+    "raw": 388,
+    "gzip": 284,
+    "brotli": 255
+   },
+   {
+    "file": "citation-BJ9fqudp.js",
+    "raw": 1663,
+    "gzip": 853,
+    "brotli": 776
+   },
+   {
+    "file": "drilldown-Cpz2xwd6.js",
+    "raw": 1497,
+    "gzip": 643,
+    "brotli": 579
+   },
+   {
+    "file": "echarts-core-0HeO-QSV.js",
+    "raw": 475468,
+    "gzip": 157390,
+    "brotli": 134281
+   },
+   {
+    "file": "index-D0yUbjI9.js",
+    "raw": 171937,
+    "gzip": 55492,
+    "brotli": 48385
+   },
+   {
+    "file": "index-yJx-eqrQ.css",
+    "raw": 43232,
+    "gzip": 8438,
+    "brotli": 7354
+   },
+   {
+    "file": "molstarViewer-B0-Dvk9f.js",
+    "raw": 3177781,
+    "gzip": 873360,
+    "brotli": 688205
+   },
+   {
+    "file": "palette-CPFiN25S.js",
+    "raw": 2973,
+    "gzip": 1292,
+    "brotli": 1197
+   },
+   {
+    "file": "phyloQuery-BfPZqXUY.js",
+    "raw": 13850,
+    "gzip": 5216,
+    "brotli": 4842
+   },
+   {
+    "file": "rolldown-runtime-hePW80VL.js",
+    "raw": 716,
+    "gzip": 430,
+    "brotli": 381
+   },
+   {
+    "file": "safe-DbmVvww0.js",
+    "raw": 416,
+    "gzip": 256,
+    "brotli": 195
+   },
+   {
+    "file": "seqSearch.worker-C32wk_6p.js",
+    "raw": 8030,
+    "gzip": 3362,
+    "brotli": 3046
+   },
+   {
+    "file": "stats-DppKELvZ.js",
+    "raw": 4801,
+    "gzip": 1870,
+    "brotli": 1663
+   },
+   {
+    "file": "summary-qvDt0ZTw.js",
+    "raw": 827,
+    "gzip": 427,
+    "brotli": 386
+   },
+   {
+    "file": "swCore-D3j4J5mT.js",
+    "raw": 2772,
+    "gzip": 1463,
+    "brotli": 1260
+   },
+   {
+    "file": "tslib.es6-MM1X6Oub.js",
+    "raw": 3740,
+    "gzip": 1529,
+    "brotli": 1388
+   },
+   {
+    "file": "ui-BAKTGQhB.js",
+    "raw": 1705,
+    "gzip": 876,
+    "brotli": 751
+   },
+   {
+    "file": "useExplorer-eS6tHgme.js",
+    "raw": 25290,
+    "gzip": 8575,
+    "brotli": 7815
+   },
+   {
+    "file": "useSectionScroll-DxXDg0Ni.js",
+    "raw": 371,
+    "gzip": 295,
+    "brotli": 234
+   }
+  ],
+  "initial_from_index_html": [
+   "index-D0yUbjI9.js",
+   "index-yJx-eqrQ.css",
+   "rolldown-runtime-hePW80VL.js"
+  ],
+  "initial_totals": {
+   "raw": 215885,
+   "gzip": 64360,
+   "brotli": 56120
+  },
+  "all_totals": {
+   "raw": 4314785,
+   "gzip": 1236795,
+   "brotli": 1004419
+  }
+ },
+ "routes": [
+  {
+   "profile": "desktop",
+   "id": "home",
+   "hash": "#/",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 890,
+   "idle_ms": 1085,
+   "fcp_ms": 228,
+   "lcp_ms": 468,
+   "cls": 0,
+   "ttfb_ms": 2.8,
+   "inp_ms": null,
+   "tbt_proxy_ms": 5,
+   "max_long_task_ms": 55,
+   "heap_mb": 5.7,
+   "dom_nodes": 1463,
+   "requests": 23,
+   "transfer_bytes": 284472,
+   "js_transfer_bytes": 232526,
+   "data_transfer_bytes": 41818,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+    "data/v1.6.0/phylogeny/tips.json",
+    "data/v1.6.0/summary.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {}
+  },
+  {
+   "profile": "desktop",
+   "id": "browse",
+   "hash": "#/browse",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 903,
+   "idle_ms": 1191,
+   "fcp_ms": 224,
+   "lcp_ms": 864,
+   "cls": 0,
+   "ttfb_ms": 2.8,
+   "inp_ms": 80,
+   "tbt_proxy_ms": 14,
+   "max_long_task_ms": 64,
+   "heap_mb": 19.7,
+   "dom_nodes": 4745,
+   "requests": 15,
+   "transfer_bytes": 495767,
+   "js_transfer_bytes": 84101,
+   "data_transfer_bytes": 401538,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/records-index.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {
+    "browse_filter_text": {
+     "ms": 111,
+     "long_tasks": 0,
+     "max_long_task_ms": 0
+    }
+   }
+  },
+  {
+   "profile": "desktop",
+   "id": "record_P02945",
+   "hash": "#/record/P02945",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 898,
+   "idle_ms": 1337,
+   "fcp_ms": 228,
+   "lcp_ms": 820,
+   "cls": 0.0,
+   "ttfb_ms": 4,
+   "inp_ms": 40,
+   "tbt_proxy_ms": 0,
+   "max_long_task_ms": 0,
+   "heap_mb": 39.5,
+   "dom_nodes": 3336,
+   "requests": 22,
+   "transfer_bytes": 465381,
+   "js_transfer_bytes": 90931,
+   "data_transfer_bytes": 364322,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/accessions.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/evidence-index.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/records/MRDB000001.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {
+    "molstar_mocked_load": {
+     "ms": 5699,
+     "long_tasks": 15,
+     "max_long_task_ms": 1166
+    }
+   }
+  },
+  {
+   "profile": "desktop",
+   "id": "record_engineered",
+   "hash": "#/record/A0ABF7PQA2",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 888,
+   "idle_ms": 1290,
+   "fcp_ms": 224,
+   "lcp_ms": 772,
+   "cls": 0,
+   "ttfb_ms": 2.7,
+   "inp_ms": null,
+   "tbt_proxy_ms": 0,
+   "max_long_task_ms": 0,
+   "heap_mb": 5.1,
+   "dom_nodes": 1439,
+   "requests": 22,
+   "transfer_bytes": 457783,
+   "js_transfer_bytes": 90931,
+   "data_transfer_bytes": 356724,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/accessions.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/evidence-index.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/records/MRDB003608.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {}
+  },
+  {
+   "profile": "mobile",
+   "id": "home",
+   "hash": "#/",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 4102,
+   "idle_ms": 5832,
+   "fcp_ms": 1796,
+   "lcp_ms": 3988,
+   "cls": 0,
+   "ttfb_ms": 2.8,
+   "inp_ms": null,
+   "tbt_proxy_ms": 397,
+   "max_long_task_ms": 301,
+   "heap_mb": 5.7,
+   "dom_nodes": 1463,
+   "requests": 23,
+   "transfer_bytes": 284472,
+   "js_transfer_bytes": 232526,
+   "data_transfer_bytes": 41818,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+    "data/v1.6.0/phylogeny/tips.json",
+    "data/v1.6.0/summary.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {}
+  },
+  {
+   "profile": "mobile",
+   "id": "browse",
+   "hash": "#/browse",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 6350,
+   "idle_ms": 6352,
+   "fcp_ms": 1772,
+   "lcp_ms": 6288,
+   "cls": 0,
+   "ttfb_ms": 2.8,
+   "inp_ms": 232,
+   "tbt_proxy_ms": 430,
+   "max_long_task_ms": 307,
+   "heap_mb": 19.8,
+   "dom_nodes": 4748,
+   "requests": 15,
+   "transfer_bytes": 495767,
+   "js_transfer_bytes": 84101,
+   "data_transfer_bytes": 401538,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/records-index.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {
+    "browse_filter_text": {
+     "ms": 524,
+     "long_tasks": 2,
+     "max_long_task_ms": 134
+    }
+   }
+  },
+  {
+   "profile": "mobile",
+   "id": "record_P02945",
+   "hash": "#/record/P02945",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 6621,
+   "idle_ms": 7512,
+   "fcp_ms": 1780,
+   "lcp_ms": 6460,
+   "cls": 0.021,
+   "ttfb_ms": 4.2,
+   "inp_ms": 64,
+   "tbt_proxy_ms": 235,
+   "max_long_task_ms": 154,
+   "heap_mb": 39.5,
+   "dom_nodes": 3336,
+   "requests": 22,
+   "transfer_bytes": 465381,
+   "js_transfer_bytes": 90931,
+   "data_transfer_bytes": 364322,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/accessions.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/evidence-index.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/records/MRDB000001.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {
+    "molstar_mocked_load": {
+     "ms": 13045,
+     "long_tasks": 19,
+     "max_long_task_ms": 1935
+    }
+   }
+  },
+  {
+   "profile": "mobile",
+   "id": "record_engineered",
+   "hash": "#/record/A0ABF7PQA2",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 6427,
+   "idle_ms": 7406,
+   "fcp_ms": 1820,
+   "lcp_ms": 6312,
+   "cls": 0.018,
+   "ttfb_ms": 3.2,
+   "inp_ms": null,
+   "tbt_proxy_ms": 122,
+   "max_long_task_ms": 98,
+   "heap_mb": 5.1,
+   "dom_nodes": 1439,
+   "requests": 22,
+   "transfer_bytes": 457783,
+   "js_transfer_bytes": 90931,
+   "data_transfer_bytes": 356724,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/accessions.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/evidence-index.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/records/MRDB003608.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {}
+  }
+ ],
+ "contrast": [
+  {
+   "width": 375,
+   "id": "home",
+   "text_nodes": 476,
+   "svg_text_nodes": 36,
+   "min_ratio_active": 4.65,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "browse",
+   "text_nodes": 990,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "browse_clade017_tent",
+   "text_nodes": 897,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "record_P02945",
+   "text_nodes": 720,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.53,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Reset view"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "record_engineered",
+   "text_nodes": 427,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.53,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Reset view"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "about",
+   "text_nodes": 214,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "phylogeny",
+   "text_nodes": 543,
+   "svg_text_nodes": 10,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Expand all"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "clade_017",
+   "text_nodes": 1323,
+   "svg_text_nodes": 101,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "statistics",
+   "text_nodes": 1100,
+   "svg_text_nodes": 212,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "evidence",
+   "text_nodes": 1991,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "structures",
+   "text_nodes": 373,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "watchlist",
+   "text_nodes": 784,
+   "svg_text_nodes": 10,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "search_text",
+   "text_nodes": 42,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "search_seq",
+   "text_nodes": 52,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.17,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "downloads",
+   "text_nodes": 613,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.55,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "methods",
+   "text_nodes": 471,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.17,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "citation",
+   "text_nodes": 61,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "help",
+   "text_nodes": 86,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "record_not_found",
+   "text_nodes": 25,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "not_found",
+   "text_nodes": 32,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "home",
+   "text_nodes": 459,
+   "svg_text_nodes": 36,
+   "min_ratio_active": 4.65,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "browse",
+   "text_nodes": 991,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "browse_clade017_tent",
+   "text_nodes": 898,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "record_P02945",
+   "text_nodes": 721,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.53,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Reset view"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "record_engineered",
+   "text_nodes": 428,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.53,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Reset view"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "about",
+   "text_nodes": 215,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "phylogeny",
+   "text_nodes": 545,
+   "svg_text_nodes": 11,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Expand all"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "clade_017",
+   "text_nodes": 1324,
+   "svg_text_nodes": 101,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "statistics",
+   "text_nodes": 1101,
+   "svg_text_nodes": 212,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "evidence",
+   "text_nodes": 1992,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "structures",
+   "text_nodes": 374,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "watchlist",
+   "text_nodes": 785,
+   "svg_text_nodes": 10,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "search_text",
+   "text_nodes": 43,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "search_seq",
+   "text_nodes": 53,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.17,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "downloads",
+   "text_nodes": 614,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.55,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "methods",
+   "text_nodes": 472,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.17,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "citation",
+   "text_nodes": 62,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "help",
+   "text_nodes": 87,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "record_not_found",
+   "text_nodes": 26,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "not_found",
+   "text_nodes": 33,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "home",
+   "text_nodes": 466,
+   "svg_text_nodes": 36,
+   "min_ratio_active": 4.65,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "browse",
+   "text_nodes": 998,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "browse_clade017_tent",
+   "text_nodes": 904,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "record_P02945",
+   "text_nodes": 728,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.53,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Reset view"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "record_engineered",
+   "text_nodes": 435,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.53,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Reset view"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "about",
+   "text_nodes": 222,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "phylogeny",
+   "text_nodes": 554,
+   "svg_text_nodes": 13,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Expand all"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "clade_017",
+   "text_nodes": 1331,
+   "svg_text_nodes": 101,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "statistics",
+   "text_nodes": 1108,
+   "svg_text_nodes": 212,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "evidence",
+   "text_nodes": 1999,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "structures",
+   "text_nodes": 381,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "watchlist",
+   "text_nodes": 792,
+   "svg_text_nodes": 10,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "search_text",
+   "text_nodes": 50,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "search_seq",
+   "text_nodes": 60,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.17,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "downloads",
+   "text_nodes": 621,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.55,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "methods",
+   "text_nodes": 479,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.17,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "citation",
+   "text_nodes": 69,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "help",
+   "text_nodes": 94,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "record_not_found",
+   "text_nodes": 33,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "not_found",
+   "text_nodes": 40,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  }
+ ]
+}

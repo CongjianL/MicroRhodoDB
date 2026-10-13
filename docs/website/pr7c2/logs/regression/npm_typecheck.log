@@ -1,0 +1,3 @@
+
+> microrhododb-web@2.0.0-pr7 typecheck
+> tsc --noEmit -p .

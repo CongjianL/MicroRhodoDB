@@ -1,0 +1,23 @@
+KILLED  failure_not_graded_lookup_failed: 1 failed, 31 passed
+KILLED  culture_value_counted_as_habitat: 1 failed, 18 passed
+KILLED  tissue_value_counted_as_habitat: 1 failed, 19 passed
+KILLED  agreement_ignores_punctuation: 1 failed, 46 passed
+KILLED  geography_counted_as_habitat: 1 failed
+KILLED  ncbi_numeric_uid_mapping: 1 failed, 41 passed
+KILLED  missing_token_not_applicable_accepted: 1 failed, 2 passed
+KILLED  unverified_literature_accepted: 1 failed, 51 passed
+KILLED  host_self_not_ignored: 1 failed, 26 passed
+KILLED  placeholder_counted_as_habitat: 1 failed, 22 passed
+KILLED  mrdb_rollup_collapses_failure: 1 failed, 60 passed
+KILLED  unverified_quote_kept: 1 failed, 58 passed
+KILLED  inaccessible_literature_reported_absent: 1 failed, 58 passed
+KILLED  host_counted_as_physical_habitat: 1 failed, 27 passed
+KILLED  host_conflict_counted_as_physical_conflict: 1 failed, 61 passed
+KILLED  literature_conflict_against_host_only: 1 failed, 90 passed, 1 skipped
+KILLED  zero_placeholder_ignored: 1 failed, 61 passed
+KILLED  zero_placeholder_applied_to_isolation_source: 1 failed, 74 passed, 1 skipped
+KILLED  ambiguity_formatting_collapsed: 1 failed, 61 passed
+KILLED  ambiguity_scope_collapsed: 1 failed, 61 passed
+KILLED  not_reported_scope_collapsed: 1 failed, 57 passed
+KILLED  hardcoded_machine_cache_path: 1 failed, 99 passed, 1 skipped
+killed 22/22

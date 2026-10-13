@@ -1,0 +1,376 @@
+[
+  {
+    "id": "BASELINE-pytest",
+    "rc": 0,
+    "tail": "34 passed in 67.40s (0:01:07)",
+    "expected": "pass",
+    "ok": true
+  },
+  {
+    "id": "E1",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "every source record marked as the MRDB representative",
+    "rc": 1,
+    "tail": "1 failed, 4 passed in 21.36s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E2",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "unverified ENVO IDs not quarantined",
+    "rc": 1,
+    "tail": "1 error in 3.24s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E3",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "bare numeric env_* values not quarantined",
+    "rc": 1,
+    "tail": "1 error in 3.18s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E4",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "empty values replaced by an invented string",
+    "rc": 1,
+    "tail": "1 failed, 8 passed in 22.97s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E5",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "HE evidence-ID field order changed",
+    "rc": 1,
+    "tail": "1 error in 1.68s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E6",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "HL None-serialisation rule changed (null -> empty string)",
+    "rc": 1,
+    "tail": "1 error in 1.70s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E7",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "input SHA-256 pin not enforced",
+    "rc": 1,
+    "tail": "1 failed, 25 passed in 79.28s (0:01:19)",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E8",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "multi-source grade difference under-reported",
+    "rc": 1,
+    "tail": "1 error in 3.09s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E9",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "host values routed into physical habitat",
+    "rc": 1,
+    "tail": "1 error in 2.29s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E10",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "literature DOI dropped from citations",
+    "rc": 1,
+    "tail": "1 failed, 10 passed in 22.93s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E11",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "no-link records claim 'not reported in linked samples'",
+    "rc": 1,
+    "tail": "1 failed, 16 passed in 23.46s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E12",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "representative no longer listed first",
+    "rc": 1,
+    "tail": "1 failed, 4 passed in 21.18s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E13",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "per-file byte budget not enforced",
+    "rc": 1,
+    "tail": "1 failed, 31 passed in 80.98s (0:01:20)",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E14",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "audit MRDB mapping not checked against accessions.json",
+    "rc": 1,
+    "tail": "1 failed, 32 passed in 81.04s (0:01:21)",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E15",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "verified ENVO IDs dropped",
+    "rc": 1,
+    "tail": "1 failed, 8 passed in 22.21s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E16",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "host flags (host-only, host-tissue) dropped",
+    "rc": 1,
+    "tail": "1 error in 3.62s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E17",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "literature sources checked dropped",
+    "rc": 1,
+    "tail": "1 failed, 11 passed in 22.87s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E18",
+    "suite": "pytest",
+    "file": "tools/habitat_export/build.py",
+    "weakness": "item order changed",
+    "rc": 1,
+    "tail": "1 failed, 12 passed in 22.69s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E19",
+    "suite": "pytest",
+    "file": "tools/export_web_data.py",
+    "weakness": "exporter silently omits the sidecar",
+    "rc": 1,
+    "tail": "1 failed in 5.33s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "E20",
+    "suite": "pytest",
+    "file": "tools/export_web_data.py",
+    "weakness": "--no-habitat ignored",
+    "rc": 1,
+    "tail": "1 failed in 34.87s",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "BASELINE-vitest",
+    "rc": 0,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[32m18 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "expected": "pass",
+    "ok": true
+  },
+  {
+    "id": "U1",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "malformed evidence IDs accepted",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U2",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "quarantined values linked as ENVO terms",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U3",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "http record URLs linked",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U4",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "record URLs to any host linked",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U5",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "habitat file of another MRDB accession accepted",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U6",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "habitat file with extra (merged) source records accepted",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U7",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "missingness literature scope swapped",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U8",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "no-link records say 'not reported in the linked sample records'",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U9",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "organism context shown without the literature/organism-scope check",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U10",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "items in the wrong display group accepted",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U11",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "non-usable values shown as physical habitat",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m2 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m16 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U12",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "unvalidated BioSample accessions linked",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U13",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "unvalidated DOIs linked",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U14",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "host-only wording missing",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m2 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m16 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U16",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "no-link records labelled with a checked 'Host not reported'",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  },
+  {
+    "id": "U15",
+    "suite": "vitest",
+    "file": "web/src/lib/habitat.ts",
+    "weakness": "malformed ENVO IDs linked",
+    "rc": 1,
+    "tail": "\u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m17 passed\u001b[39m\u001b[22m\u001b[90m (18)\u001b[39m",
+    "killed": true,
+    "ok": true
+  }
+]

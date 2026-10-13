@@ -1,0 +1,182 @@
+{
+ "checks": {
+  "10_urls": {
+   "counts": {
+    "urls": 59177
+   },
+   "errors": {},
+   "examples": {},
+   "notes": [
+    {
+     "host_counts": {
+      "browser_url pubmed.ncbi.nlm.nih.gov": 91,
+      "browser_url www.ebi.ac.uk": 36424,
+      "browser_url www.ncbi.nlm.nih.gov": 22571,
+      "source_url eutils.ncbi.nlm.nih.gov": 1,
+      "source_url pmc.ncbi.nlm.nih.gov": 4,
+      "source_url www.ebi.ac.uk": 86
+     }
+    }
+   ],
+   "status": "PASS"
+  },
+  "1_file_set": {
+   "counts": {
+    "mrdb_in_accessions": 5299,
+    "multi_source_grades_differ": 43,
+    "multi_source_mrdb": 129,
+    "record_files": 5299,
+    "source_entries_in_sidecar": 5466,
+    "source_records_in_table": 5466
+   },
+   "errors": {},
+   "examples": {},
+   "notes": [],
+   "status": "PASS"
+  },
+  "2_per_source": {
+   "counts": {
+    "checked": 5466,
+    "missingness_no_traceable_sample_link": 12,
+    "missingness_present": 2831,
+    "sample_link:none": 18,
+    "sample_link:traceable": 5448
+   },
+   "errors": {},
+   "examples": {},
+   "notes": [],
+   "status": "PASS"
+  },
+  "3_items": {
+   "counts": {
+    "duplicate_evidence_ids_in_tsv": 0,
+    "empty_value_rows_exported_as_null": 19,
+    "evidence_rows": 105750,
+    "expected_display_items": 59086,
+    "manifest_display_items": 59086,
+    "non_display_rows": 46664,
+    "sidecar_items": 59086
+   },
+   "errors": {},
+   "examples": {},
+   "notes": [
+    {
+     "items_per_group": {
+      "collection": 35077,
+      "host": 3859,
+      "organism_context": 55,
+      "physical": 20095
+     }
+    }
+   ],
+   "status": "PASS"
+  },
+  "4_evidence_ids": {
+   "counts": {
+    "HE_recomputed": 105659,
+    "HL_in_tsv": 91,
+    "HL_recomputed": 91,
+    "HL_with_null_doi(None rule)": 6,
+    "manifest_recomputed": 105750,
+    "total_recomputed": 105750
+   },
+   "errors": {},
+   "examples": {},
+   "notes": [],
+   "status": "PASS"
+  },
+  "5_quarantine": {
+   "counts": {
+    "case_insensitive_extra_matches": 0,
+    "expected:envo_id_not_found_in_ols": 12,
+    "expected:unprefixed_numeric_identifier": 2,
+    "expected_items": 14,
+    "expected_records": 7,
+    "sidecar_items": 14,
+    "sidecar_records": 7
+   },
+   "errors": {},
+   "examples": {},
+   "notes": [
+    {
+     "records": [
+      "A0A4Q4MIR8",
+      "A0A4Q4P102",
+      "A0A4Q4SIR6",
+      "A0A4V1X477",
+      "A0A6N7QP32",
+      "A0ACB6FSP5",
+      "A0ACB6FST4"
+     ]
+    }
+   ],
+   "status": "PASS"
+  },
+  "6_host_leakage": {
+   "counts": {
+    "host_group_items": 3859,
+    "items_checked": 59086,
+    "organism_context_items": 55
+   },
+   "errors": {},
+   "examples": {},
+   "notes": [],
+   "status": "PASS"
+  },
+  "7_literature": {
+   "counts": {
+    "dropped_keys:added_by,note,url": 5,
+    "dropped_keys:step,url": 16,
+    "dropped_keys:url": 88,
+    "literature_items": 91,
+    "literature_json_items": 91,
+    "records_sources_checked_with_dropped_keys": 109,
+    "records_with_review": 110,
+    "sources_checked_entries": 502
+   },
+   "errors": {},
+   "examples": {},
+   "notes": [],
+   "status": "PASS"
+  },
+  "8_summary": {
+   "counts": {
+    "compared_to_coverage": 39,
+    "coverage_flag_envo_id_invalid": 6,
+    "metrics_matched": 43,
+    "sanity:has_host_and_grade_NOT_REPORTED": 186,
+    "sanity:host_REPORTED_and_grade_NOT_REPORTED": 171,
+    "sanity:no_link_records_not_NOT_REPORTED": 6,
+    "summary_metrics_total": 43
+   },
+   "errors": {},
+   "examples": {},
+   "notes": [],
+   "status": "PASS"
+  },
+  "9_manifest": {
+   "counts": {
+    "actual_files_incl_manifest": 5301,
+    "files_scanned": 5301,
+    "inputs_verified": 5,
+    "listed_files": 5300,
+    "verified_files": 5300
+   },
+   "errors": {},
+   "examples": {},
+   "notes": [],
+   "status": "PASS"
+  }
+ },
+ "inputs": {
+  "export": "web/public/data/v1.6.0",
+  "repo_inputs": [
+   "docs/website/pr7c1/habitat_record_availability.tsv",
+   "docs/website/pr7c1/habitat_evidence.tsv",
+   "docs/website/pr7c1/habitat_coverage_summary.tsv",
+   "docs/website/pr7c1/habitat_retrieval_manifest.json",
+   "docs/website/pr7c1/literature/literature_evidence.json"
+  ]
+ },
+ "verdict_data_checks": "INDEPENDENT_PASS"
+}

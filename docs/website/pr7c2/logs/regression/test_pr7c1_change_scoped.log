@@ -1,0 +1,15 @@
+diff --git a/tests/test_habitat_audit_pr7c1.py b/tests/test_habitat_audit_pr7c1.py
+index dcd2630..116ef16 100644
+--- a/tests/test_habitat_audit_pr7c1.py
++++ b/tests/test_habitat_audit_pr7c1.py
+@@ -588 +588,4 @@ def test_no_production_habitat_keys():
+-    """PR-7c.1 must not add habitat values to the production web export."""
++    """PR-7c.1 must not add habitat values to the production web export.
++
++    PR-7c.2 adds the habitat sidecar under v1.6.0/habitat/ (its own schema and tests in tests/test_web_pr7c2.py);
++    habitat keys must stay confined to it, so every core export file is still checked."""
+@@ -592,0 +596,2 @@ def test_no_production_habitat_keys():
++        if p.relative_to(exp).parts[0] == "habitat":
++            continue
+
+PR7C1_TEST_CHANGE_SCOPED

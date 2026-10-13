@@ -1,0 +1,3 @@
+HEAD 76f5e6deae9d9d41f8aff11ded22897122d366e7 (rerun of export_matches_public after web/public/data refresh)
+ee9b6e3d3cdc557ff4bddc255e391b9319f53e584a44b29f02251ed33a4c637f  $TMP/hab_rerun/v1.6.0/export_manifest.json
+EXPORT_MATCHES_PUBLIC

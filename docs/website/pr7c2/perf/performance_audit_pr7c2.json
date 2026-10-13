@@ -1,0 +1,1449 @@
+{
+ "env": {
+  "chromium": "153.0.8010.12",
+  "runs": 3,
+  "baseURL": "http://127.0.0.1:4182/MicroRhodoDB/site/",
+  "mode": "perf",
+  "profiles": {
+   "desktop": {
+    "viewport": {
+     "width": 1440,
+     "height": 900
+    },
+    "deviceScaleFactor": 1,
+    "isMobile": false,
+    "hasTouch": false,
+    "net": {
+     "latency": 40,
+     "downloadThroughput": 1310720,
+     "uploadThroughput": 1310720
+    },
+    "cpu": 1
+   },
+   "mobile": {
+    "viewport": {
+     "width": 375,
+     "height": 812
+    },
+    "deviceScaleFactor": 2,
+    "isMobile": true,
+    "hasTouch": true,
+    "net": {
+     "latency": 562.5,
+     "downloadThroughput": 188743.68,
+     "uploadThroughput": 86400
+    },
+    "cpu": 4
+   }
+  },
+  "node": "v22.21.1",
+  "python": "3.11.16",
+  "platform": "Linux-4.19.0-gvisor-x86_64-with-glibc2.39",
+  "server": "scripts/serve_perf.py (gzip level 6 for text, Cache-Control: no-store, HTTP/1.1, loopback)"
+ },
+ "bundles": {
+  "files": [
+   {
+    "file": "AboutPage-DZtIbA5e.js",
+    "raw": 5837,
+    "gzip": 2183,
+    "brotli": 1841
+   },
+   {
+    "file": "Badges-P_6-xJmU.js",
+    "raw": 1767,
+    "gzip": 690,
+    "brotli": 630
+   },
+   {
+    "file": "BarChart-kuNRTo-f.js",
+    "raw": 3613,
+    "gzip": 1589,
+    "brotli": 1420
+   },
+   {
+    "file": "BrowsePage-J_mHby92.js",
+    "raw": 79169,
+    "gzip": 22447,
+    "brotli": 19735
+   },
+   {
+    "file": "CitationPage-DIWKgQqy.js",
+    "raw": 4413,
+    "gzip": 1681,
+    "brotli": 1447
+   },
+   {
+    "file": "CladePage-MJATfXDy.js",
+    "raw": 25144,
+    "gzip": 6250,
+    "brotli": 5667
+   },
+   {
+    "file": "CladeSupportNotice-BtHmFWno.js",
+    "raw": 1092,
+    "gzip": 655,
+    "brotli": 580
+   },
+   {
+    "file": "DownloadsPage-OkxF_fb_.js",
+    "raw": 9921,
+    "gzip": 2704,
+    "brotli": 2363
+   },
+   {
+    "file": "EvidencePage-BvbNCiO0.js",
+    "raw": 26929,
+    "gzip": 6552,
+    "brotli": 5786
+   },
+   {
+    "file": "HelpPage-DyDrRdck.js",
+    "raw": 7173,
+    "gzip": 2816,
+    "brotli": 2307
+   },
+   {
+    "file": "HomePage-QUbGkYKW.js",
+    "raw": 14967,
+    "gzip": 4923,
+    "brotli": 4341
+   },
+   {
+    "file": "MethodsPage-CZ45EDNN.js",
+    "raw": 13103,
+    "gzip": 4296,
+    "brotli": 3664
+   },
+   {
+    "file": "Paged-CtLdwKPl.js",
+    "raw": 613,
+    "gzip": 414,
+    "brotli": 358
+   },
+   {
+    "file": "PhylogenyPage-DfuJjZ3u.js",
+    "raw": 28310,
+    "gzip": 9377,
+    "brotli": 8379
+   },
+   {
+    "file": "PlaceholderPage-BrlYkRgW.js",
+    "raw": 848,
+    "gzip": 440,
+    "brotli": 381
+   },
+   {
+    "file": "Provenance-IGWKD2Wv.js",
+    "raw": 2850,
+    "gzip": 1024,
+    "brotli": 880
+   },
+   {
+    "file": "RecordPage-y73GugE4.js",
+    "raw": 80176,
+    "gzip": 20606,
+    "brotli": 18180
+   },
+   {
+    "file": "SearchPage-_cMank7a.js",
+    "raw": 22638,
+    "gzip": 7632,
+    "brotli": 6805
+   },
+   {
+    "file": "StatisticsPage-DiS2WYA1.js",
+    "raw": 22708,
+    "gzip": 6377,
+    "brotli": 5617
+   },
+   {
+    "file": "StructureViewer-BwdxSQ4N.js",
+    "raw": 17977,
+    "gzip": 6672,
+    "brotli": 5994
+   },
+   {
+    "file": "StructuresPage-NI3abpu5.js",
+    "raw": 16484,
+    "gzip": 4819,
+    "brotli": 4277
+   },
+   {
+    "file": "TreePreview-CRIjU5Gr.js",
+    "raw": 5157,
+    "gzip": 2146,
+    "brotli": 1982
+   },
+   {
+    "file": "WatchlistPage-C3PSn25w.js",
+    "raw": 9629,
+    "gzip": 3352,
+    "brotli": 2929
+   },
+   {
+    "file": "browse-CgIdIIEf.js",
+    "raw": 5033,
+    "gzip": 2068,
+    "brotli": 1910
+   },
+   {
+    "file": "chartColors-n2BareSK.js",
+    "raw": 388,
+    "gzip": 284,
+    "brotli": 255
+   },
+   {
+    "file": "citation-BJ9fqudp.js",
+    "raw": 1663,
+    "gzip": 853,
+    "brotli": 776
+   },
+   {
+    "file": "drilldown-D_JQIqVv.js",
+    "raw": 1497,
+    "gzip": 641,
+    "brotli": 576
+   },
+   {
+    "file": "echarts-core-0HeO-QSV.js",
+    "raw": 475468,
+    "gzip": 157390,
+    "brotli": 134281
+   },
+   {
+    "file": "index-BtZ7XXjh.css",
+    "raw": 43411,
+    "gzip": 8483,
+    "brotli": 7406
+   },
+   {
+    "file": "index-m4shI68Q.js",
+    "raw": 172237,
+    "gzip": 55532,
+    "brotli": 48367
+   },
+   {
+    "file": "molstarViewer-CwHKJuQY.js",
+    "raw": 3177781,
+    "gzip": 873360,
+    "brotli": 687913
+   },
+   {
+    "file": "palette-CPFiN25S.js",
+    "raw": 2973,
+    "gzip": 1292,
+    "brotli": 1197
+   },
+   {
+    "file": "phyloQuery-CSRS5kmM.js",
+    "raw": 13851,
+    "gzip": 5219,
+    "brotli": 4847
+   },
+   {
+    "file": "rolldown-runtime-hePW80VL.js",
+    "raw": 716,
+    "gzip": 430,
+    "brotli": 381
+   },
+   {
+    "file": "safe-DbmVvww0.js",
+    "raw": 416,
+    "gzip": 256,
+    "brotli": 195
+   },
+   {
+    "file": "seqSearch.worker-C32wk_6p.js",
+    "raw": 8030,
+    "gzip": 3362,
+    "brotli": 3046
+   },
+   {
+    "file": "stats-DppKELvZ.js",
+    "raw": 4801,
+    "gzip": 1870,
+    "brotli": 1663
+   },
+   {
+    "file": "summary-qvDt0ZTw.js",
+    "raw": 827,
+    "gzip": 427,
+    "brotli": 386
+   },
+   {
+    "file": "swCore-D3j4J5mT.js",
+    "raw": 2772,
+    "gzip": 1463,
+    "brotli": 1260
+   },
+   {
+    "file": "tslib.es6-MM1X6Oub.js",
+    "raw": 3740,
+    "gzip": 1529,
+    "brotli": 1388
+   },
+   {
+    "file": "ui-CclLbRTu.js",
+    "raw": 1705,
+    "gzip": 876,
+    "brotli": 753
+   },
+   {
+    "file": "useExplorer-uppLWOY8.js",
+    "raw": 25290,
+    "gzip": 8572,
+    "brotli": 7790
+   },
+   {
+    "file": "useSectionScroll-BAGpogmK.js",
+    "raw": 371,
+    "gzip": 296,
+    "brotli": 233
+   }
+  ],
+  "initial_from_index_html": [
+   "index-BtZ7XXjh.css",
+   "index-m4shI68Q.js",
+   "rolldown-runtime-hePW80VL.js"
+  ],
+  "initial_totals": {
+   "raw": 216364,
+   "gzip": 64445,
+   "brotli": 56154
+  },
+  "all_totals": {
+   "raw": 4343488,
+   "gzip": 1243848,
+   "brotli": 1010186
+  }
+ },
+ "routes": [
+  {
+   "profile": "desktop",
+   "id": "home",
+   "hash": "#/",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 889,
+   "idle_ms": 1077,
+   "fcp_ms": 212,
+   "lcp_ms": 452,
+   "cls": 0,
+   "ttfb_ms": 2.3,
+   "inp_ms": null,
+   "tbt_proxy_ms": 0,
+   "max_long_task_ms": 0,
+   "heap_mb": 5.7,
+   "dom_nodes": 1463,
+   "requests": 23,
+   "transfer_bytes": 284563,
+   "js_transfer_bytes": 232569,
+   "data_transfer_bytes": 41814,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+    "data/v1.6.0/phylogeny/tips.json",
+    "data/v1.6.0/summary.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {}
+  },
+  {
+   "profile": "desktop",
+   "id": "browse",
+   "hash": "#/browse",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 877,
+   "idle_ms": 1177,
+   "fcp_ms": 212,
+   "lcp_ms": 832,
+   "cls": 0,
+   "ttfb_ms": 2.2,
+   "inp_ms": 72,
+   "tbt_proxy_ms": 5,
+   "max_long_task_ms": 55,
+   "heap_mb": 19.7,
+   "dom_nodes": 4745,
+   "requests": 15,
+   "transfer_bytes": 495856,
+   "js_transfer_bytes": 84142,
+   "data_transfer_bytes": 401534,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/records-index.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {
+    "browse_filter_text": {
+     "ms": 96,
+     "long_tasks": 0,
+     "max_long_task_ms": 0
+    }
+   }
+  },
+  {
+   "profile": "desktop",
+   "id": "record_P02945",
+   "hash": "#/record/P02945",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 902,
+   "idle_ms": 1324,
+   "fcp_ms": 224,
+   "lcp_ms": 796,
+   "cls": 0.0,
+   "ttfb_ms": 3.6,
+   "inp_ms": 40,
+   "tbt_proxy_ms": 0,
+   "max_long_task_ms": 0,
+   "heap_mb": 39.9,
+   "dom_nodes": 4372,
+   "requests": 23,
+   "transfer_bytes": 476300,
+   "js_transfer_bytes": 98018,
+   "data_transfer_bytes": 368102,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/accessions.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/evidence-index.json",
+    "data/v1.6.0/habitat/records/MRDB000001.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/records/MRDB000001.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {
+    "molstar_mocked_load": {
+     "ms": 4222,
+     "long_tasks": 14,
+     "max_long_task_ms": 986
+    }
+   }
+  },
+  {
+   "profile": "desktop",
+   "id": "record_engineered",
+   "hash": "#/record/A0ABF7PQA2",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 883,
+   "idle_ms": 1268,
+   "fcp_ms": 208,
+   "lcp_ms": 740,
+   "cls": 0,
+   "ttfb_ms": 2.4,
+   "inp_ms": null,
+   "tbt_proxy_ms": 0,
+   "max_long_task_ms": 0,
+   "heap_mb": 5.2,
+   "dom_nodes": 1587,
+   "requests": 23,
+   "transfer_bytes": 466056,
+   "js_transfer_bytes": 98018,
+   "data_transfer_bytes": 357858,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/accessions.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/evidence-index.json",
+    "data/v1.6.0/habitat/records/MRDB003608.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/records/MRDB003608.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {}
+  },
+  {
+   "profile": "mobile",
+   "id": "home",
+   "hash": "#/",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 4040,
+   "idle_ms": 5695,
+   "fcp_ms": 1696,
+   "lcp_ms": 3860,
+   "cls": 0,
+   "ttfb_ms": 1.9,
+   "inp_ms": null,
+   "tbt_proxy_ms": 191,
+   "max_long_task_ms": 199,
+   "heap_mb": 5.7,
+   "dom_nodes": 1463,
+   "requests": 23,
+   "transfer_bytes": 284563,
+   "js_transfer_bytes": 232569,
+   "data_transfer_bytes": 41814,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile",
+    "data/v1.6.0/phylogeny/tips.json",
+    "data/v1.6.0/summary.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {}
+  },
+  {
+   "profile": "mobile",
+   "id": "browse",
+   "hash": "#/browse",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 6135,
+   "idle_ms": 6162,
+   "fcp_ms": 1704,
+   "lcp_ms": 6068,
+   "cls": 0,
+   "ttfb_ms": 2.2,
+   "inp_ms": 176,
+   "tbt_proxy_ms": 290,
+   "max_long_task_ms": 225,
+   "heap_mb": 19.8,
+   "dom_nodes": 4748,
+   "requests": 15,
+   "transfer_bytes": 495856,
+   "js_transfer_bytes": 84142,
+   "data_transfer_bytes": 401534,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/records-index.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {
+    "browse_filter_text": {
+     "ms": 434,
+     "long_tasks": 2,
+     "max_long_task_ms": 97
+    }
+   }
+  },
+  {
+   "profile": "mobile",
+   "id": "record_P02945",
+   "hash": "#/record/P02945",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 6577,
+   "idle_ms": 7442,
+   "fcp_ms": 1712,
+   "lcp_ms": 6348,
+   "cls": 0.021,
+   "ttfb_ms": 3.5,
+   "inp_ms": 56,
+   "tbt_proxy_ms": 120,
+   "max_long_task_ms": 120,
+   "heap_mb": 40,
+   "dom_nodes": 4372,
+   "requests": 23,
+   "transfer_bytes": 476300,
+   "js_transfer_bytes": 98018,
+   "data_transfer_bytes": 368102,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/accessions.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/evidence-index.json",
+    "data/v1.6.0/habitat/records/MRDB000001.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/records/MRDB000001.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {
+    "molstar_mocked_load": {
+     "ms": 10840,
+     "long_tasks": 17,
+     "max_long_task_ms": 1442
+    }
+   }
+  },
+  {
+   "profile": "mobile",
+   "id": "record_engineered",
+   "hash": "#/record/A0ABF7PQA2",
+   "runs_ok": 3,
+   "failed": [],
+   "ready_ms": 6279,
+   "idle_ms": 7295,
+   "fcp_ms": 1724,
+   "lcp_ms": 6200,
+   "cls": 0.018,
+   "ttfb_ms": 2.3,
+   "inp_ms": null,
+   "tbt_proxy_ms": 42,
+   "max_long_task_ms": 74,
+   "heap_mb": 5.2,
+   "dom_nodes": 1587,
+   "requests": 23,
+   "transfer_bytes": 466056,
+   "js_transfer_bytes": 98018,
+   "data_transfer_bytes": 357858,
+   "data_files": [
+    "data/current.json",
+    "data/v1.6.0/accessions.json",
+    "data/v1.6.0/clades.json",
+    "data/v1.6.0/evidence-index.json",
+    "data/v1.6.0/habitat/records/MRDB003608.json",
+    "data/v1.6.0/manifest.json",
+    "data/v1.6.0/records/MRDB003608.json",
+    "data/v1.6.0/vocabulary.json"
+   ],
+   "external": [],
+   "errors": [],
+   "interactions": {}
+  }
+ ],
+ "contrast": [
+  {
+   "width": 375,
+   "id": "home",
+   "text_nodes": 476,
+   "svg_text_nodes": 36,
+   "min_ratio_active": 4.65,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "browse",
+   "text_nodes": 990,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "browse_clade017_tent",
+   "text_nodes": 897,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "record_P02945",
+   "text_nodes": 1179,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.53,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Reset view"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "record_engineered",
+   "text_nodes": 491,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.53,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Reset view"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "about",
+   "text_nodes": 214,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "phylogeny",
+   "text_nodes": 543,
+   "svg_text_nodes": 10,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Expand all"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "clade_017",
+   "text_nodes": 1323,
+   "svg_text_nodes": 101,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "statistics",
+   "text_nodes": 1100,
+   "svg_text_nodes": 212,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "evidence",
+   "text_nodes": 1991,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "structures",
+   "text_nodes": 373,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "watchlist",
+   "text_nodes": 784,
+   "svg_text_nodes": 10,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "search_text",
+   "text_nodes": 42,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "search_seq",
+   "text_nodes": 52,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.17,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "downloads",
+   "text_nodes": 613,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.55,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "methods",
+   "text_nodes": 471,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.17,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "citation",
+   "text_nodes": 61,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "help",
+   "text_nodes": 86,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "record_not_found",
+   "text_nodes": 25,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 375,
+   "id": "not_found",
+   "text_nodes": 32,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "home",
+   "text_nodes": 459,
+   "svg_text_nodes": 36,
+   "min_ratio_active": 4.65,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "browse",
+   "text_nodes": 991,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "browse_clade017_tent",
+   "text_nodes": 898,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "record_P02945",
+   "text_nodes": 1180,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.53,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Reset view"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "record_engineered",
+   "text_nodes": 492,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.53,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Reset view"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "about",
+   "text_nodes": 215,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "phylogeny",
+   "text_nodes": 545,
+   "svg_text_nodes": 11,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Expand all"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "clade_017",
+   "text_nodes": 1324,
+   "svg_text_nodes": 101,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "statistics",
+   "text_nodes": 1101,
+   "svg_text_nodes": 212,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "evidence",
+   "text_nodes": 1992,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "structures",
+   "text_nodes": 374,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "watchlist",
+   "text_nodes": 785,
+   "svg_text_nodes": 10,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "search_text",
+   "text_nodes": 43,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "search_seq",
+   "text_nodes": 53,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.17,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "downloads",
+   "text_nodes": 614,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.55,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "methods",
+   "text_nodes": 472,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.17,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "citation",
+   "text_nodes": 62,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "help",
+   "text_nodes": 87,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "record_not_found",
+   "text_nodes": 26,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 768,
+   "id": "not_found",
+   "text_nodes": 33,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "home",
+   "text_nodes": 466,
+   "svg_text_nodes": 36,
+   "min_ratio_active": 4.65,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "browse",
+   "text_nodes": 998,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "browse_clade017_tent",
+   "text_nodes": 904,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "record_P02945",
+   "text_nodes": 1187,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.53,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 4,
+     "sample": "Reset view"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "record_engineered",
+   "text_nodes": 499,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.53,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "Reset view"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "about",
+   "text_nodes": 222,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "phylogeny",
+   "text_nodes": 554,
+   "svg_text_nodes": 13,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 1,
+     "sample": "Expand all"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "clade_017",
+   "text_nodes": 1331,
+   "svg_text_nodes": 101,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "statistics",
+   "text_nodes": 1108,
+   "svg_text_nodes": 212,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "evidence",
+   "text_nodes": 1999,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 8,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "structures",
+   "text_nodes": 381,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "watchlist",
+   "text_nodes": 792,
+   "svg_text_nodes": 10,
+   "min_ratio_active": 5.89,
+   "inactive_below_aa": [
+    {
+     "svg": false,
+     "inactive": true,
+     "fg": "rgb(114,122,136)",
+     "bg": "rgb(255,255,255)",
+     "ratio": 4.33,
+     "large": false,
+     "need": 4.5,
+     "count": 2,
+     "sample": "\u00ab"
+    }
+   ],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "search_text",
+   "text_nodes": 50,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "search_seq",
+   "text_nodes": 60,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.17,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "downloads",
+   "text_nodes": 621,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.55,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "methods",
+   "text_nodes": 479,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.17,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "citation",
+   "text_nodes": 69,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "help",
+   "text_nodes": 94,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "record_not_found",
+   "text_nodes": 33,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  },
+  {
+   "width": 1440,
+   "id": "not_found",
+   "text_nodes": 40,
+   "svg_text_nodes": 0,
+   "min_ratio_active": 5.63,
+   "inactive_below_aa": [],
+   "failures": []
+  }
+ ]
+}
