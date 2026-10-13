@@ -1,7 +1,9 @@
 """Field-role mapping and value normalization (fixed, reviewed vocabularies).
 
-A source attribute is mapped to exactly one role. Only the five HABITAT_ROLES
-can make a record DIRECT_SAMPLE. Geography/date/depth/material/context are
+A source attribute is mapped to exactly one role. The five HABITAT_ROLES are
+value-checked; only the four PHYSICAL_ROLES (where the sample was taken) can
+make a record DIRECT_SAMPLE on the primary physical-habitat axis. ``host`` is a
+separate host-association axis (PR-7c.1a) and never counts as physical habitat. Geography/date/depth/material/context are
 reported but never count as habitat. No value is inferred from taxonomy,
 organism name, sequence similarity or geography.
 """
@@ -10,6 +12,9 @@ from __future__ import annotations
 import re
 
 HABITAT_ROLES = ("env_broad_scale", "env_local_scale", "env_medium", "isolation_source", "host")
+PHYSICAL_ROLES = ("env_broad_scale", "env_local_scale", "env_medium", "isolation_source")
+HOST_ROLES = ("host",)
+MIXS_ENV_ROLES = ("env_broad_scale", "env_local_scale", "env_medium")
 OTHER_ROLES = ("habitat_nonstandard", "sample_material", "country", "lat_lon", "lat", "lon", "collection_date", "depth",
                "host_detail", "strain", "isolate", "environmental_sample", "package", "checklist",
                "metagenome_source", "investigation_type", "sample_title", "sample_description", "organism")
@@ -87,6 +92,17 @@ def is_placeholder(v: str | None, envo_ids: list[str]) -> bool:
     if envo_ids and set(envo_ids) <= PLACEHOLDER_ENVO:
         return True
     return s in PLACEHOLDER_TEXT
+
+
+ZERO_PLACEHOLDER_RE = re.compile(r"^0+(\.0+)?$")
+
+
+def is_zero_placeholder(v: str | None, role: str | None) -> bool:
+    """A bare numeric zero ("0", "00", "0.0") in a MIxS environment field (env_broad_scale /
+    env_local_scale / env_medium) is a submission placeholder, not an environment term. Only whole
+    values made of zeros match: ENVO-like digit strings such as "00000316" are NOT matched, and the
+    rule is not applied to isolation_source or host."""
+    return role in MIXS_ENV_ROLES and bool(ZERO_PLACEHOLDER_RE.match(norm_value(v)))
 
 
 def tag_key(tag: str | None) -> str:

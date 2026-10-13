@@ -1,4 +1,4 @@
-"""Mutation audit for the PR-7c.1 rule tests.
+"""Mutation audit for the PR-7c.1 / PR-7c.1a rule tests.
 
 Each mutation breaks one scientific rule in a temporary copy of the audit package; the PR-7c.1 test
 module must fail for every mutant (a surviving mutant means the rule is untested).
@@ -52,6 +52,28 @@ MUTATIONS = [
     ("inaccessible_literature_reported_absent", "literature.py",
      'elif any(s.get("access") == "not_accessible" for s in srcs) or rec.get("literature_status") == "LOOKUP_FAILED":',
      "elif False:"),
+    # PR-7c.1a scientific semantics
+    ("host_counted_as_physical_habitat", "classify.py",
+     'usable_phys = [i for i in usable if i["role"] in N.PHYSICAL_ROLES]', "usable_phys = list(usable)"),
+    ("host_conflict_counted_as_physical_conflict", "classify.py",
+     "phys_conflicts = [r for r in conflict_roles if r in N.PHYSICAL_ROLES]", "phys_conflicts = list(conflict_roles)"),
+    ("literature_conflict_against_host_only", "classify.py",
+     "lit_conflict = lit_inconsistent and bool(usable_phys)", "lit_conflict = lit_inconsistent and bool(usable)"),
+    ("zero_placeholder_ignored", "classify.py",
+     "elif N.is_zero_placeholder(v, role):", "elif False:"),
+    ("zero_placeholder_applied_to_isolation_source", "normalize.py",
+     "return role in MIXS_ENV_ROLES and bool(", "return role in PHYSICAL_ROLES and bool("),
+    ("ambiguity_formatting_collapsed", "classify.py",
+     'if kinds == {"punctuation_only"}:\n        return "FORMATTING_ONLY"', 'if False:\n        return "FORMATTING_ONLY"'),
+    ("ambiguity_scope_collapsed", "classify.py",
+     'return "DISTINCT_SAME_SAMPLE" if scopes == {"within_sample_unit"} else',
+     'return "DISTINCT_ACROSS_SAMPLES" if True else'),
+    ("not_reported_scope_collapsed", "classify.py",
+     '"LOOKUP_FAILED": "database_only_literature_inaccessible",',
+     '"LOOKUP_FAILED": "database_only_literature_not_reviewed",'),
+    ("hardcoded_machine_cache_path", "common.py",
+     'DEFAULT_CACHE = Path(os.environ.get("MRDB_HABITAT_CACHE") or (WORK_ROOT / "habitat_cache"))',
+     'DEFAULT_CACHE = Path(os.environ.get("MRDB_HABITAT_CACHE") or "/' + 'workspace/habitat_cache")'),
 ]
 
 
@@ -65,14 +87,18 @@ def _stage(tmp: Path) -> None:
     out = tmp / "docs" / "website" / "pr7c1"
     out.mkdir(parents=True)
     for f in ("habitat_record_availability.tsv", "habitat_evidence.tsv", "habitat_requests.tsv",
-              "habitat_coverage_summary.tsv"):
+              "habitat_coverage_summary.tsv", "habitat_retrieval_manifest.json"):
         shutil.copy(C.OUT_DIR / f, out / f)
+    shutil.copytree(C.OUT_DIR / "figures", out / "figures")
     shutil.copytree(C.OUT_DIR / "literature", out / "literature")
 
 
 def _pytest(tmp: Path) -> tuple[int, str]:
+    import os
+    env = {k: v for k, v in os.environ.items() if not k.startswith("MRDB_HABITAT_")}  # repo-relative defaults
     p = subprocess.run([sys.executable, "-m", "pytest", "-q", "-x", "-p", "no:cacheprovider",
-                        str(tmp / "tests" / "test_habitat_audit_pr7c1.py")], cwd=tmp, capture_output=True, text=True)
+                        str(tmp / "tests" / "test_habitat_audit_pr7c1.py")], cwd=tmp, capture_output=True, text=True,
+                       env=env)
     import re
     last = [ln for ln in p.stdout.strip().splitlines() if ln.strip()][-1:] or [""]
     return p.returncode, re.sub(r"\s+in [0-9.]+s\b.*$", "", last[0])  # drop timings (deterministic log)

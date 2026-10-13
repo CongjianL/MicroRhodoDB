@@ -67,6 +67,23 @@ CRITERIA = [
     ("ENVIRONMENTAL_CLONE", lambda r, f: r["sample_type"] == "ENVIRONMENTAL_CLONE" and r["primary_grade"] == "DIRECT_SAMPLE"),
     ("MAG", lambda r, f: r["sample_type"] == "MAG"),
     ("Archaea direct", lambda r, f: r["domain"] == "Archaea" and r["primary_grade"] == "DIRECT_SAMPLE"),
+    # PR-7c.1a semantics (physical habitat vs host association, placeholders, ambiguity, missingness)
+    ("zero placeholder A0ABS3TAH3", lambda r, f: r["source_acc"] == "A0ABS3TAH3"),
+    ("zero placeholder A0ABS3TE24", lambda r, f: r["source_acc"] == "A0ABS3TE24"),
+    ("ENVO-like digits A0A6N7QP32", lambda r, f: r["source_acc"] == "A0A6N7QP32"),
+    ("host only, was DIRECT", lambda r, f: "host_association_only" in f and r["pr7c1_grade"] == "DIRECT_SAMPLE"),
+    ("host only, was AMBIGUOUS", lambda r, f: "host_association_only" in f and r["pr7c1_grade"] == "AMBIGUOUS"),
+    ("host conflict, physical agrees", lambda r, f: r["host_association_status"] == "AMBIGUOUS" and r["primary_grade"] == "DIRECT_SAMPLE"),
+    ("host and physical conflict", lambda r, f: r["host_association_status"] == "AMBIGUOUS" and r["primary_grade"] == "AMBIGUOUS"),
+    ("ambiguity FORMATTING_ONLY", lambda r, f: r["ambiguity_class"] == "FORMATTING_ONLY"),
+    ("ambiguity NESTED_WORDING", lambda r, f: r["ambiguity_class"] == "NESTED_WORDING"),
+    ("ambiguity DISTINCT_SAME_SAMPLE", lambda r, f: r["ambiguity_class"] == "DISTINCT_SAME_SAMPLE"),
+    ("ambiguity DISTINCT_ACROSS_SAMPLES", lambda r, f: r["ambiguity_class"] == "DISTINCT_ACROSS_SAMPLES"),
+    ("host ambiguity NESTED_WORDING", lambda r, f: r["host_ambiguity_class"] == "NESTED_WORDING"),
+    ("host ambiguity FORMATTING_ONLY", lambda r, f: r["host_ambiguity_class"] == "FORMATTING_ONLY"),
+    ("NR database_and_literature", lambda r, f: r["not_reported_scope"] == "database_and_literature"),
+    ("NR literature inaccessible", lambda r, f: r["not_reported_scope"] == "database_only_literature_inaccessible"),
+    ("host tissue isolation_source only", lambda r, f: "host_tissue_isolation_source_only" in f),
 ]
 
 

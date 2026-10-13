@@ -202,6 +202,56 @@
       }
     ]
   },
+  "L1IFZ3": {
+    "items": [],
+    "literature_status": "NOT_REPORTED",
+    "notes": "[second pass] Retry: genome paper main text now read (nature.com); no habitat; all in-scope sources full text. | First pass: Genome paper (Nature 2012) full text not accessible; available full texts (Science 2015, Nature 2018, eLife) contain no habitat statement. Step-3 search found no strain origin. | [parent step-3] see literature_parent_additions.json",
+    "reviewer_literature_status": "NOT_REPORTED",
+    "sources_checked": [
+      {
+        "access": "full_text",
+        "doi": "10.1038/s41598-018-33984-w",
+        "found_habitat_statement": false,
+        "pmid": "30349075",
+        "title": "Understanding Colour Tuning Rules and Predicting Absorption Wavelengths of Microbial Rhodopsins by Data-Driven Machine-Learning Approach.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6197263/fullTextXML"
+      },
+      {
+        "access": "full_text",
+        "doi": "10.1038/s42003-021-01878-9",
+        "found_habitat_statement": false,
+        "pmid": "33742139",
+        "title": "Exploration of natural red-shifted rhodopsins using a machine learning-based Bayesian experimental design.",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7979833/fullTextXML"
+      },
+      {
+        "access": "full_text",
+        "doi": "10.1126/science.aaa7484",
+        "found_habitat_statement": false,
+        "pmid": "26113638",
+        "title": "NEUROSCIENCE. Natural light-gated anion channels: A family of microbial rhodopsins for advanced optogenetics.",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=4764398&rettype=xml"
+      },
+      {
+        "access": "full_text",
+        "doi": "10.1038/nature11681",
+        "found_habitat_statement": false,
+        "pmid": "23201678",
+        "title": "Algal genomes reveal evolutionary mosaicism and the fate of nucleomorphs.",
+        "url": "https://www.nature.com/articles/nature11681"
+      },
+      {
+        "access": "search_results",
+        "added_by": "parent",
+        "doi": null,
+        "found_habitat_statement": false,
+        "note": "parent re-run: 34 hits, titles screened; none describes the isolation of CCMP2712",
+        "pmid": null,
+        "title": "step-3 Europe PMC search: \"Guillardia theta\" CCMP2712 isolated",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22Guillardia%20theta%22%20CCMP2712%20isolated&format=json&resultType=lite&pageSize=100"
+      }
+    ]
+  },
   "N0DKS8": {
     "items": [
       {

@@ -91,6 +91,38 @@ def conflict_scope(role_items: list[dict], link_samples: dict) -> str:
     return "within_sample_unit" if len(units) == 1 else "across_sample_units"
 
 
+def ambiguity_class(diag: list[tuple[str, str, str]], lit_conflict: bool) -> str:
+    """Interpretation of an AMBIGUOUS axis (PR-7c.1a). Descriptive only; never resolves a value.
+    diag holds (role, conflict_scope, conflict_kind) for the conflicting roles of ONE axis.
+    FORMATTING_ONLY          every conflict is punctuation_only (case/whitespace already ignored);
+    NESTED_WORDING           every conflict is punctuation_only or token_subset (one value nests the other);
+    DISTINCT_SAME_SAMPLE     distinct wording, but every distinct-value conflict lies within one sample unit
+                             (possible synonym or submitter inconsistency; not resolved without evidence);
+    DISTINCT_ACROSS_SAMPLES  distinct values from different sample units (genuine environmental-conflict candidate);
+    LITERATURE_VS_DATABASE   no database-internal conflict; a verified isolate-scope literature statement is
+                             inconsistent with the database value."""
+    if not diag:
+        return "LITERATURE_VS_DATABASE" if lit_conflict else ""
+    kinds = {k for _, _, k in diag}
+    if kinds == {"punctuation_only"}:
+        return "FORMATTING_ONLY"
+    if kinds <= {"punctuation_only", "token_subset"}:
+        return "NESTED_WORDING"
+    scopes = {sc for _, sc, k in diag if k == "distinct_values"}
+    return "DISTINCT_SAME_SAMPLE" if scopes == {"within_sample_unit"} else "DISTINCT_ACROSS_SAMPLES"
+
+
+def not_reported_scope(grade: str, lit_status: str) -> str:
+    """Why a record is NOT_REPORTED (PR-7c.1a): database-level absence is always established; the
+    literature side is distinguished as not reviewed (outside the seed/characterized subset),
+    inaccessible (lookup failed) or reviewed-and-absent."""
+    if grade != "NOT_REPORTED":
+        return ""
+    return {"NOT_SEARCHED": "database_only_literature_not_reviewed",
+            "LOOKUP_FAILED": "database_only_literature_inaccessible",
+            "NOT_REPORTED": "database_and_literature"}.get(lit_status, f"database_only_literature_{lit_status.lower()}")
+
+
 def _item(acc, source, entity, link_index, field, value, request_key, route, confidence):
     role = N.role_for(field)
     return {"source_acc": acc, "evidence_source": source, "entity_accession": entity, "link_index": link_index,
@@ -163,8 +195,9 @@ def classify_record(rec: dict, ent: dict, lit: dict | None, searched: bool) -> t
     in_lit_subset = bool(rec["is_seed"] or rec["is_characterized"])
     flags: set[str] = set()
     if not searched:
-        row.update(primary_grade="NOT_SEARCHED", db_chain_status="NOT_SEARCHED",
-                   literature_status="NOT_SEARCHED", has_usable_habitat=0, flags="", not_reported_scope="")
+        row.update(primary_grade="NOT_SEARCHED", pr7c1_grade="NOT_SEARCHED", db_chain_status="NOT_SEARCHED",
+                   literature_status="NOT_SEARCHED", host_association_status="NOT_SEARCHED",
+                   has_usable_habitat=0, has_host_association=0, flags="", not_reported_scope="")
         return row, [], []
 
     failures: list[str] = []
@@ -337,6 +370,8 @@ def classify_record(rec: dict, ent: dict, lit: dict | None, searched: bool) -> t
         if role in N.HABITAT_ROLES:
             if N.is_missing(v):
                 it["value_status"] = "reported_missing"
+            elif N.is_zero_placeholder(v, role):
+                it["value_status"] = "invalid_placeholder"  # PR-7c.1a: "0" in a MIxS env field
             elif role == "host" and N.host_is_self(v, names, taxids, viral=viral):
                 it["value_status"] = "host_is_self"
             elif N.is_placeholder(v, it["envo_ids"]):
@@ -367,10 +402,20 @@ def classify_record(rec: dict, ent: dict, lit: dict | None, searched: bool) -> t
                 flags.add("envo_id_invalid")
             it["envo_ids"] = [e for e in it["envo_ids"] if e not in bad]
 
-    usable = [i for i in items if i["value_status"] == "usable"]
+    usable = [i for i in items if i["value_status"] == "usable"]  # all five roles (raw observations)
+    usable_phys = [i for i in usable if i["role"] in N.PHYSICAL_ROLES]  # primary physical-habitat axis
+    usable_host = [i for i in usable if i["role"] in N.HOST_ROLES]  # host-association axis
     if any(i["value_status"] == "host_is_self" for i in items):
         flags.add("host_is_self_ignored")
-    conflict_roles, conflict_diag = [], []
+    if any(i["value_status"] == "invalid_placeholder" for i in items):
+        flags.add("invalid_placeholder_value")
+    if usable_host and not usable_phys:
+        flags.add("host_association_only")
+    if any(i["role"] == "isolation_source" and N.is_tissue_term(i["value_original"]) for i in usable_phys):
+        flags.add("host_associated_isolation_source")
+        if all(i["role"] == "isolation_source" and N.is_tissue_term(i["value_original"]) for i in usable_phys):
+            flags.add("host_tissue_isolation_source_only")  # sensitivity: physical value is only a host tissue term
+    conflict_roles, conflict_diag = [], []  # raw, over all five roles (preserved observation)
     link_samples = {L["link_index"]: list(L["samples"]) for L in links}
     for role in N.HABITAT_ROLES:
         ri = [i for i in usable if i["role"] == role]
@@ -378,6 +423,15 @@ def classify_record(rec: dict, ent: dict, lit: dict | None, searched: bool) -> t
         if len(g) > 1:
             conflict_roles.append(role)
             conflict_diag.append((role, conflict_scope(ri, link_samples), conflict_kind(g)))
+    phys_conflicts = [r for r in conflict_roles if r in N.PHYSICAL_ROLES]
+    phys_diag = [d for d in conflict_diag if d[0] in N.PHYSICAL_ROLES]
+    host_diag = [d for d in conflict_diag if d[0] in N.HOST_ROLES]
+    if host_diag:
+        flags.add("host_conflict")
+    # Legacy PR-7c.1 view (host counted as habitat, "0" counted as usable) - kept for transition tables only.
+    legacy_usable = [i for i in items if i["value_status"] in ("usable", "invalid_placeholder")]
+    legacy_conflict = [r for r in N.HABITAT_ROLES
+                       if len(distinct_groups([i for i in legacy_usable if i["role"] == r])) > 1]
     for role, flag, fn in (("country", "geo_discordant", N.geo_key), ("collection_date", "date_discordant", N.date_key)):
         vals = {fn(i["value_original"]) for i in items if i["role"] == role and i["value_status"] in ("geography", "date")}
         if len(vals) > 1:
@@ -396,7 +450,11 @@ def classify_record(rec: dict, ent: dict, lit: dict | None, searched: bool) -> t
     lit_items = lit.get("items", []) if in_lit_subset else []
     iso_items = [x for x in lit_items if x.get("scope") == "isolate" and x.get("parent_verified")]
     org_items = [x for x in lit_items if x.get("scope") == "organism" and x.get("parent_verified")]
-    lit_conflict = any(x.get("consistent_with_db") == "inconsistent" for x in iso_items) and bool(usable)
+    lit_inconsistent = any(x.get("consistent_with_db") == "inconsistent" for x in iso_items)
+    lit_conflict = lit_inconsistent and bool(usable_phys)
+    legacy_lit_conflict = lit_inconsistent and bool(legacy_usable)
+    if lit_conflict:
+        flags.add("literature_conflict")
 
     # ---------------------------------------------------------------- grade
     if failures:
@@ -406,12 +464,33 @@ def classify_record(rec: dict, ent: dict, lit: dict | None, searched: bool) -> t
     else:
         db_status = "COMPLETE"
     if failures:
+        legacy_grade = "LOOKUP_FAILED"
+    elif legacy_conflict or legacy_lit_conflict:
+        legacy_grade = "AMBIGUOUS"
+    elif legacy_usable:
+        legacy_grade = "DIRECT_SAMPLE"
+    elif iso_items:
+        legacy_grade = "VERIFIED_ISOLATE"
+    elif org_items:
+        legacy_grade = "ORGANISM_CONTEXT_ONLY"
+    else:
+        legacy_grade = "NOT_REPORTED"
+    if failures:
+        host_status = "LOOKUP_FAILED"
+    elif host_diag:
+        host_status = "AMBIGUOUS"
+    elif usable_host:
+        host_status = "REPORTED"
+    else:
+        host_status = "NOT_REPORTED"
+
+    if failures:
         grade = "LOOKUP_FAILED"
         flags.add("chain_incomplete")
-    elif conflict_roles or lit_conflict:
+    elif phys_conflicts or lit_conflict:
         grade = "AMBIGUOUS"
         flags.add("conflict")
-    elif usable:
+    elif usable_phys:
         grade = "DIRECT_SAMPLE"
         units = set(samples) | {f"link{L['link_index']}" for L in links
                                 if not L["samples"] and L["route"] in ("cds_protein_id", "embl_parent_sequence", "uniparc_embl_protein")}
@@ -431,14 +510,14 @@ def classify_record(rec: dict, ent: dict, lit: dict | None, searched: bool) -> t
         flags.add("engineered_record")
 
     if grade == "DIRECT_SAMPLE":
-        conf = "HIGH" if any(i["mapping_confidence"] == "HIGH" for i in usable) else "MEDIUM"
+        conf = "HIGH" if any(i["mapping_confidence"] == "HIGH" for i in usable_phys) else "MEDIUM"
     elif grade == "VERIFIED_ISOLATE":
         conf = "LITERATURE"
     elif grade == "AMBIGUOUS":
-        if lit_conflict and not conflict_roles:
+        if lit_conflict and not phys_conflicts:
             conf = "LITERATURE"  # spec s.8: conflict exists only between literature and DB
         else:
-            conf = "HIGH" if any(i["mapping_confidence"] == "HIGH" for i in usable) else ("MEDIUM" if usable else "LITERATURE")
+            conf = "HIGH" if any(i["mapping_confidence"] == "HIGH" for i in usable_phys) else ("MEDIUM" if usable_phys else "LITERATURE")
     else:
         conf = ""
     routes = sorted({L["route"] for L in links})
@@ -479,13 +558,17 @@ def classify_record(rec: dict, ent: dict, lit: dict | None, searched: bool) -> t
     row["linkage_route"] = ";".join(routes)
     row["mapping_confidence"] = conf
     row["primary_grade"] = grade
+    row["pr7c1_grade"] = legacy_grade
     row["db_chain_status"] = db_status
-    row["db_habitat_status"] = ("LOOKUP_FAILED" if failures else "AMBIGUOUS" if conflict_roles else
-                                "DIRECT_SAMPLE" if usable else "NOT_REPORTED")
+    row["db_habitat_status"] = ("LOOKUP_FAILED" if failures else "AMBIGUOUS" if phys_conflicts else
+                                "DIRECT_SAMPLE" if usable_phys else "NOT_REPORTED")
     row["literature_status"] = lit_status
-    row["not_reported_scope"] = ("" if grade != "NOT_REPORTED" else
-                                 "database_and_literature" if lit_status in ("NOT_REPORTED",) else "database_chain_only")
+    row["not_reported_scope"] = not_reported_scope(grade, lit_status)
     row["has_usable_habitat"] = int(grade in ("DIRECT_SAMPLE", "VERIFIED_ISOLATE"))
+    row["host_association_status"] = host_status
+    row["has_host_association"] = int(host_status in ("REPORTED", "AMBIGUOUS"))
+    row["ambiguity_class"] = (ambiguity_class(phys_diag, lit_conflict) if grade == "AMBIGUOUS" else "")
+    row["host_ambiguity_class"] = ambiguity_class(host_diag, False) if host_status == "AMBIGUOUS" else ""
     row["conflict_roles"] = ";".join(conflict_roles)
     row["conflict_scope"] = ";".join(f"{r}:{sc}" for r, sc, _ in conflict_diag)
     row["conflict_kind"] = ";".join(f"{r}:{k}" for r, _, k in conflict_diag)

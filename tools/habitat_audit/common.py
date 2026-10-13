@@ -20,7 +20,11 @@ EXPORTER = REPO / "tools" / "export_web_data.py"
 WEB_EXPORT = REPO / "web" / "public" / "data" / "v1.6.0"
 RELEASE_BLOCKERS = REPO / "docs" / "website" / "release_blockers.json"
 
-DEFAULT_CACHE = Path(os.environ.get("MRDB_HABITAT_CACHE", "/workspace/habitat_cache"))
+# Repository-relative defaults (gitignored work/ directory); override the cache with MRDB_HABITAT_CACHE
+# or --cache. No absolute machine-specific path is hardcoded (PR-7c.1a portability fix).
+WORK_ROOT = REPO / "work"
+DEFAULT_CACHE = Path(os.environ.get("MRDB_HABITAT_CACHE") or (WORK_ROOT / "habitat_cache"))
+WORK_DIR = Path(os.environ.get("MRDB_HABITAT_WORK") or (WORK_ROOT / "pr7c1_work"))
 
 N_RECORDS = 5466
 N_COUNTED = 5460
@@ -32,6 +36,9 @@ SEED_ACCS = (
     "Q8RUT8", "H2EZZ6", "A0ACD6B968", "A0A060H1D7", "A0A089ZH82", "A0A0W0GG67", "A0A143YUX7",
 )
 
+HOST_STATUSES = ("REPORTED", "AMBIGUOUS", "NOT_REPORTED", "LOOKUP_FAILED", "NOT_SEARCHED")
+AMBIGUITY_CLASSES = ("FORMATTING_ONLY", "NESTED_WORDING", "DISTINCT_SAME_SAMPLE", "DISTINCT_ACROSS_SAMPLES",
+                     "LITERATURE_VS_DATABASE")
 GRADES = (
     "DIRECT_SAMPLE", "VERIFIED_ISOLATE", "ORGANISM_CONTEXT_ONLY", "AMBIGUOUS",
     "NOT_REPORTED", "LOOKUP_FAILED", "NOT_SEARCHED",

@@ -7,5 +7,5 @@ Nothing here writes to the release database, releases/, refpkg/, pipeline/,
 site/ or the production web export.
 """
 
-AUDIT_ID = "PR-7c.1"
-AUDIT_VERSION = "1.0.0"
+AUDIT_ID = "PR-7c.1a"  # PR-7c.1 + scientific semantics correction (physical habitat vs host association)
+AUDIT_VERSION = "1.1.0"

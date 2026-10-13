@@ -15,7 +15,9 @@ RECORD_COLS = [
     "evidence_level", "domain", "phylum", "reviewed", "source_release", "sequence_sha256", "seq_group_size",
     "exact_duplicate_of", "is_seed", "is_characterized",
     "primary_grade", "db_chain_status", "db_habitat_status", "literature_status", "not_reported_scope",
-    "has_usable_habitat", "conflict_roles", "conflict_scope", "conflict_kind", "chain_failures",
+    "has_usable_habitat", "ambiguity_class",
+    "host_association_status", "has_host_association", "host_ambiguity_class", "pr7c1_grade",
+    "conflict_roles", "conflict_scope", "conflict_kind", "chain_failures",
 ] + [f"{r}_{s}" for r in N.HABITAT_ROLES for s in ("original", "normalized", "envo_ids")] + [
     "habitat_nonstandard", "sample_material", "country", "lat_lon", "lat", "lon", "collection_date", "depth", "sample_type", "molecule_types",
     "uniprot_status", "uniprot_organism", "uniprot_taxon_id",
@@ -119,15 +121,17 @@ def record_funnel_stage(r: dict, hab_status: dict) -> dict:
     s["insdc_record_resolved"] = s["insdc_link_found"] and "insdc_record_unresolved" not in flags and \
         not str(r.get("chain_failures", "")).startswith(("ena_coding", "ena_sequence", "uniparc", "proteome"))
     s["habitat_field_present"] = s["insdc_record_resolved"] and bool(st)
-    s["informative_habitat_value"] = s["habitat_field_present"] and bool(st - {"reported_missing", "uninformative_placeholder"})
+    s["informative_habitat_value"] = s["habitat_field_present"] and bool(
+        st - {"reported_missing", "uninformative_placeholder", "invalid_placeholder"})
     s["direct_sample"] = s["informative_habitat_value"] and r["primary_grade"] == "DIRECT_SAMPLE"
     return s
 
 
 def habitat_status_by_record(ev) -> dict:
+    """value_status set per record over the four PHYSICAL habitat roles (host excluded, PR-7c.1a)."""
     d = collections.defaultdict(set)
     for it in ev:
-        if it.get("role") in N.HABITAT_ROLES and it.get("evidence_source") != "literature":
+        if it.get("role") in N.PHYSICAL_ROLES and it.get("evidence_source") != "literature":
             d[it["source_acc"]].add(it["value_status"])
     return d
 
@@ -158,6 +162,7 @@ def coverage_summary(rows, ev) -> list[list]:
     out = []
     hab = habitat_status_by_record(ev)
     roles_by_rec = {r["source_acc"]: {ro for ro in N.HABITAT_ROLES if r.get(f"{ro}_original")} for r in rows}
+    transitions = collections.Counter((r.get("pr7c1_grade", ""), r["primary_grade"]) for r in rows)
     units = (("source_record", rows), ("mrdb_accession", mrdb_rollup(rows)))
     for unit, rs in units:
         for st in STRATA:
@@ -175,9 +180,23 @@ def coverage_summary(rows, ev) -> list[list]:
                 out.append([unit, st, val, "usable_habitat_any_source", u, n, _pct(u, n)])
                 out.append([unit, st, val, "usable_habitat_any_source_of_searched", u, len(searched), _pct(u, len(searched))])
                 if unit == "source_record" and st in ("all", "status_group_audit", "domain"):
-                    for ro in N.HABITAT_ROLES:
+                    for ro in N.PHYSICAL_ROLES:
                         k = sum(1 for r in searched if ro in roles_by_rec[r["source_acc"]])
                         out.append([unit, st, val, f"usable_field:{ro}", k, len(searched), _pct(k, len(searched))])
+                    for ro in N.HOST_ROLES:  # host association: reported separately, never physical habitat
+                        k = sum(1 for r in searched if ro in roles_by_rec[r["source_acc"]])
+                        out.append([unit, st, val, f"host_field:{ro}", k, len(searched), _pct(k, len(searched))])
+                if unit == "source_record":
+                    # host-association axis (PR-7c.1a), separate from the physical-habitat primary grade
+                    hc = collections.Counter(r.get("host_association_status", "") for r in g)
+                    for hs in C.HOST_STATUSES:
+                        out.append([unit, st, val, f"host_association:{hs}", hc.get(hs, 0), n, _pct(hc.get(hs, 0), n)])
+                    k = sum(1 for r in g if str(r.get("has_host_association")) == "1")
+                    out.append([unit, st, val, "has_host_association", k, n, _pct(k, n)])
+                    k = sum(1 for r in g if "host_association_only" in str(r.get("flags", "")).split(";"))
+                    out.append([unit, st, val, "host_association_only", k, n, _pct(k, n)])
+                    k = sum(1 for r in g if str(r.get("has_host_association")) == "1" and str(r.get("has_usable_habitat")) == "1")
+                    out.append([unit, st, val, "physical_habitat_and_host_association", k, n, _pct(k, n)])
                     for col in ("habitat_nonstandard", "country", "collection_date", "lat_lon", "sample_material"):
                         k = sum(1 for r in searched if r.get(col))
                         out.append([unit, st, val, f"reported_field:{col}", k, len(searched), _pct(k, len(searched))])
@@ -190,15 +209,32 @@ def coverage_summary(rows, ev) -> list[list]:
                         k = sum(1 for r in g if flag in str(r.get("flags", "")).split(";"))
                         out.append([unit, st, val, f"flag:{flag}", k, n, _pct(k, n)])
                     amb = [r for r in g if r["primary_grade"] == "AMBIGUOUS"]
+                    hamb = [r for r in g if r.get("host_association_status") == "AMBIGUOUS"]
+                    for axis, pool, col in (("ambiguity_class", amb, "ambiguity_class"),
+                                            ("host_ambiguity_class", hamb, "host_ambiguity_class")):
+                        cc = collections.Counter(r.get(col, "") for r in pool)
+                        for c in C.AMBIGUITY_CLASSES:
+                            out.append([unit, st, val, f"{axis}:{c}", cc.get(c, 0), len(pool), _pct(cc.get(c, 0), len(pool))])
+                    nr = [r for r in g if r["primary_grade"] == "NOT_REPORTED"]
+                    sc = collections.Counter(r.get("not_reported_scope", "") for r in nr)
+                    for s_ in sorted(sc):
+                        out.append([unit, st, val, f"not_reported_scope:{s_}", sc[s_], len(nr), _pct(sc[s_], len(nr))])
+                    for (old, new) in sorted(transitions):
+                        out.append([unit, st, val, f"pr7c1_grade_transition:{old}->{new}", transitions[(old, new)], n,
+                                    _pct(transitions[(old, new)], n)])
                     for col in ("conflict_scope", "conflict_kind"):
-                        vals = collections.Counter(x.split(":", 1)[1] for r in amb for x in str(r.get(col, "")).split(";") if x)
+                        # physical-habitat roles only (host conflicts are on the host axis)
+                        vals = collections.Counter(x.split(":", 1)[1] for r in amb for x in str(r.get(col, "")).split(";")
+                                                   if x and x.split(":", 1)[0] in N.PHYSICAL_ROLES)
                         for v in sorted(vals):
                             out.append([unit, st, val, f"ambiguous_role_{col}:{v}", vals[v], sum(vals.values()),
                                         _pct(vals[v], sum(vals.values()))])
                     # Sensitivity (descriptive): AMBIGUOUS records whose every conflicting role is punctuation-only.
-                    k = sum(1 for r in amb if r.get("conflict_kind") and all(x.endswith(":punctuation_only") for x in r["conflict_kind"].split(";")))
+                    def _phys(x):
+                        return [y for y in str(x or "").split(";") if y and y.split(":", 1)[0] in N.PHYSICAL_ROLES]
+                    k = sum(1 for r in amb if _phys(r.get("conflict_kind")) and all(x.endswith(":punctuation_only") for x in _phys(r["conflict_kind"])))
                     out.append([unit, st, val, "ambiguous_all_roles_punctuation_only", k, len(amb), _pct(k, len(amb))])
-                    k = sum(1 for r in amb if r.get("conflict_scope") and all(x.endswith(":within_sample_unit") for x in r["conflict_scope"].split(";")))
+                    k = sum(1 for r in amb if _phys(r.get("conflict_scope")) and all(x.endswith(":within_sample_unit") for x in _phys(r["conflict_scope"])))
                     out.append([unit, st, val, "ambiguous_all_roles_within_sample_unit", k, len(amb), _pct(k, len(amb))])
                     k = sum(1 for r in g if r["primary_grade"] == "NOT_REPORTED" and r.get("habitat_nonstandard"))
                     out.append([unit, st, val, "not_reported_with_nonstandard_habitat_tag", k,
@@ -232,7 +268,12 @@ def _mpl():
 
 
 def _save(fig, path: Path):
-    fig.savefig(path, format="svg", bbox_inches="tight", metadata={"Date": None, "Creator": None})
+    """Deterministic SVG; trailing whitespace that matplotlib leaves in path data ("M 0 0 ") is stripped
+    per line (geometry and text are unchanged)."""
+    import io
+    buf = io.StringIO()
+    fig.savefig(buf, format="svg", bbox_inches="tight", metadata={"Date": None, "Creator": None})
+    path.write_text("\n".join(line.rstrip() for line in buf.getvalue().split("\n")), encoding="utf-8")
 
 
 def _stacked(plt, rows, col, order, path, title):
@@ -264,15 +305,18 @@ def write_figures(fig_dir: Path, rows, ev) -> list[str]:
     fig_dir.mkdir(parents=True, exist_ok=True)
     made = []
     _stacked(plt, rows, "status_group_audit", ["member", "candidate", "boundary", "outgroup", "rejected", "engineered"],
-             fig_dir / "fig_habitat_grade_by_status_group.svg", "Habitat evidence grade by status group")
+             fig_dir / "fig_habitat_grade_by_status_group.svg", "Physical habitat evidence grade by status group")
     _stacked(plt, rows, "domain", ["Bacteria", "Archaea", "Eukaryota", "Unassigned"],
-             fig_dir / "fig_habitat_grade_by_domain.svg", "Habitat evidence grade by domain")
+             fig_dir / "fig_habitat_grade_by_domain.svg", "Physical habitat evidence grade by domain")
     made += ["fig_habitat_grade_by_status_group.svg", "fig_habitat_grade_by_domain.svg"]
     searched = [r for r in rows if r["primary_grade"] != "NOT_SEARCHED"]
     n = len(searched) or 1
     labels, vals, cols = [], [], []
-    for ro in N.HABITAT_ROLES:
+    for ro in N.PHYSICAL_ROLES:
         labels.append(ro); vals.append(100.0 * sum(1 for r in searched if r.get(f"{ro}_original")) / n); cols.append("#0072B2")
+    for ro in N.HOST_ROLES:
+        labels.append(f"{ro} (association)"); vals.append(100.0 * sum(1 for r in searched if r.get(f"{ro}_original")) / n)
+        cols.append("#CC79A7")
     for col in ("country", "collection_date", "lat_lon", "sample_material"):
         labels.append(col); vals.append(100.0 * sum(1 for r in searched if r.get(col)) / n); cols.append("#999999")
     fig, ax = plt.subplots(figsize=(6.4, 3.6))
@@ -283,7 +327,7 @@ def write_figures(fig_dir: Path, rows, ev) -> list[str]:
     ax.invert_yaxis()
     ax.set_xlim(0, max(vals + [1]) * 1.15)
     ax.set_xlabel(f"Searched source records with value (%, n={len(searched)})")
-    ax.set_title("Field completeness (blue: usable habitat; grey: non-habitat context)", loc="left")
+    ax.set_title("Field completeness (blue: physical habitat; pink: host; grey: context)", loc="left")
     _save(fig, fig_dir / "fig_habitat_field_completeness.svg")
     plt.close(fig)
     hab = habitat_status_by_record(ev)
@@ -321,11 +365,13 @@ def build_manifest(out: Path, rows, ent: dict, mode: str, literature_path: Path 
             rels[m["uniprot_release"]] += 1
     import platform
     man = {
-        "audit_id": "PR-7c.1", "audit_version": __import__("tools.habitat_audit", fromlist=["AUDIT_VERSION"]).AUDIT_VERSION,
+        "audit_id": __import__("tools.habitat_audit", fromlist=["AUDIT_ID"]).AUDIT_ID, "audit_version": __import__("tools.habitat_audit", fromlist=["AUDIT_VERSION"]).AUDIT_VERSION,
         "mode": mode, "base_commit": C.BASE_COMMIT, "database": str(C.DB_PATH.relative_to(C.REPO)),
         "database_sha256": C.DB_SHA256, "n_source_records": len(rows),
         "n_searched": sum(1 for r in rows if r["primary_grade"] != "NOT_SEARCHED"),
         "grades": dict(sorted(collections.Counter(r["primary_grade"] for r in rows).items())),
+        "pr7c1_grades": dict(sorted(collections.Counter(r.get("pr7c1_grade", "") for r in rows).items())),
+        "host_association": dict(sorted(collections.Counter(r.get("host_association_status", "") for r in rows).items())),
         "uniprot_release_headers": dict(sorted(rels.items())),
         "retrieval_window_utc": [min(ts) if ts else None, max(ts) if ts else None],
         "n_literature_verification_requests": len(ent["meta"].get("literature_requests", {})),
@@ -335,7 +381,10 @@ def build_manifest(out: Path, rows, ent: dict, mode: str, literature_path: Path 
         "literature_file": str(literature_path.resolve().relative_to(C.REPO)) if literature_path and literature_path.exists() else None,
         "literature_sha256": C.sha256_file(literature_path) if literature_path and literature_path.exists() else None,
         "python": platform.python_version(),
-        "rules": {"usable_roles": list(N.HABITAT_ROLES), "multi_value_separator": " || ",
+        "rules": {"physical_habitat_roles": list(N.PHYSICAL_ROLES), "host_association_roles": list(N.HOST_ROLES),
+                  "value_checked_roles": list(N.HABITAT_ROLES),
+                  "invalid_placeholder": "whole-value zero (^0+(\\.0+)?$) in env_broad_scale/env_local_scale/env_medium",
+                  "multi_value_separator": " || ",
                   "agreement": "normalized string equality (lower case, whitespace collapsed) or identical explicit ENVO-ID sets",
                   "no_inference": "no habitat or ENVO ID is inferred from taxonomy, organism name, similarity or geography"},
         "outputs": {f: C.sha256_file(out / f) for f in sorted(files) if (out / f).exists()},

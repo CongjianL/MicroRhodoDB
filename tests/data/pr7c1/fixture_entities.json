@@ -389,6 +389,38 @@
       "request_key": "5e2b55a81f813742fa0ebf693a1a137725464b1dc32acde1a744a3536e5b59e1",
       "status": "not_found"
     },
+    "EST05565": {
+      "request_key": "851c85a5e59a6de24c18da228d5969d061d15b2f6e7ca18cda2b94d540710031",
+      "rows": [
+        {
+          "accession": "EST05565",
+          "bio_material": "",
+          "cell_line": "",
+          "cell_type": "",
+          "collection_date": "01-Jun-2012",
+          "country": "Brazil:Ribeirao Preto, Sao Paulo State",
+          "cultivar": "",
+          "environmental_sample": "false",
+          "host": "Chrysomelidae",
+          "isolate": "",
+          "isolation_source": "Isolated from Chrysomelidae larval guts in sugarcane plantations located in Ribeirao Preto, Sao Paulo State, Brazil",
+          "lab_host": "",
+          "location": "",
+          "mol_type": "genomic DNA",
+          "parent_accession": "KI545891",
+          "protein_id": "EST05565.1",
+          "sample_accession": "SAMN02334589",
+          "scientific_name": "",
+          "strain": "GHG001",
+          "study_accession": "PRJNA217085",
+          "sub_strain": "",
+          "tax_id": "",
+          "tissue_lib": "",
+          "tissue_type": ""
+        }
+      ],
+      "status": "found"
+    },
     "GLI59719": {
       "request_key": "0997c7eb5b0d3dd1d4e59a39e3503cc03d6d06d40675163351ce8a3705482e34",
       "rows": [
@@ -413,6 +445,38 @@
           "scientific_name": "",
           "strain": "NIES-4468",
           "study_accession": "PRJDB14448",
+          "sub_strain": "",
+          "tax_id": "",
+          "tissue_lib": "",
+          "tissue_type": ""
+        }
+      ],
+      "status": "found"
+    },
+    "GME27946": {
+      "request_key": "0997c7eb5b0d3dd1d4e59a39e3503cc03d6d06d40675163351ce8a3705482e34",
+      "rows": [
+        {
+          "accession": "GME27946",
+          "bio_material": "",
+          "cell_line": "",
+          "cell_type": "",
+          "collection_date": "2021-09-21",
+          "country": "Japan:Aichi, Nagoya",
+          "cultivar": "",
+          "environmental_sample": "false",
+          "host": "Tetrapanax papyrifer",
+          "isolate": "",
+          "isolation_source": "leaf",
+          "lab_host": "",
+          "location": "",
+          "mol_type": "genomic DNA",
+          "parent_accession": "BSXG01000042",
+          "protein_id": "GME27946.1",
+          "sample_accession": "SAMD00588591",
+          "scientific_name": "",
+          "strain": "PPO83",
+          "study_accession": "PRJDB15493",
           "sub_strain": "",
           "tax_id": "",
           "tissue_lib": "",
@@ -485,6 +549,38 @@
       ],
       "status": "found"
     },
+    "KAK2607400": {
+      "request_key": "01ccf8616e065844697eef5009ba877245522b5be75435dc839f09754c86d330",
+      "rows": [
+        {
+          "accession": "KAK2607400",
+          "bio_material": "",
+          "cell_line": "",
+          "cell_type": "",
+          "collection_date": "2021-06-12",
+          "country": "South Korea: Cheonan",
+          "cultivar": "",
+          "environmental_sample": "false",
+          "host": "Apple tree",
+          "isolate": "",
+          "isolation_source": "canker",
+          "lab_host": "",
+          "location": "",
+          "mol_type": "genomic DNA",
+          "parent_accession": "JAUJFL010000003",
+          "protein_id": "KAK2607400.1",
+          "sample_accession": "SAMN30967738",
+          "scientific_name": "",
+          "strain": "DUCC20226",
+          "study_accession": "PRJNA883535",
+          "sub_strain": "",
+          "tax_id": "",
+          "tissue_lib": "",
+          "tissue_type": ""
+        }
+      ],
+      "status": "found"
+    },
     "KAK3371726": {
       "request_key": "01ccf8616e065844697eef5009ba877245522b5be75435dc839f09754c86d330",
       "rows": [
@@ -509,6 +605,102 @@
           "scientific_name": "",
           "strain": "CBS 958.72",
           "study_accession": "PRJNA371217",
+          "sub_strain": "",
+          "tax_id": "",
+          "tissue_lib": "",
+          "tissue_type": ""
+        }
+      ],
+      "status": "found"
+    },
+    "KAK7416077": {
+      "request_key": "824d9a6287bf35f035c1f963b58bd41e17bc0bde71f469a896051bfa80378366",
+      "rows": [
+        {
+          "accession": "KAK7416077",
+          "bio_material": "",
+          "cell_line": "",
+          "cell_type": "",
+          "collection_date": "2018-07-12",
+          "country": "",
+          "cultivar": "",
+          "environmental_sample": "false",
+          "host": "Liriodendron tulipifera tulip-poplar",
+          "isolate": "",
+          "isolation_source": "target canker",
+          "lab_host": "",
+          "location": "39.034 N 79.685 W",
+          "mol_type": "genomic DNA",
+          "parent_accession": "JAZAVK010000219",
+          "protein_id": "KAK7416077.1",
+          "sample_accession": "SAMN35642710",
+          "scientific_name": "",
+          "strain": "NRRL 64651",
+          "study_accession": "PRJNA980700",
+          "sub_strain": "",
+          "tax_id": "",
+          "tissue_lib": "",
+          "tissue_type": ""
+        }
+      ],
+      "status": "found"
+    },
+    "MBO3270652": {
+      "request_key": "064a2a2598ba059de578163ac88276a05f2bcc4a4358590d6dba34a42a9033a3",
+      "rows": [
+        {
+          "accession": "MBO3270652",
+          "bio_material": "",
+          "cell_line": "",
+          "cell_type": "",
+          "collection_date": "2020",
+          "country": "South Korea",
+          "cultivar": "",
+          "environmental_sample": "false",
+          "host": "",
+          "isolate": "",
+          "isolation_source": "soil",
+          "lab_host": "",
+          "location": "35.0 N 129.0 E",
+          "mol_type": "genomic DNA",
+          "parent_accession": "JAGETX010000003",
+          "protein_id": "MBO3270652.1",
+          "sample_accession": "SAMN18303291",
+          "scientific_name": "",
+          "strain": "BT507",
+          "study_accession": "PRJNA714367",
+          "sub_strain": "",
+          "tax_id": "",
+          "tissue_lib": "",
+          "tissue_type": ""
+        }
+      ],
+      "status": "found"
+    },
+    "MBO3270884": {
+      "request_key": "064a2a2598ba059de578163ac88276a05f2bcc4a4358590d6dba34a42a9033a3",
+      "rows": [
+        {
+          "accession": "MBO3270884",
+          "bio_material": "",
+          "cell_line": "",
+          "cell_type": "",
+          "collection_date": "2020",
+          "country": "South Korea",
+          "cultivar": "",
+          "environmental_sample": "false",
+          "host": "",
+          "isolate": "",
+          "isolation_source": "soil",
+          "lab_host": "",
+          "location": "35.0 N 129.0 E",
+          "mol_type": "genomic DNA",
+          "parent_accession": "JAGETX010000004",
+          "protein_id": "MBO3270884.1",
+          "sample_accession": "SAMN18303291",
+          "scientific_name": "",
+          "strain": "BT507",
+          "study_accession": "PRJNA714367",
           "sub_strain": "",
           "tax_id": "",
           "tissue_lib": "",
@@ -545,6 +737,38 @@
           "scientific_name": "",
           "strain": "K691.44",
           "study_accession": "PRJNA914660",
+          "sub_strain": "",
+          "tax_id": "",
+          "tissue_lib": "",
+          "tissue_type": ""
+        }
+      ],
+      "status": "found"
+    },
+    "MRH78166": {
+      "request_key": "12111e6be9d3bf8b860865ca0be10611c1792760203b99e60bd7411dbb262e6c",
+      "rows": [
+        {
+          "accession": "MRH78166",
+          "bio_material": "",
+          "cell_line": "",
+          "cell_type": "",
+          "collection_date": "Jul-2019",
+          "country": "China: Weihai City, Shandong Province",
+          "cultivar": "",
+          "environmental_sample": "false",
+          "host": "",
+          "isolate": "",
+          "isolation_source": "ENVO:00002160",
+          "lab_host": "",
+          "location": "38.98 N 77.11 E",
+          "mol_type": "genomic DNA",
+          "parent_accession": "WJPP01000003",
+          "protein_id": "MRH78166.1",
+          "sample_accession": "SAMN13193768",
+          "scientific_name": "",
+          "strain": "C176",
+          "study_accession": "PRJNA587567",
           "sub_strain": "",
           "tax_id": "",
           "tissue_lib": "",
@@ -745,6 +969,38 @@
       ],
       "status": "found"
     },
+    "WEW59632": {
+      "request_key": "edaf33018a604e61794d4fde25e969967a101cb1ea5f7865465fce853ec78a13",
+      "rows": [
+        {
+          "accession": "WEW59632",
+          "bio_material": "",
+          "cell_line": "",
+          "cell_type": "",
+          "collection_date": "2016-05-20",
+          "country": "USA: Washington State",
+          "cultivar": "",
+          "environmental_sample": "false",
+          "host": "Actinemys marmorata",
+          "isolate": "",
+          "isolation_source": "",
+          "lab_host": "",
+          "location": "",
+          "mol_type": "genomic DNA",
+          "parent_accession": "CP120629",
+          "protein_id": "WEW59632.1",
+          "sample_accession": "SAMN33096649",
+          "scientific_name": "",
+          "strain": "16-2883",
+          "study_accession": "PRJNA931726",
+          "sub_strain": "",
+          "tax_id": "",
+          "tissue_lib": "",
+          "tissue_type": ""
+        }
+      ],
+      "status": "found"
+    },
     "XNO68404": {
       "request_key": "edaf33018a604e61794d4fde25e969967a101cb1ea5f7865465fce853ec78a13",
       "rows": [
@@ -779,15 +1035,45 @@
     }
   },
   "envo": {
+    "ENVO:00000111": {
+      "is_obsolete": false,
+      "label": "forested area",
+      "request_key": "df6b263a63e7f97c4bbc848e172529240af51d8180b5a838dcc0957fa2c7d9f0",
+      "status": "found"
+    },
     "ENVO:00000115": {
       "is_obsolete": false,
       "label": "orchard",
       "request_key": "0230bfab635054e55f23e87fd5d49a25684eb753f210a6414dea80f2cc42d4b6",
       "status": "found"
     },
+    "ENVO:00000360": {
+      "is_obsolete": false,
+      "label": "area of national forest",
+      "request_key": "4d7bbb7bcb3d691e07f04c30a82bd4b0011a3f7a5c5204f70d064b1cb0a8a7aa",
+      "status": "found"
+    },
+    "ENVO:00002160": {
+      "is_obsolete": false,
+      "label": "estuarine mud",
+      "request_key": "bff52797ad5435070f2767c821cec6652198bde6899ea32ece480042f9de20a0",
+      "status": "found"
+    },
     "ENVO:00010003": {
       "request_key": "ea42b82647f1cddd3a43b56d552fcad8c47d6245a6542f22ddbf7600b360e8fe",
       "status": "not_found"
+    },
+    "ENVO:01000020": {
+      "is_obsolete": false,
+      "label": "estuarine biome",
+      "request_key": "472027f6bd677069117dcab1911ae7bfbc47ac117afd6d190edaa0a76036255e",
+      "status": "found"
+    },
+    "ENVO:03600038": {
+      "is_obsolete": false,
+      "label": "experimental forest ecosystem",
+      "request_key": "7c172f11fa2c7ab2e4c5048a19c0df7f7fa85189d69a88b490d8d0cf5434f3d7",
+      "status": "found"
     }
   },
   "insdc_flatfile": {
@@ -906,6 +1192,107 @@
       "status": "found",
       "taxon_id": "51714",
       "title": "Volvox africanus 1101-NZ-11 (NIES-4468) isolated from thailand"
+    },
+    "SAMD00588591": {
+      "accession": "SAMD00588591",
+      "alias": "SAMD00588591",
+      "attributes": [
+        {
+          "tag": "strain",
+          "units": null,
+          "value": "PPO83"
+        },
+        {
+          "tag": "INSDC secondary accession",
+          "units": null,
+          "value": "DRS286780"
+        },
+        {
+          "tag": "organism",
+          "units": null,
+          "value": "Neofusicoccum parvum"
+        },
+        {
+          "tag": "collection date",
+          "units": null,
+          "value": "2021-09-21"
+        },
+        {
+          "tag": "isolation source",
+          "units": null,
+          "value": "Tetrapanax papyrifer leaf"
+        },
+        {
+          "tag": "sample name",
+          "units": null,
+          "value": "Genome_PPO83"
+        },
+        {
+          "tag": "collected by",
+          "units": null,
+          "value": "Akira Ashida"
+        },
+        {
+          "tag": "geo loc name",
+          "units": null,
+          "value": "Japan:Aichi, Nagoya"
+        },
+        {
+          "tag": "locus_tag_prefix",
+          "units": null,
+          "value": "NpPPO83"
+        },
+        {
+          "tag": "host_tissue_sampled",
+          "units": null,
+          "value": "leaf"
+        },
+        {
+          "tag": "NCBI submission package",
+          "units": null,
+          "value": "Generic.1.0"
+        },
+        {
+          "tag": "lat lon",
+          "units": null,
+          "value": "35.1545853 N 136.9720526 E"
+        },
+        {
+          "tag": "host",
+          "units": null,
+          "value": "Tetrapanax papyrifer"
+        },
+        {
+          "tag": "BioSampleModel",
+          "units": null,
+          "value": "Generic"
+        },
+        {
+          "tag": "ENA-FIRST-PUBLIC",
+          "units": null,
+          "value": "2023-03-28"
+        },
+        {
+          "tag": "ENA-LAST-UPDATE",
+          "units": null,
+          "value": "2024-06-02"
+        }
+      ],
+      "broker": "DDBJ",
+      "center": "Laboratory of plant pathology, graduate school of bioagricultural sciences, Nagoya university",
+      "description": null,
+      "external_ids": [
+        "SAMD00588591"
+      ],
+      "primary_id": "SAMD00588591",
+      "request_key": "1307686e39a4d12c84c2d93dbc51f5a64bb728fc0d2d2b00ceaf74bbe096e1f1",
+      "scientific_name": "Neofusicoccum parvum",
+      "secondary_ids": [
+        "DRS286780"
+      ],
+      "status": "found",
+      "taxon_id": "310453",
+      "title": "Genome of Neofusicoccum parvum PPO83"
     },
     "SAMEA113574500": {
       "accession": "SAMEA113574500",
@@ -1355,6 +1742,100 @@
       "status": "found",
       "taxon_id": "1077348",
       "title": "General Sample for Ganoderma sinense ZZ0214-1"
+    },
+    "SAMN02334589": {
+      "accession": "SAMN02334589",
+      "alias": "GHG001",
+      "attributes": [
+        {
+          "tag": "strain",
+          "units": null,
+          "value": "GHG001"
+        },
+        {
+          "tag": "collection_date",
+          "units": null,
+          "value": "2012-06-01"
+        },
+        {
+          "tag": "type-material",
+          "units": null,
+          "value": "holotype of Kalmanozyma brasiliensis"
+        },
+        {
+          "tag": "NCBI submission package",
+          "units": null,
+          "value": "Generic.1.0"
+        },
+        {
+          "tag": "propagation",
+          "units": null,
+          "value": "Culture media"
+        },
+        {
+          "tag": "organism",
+          "units": null,
+          "value": "Kalmanozyma brasiliensis GHG001"
+        },
+        {
+          "tag": "biome",
+          "units": null,
+          "value": "Chrysomelidae guts"
+        },
+        {
+          "tag": "host",
+          "units": null,
+          "value": "Chrysomelidae"
+        },
+        {
+          "tag": "geo_loc_name",
+          "units": null,
+          "value": "Brazil: Ribeirao Preto, Sao Paulo State"
+        },
+        {
+          "tag": "estimated_size",
+          "units": null,
+          "value": "22Mbp"
+        },
+        {
+          "tag": "investigation_type",
+          "units": null,
+          "value": "eukaryote"
+        },
+        {
+          "tag": "isolation_source",
+          "units": null,
+          "value": "larval guts from sugarcane plantation"
+        },
+        {
+          "tag": "BioSampleModel",
+          "units": null,
+          "value": "Generic"
+        },
+        {
+          "tag": "ENA-FIRST-PUBLIC",
+          "units": null,
+          "value": "2014-04-14"
+        },
+        {
+          "tag": "ENA-LAST-UPDATE",
+          "units": null,
+          "value": "2021-02-28"
+        }
+      ],
+      "broker": null,
+      "center": "Laboratorio Nacional de Ciencia e Tecnologia do Bioetanol",
+      "description": null,
+      "external_ids": [
+        "SAMN02334589"
+      ],
+      "primary_id": "SAMN02334589",
+      "request_key": "5ea7f2b4f9118c25173bfd069eb6fc80614d96a324f165ba8e7fb9858e7f0d0b",
+      "scientific_name": "Kalmanozyma brasiliensis GHG001",
+      "secondary_ids": [],
+      "status": "found",
+      "taxon_id": "1365824",
+      "title": "Sample for Pseudozyma brasiliensis sp. nov."
     },
     "SAMN04275160": {
       "accession": "SAMN04275160",
@@ -2001,6 +2482,120 @@
       "taxon_id": "5025",
       "title": "DMI fungicide resistant isolate of Venturia inaequalis"
     },
+    "SAMN13193768": {
+      "accession": "SAMN13193768",
+      "alias": "C176",
+      "attributes": [
+        {
+          "tag": "strain",
+          "units": null,
+          "value": "C176"
+        },
+        {
+          "tag": "collection_date",
+          "units": null,
+          "value": "2019-07"
+        },
+        {
+          "tag": "isol_growth_condt",
+          "units": null,
+          "value": "marine 2216E"
+        },
+        {
+          "tag": "ref_biomaterial",
+          "units": null,
+          "value": "none"
+        },
+        {
+          "tag": "type-material",
+          "units": null,
+          "value": "type strain of Spiribacter salilacus"
+        },
+        {
+          "tag": "organism",
+          "units": null,
+          "value": "Spiribacter salilacus"
+        },
+        {
+          "tag": "env_broad_scale",
+          "units": null,
+          "value": "ENVO:01000020"
+        },
+        {
+          "tag": "env_local_scale",
+          "units": null,
+          "value": "00000316"
+        },
+        {
+          "tag": "NCBI submission package",
+          "units": null,
+          "value": "MIGS.ba.sediment.6.0"
+        },
+        {
+          "tag": "depth",
+          "units": null,
+          "value": "0-5"
+        },
+        {
+          "tag": "elev",
+          "units": null,
+          "value": "0"
+        },
+        {
+          "tag": "num_replicons",
+          "units": null,
+          "value": "missing"
+        },
+        {
+          "tag": "geo_loc_name",
+          "units": null,
+          "value": "China:Weihai City, Shandong Province"
+        },
+        {
+          "tag": "env_medium",
+          "units": null,
+          "value": "ENVO:00002160"
+        },
+        {
+          "tag": "lat_lon",
+          "units": null,
+          "value": "38.98 N 77.11 E"
+        },
+        {
+          "tag": "BioSampleModel",
+          "units": null,
+          "value": "MIGS.ba"
+        },
+        {
+          "tag": "BioSampleModel",
+          "units": null,
+          "value": "MIGS/MIMS/MIMARKS.sediment"
+        },
+        {
+          "tag": "ENA-FIRST-PUBLIC",
+          "units": null,
+          "value": "2019-11-05"
+        },
+        {
+          "tag": "ENA-LAST-UPDATE",
+          "units": null,
+          "value": "2023-04-04"
+        }
+      ],
+      "broker": null,
+      "center": "shandong university",
+      "description": "Keywords: GSC:MIxS;MIGS:6.0",
+      "external_ids": [
+        "SAMN13193768"
+      ],
+      "primary_id": "SAMN13193768",
+      "request_key": "6d68377d23898220752c29f6ba2ca1e920f9c772f67b7b06fbb0e572e0c3106c",
+      "scientific_name": "Spiribacter salilacus",
+      "secondary_ids": [],
+      "status": "found",
+      "taxon_id": "2664894",
+      "title": "MIGS Cultured Bacterial/Archaeal sample from Spiribacter salilacus"
+    },
     "SAMN13450411": {
       "accession": "SAMN13450411",
       "alias": "FDAARGOS_881",
@@ -2228,6 +2823,124 @@
       "taxon_id": "13689",
       "title": "Microbe sample from Sphingomonas paucimobilis"
     },
+    "SAMN18303291": {
+      "accession": "SAMN18303291",
+      "alias": "KCTC 52770",
+      "attributes": [
+        {
+          "tag": "strain",
+          "units": null,
+          "value": "BT507"
+        },
+        {
+          "tag": "collection_date",
+          "units": null,
+          "value": "2020"
+        },
+        {
+          "tag": "isol_growth_condt",
+          "units": null,
+          "value": "0"
+        },
+        {
+          "tag": "ref_biomaterial",
+          "units": null,
+          "value": "0"
+        },
+        {
+          "tag": "organism",
+          "units": null,
+          "value": "Hymenobacter defluvii"
+        },
+        {
+          "tag": "env_broad_scale",
+          "units": null,
+          "value": "0"
+        },
+        {
+          "tag": "env_local_scale",
+          "units": null,
+          "value": "0"
+        },
+        {
+          "tag": "NCBI submission package",
+          "units": null,
+          "value": "MIGS.ba.soil.5.0"
+        },
+        {
+          "tag": "depth",
+          "units": null,
+          "value": "0"
+        },
+        {
+          "tag": "elev",
+          "units": null,
+          "value": "0"
+        },
+        {
+          "tag": "num_replicons",
+          "units": null,
+          "value": "0"
+        },
+        {
+          "tag": "geo_loc_name",
+          "units": null,
+          "value": "South Korea"
+        },
+        {
+          "tag": "env_medium",
+          "units": null,
+          "value": "0"
+        },
+        {
+          "tag": "lat_lon",
+          "units": null,
+          "value": "35 N 129 E"
+        },
+        {
+          "tag": "isolation_source",
+          "units": null,
+          "value": "soil"
+        },
+        {
+          "tag": "BioSampleModel",
+          "units": null,
+          "value": "MIGS.ba"
+        },
+        {
+          "tag": "BioSampleModel",
+          "units": null,
+          "value": "MIGS/MIMS/MIMARKS.soil"
+        },
+        {
+          "tag": "ENA-FIRST-PUBLIC",
+          "units": null,
+          "value": "2021-03-14"
+        },
+        {
+          "tag": "ENA-LAST-UPDATE",
+          "units": null,
+          "value": "2021-03-18"
+        }
+      ],
+      "broker": null,
+      "center": "Seoul Women's University",
+      "description": "Keywords: GSC:MIxS;MIGS:5.0",
+      "external_ids": [
+        "SAMN18303291"
+      ],
+      "primary_id": "SAMN18303291",
+      "request_key": "e672470e0b21c1b3612874cd4fea98a0c4c342eef47af72092d893e5f03f32c2",
+      "scientific_name": "Hymenobacter defluvii",
+      "secondary_ids": [],
+      "status": "found",
+      "taxon_id": "2054411",
+      "title": "MIGS Cultured Bacterial/Archaeal sample from Hymenobacter defluvii"
+    },
+    "SAMN30967738": {
+      "request_key": "01c4859c5ff1d289103ae3de97e02426307353f9064ff76476e815dbfe89d7d4",
+      "status": "not_found"
+    },
     "SAMN32166878": {
       "request_key": "01c4859c5ff1d289103ae3de97e02426307353f9064ff76476e815dbfe89d7d4",
       "status": "not_found"
@@ -2235,6 +2948,248 @@
     "SAMN32343746": {
       "request_key": "01c4859c5ff1d289103ae3de97e02426307353f9064ff76476e815dbfe89d7d4",
       "status": "not_found"
+    },
+    "SAMN33096649": {
+      "accession": "SAMN33096649",
+      "alias": "Emydomyces testavorans Genome",
+      "attributes": [
+        {
+          "tag": "strain",
+          "units": null,
+          "value": "16-2883"
+        },
+        {
+          "tag": "collection_date",
+          "units": null,
+          "value": "2016-05-20"
+        },
+        {
+          "tag": "isol_growth_condt",
+          "units": null,
+          "value": "PMID: 30487306"
+        },
+        {
+          "tag": "type-material",
+          "units": null,
+          "value": "culture from holotype of Emydomyces testavorans"
+        },
+        {
+          "tag": "INSDC secondary accession",
+          "units": null,
+          "value": "SRS16696022"
+        },
+        {
+          "tag": "organism",
+          "units": null,
+          "value": "Emydomyces testavorans"
+        },
+        {
+          "tag": "culture-collection",
+          "units": null,
+          "value": "ATCC:TSD-145"
+        },
+        {
+          "tag": "env_broad_scale",
+          "units": null,
+          "value": "Unknown"
+        },
+        {
+          "tag": "env_local_scale",
+          "units": null,
+          "value": "Unknown"
+        },
+        {
+          "tag": "NCBI submission package",
+          "units": null,
+          "value": "MIGS.eu.6.0"
+        },
+        {
+          "tag": "host",
+          "units": null,
+          "value": "Actinemys marmorata (Western pond turtle)"
+        },
+        {
+          "tag": "geo_loc_name",
+          "units": null,
+          "value": "USA: Washington State"
+        },
+        {
+          "tag": "env_medium",
+          "units": null,
+          "value": "Unknown"
+        },
+        {
+          "tag": "lat_lon",
+          "units": null,
+          "value": "Unknown"
+        },
+        {
+          "tag": "BioSampleModel",
+          "units": null,
+          "value": "MIGS.eu"
+        },
+        {
+          "tag": "ENA-FIRST-PUBLIC",
+          "units": null,
+          "value": "2023-03-17"
+        },
+        {
+          "tag": "ENA-LAST-UPDATE",
+          "units": null,
+          "value": "2023-03-17"
+        }
+      ],
+      "broker": "NCBI",
+      "center": "University of Illinois Urbana-Champaign",
+      "description": "Keywords: GSC:MIxS;MIGS:6.0",
+      "external_ids": [
+        "SAMN33096649"
+      ],
+      "primary_id": "SAMN33096649",
+      "request_key": "81c3332f1c9c407d85194638e2927a493f4978a0f43d6edd82c3fd1b79359ee6",
+      "scientific_name": "Emydomyces testavorans",
+      "secondary_ids": [
+        "SRS16696022"
+      ],
+      "status": "found",
+      "taxon_id": "2070801",
+      "title": "MIGS Eukaryotic sample from Emydomyces testavorans type strain 16-2883 (ATCC TSD-145)"
+    },
+    "SAMN35642710": {
+      "accession": "SAMN35642710",
+      "alias": "DNA sample of Neonectria magnoliae FERN 10531/HP011/MTK37",
+      "attributes": [
+        {
+          "tag": "strain",
+          "units": null,
+          "value": "NRRL 64651"
+        },
+        {
+          "tag": "collection_date",
+          "units": null,
+          "value": "2018-07-12"
+        },
+        {
+          "tag": "isol_growth_condt",
+          "units": null,
+          "value": "Isolated on PDA from perithecia from bark"
+        },
+        {
+          "tag": "INSDC secondary accession",
+          "units": null,
+          "value": "SRS17991177"
+        },
+        {
+          "tag": "organism",
+          "units": null,
+          "value": "Neonectria magnoliae"
+        },
+        {
+          "tag": "biotic_relationship",
+          "units": null,
+          "value": "parasite"
+        },
+        {
+          "tag": "env_broad_scale",
+          "units": null,
+          "value": "area of national forest [ENVO_00000360]|experimental forest ecosystem [ENVO_03600038]"
+        },
+        {
+          "tag": "culture_collection",
+          "units": null,
+          "value": "NRRL:64651"
+        },
+        {
+          "tag": "env_local_scale",
+          "units": null,
+          "value": "forest [ENVO_00000111]"
+        },
+        {
+          "tag": "Identified by",
+          "units": null,
+          "value": "Matt Kasson"
+        },
+        {
+          "tag": "NCBI submission package",
+          "units": null,
+          "value": "MIGS.eu.plant-associated.6.0"
+        },
+        {
+          "tag": "collection_method",
+          "units": null,
+          "value": "bark plugs extracted with leather punch and hammer"
+        },
+        {
+          "tag": "host",
+          "units": null,
+          "value": "Liriodendron tulipifera [tulip-poplar]"
+        },
+        {
+          "tag": "geo_loc_name",
+          "units": null,
+          "value": "USA: West Virginia, Tucker County, Monongahela National Forest, Fernow Experimental Forest"
+        },
+        {
+          "tag": "isolate_name_alias",
+          "units": null,
+          "value": "FERN 10531"
+        },
+        {
+          "tag": "env_medium",
+          "units": null,
+          "value": "perithecia on tulip-poplar stem canker"
+        },
+        {
+          "tag": "lat_lon",
+          "units": null,
+          "value": "39.034 N 79.685 W"
+        },
+        {
+          "tag": "Collected by",
+          "units": null,
+          "value": "Matt Kasson, Angie Macias, Cameron Stauder"
+        },
+        {
+          "tag": "isolation_source",
+          "units": null,
+          "value": "target canker"
+        },
+        {
+          "tag": "BioSampleModel",
+          "units": null,
+          "value": "MIGS.eu"
+        },
+        {
+          "tag": "BioSampleModel",
+          "units": null,
+          "value": "MIGS/MIMS/MIMARKS.plant-associated"
+        },
+        {
+          "tag": "ENA-FIRST-PUBLIC",
+          "units": null,
+          "value": "2023-06-06"
+        },
+        {
+          "tag": "ENA-LAST-UPDATE",
+          "units": null,
+          "value": "2024-04-03"
+        }
+      ],
+      "broker": "NCBI",
+      "center": "West Virignia University",
+      "description": "Genomic DNA of Neonectria magnoliae FERN 10531 collected from perithecia sampled on July 12, 2018 from the margins of a perennial target canker of Liriodendron tulipifera (tulip-poplar) that was impacting many trees of this host on the Fernow Experimental Forest (Monongahela National Forest) near Parsons, West Virginia.",
+      "external_ids": [
+        "SAMN35642710"
+      ],
+      "primary_id": "SAMN35642710",
+      "request_key": "b91775d07e69501905a55ec247dc2e600403ff1bf4bc88cea7b619488dc1121f",
+      "scientific_name": "Neonectria magnoliae",
+      "secondary_ids": [
+        "SRS17991177"
+      ],
+      "status": "found",
+      "taxon_id": "2732573",
+      "title": "DNA sample of Neonectria magnoliae FERN 10531/HP011/MTK37"
     },
     "SAMN45227232": {
       "accession": "SAMN45227232",
@@ -2389,6 +3344,87 @@
       "taxon_id": "51714",
       "title": "Volvox africanus 1101-NZ-11 (NIES-4468) isolated from thailand",
       "uid": "35133716"
+    },
+    "SAMD00588591": {
+      "accession": "SAMD00588591",
+      "attributes": [
+        {
+          "harmonized_name": "sample_name",
+          "name": "sample_name",
+          "value": "Genome_PPO83"
+        },
+        {
+          "harmonized_name": "collected_by",
+          "name": "collected_by",
+          "value": "Akira Ashida"
+        },
+        {
+          "harmonized_name": "collection_date",
+          "name": "collection_date",
+          "value": "2021-09-21"
+        },
+        {
+          "harmonized_name": "geo_loc_name",
+          "name": "geo_loc_name",
+          "value": "Japan:Aichi, Nagoya"
+        },
+        {
+          "harmonized_name": "host",
+          "name": "host",
+          "value": "Tetrapanax papyrifer"
+        },
+        {
+          "harmonized_name": "host_tissue_sampled",
+          "name": "host_tissue_sampled",
+          "value": "leaf"
+        },
+        {
+          "harmonized_name": "isolation_source",
+          "name": "isolation_source",
+          "value": "Tetrapanax papyrifer leaf"
+        },
+        {
+          "harmonized_name": "lat_lon",
+          "name": "lat_lon",
+          "value": "35.1545853 N 136.9720526 E"
+        },
+        {
+          "harmonized_name": null,
+          "name": "locus_tag_prefix",
+          "value": "NpPPO83"
+        },
+        {
+          "harmonized_name": "sample_type",
+          "name": "sample_type",
+          "value": "missing"
+        },
+        {
+          "harmonized_name": "strain",
+          "name": "strain",
+          "value": "PPO83"
+        }
+      ],
+      "description": null,
+      "ids": [
+        {
+          "db": "BioSample",
+          "id": "SAMD00588591",
+          "label": null
+        },
+        {
+          "db": "SRA",
+          "id": "DRS286780",
+          "label": null
+        }
+      ],
+      "organism": "Neofusicoccum parvum",
+      "package": "Generic.1.0",
+      "request_key": "f3127361b9340bee074c5b7ed4ab540b5d4cc893091f15ae1601493725b7f65d",
+      "search_key": "5447679663daee3cc8935666bec263d6a0f509456c524a249bb7845554de258d",
+      "status": "found",
+      "taxon_id": "310453",
+      "title": "Genome of Neofusicoccum parvum PPO83",
+      "uid": "33947151"
     },
     "SAMEA113574500": {
       "accession": "SAMEA113574500",
@@ -2853,6 +3889,82 @@
       "taxon_id": "1077348",
       "title": "General Sample for Ganoderma sinense ZZ0214-1",
       "uid": "2225658"
+    },
+    "SAMN02334589": {
+      "accession": "SAMN02334589",
+      "attributes": [
+        {
+          "harmonized_name": "investigation_type",
+          "name": "investigation_type",
+          "value": "eukaryote"
+        },
+        {
+          "harmonized_name": "env_broad_scale",
+          "name": "biome",
+          "value": "Chrysomelidae guts"
+        },
+        {
+          "harmonized_name": "collection_date",
+          "name": "collection_date",
+          "value": "2012-06-01"
+        },
+        {
+          "harmonized_name": "geo_loc_name",
+          "name": "geo_loc_name",
+          "value": "Brazil: Ribeirao Preto, Sao Paulo State"
+        },
+        {
+          "harmonized_name": "estimated_size",
+          "name": "estimated_size",
+          "value": "22Mbp"
+        },
+        {
+          "harmonized_name": "propagation",
+          "name": "propagation",
+          "value": "Culture media"
+        },
+        {
+          "harmonized_name": "host",
+          "name": "host",
+          "value": "Chrysomelidae"
+        },
+        {
+          "harmonized_name": "isolation_source",
+          "name": "isolation_source",
+          "value": "larval guts from sugarcane plantation"
+        },
+        {
+          "harmonized_name": "strain",
+          "name": "strain",
+          "value": "GHG001"
+        },
+        {
+          "harmonized_name": null,
+          "name": "type-material",
+          "value": "holotype of Kalmanozyma brasiliensis"
+        }
+      ],
+      "description": null,
+      "ids": [
+        {
+          "db": "BioSample",
+          "id": "SAMN02334589",
+          "label": null
+        },
+        {
+          "db": null,
+          "id": "GHG001",
+          "label": "Sample name"
+        }
+      ],
+      "organism": "Kalmanozyma brasiliensis GHG001",
+      "package": "Generic.1.0",
+      "request_key": "6e0798b05623788856d2f06328d81e1f2093396f35baf3abe4a5608359ba32e0",
+      "search_key": "2862033cc056cd88a45ef243cb4c43a16b37046efcb5808cca4619baf1667c9f",
+      "status": "found",
+      "taxon_id": "1365824",
+      "title": "Sample for Pseudozyma brasiliensis sp. nov.",
+      "uid": "2334589"
     },
     "SAMN04275160": {
       "accession": "SAMN04275160",
@@ -3380,6 +4492,97 @@
       "title": "DMI fungicide resistant isolate of Venturia inaequalis",
       "uid": "10423484"
     },
+    "SAMN13193768": {
+      "accession": "SAMN13193768",
+      "attributes": [
+        {
+          "harmonized_name": "strain",
+          "name": "strain",
+          "value": "C176"
+        },
+        {
+          "harmonized_name": "collection_date",
+          "name": "collection_date",
+          "value": "2019-07"
+        },
+        {
+          "harmonized_name": "depth",
+          "name": "depth",
+          "value": "0-5"
+        },
+        {
+          "harmonized_name": "elev",
+          "name": "elev",
+          "value": "0"
+        },
+        {
+          "harmonized_name": "env_broad_scale",
+          "name": "env_broad_scale",
+          "value": "ENVO:01000020"
+        },
+        {
+          "harmonized_name": "env_local_scale",
+          "name": "env_local_scale",
+          "value": "00000316"
+        },
+        {
+          "harmonized_name": "env_medium",
+          "name": "env_medium",
+          "value": "ENVO:00002160"
+        },
+        {
+          "harmonized_name": "geo_loc_name",
+          "name": "geo_loc_name",
+          "value": "China:Weihai City, Shandong Province"
+        },
+        {
+          "harmonized_name": "isol_growth_condt",
+          "name": "isol_growth_condt",
+          "value": "marine 2216E"
+        },
+        {
+          "harmonized_name": "lat_lon",
+          "name": "lat_lon",
+          "value": "38.98 N 77.11 E"
+        },
+        {
+          "harmonized_name": "num_replicons",
+          "name": "num_replicons",
+          "value": "missing"
+        },
+        {
+          "harmonized_name": "ref_biomaterial",
+          "name": "ref_biomaterial",
+          "value": "missing"
+        },
+        {
+          "harmonized_name": null,
+          "name": "type-material",
+          "value": "type strain of Spiribacter salilacus"
+        }
+      ],
+      "description": "Keywords: GSC:MIxS;MIGS:6.0",
+      "ids": [
+        {
+          "db": "BioSample",
+          "id": "SAMN13193768",
+          "label": null
+        },
+        {
+          "db": null,
+          "id": "C176",
+          "label": "Sample name"
+        }
+      ],
+      "organism": "Spiribacter salilacus",
+      "package": "MIGS.ba.sediment.6.0",
+      "request_key": "1a62bd61142b3ae831ba3a86329d7c491cab6896f92ef15325ac4ca3ebe25ff7",
+      "search_key": "e1cf410164c55b28e6a6afcd1875902afbe265747ce4374d72e7d9faa2e8a388",
+      "status": "found",
+      "taxon_id": "2664894",
+      "title": "MIGS Cultured Bacterial/Archaeal sample from Spiribacter salilacus",
+      "uid": "13193768"
+    },
     "SAMN13450411": {
       "accession": "SAMN13450411",
       "attributes": [
@@ -3567,6 +4770,163 @@
       "title": "Microbe sample from Sphingomonas paucimobilis",
       "uid": "14792647"
     },
+    "SAMN18303291": {
+      "accession": "SAMN18303291",
+      "attributes": [
+        {
+          "harmonized_name": "strain",
+          "name": "strain",
+          "value": "BT507"
+        },
+        {
+          "harmonized_name": "collection_date",
+          "name": "collection_date",
+          "value": "2020"
+        },
+        {
+          "harmonized_name": "depth",
+          "name": "depth",
+          "value": "0"
+        },
+        {
+          "harmonized_name": "elev",
+          "name": "elev",
+          "value": "0"
+        },
+        {
+          "harmonized_name": "env_broad_scale",
+          "name": "env_broad_scale",
+          "value": "0"
+        },
+        {
+          "harmonized_name": "env_local_scale",
+          "name": "env_local_scale",
+          "value": "0"
+        },
+        {
+          "harmonized_name": "env_medium",
+          "name": "env_medium",
+          "value": "0"
+        },
+        {
+          "harmonized_name": "geo_loc_name",
+          "name": "geo_loc_name",
+          "value": "South Korea"
+        },
+        {
+          "harmonized_name": "isol_growth_condt",
+          "name": "isol_growth_condt",
+          "value": "0"
+        },
+        {
+          "harmonized_name": "lat_lon",
+          "name": "lat_lon",
+          "value": "35 N 129 E"
+        },
+        {
+          "harmonized_name": "num_replicons",
+          "name": "num_replicons",
+          "value": "0"
+        },
+        {
+          "harmonized_name": "ref_biomaterial",
+          "name": "ref_biomaterial",
+          "value": "0"
+        },
+        {
+          "harmonized_name": "isolation_source",
+          "name": "isolation_source",
+          "value": "soil"
+        }
+      ],
+      "description": "Keywords: GSC:MIxS;MIGS:6.0",
+      "ids": [
+        {
+          "db": "BioSample",
+          "id": "SAMN18303291",
+          "label": null
+        },
+        {
+          "db": null,
+          "id": "KCTC 52770",
+          "label": "Sample name"
+        }
+      ],
+      "organism": "Hymenobacter defluvii",
+      "package": "MIGS.ba.soil.6.0",
+      "request_key": "6e0798b05623788856d2f06328d81e1f2093396f35baf3abe4a5608359ba32e0",
+      "search_key": "1501cea175a2dd1886c0c116bdfcb7091ff5ffc338af751e9878ff1225a2366e",
+      "status": "found",
+      "taxon_id": "2054411",
+      "title": "MIGS Cultured Bacterial/Archaeal sample from Hymenobacter defluvii",
+      "uid": "18303291"
+    },
+    "SAMN30967738": {
+      "accession": "SAMN30967738",
+      "attributes": [
+        {
+          "harmonized_name": "strain",
+          "name": "strain",
+          "value": "DUCC20226"
+        },
+        {
+          "harmonized_name": "host",
+          "name": "host",
+          "value": "pear tree"
+        },
+        {
+          "harmonized_name": "isolation_source",
+          "name": "isolation_source",
+          "value": "pear tree canker"
+        },
+        {
+          "harmonized_name": "collection_date",
+          "name": "collection_date",
+          "value": "2021-06-12"
+        },
+        {
+          "harmonized_name": "geo_loc_name",
+          "name": "geo_loc_name",
+          "value": "South Korea: Cheonan"
+        },
+        {
+          "harmonized_name": "sample_type",
+          "name": "sample_type",
+          "value": "Single cell"
+        },
+        {
+          "harmonized_name": "identified_by",
+          "name": "identified_by",
+          "value": "Min Yeong Kang"
+        },
+        {
+          "harmonized_name": "isolate_name_alias",
+          "name": "isolate_name_alias",
+          "value": "YM2"
+        }
+      ],
+      "description": null,
+      "ids": [
+        {
+          "db": "BioSample",
+          "id": "SAMN30967738",
+          "label": null
+        },
+        {
+          "db": null,
+          "id": "Diaporthe amygdali DUCC20226",
+          "label": "Sample name"
+        }
+      ],
+      "organism": "Diaporthe amygdali",
+      "package": "Microbe.1.0",
+      "request_key": "f3127361b9340bee074c5b7ed4ab540b5d4cc893091f15ae1601493725b7f65d",
+      "search_key": "b8eafd0f180946aa03445650402d0728b4eb267c786d816a486d530308e374ff",
+      "status": "found",
+      "taxon_id": "1214568",
+      "title": "Microbe sample from apple tree canker",
+      "uid": "30967738"
+    },
     "SAMN32166878": {
       "accession": "SAMN32166878",
       "attributes": [
@@ -3699,6 +5059,203 @@
       "title": "Sphingomonas faeni strain K691.44",
       "uid": "32343746"
     },
+    "SAMN33096649": {
+      "accession": "SAMN33096649",
+      "attributes": [
+        {
+          "harmonized_name": "strain",
+          "name": "strain",
+          "value": "16-2883"
+        },
+        {
+          "harmonized_name": "culture_collection",
+          "name": "culture-collection",
+          "value": "ATCC:TSD-145"
+        },
+        {
+          "harmonized_name": "collection_date",
+          "name": "collection_date",
+          "value": "2016-05-20"
+        },
+        {
+          "harmonized_name": "env_broad_scale",
+          "name": "env_broad_scale",
+          "value": "missing"
+        },
+        {
+          "harmonized_name": "env_local_scale",
+          "name": "env_local_scale",
+          "value": "missing"
+        },
+        {
+          "harmonized_name": "env_medium",
+          "name": "env_medium",
+          "value": "missing"
+        },
+        {
+          "harmonized_name": "geo_loc_name",
+          "name": "geo_loc_name",
+          "value": "USA: Washington State"
+        },
+        {
+          "harmonized_name": "isol_growth_condt",
+          "name": "isol_growth_condt",
+          "value": "PMID: 30487306"
+        },
+        {
+          "harmonized_name": "lat_lon",
+          "name": "lat_lon",
+          "value": "missing"
+        },
+        {
+          "harmonized_name": "host",
+          "name": "host",
+          "value": "Actinemys marmorata (Western pond turtle)"
+        },
+        {
+          "harmonized_name": null,
+          "name": "type-material",
+          "value": "culture from holotype of Emydomyces testavorans"
+        }
+      ],
+      "description": "Keywords: GSC:MIxS;MIGS:6.0",
+      "ids": [
+        {
+          "db": "BioSample",
+          "id": "SAMN33096649",
+          "label": null
+        },
+        {
+          "db": null,
+          "id": "Emydomyces testavorans Genome",
+          "label": "Sample name"
+        },
+        {
+          "db": "SRA",
+          "id": "SRS16696022",
+          "label": null
+        }
+      ],
+      "organism": "Emydomyces testavorans",
+      "package": "MIGS.eu.6.0",
+      "request_key": "f3127361b9340bee074c5b7ed4ab540b5d4cc893091f15ae1601493725b7f65d",
+      "search_key": "b8eafd0f180946aa03445650402d0728b4eb267c786d816a486d530308e374ff",
+      "status": "found",
+      "taxon_id": "2070801",
+      "title": "MIGS Eukaryotic sample from Emydomyces testavorans type strain 16-2883 (ATCC TSD-145)",
+      "uid": "33096649"
+    },
+    "SAMN35642710": {
+      "accession": "SAMN35642710",
+      "attributes": [
+        {
+          "harmonized_name": "strain",
+          "name": "strain",
+          "value": "NRRL 64651"
+        },
+        {
+          "harmonized_name": "isolate_name_alias",
+          "name": "isolate_name_alias",
+          "value": "FERN 10531"
+        },
+        {
+          "harmonized_name": "collection_date",
+          "name": "collection_date",
+          "value": "2018-07-12"
+        },
+        {
+          "harmonized_name": "env_broad_scale",
+          "name": "env_broad_scale",
+          "value": "area of national forest [ENVO_00000360]|experimental forest ecosystem [ENVO_03600038]"
+        },
+        {
+          "harmonized_name": "env_local_scale",
+          "name": "env_local_scale",
+          "value": "forest [ENVO_00000111]"
+        },
+        {
+          "harmonized_name": "env_medium",
+          "name": "env_medium",
+          "value": "perithecia on tulip-poplar stem canker"
+        },
+        {
+          "harmonized_name": "geo_loc_name",
+          "name": "geo_loc_name",
+          "value": "USA: West Virginia, Tucker County, Monongahela National Forest, Fernow Experimental Forest"
+        },
+        {
+          "harmonized_name": "host",
+          "name": "host",
+          "value": "Liriodendron tulipifera [tulip-poplar]"
+        },
+        {
+          "harmonized_name": "isol_growth_condt",
+          "name": "isol_growth_condt",
+          "value": "Isolated on PDA from perithecia from bark"
+        },
+        {
+          "harmonized_name": "lat_lon",
+          "name": "lat_lon",
+          "value": "39.034 N 79.685 W"
+        },
+        {
+          "harmonized_name": "biotic_relationship",
+          "name": "biotic_relationship",
+          "value": "parasite"
+        },
+        {
+          "harmonized_name": "collection_method",
+          "name": "collection_method",
+          "value": "bark plugs extracted with leather punch and hammer"
+        },
+        {
+          "harmonized_name": "isolation_source",
+          "name": "isolation_source",
+          "value": "target canker"
+        },
+        {
+          "harmonized_name": "identified_by",
+          "name": "Identified by",
+          "value": "Matt Kasson"
+        },
+        {
+          "harmonized_name": "collected_by",
+          "name": "Collected by",
+          "value": "Matt Kasson, Angie Macias, Cameron Stauder"
+        },
+        {
+          "harmonized_name": "culture_collection",
+          "name": "culture_collection",
+          "value": "NRRL:64651"
+        }
+      ],
+      "description": "Genomic DNA of Neonectria magnoliae FERN 10531 collected from perithecia sampled on July 12, 2018 from the margins of a perennial target canker of Liriodendron tulipifera (tulip-poplar) that was impacting many trees of this host on the Fernow Experimental Forest (Monongahela National Forest) near Parsons, West Virginia. Keywords: GSC:MIxS;MIGS:6.0",
+      "ids": [
+        {
+          "db": "BioSample",
+          "id": "SAMN35642710",
+          "label": null
+        },
+        {
+          "db": null,
+          "id": "DNA sample of Neonectria magnoliae FERN 10531/HP011/MTK37",
+          "label": "Sample name"
+        },
+        {
+          "db": "SRA",
+          "id": "SRS17991177",
+          "label": null
+        }
+      ],
+      "organism": "Neonectria magnoliae",
+      "package": "MIGS.eu.plant-associated.6.0",
+      "request_key": "5e9ab501a24cc14c933a9ac1a8e5aee071e4c3f5a63efe0060b3262abc8b6dce",
+      "search_key": "f80ba66c98fdc123001523d241131ac68ad09d48284f45930d837e3a23a1253a",
+      "status": "found",
+      "taxon_id": "2732573",
+      "title": "DNA sample of Neonectria magnoliae FERN 10531/HP011/MTK37",
+      "uid": "35642710"
+    },
     "SAMN45227232": {
       "accession": "SAMN45227232",
       "attributes": [
@@ -3792,6 +5349,19 @@
       ],
       "status": "found"
     },
+    "PRJDB15493": {
+      "request_key": "84c8b4849bca5da4eb2cf5115f7f20844f6e16dd0d604969b407e3e89f1da054",
+      "rows": [
+        {
+          "project_name": "Neofusicoccum parvum",
+          "secondary_study_accession": "DRP009771",
+          "study_accession": "PRJDB15493",
+          "study_name": "Neofusicoccum parvum",
+          "study_title": "Genome sequencing of Neofusicoccum parvum strains isolated from mango and rice-paper plant."
+        }
+      ],
+      "status": "found"
+    },
     "PRJEB42325": {
       "request_key": "fcd92bc54de8d8eb92e3300a55d5515ec0ef71104865303f0f982fc1205cd4e9",
       "rows": [
@@ -3827,6 +5397,19 @@
           "study_accession": "PRJNA1107164",
           "study_name": "",
           "study_title": "Complete Metagenome-assembled bacterial genomes associated with the marine cyanobacterium Capilliphycus salinus ALCB114379"
+        }
+      ],
+      "status": "found"
+    },
+    "PRJNA217085": {
+      "request_key": "d8d7f5d5cbabfbfa5756801bdf5bf9818eb8b3b7c5a375bade9ec23536022401",
+      "rows": [
+        {
+          "project_name": "Kalmanozyma brasiliensis GHG001",
+          "secondary_study_accession": "",
+          "study_accession": "PRJNA217085",
+          "study_name": "Kalmanozyma brasiliensis GHG001",
+          "study_title": "Kalmanozyma brasiliensis GHG001 Genome sequencing and assembly"
         }
       ],
       "status": "found"
@@ -3935,6 +5518,19 @@
       ],
       "status": "found"
     },
+    "PRJNA587567": {
+      "request_key": "75f2e7e7b61df5648fa00d69ae1a611137da20c7bddd4d7b28fd250bda4f3b47",
+      "rows": [
+        {
+          "project_name": "Spiribacter salilacus strain:C176",
+          "secondary_study_accession": "",
+          "study_accession": "PRJNA587567",
+          "study_name": "Spiribacter salilacus strain:C176",
+          "study_title": "Spiribacter salilacus strain:C176 Genome sequencing and assembly"
+        }
+      ],
+      "status": "found"
+    },
     "PRJNA629834": {
       "request_key": "753d2dd501bb2df887a54f0b7c4009cf05dffbc599d188344d14803b187501e1",
       "rows": [
@@ -3944,6 +5540,32 @@
           "study_accession": "PRJNA629834",
           "study_name": "",
           "study_title": "Draft Genome Sequences of Sphingomonas sp. Isolated from the International Space Station Genome sequencing and assembly"
+        }
+      ],
+      "status": "found"
+    },
+    "PRJNA714367": {
+      "request_key": "753d2dd501bb2df887a54f0b7c4009cf05dffbc599d188344d14803b187501e1",
+      "rows": [
+        {
+          "project_name": "Hymenobacter defluvii strain:BT507",
+          "secondary_study_accession": "",
+          "study_accession": "PRJNA714367",
+          "study_name": "Hymenobacter defluvii strain:BT507",
+          "study_title": "Hymenobacter defluvii strain:BT507 Genome sequencing and assembly"
+        }
+      ],
+      "status": "found"
+    },
+    "PRJNA883535": {
+      "request_key": "82a03f9b1e7cc3568febf7f13c83920079edaa378096f97273aaa6bde5f2f97c",
+      "rows": [
+        {
+          "project_name": "Diaporthe amygdali strain:DUCC20226",
+          "secondary_study_accession": "",
+          "study_accession": "PRJNA883535",
+          "study_name": "Diaporthe amygdali strain:DUCC20226",
+          "study_title": "Diaporthe amygdali strain:DUCC20226 Genome sequencing and assembly"
         }
       ],
       "status": "found"
@@ -3970,6 +5592,32 @@
           "study_accession": "PRJNA914660",
           "study_name": "Sphingomonas faeni strain:K691.44",
           "study_title": "WGS of Sphingomonas faeni"
+        }
+      ],
+      "status": "found"
+    },
+    "PRJNA931726": {
+      "request_key": "82a03f9b1e7cc3568febf7f13c83920079edaa378096f97273aaa6bde5f2f97c",
+      "rows": [
+        {
+          "project_name": "Emydomyces testavorans strain:16-2883",
+          "secondary_study_accession": "SRP421234",
+          "study_accession": "PRJNA931726",
+          "study_name": "Emydomyces testavorans strain:16-2883",
+          "study_title": "Emydomyces testavorans strain:16-2883 Genome sequencing and assembly"
+        }
+      ],
+      "status": "found"
+    },
+    "PRJNA980700": {
+      "request_key": "82a03f9b1e7cc3568febf7f13c83920079edaa378096f97273aaa6bde5f2f97c",
+      "rows": [
+        {
+          "project_name": "Neonectria magnoliae strain:NRRL 64651",
+          "secondary_study_accession": "SRP444038",
+          "study_accession": "PRJNA980700",
+          "study_name": "Neonectria magnoliae strain:NRRL 64651",
+          "study_title": "Neonectria magnoliae NRRL 64651 Genome sequencing and assembly"
         }
       ],
       "status": "found"
@@ -4256,6 +5904,60 @@
       "taxon_id": 119927,
       "uniprot_release": "2026_03"
     },
+    "A0A6N7QP32": {
+      "accession": "A0A6N7QP32",
+      "embl": [
+        {
+          "molecule_type": "Genomic_DNA",
+          "parent_accession": "WJPP01000003",
+          "protein_id": "MRH78166.1",
+          "status": "-"
+        }
+      ],
+      "entry_type": "UniProtKB unreviewed (TrEMBL)",
+      "organism": "Spiribacter salilacus",
+      "organism_lineage": [
+        "Bacteria",
+        "Pseudomonadati",
+        "Pseudomonadota",
+        "Gammaproteobacteria",
+        "Chromatiales",
+        "Ectothiorhodospiraceae",
+        "Spiribacter"
+      ],
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "proteome": "UP000433788"
+        }
+      ],
+      "references": [
+        {
+          "citation_type": "submission",
+          "comments": [
+            {
+              "evidence_ids": [
+                "MRH78166.1",
+                "UP000433788"
+              ],
+              "type": "STRAIN",
+              "value": "C176"
+            }
+          ],
+          "doi": null,
+          "pubmed": null,
+          "title": null
+        }
+      ],
+      "refseq": [
+        "WP_153719236.1"
+      ],
+      "request_key": "53364ee14163d8256c597c56753b614597e98621ad0714c253761feb0ba3eb60",
+      "sequence_sha256": "ab84f7d2038aaed74d9e06bb129a2fe75d0cb793c0748a2eb228c969a8be9121",
+      "status": "active",
+      "taxon_id": 2664894,
+      "uniprot_release": "2026_03"
+    },
     "A0A6P3CW42": {
       "accession": "A0A6P3CW42",
       "embl": [],
@@ -4420,6 +6122,60 @@
       "taxon_id": 5025,
       "uniprot_release": "2026_03"
     },
+    "A0AAD9SGK5": {
+      "accession": "A0AAD9SGK5",
+      "embl": [
+        {
+          "molecule_type": "Genomic_DNA",
+          "parent_accession": "JAUJFL010000003",
+          "protein_id": "KAK2607400.1",
+          "status": "-"
+        }
+      ],
+      "entry_type": "UniProtKB unreviewed (TrEMBL)",
+      "organism": "Diaporthe amygdali",
+      "organism_lineage": [
+        "Eukaryota",
+        "Fungi",
+        "Dikarya",
+        "Ascomycota",
+        "Pezizomycotina",
+        "Sordariomycetes",
+        "Sordariomycetidae",
+        "Diaporthales",
+        "Diaporthaceae",
+        "Diaporthe"
+      ],
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "proteome": "UP001265746"
+        }
+      ],
+      "references": [
+        {
+          "citation_type": "submission",
+          "comments": [
+            {
+              "evidence_ids": [
+                "KAK2607400.1"
+              ],
+              "type": "STRAIN",
+              "value": "DUCC20226"
+            }
+          ],
+          "doi": null,
+          "pubmed": null,
+          "title": null
+        }
+      ],
+      "refseq": [],
+      "request_key": "3c4f8b4e4e73c93220501ed8600ac001f18b5df9d18df9fab986756ac565fa52",
+      "sequence_sha256": "9adea89cfaa052e88ecc8b598d6a8f34490a6f6004a33490ce6b625ae69cd2a3",
+      "status": "active",
+      "taxon_id": 1214568,
+      "uniprot_release": "2026_03"
+    },
     "A0AAE0N5R7": {
       "accession": "A0AAE0N5R7",
       "embl": [
@@ -4487,6 +6243,60 @@
       "sequence_sha256": "02687433ad46d3e16aa90456906b7b0352fd62955787628d622eaea66471f275",
       "status": "active",
       "taxon_id": 92902,
+      "uniprot_release": "2026_03"
+    },
+    "A0AAF0DL47": {
+      "accession": "A0AAF0DL47",
+      "embl": [
+        {
+          "molecule_type": "Genomic_DNA",
+          "parent_accession": "CP120629",
+          "protein_id": "WEW59632.1",
+          "status": "-"
+        }
+      ],
+      "entry_type": "UniProtKB unreviewed (TrEMBL)",
+      "organism": "Emydomyces testavorans",
+      "organism_lineage": [
+        "Eukaryota",
+        "Fungi",
+        "Dikarya",
+        "Ascomycota",
+        "Pezizomycotina",
+        "Eurotiomycetes",
+        "Eurotiomycetidae",
+        "Onygenales",
+        "Nannizziopsiaceae",
+        "Emydomyces"
+      ],
+      "proteomes": [
+        {
+          "component": "Chromosome 3",
+          "proteome": "UP001219355"
+        }
+      ],
+      "references": [
+        {
+          "citation_type": "submission",
+          "comments": [
+            {
+              "evidence_ids": [
+                "WEW59632.1"
+              ],
+              "type": "STRAIN",
+              "value": "16-2883"
+            }
+          ],
+          "doi": null,
+          "pubmed": null,
+          "title": "Emydomyces testavorans Genome Sequence."
+        }
+      ],
+      "refseq": [],
+      "request_key": "3c4f8b4e4e73c93220501ed8600ac001f18b5df9d18df9fab986756ac565fa52",
+      "sequence_sha256": "2c0b152e2597858e79a56180c20d74b578c8998a14d18fdc3f9d00ca2064369a",
+      "status": "active",
+      "taxon_id": 2070801,
       "uniprot_release": "2026_03"
     },
     "A0AAI8Z8P8": {
@@ -4587,6 +6397,169 @@
       "sequence_sha256": "29688914bbcd7eeec027f57e7103dba6c81400b2bda5eee2c4449f6a39d5381a",
       "status": "active",
       "taxon_id": 51714,
+      "uniprot_release": "2026_03"
+    },
+    "A0ABR1H522": {
+      "accession": "A0ABR1H522",
+      "embl": [
+        {
+          "molecule_type": "Genomic_DNA",
+          "parent_accession": "JAZAVK010000219",
+          "protein_id": "KAK7416077.1",
+          "status": "-"
+        }
+      ],
+      "entry_type": "UniProtKB unreviewed (TrEMBL)",
+      "organism": "Neonectria magnoliae",
+      "organism_lineage": [
+        "Eukaryota",
+        "Fungi",
+        "Dikarya",
+        "Ascomycota",
+        "Pezizomycotina",
+        "Sordariomycetes",
+        "Hypocreomycetidae",
+        "Hypocreales",
+        "Nectriaceae",
+        "Neonectria"
+      ],
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "proteome": "UP001498421"
+        }
+      ],
+      "references": [
+        {
+          "citation_type": "journal article",
+          "comments": [
+            {
+              "evidence_ids": [
+                "KAK7416077.1",
+                "UP001498421"
+              ],
+              "type": "STRAIN",
+              "value": "NRRL 64651"
+            }
+          ],
+          "doi": "10.1128/mra.01042-24",
+          "pubmed": "39601523",
+          "title": "Draft genome sequences for Neonectria magnoliae and Neonectria punicea, canker pathogens of Liriodendron tulipifera and Acer saccharum in West Virginia."
+        }
+      ],
+      "refseq": [],
+      "request_key": "d2496a5e71b60c4d4db386a8fb0f2789a29e2631ea28190ec476a151385aaa3b",
+      "sequence_sha256": "11010ffeec2bddfb23f2f6a0a3c73cb1c657e10969be2316c0cbdf66c7b89e7b",
+      "status": "active",
+      "taxon_id": 2732573,
+      "uniprot_release": "2026_03"
+    },
+    "A0ABS3TAH3": {
+      "accession": "A0ABS3TAH3",
+      "embl": [
+        {
+          "molecule_type": "Genomic_DNA",
+          "parent_accession": "JAGETX010000003",
+          "protein_id": "MBO3270652.1",
+          "status": "-"
+        }
+      ],
+      "entry_type": "UniProtKB unreviewed (TrEMBL)",
+      "organism": "Hymenobacter defluvii",
+      "organism_lineage": [
+        "Bacteria",
+        "Pseudomonadati",
+        "Bacteroidota",
+        "Cytophagia",
+        "Cytophagales",
+        "Hymenobacteraceae",
+        "Hymenobacter"
+      ],
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "proteome": "UP000670527"
+        }
+      ],
+      "references": [
+        {
+          "citation_type": "submission",
+          "comments": [
+            {
+              "evidence_ids": [
+                "MBO3270652.1",
+                "UP000670527"
+              ],
+              "type": "STRAIN",
+              "value": "BT507"
+            }
+          ],
+          "doi": null,
+          "pubmed": null,
+          "title": null
+        }
+      ],
+      "refseq": [
+        "WP_208307169.1"
+      ],
+      "request_key": "d2496a5e71b60c4d4db386a8fb0f2789a29e2631ea28190ec476a151385aaa3b",
+      "sequence_sha256": "9f2605786a89bea3f3048e781f0dd493c917e3d5d2667f11d988f2181ad7242b",
+      "status": "active",
+      "taxon_id": 2054411,
+      "uniprot_release": "2026_03"
+    },
+    "A0ABS3TE24": {
+      "accession": "A0ABS3TE24",
+      "embl": [
+        {
+          "molecule_type": "Genomic_DNA",
+          "parent_accession": "JAGETX010000004",
+          "protein_id": "MBO3270884.1",
+          "status": "-"
+        }
+      ],
+      "entry_type": "UniProtKB unreviewed (TrEMBL)",
+      "organism": "Hymenobacter defluvii",
+      "organism_lineage": [
+        "Bacteria",
+        "Pseudomonadati",
+        "Bacteroidota",
+        "Cytophagia",
+        "Cytophagales",
+        "Hymenobacteraceae",
+        "Hymenobacter"
+      ],
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "proteome": "UP000670527"
+        }
+      ],
+      "references": [
+        {
+          "citation_type": "submission",
+          "comments": [
+            {
+              "evidence_ids": [
+                "MBO3270884.1",
+                "UP000670527"
+              ],
+              "type": "STRAIN",
+              "value": "BT507"
+            }
+          ],
+          "doi": null,
+          "pubmed": null,
+          "title": null
+        }
+      ],
+      "refseq": [
+        "WP_208307377.1"
+      ],
+      "request_key": "d2496a5e71b60c4d4db386a8fb0f2789a29e2631ea28190ec476a151385aaa3b",
+      "sequence_sha256": "a41d2b7d754bd1f42f50815b1482f1cfb71b3d64f9e7f512c276ebbcfa57d9fa",
+      "status": "active",
+      "taxon_id": 2054411,
       "uniprot_release": "2026_03"
     },
     "A0ABU7TSG0": {
@@ -4695,6 +6668,60 @@
       "sequence_sha256": "9f68dfac6bf248dff970fe55cbb52ef3b9c895461552e6c5bb2584f7e7839187",
       "status": "active",
       "taxon_id": 328515,
+      "uniprot_release": "2026_03"
+    },
+    "A0ACB5S6E6": {
+      "accession": "A0ACB5S6E6",
+      "embl": [
+        {
+          "molecule_type": "Genomic_DNA",
+          "parent_accession": "BSXG01000042",
+          "protein_id": "GME27946.1",
+          "status": "-"
+        }
+      ],
+      "entry_type": "UniProtKB unreviewed (TrEMBL)",
+      "organism": "Neofusicoccum parvum",
+      "organism_lineage": [
+        "Eukaryota",
+        "Fungi",
+        "Dikarya",
+        "Ascomycota",
+        "Pezizomycotina",
+        "Dothideomycetes",
+        "Dothideomycetes incertae sedis",
+        "Botryosphaeriales",
+        "Botryosphaeriaceae",
+        "Neofusicoccum"
+      ],
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "proteome": "UP001165186"
+        }
+      ],
+      "references": [
+        {
+          "citation_type": "submission",
+          "comments": [
+            {
+              "evidence_ids": [
+                "GME27946.1"
+              ],
+              "type": "STRAIN",
+              "value": "PPO83"
+            }
+          ],
+          "doi": null,
+          "pubmed": null,
+          "title": "Draft Genome Sequences of Neofusicoccum parvum."
+        }
+      ],
+      "refseq": [],
+      "request_key": "a867db90570ec4d542e3e103fea5e071708eb38ff09bac41e52af06c58ac8cdc",
+      "sequence_sha256": "ad4d128f70196ac998387c3909aca22fecfaffe1f98f4f535f6c20de2785e70f",
+      "status": "active",
+      "taxon_id": 310453,
       "uniprot_release": "2026_03"
     },
     "A0ACC2JG09": {
@@ -4946,6 +6973,57 @@
       "taxon_id": 358574,
       "uniprot_release": "2026_03"
     },
+    "L1IFZ3": {
+      "accession": "L1IFZ3",
+      "embl": [],
+      "entry_type": "UniProtKB unreviewed (TrEMBL)",
+      "organism": "Guillardia theta (strain CCMP2712)",
+      "organism_lineage": [
+        "Eukaryota",
+        "Cryptophyceae",
+        "Pyrenomonadales",
+        "Geminigeraceae",
+        "Guillardia"
+      ],
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "proteome": "UP000011087"
+        }
+      ],
+      "references": [
+        {
+          "citation_type": "journal article",
+          "comments": [
+            {
+              "evidence_ids": [
+                "UP000011087"
+              ],
+              "type": "STRAIN",
+              "value": "CCMP2712"
+            }
+          ],
+          "doi": "10.1038/nature11681",
+          "pubmed": "23201678",
+          "title": "Algal genomes reveal evolutionary mosaicism and the fate of nucleomorphs."
+        },
+        {
+          "citation_type": "submission",
+          "comments": [],
+          "doi": null,
+          "pubmed": null,
+          "title": null
+        }
+      ],
+      "refseq": [
+        "XP_005821982.1"
+      ],
+      "request_key": "63dd7f3ed5c0c5f76f18d020141422db9fbb4cbd28cb90ef8da3e11056ab8515",
+      "sequence_sha256": "f9606e5d7f99a59c82e18f0c89d492ee28d4668d2b78ab8fa16060a4ab796b62",
+      "status": "active",
+      "taxon_id": 905079,
+      "uniprot_release": "2026_03"
+    },
     "L1J8K0": {
       "accession": "L1J8K0",
       "embl": [],
@@ -5164,6 +7242,61 @@
       "sequence_sha256": "e0af9087147e6a1c546b8abdfa1c87b5be628a93984fac2d99da14d5c2c770b5",
       "status": "active",
       "taxon_id": 160804,
+      "uniprot_release": "2026_03"
+    },
+    "V5EKV4": {
+      "accession": "V5EKV4",
+      "embl": [
+        {
+          "molecule_type": "Genomic_DNA",
+          "parent_accession": "KI545891",
+          "protein_id": "EST05565.1",
+          "status": "-"
+        }
+      ],
+      "entry_type": "UniProtKB unreviewed (TrEMBL)",
+      "organism": "Kalmanozyma brasiliensis (strain GHG001)",
+      "organism_lineage": [
+        "Eukaryota",
+        "Fungi",
+        "Dikarya",
+        "Basidiomycota",
+        "Ustilaginomycotina",
+        "Ustilaginomycetes",
+        "Ustilaginales",
+        "Ustilaginales incertae sedis",
+        "Kalmanozyma"
+      ],
+      "proteomes": [
+        {
+          "component": "Unassembled WGS sequence",
+          "proteome": "UP000019377"
+        }
+      ],
+      "references": [
+        {
+          "citation_type": "journal article",
+          "comments": [
+            {
+              "evidence_ids": [
+                "UP000019377"
+              ],
+              "type": "STRAIN",
+              "value": "GHG001"
+            }
+          ],
+          "doi": "10.1128/genomea.00920-13",
+          "pubmed": "24356824",
+          "title": "Draft genome sequence of Pseudozyma brasiliensis sp. nov. strain GHG001, a high producer of endo-1,4-xylanase isolated from an insect pest of sugarcane."
+        }
+      ],
+      "refseq": [
+        "XP_016290554.1"
+      ],
+      "request_key": "63dd7f3ed5c0c5f76f18d020141422db9fbb4cbd28cb90ef8da3e11056ab8515",
+      "sequence_sha256": "a64d31dac22a5cfe91793b5d90141da5936534da9ac52bb3e2c3b620232245a9",
+      "status": "active",
+      "taxon_id": 1365824,
       "uniprot_release": "2026_03"
     },
     "X2G5I2": {

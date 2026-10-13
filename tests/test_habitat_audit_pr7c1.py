@@ -1,4 +1,4 @@
-"""PR-7c.1 habitat metadata availability audit: rule tests, fixture replay and output integrity.
+"""PR-7c.1 / PR-7c.1a habitat metadata availability audit: rule tests, fixture replay and output integrity.
 
 Offline and self-contained:
 - synthetic rule tests build minimal entity stores and exercise every grading rule, including the
@@ -174,7 +174,7 @@ def test_missing_value_is_not_reported_and_flagged():
     row, _, _ = grade(rec(), one_sample(ncbi=[("env_broad_scale", "not applicable"), ("isolation_source", "missing")]))
     assert row["primary_grade"] == "NOT_REPORTED"
     assert "habitat_reported_missing" in flags(row)
-    assert row["not_reported_scope"] == "database_chain_only"
+    assert row["not_reported_scope"] == "database_only_literature_not_reviewed"
 
 
 @pytest.mark.parametrize("v", ["environmental material", "biome", "ENVO:00010483", "environment [ENVO:01000254]"])
@@ -196,7 +196,9 @@ def test_virus_host_binomial_not_self():
     e = ent_cds(organism=org, lineage=("Viruses",), row=source_row(sample="", host="Emiliania huxleyi",
                                                                    scientific_name=org))
     row, _, _ = grade(rec(organism=org), e)
-    assert row["primary_grade"] == "DIRECT_SAMPLE" and row["host_original"] == "Emiliania huxleyi"
+    # the host is kept (not self) but is host association, not a physical habitat (PR-7c.1a)
+    assert row["host_original"] == "Emiliania huxleyi" and row["host_association_status"] == "REPORTED"
+    assert row["primary_grade"] == "NOT_REPORTED" and row["pr7c1_grade"] == "DIRECT_SAMPLE"
 
 
 def test_geography_is_never_habitat():
@@ -415,13 +417,14 @@ def test_db_direct_takes_precedence_over_literature():
 def test_literature_outside_subset_is_not_searched():
     row, _, ev = grade(rec(), one_sample(), lit())
     assert row["primary_grade"] == "NOT_REPORTED" and row["literature_status"] == "NOT_SEARCHED"
-    assert row["not_reported_scope"] == "database_chain_only"
+    assert row["not_reported_scope"] == "database_only_literature_not_reviewed"
     assert not any(i["evidence_source"] == "literature" for i in ev)
 
 
 def test_literature_lookup_failed_keeps_database_chain_scope():
     row, _, _ = grade(rec(is_seed=1), one_sample(), {"literature_status": "LOOKUP_FAILED", "items": []})
-    assert row["primary_grade"] == "NOT_REPORTED" and row["not_reported_scope"] == "database_chain_only"
+    assert row["primary_grade"] == "NOT_REPORTED" and row["not_reported_scope"] == "database_only_literature_inaccessible"
+    assert row["literature_status"] == "LOOKUP_FAILED"  # preserved, no annotation invented
     row, _, _ = grade(rec(is_seed=1), one_sample(), {"literature_status": "NOT_REPORTED", "items": []})
     assert row["not_reported_scope"] == "database_and_literature"
 
@@ -548,8 +551,8 @@ def test_output_evidence_traceability():
             assert q["url"] and q["ok"] in ("1", "True") and q["status"] == "200", i
             if e["evidence_source"] == "literature":
                 assert q["purpose"] == "literature_verification" and e["source_url"], i
-        if r["primary_grade"] == "DIRECT_SAMPLE":
-            assert any(ev[i]["role"] in N.HABITAT_ROLES for i in ids)
+        if r["primary_grade"] == "DIRECT_SAMPLE":  # physical habitat only (host never suffices, PR-7c.1a)
+            assert any(ev[i]["role"] in N.PHYSICAL_ROLES for i in ids), r["source_acc"]
         if r["primary_grade"] == "LOOKUP_FAILED":
             assert r["chain_failures"]
         if r["primary_grade"] == "NOT_REPORTED":
@@ -601,3 +604,210 @@ def test_dictionary_listed_material_terms():
     for v in ("fruiting body", "Fruiting bodies.", "frond"):
         assert N.is_tissue_term(v), v
     assert not N.is_missing("0") and N.is_missing("not applicable: control")
+
+
+# --------------------------------------------------------------------------- PR-7c.1a scientific semantics
+def test_roles_physical_vs_host():
+    assert N.PHYSICAL_ROLES == ("env_broad_scale", "env_local_scale", "env_medium", "isolation_source")
+    assert N.HOST_ROLES == ("host",)
+    assert set(N.PHYSICAL_ROLES) | set(N.HOST_ROLES) == set(N.HABITAT_ROLES)
+    assert not set(N.PHYSICAL_ROLES) & set(N.HOST_ROLES)
+
+
+def test_host_only_is_not_physical_habitat():
+    row, _, ev = grade(rec(), one_sample(ncbi=[("host", "Homo sapiens")]))
+    assert row["primary_grade"] == "NOT_REPORTED" and row["has_usable_habitat"] == 0
+    assert row["host_association_status"] == "REPORTED" and row["has_host_association"] == 1
+    assert "host_association_only" in flags(row)
+    assert row["pr7c1_grade"] == "DIRECT_SAMPLE"  # legacy view preserved for transition tables
+    assert row["db_habitat_status"] == "NOT_REPORTED" and row["mapping_confidence"] == ""
+    assert row["host_original"] == "Homo sapiens"  # provenance preserved
+    assert [i["value_status"] for i in ev if i["role"] == "host"] == ["usable"]
+
+
+def test_host_plus_physical_is_direct_and_reported():
+    row, _, _ = grade(rec(), one_sample(ncbi=[("host", "Zea mays"), ("isolation_source", "rhizosphere soil")]))
+    assert row["primary_grade"] == "DIRECT_SAMPLE" and row["host_association_status"] == "REPORTED"
+    assert "host_association_only" not in flags(row)
+
+
+def test_host_conflict_with_agreeing_physical_is_direct():
+    row, _, _ = grade(rec(), one_sample(ena=[("host", "Mus musculus"), ("isolation_source", "gut")],
+                                        ncbi=[("host", "Rattus norvegicus"), ("isolation_source", "gut")]))
+    assert row["primary_grade"] == "DIRECT_SAMPLE" and row["host_association_status"] == "AMBIGUOUS"
+    assert row["pr7c1_grade"] == "AMBIGUOUS" and row["ambiguity_class"] == ""
+    assert row["host_ambiguity_class"] == "DISTINCT_SAME_SAMPLE"
+    assert "host_conflict" in flags(row) and "conflict" not in flags(row)
+    assert row["conflict_roles"] == "host"  # raw observation preserved
+    assert "Mus musculus" in row["host_original"] and "Rattus norvegicus" in row["host_original"]
+
+
+def test_host_only_conflict_is_not_reported_physically():
+    row, _, _ = grade(rec(), one_sample(ena=[("host", "Mus musculus")], ncbi=[("host", "Rattus norvegicus")]))
+    assert row["primary_grade"] == "NOT_REPORTED" and row["pr7c1_grade"] == "AMBIGUOUS"
+    assert row["host_association_status"] == "AMBIGUOUS"
+
+
+@pytest.mark.parametrize("v,exp", [("0", True), ("00", True), ("0.0", True), (" 0 ", True),
+                                   ("00000316", False), ("ENVO:00000316", False), ("10", False), ("soil", False)])
+def test_zero_placeholder_rule(v, exp):
+    assert N.is_zero_placeholder(v, "env_local_scale") is exp
+    assert N.is_zero_placeholder(v, "isolation_source") is False  # MIxS env fields only
+    assert N.is_zero_placeholder(v, "host") is False
+
+
+def test_zero_placeholder_keeps_isolation_source_soil():
+    e = one_sample(ena=[("env_broad_scale", "0"), ("env_local_scale", "0"), ("env_medium", "0")],
+                   ncbi=[("env_broad_scale", "0"), ("env_local_scale", "0"), ("env_medium", "0"),
+                         ("isolation_source", "soil")])
+    row, _, ev = grade(rec(), e)
+    zero = [i for i in ev if i["value_original"] == "0"]
+    assert len(zero) == 6 and {i["value_status"] for i in zero} == {"invalid_placeholder"}
+    assert row["primary_grade"] == "DIRECT_SAMPLE" and row["isolation_source_original"] == "soil"
+    assert row["env_broad_scale_original"] == row["env_local_scale_original"] == row["env_medium_original"] == ""
+    assert "invalid_placeholder_value" in flags(row)
+    assert row["pr7c1_grade"] == "DIRECT_SAMPLE"
+
+
+def test_zero_only_env_is_not_reported():
+    row, _, _ = grade(rec(), one_sample(ncbi=[("env_medium", "0")]))
+    assert row["primary_grade"] == "NOT_REPORTED" and row["pr7c1_grade"] == "DIRECT_SAMPLE"
+
+
+def test_envo_like_digits_unchanged():
+    row, _, ev = grade(rec(), one_sample(ncbi=[("env_local_scale", "00000316")]))
+    assert row["primary_grade"] == "DIRECT_SAMPLE" and row["env_local_scale_original"] == "00000316"
+
+
+@pytest.mark.parametrize("ena,ncbi,cls", [
+    ([("isolation_source", "sea-water")], [("isolation_source", "sea water")], "FORMATTING_ONLY"),
+    ([("isolation_source", "lake sediment")], [("isolation_source", "sediment")], "NESTED_WORDING"),
+    ([("isolation_source", "hot spring")], [("isolation_source", "sea water")], "DISTINCT_SAME_SAMPLE"),
+])
+def test_ambiguity_classes_within_sample(ena, ncbi, cls):
+    row, _, _ = grade(rec(), one_sample(ena=ena, ncbi=ncbi))
+    assert row["primary_grade"] == "AMBIGUOUS" and row["ambiguity_class"] == cls
+    assert row["isolation_source_original"].count(K.SEP) == 1  # both raw values preserved, none chosen
+
+
+def test_ambiguity_class_across_samples():
+    e = ent_cds(embl=[{"parent_accession": "PA1", "protein_id": "P1.1", "status": "-", "molecule_type": "g"},
+                      {"parent_accession": "PA2", "protein_id": "P2.1", "status": "-", "molecule_type": "g"}])
+    e["cds"]["P1"] = {"status": "found", "request_key": "k1", "rows": [source_row(sample="SAMN1")]}
+    e["cds"]["P2"] = {"status": "found", "request_key": "k2", "rows": [source_row(sample="SAMN2")]}
+    add_sample(e, "SAMN1", ncbi=[("isolation_source", "hot spring")])
+    add_sample(e, "SAMN2", ncbi=[("isolation_source", "sea water")])
+    row, _, _ = grade(rec(), e)
+    assert row["primary_grade"] == "AMBIGUOUS" and row["ambiguity_class"] == "DISTINCT_ACROSS_SAMPLES"
+
+
+def test_ambiguity_class_literature_vs_database():
+    row, _, _ = grade(rec(is_seed=1), one_sample(ncbi=[("isolation_source", "salt marsh")]), lit(consistent="inconsistent"))
+    assert row["primary_grade"] == "AMBIGUOUS" and row["ambiguity_class"] == "LITERATURE_VS_DATABASE"
+    assert "literature_conflict" in flags(row) and row["mapping_confidence"] == "LITERATURE"
+
+
+def test_literature_inconsistent_with_host_only_is_not_physical_conflict():
+    row, _, _ = grade(rec(is_seed=1), one_sample(ncbi=[("host", "Homo sapiens")]), lit(consistent="inconsistent"))
+    assert row["primary_grade"] == "VERIFIED_ISOLATE" and row["pr7c1_grade"] == "AMBIGUOUS"
+
+
+@pytest.mark.parametrize("ls,scope", [("NOT_SEARCHED", "database_only_literature_not_reviewed"),
+                                      ("LOOKUP_FAILED", "database_only_literature_inaccessible"),
+                                      ("NOT_REPORTED", "database_and_literature")])
+def test_not_reported_scope_values(ls, scope):
+    assert K.not_reported_scope("NOT_REPORTED", ls) == scope
+    assert K.not_reported_scope("DIRECT_SAMPLE", ls) == ""
+
+
+EXPECTED_PR7C1 = {"DIRECT_SAMPLE": 2631, "VERIFIED_ISOLATE": 17, "ORGANISM_CONTEXT_ONLY": 36, "AMBIGUOUS": 137,
+                  "NOT_REPORTED": 2645}
+EXPECTED_PR7C1A = {"DIRECT_SAMPLE": 2523, "VERIFIED_ISOLATE": 17, "ORGANISM_CONTEXT_ONLY": 36, "AMBIGUOUS": 59,
+                   "NOT_REPORTED": 2831}
+
+
+def test_output_pr7c1_grade_preserved_and_corrected_counts():
+    rows = _read("habitat_record_availability.tsv")
+    assert dict(collections.Counter(r["pr7c1_grade"] for r in rows)) == EXPECTED_PR7C1
+    assert dict(collections.Counter(r["primary_grade"] for r in rows)) == EXPECTED_PR7C1A
+    ho = [r for r in rows if "host_association_only" in r["flags"].split(";")]
+    assert len(ho) == 186 and sum(r["pr7c1_grade"] == "DIRECT_SAMPLE" for r in ho) == 171
+    assert not any(r["primary_grade"] in ("DIRECT_SAMPLE", "AMBIGUOUS") for r in ho)
+    assert collections.Counter(r["primary_grade"] for r in ho) == {"NOT_REPORTED": 186}
+    assert collections.Counter(r["host_association_status"] for r in rows) == {"NOT_REPORTED": 4711, "REPORTED": 671,
+                                                                              "AMBIGUOUS": 84}
+    for r in rows:
+        if r["primary_grade"] == "DIRECT_SAMPLE":
+            assert any(r[f"{ro}_original"] for ro in N.PHYSICAL_ROLES), r["source_acc"]
+        assert (r["ambiguity_class"] != "") == (r["primary_grade"] == "AMBIGUOUS"), r["source_acc"]
+        assert (r["host_ambiguity_class"] != "") == (r["host_association_status"] == "AMBIGUOUS")
+        assert (r["not_reported_scope"] != "") == (r["primary_grade"] == "NOT_REPORTED")
+
+
+def test_output_zero_placeholders():
+    rows = {r["source_acc"]: r for r in _read("habitat_record_availability.tsv")}
+    for a in ("A0ABS3TAH3", "A0ABS3TE24"):
+        r = rows[a]
+        assert r["primary_grade"] == "DIRECT_SAMPLE" and r["isolation_source_original"] == "soil"
+        assert r["env_broad_scale_original"] == r["env_local_scale_original"] == r["env_medium_original"] == ""
+    ev = [e for e in _read("habitat_evidence.tsv") if e["value_status"] == "invalid_placeholder"]
+    assert len(ev) == 12 and {e["source_acc"] for e in ev} == {"A0ABS3TAH3", "A0ABS3TE24"}
+    assert all(e["value_original"] == "0" and e["role"] in N.MIXS_ENV_ROLES for e in ev)
+    assert rows["A0A6N7QP32"]["env_local_scale_original"] == "00000316"  # observation only, unchanged
+
+
+def test_output_literature_unresolved_preserved():
+    rows = _read("habitat_record_availability.tsv")
+    lf = [r for r in rows if r["literature_status"] == "LOOKUP_FAILED"]
+    assert len(lf) == 24
+    assert not any(r["literature_isolate_text"] or r["organism_context_text"] for r in lf)
+    nr = [r for r in lf if r["primary_grade"] == "NOT_REPORTED"]
+    assert all(r["not_reported_scope"] == "database_only_literature_inaccessible" for r in nr)
+    lit_ev = [e for e in _read("habitat_evidence.tsv") if e["evidence_source"] == "literature"]
+    assert not {e["source_acc"] for e in lit_ev} & {r["source_acc"] for r in lf}
+
+
+def test_output_ambiguity_and_scope_denominators():
+    rows = _read("habitat_record_availability.tsv")
+    summ = {(s["metric"]): s for s in _read("habitat_coverage_summary.tsv")
+            if s["unit"] == "source_record" and s["stratum_type"] == "all"}
+    amb = [r for r in rows if r["primary_grade"] == "AMBIGUOUS"]
+    for c in ("FORMATTING_ONLY", "NESTED_WORDING", "DISTINCT_SAME_SAMPLE", "DISTINCT_ACROSS_SAMPLES",
+              "LITERATURE_VS_DATABASE"):
+        s = summ[f"ambiguity_class:{c}"]
+        assert int(s["denominator"]) == len(amb) == 59
+        assert int(s["numerator"]) == sum(r["ambiguity_class"] == c for r in amb)
+    nr = [r for r in rows if r["primary_grade"] == "NOT_REPORTED"]
+    tot = 0
+    for k, s in summ.items():
+        if k.startswith("not_reported_scope:"):
+            assert int(s["denominator"]) == len(nr)
+            tot += int(s["numerator"])
+    assert tot == len(nr)
+    assert int(summ["host_association_only"]["numerator"]) == 186
+    assert "usable_field:host" not in summ and int(summ["host_field:host"]["numerator"]) == 755
+
+
+def test_generated_svgs_have_no_trailing_whitespace():
+    for p in sorted((OUT / "figures").glob("*.svg")):
+        for i, line in enumerate(p.read_text(encoding="utf-8").split("\n")):
+            assert line == line.rstrip(), (p.name, i)
+
+
+def test_no_hardcoded_machine_paths():
+    root = REPO / "tools" / "habitat_audit"
+    for p in sorted(root.glob("*.py")):
+        if p.name == "mutation_audit.py":
+            continue  # holds the hardcoded-path mutation string on purpose
+        assert "/workspace" not in p.read_text(encoding="utf-8"), p.name
+    from tools.habitat_audit import common as C
+    assert C.DEFAULT_CACHE.is_absolute() and (C.DEFAULT_CACHE == C.WORK_ROOT / "habitat_cache" or
+                                             __import__("os").environ.get("MRDB_HABITAT_CACHE"))
+    assert str(C.WORK_DIR).startswith(str(C.REPO)) or __import__("os").environ.get("MRDB_HABITAT_WORK")
+
+
+def test_manifest_has_no_absolute_paths():
+    m = json.loads((OUT / "habitat_retrieval_manifest.json").read_text(encoding="utf-8"))
+    txt = json.dumps(m)
+    assert "/workspace" not in txt and "/mnt/" not in txt and "/home/" not in txt
+    assert m["audit_id"] == "PR-7c.1a" and m["rules"]["host_association_roles"] == ["host"]

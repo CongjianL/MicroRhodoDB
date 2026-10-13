@@ -54,7 +54,7 @@ def main(argv=None):
     ap.add_argument("--offline", action="store_true")
     ap.add_argument("--retry-failed", action="store_true")
     ap.add_argument("--cache", type=Path, default=C.DEFAULT_CACHE)
-    ap.add_argument("--work", type=Path, default=Path("/workspace/pr7c1_work"))
+    ap.add_argument("--work", type=Path, default=C.WORK_DIR)
     ap.add_argument("--out", type=Path, default=None)
     ap.add_argument("--literature", type=Path, default=C.OUT_DIR / "literature" / "literature_evidence.json")
     ap.add_argument("--no-figures", action="store_true")
