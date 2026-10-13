@@ -12,7 +12,7 @@ import type { MrdbEntry } from "../../src/data/types";
 import { SECTIONS } from "../../src/lib/entry";
 import {
   GRADE_INFO, HABITAT_ROLES, NO_LINK_TEXT, accessionUrl, checkHabitatFile, doiUrl, envoLinks, envoUrl, habitatView,
-  hostStatusText, itemUrl, missingnessText, pubmedUrl, sourceRows, valueText,
+  hostLabel, hostStatusText, itemUrl, missingnessText, pubmedUrl, sourceRows, valueText,
 } from "../../src/lib/habitat";
 import { safeExternalUrl } from "../../src/lib/safe";
 import { WEB, json } from "./helpers";
@@ -144,6 +144,12 @@ describe("PR-7c.2 grade, host and missingness wording", () => {
     const q = bySource().get("Q53461")!;
     expect(missingnessText(q)).toBe("No traceable INSDC or sample link; sample records could not be checked; literature not reviewed.");
     expect(hostStatusText(q)).toBe(NO_LINK_TEXT);
+    // without a sample link the host badge never reads as a checked "not reported"
+    const noLinkHost = entries().filter((x) => x.sample_link === "none" && x.host_association_status === "NOT_REPORTED");
+    expect(noLinkHost.length).toBe(18);
+    for (const e of noLinkHost) expect(hostLabel(e.host_association_status, e.sample_link)).toBe("Host not reported (no sample link)");
+    expect(hostLabel("NOT_REPORTED", "traceable")).toBe("Host not reported");
+    expect(hostLabel("REPORTED", "traceable")).toBe("Host reported");
     // a grade other than NOT_REPORTED never gets missingness wording
     for (const e of entries().filter((x) => x.grade !== "NOT_REPORTED")) expect(missingnessText(e)).toBeNull();
   });

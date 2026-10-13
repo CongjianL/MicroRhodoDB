@@ -374,8 +374,8 @@ def build(repo, mrdb_of_source: dict[str, str], representative: dict[str, str],
     n_host = sum(e["has_host_association"] for e in E)
     m("has_host_association", n_host, N, "source records with a reported or ambiguous host value")
     host_only = [e for e in E if "host_association_only" in e["flags"]]
-    m("host_association_only", len(host_only), N, "strict host-only: host reported, no usable value in any "
-      "physical role (physical grade NOT_REPORTED)")
+    m("host_association_only", len(host_only), N, "strict host-only: host value(s) reported (host status "
+      "REPORTED or AMBIGUOUS), no usable value in any physical role (physical grade NOT_REPORTED)")
     # host metadata present but no usable physical habitat (has_usable_habitat = 0)
     host_no_res = [e for e in E if e["has_host_association"] and not e["has_usable_physical_habitat"]]
     m("host_without_usable_physical_habitat", len(host_no_res), N, "host metadata present (host REPORTED or "

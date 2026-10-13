@@ -104,6 +104,7 @@ const CASES: Case[] = [
       await expect(p.getByTestId("habitat-missingness")).toHaveText("No traceable INSDC or sample link; sample records could not be checked; literature not reviewed.");
       await expect(p.getByTestId("habitat-collection-no-link")).toBeVisible();
       await expect(p.getByTestId("habitat-badges")).toContainText("no traceable sample link");
+      await expect(p.getByTestId("habitat-host-status")).toHaveText("Host not reported (no sample link)");
     },
   },
   {

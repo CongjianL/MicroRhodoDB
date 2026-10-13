@@ -96,6 +96,8 @@ UI = [
     ("U13", H, '(doi && /^10\\.\\d{4,9}\\/\\S+$/.test(doi)', "(doi && /^10\\./.test(doi)", "unvalidated DOIs linked"),
     ("U14", H, '  return e.flags.includes("host_association_only") ? "Physical habitat not reported; host reported." : null;',
      "  return null;", "host-only wording missing"),
+    ("U16", H, 'return status === "NOT_REPORTED" && sampleLink === "none" ?', 'return false ?',
+     "no-link records labelled with a checked 'Host not reported'"),
     ("U15", H, 'const ENVO_RE = /^ENVO:(\\d{8})$/;', "const ENVO_RE = /ENVO:(\\d+)/;", "malformed ENVO IDs linked"),
 ]
 

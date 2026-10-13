@@ -16,12 +16,12 @@ import type { MrdbEntry, SourceRecord } from "../../data/types";
 import { fmtInt } from "../../lib/format";
 import {
   GRADE_INFO, HOST_INFO, HOST_TISSUE_NOTE, NOT_USABLE_TEXT, NO_LINK_TEXT, ORGANISM_CONTEXT_LABEL, QUARANTINE_TEXT, ROLE_LABEL,
-  SOURCE_LABEL, accessionUrl, checkHabitatFile, doiUrl, envoLinks, habitatView, itemUrl, hostStatusText, pubmedUrl, sourceRows, valueText,
+  SOURCE_LABEL, accessionUrl, checkHabitatFile, doiUrl, envoLinks, habitatView, hostLabel, itemUrl, hostStatusText, pubmedUrl, sourceRows, valueText,
   type HabitatView, type ValueGroup,
 } from "../../lib/habitat";
 import { Ext, Row, Section } from "./ui";
 
-const LEAD = "Observed environmental metadata from the sample records and literature linked to this source record, shown verbatim with provenance. Nothing here is inferred, normalised or mapped to an ontology.";
+const LEAD = "Observed environmental metadata from the sample records and literature linked to this source record, shown verbatim with provenance. No value is inferred, normalised or mapped to an ontology; the evidence grades, statuses and linkage labels come from the PR-7c.1a metadata audit.";
 
 export function HabitatSection({ entry, src }: { entry: MrdbEntry; src: SourceRecord }) {
   const res = useResource(() => loadHabitat(entry.mrdb_acc), [entry.mrdb_acc]);
@@ -50,9 +50,10 @@ function HabitatBody({ res, entry, src }: { res: Resource<HabitatRecordFile | nu
   return (
     <div className="space-y-4" data-testid="habitat-body" data-grade={v.grade.id} data-host={v.entry.host_association_status} data-source={src.source_acc}>
       <div className="flex flex-wrap items-center gap-2" data-testid="habitat-badges">
-        <span className="text-sm text-ink-2">Physical habitat evidence:</span>
-        <FlagBadge tone={v.grade.tone}><span data-testid="habitat-grade">{v.grade.label}</span></FlagBadge>
-        <FlagBadge tone={HOST_INFO[v.entry.host_association_status].tone}><span data-testid="habitat-host-status">{HOST_INFO[v.entry.host_association_status].label}</span></FlagBadge>
+        <span className="inline-flex flex-wrap items-center gap-2"><span className="text-sm text-ink-2">Physical habitat evidence:</span>
+          <FlagBadge tone={v.grade.tone}><span data-testid="habitat-grade">{v.grade.label}</span></FlagBadge></span>
+        <span className="inline-flex flex-wrap items-center gap-2 sm:ml-3"><span className="text-sm text-ink-2">Host association:</span>
+          <FlagBadge tone={HOST_INFO[v.entry.host_association_status].tone}><span data-testid="habitat-host-status">{hostLabel(v.entry.host_association_status, v.entry.sample_link)}</span></FlagBadge></span>
         {v.noLink ? <FlagBadge tone="warn">no traceable sample link</FlagBadge> : null}
       </div>
       {file.sources.length > 1 ? <SourceTable file={file} focus={src.source_acc} /> : null}
@@ -102,7 +103,7 @@ function SourceTable({ file, focus }: { file: HabitatRecordFile; focus: string }
                   {r.representative ? <span className="ml-2"><FlagBadge tone="info">MRDB representative</FlagBadge></span> : null}
                 </td>
                 <td><FlagBadge tone={GRADE_INFO[r.grade].tone}>{GRADE_INFO[r.grade].label}</FlagBadge></td>
-                <td className="text-sm">{HOST_INFO[r.host].label}</td>
+                <td className="text-sm">{hostLabel(r.host, r.sampleLink)}</td>
               </tr>
             ))}
           </tbody>
@@ -128,7 +129,8 @@ function Provenance({ i }: { i: HabitatItem }) {
         <dt className="text-ink-2">Source</dt><dd>{SOURCE_LABEL[i.evidence_source] ?? i.evidence_source} <span className="font-mono">{i.entity_accession}</span></dd>
         <dt className="text-ink-2">Field</dt><dd><code>{i.field}</code>{i.link_index !== null ? <span className="text-ink-2"> · link {i.link_index}</span> : null}</dd>
         <dt className="text-ink-2">Value status</dt><dd><code>{i.value_status}</code></dd>
-        <dt className="text-ink-2">Linkage</dt><dd>{i.linkage_route}{i.mapping_confidence ? ` · ${i.mapping_confidence}` : ""}</dd>
+        <dt className="text-ink-2">Linkage route</dt><dd>{i.linkage_route}</dd>
+        {i.mapping_confidence ? (<><dt className="text-ink-2">Mapping confidence</dt><dd><code>{i.mapping_confidence}</code></dd></>) : null}
         <dt className="text-ink-2">Record</dt><dd className="break-all"><MaybeLink url={i.browser_url} /></dd>
         {i.source_url ? (<><dt className="text-ink-2">Retrieved from</dt><dd className="break-all"><MaybeLink url={i.source_url} /></dd></>) : null}
       </dl>
@@ -310,7 +312,8 @@ function CollectionCard({ v }: { v: HabitatView }) {
           </Row>
         ))}
         <Row k="Sample type">{e.linkage.sample_type.replace(/_/g, " ").toLowerCase()}</Row>
-        <Row k="Linkage">{e.linkage.route ? `${e.linkage.route.replace(/_/g, " ")}${e.linkage.mapping_confidence ? ` (${e.linkage.mapping_confidence.toLowerCase()} confidence)` : ""}` : <span className="text-ink-2">none</span>}</Row>
+        <Row k="Linkage route">{e.linkage.route ? e.linkage.route.replace(/_/g, " ") : <span className="text-ink-2">none</span>}</Row>
+        {e.linkage.mapping_confidence ? <Row k="Physical-habitat mapping confidence"><code>{e.linkage.mapping_confidence}</code></Row> : null}
         {v.collection.map((i) => (
           <Row key={i.evidence_id} k={ROLE_LABEL[i.role] ?? i.role}><ItemValue i={i} showSource /></Row>
         ))}

@@ -576,7 +576,8 @@ reconciled.
 PR-7c.2 adds `data/v1.6.0/habitat/` (5,301 files) and changes no other exported file. For the same repository
 state, a `--no-habitat` export is byte-identical to the output of the 361039e exporter, and the default export
 differs from it only by the new `habitat/` files and by `export_manifest.json`, which lists them. (As before,
-exports made at different commits differ in the exporter fields of `manifest.json`.) The sidecar has its own schema,
+exports made at different commits differ in their commit-dependent fields: the exporter fields of `manifest.json`
+and the commit-pinned URLs in `downloads.json`.) The sidecar has its own schema,
 `web/src/data/schemas/habitat.schema.json` (habitat schema 1.0.0), with generated types in
 `web/src/data/habitatTypes.ts`.
 

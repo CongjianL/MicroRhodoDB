@@ -7,6 +7,7 @@
 # repository metadata the exporter publishes on the website (README, LICENSE, CITATION, MAINTENANCE, CHANGELOG,
 # BINARIES) and the frozen inputs it reads; tests/test_web_pr6a.py validates this file.
 # PR-7: actions pinned to commit SHAs; builds and verifies (never deploys) the Pages artifact.
+# PR-7c.2: tests/test_web_pr7c2.py (habitat sidecar from the pinned PR-7c.1a tables; tools/habitat_export/**).
 # Validation only - no Pages, no deploy (deployment is deploy-site.yml, manual dispatch with a protected environment).
 # Data source: the official v1.6.0 GitHub Release asset, verified against BINARIES.md (SHA-256 + size); the fetch
 # step fails with BLOCKED_DATA_SOURCE if the asset is missing or differs.
@@ -16,6 +17,7 @@ on:
   pull_request:
     paths:
       - "tools/export_web_data.py"
+      - "tools/habitat_export/**"
       - "web/**"
       - "tests/test_web_*.py"
       - "tests/test_fetch_release_db.py"
@@ -39,6 +41,7 @@ on:
     branches: [main]
     paths:
       - "tools/export_web_data.py"
+      - "tools/habitat_export/**"
       - "web/**"
       - "tests/test_web_*.py"
       - "tests/test_fetch_release_db.py"
@@ -95,7 +98,7 @@ jobs:
       - name: Export web data
         run: python tools/export_web_data.py --out web/public/data
       - name: Validate export (gates G1, G4 and G5)
-        run: python -m pytest -q tests/test_web_export.py tests/test_fetch_release_db.py tests/test_web_phylogeny.py tests/test_web_pr4a.py tests/test_web_pr5.py tests/test_web_pr5a.py tests/test_web_pr6a.py tests/test_web_pr7.py
+        run: python -m pytest -q tests/test_web_export.py tests/test_fetch_release_db.py tests/test_web_phylogeny.py tests/test_web_pr4a.py tests/test_web_pr5.py tests/test_web_pr5a.py tests/test_web_pr6a.py tests/test_web_pr7.py tests/test_web_pr7c2.py
       - name: Check drilldown golden accession sets (PR-5a)
         run: python web/scripts/pr5a_drilldown_golden.py --check
       - name: Independent scientific audit and its mutation self-test (PR-6)

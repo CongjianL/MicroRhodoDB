@@ -58,7 +58,7 @@ export const SOURCE_LABEL: Record<string, string> = {
 
 export const GRADE_INFO: Record<HabitatGrade, { label: string; tone: "info" | "neutral" | "warn"; text: string }> = {
   DIRECT_SAMPLE: { label: "Direct sample", tone: "info", text: "A physical habitat value is reported in the sample record(s) linked to this sequence." },
-  VERIFIED_ISOLATE: { label: "Verified isolate (literature)", tone: "info", text: "A publication states where the source isolate of this record was obtained; no usable physical habitat value is available from linked sample records." },
+  VERIFIED_ISOLATE: { label: "Verified isolate (literature)", tone: "info", text: "A reviewed publication contains a statement about where the source isolate of this record was obtained (quoted below, with its wording unchanged); no usable physical habitat value is available from linked sample records." },
   ORGANISM_CONTEXT_ONLY: { label: "Organism context only", tone: "neutral", text: "Only organism-level ecological context is available. It is not the sampling habitat of this sequence." },
   AMBIGUOUS: { label: "Conflicting records", tone: "warn", text: "The linked records report differing physical habitat values. All values are listed; none is chosen." },
   NOT_REPORTED: { label: "Not reported", tone: "neutral", text: "No usable physical habitat value is reported." },
@@ -120,6 +120,11 @@ export function missingnessText(e: HabitatSourceEntry): string | null {
 /** Host-only wording: the record reports a host but no usable physical habitat. Host is never shown as habitat. */
 export function hostOnlyText(e: HabitatSourceEntry): string | null {
   return e.flags.includes("host_association_only") ? "Physical habitat not reported; host reported." : null;
+}
+
+/** Host badge label; without a traceable sample link "not reported" means the sample records could not be checked. */
+export function hostLabel(status: HostStatus, sampleLink: string): string {
+  return status === "NOT_REPORTED" && sampleLink === "none" ? "Host not reported (no sample link)" : HOST_INFO[status].label;
 }
 
 export function hostStatusText(e: HabitatSourceEntry): string {
@@ -274,6 +279,7 @@ export interface SourceRow {
   representative: boolean;
   grade: HabitatGrade;
   host: HostStatus;
+  sampleLink: string;
 }
 
 /** One row per source record of the MRDB accession; the current source is marked (aria-current). */
@@ -284,6 +290,7 @@ export function sourceRows(file: HabitatRecordFile, focus: string): SourceRow[] 
     representative: s.is_mrdb_representative,
     grade: s.grade,
     host: s.host_association_status,
+    sampleLink: s.sample_link,
   }));
 }
 

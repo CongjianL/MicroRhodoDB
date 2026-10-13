@@ -170,7 +170,7 @@ jobs:
           MRDB_SITE_ARTIFACT: ${{ runner.temp }}/site
           MRDB_REQUIRE_ARTIFACT: "1"
         run: |
-          python -m pytest -q tests/test_web_export.py tests/test_fetch_release_db.py tests/test_web_phylogeny.py tests/test_web_pr4a.py tests/test_web_pr5.py tests/test_web_pr5a.py tests/test_web_pr6a.py tests/test_web_pr7.py
+          python -m pytest -q tests/test_web_export.py tests/test_fetch_release_db.py tests/test_web_phylogeny.py tests/test_web_pr4a.py tests/test_web_pr5.py tests/test_web_pr5a.py tests/test_web_pr6a.py tests/test_web_pr7.py tests/test_web_pr7c2.py
           python web/scripts/pr5a_drilldown_golden.py --check
           python web/scripts/pr6_scientific_audit.py --out "$RUNNER_TEMP/audit"
           python web/scripts/pr6_audit_mutations.py --out "$RUNNER_TEMP/audit"

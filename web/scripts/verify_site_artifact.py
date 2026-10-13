@@ -17,7 +17,8 @@ Checks (all must pass; the report names each one):
   V4  base path: every asset referenced by site/index.html and by JS/CSS exists under /MicroRhodoDB/site/
   V5  data: the files under site/data are exactly export_manifest.json (+ itself), hashes and sizes match,
       dataset release / schema / source DB SHA-256 equal the release contract
-  V6  every data JSON parses and validates against the web-data JSON Schema (x-files mapping)
+  V6  every data JSON parses and validates against the web-data JSON Schema (x-files mapping); habitat/**
+      against the habitat sidecar schema (PR-7c.2)
   V7  reference tree byte-identical to the frozen refpkg tree (contract SHA-256)
   V8  downloads.json: website-derived files exist; repository documents link to the build commit with the
       shipped SHA-256 (and, with --repo, equal the file at that commit); release/refpkg hashes equal the repo
@@ -280,8 +281,11 @@ def verify(art: Path, repo: Path | None = None, expect_commit: str | None = None
         jsonschema = None
         e.append("jsonschema is not installed (required for V6)")
     schema_p = (repo or REPO) / "web/src/data/schemas/web-data.schema.json"
+    # PR-7c.2: the habitat sidecar (v<release>/habitat/**) has its own schema; every other file uses the core schema.
+    hschema_p = (repo or REPO) / "web/src/data/schemas/habitat.schema.json"
     if jsonschema is not None and data.is_dir():
-        schema = json.loads(schema_p.read_text())
+        core = json.loads(schema_p.read_text())
+        hab = json.loads(hschema_p.read_text()) if hschema_p.is_file() else None
         validators = {}
         for p in sorted(data.rglob("*.json")):
             r = p.relative_to(data).as_posix()
@@ -291,17 +295,24 @@ def verify(art: Path, repo: Path | None = None, expect_commit: str | None = None
             except json.JSONDecodeError as x:
                 e.append(f"{r}: invalid JSON ({x})")
                 continue
+            is_hab = r.split("/")[1:2] == ["habitat"]
+            if is_hab and hab is None:
+                e.append(f"{r}: habitat file but {hschema_p.name} is missing")
+                continue
+            schema = hab if is_hab else core
             pats = [k for k in schema["x-files"] if fnmatch.fnmatch(r, k)]
             if len(pats) != 1:
                 e.append(f"{r}: {len(pats)} schema patterns match")
                 continue
             name = schema["x-files"][pats[0]]
-            if name not in validators:
-                validators[name] = jsonschema.Draft202012Validator(
+            key = ("habitat" if is_hab else "core", name)
+            if key not in validators:
+                validators[key] = jsonschema.Draft202012Validator(
                     {"$schema": schema["$schema"], "$defs": schema["$defs"], "$ref": f"#/$defs/{name}"})
+            name = key
             err = next(iter(validators[name].iter_errors(obj)), None)
             if err is not None:
-                e.append(f"{r}: schema {name}: {err.message[:200]}")
+                e.append(f"{r}: schema {name[1]}: {err.message[:200]}")
     rep.add("V6", "JSON integrity and schema", e, f"{n_json} JSON files")
 
     # V7 reference tree
