@@ -94,7 +94,16 @@ jobs:
       - name: Install test dependencies
         run: python -m pip install "pandas==3.0.6" "numpy==2.4.6" "pytest==9.1.1" "jsonschema==4.26.0" "pyyaml==6.0.3"
       - name: Fetch and verify release database (BLOCKED_DATA_SOURCE if the Release is absent)
-        run: python web/scripts/fetch_release_db.py
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p releases/v1.6.0/db
+          gh release download v1.6.0 \
+            --repo CongjianL/MicroRhodoDB \
+            --pattern microrhododb_v1.6.0.sqlite \
+            --dir releases/v1.6.0/db
+          python web/scripts/fetch_release_db.py
       - name: Export web data
         run: python tools/export_web_data.py --out web/public/data
       - name: Validate export (gates G1, G4 and G5)
