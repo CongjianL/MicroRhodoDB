@@ -934,15 +934,40 @@ def fault_server():
         s.close()
 
 
-def test_verifier_uses_bounded_concurrency_on_a_delayed_network(fault_server):
+def test_verifier_uses_bounded_concurrency_on_a_delayed_network(fault_server, monkeypatch):
     import time as _t
     files, sums = _site(240)
     srv = fault_server(files, latency=0.05)  # 50 ms per request: sequential would take >= 12 s
+
+    # Measure active CLIENT requests independently of verify_served's own stats.
+    # Server handlers may still be unwinding after the client has read the full
+    # response and started another request, so server-side handler counts can
+    # transiently exceed the number of simultaneous client requests.
+    measure_lock = threading.Lock()
+    active_client_requests = 0
+    peak_client_requests = 0
+    original_fetch = R.fetch_bounded
+
+    def measured_fetch(*args, **kwargs):
+        nonlocal active_client_requests, peak_client_requests
+        with measure_lock:
+            active_client_requests += 1
+            peak_client_requests = max(peak_client_requests, active_client_requests)
+        try:
+            return original_fetch(*args, **kwargs)
+        finally:
+            with measure_lock:
+                active_client_requests -= 1
+
+    monkeypatch.setattr(R, "fetch_bounded", measured_fetch)
     t0 = _t.monotonic()
     res = R.verify_served(srv.base, sums, workers=12, deadline=60, round_wait=0.1)
     elapsed = _t.monotonic() - t0
     assert res["failed"] == [] and res["ok"] == 240 and res["rounds"] == 1 and res["requests"] == 240
-    assert 1 < srv.max_in_flight <= 12 and res["max_in_flight"] <= 12
+    assert 1 < peak_client_requests <= 12
+    assert 1 < res["max_in_flight"] <= 12
+    assert srv.max_in_flight > 1  # Independent evidence of actual network concurrency.
+    assert active_client_requests == 0
     assert elapsed < 6, elapsed
 
 
