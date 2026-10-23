@@ -9,6 +9,8 @@ Environment:
                           with an explicit reason (it is run by the top-level invocation instead).
 Tests that need external binaries (HMMER + DIAMOND for the CLI, snakemake for the dry run) fail - they do not
 skip - when those binaries are missing, so a green run always means the check was actually performed.
+Prior-release databases (v1.5.0, v1.4.0, ...) are not committed (see BINARIES.md); tests that compare against
+them, and the Snakemake dry run whose root input is the v1.5.0 database, skip with a reason when they are absent.
 """
 import hashlib
 import json
@@ -37,7 +39,8 @@ def con():
 
 @pytest.fixture(scope="module")
 def con150():
-    assert os.path.exists(V150), f"v1.5.0 base DB missing: {V150} (it is shipped in the v1.6.0 archive)"
+    if not os.path.exists(V150):
+        pytest.skip(f"v1.5.0 base DB not present: {os.path.relpath(V150, REPO)} (not committed; see BINARIES.md)")
     c = sqlite3.connect(f"file:{V150}?mode=ro", uri=True)
     yield c
     c.close()
@@ -327,10 +330,16 @@ def test_prior_release_files_untouched(rel):
     if not os.path.exists(sums):
         pytest.skip(f"releases/{rel} is not part of this checkout; the v1.6.0 archive ships it, "
                     f"so this skip only occurs in partial checkouts")
+    missing_db = []
     for line in open(sums):
         h, fn = line.split()
         fn = fn.lstrip("*")
+        if fn.endswith(".sqlite") and not os.path.exists(os.path.join(p, fn)):
+            missing_db.append(fn)  # databases are not committed; every other listed file is still checked
+            continue
         assert hashlib.sha256(open(os.path.join(p, fn), "rb").read()).hexdigest() == h, f"{rel}/{fn}"
+    if missing_db:
+        pytest.skip(f"other {rel} files verified; not present (see BINARIES.md): {', '.join(missing_db)}")
 
 
 # ---------------------------------------------------------------- exports / CLI / workflow
@@ -417,6 +426,8 @@ def test_v140_release_suite(tmp_path):
 def test_snakemake_dry_run():
     if os.environ.get("MRDB_IN_SNAKEMAKE") == "1":
         pytest.skip("running inside the workflow's own test rule; the dry run is the enclosing invocation")
+    if not os.path.exists(V150):
+        pytest.skip(f"workflow root input not present: {os.path.relpath(V150, REPO)} (not committed; see BINARIES.md)")
     smk = shutil.which("snakemake")
     assert smk, "snakemake not on PATH - activate the pinned environment"
     r = subprocess.run([smk, "-n", "-s", "workflow/Snakefile", "--nolock", "-c", "1"], cwd=REPO,
