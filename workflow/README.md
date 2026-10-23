@@ -61,6 +61,10 @@ byte-identical to the shipped files. On the round-1 build, MMseqs2 18.8cc5c (pin
 IQ-TREE 2.3.6, HMMER 3.4, MAFFT 7.526, MMseqs2 18.8cc5c, EPA-ng 0.3.8, gappa 0.9.0, ClipKIT 2.14.0,
 DIAMOND 2.1.10, Snakemake 8.30.0 and Python 3.11.16 with pandas 3.0.6 and numpy 2.4.6.
 
+The lock file is a Linux export and does not solve on macOS. On Apple silicon use
+`workflow/envs/mrdb.macos-arm64.yml`, which pins the same tool and Python package versions and leaves the platform
+libraries to conda.
+
 **DIAMOND.** DIAMOND is part of membership scoring. The membership score includes the seed-homology axis `e_homology`
 (weight 0.10; best identity x coverage from DIAMOND blastp against the 15 scorer seeds), and the CLI uses DIAMOND a second time for its nearest-neighbour
 search. The v1.5.0 README wrongly said DIAMOND was not used "for membership calling itself"; this is corrected here.
