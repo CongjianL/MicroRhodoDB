@@ -43,7 +43,7 @@ UniProt accession>`, `#/search` (Smith-Waterman/BLOSUM62 against all 5,466 recor
 **Command-line search** (full membership score + nearest neighbour; needs HMMER 3.4 and DIAMOND 2.1.10):
 
 ```bash
-conda env create -f workflow/envs/mrdb.lock.yml && conda activate mrdb
+conda env create -f workflow/envs/mrdb.lock.yml && conda activate mrdb   # Linux; on Apple-silicon macOS use workflow/envs/mrdb.macos-arm64.yml
 python tools/mrdb_search.py my_proteins.faa -o hits.tsv
 ```
 
@@ -158,8 +158,8 @@ See `docs/website/PR7_DEPLOYMENT_RUNBOOK.md` and `docs/website/PR7_ROLLBACK_RUNB
 | `workflow/` | Snakefile, config, pinned conda environment |
 | `tests/` | release tests and the Playwright browser walkthrough |
 
-Large binary files (SQLite databases, archives) are attached to the GitHub Release and the Zenodo deposit, not
-committed to git; `BINARIES.md` lists them with SHA-256 checksums.
+Large binary files (SQLite databases, archives) are not committed to git. The v1.6.0 database is attached to the
+GitHub Release; `BINARIES.md` lists every file with its SHA-256 checksum and where to get it.
 
 ## Integrity
 
