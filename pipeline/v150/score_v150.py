@@ -52,7 +52,14 @@ def compute(query_faa, seeds_faa, seed_meta_tsv, hmm01036, hmm18761, workdir):
     feat['retinal_pos'] = [lys.get(a, (None, None))[1] for a in feat.index]
     with open(os.path.join(workdir, 'seeds.faa'), 'w') as fh:
         for a, s in seeds.items(): fh.write(f'>{a}\n{s}\n')
-    hom = fx.seed_homology(DIAMOND, query_faa, os.path.join(workdir, 'seeds.faa'), workdir, meta).set_index('source_acc')
+    hom = fx.seed_homology(DIAMOND, query_faa, os.path.join(workdir, 'seeds.faa'), workdir, meta)
+    if 'source_acc' not in hom.columns:
+        # no query hit a seed: pandas >= 3 reads the empty DIAMOND output without raising EmptyDataError, so
+        # features_v140 (frozen, hash-recorded in the v1.4.0 build manifest) returns a frame with no columns
+        hom = pd.DataFrame({'source_acc': pd.Series(dtype=object), 'seed_best_id': pd.Series(dtype=float),
+                            'seed_best_cov': pd.Series(dtype=float), 'seed_best_bits': pd.Series(dtype=float),
+                            'seed_best_subfamily': pd.Series(dtype=object)})
+    hom = hom.set_index('source_acc')
     feat = feat.join(hom)
     for c in ('seed_best_id', 'seed_best_cov'): feat[c] = feat[c].fillna(0.0)
     feat['kd_max'] = [sv.kd_descriptors(seqs[a])['kd_max'] for a in feat.index]

@@ -5,7 +5,7 @@ Database location, in order of precedence:
   2. the MRDB_DB environment variable;
   3. releases/v1.6.0/db/microrhododb_v1.6.0.sqlite relative to the repository / extracted archive that contains
      this package (works for `pip install -e .` and for running from the archive).
-The database is opened read-only (SQLite URI mode=ro). Release databases are immutable.
+A db_path or MRDB_DB that does not exist raises FileNotFoundError (no fallback to the default). The database is opened read-only (SQLite URI mode=ro). Release databases are immutable.
 
 Changes from the v1.4.0 API (kept unchanged at releases/v1.4.0/meta/microrhododb_api_v14.py):
   - v1.5.0 membership vocabulary (typeI_member_core, ..., boundary_family) plus typeI_member_curated (v1.6.0
@@ -33,9 +33,14 @@ EVIDENCE_LEVELS = ("E1", "E2", "E3", "E4", "E5")
 
 
 def _resolve(db_path):
-    for p in (db_path, os.environ.get("MRDB_DB"), DEFAULT_DB_PATH):
-        if p and Path(p).exists():
+    # an explicit path (argument or MRDB_DB) must exist: never fall back silently to a different database
+    for src, p in (("db_path", db_path), ("MRDB_DB", os.environ.get("MRDB_DB"))):
+        if p:
+            if not Path(p).is_file():
+                raise FileNotFoundError(f"MicroRhodoDB database not found: {src}={p}")
             return str(Path(p).resolve())
+    if DEFAULT_DB_PATH.is_file():
+        return str(DEFAULT_DB_PATH)
     raise FileNotFoundError(
         "MicroRhodoDB database not found. Pass db_path=..., set MRDB_DB, or run from the release archive "
         f"(expected {DEFAULT_DB_PATH}).")
@@ -46,7 +51,8 @@ class MicroRhodoDB:
 
     def __init__(self, db_path=None):
         self.db_path = _resolve(db_path)
-        self.con = sqlite3.connect(f"file:{self.db_path}?mode=ro", uri=True)
+        # as_uri() percent-encodes '#', '?', '%' and spaces, which would otherwise end or alter the SQLite URI path
+        self.con = sqlite3.connect(Path(self.db_path).as_uri() + "?mode=ro", uri=True)
 
     def __enter__(self):
         return self

@@ -370,6 +370,57 @@ def test_cli_smoke_12_queries(tmp_path):
     assert ((got.membership_score >= 0.70) == (got.typeI_detected_070 == "yes")).all()
 
 
+def _cli_records(*ids):
+    recs = {r.split(None, 1)[0]: ">" + r for r in open(os.path.join(REPO, "tests/data/cli_queries_12.faa")).read().split(">")[1:]}
+    return "".join(recs[i] for i in ids)
+
+
+def test_cli_queries_without_seed_hit(tmp_path):
+    # neither query hits a scorer seed with DIAMOND: the empty seed-homology table used to raise KeyError
+    for b in ("hmmscan", "hmmsearch", "diamond"):
+        assert shutil.which(b), f"{b} not on PATH - activate the pinned environment (workflow/envs/mrdb.lock.yml)"
+    qf, out = tmp_path / "q.faa", tmp_path / "hits.tsv"
+    qf.write_text(_cli_records("UOK93384.1", "UOK93385.1"))
+    subprocess.run([sys.executable, os.path.join(REPO, "tools/mrdb_search.py"), str(qf), "-o", str(out),
+                    "--workdir", str(tmp_path / "w")], check=True, cwd=tmp_path, capture_output=True)
+    got = pd.read_csv(out, sep="\t")
+    exp = pd.read_csv(os.path.join(REPO, "tests/data/cli_expected_12.tsv"), sep="\t")
+    m = exp.merge(got, on="query", suffixes=("_exp", ""))
+    assert len(m) == 2
+    assert (m.provisional_status_exp == m.provisional_status).all()
+    assert (abs(m.membership_score_exp - m.membership_score) < 1e-3).all()
+
+
+def test_cli_rejects_duplicate_query_ids(tmp_path):
+    qf = tmp_path / "q.faa"
+    qf.write_text(_cli_records("UOK93384.1") + _cli_records("UOK93384.1"))
+    r = subprocess.run([sys.executable, os.path.join(REPO, "tools/mrdb_search.py"), str(qf), "-o", str(tmp_path / "h.tsv"),
+                        "--workdir", str(tmp_path / "w")], cwd=tmp_path, capture_output=True, text=True)
+    assert r.returncode != 0 and "duplicate sequence IDs: UOK93384.1" in r.stderr
+    assert not (tmp_path / "w").exists()
+
+
+def test_cli_release_index_keyed_by_database(tmp_path):
+    assert shutil.which("diamond"), "diamond not on PATH - activate the pinned environment (workflow/envs/mrdb.lock.yml)"
+    sys.path.insert(0, os.path.join(REPO, "tools"))
+    import mrdb_search
+    seq = _cli_records("UOK93384.1").split("\n", 1)[1].replace("\n", "")
+    dbs = []
+    for name in ("a", "b"):
+        p = tmp_path / f"{name}#1.sqlite"   # '#' would end the path of an unescaped SQLite URI
+        c = sqlite3.connect(p)
+        c.execute("create table protein (mrdb_acc text, source_acc text, sequence text)")
+        c.execute("insert into protein values (?, ?, ?)", (f"MRDB_{name}", f"SRC_{name}", seq))
+        c.commit(), c.close()
+        dbs.append(p)
+    wd = tmp_path / "w"
+    da, db_ = (mrdb_search.release_index(str(p), str(wd), "diamond") for p in dbs)
+    assert da != db_ and os.path.exists(da) and os.path.exists(db_)
+    assert open(os.path.join(os.path.dirname(db_), "release.faa")).read().startswith(">SRC_b MRDB_b\n")
+    assert mrdb_search.release_index(str(dbs[0]), str(wd), "diamond") == da   # reused, not rebuilt
+    assert not [f for f in os.listdir(os.path.dirname(da)) if ".tmp" in f]
+
+
 def test_python_api_read_only():
     sys.path.insert(0, os.path.join(REPO, "src"))
     import microrhododb as m
@@ -382,6 +433,27 @@ def test_python_api_read_only():
         assert len(db.novel_family_candidates()) == 181
         with pytest.raises(sqlite3.OperationalError):
             db.con.execute("CREATE TABLE _x(a)")
+
+
+def test_python_api_missing_path_does_not_fall_back(tmp_path, monkeypatch):
+    sys.path.insert(0, os.path.join(REPO, "src"))
+    import microrhododb as m
+    monkeypatch.delenv("MRDB_DB", raising=False)
+    with pytest.raises(FileNotFoundError, match="db_path="):
+        m.MicroRhodoDB(str(tmp_path / "typo.sqlite"))
+    monkeypatch.setenv("MRDB_DB", str(tmp_path / "typo.sqlite"))
+    with pytest.raises(FileNotFoundError, match="MRDB_DB="):
+        m.MicroRhodoDB()
+
+
+def test_python_api_path_with_uri_characters(tmp_path):
+    sys.path.insert(0, os.path.join(REPO, "src"))
+    import microrhododb as m
+    d = tmp_path / "run #1?a%20b"
+    d.mkdir()
+    shutil.copy(DB, d / "db.sqlite")   # a copy, not a symlink: the API resolves symlinks to the target path
+    with m.MicroRhodoDB(str(d / "db.sqlite")) as db:
+        assert len(db.counted()) == 5460
 
 
 def test_scorer_validation_summary(tmp_path):

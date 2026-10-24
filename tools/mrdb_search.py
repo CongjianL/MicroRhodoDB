@@ -28,7 +28,9 @@ Per query:
 Function is NOT transferred: the nearest-neighbour annotation is reported with its identity so users can apply their own
 threshold (the release uses >= 90% identity within the same clade for E2).
 """
-import argparse, os, sys, sqlite3, subprocess, shutil
+import argparse, hashlib, os, sys, sqlite3, subprocess, shutil
+from collections import Counter
+from pathlib import Path
 import pandas as pd
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -36,14 +38,47 @@ sys.path.insert(0, os.path.join(HERE, "..", "pipeline", "v150"))
 sys.path.insert(0, HERE)
 
 
-def ensure_release_fasta(db, fa):
-    if os.path.exists(fa):
-        return
-    con = sqlite3.connect(f"file:{db}?mode=ro", uri=True)
-    with open(fa, "w") as f:
+def connect_ro(db):
+    # as_uri() percent-encodes '#', '?', '%' and spaces, which would otherwise end or alter the SQLite URI path
+    return sqlite3.connect(Path(db).resolve().as_uri() + "?mode=ro", uri=True)
+
+
+def query_ids(path):
+    """Sequence IDs (first word of each header); exits on an empty ID, a duplicate ID or no sequences, because
+    the scorer keeps one sequence per ID while HMMER and DIAMOND keep all of them."""
+    ids = [(l[1:].split() or [""])[0] for l in open(path) if l.startswith(">")]
+    if not ids:
+        sys.exit(f"no FASTA sequences in {path}")
+    if "" in ids:
+        sys.exit(f"{path}: a FASTA header has no sequence ID")
+    dup = sorted(i for i, n in Counter(ids).items() if n > 1)
+    if dup:
+        sys.exit(f"{path}: duplicate sequence IDs: {', '.join(dup[:10])}" + (" ..." if len(dup) > 10 else ""))
+    return ids
+
+
+def release_index(db, workdir, dia):
+    """FASTA and DIAMOND index of the release records, cached in workdir under the database's SHA-256 so a
+    workdir reused with another --release (or another database) never searches stale records. Files are
+    written under a temporary name and renamed, so an interrupted run leaves no partial index behind."""
+    h = hashlib.sha256()
+    with open(db, "rb") as f:
+        for blk in iter(lambda: f.read(1 << 20), b""):
+            h.update(blk)
+    d = os.path.join(workdir, f"release_{h.hexdigest()[:16]}")
+    fa, dmnd = os.path.join(d, "release.faa"), os.path.join(d, "release.dmnd")
+    if os.path.exists(dmnd):
+        return dmnd
+    os.makedirs(d, exist_ok=True)
+    con = connect_ro(db)
+    with open(fa + ".tmp", "w") as f:
         for acc, src, seq in con.execute("select mrdb_acc, source_acc, sequence from protein order by mrdb_acc"):
             f.write(f">{src} {acc}\n{seq}\n")
     con.close()
+    os.replace(fa + ".tmp", fa)
+    subprocess.run([dia, "makedb", "--in", fa, "-d", dmnd + ".tmp.dmnd", "--quiet"], check=True)
+    os.replace(dmnd + ".tmp.dmnd", dmnd)
+    return dmnd
 
 
 def provisional(r):
@@ -80,6 +115,7 @@ def main():
     for f in [db, f"{sd}/seeds.faa", f"{sd}/seed_meta.tsv", f"{sd}/PF01036.25.hmm", f"{sd}/PF18761.8.hmm"]:
         if not os.path.exists(f):
             sys.exit(f"missing release file: {f}")
+    query_ids(a.query)
     os.makedirs(a.workdir, exist_ok=True)
     import score_v150 as sc
     S = sc.compute(a.query, f"{sd}/seeds.faa", f"{sd}/seed_meta.tsv", f"{sd}/PF01036.25.hmm", f"{sd}/PF18761.8.hmm",
@@ -92,19 +128,15 @@ def main():
     F = family_flag.flags(a.query, R, workdir=os.path.join(a.workdir, "family"), threads=a.threads)
     S = S.merge(F.rename(columns={"query": "source_acc"}), on="source_acc", how="left")
 
-    fa = os.path.join(a.workdir, "release.faa")
-    ensure_release_fasta(db, fa)
-    dmnd = os.path.join(a.workdir, "release.dmnd")
     dia = shutil.which("diamond") or "diamond"
-    if not os.path.exists(dmnd):
-        subprocess.run([dia, "makedb", "--in", fa, "-d", dmnd, "--quiet"], check=True)
+    dmnd = release_index(db, a.workdir, dia)
     m8 = os.path.join(a.workdir, "nn.m8")
     subprocess.run([dia, "blastp", "-q", a.query, "-d", dmnd, "-o", m8, "--more-sensitive", "-k", "1", "--quiet",
                     "-p", str(a.threads), "--outfmt", "6", "qseqid", "sseqid", "pident", "qcovhsp", "scovhsp", "bitscore", "evalue"],
                    check=True)
     nn = pd.read_csv(m8, sep="\t", header=None, names=["source_acc", "nn_source_acc", "nn_identity", "nn_qcov", "nn_scov", "nn_bits", "nn_evalue"])
     nn = nn.drop_duplicates("source_acc")
-    con = sqlite3.connect(f"file:{db}?mode=ro", uri=True)
+    con = connect_ro(db)
     vcols = {r[1] for r in con.execute("PRAGMA table_info(v_master)")}
     V16 = ["function_basis", "func_class_v14", "motif_class", "call_conflict", "is_engineered", "wild_type_acc"]
     vm = pd.read_sql("select source_acc as nn_source_acc, mrdb_acc as nn_mrdb_acc, membership_status as nn_status, "

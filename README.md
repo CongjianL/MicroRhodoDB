@@ -75,7 +75,7 @@ watchlist, novel-family layer, data dictionary) and
 conda env create -f workflow/envs/mrdb.lock.yml && conda activate mrdb
 snakemake -n                     # dry run, from the repository root
 snakemake -c 4                   # rebuild v1.6.0 from the immutable v1.5.0 DB + signed curation (~1 min)
-python -m pytest -q tests/       # 52 tests, 0 skips when releases/v1.0, v1.3.0, v1.4.0 and v1.5.0 are present (all in the archive)
+python -m pytest -q tests/       # 57 release tests, 0 skips when releases/v1.0, v1.3.0, v1.4.0 and v1.5.0 are present (all in the archive)
 ```
 
 The rebuild writes to `work/v160_rebuild/` and checks that the rebuilt database is content-identical to the
