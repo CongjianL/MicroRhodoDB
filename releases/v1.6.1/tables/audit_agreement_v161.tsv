@@ -1,0 +1,9 @@
+tier	metric	n_match	n	agreement	wilson_lo	wilson_hi	note
+E2	primary_exact	39	40	0.975	0.8711863103652591	0.9955731684973186	pre-correction (DB calls frozen at audit draw); blind annotator used homology to characterised proteins
+E2	secondary_exact_excl_unresolvable	39	40	0.975	0.8711863103652591	0.9955731684973186	pre-correction (DB calls frozen at audit draw); blind annotator used homology to characterised proteins
+E3	primary_exact	39	40	0.975	0.8711863103652591	0.9955731684973186	pre-correction (DB calls frozen at audit draw); blind annotator used homology to characterised proteins
+E3	secondary_exact_excl_unresolvable	39	40	0.975	0.8711863103652591	0.9955731684973186	pre-correction (DB calls frozen at audit draw); blind annotator used homology to characterised proteins
+E4	primary_exact	22	40	0.55	0.3982909179893205	0.6929469218909509	pre-correction (DB calls frozen at audit draw); blind annotator used homology to characterised proteins
+E4	secondary_exact_excl_unresolvable	22	37	0.5945945945945946	0.43485964730229365	0.7365348180798572	pre-correction (DB calls frozen at audit draw); blind annotator used homology to characterised proteins
+E2-E4	primary_exact	100	120	0.8333333333333334	0.7565471860673773	0.8894400363201539	pre-correction (DB calls frozen at audit draw); blind annotator used homology to characterised proteins
+E2-E4	secondary_exact_excl_unresolvable	100	117	0.8547008547008547	0.779589756996023	0.9072606071919526	pre-correction (DB calls frozen at audit draw); blind annotator used homology to characterised proteins

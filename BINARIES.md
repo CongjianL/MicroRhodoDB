@@ -14,6 +14,10 @@ python web/scripts/fetch_release_db.py          # downloads and verifies against
 | Path | Bytes | SHA-256 |
 |---|---|---|
 | `releases/v1.6.0/db/microrhododb_v1.6.0.sqlite` | 33464320 | `379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f` |
+| `releases/v1.6.1/db/microrhododb_v1.6.1.sqlite` | 33525760 | `b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d` |
+
+The v1.6.1 database is not yet attached to a GitHub Release. Until it is, rebuild it from v1.6.0 with
+`snakemake -c 1 all_v161`; the rebuild is checked against the checksum above.
 
 ## Release archive
 

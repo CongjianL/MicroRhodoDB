@@ -11,7 +11,14 @@ UniProtKB proteins that carry the Pfam bacteriorhodopsin-like domains PF01036 an
 
 Every release is an immutable SQLite database with SHA-256 checksums. Earlier releases are never modified.
 
-## Current release: v1.6.0 (2026-10-10, schema `v160.1`)
+## Current release: v1.6.1 (2026-10-24, schema `v161.1`)
+
+v1.6.1 corrects v1.6.0: identical sequences now share one membership status and one function call (23 records),
+provisional clade names are marked, and the CLI no longer reports heliorhodopsins as detected Type-I rhodopsins.
+Members 3,091, candidates 1,374, rejected 106; counted E2 111, E4 1,045, E5 3,073; 480 conflict flags. Details:
+`releases/v1.6.1/RELEASE_NOTES_v1.6.1.md`. The website and the API defaults below still use v1.6.0.
+
+## Previous release: v1.6.0 (2026-10-10, schema `v160.1`)
 
 | | |
 |---|---|

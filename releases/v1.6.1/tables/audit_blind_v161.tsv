@@ -1,0 +1,121 @@
+audit_id	source_acc	blind_call	confidence	basis	helixC_motif	has_K216	evidence_ref	rationale	tier	db_func_class_at_audit	db_call_conflict_at_audit	exact_match	db_func_class_v160	db_evidence_level_v160
+AUD001	A0ABR9US21	sodium_pump	medium	motif	NDQ	1	PMID:23575682	NDQ + K216 (KR2-type Na+ pump motif); 45% id to NaRs	E4	sodium_pump	0	1	sodium_pump	E4
+AUD002	A0ABU5QRW6	proton_pump	medium	motif	DTE	1	PMID:24706784	DTE proteorhodopsin-type motif + K216; Bacteroidetes PR-like (49% NM-R1)	E3	proton_pump	0	1	proton_pump	E3
+AUD003	W0FWU8	proton_pump	medium	homology_family	DTD	1	I4DST7 (70%)	138-aa fragment, 70% id to deltarhodopsin; DTD and K216 present	E3	proton_pump	0	1	proton_pump	E3
+AUD004	A0A1Z4JJJ4	sensory	low	homology_family	DTS	1	alr3165 ASR (57.6%); PMID:12622809	58% id to ASR (cyanobacterial ASR-like); DTS shared with ASR; no closer characterised member	E4	sensory	0	1	sensory	E4
+AUD005	A0A6M0IG11	proton_pump	low	motif	DTK	1	PMID:23872846	DTK (ESR-type) + K216; only ~30% id to ESR/GR	E4	sensory_like	0	0	sensory_like	E4
+AUD006	A0A5C6ZV71	sodium_pump	high	homology_family	NDQ	1	N0DKS8 KR2 (88.6%); PMID:23575682	89% id to KR2 Na+ pump; NDQ	E2	sodium_pump	0	1	sodium_pump	E2
+AUD007	A0A8H7MKQ7	proton_pump	medium	homology_family	DTD	1	Q9HGT7 LR; PMID:15860584; PMID:34790700	LR/ApOps3-like fungal rhodopsin (71% LR); LR and ApOps3 are H+ pumps; DTD	E4	proton_pump	0	1	proton_pump	E4
+AUD008	A0A2A5QX50	proton_pump	high	literature_homolog	DTD	1	I4DST7 (91.3%); PMID:23625688	91% id to deltarhodopsin-3 (proton pump); DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD009	A0A9W9CDA9	proton_pump	medium	homology_family	DTD	1	Q9HGT7 LR; PMID:15860584; PMID:34790700	LR/ApOps3-like fungal rhodopsin (64% LR/61% ApOps3); LR and ApOps3 are H+ pumps; DTD	E4	proton_pump	0	1	proton_pump	E4
+AUD010	A0A4D6FZM8	light_gated_channel	medium	motif	ETH	1	PMID:14615590	Chlorophyte ChR with ETH motif (E123/T127/H134 of ChR2) and long C-term; note a H. lacustris CCR isoform was inactive (PMID:39245452)	E3	light_gated_channel	0	1	light_gated_channel	E3
+AUD011	A0ABS0N6S1	anion_pump	medium	motif	NTQ	1	PMID:24706784	NTQ (ClR-type Cl- pump motif) + K216; 38% id to NM-R3	E4	anion_pump	0	1	anion_pump	E4
+AUD012	A0A813H5J9	proton_pump	medium	homology_family	DTE	1	ABV22426 Oxyrrhis rhodopsin (77%); PMID:23586665	Dinoflagellate proteorhodopsin clade, 77% id to characterised O. marina H+-transferring rhodopsin; DTE	E3	proton_pump	0	1	proton_pump	E3
+AUD013	A0A1H3XBI1	proton_pump	high	homology_family	DTD	1	Q5UXY6 HmBRI (73%); PMID:20802037	73% id to HmBRI/cR-1 BR family; DTD	E3	proton_pump	0	1	proton_pump	E3
+AUD014	A0A4P8XNV2	proton_pump_inward	medium	homology_family	DTA	1	BcXeR A0AA82WP37 (52.7%); PMID:37386213	Xenorhodopsin clade (53% BcXeR, 51% ASR); DTA	E4	sensory	0	0	unresolved	E5
+AUD015	A0ACC6VKE2	sensory	high	literature_homolog	DTF	1	Q5UXM9 (96.2%); PMID:23474528	96% id to HmSRI (cognate HtrI transducer shown); DTF	E2	sensory	0	1	sensory	E2
+AUD016	A0A8J7YHF4	sensory	medium	homology_family	DTY	1	P42197 HvSRII (73%)	73% id to Haloarcula SRII; DTY (SRI/SRII-type motif)	E3	sensory	0	1	sensory	E3
+AUD017	A0A9Q9AZ50	proton_pump	low	motif	DTC	1	PMID:25589426	CarO-like (46%) with D85/T89 conserved but C at D96; donor-less pump plausible, unverified	E4	sensory	0	0	sensory	E4
+AUD018	A0A2L2SVC7	proton_pump	medium	homology_family	DTD	1	Q70LL3 CarO; PMID:25589426; PMID:34790700	CarO-like fungal rhodopsin (76% CarO); CarO/ApOps2 are H+ pumps; DTD	E3	proton_pump	0	1	proton_pump	E4
+AUD019	A0A074XU63	proton_pump	high	literature_this_protein	DTD	1	PMID:34790700	=ApOps3 (KEQ87154, 100%); proton pump activity in patch clamp (2021); DTD	E4	proton_pump	0	1	proton_pump	E4
+AUD020	A0A345E1C3	anion_pump	high	homology_family	TSA	1	P0DMH7 HsHR (76%)	76% id to H. salinarum halorhodopsin; TSA	E3	anion_pump	0	1	anion_pump	E3
+AUD021	F8MTE7	photoreceptor_unassigned	medium	literature_homolog	DTE	1	Q9UW81 NOP-1 (98.7%); PMID:11435422	98.7% id to Neurospora NOP-1: photoactive, no efficient H+ transport, no partner identified; DTE	E2	photoreceptor_unassigned	1	1	photoreceptor_unassigned	E2
+AUD022	A0A7J9SID8	proton_pump	high	literature_homolog	DTD	1	Q5V0R5 (90.2%); PMID:20802037	90% id to H. marismortui BR-II (proton transporter, Fu 2010); DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD023	A0A0E9NKB4	proton_pump	low	motif	DTD	1	PMID:15860584	DTD + K216; distant fungal opsin (42% LR)	E4	proton_pump	0	1	proton_pump	E4
+AUD024	A0AAE0MU22	photoreceptor_unassigned	medium	literature_homolog	DTD	1	Q9UW81 NOP-1 (92.4%); PMID:11435422	92% id to NOP-1 (photoactive, no demonstrated transport); DTD	E2	photoreceptor_unassigned	1	1	photoreceptor_unassigned	E2
+AUD025	M2TTL8	proton_pump	medium	homology_family	DTD	1	Q9HGT7 LR; PMID:15860584; PMID:34790700	LR/ApOps3-like fungal rhodopsin (73% LR); LR and ApOps3 are H+ pumps; DTD	E4	proton_pump	0	1	proton_pump	E4
+AUD026	A0ABR4BDP5	proton_pump	low	homology_family	DTD	1	Q9HGT7 LR; PMID:15860584; PMID:34790700	LR/ApOps3-like fungal rhodopsin (57% LR/61% ApOps3); LR and ApOps3 are H+ pumps; DTD	E4	proton_pump	0	1	proton_pump	E4
+AUD027	A0A813FMA4	proton_pump	medium	homology_family	DTE	1	ABV22426 Oxyrrhis rhodopsin (77%); PMID:23586665	Dinoflagellate proteorhodopsin clade, 77% id to characterised O. marina H+-transferring rhodopsin; DTE	E3	proton_pump	0	1	proton_pump	E3
+AUD028	A0A813F2W8	proton_pump	medium	homology_family	DTE	1	ABV22426 Oxyrrhis rhodopsin (76%); PMID:23586665	Dinoflagellate proteorhodopsin clade, 76% id to characterised O. marina H+-transferring rhodopsin; DTE	E3	proton_pump	0	1	proton_pump	E3
+AUD029	A0A177CU21	proton_pump	medium	homology_family	DTD	1	Q70LL3 CarO; PMID:25589426; PMID:34790700	CarO-like fungal rhodopsin (67% ApOps2); CarO/ApOps2 are H+ pumps; DTD	E3	proton_pump	0	1	proton_pump	E4
+AUD030	A0A1N6ZWU0	proton_pump	medium	homology_family	DTD	1	O93740/I4DST7 (67-68%)	67% id to Haloterrigena BR/deltarhodopsin family; DTD	E3	proton_pump	0	1	proton_pump	E3
+AUD031	A0A139AMK5	unresolvable	low	unresolvable	DSS	1		Chytrid opsin DSS, only ~31% id to any characterised rhodopsin; no donor at D96; no basis for a single class	E4	sensory	0	0	sensory	E4
+AUD032	A0AA35Q511	unresolvable	low	unresolvable	DTE	1		NR-like fungal opsin (57% NOP-1, 51% LR); lineage contains both non-pumping (NOP-1, OpsA) and pumping (LR) members	E4	proton_pump	0	0	proton_pump	E4
+AUD033	A0A5C6ZNE9	sodium_pump	high	homology_family	NDQ	1	N0DKS8 KR2 (87.5%); PMID:23575682	88% id to KR2; NDQ	E2	sodium_pump	0	1	sodium_pump	E2
+AUD034	A0AA38Y914	proton_pump	medium	homology_family	DTD	1	Q70LL3 CarO; PMID:25589426; PMID:34790700	CarO-like fungal rhodopsin (58% ApOps2); CarO/ApOps2 are H+ pumps; DTD	E3	proton_pump	0	1	proton_pump	E4
+AUD035	A0A495RB09	sensory	high	literature_homolog	DTF	1	Q5UXM9 (99.6%); PMID:23474528	99.6% id to HmSRI (transducer-coupled sensory rhodopsin); DTF	E2	sensory	0	1	sensory	E2
+AUD036	A0A1L7W7M5	photoreceptor_unassigned	low	literature_homolog	DSE	1	CAR82401 OpsA (99.0%); PMID:29324661	99% id to F. fujikuroi OpsA: NR-like, no pump activity detected; DSE	E4	proton_pump	0	0	unresolved	E5
+AUD037	A0ABR8CR03	sensory	medium	homology_family	DTA	1	alr3165 ASR (89.6%); PMID:12622809	89.6% id to Anabaena sensory rhodopsin (ASR, transducer ASRT); DTA	E4	sensory	0	1	unresolved	E5
+AUD038	A0A8J7RDI3	proton_pump	high	literature_homolog	DTD	1	P96787 (93.4%); PMID:20054397	93% id to archaerhodopsin-3 (Arch, proton pump); DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD039	U2E6R7	proton_pump_inward	medium	homology_family	DTA	1	BcXeR A0AA82WP37 (57.9%); PMID:37386213	Haloplasma XeR, 58% id to BcXeR inward H+ pump; DTA (Ugalde 2011 xenorhodopsin clade)	E4	sensory	0	0	unresolved	E5
+AUD040	A0A0M9ALU3	sensory	high	literature_homolog	DTF	1	Q5UXM9 (95.8%); PMID:23474528	96% id to HmSRI; DTF	E2	sensory	0	1	sensory	E2
+AUD041	A0AAD9IBL7	proton_pump	low	homology_family	DTD	1	Q9HGT7 LR; PMID:15860584; PMID:34790700	LR/ApOps3-like fungal rhodopsin (59% ApOps3/53% LR); LR and ApOps3 are H+ pumps; DTD	E4	proton_pump	0	1	proton_pump	E4
+AUD042	A0A830FRX0	sensory	high	literature_homolog	DTF	1	Q5V5V3 (95.3%); PMID:20802037	95% id to HmSRII / HvSRII (sensory rhodopsin II); DTF	E2	sensory	0	1	sensory	E2
+AUD043	L9Z1N5	proton_pump	high	literature_homolog	DTD	1	I4DST7 (95.0%); PMID:23625688	95% id to deltarhodopsin-3 (proton pump); DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD044	M0LT73	anion_pump	high	motif	TSA	1		TSA halorhodopsin motif + K216; 58% id to NpHR	E3	anion_pump	0	1	anion_pump	E3
+AUD045	V5TJR1	sensory	high	literature_homolog	DTF	1	Q5V5V3 (93.6%); PMID:20802037	94% id to HmSRII/HvSRII; DTF	E2	sensory	0	1	sensory	E2
+AUD046	L9ZAR7	proton_pump	high	literature_homolog	DTD	1	I4DST7 (90.1%); PMID:23625688	90% id to deltarhodopsin-3 (proton pump); DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD047	A0A4R5USH4	proton_pump	medium	motif	DTE	1	PMID:24706784	DTE proteorhodopsin-type motif + K216; PR-like (48% NM-R1/GPR)	E3	proton_pump	0	1	proton_pump	E3
+AUD048	A0A4Q4MIR8	proton_pump	medium	homology_family	DTD	1	Q70LL3 CarO; PMID:25589426; PMID:34790700	CarO-like fungal rhodopsin (66% CarO); CarO/ApOps2 are H+ pumps; DTD	E3	proton_pump	0	1	proton_pump	E4
+AUD049	Q5UNE6	anion_pump	high	motif	TSA	1		TSA halorhodopsin motif + K216; Salinibacter HR, 61% id to haloarchaeal HRs; no direct functional paper found	E3	anion_pump	0	1	anion_pump	E3
+AUD050	A0A4R8VFT6	proton_pump	medium	motif	DTE	1	PMID:24706784	DTE proteorhodopsin-type motif + K216; actinobacterial, 53% GR	E3	proton_pump	0	1	proton_pump	E3
+AUD051	A0A364NEP0	proton_pump	medium	homology_family	DTD	1	Q9HGT7 LR; PMID:15860584; PMID:34790700	LR/ApOps3-like fungal rhodopsin (76% LR); LR and ApOps3 are H+ pumps; DTD	E4	proton_pump	0	1	proton_pump	E4
+AUD052	A0A507FRN6	enzyme_rhodopsin	high	homology_family	ETL	1	A0A060H1D7 BeGC1 (49%); PMID:24835457	Rhodopsin + guanylate cyclase domain fusion (RhGC/CyclOp family, 49% to BeGC1); ETL	E3	enzyme_rhodopsin	0	1	enzyme_rhodopsin	E3
+AUD053	K7QVE5	proton_pump	high	literature_homolog	DTE	1	H9ZSC3 (98.5%); PMID:23740255	98.5% id to Thermus thermophilus JL-18 TR (proton pump); DTE	E2	proton_pump	0	1	proton_pump	E2
+AUD054	A0A1S8ASA7	proton_pump	high	literature_homolog	DTD	1	I4DST7 (94.6%); PMID:23625688	95% id to deltarhodopsin-3 (proton pump); DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD055	M0J072	sensory	high	literature_homolog	DTF	1	Q5V5V3 (94.9%); PMID:20802037	95% id to HmSRII/HvSRII (UniProt name SRI is misleading); DTF	E2	sensory	0	1	sensory	E2
+AUD056	A0A8J2Y4Y1	proton_pump	medium	motif	DTE	1	PMID:24706784	DTE proteorhodopsin-type motif + K216; alphaproteobacterial, 54% OmR	E3	proton_pump	0	1	proton_pump	E3
+AUD057	Q57101	proton_pump	high	literature_this_protein	DTD	1	PMID:7979388	Cruxrhodopsin-1 itself; described as light-driven proton pump (Tateno 1994); DTD motif	E2	proton_pump	0	1	proton_pump	E2
+AUD058	A0AAE4EVK1	anion_pump	high	literature_homolog	TSA	1	Q5V1N0 (93.6%); PMID:20802037	94% id to HmHR (Cl- transporter) and cHR-3; TSA	E2	anion_pump	0	1	anion_pump	E2
+AUD059	M0IXQ5	sensory	high	literature_homolog	DTF	1	Q5UXM9 (91.5%); PMID:23474528	100% id to csR-3 (uncharacterised) and 91.5% to HmSRI; DTF	E2	sensory	0	1	sensory	E2
+AUD060	A0A1Y1I5V9	enzyme_rhodopsin	medium	homology_family	QTM	1	Pfam PF01036+HisKA+HATPase+RR+Guanylate_cyc	Rhodopsin fused to histidine kinase, response regulator and cyclase domains (2c-Cyclop/HKR-like); QTM	E4	enzyme_rhodopsin	0	1	enzyme_rhodopsin	E4
+AUD061	L9Z0K8	proton_pump	high	homology_family	DTD	1	O93740 (97.3%); I4DST7 (89.7%); PMID:23625688	97% id to Haloterrigena arg-4 BR (uncharacterised), 89.7% to deltarhodopsin-3 (proton pump); DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD062	A0A6G1JUJ3	proton_pump	medium	homology_family	DTD	1	Q9HGT7 LR; PMID:15860584; PMID:34790700	LR/ApOps3-like fungal rhodopsin (67% LR); LR and ApOps3 are H+ pumps; DTD	E4	proton_pump	0	1	proton_pump	E4
+AUD063	A0A7X2IYH3	proton_pump_inward	medium	homology_family	DTA	1	BcXeR A0AA82WPB4 (51.5%); PMID:37386213	Xenorhodopsin clade (52% BcXeR); DTA	E4	sensory	0	0	unresolved	E5
+AUD064	A0A1C4U594	sodium_pump	medium	motif	NDQ	1	PMID:23575682	NDQ + K216; 45-48% id to NaRs; note actinobacterial NDQ rhodopsins can be mainly H+ pumps (PMID:39729693)	E4	sodium_pump	0	1	sodium_pump	E4
+AUD065	A0ABD5TIC2	anion_pump	high	homology_family	TSA	1	O93742 (70.5%)	70% id to haloarchaeal halorhodopsins; TSA	E3	anion_pump	0	1	anion_pump	E3
+AUD066	P94853	anion_pump	high	literature_homolog	TSA	1	Q5V1N0 (92.4%); PMID:20802037	cHR-3 itself (sequence only) ; 92-93% id to HmHR / Hs-shark HR (Cl- pumps); TSA	E2	anion_pump	0	1	anion_pump	E2
+AUD067	A0A495R970	sensory	high	literature_homolog	DTF	1	Q5V5V3 (97.9%); PMID:20802037	98% id to HmSRII/HvSRII; DTF	E2	sensory	0	1	sensory	E2
+AUD068	A0ABP8I0Q3	proton_pump_inward	low	homology_family	DSA	1	BcXeR (49.6%); PMID:37386213	XeR/ASR clade (54% ASR, 50% BcXeR); DSA; Bacteroidetes member, direction unverified	E4	sensory	0	0	unresolved	E5
+AUD069	A0A2U8WSH2	proton_pump	low	motif	DTG	1	PMID:35151692	DTG (DTG/DTS rhodopsin, e.g. PspR outward H+ pump) + K216; <45% id to characterised proteins	E4	sensory_like	0	0	sensory_like	E4
+AUD070	M0CK77	proton_pump	high	literature_homolog	DTD	1	I4DST7 (91.2%); PMID:23625688	91% id to deltarhodopsin-3 (proton pump); DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD071	A0A7T3FYM9	proton_pump	high	literature_homolog	DTD	1	Q5V0R5 (91.1%); PMID:20802037	91% id to HmBRII (proton transporter); DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD072	A0ABX8GD89	proton_pump	high	homology_family	DTK	1	B1YFV8 ESR (87.8%); PMID:23872846	88% id to Exiguobacterium sibiricum ESR (H+ pump, K96 donor); DTK	E4	proton_pump	1	1	proton_pump	E4
+AUD073	A0A0C9NB29	proton_pump	high	literature_this_protein	DTS	1	PMID:37130895	SpaR mirror proteorhodopsin (100% id A0A411LJN5); outward H+ pump at acidic pH; DTS motif	E2	proton_pump	1	1	proton_pump	E2
+AUD074	A0A812RP85	proton_pump	low	motif	DTE	1		DTE + K216; dinoflagellate rhodopsin only ~33% id to any characterised protein	E4	proton_pump	0	1	proton_pump	E4
+AUD075	A0ABP0S6Z8	proton_pump	low	motif	DTE	1		DTE + K216; dinoflagellate rhodopsin ~29% id to characterised proteins	E4	proton_pump	0	1	proton_pump	E4
+AUD076	D2SCA9	proton_pump	medium	homology_family	DTE	1	PMID:39729693	Geodermatophilaceae DTE(W/F) rhodopsin group, shown to be outward H+ pumps; DTE	E4	proton_pump	0	1	proton_pump	E4
+AUD077	A0A495R541	photoreceptor_unassigned	low	literature_homolog	DSY	1	Q5V4H7 (99.6%); PMID:20880715	99.6% id to HmSRIII: very slow photocycle, only very weak H+ pumping, no transducer known; DSY	E2	sensory	0	0	sensory	E2
+AUD078	A0A1U7EU03	anion_pump	high	literature_homolog	TSA	1	P15647 (96.9%)	97% id to NpHR (pharaonis halorhodopsin, Cl- pump); TSA	E2	anion_pump	0	1	anion_pump	E2
+AUD079	W3VPY6	proton_pump	high	literature_homolog	DTD	1	A0A0D1EC87=UmOps2 (93.5%); PMID:31024506	93.5% id to Ustilago maydis Ops2 (UMAG_00371), green-light H+ pump; DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD080	U5TVL7	proton_pump	medium	homology_family	DTD	1	Q53496 cR-2 (74%)	145-aa fragment, 74% id to cruxrhodopsin-2; DTD and K216 present	E3	proton_pump	0	1	proton_pump	E3
+AUD081	A0ABR3TZL4	proton_pump	medium	homology_family	DTD	1	Q70LL3 CarO; PMID:25589426; PMID:34790700	CarO-like fungal rhodopsin (70% ApOps2); CarO/ApOps2 are H+ pumps; DTD	E3	proton_pump	0	1	proton_pump	E4
+AUD082	A0A2L2SRR2	photoreceptor_unassigned	low	literature_homolog	DSE	1	CAR82401 OpsA (91.1%); PMID:29324661	91% id to OpsA (no pump activity detected); DSE	E4	proton_pump	0	0	unresolved	E5
+AUD083	M0LC14	sensory	high	literature_homolog	DTF	1	Q5V5V3 (94.1%); PMID:20802037	94% id to HmSRII/HvSRII (UniProt name SRI is misleading); DTF	E2	sensory	0	1	sensory	E2
+AUD084	A0A813HWA2	proton_pump	medium	homology_family	DTE	1	ABV22426 Oxyrrhis rhodopsin (74%); PMID:23586665	Dinoflagellate proteorhodopsin clade, 74% id to characterised O. marina H+-transferring rhodopsin; DTE	E3	proton_pump	0	1	proton_pump	E3
+AUD085	A0A813GAY9	proton_pump	medium	homology_family	DTE	1	ABV22426 Oxyrrhis rhodopsin (67%); PMID:23586665	Dinoflagellate proteorhodopsin clade, 67% id to characterised O. marina H+-transferring rhodopsin; DTE	E3	proton_pump	0	1	proton_pump	E3
+AUD086	A0A506PPL9	proton_pump	high	motif	DTE	1	PMID:24706784	DTE proteorhodopsin-type motif + K216; flavobacterial PR (68% NM-R1)	E3	proton_pump	0	1	proton_pump	E3
+AUD087	A0A6A6Z1V1	proton_pump	medium	homology_family	DTD	1	Q9HGT7 LR; PMID:15860584; PMID:34790700	LR/ApOps3-like fungal rhodopsin (65-69% LR/ApOps3); LR and ApOps3 are H+ pumps; DTD	E4	proton_pump	0	1	proton_pump	E4
+AUD088	A7WQE1	proton_pump	high	literature_this_protein	DTE	1	PMID:23586665	Oxyrrhis marina rhodopsin (=ABV22426) shown to transfer protons vectorially (Janke 2013); DTE	E2	proton_pump	0	1	proton_pump	E2
+AUD089	A0A813DZR3	proton_pump	medium	homology_family	DTE	1	ABV22426 Oxyrrhis rhodopsin (76%); PMID:23586665	Dinoflagellate proteorhodopsin clade, 76% id to characterised O. marina H+-transferring rhodopsin; DTE	E3	proton_pump	0	1	proton_pump	E3
+AUD090	A0A9W6BA78	light_gated_channel	medium	motif	ETH	1	PMID:14615590	Volvocine ChR (78% VcChR2) with ETH motif; not itself characterised	E3	light_gated_channel	0	1	light_gated_channel	E3
+AUD091	A0A813HUM3	proton_pump	medium	homology_family	DTE	1	ABV22426 Oxyrrhis rhodopsin (76%); PMID:23586665	Dinoflagellate proteorhodopsin clade, 76% id to characterised O. marina H+-transferring rhodopsin; DTE	E3	proton_pump	0	1	proton_pump	E3
+AUD092	A0A7L5DXE8	proton_pump	low	motif	DTK	1	PMID:23872846	DTK (ESR-type) + K216; only ~27% id to characterised pumps	E4	sensory_like	0	0	sensory_like	E4
+AUD093	A0A813FQX3	proton_pump	medium	homology_family	DTE	1	ABV22426 Oxyrrhis rhodopsin (77%); PMID:23586665	Dinoflagellate proteorhodopsin clade, 77% id to characterised O. marina H+-transferring rhodopsin; DTE	E3	proton_pump	0	1	proton_pump	E3
+AUD094	A0A8T8LK46	proton_pump	high	literature_homolog	DTD	1	P29563 (93.2%); PMID:1654776	93% id to archaerhodopsin-2 (proton pump); DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD095	A0A2T0WM26	sodium_pump	high	literature_homolog	NDQ	1	S2D3K4 (93.9%); PMID:37890784	94% id to IaNaR (Indibacter Na+ pump); NDQ	E2	sodium_pump	0	1	sodium_pump	E2
+AUD096	A0A5D5ALV8	anion_pump	high	homology_family	TSA	1	O93742 (72%)	72% id to haloarchaeal halorhodopsins; TSA	E3	anion_pump	0	1	anion_pump	E3
+AUD097	A4UHT4	proton_pump	medium	motif	DTE	1	PMID:24706784	DTE proteorhodopsin-type motif + K216; 201-aa PR fragment (59% GPR)	E3	proton_pump	0	1	proton_pump	E3
+AUD098	A0A090PZW1	sodium_pump	high	homology_family	NDQ	1	N0DKS8 KR2 (80.5%); PMID:23575682	80% id to KR2; NDQ	E2	sodium_pump	0	1	sodium_pump	E2
+AUD099	A0A2A2SBC3	anion_pump	medium	homology_family	TTG	1	A0A5B2VFD4 GHR (74.6%); PMID:39305959	75% id to Salinarimonas glycylhalorhodopsin (inward anion pump); TTG	E3	proton_pump	0	0	proton_pump	E3
+AUD100	A0A368N8J5	proton_pump	high	literature_homolog	DTD	1	Q5V0R5 (93.1%); PMID:20802037	93% id to HmBRII (proton transporter); DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD101	A0A484GB50	proton_pump	medium	homology_family	DTD	1	Q70LL3 CarO; PMID:25589426; PMID:34790700	CarO-like fungal rhodopsin (58% CarO); CarO/ApOps2 are H+ pumps; DTD	E3	proton_pump	0	1	proton_pump	E4
+AUD102	T1QF29	proton_pump	medium	literature_this_protein	DTK	1	PMID:23551202	JL-3_PR itself; recombinant protein pumps H+ in E. coli (authors also suggest sensory role); ESR-like DTK	E4	proton_pump	1	1	proton_pump	E4
+AUD103	A0A8H7TA34	proton_pump	low	homology_family	DTD	1	Q9HGT7 LR; PMID:15860584; PMID:34790700	LR/ApOps3-like fungal rhodopsin (59% LR/58% ApOps3); LR and ApOps3 are H+ pumps; DTD	E4	proton_pump	0	1	proton_pump	E4
+AUD104	X2G5I2	proton_pump	high	literature_homolog	DTE	1	W8VZ92 (99.6%); PMID:24706784	99.6% id to NM-R1 of Nonlabens marinus (H+ pump, Yoshizawa 2014); DTE	E2	proton_pump	0	1	proton_pump	E2
+AUD105	A0A419WKJ3	proton_pump	high	literature_homolog	DTD	1	I4DST7 (92.9%); PMID:23625688	93% id to deltarhodopsin-3 (proton pump); DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD106	A0A2T3AUM2	proton_pump	low	motif	DTN	1	PMID:25589426	CarO-like (47%) with D85/T89 conserved but N at D96; unverified	E4	sensory	0	0	sensory	E4
+AUD107	A0A1M5IT15	proton_pump	medium	motif	DTE	1	PMID:24706784	DTE proteorhodopsin-type motif + K216; flavobacterial PR (63% NM-R1)	E3	proton_pump	0	1	proton_pump	E3
+AUD108	A0A2P6UZS6	enzyme_rhodopsin	medium	homology_family	MAA	1	Pfam PF01036+HisKA+HATPase+RR; PMID:30768260	Histidine-kinase rhodopsin (HKR) architecture; MAA	E4	proton_pump	0	0	proton_pump	E4
+AUD109	A0ABP8EDS4	proton_pump	high	motif	DTE	1	PMID:24706784	DTE proteorhodopsin-type motif + K216; flavobacterial PR (74% NM-R1)	E3	proton_pump	0	1	proton_pump	E3
+AUD110	A0ABS2QRU6	proton_pump_inward	medium	homology_family	DTA	1	BcXeR A0AA82WP37 (52.7%); PMID:37386213	Xenorhodopsin clade (53% BcXeR); DTA	E4	sensory	0	0	unresolved	E5
+AUD111	A0A6P3CW42	anion_pump	high	literature_this_protein	TSD	1	PMID:26578511	MrHR, Mastigocladopsis repens cyanobacterial Cl- pump (Hasemi 2016); TSD motif	E2	anion_pump	0	1	anion_pump	E2
+AUD112	A0A813E357	proton_pump	medium	homology_family	DTE	1	ABV22426 Oxyrrhis rhodopsin (76%); PMID:23586665	Dinoflagellate proteorhodopsin clade, 76% id to characterised O. marina H+-transferring rhodopsin; DTE	E3	proton_pump	0	1	proton_pump	E3
+AUD113	A0A2Z2HBN7	proton_pump	low	motif	DTS	1	PMID:35151692	DTS (DTG/DTS / mirror-PR type) + K216; 41% id to SpaR; ASR also DTS, so ambiguous	E4	sensory_like	0	0	sensory_like	E4
+AUD114	A0A8U0A439	unresolvable	low	unresolvable	DTA	1		Archaeal DTA rhodopsin only 38% id to BRs, no close XeR/BR match; function cannot be assigned	E4	sensory_like	0	0	sensory_like	E4
+AUD115	A0ACC6VKK8	proton_pump	high	literature_homolog	DTD	1	Q57101 (97.2%); PMID:7979388	97% id to cruxrhodopsin-1 / 96% to cR-3 (proton pumps); DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD116	A0A1B8AEA1	photoreceptor_unassigned	low	literature_homolog	DSE	1	CAR82401 OpsA (91.5%); PMID:29324661	91.5% id to OpsA (no pump activity detected); DSE	E4	proton_pump	0	0	unresolved	E5
+AUD117	A0A9P3FDH2	proton_pump	medium	homology_family	DTD	1	Q70LL3 CarO; PMID:25589426; PMID:34790700	CarO-like fungal rhodopsin (77% CarO); CarO/ApOps2 are H+ pumps; DTD	E3	proton_pump	0	1	proton_pump	E4
+AUD118	E6ZKF1	proton_pump	high	literature_homolog	DTD	1	A0A0D1EC87=UmOps2 (93.5%); PMID:31024506	93.5% id to UmOps2 (proton pump); DTD	E2	proton_pump	0	1	proton_pump	E2
+AUD119	A0A9Q4C5B5	proton_pump	medium	motif	DTD	1		DTD + K216; 50% id to Haloquadratum BR-I; BR-type proton pump motif	E3	proton_pump	0	1	proton_pump	E3
+AUD120	A0A439D4I7	proton_pump	low	homology_family	DTE	1	Q70LL3 CarO (52%); PMID:25589426	CarO-like (52%); DTE	E3	proton_pump	0	1	proton_pump	E4

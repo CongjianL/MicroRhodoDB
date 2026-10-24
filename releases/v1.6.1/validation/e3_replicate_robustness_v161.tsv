@@ -1,0 +1,17 @@
+group_id	level	consensus	min_jaccard	retained_all_runs	n_E3_calls
+MR_CLD3_003	clade	light_gated_channel	1.0	True	0
+MR_CLD3_003.01	subclade	light_gated_channel	1.0	True	46
+MR_CLD3_004	clade	enzyme_rhodopsin	1.0	True	0
+MR_CLD3_004.02	subclade	enzyme_rhodopsin	1.0	True	10
+MR_CLD3_006	clade	proton_pump	1.0	True	0
+MR_CLD3_006.01	subclade	proton_pump	1.0	True	64
+MR_CLD3_006.02	subclade	proton_pump	1.0	True	256
+MR_CLD3_007.03	subclade	proton_pump	1.0	True	380
+MR_CLD3_009.02	subclade	proton_pump	1.0	True	1
+MR_CLD3_011	clade	proton_pump	1.0	True	115
+MR_CLD3_012	clade	anion_pump	1.0	True	4
+MR_CLD3_012.01	subclade	anion_pump	1.0	True	88
+MR_CLD3_013	clade	sensory	1.0	True	1
+MR_CLD3_013.03	subclade	sensory	1.0	True	35
+MR_CLD3_013.04	subclade	sensory	1.0	True	94
+MR_CLD3_B01	clade	proton_pump	1.0	True	49

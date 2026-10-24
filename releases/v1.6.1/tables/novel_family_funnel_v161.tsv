@@ -1,0 +1,6 @@
+family	ebi_n_total_hits	ebi_n_included	ebi_n_has_PF01036	ebi_n_evalue_pass	ebi_n_excl_known	ebi_n_resolved_live	ebi_n_length_pass	ebi_n_retinalK_pass	sprot_n_raw_hits_Ele10	sprot_n_excl_known	sprot_n_length_pass	sprot_n_retinalK_pass	removed_resolved_acc_in_corpus	final_combined_candidates
+viral_rhodopsin	246	155	155	124	124	0	0	0	0	0	0	0	0	0
+schizorhodopsin	3536	3015	3015	543	261	0	0	0	29	0	0	0	0	0
+xenorhodopsin	9820	8179	8093	3313	1519	1	1	1	43	0	0	0	1	0
+bestrhodopsin	16979	15864	189	8	7	1	1	0	9	9	0	0	0	0
+MerMAID	4637	2892	2892	232	137	0	0	0	0	0	0	0	0	0

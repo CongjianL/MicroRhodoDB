@@ -1,0 +1,13 @@
+holdout	method	n_records	n_called	coverage	n_correct	precision	ci_lo	ci_hi	median_identity
+LOO	nearest_E1_any	76	76	1.0	63	0.8289	0.729	0.8972	0.572
+LOO	nearest_E1_identity>=0.3	76	75	0.9868	63	0.84	0.7408	0.906	0.572
+LOO	nearest_E1_identity>=0.5	76	51	0.6711	45	0.8824	0.7662	0.9449	0.572
+LOSO	nearest_E1_any	76	76	1.0	38	0.5	0.3903	0.6097	0.3782
+LOSO	nearest_E1_identity>=0.3	76	71	0.9342	37	0.5211	0.4069	0.6332	0.3782
+LOSO	nearest_E1_identity>=0.5	76	14	0.1842	11	0.7857	0.5241	0.9243	0.3782
+LOCO	nearest_E1_any	76	76	1.0	36	0.4737	0.3654	0.5845	0.3716
+LOCO	nearest_E1_identity>=0.3	76	65	0.8553	36	0.5538	0.4334	0.6683	0.3716
+LOCO	nearest_E1_identity>=0.5	76	14	0.1842	11	0.7857	0.5241	0.9243	0.3716
+LOCO (shipped)	shipped_legacy	76	70	0.9211	52	0.7429	0.6297	0.8307	
+LOCO (shipped)	shipped_downgrade	76	64	0.8421	49	0.7656	0.6487	0.8525	
+LOCO (shipped)	shipped_motif	76	57	0.75	45	0.7895	0.6671	0.8753	

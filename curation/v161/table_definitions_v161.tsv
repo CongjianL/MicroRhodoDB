@@ -1,0 +1,93 @@
+table_name	group	description
+accession_map	core	One row per source UniProtKB accession (5,466) mapping to a stable MicroRhodoDB accession (MRDB######); many-to-one (5,299 distinct MRDB accessions), with source_database, release_added and is_current.
+afdb_model	structure_spectral	AlphaFold DB model metadata (model id, version, pLDDT) per UniProt accession.
+assertion_publication	evidence_literature	Links between evidence assertions/records and supporting publications.
+audit_agreement	validation	Blind re-annotation audit (R2): exact-match agreement of the blind call with the DB call frozen at audit draw, per tier, with Wilson 95% intervals.
+audit_blind	validation	Blind re-annotation audit (R2): 120 records (40 per E2/E3/E4 tier, seed 160) re-called without seeing the DB call; DB calls at audit draw and in v1.6.0.
+benchmark_v2	validation	Function-call benchmark (v2) scores per record under different cross-validation schemes.
+build_provenance	provenance	Per-table build provenance: source data file, generating script, algorithm, parameters, upstream dependencies, release and build timestamp.
+characterized_protein	evidence_literature	Experimentally characterized rhodopsins (E1 sources) with assay-supported function and literature.
+citation	evidence_literature	References (with DOI) for tools, databases and methods used in the build, with usage context.
+clade	phylogeny	Clade definitions on reference trees with level, size, function consensus and dominant classes.
+clade_crosswalk	phylogeny	Crosswalk between current MR_CLD3 clades and clades of other schemes, with shared-tip counts and overlap fractions.
+clade_function_consensus	phylogeny	Per clade/subclade E1-consensus computation behind clade_function (v1.6.0 E1 set, non-engineered; >=2 E1 and >=80% agreement).
+clade_robustness	phylogeny	Sensitivity of clade delineation to tree, rooting, clade-size and support (UFBoot/aLRT) settings, compared with the primary clade set.
+clade_tip	phylogeny	Membership of reference-tree tips in clades.
+curation_v160_decision	curation	Curator decisions applied in v1.6.0 (E1 additions, class corrections, engineered flags, and the 25 signed R2 referee follow-up rows).
+curator_spotcheck_decision	curation	Curator spot-check decisions on sampled records.
+extension_delta	curation	Accession-level delta classes for records added/changed by the sequence extension, with family hint and detail.
+external_validation	validation	Records of the external validation set with gate outcomes and predictions.
+external_validation_metric	validation	Performance metrics on the external validation set.
+external_validation_operating_point	validation	Thresholds/operating points and resulting metrics for external validation.
+external_validation_stratum	validation	Stratum definitions and counts for the external validation set.
+foldseek_funnel	validation	Per query x database counts through the Foldseek structural-homolog funnel (raw hits -> E/prob filter -> corpus/external exclusion -> retinal K -> Type-I over HeR -> length).
+foldseek_hit	validation	Foldseek structural hits (afdb50, mgnify_esm30) surviving the funnel (786), scored with the release CLI and assigned to watchlist tiers.
+foldseek_query	validation	Query structures used for the Foldseek web search (one per family representative).
+func_class_definition	function	Controlled vocabulary of functional classes with definitions and diagnostic motifs.
+function_evidence	function	v1.6.0 function call per record with E1-E5 evidence level, basis, motif class and conflict flags.
+gtdb_taxonomy	structure_spectral	Source-organism taxonomy per record with GTDB rank assignments, match level and agreement with NCBI taxonomy.
+holdout_assignment	validation	Assignment of records to holdout folds with features used in holdout evaluation.
+holdout_metric	validation	Performance metrics on holdout folds.
+holdout_operating_point	validation	Thresholds/operating points and resulting metrics for holdout evaluation.
+legacy_active_population_v14	legacy	Frozen v1.4 snapshot of the active record population.
+legacy_assertion_publication_v14	legacy	Frozen v1.4 assertion-publication links.
+legacy_external_validation_metric_v14	legacy	Frozen v1.4 snapshot of external validation metrics.
+legacy_external_validation_v14	legacy	Frozen v1.4 snapshot of external validation records (strata E1/E2/EXT_NEG).
+legacy_function_assignment_v14	legacy	Frozen v1.4 snapshot of per-record function assignments.
+legacy_function_v14	legacy	Frozen v1.4 snapshot of function class/rule calls.
+legacy_holdout_metric_v14	legacy	Frozen v1.4 snapshot of holdout metrics.
+legacy_membership_v14	legacy	Frozen v1.4 snapshot of membership decisions.
+legacy_placement_rt001	legacy	Frozen placements onto legacy reference tree MR_RT_001.
+legacy_placement_rt002	legacy	Frozen placements onto legacy reference tree MR_RT_002.
+legacy_publication_v14	legacy	Frozen v1.4 publication records.
+legacy_reference_backbone_rt001	legacy	Frozen backbone sequence selection for legacy tree MR_RT_001.
+legacy_reference_clade_cld2	legacy	Frozen legacy clade definitions (MR_CLD_* and MR_CLD2_*).
+legacy_reference_clade_member_cld2	legacy	Frozen legacy clade membership of records (MR_CLD_* ids).
+legacy_reference_clade_tip_cld2	legacy	Frozen legacy clade-tip memberships.
+legacy_subfamily_assignment_v14	legacy	Frozen v1.4 subfamily assignments per record.
+legacy_subfamily_v14	legacy	Frozen v1.4 subfamily definitions.
+loco_validation	validation	Leave-one-clade-out (LOCO) validation of E2 transfer, summarized per held-out clade.
+loco_validation_record	validation	Per-record LOCO validation predictions and correctness.
+membership	membership	Type-I family membership decision per record with score, status and the rule route that produced it.
+motif_benchmark	validation	Benchmark of helix-C motif rule accuracy against experimental classes.
+mrdb_accession	core	Registry of stable MicroRhodoDB accessions, one per unique sequence (SHA-256), with representative source accession and first release.
+novel_family_candidate	validation	Foldseek-derived watchlist of structural homologs outside the corpus that belong to under-represented families or lack a PF01036 hit (181 rows; excluded from all counts).
+novel_family_flag	membership	Precomputed family-HMM flag per corpus record: best non-PF01036 family HMM hit when E<=1e-10 and its bits exceed the PF01036 bits (hmmsearch -Z 5466); informational, does not change status.
+novel_family_funnel	validation	Step-wise funnel counts/filters for novel-family discovery searches.
+pdb_structure	structure_spectral	Experimental PDB entries for rhodopsins with method, resolution and chain mapping.
+placement	phylogeny	Phylogenetic placement of each record onto reference trees with clade call and QC status.
+placement_model_sensitivity	phylogeny	Agreement of placements across alternative substitution models.
+predicted_structure	structure_spectral	Predicted (AlphaFold) structure models per record with confidence metrics.
+protein	core	One row per Type-I rhodopsin record (UniProt-derived) with sequence, length, helix-C motif, membership status, function call and v1.6.0 evidence level.
+protein_architecture_flag	qc	Per-record architecture flags (e.g. truncated core, fusion, missing TM7) used in membership decisions.
+protein_pdb	structure_spectral	Mapping between protein records and PDB entries/chains.
+publication	evidence_literature	Bibliographic records (PMID/DOI/title) supporting experimental assertions.
+qc_feature	qc	Per-record sequence QC features: HMM domain hits, TM-helix predictions, retinal lysine and architecture metrics.
+qc_feature_tool	qc	Per-record notes on which tools/versions produced QC features.
+record_clade	phylogeny	Current clade assignment per record at each clade level.
+redundancy	redundancy	Exact-sequence and identity-threshold redundancy clusters and representatives for each record.
+reference_tree	phylogeny	Registry of reference phylogenies (MR_RT_*) with build method, model and current flag.
+release_metadata	provenance	Key-value metadata for the release (version, date, counts).
+retinal_pocket	structure_spectral	Per-residue retinal-binding-pocket residues mapped to BR numbering.
+retinal_pocket_summary	structure_spectral	Per-record summary of retinal-pocket residues and pocket signature.
+route3_candidate_support	membership	Supporting evidence for route-3 (candidate) membership records, incl. the strict 154-record subset flag.
+seed	function	Small set of seed accessions with assigned subfamily and functional class used to anchor annotation.
+sequence_source	core	Source metadata per record: source database/release/accession and, where available, study, sample, assembly/contig coordinates, environment and location.
+spectral_audit	structure_spectral	Audit of absorption maxima (lambda max) reported for characterized rhodopsins.
+status_definition	membership	Controlled vocabulary of membership status labels with definitions and their v1.4 equivalents.
+structure	structure_spectral	Per-record architecture (primary architecture, fusions) and summary of experimental PDB structures (count, representative, best resolution, retinal presence).
+tier_a_assertion	evidence_literature	Tier-A function assertions derived from experimental evidence.
+tier_a_evidence	evidence_literature	Tier-A (direct experimental) evidence items per protein.
+tier_a_holdout	evidence_literature	Tier-A characterized proteins designated as holdout, with domain, function class and rationale.
+tree_edge	phylogeny	Parent-child edges of each reference tree with branch lengths.
+tree_node	phylogeny	Nodes of each reference tree with support values and tip labels.
+v_boundary_family	view	v_master restricted to membership_status='boundary_family'; includes engineered constructs if any (filter is_engineered=0 for counts).
+v_call_conflict	view	v_master restricted to records with call_conflict=1 (downgraded E3/E4 and flagged E1/E2/curated-rule conflicts).
+v_counted	view	v_master restricted to counts_eligible=1 (non-engineered records).
+v_engineered	view	v_master restricted to engineered constructs (is_engineered=1), with wild_type_acc.
+v_heliorhodopsin	view	v_master restricted to membership_status='heliorhodopsin'; no engineered filter applied.
+v_master	view	Wide one-row-per-record view joining core, membership, clade, function/evidence and engineered flags.
+v_typeI_candidate	view	v_master restricted to membership_status typeI_candidate*; includes engineered constructs (filter is_engineered=0 for counts).
+v_typeI_member	view	v_master restricted to membership_status typeI_member_*; includes engineered constructs (filter is_engineered=0 for counts).
+curation_v161_decision	provenance	v1.6.1 curator decisions: one row per changed field when identical sequences were given one membership status and one function call (rules M1, M2, F1-F5; pipeline/v161/identical_sequences_v161.py).
+v_curation_decision	provenance	All curation decisions of v1.6.0 and v1.6.1 with a single decider and decision date (curation_v160_decision records them in signed_by/signed_date or decided_by/decided_at).

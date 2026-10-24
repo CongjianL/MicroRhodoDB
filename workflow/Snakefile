@@ -161,6 +161,69 @@ rule test_v160:
     shell:
         "MRDB_DB={input.db} MRDB_IN_SNAKEMAKE=1 python -m pytest -q {RP}tests/test_v160_release.py"
 
+# ================================================================ v1.6.1 (correction release; target all_v161)
+# Builds v1.6.1 from the shipped, immutable v1.6.0 DB and curation/v161, reruns the revision analyses, compares the
+# result with the shipped v1.6.1 DB and runs its tests:  snakemake -c 1 all_v161
+V161_OUT = config.get("v161_out", "work/v161_rebuild")
+V161_CUR = f"{RP}curation/v161"
+V161_SRC = f"{RP}pipeline/v161"
+V161_REL = f"{RP}releases/v1.6.1/db/microrhododb_v1.6.1.sqlite"
+
+rule all_v161:
+    input:
+        f"{V161_OUT}/compare_to_release_v161.tsv",
+        f"{V161_OUT}/validation/nearest_e1_baseline_v161.tsv",
+        f"{V161_OUT}/.tests_v161_passed"
+
+rule decisions_v161:
+    """One decision per unique sequence (rules M1, M2, F1-F5); must equal the signed file shipped in curation/v161."""
+    input:
+        base=V160_REL, script=f"{V161_SRC}/identical_sequences_v161.py",
+        signed=f"{V161_CUR}/curation_v161_identical_signed.tsv"
+    output:
+        f"{V161_OUT}/curation_v161_identical_regenerated.tsv"
+    shell:
+        "python {input.script} {input.base} {output} && cmp {output} {input.signed}"
+
+rule rebuild_v161:
+    """Apply the signed v1.6.1 decisions to a read-only copy of the immutable v1.6.0 DB."""
+    input:
+        base=V160_REL, check=rules.decisions_v161.output, decisions=f"{V161_CUR}/curation_v161_identical_signed.tsv",
+        tdefs=f"{V161_CUR}/table_definitions_v161.tsv", cdefs=f"{V161_CUR}/column_definitions_v161.tsv",
+        script=f"{V161_SRC}/build_v161.py"
+    output:
+        db=f"{V161_OUT}/db/microrhododb_v1.6.1.sqlite", dd=f"{V161_OUT}/data_dictionary_v161.tsv",
+        log=f"{V161_OUT}/build_log_v161.txt"
+    shell:
+        "python {input.script} --base {input.base} --decisions {input.decisions} --tdefs {input.tdefs} "
+        "--cdefs {input.cdefs} --out-db {output.db} --dict-tsv {output.dd} --log {output.log}"
+
+rule analyses_v161:
+    """Hard-negative specificity, nearest-E1 baseline and E3 robustness on the replicate trees."""
+    input:
+        db=rules.rebuild_v161.output.db, script=f"{V161_SRC}/analyses_v161.py"
+    output:
+        f"{V161_OUT}/validation/nearest_e1_baseline_v161.tsv"
+    shell:
+        "python {input.script} {input.db} {RP}refpkg/MR_RT_003 {V161_OUT}/validation"
+
+rule compare_release_v161:
+    """Content comparison against the shipped v1.6.1 DB."""
+    input:
+        rebuilt=rules.rebuild_v161.output.db, shipped=V161_REL
+    output:
+        f"{V161_OUT}/compare_to_release_v161.tsv"
+    shell:
+        "python {V160_SRC}/compare_db_content.py {input.shipped} {input.rebuilt} {output}"
+
+rule test_v161:
+    input:
+        db=rules.rebuild_v161.output.db, val=rules.analyses_v161.output
+    output:
+        touch(f"{V161_OUT}/.tests_v161_passed")
+    shell:
+        "MRDB_DB161={input.db} python -m pytest -q {RP}tests/test_v161_release.py"
+
 # ================================================================ v1.5.0 (historical target)
 
 rule all_v150:

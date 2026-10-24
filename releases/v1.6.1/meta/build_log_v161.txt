@@ -1,0 +1,8 @@
+MicroRhodoDB v1.6.1 build log (2026-10-24)
+copied v1.6.0 (379a254356c6489a...) read-only
+applied 107 field changes on 23 records
+function_evidence.v161_change set on 23 records; curation_v161_decision 107 rows
+clade.name_basis_type: provisional names MR_CLD3_002,MR_CLD3_005,MR_CLD3_008,MR_CLD3_014,MR_CLD3_015,MR_CLD3_B02; MR_CLD3_017 naming basis updated
+release_metadata 1.6.1: n_protein_records=5466; n_counted_records=5460; membership_tier_counts_all={"boundary": 509, "candidate": 1374, "member": 3091, "outgroup": 386, "rejected": 106}; evidence_level_counts_counted={"E1": 88, "E2": 111, "E3": 1143, "E4": 1045, "E5": 3073}; evidence_level_counts_all={"E1": 91, "E2": 114, "E3": 1143, "E4": 1045, "E5": 3073}; n_call_conflict=480
+data_dictionary 1257 rows; integrity ok; foreign keys ok
+v1.6.1 database work/v161/db/microrhododb_v1.6.1.sqlite sha256 b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d
