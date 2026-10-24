@@ -13,7 +13,9 @@ Per query:
   * provisional_status: member-like (score >= 0.86, K216, gates) / candidate-like (0.40-0.86 or truncated core,
     K216) / boundary-like (PF01036 homolog, no K216) / heliorhodopsin-like / not_rhodopsin. This approximates the release
     status rules; the architecture route (route2) and curator overrides are NOT re-evaluated.
-  * typeI_detected_070: "yes" if membership_score >= 0.70. 0.70 is the recommended detection threshold from v1.6.0
+  * typeI_detected_070: "yes" if membership_score >= 0.70 and the gates of the validated full_gated score pass (PF01036
+    domain present, not heliorhodopsin-primary, positive Type-I margin; pipeline/v150/wp3_eval.py). Heliorhodopsins can
+    score >= 0.70 and are therefore excluded by the gates, as in the validation. 0.70 is the recommended detection threshold from v1.6.0
     (clade-root holdout sensitivity 42/46, specificity 209/215; external set sensitivity 16/21, specificity 345/345).
     The 0.86/0.90 thresholds miss most novel-family proteins (external sensitivity 10/21 and 3/21); bestrhodopsins
     score below 0.70 (0/4), so a "no" here does not exclude a distant rhodopsin family.
@@ -97,6 +99,14 @@ def provisional(r):
     return "below_threshold"
 
 
+def detected_070(r):
+    """Detection call at 0.70 under the gates of the validated full_gated score (pipeline/v150/wp3_eval.py)."""
+    def yes(c):
+        return r.get(c) in (True, 1, "True")
+    gates = yes("gate_has_domain") and not yes("is_helio_primary") and yes("gate_positive_typeI_margin")
+    return "yes" if gates and (r.get("membership_score") or 0) >= 0.70 else "no"
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("query")
@@ -122,7 +132,7 @@ def main():
                    os.path.join(a.workdir, "score"))
     S["membership_score"] = S.membership_score.fillna(0.0)   # no PF01036 domain -> 0 (as in the frozen release scores)
     S["provisional_status"] = [provisional(r) for r in S.to_dict("records")]
-    S["typeI_detected_070"] = (S.membership_score >= 0.70).map({True: "yes", False: "no"})
+    S["typeI_detected_070"] = [detected_070(r) for r in S.to_dict("records")]
 
     import family_flag
     F = family_flag.flags(a.query, R, workdir=os.path.join(a.workdir, "family"), threads=a.threads)
@@ -148,7 +158,7 @@ def main():
     con.close()
     keep = ["source_acc", "length", "membership_score", "membership_category", "provisional_status", "typeI_detected_070",
             "novel_family_hit", "novel_family_evalue", "novel_family_bits", "pf01036_bits", "has_retinal_lysine",
-            "gate_has_domain", "is_helio_primary", "gate_complete_core", "dom_score", "hmm_cov"]
+            "gate_has_domain", "is_helio_primary", "gate_positive_typeI_margin", "gate_complete_core", "dom_score", "hmm_cov"]
     vm["nn_tentative_clade_note"] = vm.nn_tentative_clade_id.map(
         lambda c: "distant placement, low confidence" if isinstance(c, str) and c else None)
     out = S[[c for c in keep if c in S]].merge(nn.merge(vm, on="nn_source_acc", how="left"), on="source_acc", how="left")

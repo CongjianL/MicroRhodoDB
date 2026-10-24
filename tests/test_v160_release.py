@@ -367,7 +367,8 @@ def test_cli_smoke_12_queries(tmp_path):
     assert (m.provisional_status_exp == m.provisional_status).all()
     assert (abs(m.membership_score_exp - m.membership_score) < 1e-3).all()
     assert {"nn_call_conflict", "nn_is_engineered", "nn_function_basis"} <= set(got.columns)
-    assert ((got.membership_score >= 0.70) == (got.typeI_detected_070 == "yes")).all()
+    gated = got.gate_has_domain.astype(bool) & ~got.is_helio_primary.astype(bool) & got.gate_positive_typeI_margin.astype(bool)
+    assert ((gated & (got.membership_score >= 0.70)) == (got.typeI_detected_070 == "yes")).all()
 
 
 def _cli_records(*ids):
@@ -389,6 +390,25 @@ def test_cli_queries_without_seed_hit(tmp_path):
     assert len(m) == 2
     assert (m.provisional_status_exp == m.provisional_status).all()
     assert (abs(m.membership_score_exp - m.membership_score) < 1e-3).all()
+
+
+def test_cli_heliorhodopsin_not_detected(tmp_path, con):
+    # heliorhodopsins can score >= 0.70; like the validated full_gated score, the 0.70 call must exclude them
+    for b in ("hmmscan", "hmmsearch", "diamond"):
+        assert shutil.which(b), f"{b} not on PATH - activate the pinned environment (workflow/envs/mrdb.lock.yml)"
+    rows = con.execute("select p.source_acc, p.sequence from protein p join membership m using(source_acc) "
+                       "where m.membership_status = 'heliorhodopsin' and m.membership_score >= 0.70 "
+                       "order by p.source_acc limit 2").fetchall()
+    assert len(rows) == 2
+    qf, out = tmp_path / "q.faa", tmp_path / "hits.tsv"
+    qf.write_text("".join(f">{a}\n{s}\n" for a, s in rows))
+    subprocess.run([sys.executable, os.path.join(REPO, "tools/mrdb_search.py"), str(qf), "-o", str(out),
+                    "--workdir", str(tmp_path / "w")], check=True, cwd=tmp_path, capture_output=True)
+    got = pd.read_csv(out, sep="\t")
+    assert len(got) == 2
+    assert (got.membership_score >= 0.70).all() and got.is_helio_primary.astype(bool).all()
+    assert (got.provisional_status == "heliorhodopsin_like").all()
+    assert (got.typeI_detected_070 == "no").all()
 
 
 def test_cli_rejects_duplicate_query_ids(tmp_path):
