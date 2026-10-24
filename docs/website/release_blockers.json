@@ -134,8 +134,13 @@
       "blocks": [
         "production"
       ],
-      "status": "open",
-      "resolution": null,
+      "status": "resolved",
+      "resolution": {
+        "decided_by": "CongjianL",
+        "decided_at": "2026-10-24",
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/settings/pages",
+        "notes": "Settings > Pages > Source switched from 'Deploy from a branch' (main:/) to 'GitHub Actions' on 2026-10-24, immediately before the authorised production deployment of website 2.0 (dataset v1.6.1). GET /repos/CongjianL/MicroRhodoDB/pages reports build_type 'workflow'. Done by Claude Code on the maintainer's instruction."
+      },
       "title": "GitHub Pages source must be switched to 'GitHub Actions' by the maintainer",
       "evidence": "Production is served by the legacy branch-based 'pages build and deployment' (main, repository root; latest deployment main fab9182 at 2026-10-11T04:07:40Z). actions/deploy-pages requires Settings > Pages > Source = GitHub Actions. The switch is a repository setting that only the maintainer may change, immediately before an authorised deployment (see PR7_DEPLOYMENT_RUNBOOK.md).",
       "required_decision": "Maintainer switches Settings > Pages > Source to 'GitHub Actions' immediately before an authorised deployment and records it with a reference. Automated check (online): GET /repos/{owner}/{repo}/pages must report build_type == 'workflow'; any API error or another value fails closed."
