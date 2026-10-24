@@ -1,7 +1,7 @@
 {
   "name": "microrhododb-web",
   "private": true,
-  "version": "2.0.0-pr7",
+  "version": "2.0.0",
   "type": "module",
   "description": "MicroRhodoDB website 2.0 (dataset v1.6.0). Static React + TypeScript + Vite app served from /MicroRhodoDB/site/.",
   "license": "MIT",

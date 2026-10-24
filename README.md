@@ -170,5 +170,6 @@ cd releases/v1.6.0 && sha256sum -c SHA256SUMS
 
 ## Licence and citation
 
-Data: CC BY 4.0. Code: MIT. Cite the release you used via `CITATION.cff` (Zenodo DOI to be added on deposit).
+Data: CC BY 4.0. Code: MIT. Cite the release you used via `CITATION.cff`. No DOI has been minted yet: cite the
+release version and the GitHub Release (https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.0).
 Maintenance, hosting and update policy: `MAINTENANCE.md`.

@@ -1,6 +1,8 @@
 cff-version: 1.2.0
 message: >-
   If you use MicroRhodoDB, please cite it using the metadata in this file.
+  No DOI has been minted for v1.6.0: cite the release version and the GitHub
+  Release https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.0.
   A companion data-descriptor manuscript is in preparation for submission to
   Database (Oxford) or Scientific Data; this file will be updated with the
   paper citation once it is published.
@@ -9,11 +11,12 @@ title: >-
   rhodopsins
 type: dataset
 version: 1.6.0
-date-released: "2026-10-09"
+date-released: "2026-10-10"
 authors:
   - given-names: CongJian
     family-names: Li
 repository-code: "https://github.com/CongjianL/MicroRhodoDB"
+url: "https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.0"
 license: CC-BY-4.0
 keywords:
   - microbial rhodopsins

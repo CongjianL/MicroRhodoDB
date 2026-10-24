@@ -1,6 +1,7 @@
 /**
  * How to cite (#/citation), spec section 10.5. Built only from CITATION.cff (downloads.json citation block).
- * The DOI is null in v1.6.0 and is shown as "not supplied"; the website version is never cited as data.
+ * The DOI is null in v1.6.0 (none minted; the maintainer chose to cite the GitHub Release) and is shown as
+ * "none minted"; the website version is never cited as data.
  */
 import { useState } from "react";
 import { href } from "../app/routes";
@@ -53,7 +54,7 @@ function Body({ d }: { d: Downloads }) {
         <dt className="text-ink-2">Data release</dt><dd data-testid="cite-version">{c.version}</dd>
         <dt className="text-ink-2">Date released</dt><dd>{c["date-released"] ?? "not recorded"}</dd>
         <dt className="text-ink-2">Licence</dt><dd>{c.license ?? "not recorded"}</dd>
-        <dt className="text-ink-2">DOI</dt><dd data-testid="cite-doi">{c.doi ?? "not supplied (pending confirmation by the maintainer)"}</dd>
+        <dt className="text-ink-2">DOI</dt><dd data-testid="cite-doi">{c.doi ?? "none minted for this release"}</dd>
         <dt className="text-ink-2">Repository</dt><dd>{c["repository-code"] ? <Ext href={c["repository-code"]}>{c["repository-code"]}</Ext> : "not recorded"}</dd>
         <dt className="text-ink-2">Source</dt><dd>{cff ? <Ext href={cff.url}>{d.citation_source}</Ext> : d.citation_source} (repository version used for this website build)</dd>
       </dl>
@@ -67,7 +68,7 @@ function Body({ d }: { d: Downloads }) {
       <CopyBlock label="Reference (APA style)" text={apa(c)} testId="cite-apa" />
       <CopyBlock label="BibTeX" text={bibtex(c)} testId="cite-bibtex" />
 
-      {c.message ? <p className="mb-4 text-sm"><span className="font-medium">From CITATION.cff:</span> {c.message}</p> : null}
+      {c.message ? <p className="mb-4 text-sm [overflow-wrap:anywhere]"><span className="font-medium">From CITATION.cff:</span> {c.message}</p> : null}
       <p className="mb-4 text-sm text-ink-2" data-testid="cite-version-note">
         {d.version_note} The website version ({d.website_version}) is not a data version and should not be cited as one. Record-level pages state the release they were generated from.
       </p>

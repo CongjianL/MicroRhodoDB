@@ -152,7 +152,11 @@ function Body({ d, urls }: { d: Downloads; urls: Record<string, string> }) {
 
       <section aria-labelledby="dl-maint" className="mb-8" data-testid="dl-maintenance">
         <h2 id="dl-maint" className="mb-1 text-xl">Long-term availability</h2>
-        <p className="mb-3 max-w-3xl text-sm text-ink-2">The maintenance plan (MAINTENANCE.md) still contains placeholders. They are shown as recorded; nothing has been filled in by this website.</p>
+        {d.maintenance_placeholders.length ? (
+          <p className="mb-3 max-w-3xl text-sm text-ink-2">The maintenance plan (MAINTENANCE.md) still contains placeholders. They are shown as recorded; nothing has been filled in by this website.</p>
+        ) : (
+          <p className="mb-3 max-w-3xl text-sm text-ink-2" data-testid="dl-maintenance-complete">The maintenance plan (MAINTENANCE.md, listed under repository documents above) states the update cadence, hosting term, funding and end-of-life arrangements.</p>
+        )}
         <ul className="max-w-3xl list-disc space-y-1 pl-5 text-sm">
           {d.maintenance_placeholders.map((m, i) => (
             <li key={i}><span className="font-mono text-xs">{m.context}</span> — expected: {m.hint}. <span className="font-medium">Status: {m.status}.</span></li>

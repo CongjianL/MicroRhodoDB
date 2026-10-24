@@ -114,9 +114,9 @@ test.describe("PR-5 section pages", () => {
     expect(watch.dataFiles().filter((f) => f === "export_manifest.json")).toEqual([]);
   });
 
-  test("Citation: DOI not supplied; BibTeX cites the dataset version, not the website version", async ({ page }) => {
+  test("Citation: no DOI minted; BibTeX cites the dataset version, not the website version", async ({ page }) => {
     await page.goto("#/citation");
-    await expect(page.getByTestId("cite-doi")).toContainText("not supplied");
+    await expect(page.getByTestId("cite-doi")).toContainText("none minted");
     const bib = await page.getByTestId("cite-bibtex").innerText();
     expect(bib).toContain("1.6.0");
     expect(bib).not.toContain("2.0.0");

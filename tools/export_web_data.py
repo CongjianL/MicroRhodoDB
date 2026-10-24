@@ -35,7 +35,7 @@ from pathlib import Path
 
 SCHEMA_VERSION = "1.4.0"
 DATASET_RELEASE = "1.6.0"
-WEBSITE_VERSION = "2.0.0-pr7"
+WEBSITE_VERSION = "2.0.0"
 DB_REL = "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"
 EXPECTED_DB_SHA256 = "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f"
 TREE_ID = "MR_RT_003"

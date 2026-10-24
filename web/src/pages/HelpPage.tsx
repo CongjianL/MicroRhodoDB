@@ -95,7 +95,7 @@ export default function HelpPage() {
         <h2 id="help-support" className="mb-2 text-xl">Support and corrections</h2>
         <p>
           Report errors or request corrections through the {repo ? <a href={safeExternalUrl(`${repo}/issues`)} target="_blank" rel="noopener noreferrer">repository issue tracker</a> : "repository issue tracker"}.
-          {" "}Contact address: {contact ? <span>{contact.status}</span> : "not supplied"}.
+          {contact ? <>{" "}Contact address: <span>{contact.status}</span>.</> : " There is no separate e-mail contact (see MAINTENANCE.md)."}
         </p>
       </section>
     </div>
