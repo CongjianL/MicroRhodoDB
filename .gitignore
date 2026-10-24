@@ -5,3 +5,4 @@ work/
 .pytest_cache/
 *.sqlite
 *.egg-info/
+manuscript-ready/

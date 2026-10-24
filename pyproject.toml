@@ -8,6 +8,7 @@ version = "1.6.0"
 description = "MicroRhodoDB — versioned, evidence-aware, reproducibly validated Type-I microbial rhodopsin knowledgebase (read-only query API for the v1.6.0 release)"
 readme = "README.md"
 requires-python = ">=3.10"
+license = {text = "MIT"}
 dependencies = [
     "pandas",
 ]

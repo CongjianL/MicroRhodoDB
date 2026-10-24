@@ -540,10 +540,11 @@ The exporter fails if any distribution or crosstab does not sum to its denominat
 
 ### 14.2 Licence and date fields are copied, not reconciled
 
-`release.license` is the stored string "CC BY 4.0 (data); MIT (code)". The repository `LICENSE` file contains only
-CC BY 4.0 and `CITATION.cff` says `CC-BY-4.0`. `release.release_date` (DB metadata) is 2026-10-10, while
-`CITATION.cff` `date-released` is 2026-10-09. The website shows both values with their sources and does not pick one;
-reconciling them is a maintainer decision.
+`release.license` is the stored string "CC BY 4.0 (data); MIT (code)". `release.release_date` (DB metadata) and
+`CITATION.cff` `date-released` are shown with their sources; the website does not pick one.
+
+Resolved 2026-10-24 (MD-1, MD-2 in `release_blockers.json`): `LICENSE` now states CC BY 4.0 for data and MIT for
+code, and `CITATION.cff` `date-released` was corrected from 2026-10-09 to 2026-10-10, so the two dates agree.
 
 ## 15. PR-5a corrections (no schema or data change)
 
