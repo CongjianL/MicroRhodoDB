@@ -587,9 +587,9 @@ def test_output_summary_recomputes():
 def test_no_production_habitat_keys():
     """PR-7c.1 must not add habitat values to the production web export.
 
-    PR-7c.2 adds the habitat sidecar under v1.6.0/habitat/ (its own schema and tests in tests/test_web_pr7c2.py);
+    PR-7c.2 adds the habitat sidecar under v1.6.1/habitat/ (its own schema and tests in tests/test_web_pr7c2.py);
     habitat keys must stay confined to it, so every core export file is still checked."""
-    exp = REPO / "web" / "public" / "data" / "v1.6.0"
+    exp = REPO / "web" / "public" / "data" / "v1.6.1"
     if not exp.exists():
         pytest.skip("web export not present")
     for p in sorted(exp.rglob("*.json")):

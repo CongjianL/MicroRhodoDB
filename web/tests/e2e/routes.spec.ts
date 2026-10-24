@@ -86,7 +86,7 @@ test.describe("Routing, history and static assets under /MicroRhodoDB/site/", ()
     const nav = page.getByRole("navigation", { name: "Primary", exact: true });
     await nav.getByRole("link", { name: "Browse" }).click();
     await expect(page).toHaveURL(/#\/browse$/);
-    await expect(page.getByTestId("browse-count")).toHaveText("3,085");
+    await expect(page.getByTestId("browse-count")).toHaveText("3,087");
     await expect(nav.getByRole("link", { name: "Browse" })).toHaveAttribute("aria-current", "page");
     await nav.getByRole("link", { name: "About" }).click();
     await expect(page).toHaveURL(/#\/about$/);
@@ -96,7 +96,7 @@ test.describe("Routing, history and static assets under /MicroRhodoDB/site/", ()
     await expect(page.getByTestId("stat-cards")).toBeVisible();
     await page.goto("#/browse?group=all&evidence=E2");
     await page.reload();
-    await expect(page.getByTestId("browse-count")).toHaveText("109");
+    await expect(page.getByTestId("browse-count")).toHaveText("111");
     await page.goto("#/record/P02945");
     await page.reload();
     await expect(page.getByTestId("record-page")).toHaveAttribute("data-focus", "P02945");

@@ -21,7 +21,7 @@ import tempfile
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-EXP = REPO / "web" / "public" / "data" / "v1.6.0"
+EXP = REPO / "web" / "public" / "data" / "v1.6.1"
 AUDIT = REPO / "web" / "scripts" / "pr6_scientific_audit.py"
 
 
@@ -130,7 +130,7 @@ def main() -> None:
     a = ap.parse_args()
     res = []
     with tempfile.TemporaryDirectory(prefix="mrdb_pr6_mut_", dir=scratch_root(a.tmp_root)) as td:
-        base = Path(td) / "v1.6.0"
+        base = Path(td) / "v1.6.1"
         shutil.copytree(EXP, base)
         scratch = Path(td) / "o"
         res.append({"mutation": "none (unmodified copy)", **run(base, scratch), "expected": 0})

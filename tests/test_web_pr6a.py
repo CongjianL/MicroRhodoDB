@@ -25,8 +25,8 @@ import pytest
 REPO = Path(__file__).resolve().parents[1]
 WF = REPO / ".github" / "workflows" / "web-data.yml"
 MUT = REPO / "web" / "scripts" / "pr6_audit_mutations.py"
-EXP = REPO / "web" / "public" / "data" / "v1.6.0"
-DB = REPO / "releases" / "v1.6.0" / "db" / "microrhododb_v1.6.0.sqlite"
+EXP = REPO / "web" / "public" / "data" / "v1.6.1"
+DB = REPO / "releases" / "v1.6.1" / "db" / "microrhododb_v1.6.1.sqlite"
 
 METADATA = ["README.md", "LICENSE", "CITATION.cff", "MAINTENANCE.md", "BINARIES.md", "CHANGELOG.md", "index.html"]
 
@@ -160,7 +160,7 @@ def run_under_hook(tmp_path: Path, script: Path, extra_args: list[str] | None = 
 
 
 needs_data = pytest.mark.skipif(not (EXP / "records-index.json").exists() or not DB.exists(),
-                                reason="needs the v1.6.0 export (tools/export_web_data.py) and the release DB")
+                                reason="needs the v1.6.1 export (tools/export_web_data.py) and the release DB")
 
 
 # ------------------------------------------------------------------------------ 1. mutation-audit portability
@@ -243,9 +243,9 @@ def test_workflow_triggers_cover_published_metadata_and_frozen_inputs():
         must += [d["path"] for d in json.loads((EXP / "downloads.json").read_text())["repository_documents"]]
     # frozen inputs read by the exporter / release fetcher
     must += ["refpkg/MR_RT_003/SHA256SUMS", "refpkg/MR_RT_003/tree/MR_RT_003.rooted.treefile",
-             "refpkg/MR_RT_003/clades/MR_CLD3_tips.tsv", "releases/v1.6.0/SHA256SUMS",
+             "refpkg/MR_RT_003/clades/MR_CLD3_tips.tsv", "releases/v1.6.1/SHA256SUMS",
              "tools/export_web_data.py", "web/scripts/fetch_release_db.py", "web/src/data/fetchText.ts",
-             "tests/test_web_pr6a.py", "tests/data/web_drilldown_golden_v160.json",
+             "tests/test_web_pr6a.py", "tests/data/web_drilldown_golden_v161.json",
              "docs/website/PR6A_AUTO_ACCEPTANCE_REPORT.md", ".github/workflows/web-data.yml"]
     for event in ("pull_request", "push"):
         paths = on[event]["paths"]

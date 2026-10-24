@@ -86,6 +86,8 @@ type Scope = "all" | "counted" | "members_candidates";
 /** Function-call basis category: the same CASE mapping as the exporter (BASIS_CATEGORY_SQL). */
 export function basisCategory(b: string | null): string {
   if (b === null) return "UNMAPPED";
+  // v1.6.1: "identical_sequence:<twin>|<twin basis>" is categorised by the identical twin's basis (as the exporter does).
+  if (/^identical_sequence:/i.test(b) && b.includes("|")) b = b.slice(b.indexOf("|") + 1);
   const lb = b.toLowerCase();
   if (lb === "experimental:this_protein") return "experimental:this_protein";
   if (lb.startsWith("experimental_ortholog:")) return "experimental_ortholog";

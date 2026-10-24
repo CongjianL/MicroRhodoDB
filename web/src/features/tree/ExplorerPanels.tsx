@@ -47,7 +47,7 @@ export function NodeInfo({ tree, pre, q, clades, collapsed, actions, hover }: {
         {hover ? <p className="text-xs text-ink-2">Hovering. Click to keep this panel.</p> : null}
         <dl className="mt-2">
           <KV k="Protein Entry" testId="info-entry">
-            {t.mrdb_acc ? <a href={href.record(t.mrdb_acc)} data-testid="info-entry-link">{t.mrdb_acc}</a> : <span>None: this tip is <strong>not in the v1.6.0 corpus</strong></span>}
+            {t.mrdb_acc ? <a href={href.record(t.mrdb_acc)} data-testid="info-entry-link">{t.mrdb_acc}</a> : <span>None: this tip is <strong>not in the v1.6.1 corpus</strong></span>}
           </KV>
           <KV k="Protein">{v(t.protein_name)}</KV>
           <KV k="Organism">{v(t.organism ? <i>{t.organism}</i> : null)}</KV>
@@ -58,7 +58,7 @@ export function NodeInfo({ tree, pre, q, clades, collapsed, actions, hover }: {
           <KV k="Subclade">{t.subclade ? <a href={href.clade(t.subclade)}>{t.subclade}</a> : <span className="text-ink-2">None</span>}</KV>
           <KV k="Clade state">{t.clade_state ? <>{CLADE_STATE_LABEL[t.clade_state]} <code className="text-xs text-ink-2">{t.clade_state}</code></> : <span className="text-ink-2">No record (not in corpus)</span>}</KV>
           <KV k="Taxonomy">{v([t.tax_domain, t.phylum].filter(Boolean).join(" / "))}</KV>
-          <KV k="Function (v1.6.0)">{t.func_class ? <>{FUNC_LABEL[t.func_class as keyof typeof FUNC_LABEL] ?? t.func_class} <code className="text-xs text-ink-2">{t.func_class}</code></> : dash}</KV>
+          <KV k="Function (v1.6.1)">{t.func_class ? <>{FUNC_LABEL[t.func_class as keyof typeof FUNC_LABEL] ?? t.func_class} <code className="text-xs text-ink-2">{t.func_class}</code></> : dash}</KV>
           <KV k="Evidence">{v(t.evidence_level)}</KV>
           <KV k="Helix-C motif">{v(t.helixC_motif ? <span className="font-mono">{t.helixC_motif}</span> : null)}</KV>
           <KV k="v1.4 tip annotation">{v([t.func_class_v14, t.subfamily_v14].filter(Boolean).join(" / "))}</KV>
@@ -149,7 +149,7 @@ export function PlacementPanel({ tree, info, mrdb, onFocus }: { tree: XTree; inf
       {info === "error" ? <p className="text-sm text-[#8a3c04]">The record could not be loaded.</p> : null}
       {info !== "loading" && info !== "error" ? (
         !info.entry ? (
-          <p className="text-sm text-[#8a3c04]" data-testid="placement-missing">No record {mrdb} in v1.6.0.</p>
+          <p className="text-sm text-[#8a3c04]" data-testid="placement-missing">No record {mrdb} in v1.6.1.</p>
         ) : info.isTip ? (
           <p className="text-sm" data-testid="placement-is-tip">Source <span className="font-mono">{info.sourceAcc}</span> is itself a reference tip, so it has no placement. <a href={href.phylogeny(phyloQueryString({ tip: info.sourceAcc }))}>Show the tip</a>.</p>
         ) : !info.placement ? (
@@ -165,7 +165,7 @@ export function PlacementPanel({ tree, info, mrdb, onFocus }: { tree: XTree; inf
             {info.targets.length ? (
               <p className="mt-2 text-xs text-ink-2" data-testid="placement-targets">
                 Highlighted: the whole reference branch {info.edge} (rooted node{info.targets.length > 1 ? "s" : ""} pre {info.targets.join(" and ")}).
-                {info.targets.length > 1 ? " This edge is the root split, drawn as the two root branches." : ""} The position along the branch is not stored in v1.6.0 and is not drawn.
+                {info.targets.length > 1 ? " This edge is the root split, drawn as the two root branches." : ""} The position along the branch is not stored in v1.6.1 and is not drawn.
               </p>
             ) : (
               <p className="mt-2 text-xs text-[#8a3c04]" data-testid="placement-unmapped">Best edge {info.edge ?? "(none)"} is not in the edge map; nothing is highlighted.</p>

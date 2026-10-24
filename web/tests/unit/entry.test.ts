@@ -188,7 +188,7 @@ describe("sequence helpers", () => {
     expect(lines.flatMap((l) => l.blocks).join("")).toBe(p.sequence);
     const fa = fasta(e, [p]);
     expect(fa.startsWith(">P02945 MRDB000001")).toBe(true);
-    expect(fa).toContain("release=v1.6.0");
+    expect(fa).toContain("release=v1.6.1");
     expect(fa.split("\n").slice(1).filter(Boolean).every((l) => l.length <= 60)).toBe(true);
     expect(fa.split("\n").slice(1).join("")).toBe(p.sequence);
   });
@@ -296,7 +296,7 @@ describe("integrity sweep: every record file against records-index.json", () => 
   const ri = json<RecordsIndex>("records-index.json");
   const col = Object.fromEntries((ri.columns as readonly string[]).map((c, i) => [c, i]));
   const idx = new Map<string, unknown[]>(ri.rows.map((r) => [(r as unknown[])[col.source_acc] as string, r as unknown[]]));
-  const dir = resolve(WEB, "public/data/v1.6.0/records");
+  const dir = resolve(WEB, "public/data/v1.6.1/records");
   const files = readdirSync(dir).filter((f) => f.endsWith(".json"));
   const releaseSources = new Set<string>();
   let nSources = 0;

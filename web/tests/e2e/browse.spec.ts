@@ -11,14 +11,14 @@ async function readDownload(d: Download): Promise<string> {
 }
 
 test.describe("Browse", () => {
-  test("default view: 3,085 Type-I members (engineered hidden), 50 rows per page", async ({ page, watch }) => {
+  test("default view: 3,087 Type-I members (engineered hidden), 50 rows per page", async ({ page, watch }) => {
     await page.goto("#/browse");
-    await expect(count(page)).toHaveText("3,085");
+    await expect(count(page)).toHaveText("3,087");
     await expect(page.getByTestId("browse-total")).toHaveText("5,466");
     await expect(bodyRows(page)).toHaveCount(50);
     await expect(page.getByTestId("group-tabs").locator('[aria-pressed="true"]')).toHaveAttribute("data-group", "member");
     await page.getByTestId("toggle-eng").check();
-    await expect(count(page)).toHaveText("3,089");
+    await expect(count(page)).toHaveText("3,091");
     await expect(page).toHaveURL(/#\/browse\?eng=1$/);
     expect(watch.dataFiles()).toContain("records-index.json");
     expect(watch.dataFiles().some((f) => f.startsWith("sequences/"))).toBe(false);
@@ -26,7 +26,7 @@ test.describe("Browse", () => {
 
   test("filters update the URL, show chips, and Back/Forward restore them", async ({ page, watch }) => {
     await page.goto("#/browse");
-    await expect(count(page)).toHaveText("3,085");
+    await expect(count(page)).toHaveText("3,087");
     await page.getByTestId("group-tabs").locator('[data-group="all"]').click();
     await expect(count(page)).toHaveText("5,460");
     await visible(page, "filter-evidence").selectOption("E1");
@@ -126,7 +126,7 @@ test.describe("Browse", () => {
 
     await open();
     let [d] = await Promise.all([page.waitForEvent("download"), page.getByTestId("export-tsv").click()]);
-    expect(d.suggestedFilename()).toMatch(/^microrhododb_v1\.6\.0_browse_[0-9a-f]{8}_[0-9a-f]{8}_88_source_records\.tsv$/);
+    expect(d.suggestedFilename()).toMatch(/^microrhododb_v1\.6\.1_browse_[0-9a-f]{8}_[0-9a-f]{8}_88_source_records\.tsv$/);
     const tsvName = d.suggestedFilename();
     const tsv = (await readDownload(d)).split("\n");
     expect(tsv[0].split("\t").slice(0, 3)).toEqual(["mrdb_acc", "source_acc", "protein_name"]);
@@ -159,7 +159,7 @@ test.describe("Browse", () => {
     await open();
     [d] = await Promise.all([page.waitForEvent("download"), page.getByTestId("export-manifest").click()]);
     const man = JSON.parse(await readDownload(d));
-    expect(man).toMatchObject({ dataset_release: "1.6.0", n_source_records: 88, n_mrdb_accessions: nU, filter_query: "group=all&evidence=E1", sort: { key: "length", dir: "desc" }, sort_token: "length:desc" });
+    expect(man).toMatchObject({ dataset_release: "1.6.1", n_source_records: 88, n_mrdb_accessions: nU, filter_query: "group=all&evidence=E1", sort: { key: "length", dir: "desc" }, sort_token: "length:desc" });
     // PR-3a: the manifest lists exactly the names of the files that were downloaded.
     expect(man.files).toEqual({ records_tsv: tsvName, records_fasta: faName, mrdb_fasta: mrdbName, manifest: d.suggestedFilename() });
     expect(tsvName).toContain(`_browse_${man.selection_id}_${man.export_id}_88_`);
@@ -175,7 +175,7 @@ test.describe("Browse", () => {
       if (!(await page.getByTestId("export-tsv").isVisible())) await page.getByRole("button", { name: "Download" }).click();
       const [d] = await Promise.all([page.waitForEvent("download"), page.getByTestId("export-tsv").click()]);
       const name = d.suggestedFilename();
-      const m = /^microrhododb_v1\.6\.0_browse_([0-9a-f]{8})_([0-9a-f]{8})_88_source_records\.tsv$/.exec(name);
+      const m = /^microrhododb_v1\.6\.1_browse_([0-9a-f]{8})_([0-9a-f]{8})_88_source_records\.tsv$/.exec(name);
       expect(m, name).not.toBeNull();
       const lines = (await readDownload(d)).split("\n").slice(1, -1);
       return { name, selection: m![1], exportId: m![2], body: lines.join("\n"), set: [...lines].sort().join("\n") };
@@ -196,7 +196,7 @@ test.describe("Browse", () => {
 
   test("only the lightweight files plus records-index are loaded on Browse", async ({ page, watch }) => {
     await page.goto("#/browse");
-    await expect(count(page)).toHaveText("3,085");
+    await expect(count(page)).toHaveText("3,087");
     await page.waitForLoadState("networkidle");
     const heavy = watch.dataFiles().filter((f) => HEAVY.some((re) => re.test(f)));
     expect(heavy).toEqual(["records-index.json"]);

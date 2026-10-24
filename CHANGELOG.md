@@ -26,6 +26,11 @@ thresholds, tree, placements and clade assignments unchanged. Release artifact: 
   detected Type-I rhodopsins.
 - **New validation.** Hard-negative specificity, nearest-E1 transfer baseline, E3 robustness on the replicate trees
   (`releases/v1.6.1/validation/`).
+- **Known issue.** A0A0C3UE61 (E2; identical to the E1 record L1K1K8) copied its twin's `call_conflict_detail`
+  verbatim, so it reads `action=flag_only_E1` although the record is E2. To be corrected to `flag_only_E2` in the
+  next release; the website tests allow exactly this record.
+- **Website (after release).** Website 2.0 exports and serves v1.6.1 (dataset release in `web/src/data/release.ts`,
+  `web/release/release_contract.json`, `CITATION.cff`); the release gate reads the dataset release from `CITATION.cff`.
 
 ## [1.6.0] - 2026-10-10
 

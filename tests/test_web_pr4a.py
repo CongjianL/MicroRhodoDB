@@ -3,7 +3,7 @@
 Run from the repository root:
     pytest -q tests/test_web_pr4a.py
 
-Every expected value is recomputed from the read-only v1.6.0 SQLite (tables placement, record_clade, clade,
+Every expected value is recomputed from the read-only v1.6.1 SQLite (tables placement, record_clade, clade,
 v_master) with the rule of pipeline/v150/record_clades.py restated here, independently of the exporter:
     formal assignment = reference tip of the group, or a current MR_RT_003 placement whose call
     (clade_call for level-1 clades, subclade_call for subclades and backbone groups) is 'assigned'
@@ -21,8 +21,8 @@ from pathlib import Path
 import pytest
 
 REPO = Path(os.environ.get("MRDB_REPO", ".")).resolve()
-DB = Path(os.environ.get("MRDB_DB", REPO / "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"))
-REL = "v1.6.0"
+DB = Path(os.environ.get("MRDB_DB", REPO / "releases/v1.6.1/db/microrhododb_v1.6.1.sqlite"))
+REL = "v1.6.1"
 PENDANT_MAX = 1.0
 B02_PLACEMENT_ONLY = ["A0A2P6MQ02", "A0A2P6NAG6", "A0A2P6NFX8"]
 

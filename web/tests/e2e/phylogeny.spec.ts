@@ -134,7 +134,7 @@ test.describe("Phylogeny explorer", () => {
     for (const acc of ["QBQ84355", "QBQ84358"]) {
       await page.goto(`#/phylogeny?tip=${acc}`);
       await expect(page.getByTestId("info-tip")).toHaveAttribute("data-acc", acc);
-      await expect(page.getByTestId("info-tip")).toContainText("not in the v1.6.0 corpus");
+      await expect(page.getByTestId("info-tip")).toContainText("not in the v1.6.1 corpus");
       await expect(page.getByTestId("info-entry-link")).toHaveCount(0);
     }
     // A0A0D1ZKH7 is a placed record (MRDB000101), not a tip

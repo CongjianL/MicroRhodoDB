@@ -1,4 +1,4 @@
-"""PR-7c.2: habitat sidecar (data/v1.6.0/habitat/) integrated into the deterministic web export.
+"""PR-7c.2: habitat sidecar (data/v1.6.1/habitat/) integrated into the deterministic web export.
 
 Display observed environmental metadata, not inferred habitats. These tests re-derive the sidecar from the accepted
 PR-7c.1a audit tables with their own code (no import of tools/habitat_export/build.py constants for the checks),
@@ -20,10 +20,10 @@ from pathlib import Path
 import pytest
 
 REPO = Path(os.environ.get("MRDB_REPO", ".")).resolve()
-DB = Path(os.environ.get("MRDB_DB", REPO / "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"))
+DB = Path(os.environ.get("MRDB_DB", REPO / "releases/v1.6.1/db/microrhododb_v1.6.1.sqlite"))
 EXPORTER = REPO / "tools/export_web_data.py"
 P = REPO / "docs/website/pr7c1"
-REL = "v1.6.0"
+REL = "v1.6.1"
 CONTRACT = REPO / "tools/habitat_export/contract.json"
 
 sys.path.insert(0, str(REPO / "tools"))

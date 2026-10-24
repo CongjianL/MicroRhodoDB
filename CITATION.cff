@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: >-
   If you use MicroRhodoDB, please cite it using the metadata in this file.
-  No DOI has been minted for v1.6.0: cite the release version and the GitHub
-  Release https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.0.
+  No DOI has been minted for v1.6.1: cite the release version and the GitHub
+  Release https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.1.
   A companion data-descriptor manuscript is in preparation for submission to
   Database (Oxford) or Scientific Data; this file will be updated with the
   paper citation once it is published.
@@ -10,13 +10,13 @@ title: >-
   MicroRhodoDB: a versioned, evidence-aware knowledgebase of Type-I microbial
   rhodopsins
 type: dataset
-version: 1.6.0
-date-released: "2026-10-10"
+version: 1.6.1
+date-released: "2026-10-24"
 authors:
   - given-names: CongJian
     family-names: Li
 repository-code: "https://github.com/CongjianL/MicroRhodoDB"
-url: "https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.0"
+url: "https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.1"
 license: CC-BY-4.0
 keywords:
   - microbial rhodopsins
@@ -42,4 +42,5 @@ abstract: >-
   family-HMM flag and Foldseek watchlist for novel families, a full data
   dictionary and a static browser with in-browser sequence search. Releases are
   immutable, versioned SQLite databases; the current release is rebuilt from the
-  previous one by a pinned Snakemake workflow.
+  previous one by a pinned Snakemake workflow. Version 1.6.1 corrects 1.6.0 so
+  that identical sequences share one membership status and one function call.

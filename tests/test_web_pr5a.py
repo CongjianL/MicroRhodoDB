@@ -3,11 +3,11 @@
 Run from the repository root:
     pytest -q tests/test_web_pr5a.py
 
-* D3: summary.json is reconciled against the frozen v1.6.0 SQLite with a keyed comparison
+* D3: summary.json is reconciled against the frozen v1.6.1 SQLite with a keyed comparison
   (57 SQL-replayed items + 1 independently derived item), and adversarial mutations of the exported
   distributions, crosstabs and metrics -- swapped category counts, swapped crosstab cells, renamed
   null categories, duplicate keys, extra zero categories -- are each rejected.
-* D1/D2/D4: the DB-derived drilldown accession sets (tests/data/web_drilldown_golden_v160.json) are
+* D1/D2/D4: the DB-derived drilldown accession sets (tests/data/web_drilldown_golden_v161.json) are
   regenerated from the frozen SQLite and must be identical; every set size equals the exported value.
   tests/unit/pr5a.test.ts requires the website's Browse filters to reproduce each set exactly.
 """
@@ -26,10 +26,10 @@ sys.path.insert(0, str(REPO / "web/scripts"))
 import pr5a_drilldown_golden as G  # noqa: E402
 import summary_reconcile as R  # noqa: E402
 
-DB = REPO / "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"
-DATA = REPO / "web/public/data/v1.6.0"
-DB_SHA = "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f"
-GOLDEN = REPO / "tests/data/web_drilldown_golden_v160.json"
+DB = REPO / "releases/v1.6.1/db/microrhododb_v1.6.1.sqlite"
+DATA = REPO / "web/public/data/v1.6.1"
+DB_SHA = "b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d"
+GOLDEN = REPO / "tests/data/web_drilldown_golden_v161.json"
 
 
 @pytest.fixture(scope="module")
@@ -140,7 +140,7 @@ def test_mutation_metric_value_detected(con, summary):
 
 def test_frozen_denominators_unchanged(summary):
     d = {k: v["value"] for k, v in summary["denominators"].items()}
-    assert (d["all_records"], d["counted_records"], d["mrdb_accessions"], d["members_candidates"]) == (5466, 5460, 5299, 4468)
+    assert (d["all_records"], d["counted_records"], d["mrdb_accessions"], d["members_candidates"]) == (5466, 5460, 5299, 4465)
 
 
 # ---------------------------------------------------------------- D1/D2/D4 drilldown accession sets
@@ -173,7 +173,7 @@ def test_clade_state_members_candidates_population(con):
     g = json.loads(GOLDEN.read_text())
     mc = [i for i in g["items"] if i["id"] == "clade_state_members_candidates"]
     assert all(i["population"] == "members_candidates" for i in mc)
-    assert sum(i["n"] for i in mc) == 4468
+    assert sum(i["n"] for i in mc) == 4465
     assert next(i for i in mc if i["key"] == "confident")["n"] == 3821
     allr = {i["key"]: i for i in g["items"] if i["id"] == "clade_state"}
     # the all-records sets differ: the two charts must not share drilldown targets

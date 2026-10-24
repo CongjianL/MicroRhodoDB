@@ -8,8 +8,8 @@ from pathlib import Path
 
 REPO = Path(os.environ.get("MRDB_REPO", ".")).resolve()
 SCRIPT = REPO / "web/scripts/fetch_release_db.py"
-DB = REPO / "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"
-DEST = "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"
+DB = REPO / "releases/v1.6.1/db/microrhododb_v1.6.1.sqlite"
+DEST = "releases/v1.6.1/db/microrhododb_v1.6.1.sqlite"
 
 
 def run(repo, *extra):
@@ -38,9 +38,9 @@ def test_missing_release_is_blocked(tmp_path):
 
 def test_checksum_mismatch_is_blocked(tmp_path):
     repo = fake_repo(tmp_path)
-    mirror = tmp_path / "mirror" / "v1.6.0"
+    mirror = tmp_path / "mirror" / "v1.6.1"
     mirror.mkdir(parents=True)
-    (mirror / "microrhododb_v1.6.0.sqlite").write_bytes(b"not the database")
+    (mirror / "microrhododb_v1.6.1.sqlite").write_bytes(b"not the database")
     r = run(repo, "--base-url", (tmp_path / "mirror").as_uri())
     assert r.returncode == 2 and "BLOCKED_DATA_SOURCE" in r.stderr and "sha256" in r.stderr
     assert not (repo / DEST).exists()
@@ -48,13 +48,13 @@ def test_checksum_mismatch_is_blocked(tmp_path):
 
 def test_verified_download(tmp_path):
     repo = fake_repo(tmp_path)
-    mirror = tmp_path / "mirror" / "v1.6.0"
+    mirror = tmp_path / "mirror" / "v1.6.1"
     mirror.mkdir(parents=True)
-    os.symlink(DB, mirror / "microrhododb_v1.6.0.sqlite")
+    os.symlink(DB, mirror / "microrhododb_v1.6.1.sqlite")
     r = run(repo, "--base-url", (tmp_path / "mirror").as_uri())
     assert r.returncode == 0 and "downloaded and verified" in r.stdout
     assert hashlib.sha256((repo / DEST).read_bytes()).hexdigest() == \
-        "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f"
+        "b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d"
 
 
 # ---------------------------------------------------------------- HTTP 404 (private repository) -> gh fallback
@@ -97,8 +97,8 @@ def test_http_404_falls_back_to_gh_and_verifies(tmp_path):
         srv.shutdown()
     assert r.returncode == 0 and "downloaded and verified" in r.stdout and "via gh" in r.stdout, r.stderr
     assert hashlib.sha256((repo / DEST).read_bytes()).hexdigest() == \
-        "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f"
-    assert [p.name for p in (repo / DEST).parent.iterdir()] == ["microrhododb_v1.6.0.sqlite"]
+        "b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d"
+    assert [p.name for p in (repo / DEST).parent.iterdir()] == ["microrhododb_v1.6.1.sqlite"]
 
 
 def test_gh_fallback_copy_is_checksum_verified(tmp_path):

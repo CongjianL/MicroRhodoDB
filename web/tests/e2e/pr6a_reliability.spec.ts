@@ -23,8 +23,8 @@ test.describe("PR-6a stalled response bodies", () => {
     await shorten(page);
     const origin = new URL(baseURL!).origin;
     let stall = true;
-    await page.route("**/data/v1.6.0/structures-index.json", (r) =>
-      stall ? r.continue({ url: `${origin}/__test__/stall?path=data/v1.6.0/structures-index.json` }) : r.continue());
+    await page.route("**/data/v1.6.1/structures-index.json", (r) =>
+      stall ? r.continue({ url: `${origin}/__test__/stall?path=data/v1.6.1/structures-index.json` }) : r.continue());
     const t0 = Date.now();
     await page.goto("#/structures");
     const alert = page.getByRole("alert").filter({ hasText: /Timed out while loading .*structures-index\.json/ }).first();
@@ -42,8 +42,8 @@ test.describe("PR-6a stalled response bodies", () => {
     await shorten(page);
     const origin = new URL(baseURL!).origin;
     // 6 chunks, 700 ms apart: ~4.2 s in total (> 1.5 s limit), but every gap is < 1.5 s.
-    await page.route("**/data/v1.6.0/structures-index.json", (r) =>
-      r.continue({ url: `${origin}/__test__/drip?path=data/v1.6.0/structures-index.json&chunks=6&gap_ms=700` }));
+    await page.route("**/data/v1.6.1/structures-index.json", (r) =>
+      r.continue({ url: `${origin}/__test__/drip?path=data/v1.6.1/structures-index.json&chunks=6&gap_ms=700` }));
     const t0 = Date.now();
     await page.goto("#/structures");
     await expect(page.getByTestId("pdb-table")).toBeVisible({ timeout: 20_000 });
@@ -56,8 +56,8 @@ test.describe("PR-6a stalled response bodies", () => {
     const errs = pageErrors(page);
     await shorten(page);
     const origin = new URL(baseURL!).origin;
-    await page.context().route("**/data/v1.6.0/sequences/corpus.fasta", (r) =>
-      r.continue({ url: `${origin}/__test__/stall?path=data/v1.6.0/sequences/corpus.fasta` }));
+    await page.context().route("**/data/v1.6.1/sequences/corpus.fasta", (r) =>
+      r.continue({ url: `${origin}/__test__/stall?path=data/v1.6.1/sequences/corpus.fasta` }));
     await page.goto("#/search?mode=sequence");
     await page.getByTestId("seq-example").click();
     // The example loads asynchronously; clicking Run before it arrives would search an empty query.

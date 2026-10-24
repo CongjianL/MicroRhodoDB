@@ -13,7 +13,7 @@ export function PublicationsSection({ src }: { src: SourceRecord }) {
       lead={<>Literature links curated for {src.source_acc}. Links that count as support are listed first; compilation, context and conflicting links are listed separately and do not count as support.</>}
     >
       {!src.publications.length ? (
-        <div className="card p-4 text-sm text-ink-2" data-testid="pubs-none">No publication is linked to {src.source_acc} in v1.6.0.</div>
+        <div className="card p-4 text-sm text-ink-2" data-testid="pubs-none">No publication is linked to {src.source_acc} in v1.6.1.</div>
       ) : (
         <div className="space-y-6">
           <div data-testid="pubs-support" data-n={support.length}>
@@ -37,7 +37,7 @@ function PubList({ groups }: { groups: PubGroup[] }) {
     <ol className="mt-2 space-y-3">
       {groups.map((g) => (
         <li key={g.publication_id} className="card p-3" data-pub={g.publication_id}>
-          <p className="font-medium">{g.title ?? <span className="italic text-ink-2">Title not recorded in v1.6.0</span>}</p>
+          <p className="font-medium">{g.title ?? <span className="italic text-ink-2">Title not recorded in v1.6.1</span>}</p>
           <p className="mt-0.5 text-sm text-ink-2">
             {[g.journal, g.year].filter((x) => x !== null && x !== undefined).join(", ") || "Journal and year not recorded"}
             {g.doi ? <> · DOI <Ext href={`https://doi.org/${g.doi}`}>{g.doi}</Ext></> : null}

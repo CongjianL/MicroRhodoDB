@@ -2,7 +2,7 @@
  * PR-7c.2 Ecology and habitat: pure view model for the Protein Entry habitat section. No React, no fetches.
  *
  * Principle: display observed environmental metadata, not inferred habitats. Every value shown comes verbatim from
- * one item of the habitat sidecar (data/v1.6.0/habitat/records/<MRDB>.json), which copies the PR-7c.1a audit tables.
+ * one item of the habitat sidecar (data/v1.6.1/habitat/records/<MRDB>.json), which copies the PR-7c.1a audit tables.
  * The view model never merges, normalises, ranks or resolves values; it only groups them for display and attaches
  * neutral wording keyed on the audit's own states (grade, scope, ambiguity class, flags).
  *

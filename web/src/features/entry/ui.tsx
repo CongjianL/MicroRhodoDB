@@ -2,6 +2,7 @@
 import type { ReactNode } from "react";
 import type { SectionId } from "../../lib/entry";
 import { safeExternalUrl } from "../../lib/safe";
+import { RELEASE_LABEL } from "../../data/release";
 
 export function Row({ k, children, testId }: { k: ReactNode; children: ReactNode; testId?: string }) {
   return (
@@ -16,7 +17,7 @@ export function Row({ k, children, testId }: { k: ReactNode; children: ReactNode
 export const na = (v: ReactNode, label = "Not reported") =>
   v === null || v === undefined || v === "" ? <span className="text-ink-2">{label}</span> : v;
 
-export const NOT_AVAILABLE = "Not available in the v1.6.0 export";
+export const NOT_AVAILABLE = `Not available in the ${RELEASE_LABEL} export`;
 
 export function Section({ id, title, lead, children, testId }: { id: SectionId | "viewer"; title: ReactNode; lead?: ReactNode; children: ReactNode; testId?: string }) {
   return (

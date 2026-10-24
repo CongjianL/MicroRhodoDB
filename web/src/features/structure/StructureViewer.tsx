@@ -4,7 +4,7 @@
  *
  * Controls are our own (style, ligand/retinal, colouring, reset, PNG snapshot, coordinate download);
  * the full Mol* plugin UI is not used. Residue highlighting is deliberately unavailable because
- * v1.6.0 provides no validated PDB chain/residue to UniProt mapping.
+ * v1.6.1 provides no validated PDB chain/residue to UniProt mapping.
  *
  * Async safety (PR-3a): every load gets a generation number and an AbortController; only the latest
  * generation may change the UI, and the Mol* wrapper serialises all state changes, so rapid switching,
@@ -340,7 +340,7 @@ export function StructureViewer({ options, selected, onSelect, activate, onActiv
       ) : null}
 
       <p className="border-t border-line px-3 py-2 text-xs text-ink-2">
-        Residue highlighting is not offered: v1.6.0 provides no validated PDB chain/residue to UniProt mapping.
+        Residue highlighting is not offered: v1.6.1 provides no validated PDB chain/residue to UniProt mapping.
         Viewer: <a href="https://molstar.org" target="_blank" rel="noopener noreferrer">Mol*</a> (MIT licence; Sehnal et al., Nucleic Acids Res 2021).
         Experimental coordinates are fetched from RCSB PDB; AlphaFold DB models from EMBL-EBI.
       </p>

@@ -1,6 +1,6 @@
 /**
  * #/clade/<id>: Clade Explorer entry for the 17 level-1 clades, 2 backbone groups and 30 subclades
- * (scheme MR_CLD3). Every value comes from clades.json / explorer.json (v1.6.0); memberships are not
+ * (scheme MR_CLD3). Every value comes from clades.json / explorer.json (v1.6.1); memberships are not
  * re-derived. Support is the corrected IQ-TREE run1 value (bipartition-mapped); a level-1 group that
  * fails the thresholds (MR_CLD3_017) is labelled as a legacy assignment.
  */
@@ -86,7 +86,7 @@ function CladeEntry({ c, tree, clades }: { c: AnyClade; tree: XTree; clades: Cla
           <h2 id="cs-h" className="text-lg">Summary</h2>
           <dl className="mt-2 grid grid-cols-[minmax(0,1fr)] gap-x-4 [overflow-wrap:anywhere] gap-y-1.5 text-sm sm:grid-cols-[13rem_minmax(0,1fr)]">
             <Stat k="Group">{kind}{parent ? <> of <a href={href.clade(parent.clade_id)} className="font-mono">{parent.clade_id}</a></> : null}</Stat>
-            <Stat k="Tips in MR_RT_003" testId="clade-ntips">{fmtInt(nTips)} ({fmtInt(c.n_reference_tips_in_corpus)} in the v1.6.0 corpus)</Stat>
+            <Stat k="Tips in MR_RT_003" testId="clade-ntips">{fmtInt(nTips)} ({fmtInt(c.n_reference_tips_in_corpus)} in the v1.6.1 corpus)</Stat>
             {l1 ? <Stat k="Records (confident / tentative)" testId="clade-records">{fmtInt(l1.n_records_confident)} / {fmtInt(l1.n_records_tentative)}</Stat> : null}
             <Stat k="Formal assignments" testId="clade-formal-summary">{fmtInt(cc.formalTotal)} <span className="text-xs text-ink-2">({fmtInt(cc.formalTips)} reference tips + {fmtInt(cc.formalPlacements)} placements passing QC)</span></Stat>
             <Stat k="Support (run1, corrected)" testId="clade-support">
@@ -118,7 +118,7 @@ function CladeEntry({ c, tree, clades }: { c: AnyClade; tree: XTree; clades: Cla
         </section>
 
         <section className="card p-4" aria-labelledby="cf-h" data-testid="clade-function">
-          <h2 id="cf-h" className="text-lg">Function consensus (v1.6.0)</h2>
+          <h2 id="cf-h" className="text-lg">Function consensus (v1.6.1)</h2>
           <dl className="mt-2 grid grid-cols-[minmax(0,1fr)] gap-x-4 [overflow-wrap:anywhere] gap-y-1.5 text-sm sm:grid-cols-[13rem_minmax(0,1fr)]">
             <Stat k="Clade function" testId="clade-func">{fc.clade_function ? <>{funcLabel(fc.clade_function)} <code className="text-xs text-ink-2">{fc.clade_function}</code></> : <span className="text-ink-2">None (no consensus call)</span>}</Stat>
             <Stat k="Consensus status">{fc.consensus_status}</Stat>
@@ -224,7 +224,7 @@ function CladeTree({ c, tree, clades }: { c: AnyClade; tree: XTree; clades: Clad
         <label className="text-sm">Colour by{" "}
           <select className="field inline-block w-auto" value={mode} onChange={(e) => setMode(e.target.value as "subclade" | "function")} data-testid="clade-tree-color">
             <option value="subclade">Subclade</option>
-            <option value="function">Function (v1.6.0)</option>
+            <option value="function">Function (v1.6.1)</option>
           </select>
         </label>
       </div>
@@ -240,7 +240,7 @@ function CladeTree({ c, tree, clades }: { c: AnyClade; tree: XTree; clades: Clad
           {selTip ? (
             <div className="card p-3 text-sm" data-testid="clade-tree-info">
               <p className="font-mono font-semibold">{tree.nodes[sel!].name}</p>
-              <p>{selTip.mrdb_acc ? <a href={href.record(selTip.mrdb_acc)}>Protein Entry {selTip.mrdb_acc}</a> : "Not in the v1.6.0 corpus"}</p>
+              <p>{selTip.mrdb_acc ? <a href={href.record(selTip.mrdb_acc)}>Protein Entry {selTip.mrdb_acc}</a> : "Not in the v1.6.1 corpus"}</p>
               <p className="text-ink-2"><i>{selTip.organism}</i></p>
               <p className="text-ink-2">{selTip.subclade ?? "No subclade"} · {tipRoleLabel(selTip.tip_role)}</p>
             </div>
@@ -257,7 +257,7 @@ function MemberTable({ members, cladeId }: { members: [string, ExplorerTip][]; c
   return (
     <section className="mt-6" aria-labelledby="mt-h" data-testid="clade-members">
       <h2 id="mt-h" className="text-xl">Reference tips ({members.length})</h2>
-      <p className="mt-1 text-sm text-ink-2">Tips of MR_RT_003 belonging to {cladeId}, in tree order.{absent ? ` ${absent} tip${absent > 1 ? "s are" : " is"} not in the v1.6.0 corpus and has no Protein Entry.` : ""} Records placed into this group are listed in Browse.</p>
+      <p className="mt-1 text-sm text-ink-2">Tips of MR_RT_003 belonging to {cladeId}, in tree order.{absent ? ` ${absent} tip${absent > 1 ? "s are" : " is"} not in the v1.6.1 corpus and has no Protein Entry.` : ""} Records placed into this group are listed in Browse.</p>
       <div className="mt-2 max-h-[32rem] overflow-auto rounded-md border border-line">
         <table className="data-table">
           <thead><tr><th>Tip</th><th>Protein Entry</th><th>Role</th><th>Subclade</th><th>Organism</th><th>Function</th><th>Evidence</th><th>State</th></tr></thead>
@@ -281,7 +281,7 @@ function MemberTable({ members, cladeId }: { members: [string, ExplorerTip][]; c
   );
 }
 
-/** PR-4a: formal v1.6.0 assignments (record_clade) shown apart from EPA-ng placement counts. */
+/** PR-4a: formal v1.6.1 assignments (record_clade) shown apart from EPA-ng placement counts. */
 function AssignmentsVsPlacements({ c }: { c: CladeLevel1 | Subclade }) {
   const cc = cladeCounts(c);
   const callLabel = cc.callField === "clade_call" ? "clade call" : "subclade call";
@@ -290,7 +290,7 @@ function AssignmentsVsPlacements({ c }: { c: CladeLevel1 | Subclade }) {
     <section className="card mt-6 p-4" aria-labelledby="ap-h" data-testid="clade-assignments">
       <h2 id="ap-h" className="text-lg">Formal assignments and EPA-ng placements</h2>
       <p className="mt-1 max-w-4xl text-sm text-ink-2">
-        A <strong>formal assignment</strong> is the official v1.6.0 record-to-group assignment: a reference tip of the group, or a placement whose {callLabel} is
+        A <strong>formal assignment</strong> is the official v1.6.1 record-to-group assignment: a reference tip of the group, or a placement whose {callLabel} is
         {" "}<code>assigned</code> <em>and</em> whose pendant-length QC is <code>ok</code> (LWR-weighted pendant &le; 1.0). A <strong>placement</strong> is an EPA-ng result on the fixed
         reference tree; placements are never tips, and a placement alone is not an assignment.
       </p>
@@ -338,7 +338,7 @@ function AssignmentsVsPlacements({ c }: { c: CladeLevel1 | Subclade }) {
       {only && only.length ? (
         <div className="mt-4" data-testid="clade-placement-only">
           <h3 className="text-base">Placement-only records (no formal assignment)</h3>
-          <p className="text-xs text-ink-2">Their backbone subclade call is <code>assigned</code>, but pendant QC failed; their level-1 clade call is unassigned. Values as stored in v1.6.0.</p>
+          <p className="text-xs text-ink-2">Their backbone subclade call is <code>assigned</code>, but pendant QC failed; their level-1 clade call is unassigned. Values as stored in v1.6.1.</p>
           <div className="mt-1 overflow-x-auto rounded-md border border-line" role="region" aria-label="Placement-only records (scrolls horizontally)" tabIndex={0}>
             <table className="data-table">
               <thead><tr><th>Source</th><th>MRDB</th><th>Subclade call</th><th>Placement QC</th><th className="num">LWR-weighted pendant</th><th className="num">Subclade LWR</th><th>Clade call (QC)</th><th>Record clade state</th></tr></thead>

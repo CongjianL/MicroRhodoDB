@@ -118,7 +118,7 @@ test.describe("PR-5 section pages", () => {
     await page.goto("#/citation");
     await expect(page.getByTestId("cite-doi")).toContainText("none minted");
     const bib = await page.getByTestId("cite-bibtex").innerText();
-    expect(bib).toContain("1.6.0");
+    expect(bib).toContain("1.6.1");
     expect(bib).not.toContain("2.0.0");
     expect(bib).not.toMatch(/doi\s*=/);
   });

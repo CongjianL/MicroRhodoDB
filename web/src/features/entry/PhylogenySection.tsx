@@ -108,7 +108,7 @@ export function PhylogenySection({ entry, src, clades, vocab, caveats }: { entry
                 <Row k="Subclade call">{na(pl.subclade_call)}{pl.subclade_id ? ` · ${pl.subclade_id}` : ""}{pl.subclade_lwr !== null && pl.subclade_lwr !== undefined ? ` · LWR ${fmtNum(pl.subclade_lwr, 3)}` : ""}</Row>
                 {pl.track ? <Row k="Track">{pl.track}</Row> : null}
               </dl>
-              <p className="mt-2 text-xs text-ink-2">A placement is not a reconstructed tree leaf: the sequence was placed onto the fixed reference tree, which was not re-inferred. Values are shown as recorded in v1.6.0.</p>
+              <p className="mt-2 text-xs text-ink-2">A placement is not a reconstructed tree leaf: the sequence was placed onto the fixed reference tree, which was not re-inferred. Values are shown as recorded in v1.6.1.</p>
             </>
           ) : (
             <p className="mt-2 text-sm text-ink-2">{ph.is_reference_tip ? "This record is a tip of the reference tree; no placement was needed." : "No placement recorded for this source record."}</p>

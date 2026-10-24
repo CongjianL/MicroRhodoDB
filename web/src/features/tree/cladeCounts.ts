@@ -1,5 +1,5 @@
 /**
- * PR-4a: keep formal v1.6.0 record assignments apart from EPA-ng placement counts on clade pages.
+ * PR-4a: keep formal v1.6.1 record assignments apart from EPA-ng placement counts on clade pages.
  *
  * Formal assignment (pipeline/v150/record_clades.py, exported as clades.json -> assignment_counts):
  *   reference tips in the corpus + placements whose call (clade_call for level-1 clades, subclade_call for

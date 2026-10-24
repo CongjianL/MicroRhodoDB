@@ -1,6 +1,6 @@
 {
-  "title": "MicroRhodoDB v1.6.0: a versioned, evidence-aware knowledgebase of Type-I microbial rhodopsins",
-  "description": "<p>MicroRhodoDB curates 5,466 UniProtKB proteins carrying the Pfam domains PF01036/PF18761 and gives each an explicit membership status, a placement on the MR_RT_003 reference tree with named clades, and a function-evidence level (E1-E5) with the basis of every call, function-call conflict flags and linked publications.</p><p>v1.6.0 flags 468 function-call conflicts and downgrades 439 E3/E4 calls that contradict the record's own motif evidence, recomputes clade-level function consensus on the new E1 set, adds a literature sweep of experimentally characterised proteins (91 E1 records, 76 unique sequences; all with a support link), admits 4 experimentally characterised E1 proteins to membership by signed curated override, excludes 6 engineered constructs from all counts and benchmarks, and ships a leave-one-clade-out estimate and a blind audit of E2-E4 call reliability, a scorer validation summary, a family-HMM flag for xeno-, schizo-, bestrhodopsin and MerMAID families, a Foldseek watchlist of 786 rhodopsin-like structures outside the corpus, a column-level data dictionary, a read-only Python API and a self-contained browser with in-browser sequence search.</p><p>Releases are immutable SQLite databases with SHA-256 checksums. The archive contains v1.6.0 together with the unchanged v1.5.0 and v1.4.0 releases it depends on, the reference package, the Snakemake workflow that rebuilds v1.6.0 from v1.5.0 and the signed curation files, and the test suite.</p>",
+  "title": "MicroRhodoDB v1.6.1: a versioned, evidence-aware knowledgebase of Type-I microbial rhodopsins",
+  "description": "<p>MicroRhodoDB curates 5,466 UniProtKB proteins carrying the Pfam domains PF01036/PF18761 and gives each an explicit membership status, a placement on the MR_RT_003 reference tree with named clades, and a function-evidence level (E1-E5) with the basis of every call, function-call conflict flags and linked publications.</p><p>v1.6.0 flags 468 function-call conflicts and downgrades 439 E3/E4 calls that contradict the record's own motif evidence, recomputes clade-level function consensus on the new E1 set, adds a literature sweep of experimentally characterised proteins (91 E1 records, 76 unique sequences; all with a support link), admits 4 experimentally characterised E1 proteins to membership by signed curated override, excludes 6 engineered constructs from all counts and benchmarks, and ships a leave-one-clade-out estimate and a blind audit of E2-E4 call reliability, a scorer validation summary, a family-HMM flag for xeno-, schizo-, bestrhodopsin and MerMAID families, a Foldseek watchlist of 786 rhodopsin-like structures outside the corpus, a column-level data dictionary, a read-only Python API and a self-contained browser with in-browser sequence search.</p><p>Releases are immutable SQLite databases with SHA-256 checksums. The archive contains v1.6.0 together with the unchanged v1.5.0 and v1.4.0 releases it depends on, the reference package, the Snakemake workflow that rebuilds v1.6.0 from v1.5.0 and the signed curation files, and the test suite.</p><p>v1.6.1 (2026-10-24) is a correction release built from the unchanged v1.6.0 database: identical sequences now share one membership status and one function call (23 records changed), provisional clade names are marked, the command-line scorer no longer reports heliorhodopsins as detected Type-I rhodopsins, and three validation analyses were added (hard-negative specificity, a nearest-characterised-protein baseline, E3 robustness on replicate trees).</p>",
   "creators": [
     {
       "name": "Li, CongJian"
@@ -33,8 +33,8 @@
       "scheme": "url"
     }
   ],
-  "version": "1.6.0",
-  "publication_date": "2026-10-10",
+  "version": "1.6.1",
+  "publication_date": "2026-10-24",
   "language": "eng",
-  "notes": "Supersedes v1.5.0. Data: CC BY 4.0; code: MIT. Funding: no dedicated funding."
+  "notes": "Supersedes v1.6.0. Data: CC BY 4.0; code: MIT. Funding: no dedicated funding."
 }

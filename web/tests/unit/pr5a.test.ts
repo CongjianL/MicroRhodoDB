@@ -6,10 +6,10 @@
  *  D1  Statistics -> Browse drilldowns: filters, engineered-record inclusion and denominator.
  *  D2  Search -> Browse: structured clade / PDB / motif semantics; "same records" only for equal sets.
  *  D3  Reconciliation: keyed comparison incl. null categories and duplicate keys.
- *  D4  Clade-state drilldowns keep the 4,468 members + candidates population.
+ *  D4  Clade-state drilldowns keep the 4,465 members + candidates population.
  *
  * Accession sets are compared, not only counts: every drilldown is checked against (a) its per-record
- * definition and (b) the DB-derived golden (tests/data/web_drilldown_golden_v160.json, n + SHA-256 of
+ * definition and (b) the DB-derived golden (tests/data/web_drilldown_golden_v161.json, n + SHA-256 of
  * the sorted source accessions, generated from the frozen SQLite by web/scripts/pr5a_drilldown_golden.py).
  */
 import { createHash } from "node:crypto";
@@ -26,7 +26,7 @@ import { reconcile } from "../../src/lib/stats";
 import { REPO, rows, summary } from "./helpers";
 
 interface GoldenItem { kind: string; id: string; key: string | null | [string, string]; population: PopulationId; n: number; sha256: string }
-const golden = JSON.parse(readFileSync(resolve(REPO, "tests/data/web_drilldown_golden_v160.json"), "utf8")) as { db_sha256: string; items: GoldenItem[] };
+const golden = JSON.parse(readFileSync(resolve(REPO, "tests/data/web_drilldown_golden_v161.json"), "utf8")) as { db_sha256: string; items: GoldenItem[] };
 
 const R = () => rows();
 const browse = (query: string): IndexRow[] => {
@@ -68,15 +68,15 @@ const dist = (id: string) => summary().distributions.find((d) => d.id === id)!;
 
 describe("D1/D4 Statistics and Home drilldowns return exactly the counted source records", () => {
   it("the DB-derived golden is for the frozen database", () => {
-    expect(golden.db_sha256).toBe("379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f");
+    expect(golden.db_sha256).toBe("b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d");
     expect(golden.items.length).toBeGreaterThan(400);
   });
 
-  it("population definitions match the frozen denominators (5,466 / 5,460 / 4,468)", () => {
+  it("population definitions match the frozen denominators (5,466 / 5,460 / 4,465)", () => {
     const n = (p: PopulationId) => R().filter((r) => inPopulation(p, r)).length;
     expect(n("all_records")).toBe(5466);
     expect(n("counted_records")).toBe(5460);
-    expect(n("members_candidates")).toBe(4468);
+    expect(n("members_candidates")).toBe(4465);
     for (const p of Object.keys(POPULATIONS) as PopulationId[]) {
       expect(sameSet(browse(drilldownQuery(p, {})!), R().filter((r) => inPopulation(p, r))), p).toBe(true);
       expect(summary().denominators[p].value, p).toBe(R().filter((r) => inPopulation(p, r)).length);
@@ -136,9 +136,9 @@ describe("D1/D4 Statistics and Home drilldowns return exactly the counted source
     expect(browse(distItemQuery(dist("membership_status"), "boundary_family")!).length).toBe(509);
   });
 
-  it("clade-state drilldowns keep the 4,468 members + candidates population (D4)", () => {
+  it("clade-state drilldowns keep the 4,465 members + candidates population (D4)", () => {
     const d = dist("clade_state_members_candidates");
-    expect(d.denominator).toEqual({ id: "members_candidates", value: 4468 });
+    expect(d.denominator).toEqual({ id: "members_candidates", value: 4465 });
     let tot = 0;
     for (const it of d.items) {
       const q = distItemQuery(d, it.key)!;
@@ -148,7 +148,7 @@ describe("D1/D4 Statistics and Home drilldowns return exactly the counted source
       expect(got.length).toBe(it.value);
       tot += got.length;
     }
-    expect(tot).toBe(4468);
+    expect(tot).toBe(4465);
     expect(browse(distItemQuery(d, "confident")!).length).toBe(3821);
     // The all-records chart keeps the all-records population.
     const all = dist("clade_state");
@@ -172,7 +172,7 @@ describe("D1/D4 Statistics and Home drilldowns return exactly the counted source
     expect(drilldownQuery("pdb_entries", {})).toBeUndefined();
     // group=member is the Browse default and is therefore omitted from the canonical query
     expect(drilldownQuery("members_candidates", { group: "member" })).toBe("eng=1");
-    expect(browse(drilldownQuery("members_candidates", { group: "member" })!).length).toBe(3089);
+    expect(browse(drilldownQuery("members_candidates", { group: "member" })!).length).toBe(3091);
   });
 
   it("member_candidate group: tab, statuses and filter semantics", () => {
@@ -180,8 +180,8 @@ describe("D1/D4 Statistics and Home drilldowns return exactly the counted source
     expect(inGroup("member_candidate", "member") && inGroup("member_candidate", "candidate")).toBe(true);
     expect(inGroup("member_candidate", "boundary")).toBe(false);
     expect(statusesForGroup("member_candidate")).toEqual([...statusesForGroup("member"), ...statusesForGroup("candidate")]);
-    expect(browse("group=member_candidate&eng=1").length).toBe(4468);
-    expect(browse("group=member_candidate").length).toBe(4468 - R().filter((r) => r.is_engineered && inGroup("member_candidate", r.membership_group)).length);
+    expect(browse("group=member_candidate&eng=1").length).toBe(4465);
+    expect(browse("group=member_candidate").length).toBe(4465 - R().filter((r) => r.is_engineered && inGroup("member_candidate", r.membership_group)).length);
   });
 });
 

@@ -42,7 +42,7 @@
      "type": "object"
     },
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     }
    },
    "required": [
@@ -363,6 +363,12 @@
       "null"
      ]
     },
+    "name_basis_type": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
     "parent_clade_id": {
      "type": [
       "string",
@@ -657,6 +663,7 @@
     "n_tips_in_tree",
     "name",
     "naming_basis",
+    "name_basis_type",
     "parent_clade_id",
     "placement_counts",
     "representatives",
@@ -769,7 +776,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "rows": {
      "items": {
@@ -823,7 +830,7 @@
      "$ref": "#/$defs/CladeRule"
     },
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "display": {
      "type": "string"
@@ -874,10 +881,10 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "path": {
-     "const": "data/v1.6.0/"
+     "const": "data/v1.6.1/"
     },
     "schema_version": {
      "const": "1.4.0"
@@ -895,7 +902,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "website_version": {
      "type": "string"
@@ -908,7 +915,7 @@
      "additionalProperties": false,
      "properties": {
       "tag": {
-       "const": "v1.6.0"
+       "const": "v1.6.1"
       },
       "url": {
        "type": "string",
@@ -1244,7 +1251,7 @@
      "type": "array"
     },
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "e1": {
      "items": {
@@ -1393,7 +1400,7 @@
         "additionalProperties": false,
         "properties": {
          "release_set": {
-          "const": "1.6.0"
+          "const": "1.6.1"
          },
          "variant": {
           "type": "string"
@@ -1534,7 +1541,7 @@
    ],
    "properties": {
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "edge_map": {
      "additionalProperties": {
@@ -2012,7 +2019,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "exporter_git_commit": {
      "type": "string"
@@ -2156,7 +2163,7 @@
      "type": "object"
     },
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "exporter": {
      "additionalProperties": false,
@@ -2242,7 +2249,7 @@
      "additionalProperties": false,
      "properties": {
       "file": {
-       "const": "microrhododb_v1.6.0.sqlite"
+       "const": "microrhododb_v1.6.1.sqlite"
       },
       "opened_read_only": {
        "const": true
@@ -2312,7 +2319,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "first_release": {
      "type": "string"
@@ -2736,7 +2743,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "inactive_links": {
      "items": {
@@ -2905,7 +2912,7 @@
      ]
     },
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "rows": {
      "items": {
@@ -3161,7 +3168,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "grid": {
      "items": {
@@ -3384,6 +3391,12 @@
         "string",
         "null"
        ]
+      },
+      "v161_change": {
+       "type": [
+        "string",
+        "null"
+       ]
       }
      },
      "required": [
@@ -3400,7 +3413,8 @@
       "func_class_v14",
       "function_basis",
       "override_rule",
-      "v160_change"
+      "v160_change",
+      "v161_change"
      ],
      "type": "object"
     },
@@ -3887,7 +3901,7 @@
      "type": "string"
     },
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "pdb": {
      "additionalProperties": {
@@ -4077,6 +4091,12 @@
      ]
     },
     "naming_basis": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "name_basis_type": {
      "type": [
       "string",
       "null"
@@ -4299,6 +4319,7 @@
     "n_tips",
     "name",
     "naming_basis",
+    "name_basis_type",
     "parent_clade_id",
     "placement_counts",
     "scheme",
@@ -4316,7 +4337,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "denominators": {
      "additionalProperties": {
@@ -4350,7 +4371,7 @@
       "additionalProperties": false,
       "properties": {
        "dataset_release": {
-        "const": "1.6.0"
+        "const": "1.6.1"
        },
        "denominator": {
         "additionalProperties": false,
@@ -4434,7 +4455,7 @@
       "additionalProperties": false,
       "properties": {
        "dataset_release": {
-        "const": "1.6.0"
+        "const": "1.6.1"
        },
        "denominator": {
         "anyOf": [
@@ -4557,7 +4578,7 @@
         "type": "object"
        },
        "dataset_release": {
-        "const": "1.6.0"
+        "const": "1.6.1"
        },
        "cells": {
         "type": "array",
@@ -4618,7 +4639,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "n_disagree": {
      "type": "integer"
@@ -4717,7 +4738,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "tips": {
      "items": {
@@ -4969,7 +4990,7 @@
      "type": "array"
     },
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "evidence_level": {
      "items": {
@@ -5120,7 +5141,7 @@
      "type": "string"
     },
     "dataset_release": {
-     "const": "1.6.0"
+     "const": "1.6.1"
     },
     "funnel": {
      "items": {
@@ -5148,27 +5169,27 @@
  },
  "$id": "https://congjianl.github.io/MicroRhodoDB/schemas/web-data-1.0.0.json",
  "$schema": "https://json-schema.org/draft/2020-12/schema",
- "title": "MicroRhodoDB website static data, schema 1.0.0 (dataset v1.6.0)",
+ "title": "MicroRhodoDB website static data, schema 1.0.0 (dataset v1.6.1)",
  "x-files": {
   "current.json": "Current",
-  "v1.6.0/accessions.json": "Accessions",
-  "v1.6.0/clades.json": "Clades",
-  "v1.6.0/downloads.json": "Downloads",
-  "v1.6.0/evidence-index.json": "EvidenceIndex",
-  "v1.6.0/export_manifest.json": "ExportManifest",
-  "v1.6.0/manifest.json": "Manifest",
-  "v1.6.0/phylogeny/clade_tips.json": "CladeTips",
-  "v1.6.0/phylogeny/explorer.json": "Explorer",
-  "v1.6.0/phylogeny/robustness.json": "Robustness",
-  "v1.6.0/phylogeny/support_audit.json": "SupportAudit",
-  "v1.6.0/phylogeny/tips.json": "Tips",
-  "v1.6.0/phylogeny/tree_stats.json": "TreeStats",
-  "v1.6.0/publications.json": "Publications",
-  "v1.6.0/records-index.json": "RecordsIndex",
-  "v1.6.0/records/*.json": "MrdbEntry",
-  "v1.6.0/structures-index.json": "StructuresIndex",
-  "v1.6.0/summary.json": "Summary",
-  "v1.6.0/vocabulary.json": "Vocabulary",
-  "v1.6.0/watchlist.json": "Watchlist"
+  "v1.6.1/accessions.json": "Accessions",
+  "v1.6.1/clades.json": "Clades",
+  "v1.6.1/downloads.json": "Downloads",
+  "v1.6.1/evidence-index.json": "EvidenceIndex",
+  "v1.6.1/export_manifest.json": "ExportManifest",
+  "v1.6.1/manifest.json": "Manifest",
+  "v1.6.1/phylogeny/clade_tips.json": "CladeTips",
+  "v1.6.1/phylogeny/explorer.json": "Explorer",
+  "v1.6.1/phylogeny/robustness.json": "Robustness",
+  "v1.6.1/phylogeny/support_audit.json": "SupportAudit",
+  "v1.6.1/phylogeny/tips.json": "Tips",
+  "v1.6.1/phylogeny/tree_stats.json": "TreeStats",
+  "v1.6.1/publications.json": "Publications",
+  "v1.6.1/records-index.json": "RecordsIndex",
+  "v1.6.1/records/*.json": "MrdbEntry",
+  "v1.6.1/structures-index.json": "StructuresIndex",
+  "v1.6.1/summary.json": "Summary",
+  "v1.6.1/vocabulary.json": "Vocabulary",
+  "v1.6.1/watchlist.json": "Watchlist"
  }
 }

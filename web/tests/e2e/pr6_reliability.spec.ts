@@ -142,7 +142,7 @@ raw.describe("PR-6 failure injection (uncaught errors only)", () => {
   raw("data outage: summary.json 503 on Home shows an error with Retry; Retry recovers", async ({ page }) => {
     const errs = pageErrors(page);
     let fail = true;
-    await page.route("**/data/v1.6.0/summary.json", (r) => (fail ? r.fulfill({ status: 503, body: "down" }) : r.fallback()));
+    await page.route("**/data/v1.6.1/summary.json", (r) => (fail ? r.fulfill({ status: 503, body: "down" }) : r.fallback()));
     await page.goto("#/");
     const alert = page.getByRole("alert").filter({ hasText: /Could not load/ }).first();
     await rawExpect(alert).toBeVisible();
@@ -154,7 +154,7 @@ raw.describe("PR-6 failure injection (uncaught errors only)", () => {
 
   raw("truncated JSON (records-index) on Browse shows an error state, not a crash", async ({ page }) => {
     const errs = pageErrors(page);
-    await page.route("**/data/v1.6.0/records-index.json", (r) => r.fulfill({ status: 200, contentType: "application/json", body: '{"columns":["a"' }));
+    await page.route("**/data/v1.6.1/records-index.json", (r) => r.fulfill({ status: 200, contentType: "application/json", body: '{"columns":["a"' }));
     await page.goto("#/browse");
     await rawExpect(page.getByRole("alert").filter({ hasText: /Invalid or truncated data/ }).first()).toBeVisible();
     await rawExpect(page.getByRole("navigation", { name: "Primary", exact: true })).toBeVisible();
@@ -164,7 +164,7 @@ raw.describe("PR-6 failure injection (uncaught errors only)", () => {
   raw("hung data request times out into an error state (timeout shortened for the test)", async ({ page }) => {
     const errs = pageErrors(page);
     await page.addInitScript(() => { (window as unknown as { __MRDB_DATA_TIMEOUT_MS: number }).__MRDB_DATA_TIMEOUT_MS = 1500; });
-    await page.route("**/data/v1.6.0/structures-index.json", () => { /* never answer */ });
+    await page.route("**/data/v1.6.1/structures-index.json", () => { /* never answer */ });
     await page.goto("#/structures");
     await rawExpect(page.getByRole("alert").filter({ hasText: /Timed out/ }).first()).toBeVisible({ timeout: 10_000 });
     rawExpect(errs).toEqual([]);
@@ -172,7 +172,7 @@ raw.describe("PR-6 failure injection (uncaught errors only)", () => {
 
   raw("network failure of a record file shows an error; the rest of the site keeps working", async ({ page }) => {
     const errs = pageErrors(page);
-    await page.route("**/data/v1.6.0/records/MRDB000001.json", (r) => r.abort("internetdisconnected"));
+    await page.route("**/data/v1.6.1/records/MRDB000001.json", (r) => r.abort("internetdisconnected"));
     await page.goto("#/record/MRDB000001");
     await rawExpect(page.getByRole("alert").first()).toBeVisible();
     await page.getByRole("navigation", { name: "Primary", exact: true }).getByRole("link", { name: "Browse" }).click();

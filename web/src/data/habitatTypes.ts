@@ -80,7 +80,7 @@ export interface HabitatManifest {
     readonly multi_source_mrdb: number;
     readonly source_records: number;
   };
-  readonly dataset_release: "1.6.0";
+  readonly dataset_release: "1.6.1";
   readonly display_groups: {
     readonly collection: Array<string>;
     readonly host: Array<string>;
@@ -132,7 +132,7 @@ export interface HabitatMissingness {
 
 export interface HabitatRecordFile {
   readonly audit_id: "PR-7c.1a";
-  readonly dataset_release: "1.6.0";
+  readonly dataset_release: "1.6.1";
   readonly habitat_schema_version: "1.0.0";
   readonly mrdb_acc: MrdbAcc;
   readonly n_source_records: number;
@@ -187,7 +187,7 @@ export interface HabitatSummary {
   readonly audit_status: "PR7C1_AUDIT_PARTIAL" | "PR7C1_AUDIT_COMPLETE";
   readonly audit_status_reason: string;
   readonly cross_checked_against_audit: Array<string>;
-  readonly dataset_release: "1.6.0";
+  readonly dataset_release: "1.6.1";
   readonly denominators: {
     readonly mrdb_accessions: number;
     readonly source_records: number;
@@ -211,7 +211,7 @@ export type ValueStatus = "usable" | "reported_missing" | "invalid_placeholder" 
 
 /** Glob (relative to the data root) -> payload type. */
 export interface HabitatDataFiles {
-  "v1.6.0/habitat/manifest.json": HabitatManifest;
-  "v1.6.0/habitat/records/*.json": HabitatRecordFile;
-  "v1.6.0/habitat/summary.json": HabitatSummary;
+  "v1.6.1/habitat/manifest.json": HabitatManifest;
+  "v1.6.1/habitat/records/*.json": HabitatRecordFile;
+  "v1.6.1/habitat/summary.json": HabitatSummary;
 }

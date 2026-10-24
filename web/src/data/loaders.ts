@@ -4,7 +4,7 @@
  * phylogeny/explorer.json, the IQ-TREE run1 support source and a clearly labelled DERIVED Newick).
  *
  * Every file is fetched lazily, at most once per page load, from the release-versioned
- * directory named by data/current.json (e.g. data/v1.6.0/). URLs contain the release, so
+ * directory named by data/current.json (e.g. data/v1.6.1/). URLs contain the release, so
  * browser caching is release-keyed. Lightweight pages (Home, About) never call
  * loadRecordsIndex/loadAccessions/loadRecord/loadCorpusFasta.
  */

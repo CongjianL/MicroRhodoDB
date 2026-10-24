@@ -9,6 +9,7 @@
  * - pLDDT rescaling for release models stored as fractions (0-1) in the B-factor column.
  */
 import type { MrdbEntry, PdbLink, PdbMethod, PredictedModel, PubLink, SourceRecord } from "../data/types";
+import { RELEASE_LABEL } from "../data/release";
 
 export const SECTIONS = [
   { id: "overview", label: "Overview" },
@@ -358,7 +359,7 @@ export function sequenceLines(seq: string, block = 10, perLine = 6): { start: nu
 }
 
 export function fastaRecord(entry: MrdbEntry, s: SourceRecord): string {
-  const header = `>${s.source_acc} ${entry.mrdb_acc}${s.protein_name ? ` ${s.protein_name}` : ""}${s.organism ? ` OS=${s.organism}` : ""} release=v1.6.0`;
+  const header = `>${s.source_acc} ${entry.mrdb_acc}${s.protein_name ? ` ${s.protein_name}` : ""}${s.organism ? ` OS=${s.organism}` : ""} release=${RELEASE_LABEL}`;
   const lines = s.sequence.match(/.{1,60}/g) ?? [];
   return `${header}\n${lines.join("\n")}\n`;
 }
@@ -391,7 +392,7 @@ export function permalinkQuery(hash: string): string {
 
 /**
  * Provenance warning for release models whose stored method label disagrees with the historical
- * file name or note: v1.6.0 stores method "ESMCFold2 (full)" while the note says "ESMFold prediction"
+ * file name or note: v1.6.1 stores method "ESMCFold2 (full)" while the note says "ESMFold prediction"
  * and the files are named *_esmfold.pdb. The stored values are shown verbatim; nothing is corrected.
  * Returns null when method, note and file name agree.
  */
@@ -404,6 +405,6 @@ export function releaseModelProvenanceWarning(m: Pick<PredictedModel, "method" |
   return (
     `Method label discrepancy: the stored method is "${m.method}", but the ${sources.join(" and ")} ` +
     `refer${sources.length > 1 ? "" : "s"} to ESMFold. ESMCFold2 and ESMFold are different predictors; which one produced this model ` +
-    `cannot be confirmed from the v1.6.0 release metadata. Values are shown as stored and have not been corrected.`
+    `cannot be confirmed from the v1.6.1 release metadata. Values are shown as stored and have not been corrected.`
   );
 }

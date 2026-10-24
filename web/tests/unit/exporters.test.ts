@@ -13,7 +13,7 @@ import {
   EXTRA_TSV_COLUMNS, exportFilename, exportIds, fastaHeader, fnv1a, LEGACY_TSV_COLUMNS, selectionManifest, toFasta, toTSV, toUniqueFasta,
   tsvCell, TSV_COLUMNS, wrap60,
 } from "../../src/lib/exporters";
-import { legacy, legacyRows, manifest, readData, rows } from "./helpers";
+import { legacy, legacyRows, manifest, readData, rows, v161Changes } from "./helpers";
 
 const ROUNDED: Record<string, number> = { membership_score: 3, e2_identity: 3, afdb_global_plddt: 1 };
 
@@ -45,6 +45,7 @@ describe("TSV export", () => {
         const legacyCell = lv === null || lv === undefined ? "" : String(lv);
         const ours = cells[j];
         if (ours === legacyCell) return;
+        if (v161Changes().get(String(R[i].source_acc))?.has(c)) return; // changed by a signed v1.6.1 decision
         if (c in ROUNDED && ours !== "" && legacyCell !== "") {
           if (Math.abs(Number(ours) - Number(legacyCell)) <= 0.5 * 10 ** -ROUNDED[c] + 1e-9) return;
         }
@@ -82,7 +83,19 @@ describe("FASTA exports", () => {
       `func=${r.func_class} clade=${r.clade_display || "none"} engineered=${r.is_engineered}\n` +
       D.seqs[r._i].replace(/(.{60})/g, "$1\n").replace(/\n$/, "") + "\n").join("");
     const ours = toFasta(R.map((l) => bySrc.get(String(l.source_acc))!), seqs);
-    expect(ours === legacyFasta).toBe(true);
+    // Records changed by a signed v1.6.1 decision differ only in header annotations (status, evidence, func):
+    // their accessions and sequence lines must still match the v1.6.0 legacy export.
+    const changed = v161Changes();
+    const split = (t: string) => t.split(/^(?=>)/m);
+    const L = split(legacyFasta), O = split(ours);
+    expect(O.length).toBe(L.length);
+    for (let i = 0; i < L.length; i++) {
+      const acc = R[i].source_acc as string;
+      if (!changed.has(acc)) { expect(O[i], acc).toBe(L[i]); continue; }
+      const [lh, ...ls] = L[i].split("\n"), [oh, ...os] = O[i].split("\n");
+      expect(os.join("\n"), acc).toBe(ls.join("\n"));
+      expect(oh.split(" ").slice(0, 2), acc).toEqual(lh.split(" ").slice(0, 2));
+    }
   });
 
   it("headers mark tentative placements as TENTATIVE:<clade>", () => {
@@ -183,7 +196,7 @@ describe("file names and selection manifest", () => {
     expect(sm.n_source_records).toBe(88);
     expect(sm.n_engineered_in_selection).toBe(0);
     expect(sm.filters).toEqual({ group: "all", evidence: "E1" });
-    expect(sm.source_db_sha256).toBe("379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f");
+    expect(sm.source_db_sha256).toBe("b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d");
     expect(sm.tsv_columns).toEqual(TSV_COLUMNS);
     expect(DEFAULT_STATE.group).toBe("member");
   });

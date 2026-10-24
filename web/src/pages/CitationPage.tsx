@@ -1,6 +1,6 @@
 /**
  * How to cite (#/citation), spec section 10.5. Built only from CITATION.cff (downloads.json citation block).
- * The DOI is null in v1.6.0 (none minted; the maintainer chose to cite the GitHub Release) and is shown as
+ * The DOI is null in v1.6.1 (none minted; the maintainer chose to cite the GitHub Release) and is shown as
  * "none minted"; the website version is never cited as data.
  */
 import { useState } from "react";

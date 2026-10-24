@@ -29,7 +29,7 @@ export function EvidenceSection({ entry, src, vocab }: { entry: MrdbEntry; src: 
             {fn.exp_class ? (
               <Row k="Experimental class (E1)">
                 <code>{fn.exp_class}</code>
-                <span className="mt-1 block text-xs text-ink-2">Class recorded from experimental characterization, as stored in v1.6.0.</span>
+                <span className="mt-1 block text-xs text-ink-2">Class recorded from experimental characterization, as stored in v1.6.1.</span>
               </Row>
             ) : null}
             <Row k="E1 representative">

@@ -40,10 +40,10 @@ test.describe("PR-5a drilldowns", () => {
     }
   });
 
-  test("clade state over members + candidates keeps the 4,468 population (and all-records scope keeps 5,466)", async ({ page }) => {
+  test("clade state over members + candidates keeps the 4,465 population (and all-records scope keeps 5,466)", async ({ page }) => {
     await page.goto("#/statistics");
     const mc = await chartLinks(page, "chart-clade-state");
-    expect(mc.reduce((a, b) => a + b.value, 0)).toBe(4468);
+    expect(mc.reduce((a, b) => a + b.value, 0)).toBe(4465);
     for (const l of mc) {
       expect(l.href).toContain("group=member_candidate");
       await expectBrowseCount(page, l);
@@ -71,7 +71,7 @@ test.describe("PR-5a drilldowns", () => {
 
   test("Home: stat cards, membership groups and functional classes open their counted records", async ({ page }) => {
     await page.goto("#/");
-    const cards = [["stat-records", 5466], ["stat-members", 3089], ["stat-e1", 88]] as const;
+    const cards = [["stat-records", 5466], ["stat-members", 3091], ["stat-e1", 88]] as const;
     const hrefs: Link[] = [];
     for (const [id, n] of cards) {
       const h = await page.getByTestId(id).locator("a").first().getAttribute("href");
@@ -86,7 +86,7 @@ test.describe("PR-5a drilldowns", () => {
   test("Browse offers the Members + candidates population tab", async ({ page }) => {
     await page.goto("#/browse?group=member_candidate&eng=1");
     await expect(page.getByTestId("group-tabs").locator('[aria-pressed="true"]')).toHaveAttribute("data-group", "member_candidate");
-    await expect(page.getByTestId("browse-count")).toHaveText("4,468", { timeout: 30_000 });
+    await expect(page.getByTestId("browse-count")).toHaveText("4,465", { timeout: 30_000 });
   });
 });
 

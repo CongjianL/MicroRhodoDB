@@ -1,5 +1,5 @@
 {
- "db_sha256": "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f",
+ "db_sha256": "b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d",
  "description": "DB-derived golden accession sets for every Statistics/Home drilldown and the Search -> Browse clade",
  "accession_hash": "sha256 of sorted source_acc joined by newline",
  "items": [
@@ -16,8 +16,8 @@
    "id": "membership_status",
    "key": "decoy_or_rejected",
    "population": "all_records",
-   "n": 103,
-   "sha256": "c9be0a6bd03c6ce9a1d35952727966706b4339c417443f73add61a9fdcc33e01"
+   "n": 106,
+   "sha256": "e62930bb3c5173e9275f71589fe186fad8a183e605e07dbf73d4690adbaa3695"
   },
   {
    "kind": "distribution",
@@ -40,16 +40,16 @@
    "id": "membership_status",
    "key": "typeI_candidate_architecture_supported",
    "population": "all_records",
-   "n": 273,
-   "sha256": "2d6b53b835b1ed01f41c38465d986fbede734df16fa17800be81cddb1a34099f"
+   "n": 271,
+   "sha256": "f56d74fd681913d2f3149aafc120f2ba510423fe3c947fde3108323345348776"
   },
   {
    "kind": "distribution",
    "id": "membership_status",
    "key": "typeI_candidate_unresolved",
    "population": "all_records",
-   "n": 897,
-   "sha256": "12459eaa2ba93718a89cdb5eaecaf62e3f30aa1d2dd9d3feb2cae00dade91db4"
+   "n": 894,
+   "sha256": "3194f2f064f1892fba88e87a993913f6bfb5647b234ac5cbfa98da880ddf8e3d"
   },
   {
    "kind": "distribution",
@@ -72,8 +72,8 @@
    "id": "membership_status",
    "key": "typeI_member_curated",
    "population": "all_records",
-   "n": 4,
-   "sha256": "f606a519f3568151984381b32786e3ecdc28f46620e88bbf3cb68afb42e6487b"
+   "n": 6,
+   "sha256": "064623ba836ab59b619e539a02c78f65e6e1994a6b9b2523b682f9d500c15f9d"
   },
   {
    "kind": "distribution",
@@ -88,8 +88,8 @@
    "id": "membership_status_counted",
    "key": "decoy_or_rejected",
    "population": "counted_records",
-   "n": 103,
-   "sha256": "c9be0a6bd03c6ce9a1d35952727966706b4339c417443f73add61a9fdcc33e01"
+   "n": 106,
+   "sha256": "e62930bb3c5173e9275f71589fe186fad8a183e605e07dbf73d4690adbaa3695"
   },
   {
    "kind": "distribution",
@@ -112,16 +112,16 @@
    "id": "membership_status_counted",
    "key": "typeI_candidate_architecture_supported",
    "population": "counted_records",
-   "n": 273,
-   "sha256": "2d6b53b835b1ed01f41c38465d986fbede734df16fa17800be81cddb1a34099f"
+   "n": 271,
+   "sha256": "f56d74fd681913d2f3149aafc120f2ba510423fe3c947fde3108323345348776"
   },
   {
    "kind": "distribution",
    "id": "membership_status_counted",
    "key": "typeI_candidate_unresolved",
    "population": "counted_records",
-   "n": 897,
-   "sha256": "12459eaa2ba93718a89cdb5eaecaf62e3f30aa1d2dd9d3feb2cae00dade91db4"
+   "n": 894,
+   "sha256": "3194f2f064f1892fba88e87a993913f6bfb5647b234ac5cbfa98da880ddf8e3d"
   },
   {
    "kind": "distribution",
@@ -144,8 +144,8 @@
    "id": "membership_status_counted",
    "key": "typeI_member_curated",
    "population": "counted_records",
-   "n": 4,
-   "sha256": "f606a519f3568151984381b32786e3ecdc28f46620e88bbf3cb68afb42e6487b"
+   "n": 6,
+   "sha256": "064623ba836ab59b619e539a02c78f65e6e1994a6b9b2523b682f9d500c15f9d"
   },
   {
    "kind": "distribution",
@@ -160,16 +160,16 @@
    "id": "membership_group",
    "key": "candidate",
    "population": "all_records",
-   "n": 1379,
-   "sha256": "9ee3c27ae7358f78ed6727a5c067e64ad8442befdf76e677d79f903a8de36dd1"
+   "n": 1374,
+   "sha256": "2cfe41db3cdf88c8e4afe314d629e014d1e2f6c3d5231dab644a54eda7e4e89d"
   },
   {
    "kind": "distribution",
    "id": "membership_group",
    "key": "member",
    "population": "all_records",
-   "n": 3089,
-   "sha256": "df43220fc1a28e4f679bc5ae6358fdf220f102d4c7117ceadef79e8162445460"
+   "n": 3091,
+   "sha256": "a4f2ee15bd8a44868556d69330dd233118e3db2d753eaa5446883065b8adc7bc"
   },
   {
    "kind": "distribution",
@@ -184,8 +184,8 @@
    "id": "membership_group",
    "key": "rejected",
    "population": "all_records",
-   "n": 103,
-   "sha256": "c9be0a6bd03c6ce9a1d35952727966706b4339c417443f73add61a9fdcc33e01"
+   "n": 106,
+   "sha256": "e62930bb3c5173e9275f71589fe186fad8a183e605e07dbf73d4690adbaa3695"
   },
   {
    "kind": "distribution",
@@ -200,8 +200,8 @@
    "id": "evidence_level_counted",
    "key": "E2",
    "population": "counted_records",
-   "n": 109,
-   "sha256": "a19481a46c385919ffac1da7c9f39c1cbc397d846e42b110de1a31458862517a"
+   "n": 111,
+   "sha256": "70e01ba17b3afdf1ae2c97475a08aef1c5391e799c7514421ffbe0f0b4171757"
   },
   {
    "kind": "distribution",
@@ -216,16 +216,16 @@
    "id": "evidence_level_counted",
    "key": "E4",
    "population": "counted_records",
-   "n": 1050,
-   "sha256": "25d545773d31f24089492aab2be377eb46963c48a26ea7dd7d821f60a6cfd986"
+   "n": 1045,
+   "sha256": "7e17f85595c71ffc7e95dec43ea0aeb1637464d477a50602252d34bed76abbf0"
   },
   {
    "kind": "distribution",
    "id": "evidence_level_counted",
    "key": "E5",
    "population": "counted_records",
-   "n": 3070,
-   "sha256": "c137fce25cdc6d547a02234213d8ba1313ab3d1f55b803938d594b51fe5ad750"
+   "n": 3073,
+   "sha256": "8968af3654e698215544bd5496027d5b2ef35d01a6b6ffcce0667e94ef472c4e"
   },
   {
    "kind": "distribution",
@@ -240,8 +240,8 @@
    "id": "evidence_level_all",
    "key": "E2",
    "population": "all_records",
-   "n": 112,
-   "sha256": "1788c2cba71ad05deb8fb9b2a5522a0d97e30317ff982c4787801fb617e8b513"
+   "n": 114,
+   "sha256": "3f6e6049164354238246172a08dd720fbd4eb8406b8ccedf4e5308b063020e7f"
   },
   {
    "kind": "distribution",
@@ -256,16 +256,16 @@
    "id": "evidence_level_all",
    "key": "E4",
    "population": "all_records",
-   "n": 1050,
-   "sha256": "25d545773d31f24089492aab2be377eb46963c48a26ea7dd7d821f60a6cfd986"
+   "n": 1045,
+   "sha256": "7e17f85595c71ffc7e95dec43ea0aeb1637464d477a50602252d34bed76abbf0"
   },
   {
    "kind": "distribution",
    "id": "evidence_level_all",
    "key": "E5",
    "population": "all_records",
-   "n": 3070,
-   "sha256": "c137fce25cdc6d547a02234213d8ba1313ab3d1f55b803938d594b51fe5ad750"
+   "n": 3073,
+   "sha256": "8968af3654e698215544bd5496027d5b2ef35d01a6b6ffcce0667e94ef472c4e"
   },
   {
    "kind": "distribution",
@@ -288,8 +288,8 @@
    "id": "func_class_counted",
    "key": "light_gated_channel",
    "population": "counted_records",
-   "n": 94,
-   "sha256": "19329691be61dcc6d36b80bc2671d10aeb31931441f4499d06735c640ef2338b"
+   "n": 95,
+   "sha256": "6cc235051237ca963a39c54016136556a27d0bb3b0350bdb2546ffa3a6a8b8c0"
   },
   {
    "kind": "distribution",
@@ -304,32 +304,32 @@
    "id": "func_class_counted",
    "key": "proton_pump",
    "population": "counted_records",
-   "n": 1716,
-   "sha256": "d042e6311ff27527a2e34a6790d56fd4013fbb75ef5bf71fa8be15c8128cee4f"
+   "n": 1711,
+   "sha256": "c8b5348efbdc9e70cd922f50a6ef119ee0e5d50e2e3baa11d5e898bd66b0a8de"
   },
   {
    "kind": "distribution",
    "id": "func_class_counted",
    "key": "proton_pump_inward",
    "population": "counted_records",
-   "n": 3,
-   "sha256": "4ba7f51c4879fe7a18f348a1738dc808743328dabab1dcf995c2d75ffe29e748"
+   "n": 4,
+   "sha256": "ba820c387dad49bacfce99baeb2cc65ffc7470c9a28ea5e9090a1acd5e0c99cb"
   },
   {
    "kind": "distribution",
    "id": "func_class_counted",
    "key": "sensory",
    "population": "counted_records",
-   "n": 226,
-   "sha256": "abb5a797ffa3353393446b33be486d0c4ab6059b3b6702dff74d31f92789d48f"
+   "n": 225,
+   "sha256": "8d8092bbf885a3640407becc25ff184c15f311958d55d188da1027dece4af72d"
   },
   {
    "kind": "distribution",
    "id": "func_class_counted",
    "key": "sensory_like",
    "population": "counted_records",
-   "n": 101,
-   "sha256": "8391e238112c19ccdd91b8deee8b56208543eceacd7030274af78fdc9a3edf13"
+   "n": 102,
+   "sha256": "d7e668bb448ffa13296b22b96c8e05c271dff2b5e9e50182ef25f98a2643a8f6"
   },
   {
    "kind": "distribution",
@@ -344,16 +344,16 @@
    "id": "func_class_counted",
    "key": "unassigned",
    "population": "counted_records",
-   "n": 439,
-   "sha256": "c7ba45a498e08bffbaa4c2f9bbe4065ea88fabe38ad33dfe828cb00da9f3094f"
+   "n": 450,
+   "sha256": "abdd5dcb5285fcd840de9f330893bffe5c532c03a0eca358d15a121bc2d3cba7"
   },
   {
    "kind": "distribution",
    "id": "func_class_counted",
    "key": "unresolved",
    "population": "counted_records",
-   "n": 2631,
-   "sha256": "1d2a61f3b33ec2b3f70843c1a7ebbadf8c8c8b1c24ad56eabd687f62937ed094"
+   "n": 2623,
+   "sha256": "e691aaac673e7e8b892d66add8ef9570ce71052deee253e2b8cc81e60ca7b713"
   },
   {
    "kind": "distribution",
@@ -752,8 +752,8 @@
    "id": "clade_state_members_candidates",
    "key": "tentative",
    "population": "members_candidates",
-   "n": 497,
-   "sha256": "df007379a8bf7ba19a4a98d33f2ed36a5af02e3afd05399d5ac0ffd6e71575c5"
+   "n": 494,
+   "sha256": "859b5482a8278ac2371d47da428e7d6ce6d410bcd91a0ab53abd5e0074351d0f"
   },
   {
    "kind": "distribution",
@@ -3526,8 +3526,8 @@
     "E5"
    ],
    "population": "counted_records",
-   "n": 1377,
-   "sha256": "dc2e3a97e7303944409460a6d9ffd13a78a298f27f0fa87a3446e9b083d823aa"
+   "n": 1372,
+   "sha256": "d5543fcbc43684ead618f7ee9a4b37b70c217f4830a9de2dcc1be1cb53677543"
   },
   {
    "kind": "crosstab",
@@ -3548,8 +3548,8 @@
     "E2"
    ],
    "population": "counted_records",
-   "n": 109,
-   "sha256": "a19481a46c385919ffac1da7c9f39c1cbc397d846e42b110de1a31458862517a"
+   "n": 111,
+   "sha256": "70e01ba17b3afdf1ae2c97475a08aef1c5391e799c7514421ffbe0f0b4171757"
   },
   {
    "kind": "crosstab",
@@ -3570,8 +3570,8 @@
     "E4"
    ],
    "population": "counted_records",
-   "n": 1050,
-   "sha256": "25d545773d31f24089492aab2be377eb46963c48a26ea7dd7d821f60a6cfd986"
+   "n": 1045,
+   "sha256": "7e17f85595c71ffc7e95dec43ea0aeb1637464d477a50602252d34bed76abbf0"
   },
   {
    "kind": "crosstab",
@@ -3581,8 +3581,8 @@
     "E5"
    ],
    "population": "counted_records",
-   "n": 695,
-   "sha256": "4a49ca4f6b71f760b1a49f23088c28755cf3baa6e7412b1accdfdd4193d21a35"
+   "n": 700,
+   "sha256": "b9ded80dc10dc7ebbfc89a4e5b580a8364ac682b12c47626a8baccdf64d6ad44"
   },
   {
    "kind": "crosstab",
@@ -3603,8 +3603,8 @@
     "E5"
    ],
    "population": "counted_records",
-   "n": 103,
-   "sha256": "c9be0a6bd03c6ce9a1d35952727966706b4339c417443f73add61a9fdcc33e01"
+   "n": 106,
+   "sha256": "e62930bb3c5173e9275f71589fe186fad8a183e605e07dbf73d4690adbaa3695"
   },
   {
    "kind": "metric",
@@ -3619,8 +3619,8 @@
    "id": "typeI_members",
    "key": null,
    "population": "all_records",
-   "n": 3089,
-   "sha256": "df43220fc1a28e4f679bc5ae6358fdf220f102d4c7117ceadef79e8162445460"
+   "n": 3091,
+   "sha256": "a4f2ee15bd8a44868556d69330dd233118e3db2d753eaa5446883065b8adc7bc"
   },
   {
    "kind": "metric",

@@ -68,6 +68,11 @@ def cff_field(text: str, key: str) -> str | None:
     return m.group(1).strip().strip('"').strip("'") if m else None
 
 
+def dataset_release(repo: Path) -> str:
+    """The dataset release being deployed: the `version` field of the repository's CITATION.cff."""
+    return cff_field(read(repo, "CITATION.cff"), "version") or "unknown"
+
+
 def _open_json(req: urllib.request.Request):
     """The only network primitive of the gate (read-only GET); tests replace it with a synthetic API."""
     with urllib.request.urlopen(req, timeout=30) as r:
@@ -132,16 +137,18 @@ def check_md1_licence(repo: Path, ctx: dict):
 
 
 def check_md2_dates(repo: Path, ctx: dict):
-    """One v1.6.0 release date across CITATION.cff, .zenodo.json, CHANGELOG.md, release notes and (online) the GitHub Release."""
+    """One release date for the dataset release (CITATION.cff version) across CITATION.cff, .zenodo.json, CHANGELOG.md,
+    the release notes and (online) the GitHub Release."""
+    rel = dataset_release(repo)
     dates = {"CITATION.cff": cff_field(read(repo, "CITATION.cff"), "date-released")}
     try:
         dates[".zenodo.json"] = json.loads(read(repo, ".zenodo.json") or "{}").get("publication_date")
     except json.JSONDecodeError:
         dates[".zenodo.json"] = None
-    m = re.search(r"^## \[1\.6\.0\]\s*-\s*(\d{4}-\d{2}-\d{2})", read(repo, "CHANGELOG.md"), re.M)
+    m = re.search(rf"^## \[{re.escape(rel)}\]\s*-\s*(\d{{4}}-\d{{2}}-\d{{2}})", read(repo, "CHANGELOG.md"), re.M)
     dates["CHANGELOG.md"] = m.group(1) if m else None
-    m = re.search(r"\*\*Release date:\*\*\s*(\d{4}-\d{2}-\d{2})", read(repo, "releases/v1.6.0/RELEASE_NOTES_v1.6.0.md"))
-    dates["RELEASE_NOTES_v1.6.0.md"] = m.group(1) if m else None
+    m = re.search(r"\*\*Release date:\*\*\s*(\d{4}-\d{2}-\d{2})", read(repo, f"releases/v{rel}/RELEASE_NOTES_v{rel}.md"))
+    dates[f"RELEASE_NOTES_v{rel}.md"] = m.group(1) if m else None
     if ctx.get("online") and ctx.get("release") is None:
         return None, f"release dates {dates}; GitHub Release not available online: {ctx.get('release_error', 'unknown error')}"
     if ctx.get("release") is not None:
@@ -198,7 +205,7 @@ def binaries_assets(repo: Path) -> tuple[list[dict], list[str]]:
 
 
 def check_ra1_release_assets(repo: Path, ctx: dict):
-    """Every asset BINARIES.md says is attached to the v1.6.0 GitHub Release is attached, with the stated size."""
+    """Every asset BINARIES.md lists is attached to the GitHub Release of the dataset release, with the stated size."""
     dbs, archives = binaries_assets(repo)
     expected = {d["name"]: d["size"] for d in dbs}
     for a in archives:
@@ -215,7 +222,7 @@ def check_ra1_release_assets(repo: Path, ctx: dict):
     missing = sorted(n for n in expected if n not in have)
     wrong = sorted(n for n, s in expected.items() if n in have and s is not None and have[n] != s)
     ok = not missing and not wrong
-    return ok, f"Release v1.6.0 has {sorted(have)}; missing {missing}; size mismatch {wrong}"
+    return ok, f"Release v{dataset_release(repo)} has {sorted(have)}; missing {missing}; size mismatch {wrong}"
 
 
 def check_ra2_zenodo(repo: Path, ctx: dict):
@@ -377,7 +384,7 @@ def evaluate(repo: Path, online: bool = False, sha: str | None = None, token: st
     ctx: dict = {"online": online, "sha": sha, "token": token, "release": None}
     if online:
         try:
-            ctx["release"] = gh_get(f"/repos/{OWNER_REPO}/releases/tags/v1.6.0", token)
+            ctx["release"] = gh_get(f"/repos/{OWNER_REPO}/releases/tags/v{dataset_release(repo)}", token)
         except API_ERRORS as e:
             ctx["release_error"] = str(e)
     out = []
