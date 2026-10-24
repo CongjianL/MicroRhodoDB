@@ -14,8 +14,13 @@
       "blocks": [
         "production"
       ],
-      "status": "open",
-      "resolution": null,
+      "status": "resolved",
+      "resolution": {
+        "decided_by": "CongjianL",
+        "decided_at": "2026-10-24",
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/commit/dbcbb3928ecc950f48d2b8d9ac20337b0161fa6d",
+        "notes": "Data, documentation and release artifacts: CC BY 4.0. Source code (src/, pipeline/, workflow/, tools/, web/, tests/): MIT. LICENSE states both and includes the MIT text; README.md, web/package.json, CITATION.cff and .zenodo.json agree."
+      },
       "title": "Data/code licence statements are inconsistent",
       "evidence": "LICENSE: CC BY 4.0 for database content, documentation and release artifacts, and source code under src/, pipeline/, workflow/, tools/ 'released under the same terms'. README.md: 'Data: CC BY 4.0. Code: MIT.' Website manifest/footer (from README): 'CC BY 4.0 (data); MIT (code)'. CITATION.cff and .zenodo.json: CC-BY-4.0. web/package.json: MIT.",
       "required_decision": "Maintainer chooses the code licence (and whether web/ is covered) and updates LICENSE / README.md / web/package.json consistently. Legal choice; not made by the tooling."
@@ -26,8 +31,13 @@
       "blocks": [
         "production"
       ],
-      "status": "open",
-      "resolution": null,
+      "status": "resolved",
+      "resolution": {
+        "decided_by": "CongjianL",
+        "decided_at": "2026-10-24",
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/commit/dbcbb3928ecc950f48d2b8d9ac20337b0161fa6d",
+        "notes": "Authoritative v1.6.0 release date 2026-10-10 (GitHub Release published 2026-10-10T10:16:26Z, CHANGELOG.md, release notes, .zenodo.json). CITATION.cff corrected from 2026-10-09."
+      },
       "title": "Conflicting v1.6.0 release dates",
       "evidence": "CITATION.cff date-released 2026-10-09; .zenodo.json publication_date 2026-10-10; CHANGELOG.md [1.6.0] 2026-10-10; RELEASE_NOTES_v1.6.0.md 2026-10-10; GitHub Release v1.6.0 published 2026-10-10T10:16:26Z.",
       "required_decision": "Maintainer confirms the authoritative release date and corrects the disagreeing file(s) (CITATION.cff is outside the frozen release directory)."
@@ -38,8 +48,14 @@
       "blocks": [
         "production"
       ],
-      "status": "open",
-      "resolution": null,
+      "status": "resolved",
+      "resolution": {
+        "decided_by": "CongjianL",
+        "decided_at": "2026-10-24",
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/commit/dbcbb3928ecc950f48d2b8d9ac20337b0161fa6d",
+        "notes": "No DOI has been minted for v1.6.0 and none is claimed. CITATION.cff (message and url), README.md and the website Citation page direct users to cite the release version and the GitHub Release. A DOI may be added in a later release.",
+        "alternative_citation_policy": "No DOI for v1.6.0: cite MicroRhodoDB v1.6.0 by its version and the GitHub Release https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.0, as stated in CITATION.cff."
+      },
       "title": "No DOI and no approved alternative citation policy",
       "evidence": "CITATION.cff has no doi; README.md says 'Zenodo DOI to be added on deposit'; the Citation page shows 'DOI: not supplied (pending confirmation by the maintainer)'.",
       "required_decision": "Either mint/confirm a DOI (Zenodo) and add it to CITATION.cff, or approve a truthful alternative citation policy (record it as resolution.alternative_citation_policy with decided_by/decided_at/reference). The DOI may be deferred only under such an explicit policy."
@@ -50,8 +66,13 @@
       "blocks": [
         "production"
       ],
-      "status": "open",
-      "resolution": null,
+      "status": "resolved",
+      "resolution": {
+        "decided_by": "CongjianL",
+        "decided_at": "2026-10-24",
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/commit/dbcbb3928ecc950f48d2b8d9ac20337b0161fa6d",
+        "notes": "GitHub issues on CongjianL/MicroRhodoDB are the only support channel; there is no e-mail contact (MAINTENANCE.md). The issue tracker is public once the repository is made public before deployment."
+      },
       "title": "No public support/contact channel",
       "evidence": "MAINTENANCE.md: 'Contact address: <<PLACEHOLDER: institutional e-mail>>'. GitHub issues are listed for data corrections.",
       "required_decision": "Maintainer supplies the public contact (or states that GitHub issues are the only channel) in MAINTENANCE.md. Never invent an e-mail address."
@@ -62,8 +83,13 @@
       "blocks": [
         "production"
       ],
-      "status": "open",
-      "resolution": null,
+      "status": "resolved",
+      "resolution": {
+        "decided_by": "CongjianL",
+        "decided_at": "2026-10-24",
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/commit/dbcbb3928ecc950f48d2b8d9ac20337b0161fa6d",
+        "notes": "MAINTENANCE.md: corpus updates irregular, best effort (no fixed schedule); live browser hosting has no fixed term; no dedicated funding; no named successor or institutional custodian. No placeholder remains."
+      },
       "title": "Maintenance cadence, hosting term, funding and succession are undecided",
       "evidence": "MAINTENANCE.md placeholders: corpus-update cadence, GitHub Pages hosting term, Zenodo DOI, funding source/period, named successor or custodian.",
       "required_decision": "Maintainer fills every <<PLACEHOLDER>> in MAINTENANCE.md with a truthful statement (\"no dedicated funding\" and \"no named successor\" are acceptable if true)."
@@ -91,8 +117,13 @@
       "blocks": [
         "production"
       ],
-      "status": "open",
-      "resolution": null,
+      "status": "resolved",
+      "resolution": {
+        "decided_by": "CongjianL",
+        "decided_at": "2026-10-24",
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/commit/dbcbb3928ecc950f48d2b8d9ac20337b0161fa6d",
+        "notes": "No archival (Zenodo) deposit exists. The deposit claims were removed from MAINTENANCE.md (BINARIES.md already made none); .zenodo.json is kept only as metadata for a possible future deposit."
+      },
       "title": "Zenodo deposit is claimed but unverified",
       "evidence": "BINARIES.md: databases 'deposited on Zenodo'; MAINTENANCE.md: 'Zenodo (DOI <<PLACEHOLDER>>)'; .zenodo.json exists; no DOI is recorded and no deposit could be verified.",
       "required_decision": "Maintainer confirms the deposit and records its DOI, or removes the deposit claim until it exists."
@@ -139,8 +170,13 @@
       "blocks": [
         "production"
       ],
-      "status": "open",
-      "resolution": null,
+      "status": "resolved",
+      "resolution": {
+        "decided_by": "CongjianL",
+        "decided_at": "2026-10-24",
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/commit/dbcbb3928ecc950f48d2b8d9ac20337b0161fa6d",
+        "notes": "Website release label 2.0.0 set in web/package.json, web/package-lock.json and tools/export_web_data.py WEBSITE_VERSION. Dataset release unchanged (1.6.0)."
+      },
       "title": "Website version is a pre-release development label",
       "evidence": "web/package.json and the exporter's WEBSITE_VERSION are 2.0.0-pr7 (development stage label).",
       "required_decision": "Maintainer chooses the release label (e.g. 2.0.0) at UI freeze and sets it in web/package.json and tools/export_web_data.py together."
