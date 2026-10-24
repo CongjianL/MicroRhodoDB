@@ -13,6 +13,23 @@ python web/scripts/fetch_release_db.py          # downloads and verifies against
 |---|---|---|
 | `releases/v1.6.0/db/microrhododb_v1.6.0.sqlite` | 33464320 | `379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f` |
 
+## Release archive
+
+The same Release also has a v1.6.0-only archive of the repository: the code, curation files, reference package and
+`releases/v1.6.0/` (including the database above), without the earlier releases. `PACKAGE_NOTES.md` inside it says
+how it was derived and what it cannot do (the Snakemake rebuild needs the v1.5.0 database, and the tests that compare
+with earlier releases skip).
+
+```bash
+gh release download v1.6.0 -R CongjianL/MicroRhodoDB --pattern 'MicroRhodoDB_v1.6.0_only.tar.gz*'
+sha256sum -c MicroRhodoDB_v1.6.0_only.tar.gz.sha256
+```
+
+| Release asset | Bytes | SHA-256 |
+|---|---|---|
+| `MicroRhodoDB_v1.6.0_only.tar.gz` | 11984255 | `d093ba26b72b512dbbc8550931a3763951fc3706a8a9f7ce49fffe5737f9fb14` |
+| `MicroRhodoDB_v1.6.0_only.tar.gz.sha256` | 98 | `7cfe6a92b9b21e0513f16848dd1db3d3525dd820ab2d6effee65370f4d7bf886` |
+
 ## Prior-release databases (not on the GitHub Release)
 
 These are not currently published. They are needed only to rebuild v1.6.0 with the Snakemake workflow (from
