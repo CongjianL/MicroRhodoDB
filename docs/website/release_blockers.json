@@ -151,8 +151,13 @@
       "blocks": [
         "production"
       ],
-      "status": "open",
-      "resolution": null,
+      "status": "resolved",
+      "resolution": {
+        "decided_by": "CongjianL",
+        "decided_at": "2026-10-24",
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/settings/environments",
+        "notes": "Repository made public on 2026-10-24 (required reviewers need a public repository on this plan). github-pages environment: deployment branches restricted to the single custom branch policy 'main' (type branch; stale policies 'None', 'website/pr-1-exporter', 'website/pr-3-protein-entry', 'website/pr-7-deployment' deleted); required_reviewers rule with reviewer CongjianL. prevent_self_review left off (single maintainer) and can_admins_bypass left on: maintainer decision. release_gate.py --online OPS-2 check passes."
+      },
       "title": "github-pages environment allows PR branches and has no required reviewers",
       "evidence": "docs/website/pr6a/evidence/github_environments.json and github_pages_branch_policies.json (queried 2026-10-11T20:19:32Z): protection rules = [branch_policy] only (no required reviewers); custom deployment-branch policies = 'None' (a policy literally named None), 'main', 'website/pr-1-exporter', 'website/pr-3-protein-entry'; can_admins_bypass = true.",
       "required_decision": "Maintainer restricts deployment branches to main and adds a required reviewer (Settings > Environments > github-pages). Automated check (online): a required_reviewers rule with at least one reviewer, custom branch policies only, exactly one policy named 'main' of type 'branch'. Enabling 'Prevent self-review' and disallowing admin bypass are recommended; the gate reports both but does not enforce them (maintainer decision)."
@@ -163,8 +168,13 @@
       "blocks": [
         "production"
       ],
-      "status": "open",
-      "resolution": null,
+      "status": "resolved",
+      "resolution": {
+        "decided_by": "CongjianL",
+        "decided_at": "2026-10-24",
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/actions/runs/40073645357",
+        "notes": "Website 2.0 code validated on GitHub on main bb09e114f5aa33a6fb6ab73c5af9c6f8fe73abc5 (merge of PR #8): web-data success on push (run 40073645357) and pull_request (run 40073653413), site-preview success (run 40073653422). The CI-1 check is per deployed commit: the deploy workflow re-checks online that web-data succeeded on the exact SHA being deployed."
+      },
       "title": "Remote GitHub CI has not validated the website 2.0 code that would be deployed",
       "evidence": "docs/website/CI_STATUS.md: web-data passed on GitHub for PR-1 (4b8391c), PR-2 (b5416b1) and PR-3 (7546a7a). PR-3a to PR-7 were never pushed; their workflows (web-data, site-preview, deploy-site) have not run on GitHub.",
       "required_decision": "Push the branches, open the PR, and record a successful web-data run (and a site-preview run) on the exact commit to be deployed. The deploy workflow re-checks this online."
