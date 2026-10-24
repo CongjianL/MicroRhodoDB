@@ -1,6 +1,8 @@
 # MicroRhodoDB v1.6.1 - Release Notes
 
-Release 1.6.1, 2026-10-24, schema `v161.1`. Base: v1.6.0 (immutable; opened read-only and copied, SHA-256 checked).
+**Release date:** 2026-10-24
+
+Release 1.6.1, schema `v161.1`. Base: v1.6.0 (immutable; opened read-only and copied, SHA-256 checked).
 Correction release answering a pre-submission review of the MicroRhodoDB manuscript. The corpus, the membership
 scorer, its thresholds, the reference tree, the placements and the clade assignments are unchanged.
 

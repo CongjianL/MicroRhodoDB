@@ -1,4 +1,4 @@
-8d2705e62afab560d6d831bdad87e209ea3f299993497d1e44ec55ea2bfce165  ./RELEASE_NOTES_v1.6.1.md
+21ef5e3ad1ebc2525b52d9054fd16e1e33c1126827ffe8ced282bf89ef31d862  ./RELEASE_NOTES_v1.6.1.md
 b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d  ./db/microrhododb_v1.6.1.sqlite
 cb1ba871673da4a3a434fd30d6a4faea3d5bde1aab3b031d92843f02ec1d3adf  ./meta/build_log_v161.txt
 5eafb3aaba440c5a24f997a050a78a4168b9f199e2f22493dc4db241fe7f0411  ./scorer/PF01036.25.hmm
