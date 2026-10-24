@@ -74,8 +74,13 @@
       "blocks": [
         "production"
       ],
-      "status": "open",
-      "resolution": null,
+      "status": "resolved",
+      "resolution": {
+        "decided_by": "CongjianL",
+        "decided_at": "2026-10-24",
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/commit/1e257b555431b3262a42a2efa92974e9bd42c414",
+        "notes": "BINARIES.md corrected (907d472): the prior-release databases are documented as not on the Release, and only Release assets use path | bytes | sha256 rows. A newly created archive, MicroRhodoDB_v1.6.0_only.tar.gz (11,984,255 B, SHA-256 d093ba26b72b512dbbc8550931a3763951fc3706a8a9f7ce49fffe5737f9fb14), and its .sha256 were uploaded to Release v1.6.0 and listed in BINARIES.md (1e257b5). It is derived from the original deposit archive with releases/v1.0, v1.3.0, v1.4.0 and v1.5.0 removed, documented in PACKAGE_NOTES.md inside it; the original MicroRhodoDB_v1.6.0.tar.gz was not re-created. Check verified 2026-10-24: Release has all 3 listed assets with matching sizes."
+      },
       "title": "GitHub Release v1.6.0 lacks assets that BINARIES.md says are attached",
       "evidence": "GitHub API (docs/website/pr6a/evidence/github_releases.json): Release v1.6.0 has one asset, microrhododb_v1.6.0.sqlite (33,464,320 B, SHA-256 matches). BINARIES.md also lists microrhododb_v1.5.0.sqlite, microrhododb_v1.5.0_env_pilot.sqlite, microrhododb_v1.4.0.sqlite, microrhododb_v1.3.0.sqlite, microrhododb_v1.0.sqlite and MicroRhodoDB_v1.6.0.tar.gz with its .sha256 'attached to the same Release'. Local copies of the five historical databases exist and match the BINARIES.md SHA-256 values; no copy of the tar.gz exists and no checksum for it is recorded anywhere.",
       "required_decision": "Maintainer either uploads the missing assets (the five databases from verified local copies; an archive only if one can be produced and documented truthfully as a newly created file) or corrects BINARIES.md to describe what the Release actually contains. Never fabricate or re-create historical binaries under their original names without verification."
