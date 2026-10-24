@@ -6,6 +6,8 @@ the repository root) and check the SHA-256:
 
 ```bash
 python web/scripts/fetch_release_db.py          # downloads and verifies against the table below
+# while the repository is private, anonymous downloads get HTTP 404: the script then uses the GitHub CLI
+# (run `gh auth login` first with an account that can read the repository)
 # or: gh release download v1.6.0 -R CongjianL/MicroRhodoDB --pattern microrhododb_v1.6.0.sqlite -D releases/v1.6.0/db
 ```
 

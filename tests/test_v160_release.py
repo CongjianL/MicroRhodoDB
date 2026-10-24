@@ -421,6 +421,27 @@ def test_cli_release_index_keyed_by_database(tmp_path):
     assert not [f for f in os.listdir(os.path.dirname(da)) if ".tmp" in f]
 
 
+def test_compare_db_content_float_tolerance(tmp_path):
+    # last-digit float differences (pandas' CSV parser differs between platforms) match; anything else does not
+    def make(name, ev, org):
+        c = sqlite3.connect(tmp_path / name)
+        c.execute("create table t (acc text, ev real, org text, built_at text)")
+        c.execute("insert into t values ('A', ?, ?, ?)", (ev, org, name))
+        c.commit(), c.close()
+        return str(tmp_path / name)
+    ref = make("ref.sqlite", 6.3999999999999995e-31, "x")
+    cases = {"ulp.sqlite": (6.399999999999999e-31, "x", 0, "float_tolerance"),
+             "num.sqlite": (6.4e-30, "x", 1, "DIFFERENT"),
+             "txt.sqlite": (6.3999999999999995e-31, "y", 1, "DIFFERENT"),
+             "same.sqlite": (6.3999999999999995e-31, "x", 0, "identical")}
+    for name, (ev, org, code, status) in cases.items():
+        new, out = make(name, ev, org), tmp_path / f"{name}.tsv"
+        r = subprocess.run([sys.executable, os.path.join(REPO, "pipeline/v160/compare_db_content.py"), ref, new, str(out)],
+                           capture_output=True, text=True)
+        rep = pd.read_csv(out, sep="\t").set_index("object")
+        assert r.returncode == code and rep.at["t", "status"] == status, (name, r.stdout)
+
+
 def test_python_api_read_only():
     sys.path.insert(0, os.path.join(REPO, "src"))
     import microrhododb as m

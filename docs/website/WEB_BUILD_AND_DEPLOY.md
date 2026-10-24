@@ -33,6 +33,8 @@ Invariants are fixed in `web/release/release_contract.json` (dataset 1.6.0, sche
 The exporter reads the official release database `releases/v1.6.0/db/microrhododb_v1.6.0.sqlite`, which is
 not in git. `python web/scripts/fetch_release_db.py` downloads it from the GitHub Release v1.6.0 asset and
 verifies SHA-256 and size against `BINARIES.md`; any mismatch or absence stops with `BLOCKED_DATA_SOURCE`.
+While the repository is private, the anonymous download gets HTTP 404 and the script retries with the
+authenticated GitHub CLI (`gh release download`; run `gh auth login` first), verifying that copy the same way.
 `build_site_artifact.py` re-checks the database and the tree against the release contract before exporting.
 No field is fabricated at runtime: every displayed value comes from the exported JSON.
 

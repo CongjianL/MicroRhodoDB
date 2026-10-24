@@ -77,8 +77,20 @@ for (const vp of VIEWPORTS) {
         }
         mkdirSync(OUT, { recursive: true });
         await page.screenshot({ path: resolve(OUT, `pr2_${pg.name}_${vp.w}.png`), fullPage: false });
-        await page.screenshot({ path: resolve(OUT, `pr2_${pg.name}_${vp.w}_full.png`), fullPage: true });
-        audit.push({ page: pg.name, hash: pg.hash, viewport: vp.w, ...m, console_errors: watch.errors.length });
+        let fullPageShot = true;
+        try {
+          await page.screenshot({ path: resolve(OUT, `pr2_${pg.name}_${vp.w}_full.png`), fullPage: true });
+        } catch (e) {
+          // On macOS, headless Chromium with software WebGL (SwiftShader, see playwright.config.ts) cannot capture
+          // pages taller than about 10,000 px. The full-page image is for manual review only; every assertion above
+          // has already passed. Anywhere else (Linux, CI) a capture failure still fails the test.
+          if (process.platform !== "darwin" || !String(e).includes("Unable to capture screenshot")) throw e;
+          fullPageShot = false;
+          test.info().annotations.push({ type: "full-page screenshot skipped",
+            description: `macOS SwiftShader capture limit (scrollHeight ${m.scrollHeight}px)` });
+        }
+        audit.push({ page: pg.name, hash: pg.hash, viewport: vp.w, ...m, full_page_screenshot: fullPageShot,
+          console_errors: watch.errors.length });
         writeFileSync(resolve(OUT, `audit_${vp.w}_${pg.name}.json`), JSON.stringify(audit.at(-1), null, 1));
       });
     }

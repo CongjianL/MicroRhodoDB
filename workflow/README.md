@@ -36,7 +36,11 @@ All paths are relative and are set in `workflow/config.yaml` (`repo_dir: "."`, `
 | `compare_release_v160` | Compares every table and view of the rebuilt DB with `releases/v1.6.0/db/` (build timestamps excluded) | `compare_to_release_v160.tsv` |
 | `test_v160` | `pytest tests/test_v160_release.py` against the rebuilt DB | `.tests_v160_passed` |
 
-Verified result: 91/91 objects identical. The exports, `data.js`, the data dictionary TSV and the build log are
+Verified result (Linux, where the release was built): 91/91 objects identical. On macOS arm64 (2026-10-24), 90 objects
+are identical and `novel_family_flag` matches within float tolerance: 22 `family_evalue` values differ in the last
+binary digit (largest relative difference 1.9e-16), because pandas' CSV float parser is not correctly rounded and
+differs between platforms. `compare_db_content.py` reports such objects as `float_tolerance` (relative 1e-12) and
+still fails on any other difference. The exports, `data.js`, the data dictionary TSV and the build log are
 byte-identical to the shipped files. On the round-1 build, MMseqs2 18.8cc5c (pinned) and 17-b804f gave the same build log; the final build used 18.8cc5c.
 
 ## Re-executability

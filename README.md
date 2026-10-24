@@ -75,11 +75,11 @@ watchlist, novel-family layer, data dictionary) and
 conda env create -f workflow/envs/mrdb.lock.yml && conda activate mrdb
 snakemake -n                     # dry run, from the repository root
 snakemake -c 4                   # rebuild v1.6.0 from the immutable v1.5.0 DB + signed curation (~1 min)
-python -m pytest -q tests/       # 57 release tests, 0 skips when releases/v1.0, v1.3.0, v1.4.0 and v1.5.0 are present (all in the archive)
+python -m pytest -q tests/       # 58 release tests, 0 skips when releases/v1.0, v1.3.0, v1.4.0 and v1.5.0 are present (all in the archive)
 ```
 
-The rebuild writes to `work/v160_rebuild/` and checks that the rebuilt database is content-identical to the
-shipped one (91/91 objects). `workflow/README.md` lists which steps are re-executable from this repository and
+The rebuild writes to `work/v160_rebuild/` and checks that the rebuilt database matches the shipped one
+(91/91 objects; on macOS one table matches within a 1e-12 float tolerance, see `workflow/README.md`). `workflow/README.md` lists which steps are re-executable from this repository and
 which were run outside the workflow.
 
 ## Website 2.0 (redesign in `web/`, not yet deployed)
@@ -88,7 +88,8 @@ The redesigned website (React + TypeScript + Vite, "website 2.0", still serving 
 `web/`. It is built from static JSON exported from the official v1.6.0 SQLite database; the legacy `site/`
 browser above is unchanged and remains the deployed version until a production deployment is approved.
 Requirements: Node >= 22 and the `mrdb` conda environment (Python with the release DB present;
-`python web/scripts/fetch_release_db.py` downloads and verifies it from the GitHub Release).
+`python web/scripts/fetch_release_db.py` downloads and verifies it from the GitHub Release; while the repository
+is private it uses the GitHub CLI, so run `gh auth login` first).
 
 ```bash
 # 1. Export the static website data from the official database (refuses to run on checksum mismatch)

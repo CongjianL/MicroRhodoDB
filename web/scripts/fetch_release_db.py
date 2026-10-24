@@ -2,7 +2,12 @@
 """Fetch the official MicroRhodoDB SQLite database from the GitHub Release and verify its SHA-256.
 
 The expected size and SHA-256 are read from BINARIES.md (the committed source of truth), never from the
-download itself. Exit codes:
+download itself.
+
+While the repository is private, GitHub refuses anonymous Release downloads (HTTP 404). On HTTP 401/403/404
+the script therefore retries with the GitHub CLI (`gh release download`, authenticated with `gh auth login`),
+and verifies that copy the same way. Set MRDB_GH to the gh executable to use (default: gh on PATH).
+Exit codes:
     0  database present and verified (already in place, or downloaded and verified)
     2  BLOCKED_DATA_SOURCE: Release/asset missing (e.g. HTTP 404), network failure, or checksum/size mismatch
 
@@ -15,6 +20,8 @@ import argparse
 import hashlib
 import os
 import re
+import shutil
+import subprocess
 import sys
 import tempfile
 import urllib.error
@@ -22,7 +29,8 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_BASE = "https://github.com/CongjianL/MicroRhodoDB/releases/download"
+GH_REPO = "CongjianL/MicroRhodoDB"
+DEFAULT_BASE = f"https://github.com/{GH_REPO}/releases/download"
 
 
 def sha256(p: Path) -> str:
@@ -40,6 +48,22 @@ def expected_from_binaries(binaries: Path, rel_path: str):
         if m and m["path"] == rel_path:
             return int(m["bytes"]), m["sha"]
     raise SystemExit(f"BLOCKED_DATA_SOURCE: {rel_path} not listed in {binaries}")
+
+
+def gh_download(tag: str, asset: str, into: Path):
+    """Download one Release asset with the authenticated GitHub CLI into the directory `into`.
+    Returns (path, None) on success or (None, reason)."""
+    gh = os.environ.get("MRDB_GH") or shutil.which("gh")
+    if not gh:
+        return None, "GitHub CLI (gh) not found"
+    r = subprocess.run([gh, "release", "download", tag, "-R", GH_REPO, "--pattern", asset, "-D", str(into)],
+                       capture_output=True, text=True)
+    got = into / asset
+    if r.returncode != 0 or not got.is_file():
+        msg = (r.stderr or r.stdout).strip() or f"exit {r.returncode}"
+        msg = re.sub(r"\?[^\s\"']*", "?...", msg)   # drop signed query strings (sig=, jwt=) of asset URLs
+        return None, f"gh release download failed: {msg}"
+    return got, None
 
 
 def blocked(msg: str) -> int:
@@ -71,24 +95,39 @@ def main(argv=None) -> int:
     fd, tmp = tempfile.mkstemp(prefix=".fetch-", dir=dest.parent)
     os.close(fd)
     tmp = Path(tmp)
+    ghdir = None
     try:
+        source = url
         try:
             with urllib.request.urlopen(url, timeout=a.timeout) as r, open(tmp, "wb") as f:
                 for blk in iter(lambda: r.read(1 << 20), b""):
                     f.write(blk)
         except urllib.error.HTTPError as e:
-            return blocked(f"{url}: HTTP {e.code} (Release {a.tag} or asset {a.asset} not published)")
+            if e.code not in (401, 403, 404):
+                return blocked(f"{url}: HTTP {e.code}")
+            # 404 also means "private repository" for anonymous requests: retry authenticated with gh
+            ghdir = Path(tempfile.mkdtemp(prefix=".fetch-gh-", dir=dest.parent))
+            got_path, why = gh_download(a.tag, a.asset, ghdir)
+            if got_path is None:
+                return blocked(f"{url}: HTTP {e.code}. Either Release {a.tag} has no asset {a.asset}, or the "
+                               f"repository {GH_REPO} is private and refuses anonymous downloads. Retry with the "
+                               f"GitHub CLI also failed ({why}); run `gh auth login` with an account that can read "
+                               f"the repository and try again")
+            os.replace(got_path, tmp)
+            source = f"gh release download {a.tag} -R {GH_REPO} ({a.asset})"
         except (urllib.error.URLError, OSError) as e:
             return blocked(f"{url}: {e}")
         got, n = sha256(tmp), tmp.stat().st_size
         if got != want or n != size:
-            return blocked(f"{url}: sha256 {got} ({n} bytes) != BINARIES.md {want} ({size} bytes)")
+            return blocked(f"{source}: sha256 {got} ({n} bytes) != BINARIES.md {want} ({size} bytes)")
         os.replace(tmp, dest)
-        print(f"OK (downloaded and verified): {a.dest} sha256 {got}")
+        print(f"OK (downloaded and verified): {a.dest} sha256 {got}" + ("" if source == url else " via gh"))
         return 0
     finally:
         if tmp.exists():
             tmp.unlink()
+        if ghdir is not None:
+            shutil.rmtree(ghdir, ignore_errors=True)
 
 
 if __name__ == "__main__":
