@@ -7,7 +7,7 @@ import { test as base, expect, type Page } from "@playwright/test";
 export interface Watch {
   errors: string[];
   requests: string[];
-  /** Data files requested relative to data/v1.6.0/ (e.g. "summary.json", "records/MRDB000001.json"). */
+  /** Data files requested relative to data/v1.6.1/ (e.g. "summary.json", "records/MRDB000001.json"). */
   dataFiles: () => string[];
 }
 
@@ -37,7 +37,7 @@ export { expect };
 
 /** Fetch a JSON data file from the served release directory (the same file the app reads). */
 export async function dataJson<T>(page: Page, rel: string): Promise<T> {
-  const r = await page.request.get(`data/v1.6.0/${rel}`);
+  const r = await page.request.get(`data/v1.6.1/${rel}`);
   expect(r.ok()).toBe(true);
   return (await r.json()) as T;
 }

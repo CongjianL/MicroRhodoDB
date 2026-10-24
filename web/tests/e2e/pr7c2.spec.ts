@@ -244,7 +244,7 @@ test.describe("PR-7c.2 degradation", () => {
   ];
   for (const [name, handler] of variants) {
     test(`habitat file ${name}: neutral message, rest of the record unaffected`, async ({ page, watch }) => {
-      await page.route("**/data/v1.6.0/habitat/records/MRDB000004.json", handler);
+      await page.route("**/data/v1.6.1/habitat/records/MRDB000004.json", handler);
       await page.goto("#/record/B0R2U4?section=habitat");
       await expect(page.getByTestId("habitat-unavailable")).toBeVisible();
       await expect(page.getByTestId("habitat-unavailable")).toHaveText("Habitat metadata unavailable in this build. The rest of this record is not affected.");

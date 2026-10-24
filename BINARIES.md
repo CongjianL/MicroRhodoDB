@@ -1,14 +1,15 @@
 # Binary files not committed to git
 
-The SQLite databases are too large for the git repository. The current database is attached to the GitHub Release
-`v1.6.0`; it is all the CLI, the API, the browser and the website need. Download it to the path below (relative to
+The SQLite databases are too large for the git repository. The current database (v1.6.1) is attached to the GitHub
+Release `v1.6.1`, together with the v1.6.0 database it is rebuilt from; v1.6.1 is all the CLI, the API, the browser
+and the website need. Download it to the path below (relative to
 the repository root) and check the SHA-256:
 
 ```bash
 python web/scripts/fetch_release_db.py          # downloads and verifies against the table below
 # while the repository is private, anonymous downloads get HTTP 404: the script then uses the GitHub CLI
 # (run `gh auth login` first with an account that can read the repository)
-# or: gh release download v1.6.0 -R CongjianL/MicroRhodoDB --pattern microrhododb_v1.6.0.sqlite -D releases/v1.6.0/db
+# or: gh release download v1.6.1 -R CongjianL/MicroRhodoDB --pattern microrhododb_v1.6.1.sqlite -D releases/v1.6.1/db
 ```
 
 | Path | Bytes | SHA-256 |
@@ -16,12 +17,12 @@ python web/scripts/fetch_release_db.py          # downloads and verifies against
 | `releases/v1.6.0/db/microrhododb_v1.6.0.sqlite` | 33464320 | `379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f` |
 | `releases/v1.6.1/db/microrhododb_v1.6.1.sqlite` | 33525760 | `b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d` |
 
-The v1.6.1 database is not yet attached to a GitHub Release. Until it is, rebuild it from v1.6.0 with
+Both databases are attached to the GitHub Release `v1.6.1`. v1.6.1 can also be rebuilt from v1.6.0 with
 `snakemake -c 1 all_v161`; the rebuild is checked against the checksum above.
 
 ## Release archive
 
-The same Release also has a v1.6.0-only archive of the repository: the code, curation files, reference package and
+The `v1.6.0` and `v1.6.1` Releases also have a v1.6.0-only archive of the repository: the code, curation files, reference package and
 `releases/v1.6.0/` (including the database above), without the earlier releases. `PACKAGE_NOTES.md` inside it says
 how it was derived and what it cannot do (the Snakemake rebuild needs the v1.5.0 database, and the tests that compare
 with earlier releases skip).

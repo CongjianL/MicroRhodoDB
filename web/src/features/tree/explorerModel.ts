@@ -369,7 +369,7 @@ export const COLOR_MODES: { id: ColorMode; label: string; field: string }[] = [
   { id: "subclade", label: "Subclade (level 2)", field: "subclade" },
   { id: "domain", label: "Taxonomy: domain", field: "tax_domain" },
   { id: "phylum", label: "Taxonomy: phylum", field: "phylum" },
-  { id: "function", label: "Function (v1.6.0)", field: "func_class" },
+  { id: "function", label: "Function (v1.6.1)", field: "func_class" },
   { id: "evidence", label: "Evidence level", field: "evidence_level" },
   { id: "motif", label: "Helix-C motif", field: "helixC_motif" },
   { id: "role", label: "Tip role", field: "tip_role" },
@@ -429,7 +429,7 @@ function rawKey(mode: ColorMode, t: ExplorerTip): string {
 }
 
 function labelFor(mode: ColorMode, key: string): string {
-  if (key === NOT_IN_CORPUS) return "Not in the v1.6.0 corpus";
+  if (key === NOT_IN_CORPUS) return "Not in the v1.6.1 corpus";
   if (key === OUTGROUP_KEY) return "Heliorhodopsin outgroup";
   if (key === UNCLUSTERED_KEY) return "Backbone tip (no clade)";
   if (key === "__other") return "Other (grouped)";

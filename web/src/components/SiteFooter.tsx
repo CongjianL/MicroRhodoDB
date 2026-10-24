@@ -1,6 +1,7 @@
 import { href } from "../app/routes";
 import { loadManifest, useResource } from "../data/loaders";
 import { BUILD, buildLabel } from "../lib/buildInfo";
+import { RELEASE_LABEL } from "../data/release";
 
 export function SiteFooter() {
   const m = useResource(loadManifest);
@@ -18,7 +19,7 @@ export function SiteFooter() {
         </div>
         <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1" data-testid="footer-release">
           <dt>Data release</dt>
-          <dd className="text-ink">{d ? `v${d.dataset_release} (${d.release_date})` : "v1.6.0"}</dd>
+          <dd className="text-ink">{d ? `v${d.dataset_release} (${d.release_date})` : RELEASE_LABEL}</dd>
           <dt>License</dt>
           <dd className="text-ink">{d?.license ?? "..."}</dd>
           <dt>Source DB</dt>

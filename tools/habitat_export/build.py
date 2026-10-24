@@ -182,7 +182,7 @@ def make_item(r: dict, lit: dict | None) -> dict:
 
 
 def build(repo, mrdb_of_source: dict[str, str], representative: dict[str, str],
-          release: str = "1.6.0") -> dict[str, tuple[bytes, int]]:
+          release: str = "1.6.1") -> dict[str, tuple[bytes, int]]:
     """Return {path relative to data/v<release>/: (bytes, n_records)} for every habitat file."""
     repo = Path(repo).resolve()
     contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
@@ -491,7 +491,7 @@ def build(repo, mrdb_of_source: dict[str, str], representative: dict[str, str],
     return out
 
 
-def validate(repo: Path, out: dict[str, tuple[bytes, int]], release: str = "1.6.0") -> None:
+def validate(repo: Path, out: dict[str, tuple[bytes, int]], release: str = "1.6.1") -> None:
     """JSON Schema (2020-12) validation of every habitat file; fails closed."""
     import jsonschema
     schema = json.loads((repo / SCHEMA_REL).read_text(encoding="utf-8"))

@@ -3,14 +3,14 @@
 mapping (PR-5a).
 
 For each drillable category, the set of source accessions the statistic counts is computed directly
-from the read-only v1.6.0 SQLite with hand-written SQL (population predicate AND category predicate),
+from the read-only release SQLite with hand-written SQL (population predicate AND category predicate),
 and stored as (n, SHA-256 of the sorted accessions). The Vitest suite (tests/unit/pr5a.test.ts) applies
 the website's actual Browse filter for the generated drilldown link and must reproduce each set exactly;
 tests/test_web_pr5a.py regenerates this file and requires it to be identical, and requires every n to
 equal the value exported in summary.json.
 
 Usage (repository root):
-    python web/scripts/pr5a_drilldown_golden.py            # write tests/data/web_drilldown_golden_v160.json
+    python web/scripts/pr5a_drilldown_golden.py            # write tests/data/web_drilldown_golden_v161.json
     python web/scripts/pr5a_drilldown_golden.py --check    # exit 1 if the committed file differs
 """
 from __future__ import annotations
@@ -24,8 +24,8 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-DB = REPO / "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"
-OUT = REPO / "tests/data/web_drilldown_golden_v160.json"
+DB = REPO / "releases/v1.6.1/db/microrhododb_v1.6.1.sqlite"
+OUT = REPO / "tests/data/web_drilldown_golden_v161.json"
 PHYLUM = re.compile(r"(?:^|, )([^,]+?) \(phylum\)")
 MOTIF_LINKABLE = re.compile(r"^[A-Z-]{1,5}$")
 

@@ -4,7 +4,7 @@ Run from the repository root:
     pytest -q tests/test_web_phylogeny.py
 
 The exporter is run once into a temporary directory. Every expected value is recomputed here from
-refpkg/MR_RT_003 and the read-only v1.6.0 database with a Newick parser and bipartition code written
+refpkg/MR_RT_003 and the read-only v1.6.1 database with a Newick parser and bipartition code written
 independently of tools/export_web_data.py. Includes the regression tests for the 17 rooted-file support-label
 discrepancies and for MR_CLD3_017 (legacy assignment, corrected run1 support 50.3/72).
 """
@@ -21,11 +21,11 @@ from pathlib import Path
 import pytest
 
 REPO = Path(os.environ.get("MRDB_REPO", ".")).resolve()
-DB = Path(os.environ.get("MRDB_DB", REPO / "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"))
+DB = Path(os.environ.get("MRDB_DB", REPO / "releases/v1.6.1/db/microrhododb_v1.6.1.sqlite"))
 REFPKG = REPO / "refpkg/MR_RT_003"
 TREE = REFPKG / "tree/MR_RT_003.rooted.treefile"
 RUN1 = REFPKG / "tree/run1.treefile"
-REL = "v1.6.0"
+REL = "v1.6.1"
 LABEL_RE = re.compile(r"^(\d+(?:\.\d+)?)/(\d+(?:\.\d+)?)$")
 
 # (internal preorder index, n_tips, frozen rooted-file label, IQ-TREE run1 label of the same bipartition).
@@ -169,7 +169,7 @@ def test_absent_and_outgroup_tips(ex, con):
         v = ex["tips"][t]
         assert t not in corpus and v["mrdb_acc"] is None and v["tip_role"] == "boundary_schizorhodopsin"
         assert v["func_class"] is None and v["evidence_level"] is None and v["clade_state"] is None
-        assert "not in the v1.6.0 corpus" in v["annotation_source"]
+        assert "not in the v1.6.1 corpus" in v["annotation_source"]
     for t, v in ex["tips"].items():
         if v["in_corpus"]:
             assert v["mrdb_acc"] == corpus[t]

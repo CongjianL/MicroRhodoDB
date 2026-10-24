@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""PR-6 independent scientific-integrity audit of the website export against frozen v1.6.0.
+"""PR-6 independent scientific-integrity audit of the website export against frozen v1.6.1.
 
 Independent of tools/export_web_data.py: it reads the official SQLite database read-only, parses the
 frozen Newick files with its own parser, and compares complete keyed sets / per-key values with the
-JSON files that the website actually loads (web/public/data/v1.6.0). Every check records its expected
+JSON files that the website actually loads (web/public/data/v1.6.1). Every check records its expected
 and observed values; any mismatch makes the script exit non-zero.
 
 Sections
@@ -28,9 +28,9 @@ from collections import Counter
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-DB = REPO / "releases" / "v1.6.0" / "db" / "microrhododb_v1.6.0.sqlite"
-DB_SHA = "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f"
-EXP = REPO / "web" / "public" / "data" / "v1.6.0"
+DB = REPO / "releases" / "v1.6.1" / "db" / "microrhododb_v1.6.1.sqlite"
+DB_SHA = "b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d"
+EXP = REPO / "web" / "public" / "data" / "v1.6.1"
 TREE = "MR_RT_003"
 
 checks: list[dict] = []
@@ -118,7 +118,7 @@ def tip_order(node: Node) -> list[str]:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", required=True)
-    ap.add_argument("--export", default=None, help="export directory to audit (default: web/public/data/v1.6.0)")
+    ap.add_argument("--export", default=None, help="export directory to audit (default: web/public/data/v1.6.1)")
     a = ap.parse_args()
     global EXP
     if a.export:
@@ -126,7 +126,7 @@ def main() -> None:
     out = Path(a.out).resolve()
     out.mkdir(parents=True, exist_ok=True)
 
-    check("D0", "official v1.6.0 SQLite sha256 unchanged", DB_SHA, sha(DB))
+    check("D0", "official v1.6.1 SQLite sha256 unchanged", DB_SHA, sha(DB))
     con = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)
     con.row_factory = sqlite3.Row
     q = lambda sql, *p: con.execute(sql, p).fetchall()  # noqa: E731
@@ -211,7 +211,7 @@ def main() -> None:
     check("R12", "E1 counted / total", [88, 91], [ev["E1"], sum(1 for r in rows.values() if r["evidence_level"] == "E1")])
     sd = {r["status"]: (r["is_member"], r["is_candidate"]) for r in q("SELECT * FROM status_definition")}
     mc = {k for k, r in rows.items() if sd[r["membership_status"]][0] or sd[r["membership_status"]][1]}
-    check("R13", "members + candidates (all source records, status_definition) / confident clade state", [4468, 3821],
+    check("R13", "members + candidates (all source records, status_definition) / confident clade state", [4465, 3821],
           [len(mc), sum(1 for k in mc if rows[k]["clade_state"] == "confident")])
     c017 = {k for k, r in rows.items() if r["clade_id"] == "MR_CLD3_017"}
     check("R14", "MR_CLD3_017 source records (v_master.clade_id) / tentative", [1646, 597],

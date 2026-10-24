@@ -17,15 +17,15 @@ test.describe("Home", () => {
     for (const id of ["records_counted", "mrdb_accessions", "typeI_candidates", "records_with_pdb", "records_with_afdb", "call_conflict"]) {
       await expect(page.getByTestId(`ctx-${id}`)).toHaveText(fmt(metric(S, id)));
     }
-    // frozen v1.6.0 headline values
+    // frozen v1.6.1 headline values
     await expect(page.getByTestId("stat-records-value")).toHaveText("5,466");
     await expect(page.getByTestId("ctx-records_counted")).toHaveText("5,460");
     await expect(page.getByTestId("ctx-mrdb_accessions")).toHaveText("5,299");
     await expect(page.getByTestId("stat-tips")).toContainText("17 level-1 clades + 2 backbone groups");
     await expect(page.getByTestId("stat-e1")).toContainText("of 5,460 counted records");
     await expect(page.getByTestId("stat-members")).toContainText("of 5,466 source records");
-    await expect(page.getByTestId("release-line")).toContainText("v1.6.0");
-    await expect(page.getByTestId("footer-release")).toContainText("1.6.0");
+    await expect(page.getByTestId("release-line")).toContainText("v1.6.1");
+    await expect(page.getByTestId("footer-release")).toContainText("1.6.1");
     expect(watch.errors).toEqual([]);
   });
 
@@ -116,7 +116,7 @@ test.describe("Home", () => {
 test("About does not download the full database and states provenance", async ({ page, watch }) => {
   await page.goto("#/about");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("About");
-  await expect(page.locator("main")).toContainText("379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f");
+  await expect(page.locator("main")).toContainText("b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d");
   await expect(page.getByTestId("clade-support-notice")).toContainText("SH-aLRT 50.3 / UFBoot 72");
   await page.waitForLoadState("networkidle");
   for (const f of watch.dataFiles()) for (const re of HEAVY) expect(f, `About requested ${f}`).not.toMatch(re);

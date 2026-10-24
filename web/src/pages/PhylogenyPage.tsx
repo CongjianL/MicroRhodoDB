@@ -34,7 +34,7 @@ export default function PhylogenyPage({ params }: { params: URLSearchParams }) {
     <div className="container-page pt-6" data-testid="phylogeny-page">
       <PageTitle
         docTitle="Phylogeny - MicroRhodoDB"
-        eyebrow={<>Reference tree <span className="font-mono">MR_RT_003</span> · release v1.6.0</>}
+        eyebrow={<>Reference tree <span className="font-mono">MR_RT_003</span> · release v1.6.1</>}
         lead={<>The 472-tip maximum-likelihood reference tree, rooted on 15 heliorhodopsin outgroup tips. Branch support is the SH-aLRT / UFBoot value of the same bipartition in the original IQ-TREE run; topology and branch lengths are those of the frozen rooted tree. EPA-ng placements are not tips: a placement is shown only as its best reference branch.</>}
       >
         Phylogeny
@@ -125,7 +125,7 @@ function Explorer({ tree, clades, params }: { tree: XTree; clades: Clades; param
   const doExport = (kind: "svg" | "png") => {
     const { svg, width, height: h } = exportSvg(tree, {
       opts, scheme: legendScheme, cladeScheme, failingGroups: failingSet, support: { show: q.support, sh: q.sh, uf: q.uf }, tip: tipPre, placement: placementPre,
-      title: `MicroRhodoDB v1.6.0 · MR_RT_003 reference tree${rootPre ? ` · subtree pre ${rootPre}` : ""}`,
+      title: `MicroRhodoDB v1.6.1 · MR_RT_003 reference tree${rootPre ? ` · subtree pre ${rootPre}` : ""}`,
       provenance: [
         `Topology and branch lengths: ${tree.ex.meta.frozen_treefile.path} (sha256 ${tree.ex.meta.frozen_treefile.sha256.slice(0, 16)}...). Colour: ${COLOR_MODES.find((m) => m.id === q.color)!.label}. Layout: ${q.layout}, ${q.bl === "prop" ? "proportional" : "uniform"} branch lengths.`,
         `Support (when shown): IQ-TREE run1 SH-aLRT/UFBoot mapped by bipartition (${tree.ex.meta.support_source.path}); rooted-file labels not used.`,
@@ -404,7 +404,7 @@ function CladeTable({ tree, clades, q }: { tree: XTree; clades: Clades; q: Phylo
     <section className="mt-8" aria-labelledby="ce-h" data-testid="clade-explorer">
       <h2 id="ce-h" className="text-xl" tabIndex={-1}>Clade Explorer</h2>
       <p className="mt-1 max-w-4xl text-sm text-ink-2">
-        {clades.level1.filter((c) => c.kind === "clade").length} level-1 clades and {clades.level1.filter((c) => c.kind === "backbone_group").length} backbone groups (scheme {clades.scheme}). Support: corrected IQ-TREE run1 values; thresholds {thresholdText(clades)}. Memberships are those of v1.6.0 and are not re-derived here.
+        {clades.level1.filter((c) => c.kind === "clade").length} level-1 clades and {clades.level1.filter((c) => c.kind === "backbone_group").length} backbone groups (scheme {clades.scheme}). Support: corrected IQ-TREE run1 values; thresholds {thresholdText(clades)}. Memberships are those of v1.6.1 and are not re-derived here.
       </p>
       <div className="mt-3 overflow-x-auto rounded-md border border-line">
         <table className="data-table">
@@ -453,7 +453,7 @@ function Provenance({ tree, clades }: { tree: XTree; clades: Clades }) {
         <dt className="text-ink-2">Tips</dt><dd>{roles.map(([k, n]) => `${n} ${k}`).join(", ")}. {m.reference_tree_note}</dd>
         <dt className="text-ink-2">Rooting</dt><dd>{m.rooting}. {m.root_split_rule}</dd>
         <dt className="text-ink-2">Support shown</dt><dd data-testid="prov-support-rule">{m.support_display_rule}</dd>
-        <dt className="text-ink-2">Clade rule</dt><dd>Level 1: {thresholdText(clades)}. Clade definitions and memberships are fixed v1.6.0 values; the explorer does not re-derive them.</dd>
+        <dt className="text-ink-2">Clade rule</dt><dd>Level 1: {thresholdText(clades)}. Clade definitions and memberships are fixed v1.6.1 values; the explorer does not re-derive them.</dd>
         <dt className="text-ink-2">Placements</dt><dd>{m.placement_rule} Current placements by clade_call_qc: {Object.entries(m.placement_status_counts).map(([k, n]) => `${k} ${fmtInt(n)}`).join(", ")}.</dd>
         <dt className="text-ink-2">Known issues</dt>
         <dd>

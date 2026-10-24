@@ -4,6 +4,7 @@ import type { MrdbEntry, SourceRecord, Vocabulary } from "../../data/types";
 import { domainLabel, fmtInt } from "../../lib/format";
 import { afdbEntryUrl } from "../../lib/entry";
 import { Ext, Row, Section, fmtNum, na } from "./ui";
+import { RELEASE_LABEL } from "../../data/release";
 
 /** Source accessions of this entry that are the E1 functional reference of some source in the entry. */
 export function e1RepresentativeSet(entry: MrdbEntry): Set<string> {
@@ -111,10 +112,11 @@ export function OverviewSection({ entry, src, vocab, caveats }: { entry: MrdbEnt
         <div className="card p-4">
           <h3 className="text-base">Provenance</h3>
           <dl className="mt-2 text-sm">
-            <Row k="Dataset release">v1.6.0 (frozen)</Row>
+            <Row k="Dataset release">{RELEASE_LABEL} (frozen)</Row>
             <Row k="MRDB first release">{na(entry.first_release)}</Row>
             <Row k="Source added in release">{na(src.release_added)}</Row>
             <Row k="v1.6.0 function change">{na(src.function.v160_change, "None recorded")}</Row>
+            <Row k="v1.6.1 function change">{na(src.function.v161_change, "None recorded")}</Row>
             <Row k="Sequence SHA-256"><code className="break-all text-xs">{entry.sequence_sha256}</code></Row>
           </dl>
         </div>

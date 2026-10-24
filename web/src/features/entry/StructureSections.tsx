@@ -58,7 +58,7 @@ export function ExperimentalSection({ entry, src, onView }: { entry: MrdbEntry; 
     >
       {n === 0 && !multi ? (
         <div className="card p-4 text-sm" data-testid="pdb-none">
-          No experimental PDB linked to {src.source_acc} in v1.6.0.
+          No experimental PDB linked to {src.source_acc} in v1.6.1.
           {entry.pdb_union.length ? <> Other source records of {entry.mrdb_acc} have {entry.pdb_union.length} linked entries.</> : null}
         </div>
       ) : (
@@ -119,7 +119,7 @@ export function ExperimentalSection({ entry, src, onView }: { entry: MrdbEntry; 
                       <td>
                         <span className="font-mono font-semibold">{p.pdb_id}</span>
                         <span className="mt-1 flex flex-wrap gap-1">
-                          {p.is_rep ? <FlagBadge tone="info" title="Representative structure for this source record (as recorded in v1.6.0)">rep</FlagBadge> : null}
+                          {p.is_rep ? <FlagBadge tone="info" title="Representative structure for this source record (as recorded in v1.6.1)">rep</FlagBadge> : null}
                           {p.is_highest_res ? <FlagBadge tone="neutral" title="Highest-resolution entry for this source record">highest res.</FlagBadge> : null}
                         </span>
                       </td>
@@ -154,7 +154,7 @@ export function ExperimentalSection({ entry, src, onView }: { entry: MrdbEntry; 
           </div>
           {rows.length > PAGE ? <div className="border-t border-line p-3"><Pagination page={cur} pageCount={pageCount} total={rows.length} size={PAGE} onPage={setPage} /></div> : null}
           <p className="border-t border-line p-3 text-xs text-ink-2">
-            Retinal: &quot;RET present&quot; means the PDB entry contains the retinal ligand RET as recorded in v1.6.0; &quot;not present&quot; does not show that the protein lacks retinal
+            Retinal: &quot;RET present&quot; means the PDB entry contains the retinal ligand RET as recorded in v1.6.1; &quot;not present&quot; does not show that the protein lacks retinal
             (e.g. apo-protein fragments or other chromophore codes). Resolution is not defined for NMR entries. &quot;Shared with&quot; lists other source accessions linked to the same PDB entry.
             No chain or residue mapping between PDB entries and the source sequence is claimed.
           </p>
@@ -192,7 +192,7 @@ export function PredictedSection({ src, releaseUrl, onView }: { src: SourceRecor
               </div>
             </>
           ) : (
-            <p className="mt-2 text-sm text-ink-2" data-testid="afdb-none">No AlphaFold DB model for {src.source_acc} in v1.6.0.</p>
+            <p className="mt-2 text-sm text-ink-2" data-testid="afdb-none">No AlphaFold DB model for {src.source_acc} in v1.6.1.</p>
           )}
         </div>
 
@@ -215,7 +215,7 @@ export function PredictedSection({ src, releaseUrl, onView }: { src: SourceRecor
                   <Row k="SHA-256"><code className="break-all text-xs">{m.sha256}</code></Row>
                   <Row k="B-factor column">pLDDT stored as a fraction (0-1); the viewer multiplies by 100 for display.</Row>
                 </dl>
-                <p className="mt-2 text-xs text-ink-2">Method and note labels as recorded in v1.6.0.</p>
+                <p className="mt-2 text-xs text-ink-2">Method and note labels as recorded in v1.6.1.</p>
                 <div className="mt-2 flex flex-wrap gap-2">
                   <button type="button" className="btn btn-secondary btn-sm" onClick={() => onView({ kind: "pred" })} data-testid="pred-view">View in 3D</button>
                   {releaseUrl ? <a className="btn btn-secondary btn-sm" href={releaseUrl} download>Download model (PDB)</a> : null}

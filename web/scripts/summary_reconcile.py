@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Strict, keyed reconciliation of summary.json against the read-only v1.6.0 SQLite (PR-5a).
+"""Strict, keyed reconciliation of summary.json against the read-only v1.6.1 SQLite (PR-5a).
 
 Every metric, distribution and crosstab in summary.json is checked:
 

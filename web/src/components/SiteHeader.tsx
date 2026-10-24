@@ -1,5 +1,6 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { SECTION_PAGES, href, type Route, type SectionPage } from "../app/routes";
+import { RELEASE_LABEL } from "../data/release";
 
 interface NavItem {
   key: string;
@@ -106,7 +107,7 @@ export function SiteHeader({ route }: { route: Route }) {
         <a href={href.home()} className="flex shrink-0 items-center gap-2 text-ink no-underline hover:text-ink hover:no-underline" aria-label="MicroRhodoDB home">
           <img src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" width="28" height="28" />
           <span className="text-lg font-semibold tracking-tight">MicroRhodoDB</span>
-          <span className="hidden rounded border border-line px-1.5 text-xs text-ink-2 sm:inline">v1.6.0</span>
+          <span className="hidden rounded border border-line px-1.5 text-xs text-ink-2 sm:inline">{RELEASE_LABEL}</span>
         </a>
 
         <nav aria-label="Primary" className="ml-auto hidden lg:block">

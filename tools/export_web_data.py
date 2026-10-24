@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Deterministic SQLite -> static JSON exporter for the MicroRhodoDB website (dataset v1.6.0).
+"""Deterministic SQLite -> static JSON exporter for the MicroRhodoDB website (dataset v1.6.1).
 
 Implements docs/website/WEB_DATA_CONTRACT.md. Standard library only (plus jsonschema for the habitat sidecar).
 
@@ -7,11 +7,11 @@ Implements docs/website/WEB_DATA_CONTRACT.md. Standard library only (plus jsonsc
     python tools/export_web_data.py --db PATH --repo . --out web/public/data
 
 Inputs (all opened read-only, all checksum-verified before anything is written):
-    releases/v1.6.0/db/microrhododb_v1.6.0.sqlite      SHA-256 must equal EXPECTED_DB_SHA256
+    releases/v1.6.1/db/microrhododb_v1.6.1.sqlite      SHA-256 must equal EXPECTED_DB_SHA256
     refpkg/MR_RT_003/{tree,clades,tips.tsv}            SHA-256 must match refpkg/MR_RT_003/SHA256SUMS
     releases/*/structures/<acc>_esmfold.pdb            SHA-256 must equal PREDICTED_SHA256
 
-Habitat sidecar (PR-7c.2, additive): tools/habitat_export/build.py writes data/v1.6.0/habitat/ from the accepted
+Habitat sidecar (PR-7c.2, additive): tools/habitat_export/build.py writes data/v<release>/habitat/ from the accepted
 PR-7c.1a audit tables in docs/website/pr7c1/ (SHA-256 pinned in tools/habitat_export/contract.json; validated
 against web/src/data/schemas/habitat.schema.json, which needs the jsonschema package). It never reads the SQLite
 habitat data or the network. --no-habitat omits it; every other file is byte-identical either way.
@@ -34,10 +34,10 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 SCHEMA_VERSION = "1.4.0"
-DATASET_RELEASE = "1.6.0"
+DATASET_RELEASE = "1.6.1"
 WEBSITE_VERSION = "2.0.0"
-DB_REL = "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"
-EXPECTED_DB_SHA256 = "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f"
+DB_REL = f"releases/v{DATASET_RELEASE}/db/microrhododb_v{DATASET_RELEASE}.sqlite"
+EXPECTED_DB_SHA256 = "b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d"
 TREE_ID = "MR_RT_003"
 REFPKG = "refpkg/MR_RT_003"
 TREE_REL = f"{REFPKG}/tree/MR_RT_003.rooted.treefile"
@@ -293,7 +293,7 @@ SUPPORT_DISPLAY_RULE = ("Support is the SH-aLRT/UFBoot label of the same biparti
 PLACEMENT_RULE = ("EPA-ng placements are not tips of the reference tree. A placement is shown only as its best "
                   "reference branch (edge_map: DB tree_edge.edge_id = jplace edge_num on unrooted run1 -> rooted "
                   "node whose parent branch has the same bipartition); the position along the branch is not stored "
-                  "in v1.6.0 and is never drawn. Statuses are shown exactly as stored (clade_call_qc, subclade_call).")
+                  f"in v{DATASET_RELEASE} and is never drawn. Statuses are shown exactly as stored (clade_call_qc, subclade_call).")
 
 
 def derived_newick(text, root, spans, new_label):
@@ -539,18 +539,20 @@ def length_bin_sql():
     return "CASE " + " ".join(cases) + " END"
 
 
+# v1.6.1: a basis "identical_sequence:<twin>|<twin basis>" is categorised by the twin's basis.
+_EFFECTIVE_BASIS = "(CASE WHEN function_basis LIKE 'identical_sequence:%|%' THEN substr(function_basis, instr(function_basis, '|') + 1) ELSE function_basis END)"
 BASIS_CATEGORY_SQL = (
-    "CASE WHEN function_basis = 'experimental:this_protein' THEN 'experimental:this_protein' "
-    "WHEN function_basis LIKE 'experimental_ortholog:%' THEN 'experimental_ortholog' "
-    "WHEN function_basis LIKE 'motif+phylogeny:%' THEN 'motif+phylogeny' "
-    "WHEN function_basis LIKE 'legacy_v14_concordant_motif:%' THEN 'legacy_v14_concordant_motif' "
-    "WHEN function_basis LIKE 'legacy_v14_motif_untestable:%' THEN 'legacy_v14_motif_untestable' "
-    "WHEN function_basis LIKE 'curated_rule:%' THEN 'curated_rule' "
-    "WHEN function_basis LIKE 'audit_rule_%' THEN 'audit_rule' "
-    "WHEN function_basis LIKE 'family_hmm_%' THEN 'family_hmm_conflict' "
-    "WHEN function_basis LIKE 'conflict:%' THEN 'conflict' "
-    "WHEN function_basis = 'insufficient' THEN 'insufficient' "
-    "ELSE 'UNMAPPED' END")
+    "CASE WHEN {B} = 'experimental:this_protein' THEN 'experimental:this_protein' "
+    "WHEN {B} LIKE 'experimental_ortholog:%' THEN 'experimental_ortholog' "
+    "WHEN {B} LIKE 'motif+phylogeny:%' THEN 'motif+phylogeny' "
+    "WHEN {B} LIKE 'legacy_v14_concordant_motif:%' THEN 'legacy_v14_concordant_motif' "
+    "WHEN {B} LIKE 'legacy_v14_motif_untestable:%' THEN 'legacy_v14_motif_untestable' "
+    "WHEN {B} LIKE 'curated_rule:%' THEN 'curated_rule' "
+    "WHEN {B} LIKE 'audit_rule_%' THEN 'audit_rule' "
+    "WHEN {B} LIKE 'family_hmm_%' THEN 'family_hmm_conflict' "
+    "WHEN {B} LIKE 'conflict:%' THEN 'conflict' "
+    "WHEN {B} = 'insufficient' THEN 'insufficient' "
+    "ELSE 'UNMAPPED' END").replace("{B}", _EFFECTIVE_BASIS)
 MEMBER_OR_CANDIDATE = ("v.membership_status IN (SELECT status FROM status_definition "
                        "WHERE status_group IN ('member', 'candidate'))")
 NCBI_PHYLUM_RE = re.compile(r"(?:^|, )([^,]+?) \(phylum\)")
@@ -679,8 +681,9 @@ def build_summary(con, tip_roles):
 REPO_URL = "https://github.com/CongjianL/MicroRhodoDB"
 RELEASE_TAG = f"v{DATASET_RELEASE}"
 RELEASE_DIR = f"releases/v{DATASET_RELEASE}"
-# Files listed in releases/v1.6.0/SHA256SUMS that are distributed as GitHub Release assets, not git blobs.
-RELEASE_ASSETS_NOT_IN_GIT = {"db/microrhododb_v1.6.0.sqlite"}
+# Files listed in releases/v<release>/SHA256SUMS that are distributed as GitHub Release assets, not git blobs.
+RELEASE_DB_FILE = f"db/microrhododb_v{DATASET_RELEASE}.sqlite"
+RELEASE_ASSETS_NOT_IN_GIT = {RELEASE_DB_FILE}
 REPO_DOCUMENTS = [
     ("CITATION.cff", "Citation metadata (Citation File Format)"),
     ("LICENSE", "Licence text"),
@@ -689,7 +692,7 @@ REPO_DOCUMENTS = [
     ("CHANGELOG.md", "Change log"),
     ("docs/RELEASE_HISTORY.md", "Release history"),
     ("tools/mrdb_search.py", "Command-line sequence search against a release database"),
-    (f"{RELEASE_DIR}/tables/data_dictionary_v160.tsv", "Data dictionary for every table and column"),
+    (f"{RELEASE_DIR}/tables/data_dictionary_v{DATASET_RELEASE.replace('.', '')}.tsv", "Data dictionary for every table and column"),
 ]
 WEBSITE_DERIVED = [
     ("summary.json", "Headline metrics, distributions and cross-tabulations with their SQL"),
@@ -782,7 +785,7 @@ def build_downloads(repo, md, db_sha):
                     f"{p}: git tracking disagrees with RELEASE_ASSETS_NOT_IN_GIT")
         require(full.is_file(), f"release file missing: {full}", "BLOCKED_DATA_SOURCE")
         size = full.stat().st_size
-        if p == "db/microrhododb_v1.6.0.sqlite":
+        if p == RELEASE_DB_FILE:
             require(h == db_sha, "SHA256SUMS database hash differs from the verified database")
         release_files.append({
             "path": p, "sha256": h, "bytes": size, "in_git_at_tag": in_git,
@@ -863,6 +866,16 @@ def build_habitat(repo, by_source, representative):
         raise ExportError(e.code, str(e).split(": ", 1)[1])
 
 
+
+def release_meta(con, release):
+    """release_metadata of a release; keys it does not restate are inherited from its base release (base_release)."""
+    md = dict(con.execute("SELECT key, value FROM release_metadata WHERE release = ?", (release,)).fetchall())
+    base = (md.get("base_release") or "").split(" ")[0]
+    if base and base != release:
+        for k, v in release_meta(con, base).items():
+            md.setdefault(k, v)
+    return md
+
 def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256, habitat=True):
     repo, db, out = Path(repo).resolve(), Path(db).resolve(), Path(out).resolve()
     db_sha, refpkg_sha = verify_inputs(repo, db, expected_sha)
@@ -876,7 +889,7 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256, habitat=True):
         files[rel] = (data.encode("utf-8") if isinstance(data, str) else data, n_records)
 
     R = f"v{DATASET_RELEASE}/"
-    md = dict(con.execute("SELECT key, value FROM release_metadata WHERE release = ?", (DATASET_RELEASE,)).fetchall())
+    md = release_meta(con, DATASET_RELEASE)
     require(md.get("version") == DATASET_RELEASE, "release_metadata version mismatch", "BLOCKED_DATA_SOURCE")
 
     # ---------------- tree
@@ -1174,7 +1187,8 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256, habitat=True):
                          "e2_ref": f["e2_ref"], "e2_identity": f["e2_identity"], "override_rule": f["override_rule"],
                          "clade_function": f["clade_function"], "call_conflict": b(v["call_conflict"]),
                          "call_conflict_exact": b(f["call_conflict_exact"]),
-                         "call_conflict_detail": v["call_conflict_detail"], "v160_change": f["v160_change"]},
+                         "call_conflict_detail": v["call_conflict_detail"], "v160_change": f["v160_change"],
+                         "v161_change": f["v161_change"]},
             "engineering": {"is_engineered": b(v["is_engineered"]), "wild_type_acc": v["wild_type_acc"],
                             "counts_eligible": b(v["counts_eligible"])},
             "motifs": {"helixC_motif": v["helixC_motif"], "motif_class": v["motif_class"],
@@ -1380,7 +1394,7 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256, habitat=True):
         d["placement_counts"]["call_field"] = call_f
         d["placement_counts"]["by_call_and_qc"] = {k: dict(sorted(v.items())) for k, v in sorted(by_qc.items())}
         d["assignment_counts"] = {
-            "basis": ("formal v1.6.0 record assignments (v_master." + ("subclade_id" if c["level"] == 2 else "clade_id")
+            "basis": (f"formal v{DATASET_RELEASE} record assignments (v_master." + ("subclade_id" if c["level"] == 2 else "clade_id")
                       + " = this group): reference tips in the corpus plus placements with " + call_f
                       + " = assigned and placement_qc = ok (pipeline/v150/record_clades.py)"),
             "reference_tips": f_tip, "placements": f_plc, "total": len(formal),
@@ -1440,9 +1454,9 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256, habitat=True):
                                                             "consensus_status = mixed; not a reclassification",
                                   "clade_rule": CLADE_RULE,
                                   "support_display": "Display iqtree_run1_* (IQ-TREE run1 label of the same bipartition). "
-                                                     "sh_alrt/ufboot are the frozen v1.6.0 DB values; where they differ "
+                                                     f"sh_alrt/ufboot are the frozen v{DATASET_RELEASE} DB values; where they differ "
                                                      "from run1 (db_matches_iqtree_run1 = false) the assignment is a "
-                                                     "legacy v1.6.0 assignment and is not changed here.",
+                                                     f"legacy v{DATASET_RELEASE} assignment and is not changed here.",
                                   "representative_rule": REPRESENTATIVE_RULE,
                                   "level1": level1, "subclades": sub}), len(level1) + len(sub))
 
@@ -1471,8 +1485,8 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256, habitat=True):
             "func_class": v["func_class"] if v else None, "evidence_level": v["evidence_level"] if v else None,
             "clade_state": cstate.get(t.name), "func_class_v14": a["func_class_v14"],
             "subfamily_v14": a["subfamily_v14"],
-            "annotation_source": "v1.6.0 v_master (phylum, *_v14: refpkg tips_annot.tsv)" if v else
-                                 "refpkg tips_annot.tsv only (tip not in the v1.6.0 corpus)"}
+            "annotation_source": f"v{DATASET_RELEASE} v_master (phylum, *_v14: refpkg tips_annot.tsv)" if v else
+                                 f"refpkg tips_annot.tsv only (tip not in the v{DATASET_RELEASE} corpus)"}
     ex_nodes = []
     for x, a in zip(internal, audit):
         lab = a["iqtree_run1_label"]
@@ -1630,7 +1644,7 @@ def main(argv=None):
     ap.add_argument("--out", default=None, help="default: <repo>/web/public/data")
     ap.add_argument("--expected-sha256", default=EXPECTED_DB_SHA256)
     ap.add_argument("--no-habitat", action="store_true",
-                    help="omit the PR-7c.2 habitat sidecar (data/v1.6.0/habitat/); used to prove the core is unchanged")
+                    help="omit the PR-7c.2 habitat sidecar (data/v<release>/habitat/); used to prove the core is unchanged")
     a = ap.parse_args(argv)
     repo = Path(a.repo)
     try:

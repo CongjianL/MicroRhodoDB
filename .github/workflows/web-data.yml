@@ -9,7 +9,7 @@
 # PR-7: actions pinned to commit SHAs; builds and verifies (never deploys) the Pages artifact.
 # PR-7c.2: tests/test_web_pr7c2.py (habitat sidecar from the pinned PR-7c.1a tables; tools/habitat_export/**).
 # Validation only - no Pages, no deploy (deployment is deploy-site.yml, manual dispatch with a protected environment).
-# Data source: the official v1.6.0 GitHub Release asset, verified against BINARIES.md (SHA-256 + size); the fetch
+# Data source: the official v1.6.1 GitHub Release asset, verified against BINARIES.md (SHA-256 + size); the fetch
 # step fails with BLOCKED_DATA_SOURCE if the asset is missing or differs.
 name: web-data
 
@@ -98,11 +98,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          mkdir -p releases/v1.6.0/db
-          gh release download v1.6.0 \
+          mkdir -p releases/v1.6.1/db
+          gh release download v1.6.1 \
             --repo CongjianL/MicroRhodoDB \
-            --pattern microrhododb_v1.6.0.sqlite \
-            --dir releases/v1.6.0/db
+            --pattern microrhododb_v1.6.1.sqlite \
+            --dir releases/v1.6.1/db
           python web/scripts/fetch_release_db.py
       - name: Export web data
         run: python tools/export_web_data.py --out web/public/data

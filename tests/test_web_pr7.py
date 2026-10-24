@@ -597,12 +597,12 @@ def test_binaries_assets_are_compared_with_the_release(tmp_path):
 
 # ---------------------------------------------------------------------------------- contract / exporter
 def test_release_contract_matches_frozen_inputs():
-    assert CONTRACT["dataset_release"] == "1.6.0" and CONTRACT["schema_version"] == "1.4.0"
+    assert CONTRACT["dataset_release"] == "1.6.1" and CONTRACT["schema_version"] == "1.4.0"
     assert CONTRACT["base_path"] == "/MicroRhodoDB/site/"
     assert CONTRACT["pages_url"] == "https://congjianl.github.io/MicroRhodoDB/site/"
-    assert CONTRACT["source_db"] == {"path": "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite",
-                                     "sha256": "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f",
-                                     "bytes": 33464320}
+    assert CONTRACT["source_db"] == {"path": "releases/v1.6.1/db/microrhododb_v1.6.1.sqlite",
+                                     "sha256": "b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d",
+                                     "bytes": 33525760}
     binaries = (REPO / "BINARIES.md").read_text()
     assert CONTRACT["source_db"]["sha256"] in binaries
     tree = CONTRACT["reference_tree"]
@@ -617,13 +617,13 @@ def test_website_version_is_single_sourced():
     pkg = json.loads((REPO / "web/package.json").read_text())["version"]
     m = re.search(r'^WEBSITE_VERSION = "([^"]+)"', (REPO / "tools/export_web_data.py").read_text(), re.M)
     assert m and m.group(1) == pkg
-    man = REPO / "web/public/data/v1.6.0/manifest.json"
+    man = REPO / "web/public/data/v1.6.1/manifest.json"
     if man.exists():
         assert json.loads(man.read_text())["website_version"] == pkg
 
 
 def test_repository_documents_link_to_the_export_commit():
-    d = REPO / "web/public/data/v1.6.0"
+    d = REPO / "web/public/data/v1.6.1"
     if not (d / "downloads.json").exists():
         pytest.skip("export not present")
     dl = json.loads((d / "downloads.json").read_text())
@@ -688,13 +688,13 @@ MUTATIONS = {
     "V3": lambda a: (lambda p, d: p.write_text(json.dumps({**d, "dataset_release": "1.5.0"}, indent=2, sort_keys=True)))(
         a / "site/BUILD_INFO.json", json.loads((a / "site/BUILD_INFO.json").read_text())),
     "V4": lambda a: _first(a, "site/assets/*.css").unlink(),
-    "V5": lambda a: (a / "site/data/v1.6.0/summary.json").write_text(
-        (a / "site/data/v1.6.0/summary.json").read_text().replace("5466", "5467", 1)),
-    "V6": lambda a: (a / "site/data/v1.6.0/vocabulary.json").write_text("{\"not\": \"the schema\"}"),
+    "V5": lambda a: (a / "site/data/v1.6.1/summary.json").write_text(
+        (a / "site/data/v1.6.1/summary.json").read_text().replace("5466", "5467", 1)),
+    "V6": lambda a: (a / "site/data/v1.6.1/vocabulary.json").write_text("{\"not\": \"the schema\"}"),
     "V7": lambda a: (a / CONTRACT["reference_tree"]["artifact_path"]).write_bytes(
         (a / CONTRACT["reference_tree"]["artifact_path"]).read_bytes().replace(b":", b";", 1)),
-    "V8": lambda a: (a / "site/data/v1.6.0/downloads.json").write_text(
-        re.sub(r"/blob/[0-9a-f]{40}/", "/blob/v1.6.0/", (a / "site/data/v1.6.0/downloads.json").read_text())),
+    "V8": lambda a: (a / "site/data/v1.6.1/downloads.json").write_text(
+        re.sub(r"/blob/[0-9a-f]{40}/", "/blob/v1.6.1/", (a / "site/data/v1.6.1/downloads.json").read_text())),
     "V9": lambda a: _first(a, "site/assets/index-*.js").write_text(_first(a, "site/assets/index-*.js").read_text() + "\n//http://localhost:5173/\n"),
 }
 
@@ -712,7 +712,7 @@ def test_targeted_mutation_is_caught_by_its_check(artifact, tmp_path, check):
 def test_unsealed_tampering_is_caught_by_sha256sums(artifact, tmp_path):
     art = tmp_path / "art"
     shutil.copytree(artifact, art)
-    p = art / "site/data/v1.6.0/clades.json"
+    p = art / "site/data/v1.6.1/clades.json"
     p.write_bytes(p.read_bytes() + b" ")
     bad, _ = _failed(art)
     assert {"V2", "V5"} <= bad
@@ -723,7 +723,7 @@ def test_build_info_records_provenance(artifact):
     em = json.loads((artifact / bi["export_manifest"]["path"]).read_text())
     assert bi["export_manifest"]["exporter_git_commit"] == em["exporter_git_commit"] == bi["source_commit"]
     assert bi["source_db"] == CONTRACT["source_db"]
-    assert bi["dataset_release"] == "1.6.0" and bi["base_path"] == CONTRACT["base_path"]
+    assert bi["dataset_release"] == "1.6.1" and bi["base_path"] == CONTRACT["base_path"]
     assert bi["website_version"] == json.loads((REPO / "web/package.json").read_text())["version"]
     js = "".join(p.read_text(errors="replace") for p in (artifact / "site/assets").glob("index-*.js"))
     assert bi["source_commit"] in js  # footer build stamp is the same commit
@@ -733,25 +733,25 @@ def test_artifact_compare_classifies_changes(artifact, tmp_path):
     b = tmp_path / "b"
     shutil.copytree(artifact, b)
     assert R.compare(artifact, b)["identical"] is True
-    em = b / "site/data/v1.6.0/export_manifest.json"
+    em = b / "site/data/v1.6.1/export_manifest.json"
     d = json.loads(em.read_text())
     d["exporter_git_commit"] = "0" * 40
     em.write_text(json.dumps(d))
     _reseal(b)
     res = R.compare(artifact, b)
-    assert res["provenance_only_data_changes"] == ["site/data/v1.6.0/export_manifest.json"]
+    assert res["provenance_only_data_changes"] == ["site/data/v1.6.1/export_manifest.json"]
     assert res["unexpected_scientific_change"] is False
-    s = b / "site/data/v1.6.0/summary.json"
+    s = b / "site/data/v1.6.1/summary.json"
     s.write_text(s.read_text().replace("5466", "5467", 1))
     _reseal(b)
     res = R.compare(artifact, b)
-    assert "site/data/v1.6.0/summary.json" in res["scientific_data_changes"] and res["unexpected_scientific_change"] is True
-    dl = b / "site/data/v1.6.0/downloads.json"
+    assert "site/data/v1.6.1/summary.json" in res["scientific_data_changes"] and res["unexpected_scientific_change"] is True
+    dl = b / "site/data/v1.6.1/downloads.json"
     dd = json.loads(dl.read_text())
     dd["release_files"][0]["sha256"] = "f" * 64
     dl.write_text(json.dumps(dd))
     _reseal(b)
-    assert "site/data/v1.6.0/downloads.json" in R.compare(artifact, b)["scientific_data_changes"]
+    assert "site/data/v1.6.1/downloads.json" in R.compare(artifact, b)["scientific_data_changes"]
 
 
 # --------------------------------------------------------------------------------------------- rollback

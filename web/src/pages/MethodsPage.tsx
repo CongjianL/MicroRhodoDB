@@ -172,7 +172,7 @@ function Body({ d }: { d: [Manifest, Summary, Vocabulary, Clades, EvidenceIndex,
       <Sec id="docs" title="Documentation">
         <ul className="list-disc space-y-1.5 pl-5">
           <li><Ext href={doc("docs/SCIENTIFIC_SCOPE.md")}>Scientific scope</Ext> (design history and current-state notes)</li>
-          <li><Ext href={doc("docs/DATA_MODEL.md")}>Data model</Ext> and the <Ext href={doc("releases/v1.6.0/tables/data_dictionary_v160.tsv")}>data dictionary</Ext></li>
+          <li><Ext href={doc("docs/DATA_MODEL.md")}>Data model</Ext> and the <Ext href={doc("releases/v1.6.1/tables/data_dictionary_v161.tsv")}>data dictionary</Ext></li>
           <li><Ext href={doc("docs/BUILD_PIPELINE.md")}>Build pipeline</Ext> and <Ext href={doc("docs/LEGACY_AND_MISSING_COMPONENTS.md")}>legacy and missing components</Ext></li>
           <li><Ext href={doc(`releases/${dl.release.tag}/RELEASE_NOTES_${dl.release.tag}.md`)}>Release notes {dl.release.tag}</Ext></li>
           <li><Ext href={doc("refpkg/MR_RT_003/README.md")}>Reference package MR_RT_003</Ext></li>

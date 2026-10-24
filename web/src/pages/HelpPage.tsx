@@ -46,7 +46,7 @@ const FAQ: { id: string; q: string; a: React.ReactNode }[] = [
   {
     id: "cite",
     q: "How do I cite the data?",
-    a: <>Cite the data release (v1.6.0), not the website version. Copy-ready text is on <a href={href.section("citation")}>Citation</a>; checksummed files are on <a href={href.section("downloads")}>Downloads</a>.</>,
+    a: <>Cite the data release (v1.6.1), not the website version. Copy-ready text is on <a href={href.section("citation")}>Citation</a>; checksummed files are on <a href={href.section("downloads")}>Downloads</a>.</>,
   },
 ];
 

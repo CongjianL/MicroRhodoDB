@@ -1,5 +1,5 @@
 /**
- * PR-7c.2 Ecology and habitat: view-model tests on the exported sidecar (web/public/data/v1.6.0/habitat) plus
+ * PR-7c.2 Ecology and habitat: view-model tests on the exported sidecar (web/public/data/v1.6.1/habitat) plus
  * adversarial fixtures. The view model must show every exported item exactly once, never merge or resolve values,
  * keep host separate from physical habitat, link ENVO only for verified, unquarantined IDs, and reject files that do
  * not match the record file.
@@ -17,7 +17,7 @@ import {
 import { safeExternalUrl } from "../../src/lib/safe";
 import { WEB, json } from "./helpers";
 
-const HAB_DIR = resolve(WEB, "public/data/v1.6.0/habitat/records");
+const HAB_DIR = resolve(WEB, "public/data/v1.6.1/habitat/records");
 const files = (): HabitatRecordFile[] =>
   readdirSync(HAB_DIR).filter((f) => f.endsWith(".json")).sort().map((f) => json<HabitatRecordFile>(`habitat/records/${f}`));
 const entries = (): HabitatSourceEntry[] => files().flatMap((f) => f.sources);

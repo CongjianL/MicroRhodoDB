@@ -30,7 +30,7 @@ export default function StatisticsPage() {
     <div className="container-page pt-6">
       <PageTitle
         docTitle="Statistics - MicroRhodoDB"
-        lead="Composition and annotation coverage of the v1.6.0 release. Each chart states its denominator; open “How this is counted” for the exact query and inclusion policy."
+        lead="Composition and annotation coverage of the v1.6.1 release. Each chart states its denominator; open “How this is counted” for the exact query and inclusion policy."
       >
         Statistics
       </PageTitle>

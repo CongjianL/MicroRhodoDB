@@ -11,7 +11,7 @@ Exit codes:
     0  database present and verified (already in place, or downloaded and verified)
     2  BLOCKED_DATA_SOURCE: Release/asset missing (e.g. HTTP 404), network failure, or checksum/size mismatch
 
-    python web/scripts/fetch_release_db.py                      # v1.6.0 into releases/v1.6.0/db/
+    python web/scripts/fetch_release_db.py                      # v1.6.1 into releases/v1.6.1/db/
     python web/scripts/fetch_release_db.py --base-url file:///some/mirror   # tests / mirrors
 """
 from __future__ import annotations
@@ -74,9 +74,9 @@ def blocked(msg: str) -> int:
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--repo", default=str(ROOT))
-    ap.add_argument("--tag", default="v1.6.0")
-    ap.add_argument("--asset", default="microrhododb_v1.6.0.sqlite")
-    ap.add_argument("--dest", default="releases/v1.6.0/db/microrhododb_v1.6.0.sqlite",
+    ap.add_argument("--tag", default="v1.6.1")
+    ap.add_argument("--asset", default="microrhododb_v1.6.1.sqlite")
+    ap.add_argument("--dest", default="releases/v1.6.1/db/microrhododb_v1.6.1.sqlite",
                     help="destination relative to --repo (must be listed in BINARIES.md)")
     ap.add_argument("--base-url", default=DEFAULT_BASE)
     ap.add_argument("--timeout", type=float, default=120)

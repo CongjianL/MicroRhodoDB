@@ -126,7 +126,7 @@ export function FilterPanel({ s, update, clades, vocab, residues }: {
 
       <fieldset className="space-y-2 rounded-md border border-line p-3">
         <legend className="px-1 text-sm font-semibold">Taxonomy</legend>
-        <Field id={ids.domain} label="Taxonomic domain" help="Viral and environmental records have no domain in v1.6.0; filter viruses with the lineage field.">
+        <Field id={ids.domain} label="Taxonomic domain" help="Viral and environmental records have no domain in v1.6.1; filter viruses with the lineage field.">
           <select id={ids.domain} className="field" value={s.domain} onChange={(e) => update({ domain: e.target.value as BrowseState["domain"] })} data-testid="filter-domain">
             <option value="">Any</option>
             {DOMAINS.map((d) => <option key={d} value={d}>{d === "none" ? "No domain assigned" : d}</option>)}

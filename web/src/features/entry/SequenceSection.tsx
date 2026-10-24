@@ -57,7 +57,7 @@ export function SequenceSection({ entry, src }: { entry: MrdbEntry; src: SourceR
             </Row>
             <Row k="Retinal-pocket string">
               {na(mo.pocket_string_br && <code className="break-all">{mo.pocket_string_br}</code>)}
-              <span className="mt-1 block text-xs text-ink-2">BR-reference annotation: residues at the 20 retinal-pocket positions in BR-number order (&quot;-&quot; = gap). Mapping of these positions onto this sequence is not available in the v1.6.0 export.</span>
+              <span className="mt-1 block text-xs text-ink-2">BR-reference annotation: residues at the 20 retinal-pocket positions in BR-number order (&quot;-&quot; = gap). Mapping of these positions onto this sequence is not available in the v1.6.1 export.</span>
             </Row>
             <Row k="Pocket positions observed">{na(mo.n_pocket_observed)}</Row>
             <Row k="Pocket AFDB pLDDT (mean / min)">{mo.pocket_mean_plddt !== null ? `${fmtNum(mo.pocket_mean_plddt)} / ${na(fmtNum(mo.pocket_min_plddt))}` : na(null)}</Row>
@@ -83,7 +83,7 @@ export function SequenceSection({ entry, src }: { entry: MrdbEntry; src: SourceR
             <p className="mt-1 text-sm">
               This source record is an engineered construct. Wild type:{" "}
               {src.engineering.wild_type_acc ? <a className="font-mono" href={href.record(src.engineering.wild_type_acc)}>{src.engineering.wild_type_acc}</a> : "not recorded"}.
-              Mutated positions are not exported in v1.6.0.
+              Mutated positions are not exported in v1.6.1.
             </p>
           ) : null}
           {variants.length ? (

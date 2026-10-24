@@ -180,5 +180,5 @@ export function exportSvg(tree: XTree, o: ExportOpts): { svg: string; width: num
 }
 
 function colorTitle(s: ColorScheme): string {
-  return ({ clade: "level-1 clade", subclade: "subclade", domain: "taxonomic domain", phylum: "phylum", function: "function (v1.6.0)", evidence: "evidence level", motif: "helix-C motif", role: "tip role" } as const)[s.mode];
+  return ({ clade: "level-1 clade", subclade: "subclade", domain: "taxonomic domain", phylum: "phylum", function: "function (v1.6.1)", evidence: "evidence level", motif: "helix-C motif", role: "tip role" } as const)[s.mode];
 }

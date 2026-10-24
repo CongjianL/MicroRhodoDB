@@ -73,7 +73,7 @@ function RecordNotFound({ accession, malformed = false }: { accession: string; m
         <code className="break-all text-ink">{accession}</code>{" "}
         {malformed
           ? "is not a valid accession. MRDB accessions look like MRDB000001; source (UniProt) accessions look like P02945 or A0A135LS53."
-          : "is not an MRDB accession or a source (UniProt) accession in release v1.6.0."}{" "}
+          : "is not an MRDB accession or a source (UniProt) accession in release v1.6.1."}{" "}
         Watchlist candidates are not database records.
       </p>
       <div className="mt-5 max-w-2xl">

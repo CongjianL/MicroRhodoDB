@@ -1,12 +1,12 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://congjianl.github.io/MicroRhodoDB/schemas/habitat-1.0.0.json",
-  "title": "MicroRhodoDB habitat sidecar, schema 1.0.0 (dataset v1.6.0; source audit PR-7c.1a)",
+  "title": "MicroRhodoDB habitat sidecar, schema 1.0.0 (dataset v1.6.1; source audit PR-7c.1a, run on the same 5,466 source records in v1.6.0)",
   "description": "Observed environmental metadata per source record, copied verbatim from the PR-7c.1a audit. Not inferred habitats.",
   "x-files": {
-    "v1.6.0/habitat/manifest.json": "HabitatManifest",
-    "v1.6.0/habitat/summary.json": "HabitatSummary",
-    "v1.6.0/habitat/records/*.json": "HabitatRecordFile"
+    "v1.6.1/habitat/manifest.json": "HabitatManifest",
+    "v1.6.1/habitat/summary.json": "HabitatSummary",
+    "v1.6.1/habitat/records/*.json": "HabitatRecordFile"
   },
   "$defs": {
     "AmbiguityClass": {
@@ -495,7 +495,7 @@
           "const": "1.0.0"
         },
         "dataset_release": {
-          "const": "1.6.0"
+          "const": "1.6.1"
         },
         "schema": {
           "const": "web/src/data/schemas/habitat.schema.json"
@@ -770,7 +770,7 @@
           "const": "1.0.0"
         },
         "dataset_release": {
-          "const": "1.6.0"
+          "const": "1.6.1"
         },
         "mrdb_acc": {
           "$ref": "#/$defs/MrdbAcc"
@@ -1095,7 +1095,7 @@
           "const": "1.0.0"
         },
         "dataset_release": {
-          "const": "1.6.0"
+          "const": "1.6.1"
         },
         "audit_id": {
           "const": "PR-7c.1a"

@@ -61,11 +61,11 @@ describe("Browse filtering on the exported index", () => {
     expect(new Set(all.map((r) => r.mrdb_acc)).size).toBe(5299);
   });
 
-  it("default view = Type-I members minus engineered constructs (3,085)", () => {
+  it("default view = Type-I members minus engineered constructs (3,087)", () => {
     const members = mv(S, "typeI_members");
     const engMembers = all.filter((r) => r.membership_group === "member" && r.is_engineered).length;
     expect(count("")).toBe(members - engMembers);
-    expect(count("")).toBe(3085);
+    expect(count("")).toBe(3087);
     expect(count("eng=1")).toBe(members);
   });
 

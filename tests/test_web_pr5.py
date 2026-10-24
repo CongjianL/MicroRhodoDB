@@ -3,8 +3,8 @@
 Run from the repository root:
     pytest -q tests/test_web_pr5.py
 
-Every statistic the website charts is read from web/public/data/v1.6.0 (the files the browser loads) and
-re-derived here from the read-only v1.6.0 SQLite, with independent hand-written queries for the frozen G5
+Every statistic the website charts is read from web/public/data/v1.6.1 (the files the browser loads) and
+re-derived here from the read-only v1.6.1 SQLite, with independent hand-written queries for the frozen G5
 targets. Nothing is recomputed by the website itself: these tests guard the exporter and the committed copy.
 """
 import collections
@@ -22,9 +22,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "web/scripts"))
 import summary_reconcile as R  # noqa: E402
 
 REPO = Path(os.environ.get("MRDB_REPO", ".")).resolve()
-DB = Path(os.environ.get("MRDB_DB", REPO / "releases/v1.6.0/db/microrhododb_v1.6.0.sqlite"))
-DATA = REPO / "web/public/data/v1.6.0"
-DB_SHA = "379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f"
+DB = Path(os.environ.get("MRDB_DB", REPO / "releases/v1.6.1/db/microrhododb_v1.6.1.sqlite"))
+DATA = REPO / "web/public/data/v1.6.1"
+DB_SHA = "b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d"
 
 
 def sha(p):
@@ -65,7 +65,7 @@ def test_frozen_g5_targets(con, summary):
     assert one(con, "SELECT COUNT(*) FROM v_master WHERE evidence_level = 'E1' AND counts_eligible = 1") == m["e1_counted"] == 88
     assert one(con, "SELECT COUNT(*) FROM v_master WHERE evidence_level = 'E1'") == m["e1_total"] == 91
     assert one(con, "SELECT COUNT(*) FROM novel_family_candidate") == m["watchlist"] == 181
-    assert m["members_candidates"] == 4468 and m["clade_confident_members_candidates"] == 3821
+    assert m["members_candidates"] == 4465 and m["clade_confident_members_candidates"] == 3821
     assert m["typeI_members"] + m["typeI_candidates"] == m["members_candidates"]
 
 
@@ -132,9 +132,9 @@ def test_downloads_checksums_match_files_on_disk():
     d = load("downloads.json")
     assert len(d["release_files"]) == 39
     not_in_git = [f["path"] for f in d["release_files"] if not f["in_git_at_tag"]]
-    assert not_in_git == ["db/microrhododb_v1.6.0.sqlite"]
+    assert not_in_git == ["db/microrhododb_v1.6.1.sqlite"]
     for f in d["release_files"]:
-        p = REPO / "releases/v1.6.0" / f["path"]
+        p = REPO / "releases/v1.6.1" / f["path"]
         assert p.is_file(), f["path"]
         assert sha(p) == f["sha256"], f["path"]
         assert p.stat().st_size == f["bytes"], f["path"]

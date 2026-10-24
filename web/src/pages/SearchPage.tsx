@@ -96,7 +96,7 @@ function TextHits({ rows, q }: { rows: IndexRow[]; q: string }) {
     return (
       <div className="mt-6" data-testid="text-status">
         <EmptyState title={`No corpus record matches “${r.query}”`}>
-          <p>Check the spelling, try a shorter fragment, or use <a href={href.section("search", "mode=sequence")}>sequence search</a>. Identifiers that are not in the v1.6.0 corpus (including watchlist candidates) are not found here.</p>
+          <p>Check the spelling, try a shorter fragment, or use <a href={href.section("search", "mode=sequence")}>sequence search</a>. Identifiers that are not in the v1.6.1 corpus (including watchlist candidates) are not found here.</p>
         </EmptyState>
       </div>
     );

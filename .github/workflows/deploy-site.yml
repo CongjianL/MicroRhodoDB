@@ -154,11 +154,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          mkdir -p releases/v1.6.0/db
-          gh release download v1.6.0 \
+          mkdir -p releases/v1.6.1/db
+          gh release download v1.6.1 \
             --repo CongjianL/MicroRhodoDB \
-            --pattern microrhododb_v1.6.0.sqlite \
-            --dir releases/v1.6.0/db
+            --pattern microrhododb_v1.6.1.sqlite \
+            --dir releases/v1.6.1/db
           python web/scripts/fetch_release_db.py
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         if: inputs.kind == 'website'

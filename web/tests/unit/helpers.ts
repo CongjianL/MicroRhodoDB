@@ -7,11 +7,11 @@ import { toRows, type IndexRow } from "../../src/lib/browse";
 
 export const WEB = resolve(__dirname, "../..");
 export const REPO = resolve(WEB, "..");
-const DATA = resolve(WEB, "public/data/v1.6.0");
-
-if (!existsSync(DATA)) {
-  throw new Error("web/public/data/v1.6.0 missing: run `python tools/export_web_data.py --repo . --out web/public/data` first");
+const CURRENT = resolve(WEB, "public/data/current.json");
+if (!existsSync(CURRENT)) {
+  throw new Error("web/public/data/current.json missing: run `python tools/export_web_data.py --repo . --out web/public/data` first");
 }
+const DATA = resolve(WEB, "public/data", (JSON.parse(readFileSync(CURRENT, "utf8")) as { path: string }).path.replace(/^data\//, ""));
 
 const cache = new Map<string, unknown>();
 function memo<T>(k: string, f: () => T): T {
@@ -68,3 +68,24 @@ export function legacyApply(R: LegacyRow[], o: LegacyFilter): LegacyRow[] {
     (!q || [r.mrdb_acc, r.source_acc, r.organism, r.protein_name, r.helixC_motif, r.clade_name]
       .some((v) => v && String(v).toLowerCase().includes(q))));
 }
+
+/**
+ * Records and fields changed by the signed v1.6.1 decisions (releases/v1.6.1/tables/identical_sequence_decisions_v161.tsv).
+ * The legacy oracle (site/data.js) was built from v1.6.0, so these, and only these, cells may differ from it.
+ * Field names follow the legacy columns (DB "basis" is "function_basis").
+ */
+export const v161Changes = (): Map<string, Set<string>> => memo("v161", () => {
+  const p = resolve(REPO, "releases/v1.6.1/tables/identical_sequence_decisions_v161.tsv");
+  const m = new Map<string, Set<string>>();
+  if (!existsSync(p)) return m;
+  const [head, ...lines] = readFileSync(p, "utf8").trim().split("\n");
+  const h = head.split("\t");
+  const ia = h.indexOf("source_acc"), iff = h.indexOf("field");
+  for (const ln of lines) {
+    const c = ln.split("\t");
+    const f = c[iff] === "basis" ? "function_basis" : c[iff];
+    if (!m.has(c[ia])) m.set(c[ia], new Set());
+    m.get(c[ia])!.add(f);
+  }
+  return m;
+});

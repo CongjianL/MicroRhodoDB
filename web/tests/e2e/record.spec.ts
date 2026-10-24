@@ -183,11 +183,11 @@ test.describe("release models (pLDDT stored as 0-1, rescaled in the browser)", (
       await expect(viewer(page)).toHaveAttribute("data-selected", "pred");
       await page.getByTestId("viewer-load").click();
       await waitReady(page);
-      expect(watch.requests.some((u) => u.endsWith(`/data/v1.6.0/structures/predicted/${acc}_esmfold.pdb`))).toBe(true);
+      expect(watch.requests.some((u) => u.endsWith(`/data/v1.6.1/structures/predicted/${acc}_esmfold.pdb`))).toBe(true);
       expect(log.hits).toEqual([]);
       await expect(page.getByTestId("viewer-coloring")).toHaveValue("plddt-confidence");
       await expect(page.getByTestId("plddt-legend")).toContainText("multiplied by 100");
-      await expect(page.getByTestId("viewer-download")).toHaveAttribute("href", new RegExp(`/data/v1\\.6\\.0/structures/predicted/${acc}_esmfold\\.pdb$`));
+      await expect(page.getByTestId("viewer-download")).toHaveAttribute("href", new RegExp(`/data/v1\\.6\\.1/structures/predicted/${acc}_esmfold\\.pdb$`));
       if (acc === "B0R633") {
         mkdirSync(OUT, { recursive: true });
         await page.getByTestId("section-viewer").screenshot({ path: resolve(OUT, "pr3_viewer_release_B0R633_1440.png"), ...SHOT });
@@ -292,7 +292,7 @@ test.describe("record types", () => {
     const [dl] = await Promise.all([page.waitForEvent("download"), page.getByTestId("section-sequence").getByRole("button", { name: "Download FASTA" }).click()]);
     const txt = await (await dl.createReadStream()).toArray().then((b) => Buffer.concat(b).toString("utf8"));
     expect(txt.startsWith(">P02945 MRDB000001")).toBe(true);
-    await expect(page.getByTestId("export-json")).toHaveAttribute("href", /\/data\/v1\.6\.0\/records\/MRDB000001\.json$/);
+    await expect(page.getByTestId("export-json")).toHaveAttribute("href", /\/data\/v1\.6\.1\/records\/MRDB000001\.json$/);
     expect(watch.errors).toEqual([]);
   });
 });
