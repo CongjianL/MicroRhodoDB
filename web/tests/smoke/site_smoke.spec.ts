@@ -38,11 +38,11 @@ test.describe("deployment artifact: entry, base path and provenance", () => {
     const bi = (await r.json()) as BuildInfo;
     expect(bi.source_commit).toMatch(/^[0-9a-f]{40}$/);
     if (EXPECT_COMMIT) expect(bi.source_commit).toBe(EXPECT_COMMIT);
-    expect(bi.dataset_release).toBe("1.6.0");
+    expect(bi.dataset_release).toBe("1.6.1");
     expect(bi.base_path).toBe("/MicroRhodoDB/site/");
     expect(bi.schema_version).toBe("1.4.0");
-    expect(bi.source_db.sha256).toBe("379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f");
-    expect(bi.source_db.bytes).toBe(33_464_320);
+    expect(bi.source_db.sha256).toBe("b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d");
+    expect(bi.source_db.bytes).toBe(33_525_760);
     await page.goto("#/");
     const build = page.getByTestId("footer-build");
     await expect(build).toContainText(bi.source_commit.slice(0, 7));
@@ -138,7 +138,7 @@ raw.describe("failure behaviour (expected failed requests; uncaught errors are n
   raw("missing data file: error with Retry, Retry recovers", async ({ page }) => {
     const errs = pageErrors(page);
     let fail = true;
-    await page.route("**/data/v1.6.0/summary.json", (r) => (fail ? r.fulfill({ status: 404, body: "missing" }) : r.fallback()));
+    await page.route("**/data/v1.6.1/summary.json", (r) => (fail ? r.fulfill({ status: 404, body: "missing" }) : r.fallback()));
     await page.goto("#/");
     const alert = page.getByRole("alert").filter({ hasText: /Could not load/ }).first();
     await rawExpect(alert).toBeVisible();
