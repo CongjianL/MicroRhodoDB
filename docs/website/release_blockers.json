@@ -35,8 +35,8 @@
       "resolution": {
         "decided_by": "CongjianL",
         "decided_at": "2026-10-24",
-        "reference": "https://github.com/CongjianL/MicroRhodoDB/commit/dbcbb3928ecc950f48d2b8d9ac20337b0161fa6d",
-        "notes": "Authoritative v1.6.0 release date 2026-10-10 (GitHub Release published 2026-10-10T10:16:26Z, CHANGELOG.md, release notes, .zenodo.json). CITATION.cff corrected from 2026-10-09."
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.1",
+        "notes": "Re-confirmed for dataset release v1.6.1 by the maintainer on 2026-10-24 (recorded by Claude Code on the maintainer's instruction). Authoritative v1.6.1 release date 2026-10-24: CITATION.cff, .zenodo.json, CHANGELOG.md [1.6.1], RELEASE_NOTES_v1.6.1.md and the GitHub Release (published 2026-10-24T10:53:35Z) agree. History: v1.6.0 release date 2026-10-10 (CITATION.cff corrected from 2026-10-09)."
       },
       "title": "Conflicting v1.6.0 release dates",
       "evidence": "CITATION.cff date-released 2026-10-09; .zenodo.json publication_date 2026-10-10; CHANGELOG.md [1.6.0] 2026-10-10; RELEASE_NOTES_v1.6.0.md 2026-10-10; GitHub Release v1.6.0 published 2026-10-10T10:16:26Z.",
@@ -52,9 +52,9 @@
       "resolution": {
         "decided_by": "CongjianL",
         "decided_at": "2026-10-24",
-        "reference": "https://github.com/CongjianL/MicroRhodoDB/commit/dbcbb3928ecc950f48d2b8d9ac20337b0161fa6d",
-        "notes": "No DOI has been minted for v1.6.0 and none is claimed. CITATION.cff (message and url), README.md and the website Citation page direct users to cite the release version and the GitHub Release. A DOI may be added in a later release.",
-        "alternative_citation_policy": "No DOI for v1.6.0: cite MicroRhodoDB v1.6.0 by its version and the GitHub Release https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.0, as stated in CITATION.cff."
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/blob/main/CITATION.cff",
+        "notes": "Re-confirmed for dataset release v1.6.1 by the maintainer on 2026-10-24 (recorded by Claude Code on the maintainer's instruction). No DOI has been minted for v1.6.1 (or v1.6.0) and none is claimed. CITATION.cff (message and url), README.md and the website Citation page direct users to cite the release version and the GitHub Release. A DOI may be added in a later release.",
+        "alternative_citation_policy": "No DOI for v1.6.1: cite MicroRhodoDB v1.6.1 by its version and the GitHub Release https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.1, as stated in CITATION.cff."
       },
       "title": "No DOI and no approved alternative citation policy",
       "evidence": "CITATION.cff has no doi; README.md says 'Zenodo DOI to be added on deposit'; the Citation page shows 'DOI: not supplied (pending confirmation by the maintainer)'.",
@@ -104,8 +104,8 @@
       "resolution": {
         "decided_by": "CongjianL",
         "decided_at": "2026-10-24",
-        "reference": "https://github.com/CongjianL/MicroRhodoDB/commit/1e257b555431b3262a42a2efa92974e9bd42c414",
-        "notes": "BINARIES.md corrected (907d472): the prior-release databases are documented as not on the Release, and only Release assets use path | bytes | sha256 rows. A newly created archive, MicroRhodoDB_v1.6.0_only.tar.gz (11,984,255 B, SHA-256 d093ba26b72b512dbbc8550931a3763951fc3706a8a9f7ce49fffe5737f9fb14), and its .sha256 were uploaded to Release v1.6.0 and listed in BINARIES.md (1e257b5). It is derived from the original deposit archive with releases/v1.0, v1.3.0, v1.4.0 and v1.5.0 removed, documented in PACKAGE_NOTES.md inside it; the original MicroRhodoDB_v1.6.0.tar.gz was not re-created. Check verified 2026-10-24: Release has all 3 listed assets with matching sizes."
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.1",
+        "notes": "Re-confirmed for dataset release v1.6.1 by the maintainer on 2026-10-24 (recorded by Claude Code on the maintainer's instruction). Release v1.6.1 carries every asset BINARIES.md lists: microrhododb_v1.6.1.sqlite (33,525,760 B) and its .sha256, microrhododb_v1.6.0.sqlite (33,464,320 B; the rebuild input of v1.6.1) and MicroRhodoDB_v1.6.0_only.tar.gz (11,984,255 B) with its .sha256; sizes match. History: the v1.6.0-only archive was first created for Release v1.6.0 (1e257b5) from the original deposit archive, as documented in PACKAGE_NOTES.md inside it."
       },
       "title": "GitHub Release v1.6.0 lacks assets that BINARIES.md says are attached",
       "evidence": "GitHub API (docs/website/pr6a/evidence/github_releases.json): Release v1.6.0 has one asset, microrhododb_v1.6.0.sqlite (33,464,320 B, SHA-256 matches). BINARIES.md also lists microrhododb_v1.5.0.sqlite, microrhododb_v1.5.0_env_pilot.sqlite, microrhododb_v1.4.0.sqlite, microrhododb_v1.3.0.sqlite, microrhododb_v1.0.sqlite and MicroRhodoDB_v1.6.0.tar.gz with its .sha256 'attached to the same Release'. Local copies of the five historical databases exist and match the BINARIES.md SHA-256 values; no copy of the tar.gz exists and no checksum for it is recorded anywhere.",
