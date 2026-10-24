@@ -100,6 +100,16 @@ export const ORGANISM_CONTEXT_LABEL = "Organism-level context, not the sampling 
 export const HOST_TISSUE_NOTE = "Names host tissue: sampling context; no broader habitat is inferred";
 export const NO_LINK_TEXT = "No traceable INSDC or sample link; sample records could not be checked.";
 
+/** Plain-language coverage state of the metadata audit (summary.json audit_status); the raw code is never shown. */
+export const AUDIT_STATUS_TEXT: Record<string, string> = {
+  PR7C1_AUDIT_COMPLETE: "complete",
+  PR7C1_AUDIT_PARTIAL: "partial",
+};
+export const auditStatusText = (status: string): string => AUDIT_STATUS_TEXT[status] ?? "not stated";
+/** Audit status reason with internal state codes replaced by words; numbers and wording are otherwise unchanged. */
+export const auditReasonText = (reason: string): string =>
+  reason.replace(/\bLOOKUP_FAILED\b/g, "lookup failed").replace(/\bliterature lookup failed\b/g, "literature lookups failed");
+
 const EVIDENCE_ID_RE = /^H[EL][0-9a-f]{12}$/;
 const ENVO_RE = /^ENVO:(\d{8})$/;
 

@@ -11,7 +11,7 @@ import type { HabitatItem, HabitatRecordFile, HabitatSourceEntry, HabitatSummary
 import type { MrdbEntry } from "../../src/data/types";
 import { SECTIONS } from "../../src/lib/entry";
 import {
-  GRADE_INFO, HABITAT_ROLES, NO_LINK_TEXT, accessionUrl, checkHabitatFile, doiUrl, envoLinks, envoUrl, habitatView,
+  GRADE_INFO, HABITAT_ROLES, NO_LINK_TEXT, accessionUrl, auditReasonText, auditStatusText, checkHabitatFile, doiUrl, envoLinks, envoUrl, habitatView,
   hostLabel, hostStatusText, itemUrl, missingnessText, pubmedUrl, sourceRows, valueText,
 } from "../../src/lib/habitat";
 import { safeExternalUrl } from "../../src/lib/safe";
@@ -308,5 +308,16 @@ describe("PR-7c.2 summary (About these data)", () => {
       expect(x.numerator).toBeLessThanOrEqual(x.denominator);
       expect(x.percent).toBeCloseTo(Math.round((x.numerator / x.denominator) * 10000) / 100, 2);
     }
+  });
+
+  it("audit status and reason are shown without internal state codes", () => {
+    const s = json<HabitatSummary>("habitat/summary.json");
+    expect(auditStatusText(s.audit_status)).toBe("partial");
+    expect(auditStatusText("PR7C1_AUDIT_COMPLETE")).toBe("complete");
+    expect(auditStatusText("UNEXPECTED")).toBe("not stated");
+    const reason = auditReasonText(s.audit_status_reason);
+    expect(reason).not.toMatch(/[A-Z]{2,}_[A-Z]{2,}/);
+    expect(reason).toContain("24 of the 110");
+    expect(auditReasonText("a literature LOOKUP_FAILED; 0 LOOKUP_FAILED")).toBe("a literature lookups failed; 0 lookup failed");
   });
 });

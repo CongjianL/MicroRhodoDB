@@ -16,12 +16,12 @@ import type { MrdbEntry, SourceRecord } from "../../data/types";
 import { fmtInt } from "../../lib/format";
 import {
   GRADE_INFO, HOST_INFO, HOST_TISSUE_NOTE, NOT_USABLE_TEXT, NO_LINK_TEXT, ORGANISM_CONTEXT_LABEL, QUARANTINE_TEXT, ROLE_LABEL,
-  SOURCE_LABEL, accessionUrl, checkHabitatFile, doiUrl, envoLinks, habitatView, hostLabel, itemUrl, hostStatusText, pubmedUrl, sourceRows, valueText,
+  SOURCE_LABEL, accessionUrl, auditReasonText, auditStatusText, checkHabitatFile, doiUrl, envoLinks, habitatView, hostLabel, itemUrl, hostStatusText, pubmedUrl, sourceRows, valueText,
   type HabitatView, type ValueGroup,
 } from "../../lib/habitat";
 import { Ext, Row, Section } from "./ui";
 
-const LEAD = "Observed environmental metadata from the sample records and literature linked to this source record, shown verbatim with provenance. No value is inferred, normalised or mapped to an ontology; the evidence grades, statuses and linkage labels come from the PR-7c.1a metadata audit.";
+const LEAD = "Observed environmental metadata from the sample records and literature linked to this source record, shown verbatim with provenance. No value is inferred, normalised or mapped to an ontology; the evidence grades, statuses and linkage labels come from an audit of the sample metadata linked to every record in this release (see About these data).";
 
 export function HabitatSection({ entry, src }: { entry: MrdbEntry; src: SourceRecord }) {
   const res = useResource(() => loadHabitat(entry.mrdb_acc), [entry.mrdb_acc]);
@@ -408,7 +408,8 @@ function AboutBody() {
   return (
     <div className="mt-2 space-y-2" data-testid="habitat-about-body">
       <p>
-        Source: habitat audit {s.audit_id}, status <code>{s.audit_status}</code>. {s.audit_status_reason}
+        Source: audit of the sample metadata linked to the records of release v{s.dataset_release} (audit
+        identifier <code>{s.audit_id}</code>). Coverage: {auditStatusText(s.audit_status)}. {auditReasonText(s.audit_status_reason)}
       </p>
       <p>{s.interpretation}</p>
       <table className="data-table">
