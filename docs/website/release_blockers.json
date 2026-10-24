@@ -192,8 +192,13 @@
       "blocks": [
         "production"
       ],
-      "status": "open",
-      "resolution": null,
+      "status": "resolved",
+      "resolution": {
+        "decided_by": "CongjianL",
+        "decided_at": "2026-10-24",
+        "reference": "https://github.com/CongjianL/MicroRhodoDB/pull/12#issuecomment-6384138287",
+        "notes": "Production deployment of website 2.0 (dataset v1.6.1) authorised by the maintainer on 2026-10-24 (given in a Claude Code session; recorded in the referenced comment). Basis: preview artifact from 391ecf7 verified (ARTIFACT_VERIFIED) and deployment smoke suite 41/41; CI green on #11."
+      },
       "title": "Final review and explicit production-deployment authorisation",
       "evidence": "PR-7 is implemented and validated locally only (PR7_IMPLEMENTED_PENDING_RELEASE_APPROVAL). No deployment has been authorised.",
       "required_decision": "Maintainer reviews the preview artifact and smoke report and records the authorisation (reference to the approving comment)."
