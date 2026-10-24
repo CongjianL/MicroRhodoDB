@@ -5,6 +5,28 @@ release artifacts under `releases/`; see `docs/RELEASE_HISTORY.md` for the
 architectural narrative and per-release `RELEASE_NOTES`/`report_*.md` for full
 detail.
 
+## [1.6.1] - 2026-10-24
+
+**Correction release.** Built from the immutable v1.6.0 database (opened read-only, SHA-256 checked) plus
+`curation/v161/` (107 field changes on 23 records, rule set approved by CongJian Li on 2026-10-24). Corpus, scorer,
+thresholds, tree, placements and clade assignments unchanged. Release artifact: `releases/v1.6.1/` (schema
+`v161.1`); rebuild with `snakemake -c 1 all_v161` (93/93 objects identical). Full detail:
+`releases/v1.6.1/RELEASE_NOTES_v1.6.1.md`.
+
+- **One decision per unique sequence.** Byte-identical records now share one membership status and one function call
+  (rules M1, M2, F1-F5 in `pipeline/v161/identical_sequences_v161.py`). HSP30 copies follow the curated decoys; twins
+  of CryoR1 and GtCCR2 become curated members (E2 at identity 1.00). Members 3,089 -> 3,091, candidates 1,379 ->
+  1,374, rejected 103 -> 106; counted E2 109 -> 111, E4 1,050 -> 1,045, E5 3,070 -> 3,073; conflict flags 468 -> 480.
+- **Clade names.** `clade.name_basis_type` marks the 6 provisional names (no characterised member); MR_CLD3_017
+  naming basis corrected (Q70LL3 is E4 since v1.6.0).
+- **Stated policies.** Candidates are never called (E5 by policy); curation recommendations and the blind audit
+  calls were AI-assisted and curator-reviewed (`release_metadata`, data dictionary).
+- **Provenance.** View `v_curation_decision`: one decider and date for every v1.6.0 and v1.6.1 decision.
+- **CLI fix.** `typeI_detected_070` applies the `full_gated` gates; heliorhodopsins are no longer reported as
+  detected Type-I rhodopsins.
+- **New validation.** Hard-negative specificity, nearest-E1 transfer baseline, E3 robustness on the replicate trees
+  (`releases/v1.6.1/validation/`).
+
 ## [1.6.0] - 2026-10-10
 
 **Response to the v1.5.0 referee report (23 actions) and to the second-round comments (R2).** Built from the
