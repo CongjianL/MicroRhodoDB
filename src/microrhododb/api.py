@@ -1,9 +1,9 @@
-"""MicroRhodoDB v1.6.0 Python API (read-only access to a release SQLite database).
+"""MicroRhodoDB v1.6.1 Python API (read-only access to a release SQLite database).
 
 Database location, in order of precedence:
   1. the db_path argument;
   2. the MRDB_DB environment variable;
-  3. releases/v1.6.0/db/microrhododb_v1.6.0.sqlite relative to the repository / extracted archive that contains
+  3. releases/v1.6.1/db/microrhododb_v1.6.1.sqlite relative to the repository / extracted archive that contains
      this package (works for `pip install -e .` and for running from the archive).
 A db_path or MRDB_DB that does not exist raises FileNotFoundError (no fallback to the default). The database is opened read-only (SQLite URI mode=ro). Release databases are immutable.
 
@@ -14,6 +14,9 @@ Changes from the v1.4.0 API (kept unchanged at releases/v1.4.0/meta/microrhododb
     v_call_conflict, v_engineered); the v1.4 compatibility views and membership.alias_v14 were removed in v1.6.0.
   - new accessors for function evidence, call conflicts, engineered constructs, publications, the data
     dictionary, LOCO validation and the novel-family candidate layer.
+
+The API reads both v1.6.0 and v1.6.1 databases (v1.6.1 adds tables and columns, removes none); open v1.6.0 with
+db_path or MRDB_DB.
 """
 import os
 import sqlite3
@@ -21,10 +24,10 @@ from pathlib import Path
 
 import pandas as pd
 
-__version__ = "1.6.0"
-SCHEMA_REVISION = "v160.1"
+__version__ = "1.6.1"
+SCHEMA_REVISION = "v161.1"
 
-DEFAULT_DB_PATH = (Path(__file__).resolve().parents[2] / "releases" / "v1.6.0" / "db" / "microrhododb_v1.6.0.sqlite")
+DEFAULT_DB_PATH = (Path(__file__).resolve().parents[2] / "releases" / "v1.6.1" / "db" / "microrhododb_v1.6.1.sqlite")
 
 MEMBER_STATUSES = ("typeI_member_core", "typeI_member_architecture_supported", "typeI_member_curated")
 CANDIDATE_STATUSES = ("typeI_candidate", "typeI_candidate_architecture_supported", "typeI_candidate_unresolved")
@@ -72,7 +75,10 @@ class MicroRhodoDB:
                                    "(SELECT max(release) FROM release_metadata WHERE key='version')").fetchall())
         return {"api": __version__, "schema_revision": md.get("schema_revision"), "database_release": md.get("version")}
 
-    def release_metadata(self, release="1.6.0"):
+    def release_metadata(self, release=None):
+        """Metadata rows of one release; default: the latest release recorded in the opened database."""
+        if release is None:
+            release = self.version()["database_release"]
         return self._q("SELECT key, value FROM release_metadata WHERE release = ?", (release,))
 
     # ---------------------------------------------------------------- records

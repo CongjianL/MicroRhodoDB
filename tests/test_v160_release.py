@@ -466,7 +466,7 @@ def test_python_api_read_only():
     sys.path.insert(0, os.path.join(REPO, "src"))
     import microrhododb as m
     with m.MicroRhodoDB(DB) as db:
-        assert m.__version__ == "1.6.0" and db.version()["database_release"] == "1.6.0"
+        assert db.version()["database_release"] == "1.6.0"   # the API default is v1.6.1; v1.6.0 opened explicitly
         assert len(db.master()) == 5466 and len(db.counted()) == 5460
         assert len(db.engineered()) == 6
         assert len(db.function_evidence(level="E1")) == 88  # engineered excluded by default
