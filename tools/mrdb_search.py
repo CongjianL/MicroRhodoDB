@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """mrdb_search - score query proteins with the frozen MicroRhodoDB membership scorer and find their nearest
-MicroRhodoDB release records (default: the v1.6.0 release in this repository/archive).
+MicroRhodoDB release records (default: the v1.6.1 release in this repository/archive).
 
-  python tools/mrdb_search.py query.faa [--release releases/v1.6.0] -o hits.tsv [--threads 4] [--workdir tmp]
+  python tools/mrdb_search.py query.faa [--release releases/v1.6.1] -o hits.tsv [--threads 4] [--workdir tmp]
 
 Requires HMMER 3.4 and DIAMOND (pinned env: 2.1.10) on PATH. DIAMOND is used twice: for the scorer's seed-homology
 feature (part of membership_score) and for the nearest-neighbour search below.
@@ -110,7 +110,7 @@ def detected_070(r):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("query")
-    ap.add_argument("--release", default=os.path.join(HERE, "..", "releases", "v1.6.0"))
+    ap.add_argument("--release", default=os.path.join(HERE, "..", "releases", "v1.6.1"))
     ap.add_argument("-o", "--out", default="mrdb_search_hits.tsv")
     ap.add_argument("--threads", type=int, default=4)
     ap.add_argument("--workdir", default="mrdb_search_tmp")

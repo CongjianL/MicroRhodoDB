@@ -5,6 +5,23 @@ release artifacts under `releases/`; see `docs/RELEASE_HISTORY.md` for the
 architectural narrative and per-release `RELEASE_NOTES`/`report_*.md` for full
 detail.
 
+## [Unreleased]
+
+Documentation and defaults only; no release database changed.
+
+- **Python API and CLI default to v1.6.1.** `MicroRhodoDB()` opens `releases/v1.6.1/db/microrhododb_v1.6.1.sqlite`
+  and `tools/mrdb_search.py` uses `releases/v1.6.1` unless told otherwise; package version 1.6.1.
+  `release_metadata()` without an argument now returns the opened database's own release. v1.6.0 stays readable
+  with `db_path`/`MRDB_DB` or `--release releases/v1.6.0`.
+- **Reproducibility statements corrected.** README, `workflow/README.md`, `.zenodo.json` and
+  `docs/LEGACY_AND_MISSING_COMPONENTS.md` no longer say the v1.5.0 database is shipped: the v1.6.0 rebuild needs it
+  and it is not published. The v1.6.1 rebuild (`all_v161`, from the published v1.6.0 database) is documented.
+- **CITATION.cff abstract** describes v1.6.1 and states the clade naming exactly (472 tips; 19 level-1 groups, 13
+  named after characterised members, 6 provisional) instead of "~472 tips ... 19 named subfamilies".
+- **README** leads with v1.6.1 for users; website build, deployment and release-gate instructions moved to
+  `docs/DEVELOPMENT.md`. Stale "while the repository is private" notes removed (`BINARIES.md`,
+  `docs/website/WEB_BUILD_AND_DEPLOY.md`, `web/scripts/fetch_release_db.py`).
+
 ## [1.6.1] - 2026-10-24
 
 **Correction release.** Built from the immutable v1.6.0 database (opened read-only, SHA-256 checked) plus

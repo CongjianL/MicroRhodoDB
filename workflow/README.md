@@ -1,10 +1,17 @@
-# MicroRhodoDB build workflow (v1.6.0)
+# MicroRhodoDB build workflow (v1.6.0, v1.6.1)
 
-`workflow/Snakefile` has two targets.
+`workflow/Snakefile` has three targets. Each later release is rebuilt from the database of the release before it,
+so a target is re-executable only when that input database is on disk (see `BINARIES.md`).
 
-- **`all` (default) - v1.6.0, re-executable from the repository or the release archive.** It applies the signed
-  v1.6.0 curation decisions to the immutable v1.5.0 database and regenerates every v1.6.0 derived file. It then
-  checks that the rebuilt database is content-identical to the shipped one and runs the release tests.
+- **`all_v161` - v1.6.1, re-executable.** It applies `curation/v161/` (one decision per unique sequence) to the
+  immutable v1.6.0 database, reruns the v1.6.1 validation analyses, checks that the rebuilt database is
+  content-identical to the shipped one and runs the v1.6.1 release tests. Input: the v1.6.0 database, which is
+  attached to the GitHub Release v1.6.1.
+- **`all` (default) - v1.6.0, re-executable only with the v1.5.0 database.** It applies the signed v1.6.0
+  curation decisions to the immutable v1.5.0 database and regenerates every v1.6.0 derived file. It then checks
+  that the rebuilt database is content-identical to the shipped one and runs the release tests. The v1.5.0
+  database is not published (it is listed with its checksum in `BINARIES.md`), so this target cannot currently be
+  run from public files.
 - **`all_v150` - the v1.5.0 build, kept as a record.** It is *not* re-executable from the archive, because it needs
   the v1.5.0 work directory (corpus FASTA, HMM alignments, tree and placement intermediates), which is not
   shipped. See "Re-executability" below.
@@ -47,7 +54,8 @@ byte-identical to the shipped files. On the round-1 build, MMseqs2 18.8cc5c (pin
 
 | Step | Re-executable from the archive? | Notes |
 |---|---|---|
-| v1.6.0 rebuild, data dictionary, exports, browser data, scorer-validation summary, comparison, tests (`all`) | **Yes** | Inputs shipped: `releases/v1.5.0/db`, `curation/v160/`, `pipeline/v160/`, `tools/` |
+| v1.6.1 rebuild, validation analyses, comparison, tests (`all_v161`) | **Yes** | Inputs: the v1.6.0 database (GitHub Release v1.6.1), `curation/v161/`, `pipeline/v161/` |
+| v1.6.0 rebuild, data dictionary, exports, browser data, scorer-validation summary, comparison, tests (`all`) | Only with the v1.5.0 database | Inputs: `releases/v1.5.0/db` (not published; checksum in `BINARIES.md`), `curation/v160/`, `pipeline/v160/`, `tools/` |
 | CLI search (`tools/mrdb_search.py`) | **Yes** | Needs HMMER 3.4 and DIAMOND 2.1.10; tested on the 12 sequences in `tests/data/` |
 | v1.6.0 Stage-1 curation proposals: conflicts and LOCO, engineered constructs, link labelling, addendum, LOCO sensitivity | Partly | Scripts in `pipeline/v160/` use relative paths (scratch dir `MRDB_V160_WORK`). The literature parts used network services. The *signed* outputs are what the build consumes. |
 | Clade coverage report (`tools/clade_coverage_v160.py`) | **Yes** | Reads the release DB; output `releases/v1.6.0/validation/clade_coverage_v160.tsv` |

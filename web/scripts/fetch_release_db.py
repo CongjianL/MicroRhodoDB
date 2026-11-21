@@ -4,9 +4,9 @@
 The expected size and SHA-256 are read from BINARIES.md (the committed source of truth), never from the
 download itself.
 
-While the repository is private, GitHub refuses anonymous Release downloads (HTTP 404). On HTTP 401/403/404
-the script therefore retries with the GitHub CLI (`gh release download`, authenticated with `gh auth login`),
-and verifies that copy the same way. Set MRDB_GH to the gh executable to use (default: gh on PATH).
+The repository is public, so the anonymous Release download normally succeeds. GitHub answers anonymous
+requests for a private repository (or a fork that is) with HTTP 404, so on HTTP 401/403/404 the script retries
+with the GitHub CLI (`gh release download`, authenticated with `gh auth login`) and verifies that copy the same way. Set MRDB_GH to the gh executable to use (default: gh on PATH).
 Exit codes:
     0  database present and verified (already in place, or downloaded and verified)
     2  BLOCKED_DATA_SOURCE: Release/asset missing (e.g. HTTP 404), network failure, or checksum/size mismatch
@@ -105,7 +105,7 @@ def main(argv=None) -> int:
         except urllib.error.HTTPError as e:
             if e.code not in (401, 403, 404):
                 return blocked(f"{url}: HTTP {e.code}")
-            # 404 also means "private repository" for anonymous requests: retry authenticated with gh
+            # for anonymous requests 404 can also mean a private repository: retry authenticated with gh
             ghdir = Path(tempfile.mkdtemp(prefix=".fetch-gh-", dir=dest.parent))
             got_path, why = gh_download(a.tag, a.asset, ghdir)
             if got_path is None:

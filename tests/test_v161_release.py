@@ -137,3 +137,18 @@ def test_revision_analyses():
     assert loco.n_called == 76 and loco.n_correct == 36
     e3 = pd.read_csv(os.path.join(VAL, "e3_replicate_robustness_v161.tsv"), sep="\t")
     assert e3.n_E3_calls.sum() == 1143 and e3.retained_all_runs.all()
+
+
+def test_python_api_defaults_to_v161(con, monkeypatch):
+    import sys
+    sys.path.insert(0, os.path.join(REPO, "src"))
+    import microrhododb as m
+    monkeypatch.delenv("MRDB_DB", raising=False)
+    if os.path.realpath(DB) != os.path.realpath(m.DEFAULT_DB_PATH):
+        pytest.skip("MRDB_DB161 points away from the repository's v1.6.1 database")
+    with m.MicroRhodoDB() as db:
+        assert m.__version__ == "1.6.1" and m.SCHEMA_REVISION == "v161.1"
+        assert db.version() == {"api": "1.6.1", "schema_revision": "v161.1", "database_release": "1.6.1"}
+        md = dict(db.release_metadata().itertuples(index=False))
+        assert md["version"] == "1.6.1"
+        assert len(db.members()) == 3091 and len(db.candidates()) == 1374 and len(db.call_conflicts()) == 480

@@ -1,6 +1,6 @@
 # Website 2.0: build, preview, validation and deployment
 
-Scope: MicroRhodoDB website 2.0 (`web/`) serving **dataset v1.6.0**, published on GitHub Pages at
+Scope: MicroRhodoDB website 2.0 (`web/`) serving **dataset v1.6.1**, published on GitHub Pages at
 `https://congjianl.github.io/MicroRhodoDB/site/`. Introduced in PR-7. Operational detail lives in
 `PR7_DEPLOYMENT_RUNBOOK.md` (deploy), `PR7_ROLLBACK_RUNBOOK.md` (rollback) and `PR7_RELEASE_BLOCKERS.md`
 (what must be decided before the first production deployment).
@@ -16,8 +16,8 @@ The Pages artifact is a directory that becomes `https://congjianl.github.io/Micr
 |---|---|
 | `index.html` | the repository root redirect (`meta refresh` to `site/`), byte-identical to `index.html` at the source commit |
 | `site/index.html`, `site/assets/` | Vite build, base `/MicroRhodoDB/site/`, hashed assets, CSP meta tag |
-| `site/data/` | exporter output (`tools/export_web_data.py`); `site/data/v1.6.0/export_manifest.json` lists every data file with SHA-256 |
-| `site/data/v1.6.0/phylogeny/MR_RT_003.rooted.treefile` | frozen reference tree, byte-identical to `refpkg/MR_RT_003/tree/MR_RT_003.rooted.treefile` |
+| `site/data/` | exporter output (`tools/export_web_data.py`); `site/data/v1.6.1/export_manifest.json` lists every data file with SHA-256 |
+| `site/data/v1.6.1/phylogeny/MR_RT_003.rooted.treefile` | frozen reference tree, byte-identical to `refpkg/MR_RT_003/tree/MR_RT_003.rooted.treefile` |
 | `site/BUILD_INFO.json` | provenance: source commit, clean flag, SOURCE_DATE_EPOCH, website version, dataset release, schema, source DB SHA-256/size, reference tree, export manifest digest, content digest, toolchain |
 | `SHA256SUMS` | SHA-256 of every other file, sorted by path |
 
@@ -25,15 +25,15 @@ Routing is hash-based (`#/record/MRDB000001`), so deep links need no server-side
 are published: switching Pages from "branch main / root" to "GitHub Actions" stops serving the other repository
 paths (legacy `site/`, `releases/`, `docs/` ...) from Pages. They remain in git and on GitHub.
 
-Invariants are fixed in `web/release/release_contract.json` (dataset 1.6.0, schema 1.4.0, base path, DB SHA-256
-`379a2543...ce17f` / 33,464,320 B, tree SHA-256 `c5619697...9aef`, legacy rollback commit, Pages size limits).
+Invariants are fixed in `web/release/release_contract.json` (dataset 1.6.1, schema 1.4.0, base path, DB SHA-256
+`b8215cff...04c2d` / 33,525,760 B, tree SHA-256 `c5619697...9aef`, legacy rollback commit, Pages size limits).
 
 ## 2. Build data dependency
 
-The exporter reads the official release database `releases/v1.6.0/db/microrhododb_v1.6.0.sqlite`, which is
-not in git. `python web/scripts/fetch_release_db.py` downloads it from the GitHub Release v1.6.0 asset and
+The exporter reads the official release database `releases/v1.6.1/db/microrhododb_v1.6.1.sqlite`, which is
+not in git. `python web/scripts/fetch_release_db.py` downloads it from the GitHub Release v1.6.1 asset and
 verifies SHA-256 and size against `BINARIES.md`; any mismatch or absence stops with `BLOCKED_DATA_SOURCE`.
-While the repository is private, the anonymous download gets HTTP 404 and the script retries with the
+If the anonymous download is refused (HTTP 401/403/404, e.g. from a private fork), the script retries with the
 authenticated GitHub CLI (`gh release download`; run `gh auth login` first), verifying that copy the same way.
 `build_site_artifact.py` re-checks the database and the tree against the release contract before exporting.
 No field is fabricated at runtime: every displayed value comes from the exported JSON.

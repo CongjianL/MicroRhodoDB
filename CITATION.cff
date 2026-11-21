@@ -28,19 +28,21 @@ keywords:
   - retinal-binding protein
   - xenorhodopsin
 abstract: >-
-  MicroRhodoDB curates Type-I microbial rhodopsin proteins from UniProtKB with
-  explicit, evidence-graded membership decisions (member/candidate status
-  vocabulary), QC features, redundancy handling, a phylogenetically placed
-  reference tree (MR_RT_003, ~472 tips) with 19 named subfamilies, a
-  five-level function evidence ladder (E1-E5) backed by literature-verified
-  assertions, a frozen post-cutoff external validation set, and an isolated
-  environmental (MGnify) pilot layer kept separate from the core, evidence-
-  graded corpus. Version 1.6.0 adds function-call conflict flags (conflicting
-  E3/E4 calls downgraded), an expanded E1 set with labelled publication links,
-  engineered-construct flags, a curated membership override for 4
-  experimentally characterised E1 proteins, a blind audit of E2-E4 calls, a
-  family-HMM flag and Foldseek watchlist for novel families, a full data
-  dictionary and a static browser with in-browser sequence search. Releases are
-  immutable, versioned SQLite databases; the current release is rebuilt from the
-  previous one by a pinned Snakemake workflow. Version 1.6.1 corrects 1.6.0 so
-  that identical sequences share one membership status and one function call.
+  MicroRhodoDB curates 5,466 UniProtKB proteins carrying the Pfam domains
+  PF01036/PF18761 and gives each an explicit, evidence-graded membership status
+  (Type-I member, candidate, boundary family, heliorhodopsin outgroup, decoy),
+  QC, redundancy, AlphaFold DB, retinal-pocket and GTDB taxonomy annotations, a
+  placement on the MR_RT_003 reference tree (472 tips; 19 level-1 groups, of
+  which 13 are named after characterised members and 6 carry provisional
+  names), and a five-level function evidence ladder (E1 experimental to E5
+  none) with the basis of every call, function-call conflict flags and linked
+  publications. Engineered constructs are excluded from all counts, a
+  family-HMM flag and a Foldseek watchlist point to novel families, every table
+  and column is described in a data dictionary, and a read-only Python API, a
+  command-line scorer and a static browser are provided. Releases are
+  immutable, versioned SQLite databases with SHA-256 checksums. Version 1.6.1
+  corrects 1.6.0 so that identical sequences share one membership status and
+  one function call, marks provisional clade names, stops the command-line
+  scorer from reporting heliorhodopsins as Type-I rhodopsins, and adds
+  hard-negative, nearest-characterised-protein and replicate-tree validation
+  analyses.
