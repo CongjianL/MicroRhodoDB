@@ -4,7 +4,8 @@ How MicroRhodoDB releases were constructed, as far as can be documented from
 the repository's surviving evidence: the v1.3.0 `build_provenance` table
 (37 rows — the authoritative record), release manifests (`build_manifest_v120/
 v130.json`), release notes, reports, and the historical notebooks/plan in
-`notebooks/legacy_execution_trace/`.
+`notebooks/legacy_execution_trace/`. The notebooks were in the pre-publication
+working copy and are not in this repository (its history starts at v1.6.0).
 
 > **Reproducibility statement (read first).** The builder source code and the
 > preserved build inputs are **NOT present in this repository**. Every absent
@@ -91,7 +92,7 @@ Literature, Foldseek and blind-audit steps were run outside the workflow; their 
 | Pfam HMMs PF01036.25 / PF18761.8 | `MISSING FROM CURRENT REPOSITORY` (publicly re-downloadable) |
 | v1.1 backbone treefile + `.iqtree` | **PRESENT** in `releases/v1.0/phylogeny/` (v1.0 carried the same backbone reference files) |
 | MGnify pilot raw assemblies | `MISSING FROM CURRENT REPOSITORY` (ingested output preserved in DB + `releases/v1.3.0/analysis/`) |
-| ESMFold HPC outputs | **PRESENT** in `workspaces/hpc/` |
+| ESMFold HPC outputs | `MISSING FROM CURRENT REPOSITORY` (`workspaces/hpc/` was in the pre-publication working copy and was never committed; the two models used are in `releases/v1.0/structures/`) |
 
 ## What *can* be verified today
 

@@ -10,6 +10,7 @@ python -m pytest -q tests/            # 45 tests
 |---|---|---|
 | `test_v160_release.py` | 28 | v1.6.0 release. Covers DB integrity and identity, removal of `alias_v14` and the compatibility views, data-dictionary coverage, function-call conflict invariants (0 conflicting E3/E4, 439 downgrades), E1 support links, engineered-construct exclusion, counts, provenance, continuity with v1.5.0 (membership unchanged, prior `release_metadata` untouched, prior release SHA-256s), exports, the CLI on 12 queries, the Python API, the scorer-validation summary, re-drawing the audit sample, the v1.4.0 suite and a Snakemake dry run |
 | `test_v150_release.py` | 17 | v1.5.0 release, run against the immutable v1.5.0 DB |
+| `test_construction_review.py` | 4 | Read-only construction-review checks on v1.6.1: stored motif to class mapping, motif re-derived from sequence (every 25th record), specificity script reproduces the shipped operating points, placement/membership disagreements (`pipeline/construction_review/`) |
 | `release_v140.py` | 18 checks | v1.4.0 suite; a plain script, run by `test_v160_release.py::test_v140_release_suite` |
 | `browser_walkthrough_v160.py` | 38 checks | Playwright walkthrough of `site/` under `file://` and HTTP, or a live URL (`--url`). Not part of pytest; needs `playwright install chromium` |
 

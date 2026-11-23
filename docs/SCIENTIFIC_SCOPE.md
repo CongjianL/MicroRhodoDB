@@ -33,8 +33,10 @@ Each word of that definition is a design commitment:
   invariant suites (v1.2.0: V1–V20 + A1–A7; v1.3.0: 52 release tests),
   SHA-256 manifests, per-table build provenance, leakage-controlled holdout
   benchmarks, and an exposure-audited external validation set scored at
-  **frozen** thresholds (confirmed 0.90 / high 0.86 / candidate 0.70 /
-  rhodopsin-like 0.40).
+  **frozen** thresholds (high 0.86 / candidate 0.70 / rhodopsin-like 0.40;
+  0.90 is a reporting threshold only: the `confirmed_type_I` category is
+  high-confidence plus a PDB cross-reference, not a score cut, so 8 of its 58
+  records score below 0.90 — see `pipeline/v140/scorer_v140.py`).
 - **Type-I microbial rhodopsin** — the scientific target is the Type-I
   (microbial, retinal-binding) rhodopsin family: ion pumps, channels, and
   sensory rhodopsins across bacteria, archaea, and microbial eukaryotes,

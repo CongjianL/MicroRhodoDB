@@ -22,6 +22,10 @@ Per query:
   * novel_family_hit / novel_family_evalue / novel_family_bits / pf01036_bits (tools/family_flag.py): the best of five
     family HMMs (viral, schizo-, xeno-, bestrhodopsin, MerMAID) if E <= 1e-10 and its bit score exceeds the PF01036
     bit score. A pointer to inspect the protein, not a membership or function call (scorer unchanged).
+  * helixC_motif / motif_class (tools/helixc_motif.py): residues at BR D85/T89/D96 from hmmalign against PF01036,
+    and the motif reading used by the release's conflict rule (DTD/DTE/DSD/DSE proton_pump, NTN/NTQ/NSN anion_pump,
+    NDQ/NCQ sodium_pump, other D[TS]x sensory_like). A motif reading, not a function call. Empty when the query has
+    no PF01036/PF18761 domain hit (gate_has_domain false), because the forced alignment is then not homologous.
   * DIAMOND blastp (--more-sensitive) nearest neighbour in the release, annotated with its MRDB accession, membership
     status, MR_CLD3 clade, functional class, evidence level and (v1.6.0+) function basis, legacy v1.4 / motif classes,
     call-conflict and engineered-construct flags from v_master. If the neighbour has no confident clade
@@ -138,6 +142,13 @@ def main():
     F = family_flag.flags(a.query, R, workdir=os.path.join(a.workdir, "family"), threads=a.threads)
     S = S.merge(F.rename(columns={"query": "source_acc"}), on="source_acc", how="left")
 
+    import helixc_motif
+    M = helixc_motif.derive(sc.read_fasta(a.query), f"{sd}/PF01036.25.hmm", helixc_motif.br_sequence(db),
+                            os.path.join(a.workdir, "motif"))
+    S = S.merge(M[["source_acc", "helixC_motif", "motif_class"]], on="source_acc", how="left")
+    # hmmalign places any sequence on the profile; without a PF01036/PF18761 hit the residues are not homologous
+    S.loc[~S.gate_has_domain.astype(bool), ["helixC_motif", "motif_class"]] = None
+
     dia = shutil.which("diamond") or "diamond"
     dmnd = release_index(db, a.workdir, dia)
     m8 = os.path.join(a.workdir, "nn.m8")
@@ -158,7 +169,8 @@ def main():
     con.close()
     keep = ["source_acc", "length", "membership_score", "membership_category", "provisional_status", "typeI_detected_070",
             "novel_family_hit", "novel_family_evalue", "novel_family_bits", "pf01036_bits", "has_retinal_lysine",
-            "gate_has_domain", "is_helio_primary", "gate_positive_typeI_margin", "gate_complete_core", "dom_score", "hmm_cov"]
+            "gate_has_domain", "is_helio_primary", "gate_positive_typeI_margin", "gate_complete_core", "dom_score", "hmm_cov",
+            "helixC_motif", "motif_class"]
     vm["nn_tentative_clade_note"] = vm.nn_tentative_clade_id.map(
         lambda c: "distant placement, low confidence" if isinstance(c, str) and c else None)
     out = S[[c for c in keep if c in S]].merge(nn.merge(vm, on="nn_source_acc", how="left"), on="source_acc", how="left")

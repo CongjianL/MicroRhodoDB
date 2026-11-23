@@ -38,6 +38,12 @@ on the 76 unique E1 sequences gives the out-of-sample estimate: when a record's 
 class of the nearest other characterised protein. E3/E4 classes are inherited v1.4 labels; when they agree with the
 motif evidence the basis reads `legacy_v14_concordant_motif`. Treat E4 calls as hypotheses.
 
+**E5 mixes two cases.** E2-E4 calls are made only for Type-I members, so every candidate, boundary-family,
+heliorhodopsin and decoy record is E5 by construction (2,373 of the 3,073 E5 records); only 700 E5 records are
+members for which the evidence was insufficient. Filter on `membership_status` before reading E5 as "no evidence".
+Membership needs a score of at least 0.86, while the command-line scorer's recommended discovery threshold is 0.70
+(`typeI_detected_070`), so a sequence the CLI detects can be a candidate in the database with no function call.
+
 ## Getting the data
 
 The SQLite databases are not in git. They are attached to the GitHub Release
