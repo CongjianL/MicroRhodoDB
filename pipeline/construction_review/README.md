@@ -1,7 +1,8 @@
 # Construction review checks
 
 Read-only checks of the v1.6.1 release that the release tests do not cover. Nothing here changes a release
-database: findings that would change data need a new release with signed curator decisions.
+database. Three of the findings were approved on 2026-11-25 and are applied in v1.6.2 (rules MOTIF1, PLACE1, E2M1;
+`pipeline/v162/`, `releases/v1.6.2/RELEASE_NOTES_v1.6.2.md`). The results below describe v1.6.1.
 
 Run from the repository root in the pinned environment (`workflow/envs/`), with the v1.6.1 database present:
 
@@ -62,13 +63,14 @@ candidates are placed in the heliorhodopsin outgroup on MR_RT_003 (Q.pfam+F+R9).
 
 | Status | Outgroup in all MR_RT_003 models; Type-I clade on MR_RT_002 | Depends on the placement model | Outgroup throughout | Total |
 |---|---|---|---|---|
-| typeI_member_curated | 1 | 0 | 1 | 2 |
+| typeI_member_curated | 2 | 0 | 0 | 2 |
 | typeI_candidate_architecture_supported | 23 | 14 | 8 | 45 |
 | typeI_candidate | 0 | 2 | 1 | 3 |
 | typeI_candidate_unresolved | 1 | 0 | 0 | 1 |
 
-The two curated members are GtCCR2 L1K1K8 and its identical twin A0A0C3UE61. The first column is most likely a
-gap in MR_RT_003's tip sampling.
+The two curated members are GtCCR2 L1K1K8 and its identical twin A0A0C3UE61. The first column (26 records) is
+most likely a gap in MR_RT_003's tip sampling. MR_RT_002 placed one copy of each identical sequence, so its placement
+is applied to every byte-identical record.
 
 **E2 transfer across a helix-C difference** (`e2_motif_mismatch.tsv`). One non-engineered E2 call has a different
 motif from its E1 reference: A0AAE0MU22 (DTD) takes `photoreceptor_unassigned` from NOP-1 Q9UW81 (DTE) at 0.924

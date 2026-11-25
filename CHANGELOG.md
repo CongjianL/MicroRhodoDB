@@ -9,6 +9,27 @@ detail.
 
 Documentation and defaults only; no release database changed.
 
+## [1.6.2] - 2026-11-25
+
+**Construction-review correction release.** Built from the immutable v1.6.1 database (opened read-only, SHA-256
+checked) plus `curation/v162/`: 270 field changes on 157 records, three decisions approved on 2026-11-25. The corpus,
+scorer, thresholds, tree, placements, clade assignments and membership statuses are unchanged. Release artifact:
+`releases/v1.6.2/` (schema `v162.1`). Rebuild with `snakemake -c 1 all_v162` (94/94 objects identical). The database
+is not yet attached to a GitHub Release, so the defaults stay at v1.6.1. Full detail:
+`releases/v1.6.2/RELEASE_NOTES_v1.6.2.md`.
+
+- **MOTIF1:** helix-C motif and `motif_class` for the 105 UniProtKB 2026_03 records that had none, from
+  `tools/helixc_motif.py`. The conflict rule then flags PaR A0ACE3JIR6 (E1, flag-only); no call changes.
+- **PLACE1:** new `record_clade.placement_qc_flag`, also in `v_master`, for the 51 Type-I records placed in the
+  heliorhodopsin outgroup on MR_RT_003: 26 `mr_rt_003_sampling_gap`, 16 `model_sensitive`, 9
+  `consistent_outgroup_placement`.
+- **E2M1:** an E2 call is kept only when its helix-C motif equals the E1 reference's. A0AAE0MU22 (DTD vs NOP-1 DTE)
+  goes from E2 `photoreceptor_unassigned` to E5 `unresolved`.
+- Counted E1-E5 change from 88/111/1,143/1,045/3,073 to 88/110/1,143/1,045/3,074. 480 records carry a call-conflict
+  flag, as before.
+- New `pipeline/v162/` (decisions, build, export, release assembly), `tests/test_v162_release.py` and the Snakefile
+  target `all_v162`.
+
 - **Construction review checks** (`pipeline/construction_review/`, `tests/test_construction_review.py`). They are
   read-only checks of v1.6.1 and their results are in `pipeline/construction_review/README.md`:
   - The helix-C motif is re-derived from sequence. It matches the stored motif and class for 5,361/5,361

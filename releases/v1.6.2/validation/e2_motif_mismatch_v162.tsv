@@ -1,0 +1,2 @@
+source_acc	func_class	helixC_motif	motif_class	e2_ref	e2_identity	ref_helixC_motif	ref_func_class	call_conflict	is_engineered
+A0A7M4DUE4	anion_pump	DSD	proton_pump	A0A6P3CW41	0.995	TSD	anion_pump	1	1

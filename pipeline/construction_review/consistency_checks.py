@@ -37,8 +37,12 @@ def placement_vs_membership(con):
     for tag in ("LG_G4", "LG_R4"):
         a = alt[alt.model_tag == tag].set_index("source_acc")
         df[f"call_{tag}"] = df.source_acc.map(a.clade_call)
-    rt2 = pd.read_sql("SELECT source_acc, clade_id FROM placement WHERE tree_id = 'MR_RT_002'", con)
-    df["mr_rt_002_clade"] = df.source_acc.map(rt2.drop_duplicates("source_acc").set_index("source_acc").clade_id)
+    # MR_RT_002 placed one copy of each identical sequence; a placement holds for every byte-identical record
+    rt2 = pd.read_sql("""SELECT p.sequence_sha256 AS h, pl.clade_id FROM placement pl JOIN protein p USING(source_acc)
+                         WHERE pl.tree_id = 'MR_RT_002' AND COALESCE(pl.clade_id, '') NOT IN ('', 'outgroup_heliorhodopsin')
+                         ORDER BY p.sequence_sha256, pl.source_acc""", con).drop_duplicates("h").set_index("h").clade_id
+    sha = dict(con.execute("SELECT source_acc, sequence_sha256 FROM protein").fetchall())
+    df["mr_rt_002_clade"] = df.source_acc.map(sha).map(rt2)
     models_agree = df.call_LG_G4.eq("outgroup_heliorhodopsin") & df.call_LG_R4.eq("outgroup_heliorhodopsin")
     df["diagnosis"] = [
         "model_sensitive" if not ok else

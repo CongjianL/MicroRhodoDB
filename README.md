@@ -25,7 +25,12 @@ Every release is an immutable SQLite database with SHA-256 checksums. Earlier re
 
 v1.6.1 corrects v1.6.0: identical sequences now share one membership status and one function call (23 records),
 provisional clade names are marked, and the command-line scorer no longer reports heliorhodopsins as detected
-Type-I rhodopsins. Details: `releases/v1.6.1/RELEASE_NOTES_v1.6.1.md` and `CHANGELOG.md`. The previous release,
+Type-I rhodopsins. Details: `releases/v1.6.1/RELEASE_NOTES_v1.6.1.md` and `CHANGELOG.md`.
+
+**v1.6.2 (2026-11-25) is built but not yet published.** It adds a helix-C motif for the 105 records that lacked one,
+flags 51 Type-I records placed in the heliorhodopsin outgroup, and withdraws one E2 call whose motif differs from its
+reference (`releases/v1.6.2/RELEASE_NOTES_v1.6.2.md`). Its database will be attached to a GitHub Release; until then
+the defaults below stay at v1.6.1. The previous release,
 v1.6.0 (2026-10-10), is described in `releases/v1.6.0/RELEASE_NOTES_v1.6.0.md` and its full report
 `releases/v1.6.0/report_microrhododb_v1.6.0.md`.
 
