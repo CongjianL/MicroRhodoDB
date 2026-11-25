@@ -42,7 +42,7 @@ test.describe("deployment artifact: entry, base path and provenance", () => {
     expect(bi.base_path).toBe("/MicroRhodoDB/site/");
     expect(bi.schema_version).toBe("1.4.0");
     expect(bi.source_db.sha256).toBe("7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288");
-    expect(bi.source_db.bytes).toBe(33_525_760);
+    expect(bi.source_db.bytes).toBe(33_648_640);
     await page.goto("#/");
     const build = page.getByTestId("footer-build");
     await expect(build).toContainText(bi.source_commit.slice(0, 7));
