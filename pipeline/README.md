@@ -1,8 +1,16 @@
 # pipeline/
 
-**Status: the original staged builder is LOST. This directory holds what the
-2026-09-28 reproducibility recovery could salvage — evidence and legacy code,
-not a runnable pipeline.**
+**Status: the original staged builder is LOST.** This directory holds the
+v1.4.0-v1.6.1 build code (`v140/`, `v150/`, `v160/`, `v161/`; see
+`workflow/README.md`).
+
+> **Not in this repository.** The recovery material described below
+> (`recovery_probes.py`, `legacy_notebook_code/`, `transcript_evidence/`,
+> `data/preserved_inputs/`, `report_reproducibility_recovery.md`) belonged to
+> the pre-publication working copy and was never committed: the public history
+> starts at v1.6.0 (commit `fab9182`). The description is kept as the record of
+> what the 2026-09-28 recovery found. `docs/repository_inventory.tsv`
+> (`in_public_repository`) lists which paths are present.
 
 ## What the original pipeline was
 

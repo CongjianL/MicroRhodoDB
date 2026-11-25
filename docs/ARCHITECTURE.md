@@ -95,7 +95,9 @@ current repository contents**.
 - **Implementation:** `s03_membership.py`, `s04_active.py` (v1.2.0; *MISSING*)
   — carried the WS1/WS4-remediated v1.1 membership; `active_policy.classify`.
 - **Inputs:** v1.1 membership workspace (MISSING); **frozen thresholds** —
-  confirmed 0.90, high 0.86, candidate 0.70, rhodopsin-like 0.40.
+  high 0.86, candidate 0.70, rhodopsin-like 0.40 (`confirmed_type_I` =
+  high-confidence + PDB cross-reference; 0.90 is used only as a reporting
+  threshold in the validation tables).
 - **Outputs:** membership status per protein; active/core/candidate flags.
 - **Reproducible?** No. **Frozen** — membership is byte-identical between
   v1.2.0 and v1.3.0 (release test X6b) and must never change without a new

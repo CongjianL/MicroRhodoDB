@@ -224,6 +224,82 @@ rule test_v161:
     shell:
         "MRDB_DB161={input.db} python -m pytest -q {RP}tests/test_v161_release.py"
 
+# ================================================================ v1.6.2 (construction-review release; target all_v162)
+# Builds v1.6.2 from the shipped, immutable v1.6.1 DB and curation/v162, reruns the construction-review checks on it,
+# compares the result with the shipped v1.6.2 DB and runs its tests:  snakemake -c 1 all_v162
+V162_OUT = config.get("v162_out", "work/v162_rebuild")
+V162_CUR = f"{RP}curation/v162"
+V162_SRC = f"{RP}pipeline/v162"
+V162_REL = f"{RP}releases/v1.6.2/db/microrhododb_v1.6.2.sqlite"
+V161_HMM = f"{RP}releases/v1.6.1/scorer/PF01036.25.hmm"
+
+rule all_v162:
+    input:
+        f"{V162_OUT}/compare_to_release_v162.tsv",
+        f"{V162_OUT}/tables/records_v162.tsv",
+        f"{V162_OUT}/validation/helixc_motif_summary.tsv",
+        f"{V162_OUT}/.tests_v162_passed"
+
+rule decisions_v162:
+    """Construction-review decisions (rules MOTIF1, PLACE1, E2M1); must equal the signed file shipped in curation/v162."""
+    input:
+        base=V161_REL, hmm=V161_HMM, script=f"{V162_SRC}/decisions_v162.py",
+        signed=f"{V162_CUR}/curation_v162_signed.tsv"
+    output:
+        f"{V162_OUT}/curation_v162_regenerated.tsv"
+    shell:
+        "python {input.script} {input.base} {input.hmm} {output} && cmp {output} {input.signed}"
+
+rule rebuild_v162:
+    """Apply the signed v1.6.2 decisions to a read-only copy of the immutable v1.6.1 DB."""
+    input:
+        base=V161_REL, check=rules.decisions_v162.output, decisions=f"{V162_CUR}/curation_v162_signed.tsv",
+        tdefs=f"{V162_CUR}/table_definitions_v162.tsv", cdefs=f"{V162_CUR}/column_definitions_v162.tsv",
+        script=f"{V162_SRC}/build_v162.py"
+    output:
+        db=f"{V162_OUT}/db/microrhododb_v1.6.2.sqlite", dd=f"{V162_OUT}/data_dictionary_v162.tsv",
+        log=f"{V162_OUT}/build_log_v162.txt"
+    shell:
+        "python {input.script} --base {input.base} --decisions {input.decisions} --tdefs {input.tdefs} "
+        "--cdefs {input.cdefs} --out-db {output.db} --dict-tsv {output.dd} --log {output.log}"
+
+rule export_v162:
+    input:
+        db=rules.rebuild_v162.output.db, script=f"{V162_SRC}/export_v162.py"
+    output:
+        f"{V162_OUT}/tables/records_v162.tsv"
+    shell:
+        "python {input.script} {input.db} {V162_OUT}/tables"
+
+rule review_v162:
+    """Construction-review checks on the rebuilt DB (motif reproduction, specificity by negative class, placement)."""
+    input:
+        db=rules.rebuild_v162.output.db, hmm=V161_HMM
+    output:
+        f"{V162_OUT}/validation/helixc_motif_summary.tsv"
+    shell:
+        "python {RP}pipeline/construction_review/helixc_motif.py {input.db} {input.hmm} {V162_OUT}/validation && "
+        "python {RP}pipeline/construction_review/specificity_by_negative_class.py {input.db} "
+        "{V162_OUT}/validation/specificity_by_negative_class.tsv && "
+        "python {RP}pipeline/construction_review/consistency_checks.py {input.db} {V162_OUT}/validation"
+
+rule compare_release_v162:
+    """Content comparison against the shipped v1.6.2 DB."""
+    input:
+        rebuilt=rules.rebuild_v162.output.db, shipped=V162_REL
+    output:
+        f"{V162_OUT}/compare_to_release_v162.tsv"
+    shell:
+        "python {V160_SRC}/compare_db_content.py {input.shipped} {input.rebuilt} {output}"
+
+rule test_v162:
+    input:
+        db=rules.rebuild_v162.output.db, val=rules.review_v162.output
+    output:
+        touch(f"{V162_OUT}/.tests_v162_passed")
+    shell:
+        "MRDB_DB162={input.db} python -m pytest -q {RP}tests/test_v162_release.py"
+
 # ================================================================ v1.5.0 (historical target)
 
 rule all_v150:

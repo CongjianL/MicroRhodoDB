@@ -1,0 +1,8 @@
+MicroRhodoDB v1.6.2 build log (2026-11-25)
+copied v1.6.1 (b8215cffa9d2fdab...) read-only
+record_clade.placement_qc_flag and function_evidence.v162_change added; v_master gains placement_qc_flag
+applied 270 field changes on 157 records
+function_evidence.v162_change set on 157 records; curation_v162_decision 270 rows; v_curation_decision extended
+release_metadata 1.6.2: placement_qc_flag_counts={"typeI_status_in_heliorhodopsin_outgroup:consistent_outgroup_placement": 9, "typeI_status_in_heliorhodopsin_outgroup:model_sensitive": 16, "typeI_status_in_heliorhodopsin_outgroup:mr_rt_003_sampling_gap": 26}; n_protein_records=5466; n_counted_records=5460; membership_tier_counts_all={"boundary": 509, "candidate": 1374, "member": 3091, "outgroup": 386, "rejected": 106}; evidence_level_counts_counted={"E1": 88, "E2": 110, "E3": 1143, "E4": 1045, "E5": 3074}; evidence_level_counts_all={"E1": 91, "E2": 113, "E3": 1143, "E4": 1045, "E5": 3074}; n_call_conflict=480; n_missing_helixc_motif=0
+data_dictionary 1279 rows; integrity ok; foreign keys ok
+v1.6.2 database releases/v1.6.2/db/microrhododb_v1.6.2.sqlite sha256 7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288

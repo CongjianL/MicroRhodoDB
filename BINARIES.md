@@ -18,6 +18,18 @@ python web/scripts/fetch_release_db.py          # downloads and verifies against
 Both databases are attached to the GitHub Release `v1.6.1`. v1.6.1 can also be rebuilt from v1.6.0 with
 `snakemake -c 1 all_v161`; the rebuild is checked against the checksum above.
 
+## Built, not yet on a GitHub Release
+
+v1.6.2 is built and checked, but its database is not yet attached to a GitHub Release, so the CLI, the API and the
+website still default to v1.6.1. Rebuild it from v1.6.1 with `snakemake -c 1 all_v162`, or with
+`bash pipeline/v162/assemble_release_v162.sh`, which writes `releases/v1.6.2/`.
+
+<!-- path | sha256 | bytes on purpose: rows in the `path | bytes | sha256` order above are read as GitHub Release
+     assets by web/scripts/release_gate.py and fetch_release_db.py. Move this row there once the asset is attached. -->
+| Path | SHA-256 | Bytes |
+|---|---|---|
+| `releases/v1.6.2/db/microrhododb_v1.6.2.sqlite` | `7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288` | 33648640 |
+
 ## Release archive
 
 The `v1.6.0` and `v1.6.1` Releases also have a v1.6.0-only archive of the repository: the code, curation files, reference package and

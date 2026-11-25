@@ -9,6 +9,48 @@ detail.
 
 Documentation and defaults only; no release database changed.
 
+## [1.6.2] - 2026-11-25
+
+**Construction-review correction release.** Built from the immutable v1.6.1 database (opened read-only, SHA-256
+checked) plus `curation/v162/`: 270 field changes on 157 records, three decisions approved on 2026-11-25. The corpus,
+scorer, thresholds, tree, placements, clade assignments and membership statuses are unchanged. Release artifact:
+`releases/v1.6.2/` (schema `v162.1`). Rebuild with `snakemake -c 1 all_v162` (94/94 objects identical). The database
+is not yet attached to a GitHub Release, so the defaults stay at v1.6.1. Full detail:
+`releases/v1.6.2/RELEASE_NOTES_v1.6.2.md`.
+
+- **MOTIF1:** helix-C motif and `motif_class` for the 105 UniProtKB 2026_03 records that had none, from
+  `tools/helixc_motif.py`. The conflict rule then flags PaR A0ACE3JIR6 (E1, flag-only); no call changes.
+- **PLACE1:** new `record_clade.placement_qc_flag`, also in `v_master`, for the 51 Type-I records placed in the
+  heliorhodopsin outgroup on MR_RT_003: 26 `mr_rt_003_sampling_gap`, 16 `model_sensitive`, 9
+  `consistent_outgroup_placement`.
+- **E2M1:** an E2 call is kept only when its helix-C motif equals the E1 reference's. A0AAE0MU22 (DTD vs NOP-1 DTE)
+  goes from E2 `photoreceptor_unassigned` to E5 `unresolved`.
+- Counted E1-E5 change from 88/111/1,143/1,045/3,073 to 88/110/1,143/1,045/3,074. 480 records carry a call-conflict
+  flag, as before.
+- New `pipeline/v162/` (decisions, build, export, release assembly), `tests/test_v162_release.py` and the Snakefile
+  target `all_v162`.
+
+- **Construction review checks** (`pipeline/construction_review/`, `tests/test_construction_review.py`). They are
+  read-only checks of v1.6.1 and their results are in `pipeline/construction_review/README.md`:
+  - The helix-C motif is re-derived from sequence. It matches the stored motif and class for 5,361/5,361
+    UniProtKB 2026_02 records. The 105 UniProtKB 2026_03 records have no stored motif.
+  - Membership-scorer specificity is reported on the negatives that reach the score: external 30/30, clade-root
+    holdout 39/45 at 0.70.
+  - 51 Type-I records are placed in the heliorhodopsin outgroup on MR_RT_003.
+  - One E2 transfer crosses a helix-C motif difference.
+- **New `tools/helixc_motif.py`.** It reads the BR D85/T89/D96 motif and its class from an hmmalign alignment
+  against PF01036, the same way the scorer reads K216. **`tools/mrdb_search.py`** now reports `helixC_motif` and
+  `motif_class` for each query (empty without a PF01036/PF18761 hit). The scorer and its outputs are unchanged.
+- **Docs no longer point to recovery material that is not in the repository.** `pipeline/legacy_notebook_code/`,
+  `pipeline/transcript_evidence/`, `pipeline/recovery_probes.py`, `data/preserved_inputs/`,
+  `notebooks/legacy_execution_trace/` and `workspaces/hpc/` belonged to the pre-publication working copy, and the
+  public history starts at v1.6.0. They are now marked as absent. `docs/repository_inventory.tsv` gains an
+  `in_public_repository` column: 273 of 377 listed paths are absent.
+- **Thresholds and evidence levels described correctly.** `docs/SCIENTIFIC_SCOPE.md` and `docs/ARCHITECTURE.md`
+  no longer list 0.90 as the `confirmed_type_I` threshold. That category is high-confidence plus a PDB
+  cross-reference, and 8 of its 58 records score below 0.90. The README explains that 2,373 of the 3,073 E5
+  records are E5 because they are not members.
+
 - **Python API and CLI default to v1.6.1.** `MicroRhodoDB()` opens `releases/v1.6.1/db/microrhododb_v1.6.1.sqlite`
   and `tools/mrdb_search.py` uses `releases/v1.6.1` unless told otherwise; package version 1.6.1.
   `release_metadata()` without an argument now returns the opened database's own release. v1.6.0 stays readable

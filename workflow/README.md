@@ -1,8 +1,14 @@
-# MicroRhodoDB build workflow (v1.6.0, v1.6.1)
+# MicroRhodoDB build workflow (v1.6.0, v1.6.1, v1.6.2)
 
-`workflow/Snakefile` has three targets. Each later release is rebuilt from the database of the release before it,
+`workflow/Snakefile` has four targets. Each later release is rebuilt from the database of the release before it,
 so a target is re-executable only when that input database is on disk (see `BINARIES.md`).
 
+- **`all_v162` - v1.6.2, re-executable.** It regenerates the construction-review decisions from the v1.6.1
+  database and requires them to equal `curation/v162/curation_v162_signed.tsv`. It applies them to the immutable
+  v1.6.1 database, exports the tables, reruns the construction-review checks (`pipeline/construction_review/`),
+  checks that the rebuilt database is content-identical to `releases/v1.6.2/db/` (94/94 objects) and runs the
+  v1.6.2 release tests. Input: the v1.6.1 database (GitHub Release v1.6.1). `pipeline/v162/assemble_release_v162.sh`
+  writes `releases/v1.6.2/` from the same inputs.
 - **`all_v161` - v1.6.1, re-executable.** It applies `curation/v161/` (one decision per unique sequence) to the
   immutable v1.6.0 database, reruns the v1.6.1 validation analyses, checks that the rebuilt database is
   content-identical to the shipped one and runs the v1.6.1 release tests. Input: the v1.6.0 database, which is
@@ -54,6 +60,7 @@ byte-identical to the shipped files. On the round-1 build, MMseqs2 18.8cc5c (pin
 
 | Step | Re-executable from the archive? | Notes |
 |---|---|---|
+| v1.6.2 decisions, rebuild, exports, review checks, comparison, tests (`all_v162`) | **Yes** | Inputs: the v1.6.1 database (GitHub Release v1.6.1), `curation/v162/`, `pipeline/v162/`, `tools/helixc_motif.py`; needs HMMER 3.4 (hmmalign) |
 | v1.6.1 rebuild, validation analyses, comparison, tests (`all_v161`) | **Yes** | Inputs: the v1.6.0 database (GitHub Release v1.6.1), `curation/v161/`, `pipeline/v161/` |
 | v1.6.0 rebuild, data dictionary, exports, browser data, scorer-validation summary, comparison, tests (`all`) | Only with the v1.5.0 database | Inputs: `releases/v1.5.0/db` (not published; checksum in `BINARIES.md`), `curation/v160/`, `pipeline/v160/`, `tools/` |
 | CLI search (`tools/mrdb_search.py`) | **Yes** | Needs HMMER 3.4 and DIAMOND 2.1.10; tested on the 12 sequences in `tests/data/` |

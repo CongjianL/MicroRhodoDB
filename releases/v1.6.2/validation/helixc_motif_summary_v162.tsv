@@ -1,0 +1,11 @@
+records	check	k	n	fraction
+all	stored motif present	5466	5466	1.0
+all	re-derived motif identical to stored	5466	5466	1.0
+all	re-derived motif_class identical to stored	5466	5466	1.0
+UniProtKB_2026_02	stored motif present	5361	5361	1.0
+UniProtKB_2026_02	re-derived motif identical to stored	5361	5361	1.0
+UniProtKB_2026_02	re-derived motif_class identical to stored	5361	5361	1.0
+UniProtKB_2026_03	stored motif present	105	105	1.0
+UniProtKB_2026_03	re-derived motif identical to stored	105	105	1.0
+UniProtKB_2026_03	re-derived motif_class identical to stored	105	105	1.0
+non-heliorhodopsin	K216 read agrees with qc_feature.has_retinal_lysine	5080	5080	1.0

@@ -1,0 +1,12 @@
+func_class	definition	n_records	n_records_incl_engineered
+proton_pump	light-driven outward H+ pump	1716	1717
+proton_pump_inward	light-driven inward H+ pump (e.g. xenorhodopsins)	3	3
+anion_pump	light-driven inward anion (Cl-) pump	154	157
+sodium_pump	light-driven outward Na+ pump	74	74
+light_gated_channel	light-gated ion channel (cation, anion or K+ selective)	94	96
+sensory	sensory rhodopsin signalling via a transducer	226	226
+sensory_like	curated rule: sensory-like lineage, no characterised member	101	101
+enzyme_rhodopsin	rhodopsin fused to an enzymatic domain (cyclase, phosphodiesterase)	14	14
+photoreceptor_unassigned	characterised photoreceptor with no detectable ion transport and no assigned signalling partner (new in v1.5.0; exp class photoreceptor_no_transport, e.g. the CryoR2 UV sensor)	8	8
+unresolved	no function call (E5)	2631	2631
+unassigned	v1.6.0: legacy v1.4 call conflicts with the helix-C motif prediction (E3/E4 only); call withdrawn, see function_evidence.call_conflict_detail	439	439

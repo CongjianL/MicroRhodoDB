@@ -73,6 +73,13 @@ hashes in `docs/repository_inventory.tsv`.
 
 ## 5. Recovery outcome (2026-09-28 reproducibility recovery)
 
+> **Not in this repository.** The recovered material named in this section and in section 6
+> (`data/preserved_inputs/`, `pipeline/legacy_notebook_code/`, `pipeline/transcript_evidence/`,
+> `pipeline/recovery_probes.py`, `report_reproducibility_recovery.md`, `notebooks/legacy_execution_trace/`) was
+> part of the pre-publication working copy and was never committed; the public history starts at v1.6.0 (commit
+> `fab9182`). The results below are the recovery's record and cannot be re-checked from this repository.
+> `docs/repository_inventory.tsv` (`in_public_repository`) lists which paths are present.
+
 A systematic recovery sweep was performed across all six project sessions, HPC
 history, and both session workspaces. Results:
 
@@ -155,6 +162,11 @@ the v1.4.0 build:
 - **MR_RT_002 orphan status — RESOLVED.** Promoted to `canonical_release`
   (section 3); full node/edge/clade content now stored and gated (100%
   clade monophyly).
+
+A third layer was reconstructed on 2026-11-23: the **helix-C motif** (`helixC_motif`, `motif_class`, carried from the
+v1.1 `function` table). `tools/helixc_motif.py` reproduces both for 5,361/5,361 UniProtKB 2026_02 records
+(`pipeline/construction_review/`). The inherited v1.4 function labels (`func_class_v14`, the basis of E3/E4) remain
+unreproducible: their rules were in the lost `s08_function.py`.
 
 Still missing after v1.4.0: the original v1.2/v1.3 builder bodies (section 1),
 the preserved build inputs (section 2), and specifically **MR_RT_001's own
