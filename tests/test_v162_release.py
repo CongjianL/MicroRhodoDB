@@ -154,3 +154,17 @@ def test_data_dictionary_complete(con):
     for obj, col in (("record_clade", "placement_qc_flag"), ("v_master", "placement_qc_flag"),
                      ("function_evidence", "v162_change")):
         assert q(con, "select count(*) from data_dictionary where object_name=? and column_name=?", obj, col)[0][0] == 1
+
+
+def test_python_api_defaults_to_v162(con, monkeypatch):
+    sys.path.insert(0, os.path.join(REPO, "src"))
+    import microrhododb as m
+    monkeypatch.delenv("MRDB_DB", raising=False)
+    if os.path.realpath(DB) != os.path.realpath(m.DEFAULT_DB_PATH):
+        pytest.skip("MRDB_DB162 points away from the repository's v1.6.2 database")
+    with m.MicroRhodoDB() as db:
+        assert m.__version__ == "1.6.2" and m.SCHEMA_REVISION == "v162.1"
+        assert db.version() == {"api": "1.6.2", "schema_revision": "v162.1", "database_release": "1.6.2"}
+        md = dict(db.release_metadata().itertuples(index=False))
+        assert md["version"] == "1.6.2"
+        assert len(db.members()) == 3091 and len(db.candidates()) == 1374 and len(db.call_conflicts()) == 480

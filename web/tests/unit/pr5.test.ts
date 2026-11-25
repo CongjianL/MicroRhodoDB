@@ -13,7 +13,7 @@ import { distribution, mv } from "../../src/lib/summary";
 import { WATCHLIST_COLUMNS, watchlistTsv, type WatchlistCandidate } from "../../src/lib/watchlist";
 import { json, rows, summary } from "./helpers";
 
-describe("G5 corpus reconciliation (frozen v1.6.1 targets)", () => {
+describe("G5 corpus reconciliation (frozen v1.6.2 targets)", () => {
   it("headline denominators are 5,466 source / 5,460 counted / 5,299 MRDB", () => {
     const s = summary();
     expect(mv(s, "records_total")).toBe(5466);
@@ -114,13 +114,13 @@ describe("function basis and conflicts", () => {
       expect(p?.action, r.source_acc).toBeTruthy();
       counts.set(p!.action!, (counts.get(p!.action!) ?? 0) + 1);
     }
-    expect(Object.fromEntries(counts)).toEqual({ downgraded_to_E5: 450, flag_only_E1: 15, flag_only_E2: 9, flag_only_E4_curated_rule: 6 });
+    expect(Object.fromEntries(counts)).toEqual({ downgraded_to_E5: 450, flag_only_E1: 16, flag_only_E2: 8, flag_only_E4_curated_rule: 6 });
     // Downgraded calls are E5 in the release; flagged-only calls keep their level.
     for (const r of c) {
       const p = parseConflictDetail(r.call_conflict_detail)!;
       if (p.action === "downgraded_to_E5") expect(r.evidence_level).toBe("E5");
       // Known v1.6.1 issue: A0A0C3UE61 (E2, identical to E1 record L1K1K8) copied its twin's detail verbatim,
-      // including "action=flag_only_E1"; to be corrected to flag_only_E2 in the next release (CHANGELOG).
+      // including "action=flag_only_E1"; not corrected in v1.6.2 (outside its three approved decisions).
       if (p.action === "flag_only_E1" && r.source_acc !== "A0A0C3UE61") expect(r.evidence_level).toBe("E1");
     }
   });
@@ -215,12 +215,12 @@ describe("citation", () => {
     const c = d().citation;
     const a = apa(c);
     expect(a).toContain("Li, C. (2026).");
-    expect(a).toContain("(Version 1.6.1) [Data set].");
+    expect(a).toContain("(Version 1.6.2) [Data set].");
     expect(a).toContain("https://github.com/CongjianL/MicroRhodoDB");
     expect(a).not.toContain(d().website_version);
     const b = bibtex(c);
-    expect(b).toMatch(/^@misc\{li_microrhododb_161_2026,/);
-    expect(b).toContain("version = {1.6.1}");
+    expect(b).toMatch(/^@misc\{li_microrhododb_162_2026,/);
+    expect(b).toContain("version = {1.6.2}");
     expect(b).not.toContain("doi =");
     expect(b).not.toContain(d().website_version);
     expect(c.doi).toBeNull();
@@ -231,12 +231,12 @@ describe("citation", () => {
     expect(fmtBytes(12379)).toBe("12 kB");
     expect(fmtBytes(1500)).toBe("1.5 kB");
   });
-  it("downloads list the 39 release files and keeps the database as an unverified release asset", () => {
+  it("downloads list the 38 release files and keeps the database as an unverified release asset", () => {
     const x = d();
-    expect(x.release_files.length).toBe(39);
+    expect(x.release_files.length).toBe(38);
     const notGit = x.release_files.filter((f) => !f.in_git_at_tag);
-    expect(notGit.map((f) => f.path)).toEqual(["db/microrhododb_v1.6.1.sqlite"]);
-    expect(notGit[0].sha256).toBe("b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d");
+    expect(notGit.map((f) => f.path)).toEqual(["db/microrhododb_v1.6.2.sqlite"]);
+    expect(notGit[0].sha256).toBe("7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288");
     expect(notGit[0].distribution).toMatch(/not verified/);
     expect(x.maintenance_placeholders.every((m) => /not supplied/.test(m.status))).toBe(true);
   });

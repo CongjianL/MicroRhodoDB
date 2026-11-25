@@ -12,26 +12,24 @@ UniProtKB proteins that carry the Pfam bacteriorhodopsin-like domains PF01036 an
 
 Every release is an immutable SQLite database with SHA-256 checksums. Earlier releases are never modified.
 
-## Current release: v1.6.1 (2026-10-24, schema `v161.1`)
+## Current release: v1.6.2 (2026-11-25, schema `v162.1`)
 
 | | |
 |---|---|
 | Records | 5,466 UniProtKB records (5,361 from UniProtKB 2026_02, 105 from 2026_03); 5,460 counted after excluding 6 engineered constructs |
 | Membership | 3,091 Type-I members (incl. 6 curated overrides), 1,374 candidates, 509 boundary family, 386 heliorhodopsins, 106 decoy/rejected |
-| Function evidence (counted records) | E1 88, E2 111, E3 1,143, E4 1,045, E5 3,073 |
+| Function evidence (counted records) | E1 88, E2 110, E3 1,143, E4 1,045, E5 3,074 |
 | Function-call conflicts | 480 records flagged (`call_conflict = 1`) |
+| Placement QC | 51 Type-I records placed in the heliorhodopsin outgroup carry `placement_qc_flag` |
 | Publications | 121 publications, 255 active record-publication links |
 | Novel families | 139 records carry a family-HMM flag (best of five family HMMs beats PF01036); a Foldseek watchlist of 786 structure hits outside the corpus (181 `novel_family_candidate` rows); counts unaffected |
 
-v1.6.1 corrects v1.6.0: identical sequences now share one membership status and one function call (23 records),
-provisional clade names are marked, and the command-line scorer no longer reports heliorhodopsins as detected
-Type-I rhodopsins. Details: `releases/v1.6.1/RELEASE_NOTES_v1.6.1.md` and `CHANGELOG.md`.
-
-**v1.6.2 (2026-11-25) is built but not yet published.** It adds a helix-C motif for the 105 records that lacked one,
-flags 51 Type-I records placed in the heliorhodopsin outgroup, and withdraws one E2 call whose motif differs from its
-reference (`releases/v1.6.2/RELEASE_NOTES_v1.6.2.md`). Its database will be attached to a GitHub Release; until then
-the defaults below stay at v1.6.1. The previous release,
-v1.6.0 (2026-10-10), is described in `releases/v1.6.0/RELEASE_NOTES_v1.6.0.md` and its full report
+v1.6.2 corrects v1.6.1 after a review of the construction method: every record now has a helix-C motif re-derived
+from sequence (105 records lacked one), the 51 Type-I records placed in the heliorhodopsin outgroup are flagged, and an
+E2 call is kept only when its helix-C motif equals that of its characterised reference (one call withdrawn). Details:
+`releases/v1.6.2/RELEASE_NOTES_v1.6.2.md` and `CHANGELOG.md`. The previous release, v1.6.1 (2026-10-24), made
+identical sequences share one membership status and one function call (`releases/v1.6.1/RELEASE_NOTES_v1.6.1.md`);
+v1.6.0 (2026-10-10) is described in `releases/v1.6.0/RELEASE_NOTES_v1.6.0.md` and its full report
 `releases/v1.6.0/report_microrhododb_v1.6.0.md`.
 
 **How to read the evidence levels.** E1-E5 are levels of *evidence*, not of accuracy. E1 records have direct
@@ -44,7 +42,7 @@ class of the nearest other characterised protein. E3/E4 classes are inherited v1
 motif evidence the basis reads `legacy_v14_concordant_motif`. Treat E4 calls as hypotheses.
 
 **E5 mixes two cases.** E2-E4 calls are made only for Type-I members, so every candidate, boundary-family,
-heliorhodopsin and decoy record is E5 by construction (2,373 of the 3,073 E5 records); only 700 E5 records are
+heliorhodopsin and decoy record is E5 by construction (2,373 of the 3,074 E5 records); only 701 E5 records are
 members for which the evidence was insufficient. Filter on `membership_status` before reading E5 as "no evidence".
 Membership needs a score of at least 0.86, while the command-line scorer's recommended discovery threshold is 0.70
 (`typeI_detected_070`), so a sequence the CLI detects can be a candidate in the database with no function call.
@@ -52,11 +50,11 @@ Membership needs a score of at least 0.86, while the command-line scorer's recom
 ## Getting the data
 
 The SQLite databases are not in git. They are attached to the GitHub Release
-[v1.6.1](https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.1); `BINARIES.md` lists every file with its
+[v1.6.2](https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.2); `BINARIES.md` lists every file with its
 size and SHA-256.
 
 ```bash
-python web/scripts/fetch_release_db.py    # downloads releases/v1.6.1/db/microrhododb_v1.6.1.sqlite and verifies it
+python web/scripts/fetch_release_db.py    # downloads releases/v1.6.2/db/microrhododb_v1.6.2.sqlite and verifies it
 ```
 
 ## Quick start
@@ -64,13 +62,13 @@ python web/scripts/fetch_release_db.py    # downloads releases/v1.6.1/db/microrh
 **Browser.** The hosted browser is at https://congjianl.github.io/MicroRhodoDB/site/ (see `MAINTENANCE.md`).
 A self-contained copy of the v1.6.0 browser is in `site/`: open `site/index.html` in any modern browser (no server
 needed). Routes: `#/record/<MRDB or UniProt accession>`, `#/search` (Smith-Waterman/BLOSUM62 against all 5,466
-records, top 10 hits), `#/novel`, `#/about`. The website for v1.6.1 is built from `web/` (see `docs/DEVELOPMENT.md`).
+records, top 10 hits), `#/novel`, `#/about`. The website for v1.6.2 is built from `web/` (see `docs/DEVELOPMENT.md`).
 
 **Command-line search** (full membership score + nearest neighbour; needs HMMER 3.4 and DIAMOND 2.1.10):
 
 ```bash
 conda env create -f workflow/envs/mrdb.lock.yml && conda activate mrdb   # Linux; on Apple-silicon macOS use workflow/envs/mrdb.macos-arm64.yml
-python tools/mrdb_search.py my_proteins.faa -o hits.tsv                 # default: releases/v1.6.1
+python tools/mrdb_search.py my_proteins.faa -o hits.tsv                 # default: releases/v1.6.2
 ```
 
 **Python API** (read-only):
@@ -78,7 +76,7 @@ python tools/mrdb_search.py my_proteins.faa -o hits.tsv                 # defaul
 ```python
 pip install -e .            # package in src/microrhododb
 from microrhododb import MicroRhodoDB
-with MicroRhodoDB() as db:  # default: releases/v1.6.1/db/microrhododb_v1.6.1.sqlite (or set MRDB_DB)
+with MicroRhodoDB() as db:  # default: releases/v1.6.2/db/microrhododb_v1.6.2.sqlite (or set MRDB_DB)
     db.counted()            # 5,460 records used in all statistics
     db.get("MRDB000001")    # bacteriorhodopsin P02945 and its identical-sequence records
     db.function_evidence(level="E1")
@@ -87,11 +85,11 @@ with MicroRhodoDB() as db:  # default: releases/v1.6.1/db/microrhododb_v1.6.1.sq
 
 **SQL.** The database is plain SQLite. Start from the view `v_master` (one row per record) or `v_counted`
 (engineered constructs excluded). Every table and column is described in the `data_dictionary` table, also
-shipped as `releases/v1.6.1/tables/data_dictionary_v161.tsv`.
+shipped as `releases/v1.6.2/tables/data_dictionary_v162.tsv`.
 
-**Flat files.** `releases/v1.6.1/tables/` holds TSV exports (records, function evidence, publication links,
-call conflicts, engineered constructs, identical-sequence decisions, LOCO validation, clade-function consensus,
-blind audit, Foldseek watchlist, novel-family layer, data dictionary) and `sequences_v161.fasta`. Tentative clade
+**Flat files.** `releases/v1.6.2/tables/` holds TSV exports (records, function evidence, publication links,
+call conflicts, engineered constructs, construction-review decisions, LOCO validation, clade-function consensus,
+blind audit, Foldseek watchlist, novel-family layer, data dictionary) and `sequences_v162.fasta`. Tentative clade
 calls are marked in every export (`clade_confidence`, and `clade_display` = `TENTATIVE:<clade>`).
 
 ## Reproducing the release
@@ -100,14 +98,16 @@ Each release is built from the database of the release before it plus signed cur
 
 | Target | Input database | Re-executable from public files? |
 |---|---|---|
+| v1.6.2: `snakemake -c 1 all_v162` (about a minute; 94/94 objects identical to the shipped DB) | v1.6.1 (on the v1.6.1 GitHub Release) | Yes |
 | v1.6.1: `snakemake -c 1 all_v161` (seconds; 93/93 objects identical to the shipped DB) | v1.6.0 (on the v1.6.1 GitHub Release) | Yes |
 | v1.6.0: `snakemake -c 4` (about 1 minute; 91/91 objects identical) | v1.5.0 | Not yet: the v1.5.0 database is not published (checksum in `BINARIES.md`) |
 | v1.5.0 corpus, tree, placement and evidence build (`all_v150`) | v1.5.0 work directory | No: kept as a record only |
 
 ```bash
 conda env create -f workflow/envs/mrdb.lock.yml && conda activate mrdb
-python web/scripts/fetch_release_db.py --asset microrhododb_v1.6.0.sqlite --dest releases/v1.6.0/db/microrhododb_v1.6.0.sqlite
-snakemake -c 1 all_v161          # writes to work/v161_rebuild/ and compares with the shipped v1.6.1 DB
+python web/scripts/fetch_release_db.py --tag v1.6.1 --asset microrhododb_v1.6.1.sqlite --dest releases/v1.6.1/db/microrhododb_v1.6.1.sqlite
+python web/scripts/fetch_release_db.py                                 # v1.6.2, compared with the rebuild
+snakemake -c 1 all_v162          # writes to work/v162_rebuild/ and compares with the shipped v1.6.2 DB
 python -m pytest -q tests/       # tests that need an absent database skip
 ```
 
@@ -119,11 +119,12 @@ the repository does not contain for the releases before v1.5.0.
 
 | Path | Content |
 |---|---|
-| `releases/v1.6.1/` | current release: tables, scorer files, validation analyses, build log, notes, `SHA256SUMS` (DB on the GitHub Release) |
-| `releases/v1.6.0/` | previous release, base of v1.6.1: tables, scorer files, validation summary, notes, report |
+| `releases/v1.6.2/` | current release: tables, scorer files, validation analyses, build log, notes, `SHA256SUMS` (DB on the GitHub Release) |
+| `releases/v1.6.1/`, `releases/v1.6.0/` | previous releases (v1.6.1 is the base of v1.6.2, v1.6.0 of v1.6.1): tables, scorer files, validation, notes |
 | `releases/v1.5.0/`, `releases/v1.4.0/`, `releases/v1.3.0/`, `releases/v1.0/` | immutable earlier releases (base of v1.6.0; read by the historical tests) |
-| `curation/v161/`, `curation/v160/` | signed curator decisions, publication metadata, data-dictionary definitions, audit inputs |
-| `pipeline/v161/`, `pipeline/v160/` | release builds, data dictionaries, validation analyses, DB comparison |
+| `curation/v162/`, `curation/v161/`, `curation/v160/` | signed curator decisions, publication metadata, data-dictionary definitions, audit inputs |
+| `pipeline/v162/`, `pipeline/v161/`, `pipeline/v160/` | release builds, data dictionaries, validation analyses, DB comparison |
+| `pipeline/construction_review/` | read-only checks of the build method (helix-C motif, specificity by negative class, placement) |
 | `pipeline/v150/`, `pipeline/v140/` | v1.5.0 build and the v1.4.0 scorer/feature modules the scorer still imports |
 | `refpkg/MR_RT_003/` | reference tree package (alignments, HMMs, model files) |
 | `src/microrhododb/` | Python API |
@@ -137,11 +138,11 @@ the repository does not contain for the releases before v1.5.0.
 ## Integrity
 
 ```bash
-cd releases/v1.6.1 && sha256sum -c SHA256SUMS
+cd releases/v1.6.2 && sha256sum -c SHA256SUMS
 ```
 
 ## Licence and citation
 
 Data: CC BY 4.0. Code: MIT. Cite the release you used via `CITATION.cff`. No DOI has been minted yet: cite the
-release version and the GitHub Release (https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.1).
+release version and the GitHub Release (https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.2).
 Maintenance, hosting and update policy: `MAINTENANCE.md`.

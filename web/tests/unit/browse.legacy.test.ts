@@ -5,7 +5,7 @@
  */
 import { describe, expect, it } from "vitest";
 import { applyFilters, DEFAULT_STATE, type BrowseState } from "../../src/lib/browse";
-import { legacy, legacyApply, legacyRows, rows, v161Changes, type LegacyFilter } from "./helpers";
+import { legacy, legacyApply, legacyRows, rows, decidedChanges, type LegacyFilter } from "./helpers";
 
 const NONE: LegacyFilter = { q: "", s: "", c: "", e: "", f: "", dm: "", ft: false, fx: false, fg: true };
 
@@ -21,8 +21,8 @@ describe("legacy oracle", () => {
   const R = legacyRows();
   const all = rows();
   const ids = (xs: readonly object[]) => xs.map((x) => String((x as { source_acc: unknown }).source_acc)).sort();
-  // Only records changed by the v1.6.1 decisions may enter or leave a filter result relative to the v1.6.0 oracle.
-  const changed = v161Changes();
+  // Only records changed by the v1.6.1 or v1.6.2 decisions may enter or leave a filter result relative to the v1.6.0 oracle.
+  const changed = decidedChanges();
   const check = (o: LegacyFilter) => {
     const want = ids(legacyApply(R, o)).filter((a) => !changed.has(a));
     const got = ids(applyFilters(all, toState(o))).filter((a) => !changed.has(a));

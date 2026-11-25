@@ -7,7 +7,29 @@ detail.
 
 ## [Unreleased]
 
-Documentation and defaults only; no release database changed.
+Defaults, citation and website move to dataset release v1.6.2 (GitHub Release v1.6.2, DB SHA-256 `7f2bf0c7...`). No
+release database changed.
+
+- **CLI, Python API and package default to v1.6.2.** `MicroRhodoDB()` opens
+  `releases/v1.6.2/db/microrhododb_v1.6.2.sqlite`; `tools/mrdb_search.py`, `tools/helixc_motif.py` and
+  `web/scripts/fetch_release_db.py` default to v1.6.2; package version 1.6.2, `SCHEMA_REVISION` `v162.1`. Earlier
+  releases stay readable with `db_path`/`MRDB_DB` or `--release`/`--tag`.
+- **Citation:** `CITATION.cff` and `.zenodo.json` cite v1.6.2 (2026-11-25).
+- **Website data and app:** `tools/export_web_data.py` exports dataset v1.6.2, with `function.v162_change` and
+  `phylogeny.placement_qc_flag` per record. The new function basis `e2_motif_mismatch:` is its own category. Schemas
+  and generated types are updated. The record page shows the v1.6.2 change and the placement QC flag. Current-data
+  wording names v1.6.2; the historical "v1.6.1 function change" row is kept.
+- **Fix: the website's LOCO table was empty since v1.6.1.** The exporter selected `loco_validation` rows by the dataset
+  release (`release_set = '1.6.1'`), but the LOCO benchmark is stored under `release_set = '1.6.0'`. It now selects
+  `LOCO_RELEASE_SET = "1.6.0"` (21 rows), and the schema pins `loco.release_set` to 1.6.0.
+- **Release contract and CI:** `web/release/release_contract.json` and the three workflows use the v1.6.2 Release
+  asset. `BINARIES.md` lists the v1.6.0, v1.6.1 and v1.6.2 databases as assets of the v1.6.2 Release.
+- **Tests:** expected values moved to v1.6.2 (counted E2 110, 38 release files, `v_master` 36 columns, conflict
+  actions `flag_only_E1` 16 / `flag_only_E2` 8). The legacy-oracle comparisons (Python and TypeScript) allow exactly
+  the cells changed by the signed v1.6.1 and v1.6.2 decisions. The drilldown golden is regenerated for v1.6.2. The
+  null-category mutation test now uses `motif_class_counted`, because every record has a helix-C motif since v1.6.2.
+- **Known issue, still open:** A0A0C3UE61 carries its twin's `action=flag_only_E1` conflict detail (noted for v1.6.1).
+  It was not part of the v1.6.2 decisions.
 
 ## [1.6.2] - 2026-11-25
 
@@ -15,7 +37,7 @@ Documentation and defaults only; no release database changed.
 checked) plus `curation/v162/`: 270 field changes on 157 records, three decisions approved on 2026-11-25. The corpus,
 scorer, thresholds, tree, placements, clade assignments and membership statuses are unchanged. Release artifact:
 `releases/v1.6.2/` (schema `v162.1`). Rebuild with `snakemake -c 1 all_v162` (94/94 objects identical). The database
-is not yet attached to a GitHub Release, so the defaults stay at v1.6.1. Full detail:
+is attached to the GitHub Release v1.6.2; the defaults moved to v1.6.2 afterwards (see [Unreleased]). Full detail:
 `releases/v1.6.2/RELEASE_NOTES_v1.6.2.md`.
 
 - **MOTIF1:** helix-C motif and `motif_class` for the 105 UniProtKB 2026_03 records that had none, from
@@ -29,6 +51,8 @@ is not yet attached to a GitHub Release, so the defaults stay at v1.6.1. Full de
   flag, as before.
 - New `pipeline/v162/` (decisions, build, export, release assembly), `tests/test_v162_release.py` and the Snakefile
   target `all_v162`.
+
+### Repository changes between v1.6.1 and v1.6.2 (no release database changed)
 
 - **Construction review checks** (`pipeline/construction_review/`, `tests/test_construction_review.py`). They are
   read-only checks of v1.6.1 and their results are in `pipeline/construction_review/README.md`:

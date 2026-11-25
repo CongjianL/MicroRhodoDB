@@ -10,7 +10,7 @@ tests/test_web_pr5a.py regenerates this file and requires it to be identical, an
 equal the value exported in summary.json.
 
 Usage (repository root):
-    python web/scripts/pr5a_drilldown_golden.py            # write tests/data/web_drilldown_golden_v161.json
+    python web/scripts/pr5a_drilldown_golden.py            # write tests/data/web_drilldown_golden_v162.json
     python web/scripts/pr5a_drilldown_golden.py --check    # exit 1 if the committed file differs
 """
 from __future__ import annotations
@@ -24,8 +24,8 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-DB = REPO / "releases/v1.6.1/db/microrhododb_v1.6.1.sqlite"
-OUT = REPO / "tests/data/web_drilldown_golden_v161.json"
+DB = REPO / "releases/v1.6.2/db/microrhododb_v1.6.2.sqlite"
+OUT = REPO / "tests/data/web_drilldown_golden_v162.json"
 PHYLUM = re.compile(r"(?:^|, )([^,]+?) \(phylum\)")
 MOTIF_LINKABLE = re.compile(r"^[A-Z-]{1,5}$")
 

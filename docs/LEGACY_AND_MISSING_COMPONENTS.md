@@ -3,7 +3,7 @@
 > **v1.6.0 note (2026-10-10).** The missing components below concern v1.0-v1.4.0 builds and still apply to them.
 > v1.6.0 itself is rebuilt from the v1.5.0 DB and signed curation by `snakemake -c 4` (91/91 objects
 > identical); the v1.5.0 DB is not currently published, so this rebuild needs a copy of it (see `BINARIES.md`).
-> v1.6.1 is rebuilt from the published v1.6.0 DB by `snakemake -c 1 all_v161`. Steps run outside the workflow (literature sweep, novel-family search, blind audit, Foldseek queries)
+> v1.6.1 is rebuilt from the published v1.6.0 DB by `snakemake -c 1 all_v161`, and v1.6.2 from the published v1.6.1 DB by `snakemake -c 1 all_v162`. Steps run outside the workflow (literature sweep, novel-family search, blind audit, Foldseek queries)
 > are shipped as records and build inputs; see `workflow/README.md`.
 
 This document is the authoritative record of what the current repository

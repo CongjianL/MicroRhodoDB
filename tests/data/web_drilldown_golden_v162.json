@@ -1,5 +1,5 @@
 {
- "db_sha256": "b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d",
+ "db_sha256": "7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288",
  "description": "DB-derived golden accession sets for every Statistics/Home drilldown and the Search -> Browse clade",
  "accession_hash": "sha256 of sorted source_acc joined by newline",
  "items": [
@@ -200,8 +200,8 @@
    "id": "evidence_level_counted",
    "key": "E2",
    "population": "counted_records",
-   "n": 111,
-   "sha256": "70e01ba17b3afdf1ae2c97475a08aef1c5391e799c7514421ffbe0f0b4171757"
+   "n": 110,
+   "sha256": "cc65c1654529f972fb7af400361f2ad4f5b42621b904eb247697f2243755f571"
   },
   {
    "kind": "distribution",
@@ -224,8 +224,8 @@
    "id": "evidence_level_counted",
    "key": "E5",
    "population": "counted_records",
-   "n": 3073,
-   "sha256": "8968af3654e698215544bd5496027d5b2ef35d01a6b6ffcce0667e94ef472c4e"
+   "n": 3074,
+   "sha256": "082aaed98645eacc5c97e6e072db85d607345a351a55eb719ab7f2b1752aa3d0"
   },
   {
    "kind": "distribution",
@@ -240,8 +240,8 @@
    "id": "evidence_level_all",
    "key": "E2",
    "population": "all_records",
-   "n": 114,
-   "sha256": "3f6e6049164354238246172a08dd720fbd4eb8406b8ccedf4e5308b063020e7f"
+   "n": 113,
+   "sha256": "3ed6f71af8cdff9339dd1bea8c5f9d10e8a55307fe115bb258281b36895e0a86"
   },
   {
    "kind": "distribution",
@@ -264,8 +264,8 @@
    "id": "evidence_level_all",
    "key": "E5",
    "population": "all_records",
-   "n": 3073,
-   "sha256": "8968af3654e698215544bd5496027d5b2ef35d01a6b6ffcce0667e94ef472c4e"
+   "n": 3074,
+   "sha256": "082aaed98645eacc5c97e6e072db85d607345a351a55eb719ab7f2b1752aa3d0"
   },
   {
    "kind": "distribution",
@@ -296,8 +296,8 @@
    "id": "func_class_counted",
    "key": "photoreceptor_unassigned",
    "population": "counted_records",
-   "n": 8,
-   "sha256": "7c846474a50ae5dc9ffaae48b3ba41918cb35afe6e36743a5cadba5048afbe78"
+   "n": 7,
+   "sha256": "0838b73e18a18c1c407475c44564cd4a2aadac7861f7a791a2d373d77ef1f1cb"
   },
   {
    "kind": "distribution",
@@ -352,8 +352,8 @@
    "id": "func_class_counted",
    "key": "unresolved",
    "population": "counted_records",
-   "n": 2623,
-   "sha256": "e691aaac673e7e8b892d66add8ef9570ce71052deee253e2b8cc81e60ca7b713"
+   "n": 2624,
+   "sha256": "0e6982a99aea92666522722c90fc55aefa5301f56df67ae5b8719d4ebbe7aab5"
   },
   {
    "kind": "distribution",
@@ -768,8 +768,8 @@
    "id": "helixC_motif_counted",
    "key": "---",
    "population": "counted_records",
-   "n": 201,
-   "sha256": "b4f1d0ea30c313cab25fe7141297c17c0758a554777d1bfd2521470e13efdac6"
+   "n": 204,
+   "sha256": "d2d16ba1ef400bb77593e2d8564de5cd475af33173f90ecb94d15715394bbd0a"
   },
   {
    "kind": "distribution",
@@ -944,8 +944,8 @@
    "id": "helixC_motif_counted",
    "key": "AAT",
    "population": "counted_records",
-   "n": 1,
-   "sha256": "bab287b0ff1e65ce1d0c9e7edd42eacca42f6c0950ebb447052242c646fe83fb"
+   "n": 2,
+   "sha256": "5025daaf2f3f21f136be9ee60392e18e27dbd06ff3f40b6f12d21a5b9895dd79"
   },
   {
    "kind": "distribution",
@@ -1256,8 +1256,8 @@
    "id": "helixC_motif_counted",
    "key": "DSE",
    "population": "counted_records",
-   "n": 52,
-   "sha256": "e423cd1242fe9c5eef62ab90434b04f11d6a62b11ee537b2e81b378d13577104"
+   "n": 54,
+   "sha256": "8b73bc9a1a67fb07378a7097930b3a018bac6e7b8514c1b6fe30df0401ea1dd5"
   },
   {
    "kind": "distribution",
@@ -1328,8 +1328,8 @@
    "id": "helixC_motif_counted",
    "key": "DTA",
    "population": "counted_records",
-   "n": 89,
-   "sha256": "2b733aed6c9fd81537a5f783e537f63947282df5cd53b10c9c596dbcf657592a"
+   "n": 93,
+   "sha256": "be4eb3b25428351a9f46ed78f17b3e002aa252087c9a8e187cac84a247c66b3c"
   },
   {
    "kind": "distribution",
@@ -1344,16 +1344,16 @@
    "id": "helixC_motif_counted",
    "key": "DTD",
    "population": "counted_records",
-   "n": 1153,
-   "sha256": "4a1edc9b1516e28b41afd32972eea08a4848881f5f8a8453a2014bf6cf672844"
+   "n": 1175,
+   "sha256": "9869a6d8aeca5e0b435915a220dfd678303f27a8c358aa1b6c2f0926a4a058f2"
   },
   {
    "kind": "distribution",
    "id": "helixC_motif_counted",
    "key": "DTE",
    "population": "counted_records",
-   "n": 1191,
-   "sha256": "f74811f869e159822b8635175a038ea07a450ae2f66d5534dc9137e33a47a046"
+   "n": 1204,
+   "sha256": "3ec3c87699ce6f6c58c0a9b6ab80a8ffdc1411d2d8420b977b7d9b4a6f89dd95"
   },
   {
    "kind": "distribution",
@@ -1368,8 +1368,8 @@
    "id": "helixC_motif_counted",
    "key": "DTG",
    "population": "counted_records",
-   "n": 59,
-   "sha256": "26973727dad199da913181cabe50ab75935b60d3fdccf42fadfb9074353d41f9"
+   "n": 62,
+   "sha256": "5572f40d24a3e0125154bbe60738e4a6b62f1cb92db0f420bc18b9d699036244"
   },
   {
    "kind": "distribution",
@@ -1416,8 +1416,8 @@
    "id": "helixC_motif_counted",
    "key": "DTN",
    "population": "counted_records",
-   "n": 45,
-   "sha256": "586a4da0790c295b9f827de78c6ebeeb4b72ef9a021b637aa96c792bd5d8ec3e"
+   "n": 47,
+   "sha256": "5afb75f7b3f2c0e4d9b1753e62d7510dc04e02902f9635e56f8b3c99f8bbddbc"
   },
   {
    "kind": "distribution",
@@ -1432,8 +1432,8 @@
    "id": "helixC_motif_counted",
    "key": "DTS",
    "population": "counted_records",
-   "n": 72,
-   "sha256": "60824163a0684d691c92311a6c9a7639e6fa0b0d3dcd04489a45a628a8bd5127"
+   "n": 73,
+   "sha256": "d60a910ddbd24eba1dd8ec2a610b3e857e07a44f35b34ca5033855901039bda9"
   },
   {
    "kind": "distribution",
@@ -1664,8 +1664,8 @@
    "id": "helixC_motif_counted",
    "key": "ESL",
    "population": "counted_records",
-   "n": 183,
-   "sha256": "ef1fb84704eed0b84c7548b86f0e6584b2c1ae500edab0d37127f05245f36775"
+   "n": 190,
+   "sha256": "e642a08c4b4ebbe826a6fe1e6b5da80f6b5e51d7ad6ca3fc9514345031688e36"
   },
   {
    "kind": "distribution",
@@ -1952,8 +1952,8 @@
    "id": "helixC_motif_counted",
    "key": "GAC",
    "population": "counted_records",
-   "n": 2,
-   "sha256": "61beac3893613257b41ffc22c09e6f5c8a68ce8f14b18d0891d9b65d018643b3"
+   "n": 6,
+   "sha256": "c242b8812f93d0d2188fdb2e15efa8bdbb16d3c1905ae23e064ecfdb2da446ab"
   },
   {
    "kind": "distribution",
@@ -1976,8 +1976,8 @@
    "id": "helixC_motif_counted",
    "key": "GAL",
    "population": "counted_records",
-   "n": 5,
-   "sha256": "6b3996a71d971705afb7c074ad40cefbe07d8c55a442fdf87941ae15fc244d92"
+   "n": 6,
+   "sha256": "846ae21ed6c4c93c59c990bdff35e3807b434dff7e8c0d71496c48d4e656ec23"
   },
   {
    "kind": "distribution",
@@ -1992,16 +1992,16 @@
    "id": "helixC_motif_counted",
    "key": "GAN",
    "population": "counted_records",
-   "n": 11,
-   "sha256": "5dc6cfa49127ffbc1638dc5932ca48f9a8e05f7f4c7e952c45747850c79d4629"
+   "n": 12,
+   "sha256": "c68c76bec060e7d106612f1a01c5d3548bcc23980a0af5c84d210f0d60560dc7"
   },
   {
    "kind": "distribution",
    "id": "helixC_motif_counted",
    "key": "GAQ",
    "population": "counted_records",
-   "n": 50,
-   "sha256": "3c260ec3bf4f4c21bea708645a49d5450bbc9e622d361bdbb23b8568938aec60"
+   "n": 52,
+   "sha256": "b1c328cb3e86c0951d9fa56c647a210bf0f0388b2146693309dd987b222c885b"
   },
   {
    "kind": "distribution",
@@ -2128,8 +2128,8 @@
    "id": "helixC_motif_counted",
    "key": "GSA",
    "population": "counted_records",
-   "n": 13,
-   "sha256": "431069f6a82be4490eecccaef48647301ad913acc0716da0f470f4e27d25aa53"
+   "n": 14,
+   "sha256": "9bef2c0b33007f346e78f08e43ecc60ab0878b50188127b633967bd1032b5dc2"
   },
   {
    "kind": "distribution",
@@ -2264,8 +2264,8 @@
    "id": "helixC_motif_counted",
    "key": "GTN",
    "population": "counted_records",
-   "n": 3,
-   "sha256": "1c2986a5a9d977d7ebc6e3e6e8dc4829a912413a048370ef9387875f59f7750c"
+   "n": 4,
+   "sha256": "abd0cd7c051fde749d60025fc92b354ba759d35931cfe1742f478951862065a6"
   },
   {
    "kind": "distribution",
@@ -2304,8 +2304,8 @@
    "id": "helixC_motif_counted",
    "key": "GVN",
    "population": "counted_records",
-   "n": 4,
-   "sha256": "79695940dedc6349c78a4311d621505384e6bcddec0bc7b9522a43c0d8647023"
+   "n": 6,
+   "sha256": "d76ce046f0325fa987e93aef40f136aa371a08dc113c08fc9c3b1fa3699cb0b0"
   },
   {
    "kind": "distribution",
@@ -2320,8 +2320,8 @@
    "id": "helixC_motif_counted",
    "key": "HAG",
    "population": "counted_records",
-   "n": 3,
-   "sha256": "28f2441002b8b22932c1ce490998c3353be000ae76b061f0ad28806ce7551eb3"
+   "n": 4,
+   "sha256": "79191a8b3d4330d28bec0e2177671f2e8557bd0af9854c57e0984e1fbf71877b"
   },
   {
    "kind": "distribution",
@@ -2520,8 +2520,8 @@
    "id": "helixC_motif_counted",
    "key": "MAA",
    "population": "counted_records",
-   "n": 3,
-   "sha256": "cb4762a48f39c5404a9b09ffe28b9cbfdaeb9529d56df8db78d8fbcf23e6a00f"
+   "n": 4,
+   "sha256": "f4c3f953b50734f175a959991c5e83c15ef49ff066e654ff5084ea837dba7bad"
   },
   {
    "kind": "distribution",
@@ -2600,8 +2600,8 @@
    "id": "helixC_motif_counted",
    "key": "NAA",
    "population": "counted_records",
-   "n": 68,
-   "sha256": "9596698437229f8093d62257314f39ff5af9aa081b3cdca9749f18b395bd12e3"
+   "n": 71,
+   "sha256": "d3ae2c4ebda660c076106fb6745950cc0a202ed07b04dc94ed50731c89ef07b5"
   },
   {
    "kind": "distribution",
@@ -2624,8 +2624,8 @@
    "id": "helixC_motif_counted",
    "key": "NAG",
    "population": "counted_records",
-   "n": 17,
-   "sha256": "951f1a3fd2943feb4fbd4148703b88da68e7ca77785a97271163fabe2af503b4"
+   "n": 19,
+   "sha256": "937168d95f19eeb1464d6a786dc546d703a3228ca04d3adc2c9bd941011caa84"
   },
   {
    "kind": "distribution",
@@ -2640,8 +2640,8 @@
    "id": "helixC_motif_counted",
    "key": "NAN",
    "population": "counted_records",
-   "n": 4,
-   "sha256": "43d96908f6bf855511dbbd811c94100d1647def78e3734cae161652e2c5172a4"
+   "n": 5,
+   "sha256": "e490eea804b0f439e33ea69f472d49097f7d04c2749a0c4a524409c7e37e8418"
   },
   {
    "kind": "distribution",
@@ -2672,8 +2672,8 @@
    "id": "helixC_motif_counted",
    "key": "NDQ",
    "population": "counted_records",
-   "n": 72,
-   "sha256": "bd22157c51619cfdd3e81e531c974263c0e194b6e912e4aca1722e0992e02f72"
+   "n": 75,
+   "sha256": "554ce1f19f0934ce5755baabfa1b88a0244753562a4396f5307b4925b1fb261b"
   },
   {
    "kind": "distribution",
@@ -2760,8 +2760,8 @@
    "id": "helixC_motif_counted",
    "key": "NSG",
    "population": "counted_records",
-   "n": 1,
-   "sha256": "6cc158fb89713f9c9de453a8f1c13afb93babc083b52f35b6f5179bfb9aa56c7"
+   "n": 2,
+   "sha256": "3ae478c4ae283a4f9c822d442c8fe6c86bae7a9b50962d9704458a9a91be573a"
   },
   {
    "kind": "distribution",
@@ -2776,8 +2776,8 @@
    "id": "helixC_motif_counted",
    "key": "NSN",
    "population": "counted_records",
-   "n": 14,
-   "sha256": "00c6f5328032f3fb31faabb030a19a44c094107c6bcfd4f98fcbc9cca87613a4"
+   "n": 18,
+   "sha256": "983839345d11a482d09aa27ef4afa9f1ad157bd9ed7ae1717d769ed6d74b0114"
   },
   {
    "kind": "distribution",
@@ -2848,8 +2848,8 @@
    "id": "helixC_motif_counted",
    "key": "NTI",
    "population": "counted_records",
-   "n": 11,
-   "sha256": "39753c7fa750538b8ca9b7a11a0c64740c7532b29e410d06d6eb7adc3076289a"
+   "n": 13,
+   "sha256": "a074fa7bf41c6de758704d7113a475cc6f2e4099cd4782629b4ae84b7a89f952"
   },
   {
    "kind": "distribution",
@@ -2864,16 +2864,16 @@
    "id": "helixC_motif_counted",
    "key": "NTN",
    "population": "counted_records",
-   "n": 104,
-   "sha256": "432e587c7246963a9c932e7a16ac92a1870eeaf098d1a5ed5134875dcb6c856c"
+   "n": 110,
+   "sha256": "2aa025d4bb8163095477e9a1cdcf1ab012e2e962bebf629902b952a9edce8cc8"
   },
   {
    "kind": "distribution",
    "id": "helixC_motif_counted",
    "key": "NTQ",
    "population": "counted_records",
-   "n": 33,
-   "sha256": "7497f4fb90cfa74ebc7ca69c341ea43ab9beb9bd3b02bb6e1e6a3a48d8b9d015"
+   "n": 36,
+   "sha256": "7246939655080ea3c8d3ca7c5f6d41fc444ab5f8e32d5000b0742f2d0650ddc2"
   },
   {
    "kind": "distribution",
@@ -2976,8 +2976,8 @@
    "id": "helixC_motif_counted",
    "key": "QNG",
    "population": "counted_records",
-   "n": 9,
-   "sha256": "f3eb253a1716e7e23de19d554d382c5b4b869d80b98903e8a4bcde6844bba123"
+   "n": 11,
+   "sha256": "631c23a55b39352f799ea6b1a933d8a47846c64fcf7e2b284357cbda414a517d"
   },
   {
    "kind": "distribution",
@@ -3080,8 +3080,8 @@
    "id": "helixC_motif_counted",
    "key": "QTE",
    "population": "counted_records",
-   "n": 58,
-   "sha256": "9418dac492f937af1ed48f9da48625b67e8f43c9fd7c7d07d496d09c6ebd6819"
+   "n": 60,
+   "sha256": "bcf6e90a48004f3cdf8e9427637909642fd1b183d4bfa03f0ee43f1838f4108c"
   },
   {
    "kind": "distribution",
@@ -3104,8 +3104,8 @@
    "id": "helixC_motif_counted",
    "key": "QTL",
    "population": "counted_records",
-   "n": 16,
-   "sha256": "f23518c998e60985d5f72f7fb48c82ace03511c4bf859f5ee4b69d4367638a22"
+   "n": 17,
+   "sha256": "e2905798a91b88f2f991cf5dd5879b93362b85f18a7dc5a428b6d46869a1656d"
   },
   {
    "kind": "distribution",
@@ -3168,8 +3168,8 @@
    "id": "helixC_motif_counted",
    "key": "SAE",
    "population": "counted_records",
-   "n": 2,
-   "sha256": "e4dfb4cad699a6d3116469659605231e196c6d903846b15d54479156cad7e2fa"
+   "n": 3,
+   "sha256": "9e2e7e6c3fe3cdf074d269c75a2176d138639e1913d6551849f34e28a3fc786f"
   },
   {
    "kind": "distribution",
@@ -3288,8 +3288,8 @@
    "id": "helixC_motif_counted",
    "key": "TSD",
    "population": "counted_records",
-   "n": 10,
-   "sha256": "9d9b90de6c5b5eb5173ce15e8a1c7c415cfe62b8d5a195bbeb6398eaf55e8cc5"
+   "n": 11,
+   "sha256": "86d9cc1e02bfb15879d7f8222dee574b50770bb2bf7d6aa4a1be59122120721e"
   },
   {
    "kind": "distribution",
@@ -3432,8 +3432,8 @@
    "id": "helixC_motif_counted",
    "key": "YAA",
    "population": "counted_records",
-   "n": 4,
-   "sha256": "0c816309e8ad67bc1b2f3359b7b92c4c06e7794edc72727b236c40a73eb65c34"
+   "n": 5,
+   "sha256": "c618cbf0f107550a7a0bdce3d4da7eee00d7b4e364d4c3f77e2c209f14f8006e"
   },
   {
    "kind": "distribution",
@@ -3548,8 +3548,8 @@
     "E2"
    ],
    "population": "counted_records",
-   "n": 111,
-   "sha256": "70e01ba17b3afdf1ae2c97475a08aef1c5391e799c7514421ffbe0f0b4171757"
+   "n": 110,
+   "sha256": "cc65c1654529f972fb7af400361f2ad4f5b42621b904eb247697f2243755f571"
   },
   {
    "kind": "crosstab",
@@ -3581,8 +3581,8 @@
     "E5"
    ],
    "population": "counted_records",
-   "n": 700,
-   "sha256": "b9ded80dc10dc7ebbfc89a4e5b580a8364ac682b12c47626a8baccdf64d6ad44"
+   "n": 701,
+   "sha256": "2f6cac77d65997599dd29c6c641e4237c42012968fee4937afb79859d8951bca"
   },
   {
    "kind": "crosstab",

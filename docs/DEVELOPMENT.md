@@ -4,8 +4,8 @@ Maintainer-facing material moved out of the top-level `README.md`. Users of the 
 
 ## Website 2.0 (`web/`)
 
-The website (React + TypeScript + Vite, "website 2.0") lives in `web/` and serves **dataset v1.6.1**. It is built
-from static JSON exported from the official v1.6.1 SQLite database. The legacy static browser in `site/` (dataset
+The website (React + TypeScript + Vite, "website 2.0") lives in `web/` and serves **dataset v1.6.2**. It is built
+from static JSON exported from the official v1.6.2 SQLite database. The legacy static browser in `site/` (dataset
 v1.6.0) is kept as the rollback target.
 
 Requirements: Node >= 22 and the `mrdb` conda environment (Python with the release DB present;

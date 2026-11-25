@@ -3,7 +3,7 @@
 Run from the repository root:
     pytest -q tests/test_web_export.py
 Environment:
-    MRDB_DB    database under test (default releases/v1.6.1/db/microrhododb_v1.6.1.sqlite)
+    MRDB_DB    database under test (default releases/v1.6.2/db/microrhododb_v1.6.2.sqlite)
     MRDB_REPO  repository root (default '.')
 
 The exporter is run twice into fresh temporary directories through its CLI. Every expected value below is
@@ -28,15 +28,15 @@ import pandas as pd
 import pytest
 
 REPO = Path(os.environ.get("MRDB_REPO", ".")).resolve()
-DB = Path(os.environ.get("MRDB_DB", REPO / "releases/v1.6.1/db/microrhododb_v1.6.1.sqlite"))
-DB_SHA256 = "b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d"
+DB = Path(os.environ.get("MRDB_DB", REPO / "releases/v1.6.2/db/microrhododb_v1.6.2.sqlite"))
+DB_SHA256 = "7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288"
 EXPORTER = REPO / "tools/export_web_data.py"
 SCHEMA = REPO / "web/src/data/schemas/web-data.schema.json"
 HABITAT_SCHEMA = REPO / "web/src/data/schemas/habitat.schema.json"
 FROZEN = REPO / "docs/website/baseline/frozen_sha256_fab9182.txt"
 TREE = REPO / "refpkg/MR_RT_003/tree/MR_RT_003.rooted.treefile"
 RUN1 = REPO / "refpkg/MR_RT_003/tree/run1.treefile"
-REL = "v1.6.1"
+REL = "v1.6.2"
 SUPPORT_RE = re.compile(r"^\d+(\.\d+)?/\d+(\.\d+)?$")
 ISO_TS = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}")
 
@@ -179,10 +179,10 @@ def test_json_canonical_encoding(out):
 
 def test_current_and_manifest(out, D, con):
     cur = json.loads((out / "current.json").read_text())
-    assert cur == {"dataset_release": "1.6.1", "path": "data/v1.6.1/", "schema_version": cur["schema_version"]}
+    assert cur == {"dataset_release": "1.6.2", "path": "data/v1.6.2/", "schema_version": cur["schema_version"]}
     m = load(D, "manifest.json")
-    meta = dict(con.execute("SELECT key, value FROM release_metadata WHERE release = '1.6.1'"))
-    assert m["dataset_release"] == "1.6.1"
+    meta = dict(con.execute("SELECT key, value FROM release_metadata WHERE release = '1.6.2'"))
+    assert m["dataset_release"] == "1.6.2"
     assert m["release_date"] == meta["release_date"]
     assert m["source_db"]["sha256"] == DB_SHA256 and m["source_db"]["opened_read_only"] is True
     assert m["refpkg"]["rooted_treefile_sha256"] == sha256(TREE)
@@ -582,7 +582,7 @@ def test_clades(D, con):
 def test_every_v_master_cell(con, records):
     cur = con.execute("SELECT * FROM v_master")
     cols = [d[0] for d in cur.description]
-    assert set(cols) == set(ex.V_MASTER_FIELD_MAP) and len(cols) == 35
+    assert set(cols) == set(ex.V_MASTER_FIELD_MAP) and len(cols) == 36  # v1.6.2 adds placement_qc_flag
     empty = {c for (t, c) in ex.EMPTY_STRING_RULES if t == "v_master"}
     bad = collections.Counter()
     for row in cur:
@@ -643,9 +643,13 @@ def legacy():
 
 def test_legacy_oracle_cells(legacy, records, con):
     # The legacy browser (site/data.js) was built from v1.6.0. The only cells allowed to differ are the fields that the
-    # signed v1.6.1 decisions changed (curation_v161_decision); every other cell must still match exactly.
-    v161 = {(a, {"basis": "function_basis"}.get(f, f)) for a, f in
-            con.execute("SELECT source_acc, field FROM curation_v161_decision")} if REL != "v1.6.0" else set()
+    # signed decisions of later releases changed (curation_v161_decision, curation_v162_decision); every other cell must
+    # still match exactly.
+    decided = set()
+    for t in ("curation_v161_decision", "curation_v162_decision"):
+        if REL != "v1.6.0" and con.execute("SELECT 1 FROM sqlite_master WHERE name = ?", (t,)).fetchone():
+            decided |= {(a, {"basis": "function_basis"}.get(f, f)) for a, f in
+                        con.execute(f"SELECT source_acc, field FROM {t}")}
     cols = legacy["columns"]
     assert cols == list(LEGACY_PATH) and len(cols) == 39
     rows = legacy["rows"]
@@ -669,7 +673,7 @@ def test_legacy_oracle_cells(legacy, records, con):
                 ok = n in T4[l]
             else:
                 ok = l == n and type(l) is type(n)
-            if not ok and (L["source_acc"], c) not in v161:
+            if not ok and (L["source_acc"], c) not in decided:
                 bad[c] += 1
     assert not bad, bad
 
@@ -751,7 +755,7 @@ BASELINE = {"records_total": 5466, "records_counted": 5460, "records_engineered"
             "pdb_entries": 438, "records_with_pdb": 66, "mrdb_with_pdb": 58, "records_with_afdb": 4397,
             "predicted_models": 2, "tree_tips": 472, "level1_clades": 17, "backbone_groups": 2, "subclades": 30,
             "placements_current": 4996, "watchlist": 181, "publications": 121, "publication_links_active": 255,
-            # v1.6.1 release notes: 3,821 / 4,465 (85.6%) confident-clade coverage of members + candidates
+            # v1.6.1 release notes: 3,821 / 4,465 (85.6%) confident-clade coverage of members + candidates (unchanged in v1.6.2)
             "members_candidates": 4465, "clade_confident_members_candidates": 3821, "novel_family_flag": 139}
 
 
@@ -824,7 +828,8 @@ def test_summary_distributions_recomputed(D, con, records):
                          ("legacy_v14_concordant_motif:", "legacy_v14_concordant_motif"),
                          ("legacy_v14_motif_untestable:", "legacy_v14_motif_untestable"),
                          ("curated_rule:", "curated_rule"), ("audit_rule_", "audit_rule"),
-                         ("family_hmm_", "family_hmm_conflict"), ("conflict:", "conflict")):
+                         ("family_hmm_", "family_hmm_conflict"), ("conflict:", "conflict"),
+                         ("e2_motif_mismatch:", "e2_motif_mismatch")):
             if b.startswith(pre):
                 return key
         return {"experimental:this_protein": "experimental:this_protein", "insufficient": "insufficient"}.get(b, "UNMAPPED")
@@ -867,7 +872,7 @@ def test_json_schema_all_payloads(out):
     import jsonschema
     schema = json.loads(SCHEMA.read_text())
     jsonschema.Draft202012Validator.check_schema(schema)
-    # PR-7c.2: the habitat sidecar (v1.6.1/habitat/**) has its own schema; every other file uses the core schema.
+    # PR-7c.2: the habitat sidecar (v1.6.2/habitat/**) has its own schema; every other file uses the core schema.
     hschema = json.loads(HABITAT_SCHEMA.read_text())
     jsonschema.Draft202012Validator.check_schema(hschema)
     validators = {}

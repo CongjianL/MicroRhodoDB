@@ -21,7 +21,7 @@ column. It reproduces the stored motif and class for all 5,361 UniProtKB 2026_02
         unassigned    everything else
     The class is a motif reading, not a function call: v1.6.0 uses it only to test called classes for conflicts.
 
-  python tools/helixc_motif.py query.faa [--release releases/v1.6.1] -o motifs.tsv
+  python tools/helixc_motif.py query.faa [--release releases/v1.6.2] -o motifs.tsv
 """
 import argparse, os, re, shutil, sqlite3, sys, tempfile
 from pathlib import Path
@@ -113,7 +113,7 @@ def read_fasta(p):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("query")
-    ap.add_argument("--release", default=os.path.join(HERE, "..", "releases", "v1.6.1"))
+    ap.add_argument("--release", default=os.path.join(HERE, "..", "releases", "v1.6.2"))
     ap.add_argument("-o", "--out", default="helixc_motifs.tsv")
     a = ap.parse_args()
     import glob

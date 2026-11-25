@@ -70,22 +70,29 @@ export function legacyApply(R: LegacyRow[], o: LegacyFilter): LegacyRow[] {
 }
 
 /**
- * Records and fields changed by the signed v1.6.1 decisions (releases/v1.6.1/tables/identical_sequence_decisions_v161.tsv).
+ * Records and fields changed by the signed decisions of the releases after v1.6.0
+ * (releases/v1.6.1/tables/identical_sequence_decisions_v161.tsv, releases/v1.6.2/tables/construction_review_decisions_v162.tsv).
  * The legacy oracle (site/data.js) was built from v1.6.0, so these, and only these, cells may differ from it.
  * Field names follow the legacy columns (DB "basis" is "function_basis").
  */
-export const v161Changes = (): Map<string, Set<string>> => memo("v161", () => {
-  const p = resolve(REPO, "releases/v1.6.1/tables/identical_sequence_decisions_v161.tsv");
+const DECISION_TABLES = [
+  "releases/v1.6.1/tables/identical_sequence_decisions_v161.tsv",
+  "releases/v1.6.2/tables/construction_review_decisions_v162.tsv",
+];
+export const decidedChanges = (): Map<string, Set<string>> => memo("decided", () => {
   const m = new Map<string, Set<string>>();
-  if (!existsSync(p)) return m;
-  const [head, ...lines] = readFileSync(p, "utf8").trim().split("\n");
-  const h = head.split("\t");
-  const ia = h.indexOf("source_acc"), iff = h.indexOf("field");
-  for (const ln of lines) {
-    const c = ln.split("\t");
-    const f = c[iff] === "basis" ? "function_basis" : c[iff];
-    if (!m.has(c[ia])) m.set(c[ia], new Set());
-    m.get(c[ia])!.add(f);
+  for (const rel of DECISION_TABLES) {
+    const p = resolve(REPO, rel);
+    if (!existsSync(p)) continue;
+    const [head, ...lines] = readFileSync(p, "utf8").trim().split("\n");
+    const h = head.split("\t");
+    const ia = h.indexOf("source_acc"), iff = h.indexOf("field");
+    for (const ln of lines) {
+      const c = ln.split("\t");
+      const f = c[iff] === "basis" ? "function_basis" : c[iff];
+      if (!m.has(c[ia])) m.set(c[ia], new Set());
+      m.get(c[ia])!.add(f);
+    }
   }
   return m;
 });

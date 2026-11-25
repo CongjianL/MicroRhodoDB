@@ -70,6 +70,12 @@ export function PhylogenySection({ entry, src, clades, vocab, caveats }: { entry
               {CLADE_STATE_LABEL[ph.clade_state]} <code className="text-xs text-ink-2">{ph.clade_state}</code>
               {stateDef ? <span className="mt-1 block text-sm text-ink-2">{stateDef}</span> : null}
             </Row>
+            {ph.placement_qc_flag ? (
+              <Row k="Placement QC flag" testId="ph-qc-flag">
+                <code className="text-xs">{ph.placement_qc_flag}</code>
+                <span className="mt-1 block text-sm text-ink-2">The membership status is Type-I, but the MR_RT_003 placement is in the heliorhodopsin outgroup. The flag annotates the disagreement; the placement and the membership status are unchanged.</span>
+              </Row>
+            ) : null}
             <Row k={ph.clade_state === "tentative" ? "Tentative clade" : "Clade"}>
               <CladeBadge state={ph.clade_state} cladeId={ph.clade_id} tentativeId={ph.tentative_clade_id} failing={caveats} />
               {ph.clade_state === "tentative" ? <span className="mt-1 block text-sm text-ink-2">Tentative: the placement is near this clade but does not meet the confident-assignment criteria. It is not a confident assignment.</span> : null}
@@ -108,7 +114,7 @@ export function PhylogenySection({ entry, src, clades, vocab, caveats }: { entry
                 <Row k="Subclade call">{na(pl.subclade_call)}{pl.subclade_id ? ` · ${pl.subclade_id}` : ""}{pl.subclade_lwr !== null && pl.subclade_lwr !== undefined ? ` · LWR ${fmtNum(pl.subclade_lwr, 3)}` : ""}</Row>
                 {pl.track ? <Row k="Track">{pl.track}</Row> : null}
               </dl>
-              <p className="mt-2 text-xs text-ink-2">A placement is not a reconstructed tree leaf: the sequence was placed onto the fixed reference tree, which was not re-inferred. Values are shown as recorded in v1.6.1.</p>
+              <p className="mt-2 text-xs text-ink-2">A placement is not a reconstructed tree leaf: the sequence was placed onto the fixed reference tree, which was not re-inferred. Values are shown as recorded in v1.6.2.</p>
             </>
           ) : (
             <p className="mt-2 text-sm text-ink-2">{ph.is_reference_tip ? "This record is a tip of the reference tree; no placement was needed." : "No placement recorded for this source record."}</p>
