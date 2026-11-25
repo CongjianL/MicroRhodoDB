@@ -28,7 +28,7 @@ website still default to v1.6.1. Rebuild it from v1.6.1 with `snakemake -c 1 all
      assets by web/scripts/release_gate.py and fetch_release_db.py. Move this row there once the asset is attached. -->
 | Path | SHA-256 | Bytes |
 |---|---|---|
-| `releases/v1.6.2/db/microrhododb_v1.6.2.sqlite` | `29556a01feff84468bd434a86aa2c892c0e9f43818fde0a1582f9c3e5f79a481` | 33648640 |
+| `releases/v1.6.2/db/microrhododb_v1.6.2.sqlite` | `7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288` | 33648640 |
 
 ## Release archive
 

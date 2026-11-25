@@ -65,8 +65,7 @@ def test_decisions_signed(con):
     assert len(d) == 270 and d.source_acc.nunique() == 157
     assert set(d.rule) == {"MOTIF1", "PLACE1", "E2M1"}
     assert (d.decided_at == "2026-11-25").all()
-    assert d.decided_by.nunique() == 1 and d.decided_by.iloc[0] not in ("", "UNSIGNED"), \
-        "curation_v162 decisions are not signed: set DECIDED_BY in pipeline/v162/decisions_v162.py and rebuild"
+    assert (d.decided_by == "CongJian Li").all()
 
 
 def test_only_decided_cells_changed(con, base):

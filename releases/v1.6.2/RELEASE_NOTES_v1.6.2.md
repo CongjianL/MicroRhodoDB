@@ -9,7 +9,7 @@ status are unchanged.
 
 ## What changed
 
-The curator approved three decisions on 2026-11-25. `pipeline/v162/decisions_v162.py` applies them record by record.
+The curator (CongJian Li) approved three decisions on 2026-11-25. `pipeline/v162/decisions_v162.py` applies them record by record.
 Every one of the 270 field changes on 157 records is listed with its old and new value in `curation_v162_decision` and
 `tables/construction_review_decisions_v162.tsv`.
 
