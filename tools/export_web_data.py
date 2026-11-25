@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Deterministic SQLite -> static JSON exporter for the MicroRhodoDB website (dataset v1.6.1).
+"""Deterministic SQLite -> static JSON exporter for the MicroRhodoDB website (dataset v1.6.2).
 
 Implements docs/website/WEB_DATA_CONTRACT.md. Standard library only (plus jsonschema for the habitat sidecar).
 
@@ -7,7 +7,7 @@ Implements docs/website/WEB_DATA_CONTRACT.md. Standard library only (plus jsonsc
     python tools/export_web_data.py --db PATH --repo . --out web/public/data
 
 Inputs (all opened read-only, all checksum-verified before anything is written):
-    releases/v1.6.1/db/microrhododb_v1.6.1.sqlite      SHA-256 must equal EXPECTED_DB_SHA256
+    releases/v1.6.2/db/microrhododb_v1.6.2.sqlite      SHA-256 must equal EXPECTED_DB_SHA256
     refpkg/MR_RT_003/{tree,clades,tips.tsv}            SHA-256 must match refpkg/MR_RT_003/SHA256SUMS
     releases/*/structures/<acc>_esmfold.pdb            SHA-256 must equal PREDICTED_SHA256
 
@@ -34,10 +34,10 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 SCHEMA_VERSION = "1.4.0"
-DATASET_RELEASE = "1.6.1"
+DATASET_RELEASE = "1.6.2"
 WEBSITE_VERSION = "2.0.0"
 DB_REL = f"releases/v{DATASET_RELEASE}/db/microrhododb_v{DATASET_RELEASE}.sqlite"
-EXPECTED_DB_SHA256 = "b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d"
+EXPECTED_DB_SHA256 = "7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288"
 TREE_ID = "MR_RT_003"
 REFPKG = "refpkg/MR_RT_003"
 TREE_REL = f"{REFPKG}/tree/MR_RT_003.rooted.treefile"
@@ -125,6 +125,7 @@ V_MASTER_FIELD_MAP = {
     "clade_name": "phylogeny.clade_name", "tentative_clade_id": "phylogeny.tentative_clade_id",
     "tentative_clade_name": "phylogeny.tentative_clade_name", "gtdb_taxonomy": "gtdb.taxonomy",
     "afdb_model_id": "structures.afdb.model_id", "afdb_global_plddt": "structures.afdb.global_plddt",
+    "placement_qc_flag": "phylogeny.placement_qc_flag",
 }
 BOOL_V_MASTER = {"call_conflict", "is_engineered", "counts_eligible"}
 
@@ -551,6 +552,7 @@ BASIS_CATEGORY_SQL = (
     "WHEN {B} LIKE 'audit_rule_%' THEN 'audit_rule' "
     "WHEN {B} LIKE 'family_hmm_%' THEN 'family_hmm_conflict' "
     "WHEN {B} LIKE 'conflict:%' THEN 'conflict' "
+    "WHEN {B} LIKE 'e2_motif_mismatch:%' THEN 'e2_motif_mismatch' "
     "WHEN {B} = 'insufficient' THEN 'insufficient' "
     "ELSE 'UNMAPPED' END").replace("{B}", _EFFECTIVE_BASIS)
 MEMBER_OR_CANDIDATE = ("v.membership_status IN (SELECT status FROM status_definition "
@@ -612,7 +614,9 @@ def crosstab_defs():
 
 
 AUDIT_SQL = "SELECT * FROM audit_agreement ORDER BY rowid"
-LOCO_SQL = (f"SELECT * FROM loco_validation WHERE release_set = '{DATASET_RELEASE}' ORDER BY rowid")
+# The LOCO benchmark was run in v1.6.0 and is carried unchanged by later releases (loco_validation.release_set).
+LOCO_RELEASE_SET = "1.6.0"
+LOCO_SQL = (f"SELECT * FROM loco_validation WHERE release_set = '{LOCO_RELEASE_SET}' ORDER BY rowid")
 
 DENOMINATORS = {
     "all_records": ("All source records", "SELECT COUNT(*) FROM v_master"),
@@ -1188,7 +1192,7 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256, habitat=True):
                          "clade_function": f["clade_function"], "call_conflict": b(v["call_conflict"]),
                          "call_conflict_exact": b(f["call_conflict_exact"]),
                          "call_conflict_detail": v["call_conflict_detail"], "v160_change": f["v160_change"],
-                         "v161_change": f["v161_change"]},
+                         "v161_change": f["v161_change"], "v162_change": f["v162_change"]},
             "engineering": {"is_engineered": b(v["is_engineered"]), "wild_type_acc": v["wild_type_acc"],
                             "counts_eligible": b(v["counts_eligible"])},
             "motifs": {"helixC_motif": v["helixC_motif"], "motif_class": v["motif_class"],
@@ -1207,6 +1211,7 @@ def export(repo, db, out, expected_sha=EXPECTED_DB_SHA256, habitat=True):
                           "clade_name": v["clade_name"], "tentative_clade_id": v["tentative_clade_id"],
                           "tentative_clade_name": v["tentative_clade_name"], "clade_source": v["clade_source"],
                           "clade_lwr": v["clade_lwr"], "placement_call": v["placement_call"],
+                          "placement_qc_flag": v["placement_qc_flag"],
                           "clade_function_source": r_c and r_c["clade_function_source"],
                           "is_reference_tip": acc in tip_roles, "tip_role": tip_roles.get(acc),
                           "placement": None if pl is None else {

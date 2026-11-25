@@ -1,6 +1,6 @@
 """MicroRhodoDB - versioned, evidence-aware Type-I microbial rhodopsin knowledgebase.
 
-Read-only query API for the v1.6.1 release (releases/v1.6.1/).
+Read-only query API for the v1.6.2 release (releases/v1.6.2/).
 """
 from .api import (
     CANDIDATE_STATUSES,

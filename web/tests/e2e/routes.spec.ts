@@ -96,7 +96,7 @@ test.describe("Routing, history and static assets under /MicroRhodoDB/site/", ()
     await expect(page.getByTestId("stat-cards")).toBeVisible();
     await page.goto("#/browse?group=all&evidence=E2");
     await page.reload();
-    await expect(page.getByTestId("browse-count")).toHaveText("111");
+    await expect(page.getByTestId("browse-count")).toHaveText("110");
     await page.goto("#/record/P02945");
     await page.reload();
     await expect(page.getByTestId("record-page")).toHaveAttribute("data-focus", "P02945");

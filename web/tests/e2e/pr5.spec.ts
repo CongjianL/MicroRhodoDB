@@ -106,10 +106,10 @@ test.describe("PR-5 section pages", () => {
     await expect(page.getByTestId("seq-cancelled")).toBeVisible();
   });
 
-  test("Downloads: 39 release files listed, export manifest linked but not fetched", async ({ page, watch }) => {
+  test("Downloads: 38 release files listed, export manifest linked but not fetched", async ({ page, watch }) => {
     await page.goto("#/downloads");
     await expect(page.getByTestId("dl-release-files")).toBeVisible();
-    await expect(page.locator('[data-testid^="dl-file-"]')).toHaveCount(39);
+    await expect(page.locator('[data-testid^="dl-file-"]')).toHaveCount(38);
     await page.waitForLoadState("networkidle");
     expect(watch.dataFiles().filter((f) => f === "export_manifest.json")).toEqual([]);
   });
@@ -118,7 +118,7 @@ test.describe("PR-5 section pages", () => {
     await page.goto("#/citation");
     await expect(page.getByTestId("cite-doi")).toContainText("none minted");
     const bib = await page.getByTestId("cite-bibtex").innerText();
-    expect(bib).toContain("1.6.1");
+    expect(bib).toContain("1.6.2");
     expect(bib).not.toContain("2.0.0");
     expect(bib).not.toMatch(/doi\s*=/);
   });

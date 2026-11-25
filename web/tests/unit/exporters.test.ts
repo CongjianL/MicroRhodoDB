@@ -13,7 +13,7 @@ import {
   EXTRA_TSV_COLUMNS, exportFilename, exportIds, fastaHeader, fnv1a, LEGACY_TSV_COLUMNS, selectionManifest, toFasta, toTSV, toUniqueFasta,
   tsvCell, TSV_COLUMNS, wrap60,
 } from "../../src/lib/exporters";
-import { legacy, legacyRows, manifest, readData, rows, v161Changes } from "./helpers";
+import { legacy, legacyRows, manifest, readData, rows, decidedChanges } from "./helpers";
 
 const ROUNDED: Record<string, number> = { membership_score: 3, e2_identity: 3, afdb_global_plddt: 1 };
 
@@ -45,7 +45,7 @@ describe("TSV export", () => {
         const legacyCell = lv === null || lv === undefined ? "" : String(lv);
         const ours = cells[j];
         if (ours === legacyCell) return;
-        if (v161Changes().get(String(R[i].source_acc))?.has(c)) return; // changed by a signed v1.6.1 decision
+        if (decidedChanges().get(String(R[i].source_acc))?.has(c)) return; // changed by a signed v1.6.1 or v1.6.2 decision
         if (c in ROUNDED && ours !== "" && legacyCell !== "") {
           if (Math.abs(Number(ours) - Number(legacyCell)) <= 0.5 * 10 ** -ROUNDED[c] + 1e-9) return;
         }
@@ -83,9 +83,9 @@ describe("FASTA exports", () => {
       `func=${r.func_class} clade=${r.clade_display || "none"} engineered=${r.is_engineered}\n` +
       D.seqs[r._i].replace(/(.{60})/g, "$1\n").replace(/\n$/, "") + "\n").join("");
     const ours = toFasta(R.map((l) => bySrc.get(String(l.source_acc))!), seqs);
-    // Records changed by a signed v1.6.1 decision differ only in header annotations (status, evidence, func):
+    // Records changed by a signed v1.6.1 or v1.6.2 decision differ only in header annotations (status, evidence, func):
     // their accessions and sequence lines must still match the v1.6.0 legacy export.
-    const changed = v161Changes();
+    const changed = decidedChanges();
     const split = (t: string) => t.split(/^(?=>)/m);
     const L = split(legacyFasta), O = split(ours);
     expect(O.length).toBe(L.length);
@@ -196,7 +196,7 @@ describe("file names and selection manifest", () => {
     expect(sm.n_source_records).toBe(88);
     expect(sm.n_engineered_in_selection).toBe(0);
     expect(sm.filters).toEqual({ group: "all", evidence: "E1" });
-    expect(sm.source_db_sha256).toBe("b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d");
+    expect(sm.source_db_sha256).toBe("7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288");
     expect(sm.tsv_columns).toEqual(TSV_COLUMNS);
     expect(DEFAULT_STATE.group).toBe("member");
   });

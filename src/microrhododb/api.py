@@ -1,9 +1,9 @@
-"""MicroRhodoDB v1.6.1 Python API (read-only access to a release SQLite database).
+"""MicroRhodoDB v1.6.2 Python API (read-only access to a release SQLite database).
 
 Database location, in order of precedence:
   1. the db_path argument;
   2. the MRDB_DB environment variable;
-  3. releases/v1.6.1/db/microrhododb_v1.6.1.sqlite relative to the repository / extracted archive that contains
+  3. releases/v1.6.2/db/microrhododb_v1.6.2.sqlite relative to the repository / extracted archive that contains
      this package (works for `pip install -e .` and for running from the archive).
 A db_path or MRDB_DB that does not exist raises FileNotFoundError (no fallback to the default). The database is opened read-only (SQLite URI mode=ro). Release databases are immutable.
 
@@ -15,8 +15,8 @@ Changes from the v1.4.0 API (kept unchanged at releases/v1.4.0/meta/microrhododb
   - new accessors for function evidence, call conflicts, engineered constructs, publications, the data
     dictionary, LOCO validation and the novel-family candidate layer.
 
-The API reads both v1.6.0 and v1.6.1 databases (v1.6.1 adds tables and columns, removes none); open v1.6.0 with
-db_path or MRDB_DB.
+The API reads v1.6.0, v1.6.1 and v1.6.2 databases (each later release adds tables and columns and removes none);
+open an earlier release with db_path or MRDB_DB.
 """
 import os
 import sqlite3
@@ -24,10 +24,10 @@ from pathlib import Path
 
 import pandas as pd
 
-__version__ = "1.6.1"
-SCHEMA_REVISION = "v161.1"
+__version__ = "1.6.2"
+SCHEMA_REVISION = "v162.1"
 
-DEFAULT_DB_PATH = (Path(__file__).resolve().parents[2] / "releases" / "v1.6.1" / "db" / "microrhododb_v1.6.1.sqlite")
+DEFAULT_DB_PATH = (Path(__file__).resolve().parents[2] / "releases" / "v1.6.2" / "db" / "microrhododb_v1.6.2.sqlite")
 
 MEMBER_STATUSES = ("typeI_member_core", "typeI_member_architecture_supported", "typeI_member_curated")
 CANDIDATE_STATUSES = ("typeI_candidate", "typeI_candidate_architecture_supported", "typeI_candidate_unresolved")

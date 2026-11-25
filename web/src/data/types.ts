@@ -10,7 +10,7 @@ export interface Accessions {
     readonly sources: Array<string>;
   }>;
   readonly by_source: Record<string, MrdbAcc>;
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
 }
 
 export interface AfdbModel {
@@ -150,7 +150,7 @@ export interface CladeRule {
 export type CladeState = "confident" | "tentative" | "reference_tip_unclustered" | "outgroup_reference_tip" | "outgroup_placed" | "unassigned" | "distant";
 
 export interface CladeTips {
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly rows: Array<{
     readonly clade_id: string;
     readonly source_acc: string;
@@ -163,7 +163,7 @@ export interface CladeTips {
 
 export interface Clades {
   readonly clade_rule: CladeRule;
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly display: string;
   readonly level1: Array<CladeLevel1>;
   readonly representative_rule: string;
@@ -175,8 +175,8 @@ export interface Clades {
 }
 
 export interface Current {
-  readonly dataset_release: "1.6.1";
-  readonly path: "data/v1.6.1/";
+  readonly dataset_release: "1.6.2";
+  readonly path: "data/v1.6.2/";
   readonly schema_version: "1.4.0";
 }
 
@@ -194,7 +194,7 @@ export interface Downloads {
     readonly version: string | null;
   };
   readonly citation_source: string;
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly maintenance_placeholders: Array<{
     readonly context: string;
     readonly hint: string;
@@ -209,7 +209,7 @@ export interface Downloads {
     readonly license: string | null;
     readonly release_date: string | null;
     readonly sha256sums_url: string;
-    readonly tag: "v1.6.1";
+    readonly tag: "v1.6.2";
     readonly url: string;
   };
   readonly release_files: Array<{
@@ -249,7 +249,7 @@ export interface EvidenceIndex {
     readonly rationale: string;
     readonly source_acc: string;
   }>;
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly e1: Array<{
     readonly counts_eligible: boolean;
     readonly func_class: FuncClass;
@@ -293,7 +293,7 @@ export interface EvidenceIndex {
       readonly prec_hi: number | null;
       readonly prec_lo: number | null;
       readonly precision: number | null;
-      readonly release_set: "1.6.1";
+      readonly release_set: "1.6.0";
       readonly subset: string;
       readonly variant: string;
     }>;
@@ -305,7 +305,7 @@ export interface EvidenceIndex {
 export type EvidenceLevel = "E1" | "E2" | "E3" | "E4" | "E5";
 
 export interface Explorer {
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly edge_map: Record<string, Array<number>>;
   readonly meta: {
     readonly clade_rule: CladeRule;
@@ -403,7 +403,7 @@ export interface ExplorerTip {
 }
 
 export interface ExportManifest {
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly exporter_git_commit: string;
   readonly exporter_git_dirty: boolean;
   readonly files: Array<{
@@ -436,7 +436,7 @@ export interface Manifest {
     readonly tree_tips: number;
     readonly watchlist: number;
   };
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly exporter: {
     readonly git_commit: string;
     readonly git_dirty: boolean;
@@ -457,7 +457,7 @@ export interface Manifest {
   readonly schema_revision: string;
   readonly schema_version: "1.4.0";
   readonly source_db: {
-    readonly file: "microrhododb_v1.6.1.sqlite";
+    readonly file: "microrhododb_v1.6.2.sqlite";
     readonly opened_read_only: true;
     readonly sha256: string;
   };
@@ -472,7 +472,7 @@ export type MembershipStatus = "typeI_member_core" | "typeI_member_architecture_
 export type MrdbAcc = string;
 
 export interface MrdbEntry {
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly first_release: string;
   readonly mrdb_acc: MrdbAcc;
   readonly n_source_records: number;
@@ -557,7 +557,7 @@ export interface PubLink_open {
 }
 
 export interface Publications {
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly inactive_links: Array<(PubLink_open) & ({
     readonly is_active: false;
   })>;
@@ -576,12 +576,12 @@ export interface Publications {
 
 export interface RecordsIndex {
   readonly columns: ["mrdb_acc", "source_acc", "is_mrdb_representative", "protein_name", "organism", "tax_domain", "length", "membership_status", "membership_score", "func_class", "evidence_level", "call_conflict", "is_engineered", "counts_eligible", "clade_state", "clade_id", "subclade_id", "tentative_clade_id", "n_pdb", "has_afdb", "has_predicted", "helixC_motif", "novel_family_flag", "reviewed", "n_support_links", "membership_group", "retinal_site_residue", "function_basis", "func_class_v14", "motif_class", "call_conflict_detail", "wild_type_acc", "exact_duplicate_of", "e1_representative", "clade_name", "tentative_clade_name", "gtdb_taxonomy", "afdb_model_id", "afdb_global_plddt", "e2_ref", "e2_identity", "override_rule", "pocket_string_br", "status_reason", "lineage", "pdb_ids"];
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly rows: Array<[MrdbAcc, string, boolean, string | null, string | null, TaxDomain, number, MembershipStatus, number | null, FuncClass, EvidenceLevel, boolean, boolean, boolean, CladeState, string | null, string | null, string | null, number, boolean, boolean, string | null, string | null, boolean | null, number, "member" | "candidate" | "boundary" | "outgroup" | "rejected", string | null, string | null, string | null, string | null, string | null, string | null, string | null, string | null, string | null, string | null, string | null, string | null, number | null, string | null, number | null, string | null, string | null, string | null, string | null, Array<string>]>;
 }
 
 export interface Robustness {
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly grid: Array<Record<string, unknown>>;
   readonly per_clade: Array<{
     readonly clade_id: CladeId;
@@ -624,6 +624,7 @@ export interface SourceRecord {
     readonly override_rule: string | null;
     readonly v160_change: string | null;
     readonly v161_change: string | null;
+    readonly v162_change: string | null;
   };
   readonly gtdb: {
     readonly agreement: number | null;
@@ -682,6 +683,7 @@ export interface SourceRecord {
       readonly tree_id: "MR_RT_003";
     } | null;
     readonly placement_call: string | null;
+    readonly placement_qc_flag: string | null;
     readonly subclade_id: string | null;
     readonly tentative_clade_id: string | null;
     readonly tentative_clade_name: string | null;
@@ -706,7 +708,7 @@ export interface SourceRecord {
 export interface StructuresIndex {
   readonly afdb_url_template: string;
   readonly chain_mapping: string;
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly pdb: Record<string, PdbIndexEntry>;
   readonly predicted: Array<(Record<string, unknown>)>;
 }
@@ -792,7 +794,7 @@ export interface Summary {
       readonly value: number;
     }>;
     readonly col_field: string;
-    readonly dataset_release: "1.6.1";
+    readonly dataset_release: "1.6.2";
     readonly denominator: {
       readonly id: string;
       readonly value: number;
@@ -803,7 +805,7 @@ export interface Summary {
     readonly sql: string;
     readonly total: number;
   }>;
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly denominators: Record<string, {
     readonly id: string;
     readonly label: string;
@@ -811,7 +813,7 @@ export interface Summary {
     readonly value: number;
   }>;
   readonly distributions: Array<{
-    readonly dataset_release: "1.6.1";
+    readonly dataset_release: "1.6.2";
     readonly denominator: {
       readonly id: string;
       readonly value: number;
@@ -828,7 +830,7 @@ export interface Summary {
     readonly total: number;
   }>;
   readonly metrics: Array<{
-    readonly dataset_release: "1.6.1";
+    readonly dataset_release: "1.6.2";
     readonly denominator: {
       readonly id: string;
       readonly value: number;
@@ -847,7 +849,7 @@ export interface Summary {
 }
 
 export interface SupportAudit {
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly n_disagree: number;
   readonly node_key: string;
   readonly nodes: Array<{
@@ -870,7 +872,7 @@ export type TaxDomain = "Archaea" | "Bacteria" | "Eukaryota" | null;
 export type TipRole = "cl0.6_representative" | "anchor_characterized" | "seed" | "outgroup_heliorhodopsin" | "boundary_schizorhodopsin";
 
 export interface Tips {
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly tips: Array<{
     readonly backbone_group: "MR_CLD3_B01" | "MR_CLD3_B02" | null;
     readonly in_corpus: boolean;
@@ -927,7 +929,7 @@ export interface Vocabulary {
     readonly definition: string;
     readonly state: CladeState;
   }>;
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly evidence_level: Array<{
     readonly definition: string;
     readonly level: EvidenceLevel;
@@ -956,7 +958,7 @@ export interface Vocabulary {
 export interface Watchlist {
   readonly candidates: Array<Record<string, unknown>>;
   readonly caveat: string;
-  readonly dataset_release: "1.6.1";
+  readonly dataset_release: "1.6.2";
   readonly funnel: Array<Record<string, unknown>>;
   readonly isolation: string;
 }
@@ -964,23 +966,23 @@ export interface Watchlist {
 /** Glob (relative to the data root) -> payload type. */
 export interface DataFiles {
   "current.json": Current;
-  "v1.6.1/accessions.json": Accessions;
-  "v1.6.1/clades.json": Clades;
-  "v1.6.1/downloads.json": Downloads;
-  "v1.6.1/evidence-index.json": EvidenceIndex;
-  "v1.6.1/export_manifest.json": ExportManifest;
-  "v1.6.1/manifest.json": Manifest;
-  "v1.6.1/phylogeny/clade_tips.json": CladeTips;
-  "v1.6.1/phylogeny/explorer.json": Explorer;
-  "v1.6.1/phylogeny/robustness.json": Robustness;
-  "v1.6.1/phylogeny/support_audit.json": SupportAudit;
-  "v1.6.1/phylogeny/tips.json": Tips;
-  "v1.6.1/phylogeny/tree_stats.json": TreeStats;
-  "v1.6.1/publications.json": Publications;
-  "v1.6.1/records-index.json": RecordsIndex;
-  "v1.6.1/records/*.json": MrdbEntry;
-  "v1.6.1/structures-index.json": StructuresIndex;
-  "v1.6.1/summary.json": Summary;
-  "v1.6.1/vocabulary.json": Vocabulary;
-  "v1.6.1/watchlist.json": Watchlist;
+  "v1.6.2/accessions.json": Accessions;
+  "v1.6.2/clades.json": Clades;
+  "v1.6.2/downloads.json": Downloads;
+  "v1.6.2/evidence-index.json": EvidenceIndex;
+  "v1.6.2/export_manifest.json": ExportManifest;
+  "v1.6.2/manifest.json": Manifest;
+  "v1.6.2/phylogeny/clade_tips.json": CladeTips;
+  "v1.6.2/phylogeny/explorer.json": Explorer;
+  "v1.6.2/phylogeny/robustness.json": Robustness;
+  "v1.6.2/phylogeny/support_audit.json": SupportAudit;
+  "v1.6.2/phylogeny/tips.json": Tips;
+  "v1.6.2/phylogeny/tree_stats.json": TreeStats;
+  "v1.6.2/publications.json": Publications;
+  "v1.6.2/records-index.json": RecordsIndex;
+  "v1.6.2/records/*.json": MrdbEntry;
+  "v1.6.2/structures-index.json": StructuresIndex;
+  "v1.6.2/summary.json": Summary;
+  "v1.6.2/vocabulary.json": Vocabulary;
+  "v1.6.2/watchlist.json": Watchlist;
 }

@@ -98,6 +98,7 @@ export function basisCategory(b: string | null): string {
   if (lb.startsWith("audit_rule_")) return "audit_rule";
   if (lb.startsWith("family_hmm_")) return "family_hmm_conflict";
   if (lb.startsWith("conflict:")) return "conflict";
+  if (lb.startsWith("e2_motif_mismatch:")) return "e2_motif_mismatch";
   if (lb === "insufficient") return "insufficient";
   return "UNMAPPED";
 }
@@ -112,6 +113,7 @@ export const BASIS_LABEL: Record<string, string> = {
   audit_rule: "Audit rule",
   family_hmm_conflict: "Family-HMM conflict",
   conflict: "Function-call conflict (call withdrawn)",
+  e2_motif_mismatch: "E2 withdrawn: helix-C motif differs from the reference",
   insufficient: "Insufficient evidence",
 };
 export const basisLabel = (k: string | null) => (k === null ? "Missing" : BASIS_LABEL[k] ?? k);

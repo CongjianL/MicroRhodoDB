@@ -1,7 +1,7 @@
 # pipeline/
 
 **Status: the original staged builder is LOST.** This directory holds the
-v1.4.0-v1.6.1 build code (`v140/`, `v150/`, `v160/`, `v161/`; see
+v1.4.0-v1.6.2 build code (`v140/`, `v150/`, `v160/`, `v161/`, `v162/`; see
 `workflow/README.md`).
 
 > **Not in this repository.** The recovery material described below

@@ -42,7 +42,7 @@
      "type": "object"
     },
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     }
    },
    "required": [
@@ -776,7 +776,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "rows": {
      "items": {
@@ -830,7 +830,7 @@
      "$ref": "#/$defs/CladeRule"
     },
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "display": {
      "type": "string"
@@ -881,10 +881,10 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "path": {
-     "const": "data/v1.6.1/"
+     "const": "data/v1.6.2/"
     },
     "schema_version": {
      "const": "1.4.0"
@@ -902,7 +902,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "website_version": {
      "type": "string"
@@ -915,7 +915,7 @@
      "additionalProperties": false,
      "properties": {
       "tag": {
-       "const": "v1.6.1"
+       "const": "v1.6.2"
       },
       "url": {
        "type": "string",
@@ -1251,7 +1251,7 @@
      "type": "array"
     },
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "e1": {
      "items": {
@@ -1400,7 +1400,7 @@
         "additionalProperties": false,
         "properties": {
          "release_set": {
-          "const": "1.6.1"
+          "const": "1.6.0"
          },
          "variant": {
           "type": "string"
@@ -1541,7 +1541,7 @@
    ],
    "properties": {
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "edge_map": {
      "additionalProperties": {
@@ -2019,7 +2019,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "exporter_git_commit": {
      "type": "string"
@@ -2163,7 +2163,7 @@
      "type": "object"
     },
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "exporter": {
      "additionalProperties": false,
@@ -2249,7 +2249,7 @@
      "additionalProperties": false,
      "properties": {
       "file": {
-       "const": "microrhododb_v1.6.1.sqlite"
+       "const": "microrhododb_v1.6.2.sqlite"
       },
       "opened_read_only": {
        "const": true
@@ -2319,7 +2319,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "first_release": {
      "type": "string"
@@ -2743,7 +2743,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "inactive_links": {
      "items": {
@@ -2912,7 +2912,7 @@
      ]
     },
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "rows": {
      "items": {
@@ -3168,7 +3168,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "grid": {
      "items": {
@@ -3397,6 +3397,12 @@
         "string",
         "null"
        ]
+      },
+      "v162_change": {
+       "type": [
+        "string",
+        "null"
+       ]
       }
      },
      "required": [
@@ -3414,7 +3420,8 @@
       "function_basis",
       "override_rule",
       "v160_change",
-      "v161_change"
+      "v161_change",
+      "v162_change"
      ],
      "type": "object"
     },
@@ -3748,6 +3755,12 @@
         "null"
        ]
       },
+      "placement_qc_flag": {
+       "type": [
+        "string",
+        "null"
+       ]
+      },
       "subclade_id": {
        "type": [
         "string",
@@ -3787,6 +3800,7 @@
       "is_reference_tip",
       "placement",
       "placement_call",
+      "placement_qc_flag",
       "subclade_id",
       "tentative_clade_id",
       "tentative_clade_name",
@@ -3901,7 +3915,7 @@
      "type": "string"
     },
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "pdb": {
      "additionalProperties": {
@@ -4337,7 +4351,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "denominators": {
      "additionalProperties": {
@@ -4371,7 +4385,7 @@
       "additionalProperties": false,
       "properties": {
        "dataset_release": {
-        "const": "1.6.1"
+        "const": "1.6.2"
        },
        "denominator": {
         "additionalProperties": false,
@@ -4455,7 +4469,7 @@
       "additionalProperties": false,
       "properties": {
        "dataset_release": {
-        "const": "1.6.1"
+        "const": "1.6.2"
        },
        "denominator": {
         "anyOf": [
@@ -4578,7 +4592,7 @@
         "type": "object"
        },
        "dataset_release": {
-        "const": "1.6.1"
+        "const": "1.6.2"
        },
        "cells": {
         "type": "array",
@@ -4639,7 +4653,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "n_disagree": {
      "type": "integer"
@@ -4738,7 +4752,7 @@
    "additionalProperties": false,
    "properties": {
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "tips": {
      "items": {
@@ -4990,7 +5004,7 @@
      "type": "array"
     },
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "evidence_level": {
      "items": {
@@ -5141,7 +5155,7 @@
      "type": "string"
     },
     "dataset_release": {
-     "const": "1.6.1"
+     "const": "1.6.2"
     },
     "funnel": {
      "items": {
@@ -5169,27 +5183,27 @@
  },
  "$id": "https://congjianl.github.io/MicroRhodoDB/schemas/web-data-1.0.0.json",
  "$schema": "https://json-schema.org/draft/2020-12/schema",
- "title": "MicroRhodoDB website static data, schema 1.0.0 (dataset v1.6.1)",
+ "title": "MicroRhodoDB website static data, schema 1.0.0 (dataset v1.6.2)",
  "x-files": {
   "current.json": "Current",
-  "v1.6.1/accessions.json": "Accessions",
-  "v1.6.1/clades.json": "Clades",
-  "v1.6.1/downloads.json": "Downloads",
-  "v1.6.1/evidence-index.json": "EvidenceIndex",
-  "v1.6.1/export_manifest.json": "ExportManifest",
-  "v1.6.1/manifest.json": "Manifest",
-  "v1.6.1/phylogeny/clade_tips.json": "CladeTips",
-  "v1.6.1/phylogeny/explorer.json": "Explorer",
-  "v1.6.1/phylogeny/robustness.json": "Robustness",
-  "v1.6.1/phylogeny/support_audit.json": "SupportAudit",
-  "v1.6.1/phylogeny/tips.json": "Tips",
-  "v1.6.1/phylogeny/tree_stats.json": "TreeStats",
-  "v1.6.1/publications.json": "Publications",
-  "v1.6.1/records-index.json": "RecordsIndex",
-  "v1.6.1/records/*.json": "MrdbEntry",
-  "v1.6.1/structures-index.json": "StructuresIndex",
-  "v1.6.1/summary.json": "Summary",
-  "v1.6.1/vocabulary.json": "Vocabulary",
-  "v1.6.1/watchlist.json": "Watchlist"
+  "v1.6.2/accessions.json": "Accessions",
+  "v1.6.2/clades.json": "Clades",
+  "v1.6.2/downloads.json": "Downloads",
+  "v1.6.2/evidence-index.json": "EvidenceIndex",
+  "v1.6.2/export_manifest.json": "ExportManifest",
+  "v1.6.2/manifest.json": "Manifest",
+  "v1.6.2/phylogeny/clade_tips.json": "CladeTips",
+  "v1.6.2/phylogeny/explorer.json": "Explorer",
+  "v1.6.2/phylogeny/robustness.json": "Robustness",
+  "v1.6.2/phylogeny/support_audit.json": "SupportAudit",
+  "v1.6.2/phylogeny/tips.json": "Tips",
+  "v1.6.2/phylogeny/tree_stats.json": "TreeStats",
+  "v1.6.2/publications.json": "Publications",
+  "v1.6.2/records-index.json": "RecordsIndex",
+  "v1.6.2/records/*.json": "MrdbEntry",
+  "v1.6.2/structures-index.json": "StructuresIndex",
+  "v1.6.2/summary.json": "Summary",
+  "v1.6.2/vocabulary.json": "Vocabulary",
+  "v1.6.2/watchlist.json": "Watchlist"
  }
 }

@@ -3,11 +3,11 @@
 Run from the repository root:
     pytest -q tests/test_web_pr5a.py
 
-* D3: summary.json is reconciled against the frozen v1.6.1 SQLite with a keyed comparison
+* D3: summary.json is reconciled against the frozen v1.6.2 SQLite with a keyed comparison
   (57 SQL-replayed items + 1 independently derived item), and adversarial mutations of the exported
   distributions, crosstabs and metrics -- swapped category counts, swapped crosstab cells, renamed
   null categories, duplicate keys, extra zero categories -- are each rejected.
-* D1/D2/D4: the DB-derived drilldown accession sets (tests/data/web_drilldown_golden_v161.json) are
+* D1/D2/D4: the DB-derived drilldown accession sets (tests/data/web_drilldown_golden_v162.json) are
   regenerated from the frozen SQLite and must be identical; every set size equals the exported value.
   tests/unit/pr5a.test.ts requires the website's Browse filters to reproduce each set exactly.
 """
@@ -26,10 +26,10 @@ sys.path.insert(0, str(REPO / "web/scripts"))
 import pr5a_drilldown_golden as G  # noqa: E402
 import summary_reconcile as R  # noqa: E402
 
-DB = REPO / "releases/v1.6.1/db/microrhododb_v1.6.1.sqlite"
-DATA = REPO / "web/public/data/v1.6.1"
-DB_SHA = "b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d"
-GOLDEN = REPO / "tests/data/web_drilldown_golden_v161.json"
+DB = REPO / "releases/v1.6.2/db/microrhododb_v1.6.2.sqlite"
+DATA = REPO / "web/public/data/v1.6.2"
+DB_SHA = "7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288"
+GOLDEN = REPO / "tests/data/web_drilldown_golden_v162.json"
 
 
 @pytest.fixture(scope="module")
@@ -105,8 +105,9 @@ def test_mutation_swapped_crosstab_cells_detected(con, summary):
 
 def test_mutation_null_category_and_duplicates_detected(con, summary):
     s = copy.deepcopy(summary)
-    next(i for i in _dist(s, "helixC_motif_counted")["items"] if i["key"] is None)["key"] = "None"
-    assert bad_ids(con, s) == {"helixC_motif_counted"}
+    # motif_class: every record has a helix-C motif since v1.6.2, so the null category is a motif with a deletion
+    next(i for i in _dist(s, "motif_class_counted")["items"] if i["key"] is None)["key"] = "None"
+    assert bad_ids(con, s) == {"motif_class_counted"}
     s = copy.deepcopy(summary)
     d = _dist(s, "func_class_counted")
     d["items"].append({"key": d["items"][0]["key"], "value": 0})

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""PR-6 independent scientific-integrity audit of the website export against frozen v1.6.1.
+"""PR-6 independent scientific-integrity audit of the website export against frozen v1.6.2.
 
 Independent of tools/export_web_data.py: it reads the official SQLite database read-only, parses the
 frozen Newick files with its own parser, and compares complete keyed sets / per-key values with the
-JSON files that the website actually loads (web/public/data/v1.6.1). Every check records its expected
+JSON files that the website actually loads (web/public/data/v1.6.2). Every check records its expected
 and observed values; any mismatch makes the script exit non-zero.
 
 Sections
@@ -28,9 +28,9 @@ from collections import Counter
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-DB = REPO / "releases" / "v1.6.1" / "db" / "microrhododb_v1.6.1.sqlite"
-DB_SHA = "b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d"
-EXP = REPO / "web" / "public" / "data" / "v1.6.1"
+DB = REPO / "releases" / "v1.6.2" / "db" / "microrhododb_v1.6.2.sqlite"
+DB_SHA = "7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288"
+EXP = REPO / "web" / "public" / "data" / "v1.6.2"
 TREE = "MR_RT_003"
 
 checks: list[dict] = []
@@ -118,7 +118,7 @@ def tip_order(node: Node) -> list[str]:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", required=True)
-    ap.add_argument("--export", default=None, help="export directory to audit (default: web/public/data/v1.6.1)")
+    ap.add_argument("--export", default=None, help="export directory to audit (default: web/public/data/v1.6.2)")
     a = ap.parse_args()
     global EXP
     if a.export:
@@ -126,7 +126,7 @@ def main() -> None:
     out = Path(a.out).resolve()
     out.mkdir(parents=True, exist_ok=True)
 
-    check("D0", "official v1.6.1 SQLite sha256 unchanged", DB_SHA, sha(DB))
+    check("D0", "official v1.6.2 SQLite sha256 unchanged", DB_SHA, sha(DB))
     con = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)
     con.row_factory = sqlite3.Row
     q = lambda sql, *p: con.execute(sql, p).fetchall()  # noqa: E731

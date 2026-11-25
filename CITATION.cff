@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: >-
   If you use MicroRhodoDB, please cite it using the metadata in this file.
-  No DOI has been minted for v1.6.1: cite the release version and the GitHub
-  Release https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.1.
+  No DOI has been minted for v1.6.2: cite the release version and the GitHub
+  Release https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.2.
   A companion data-descriptor manuscript is in preparation for submission to
   Database (Oxford) or Scientific Data; this file will be updated with the
   paper citation once it is published.
@@ -10,13 +10,13 @@ title: >-
   MicroRhodoDB: a versioned, evidence-aware knowledgebase of Type-I microbial
   rhodopsins
 type: dataset
-version: 1.6.1
-date-released: "2026-10-24"
+version: 1.6.2
+date-released: "2026-11-25"
 authors:
   - given-names: CongJian
     family-names: Li
 repository-code: "https://github.com/CongjianL/MicroRhodoDB"
-url: "https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.1"
+url: "https://github.com/CongjianL/MicroRhodoDB/releases/tag/v1.6.2"
 license: CC-BY-4.0
 keywords:
   - microbial rhodopsins
@@ -40,9 +40,9 @@ abstract: >-
   family-HMM flag and a Foldseek watchlist point to novel families, every table
   and column is described in a data dictionary, and a read-only Python API, a
   command-line scorer and a static browser are provided. Releases are
-  immutable, versioned SQLite databases with SHA-256 checksums. Version 1.6.1
-  corrects 1.6.0 so that identical sequences share one membership status and
-  one function call, marks provisional clade names, stops the command-line
-  scorer from reporting heliorhodopsins as Type-I rhodopsins, and adds
-  hard-negative, nearest-characterised-protein and replicate-tree validation
-  analyses.
+  immutable, versioned SQLite databases with SHA-256 checksums. Version 1.6.2
+  corrects 1.6.1 after a review of the construction method: every record now
+  has a helix-C motif re-derived from sequence (105 records lacked one), the 51
+  Type-I records placed in the heliorhodopsin outgroup carry a placement QC
+  flag, and an E2 call is kept only when its helix-C motif equals that of its
+  characterised reference.

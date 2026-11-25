@@ -3,8 +3,8 @@
 Run from the repository root:
     pytest -q tests/test_web_pr5.py
 
-Every statistic the website charts is read from web/public/data/v1.6.1 (the files the browser loads) and
-re-derived here from the read-only v1.6.1 SQLite, with independent hand-written queries for the frozen G5
+Every statistic the website charts is read from web/public/data/v1.6.2 (the files the browser loads) and
+re-derived here from the read-only v1.6.2 SQLite, with independent hand-written queries for the frozen G5
 targets. Nothing is recomputed by the website itself: these tests guard the exporter and the committed copy.
 """
 import collections
@@ -22,9 +22,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "web/scripts"))
 import summary_reconcile as R  # noqa: E402
 
 REPO = Path(os.environ.get("MRDB_REPO", ".")).resolve()
-DB = Path(os.environ.get("MRDB_DB", REPO / "releases/v1.6.1/db/microrhododb_v1.6.1.sqlite"))
-DATA = REPO / "web/public/data/v1.6.1"
-DB_SHA = "b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d"
+DB = Path(os.environ.get("MRDB_DB", REPO / "releases/v1.6.2/db/microrhododb_v1.6.2.sqlite"))
+DATA = REPO / "web/public/data/v1.6.2"
+DB_SHA = "7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288"
 
 
 def sha(p):
@@ -130,11 +130,11 @@ def test_watchlist_is_isolated(con):
 
 def test_downloads_checksums_match_files_on_disk():
     d = load("downloads.json")
-    assert len(d["release_files"]) == 39
+    assert len(d["release_files"]) == 38
     not_in_git = [f["path"] for f in d["release_files"] if not f["in_git_at_tag"]]
-    assert not_in_git == ["db/microrhododb_v1.6.1.sqlite"]
+    assert not_in_git == ["db/microrhododb_v1.6.2.sqlite"]
     for f in d["release_files"]:
-        p = REPO / "releases/v1.6.1" / f["path"]
+        p = REPO / "releases/v1.6.2" / f["path"]
         assert p.is_file(), f["path"]
         assert sha(p) == f["sha256"], f["path"]
         assert p.stat().st_size == f["bytes"], f["path"]

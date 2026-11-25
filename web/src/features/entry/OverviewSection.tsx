@@ -117,6 +117,7 @@ export function OverviewSection({ entry, src, vocab, caveats }: { entry: MrdbEnt
             <Row k="Source added in release">{na(src.release_added)}</Row>
             <Row k="v1.6.0 function change">{na(src.function.v160_change, "None recorded")}</Row>
             <Row k="v1.6.1 function change">{na(src.function.v161_change, "None recorded")}</Row>
+            <Row k="v1.6.2 change">{na(src.function.v162_change, "None recorded")}</Row>
             <Row k="Sequence SHA-256"><code className="break-all text-xs">{entry.sequence_sha256}</code></Row>
           </dl>
         </div>

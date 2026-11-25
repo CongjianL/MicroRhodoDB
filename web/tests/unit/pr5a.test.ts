@@ -9,7 +9,7 @@
  *  D4  Clade-state drilldowns keep the 4,465 members + candidates population.
  *
  * Accession sets are compared, not only counts: every drilldown is checked against (a) its per-record
- * definition and (b) the DB-derived golden (tests/data/web_drilldown_golden_v161.json, n + SHA-256 of
+ * definition and (b) the DB-derived golden (tests/data/web_drilldown_golden_v162.json, n + SHA-256 of
  * the sorted source accessions, generated from the frozen SQLite by web/scripts/pr5a_drilldown_golden.py).
  */
 import { createHash } from "node:crypto";
@@ -26,7 +26,7 @@ import { reconcile } from "../../src/lib/stats";
 import { REPO, rows, summary } from "./helpers";
 
 interface GoldenItem { kind: string; id: string; key: string | null | [string, string]; population: PopulationId; n: number; sha256: string }
-const golden = JSON.parse(readFileSync(resolve(REPO, "tests/data/web_drilldown_golden_v161.json"), "utf8")) as { db_sha256: string; items: GoldenItem[] };
+const golden = JSON.parse(readFileSync(resolve(REPO, "tests/data/web_drilldown_golden_v162.json"), "utf8")) as { db_sha256: string; items: GoldenItem[] };
 
 const R = () => rows();
 const browse = (query: string): IndexRow[] => {
@@ -68,7 +68,7 @@ const dist = (id: string) => summary().distributions.find((d) => d.id === id)!;
 
 describe("D1/D4 Statistics and Home drilldowns return exactly the counted source records", () => {
   it("the DB-derived golden is for the frozen database", () => {
-    expect(golden.db_sha256).toBe("b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d");
+    expect(golden.db_sha256).toBe("7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288");
     expect(golden.items.length).toBeGreaterThan(400);
   });
 

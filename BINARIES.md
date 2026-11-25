@@ -1,38 +1,28 @@
 # Binary files not committed to git
 
-The SQLite databases are too large for the git repository. The current database (v1.6.1) is attached to the GitHub
-Release `v1.6.1`, together with the v1.6.0 database it is rebuilt from; v1.6.1 is all the CLI, the API, the browser
-and the website need. Download it to the path below (relative to
-the repository root) and check the SHA-256:
+The SQLite databases are too large for the git repository. The current database (v1.6.2) is attached to the GitHub
+Release `v1.6.2`, together with the v1.6.1 and v1.6.0 databases it is rebuilt from; v1.6.2 is all the CLI, the API,
+the browser and the website need. Download it to the path below (relative to the repository root) and check the
+SHA-256:
 
 ```bash
 python web/scripts/fetch_release_db.py          # downloads and verifies against the table below
-# or: gh release download v1.6.1 -R CongjianL/MicroRhodoDB --pattern microrhododb_v1.6.1.sqlite -D releases/v1.6.1/db
+# or: gh release download v1.6.2 -R CongjianL/MicroRhodoDB --pattern microrhododb_v1.6.2.sqlite -D releases/v1.6.2/db
 ```
 
 | Path | Bytes | SHA-256 |
 |---|---|---|
 | `releases/v1.6.0/db/microrhododb_v1.6.0.sqlite` | 33464320 | `379a254356c6489a2b9e0600d501d76d22bc8e3ced4cfbdd5160fb00c3dce17f` |
 | `releases/v1.6.1/db/microrhododb_v1.6.1.sqlite` | 33525760 | `b8215cffa9d2fdab1e65b904f4bafbe9edf6578aed7b4fb028a890850e704c2d` |
+| `releases/v1.6.2/db/microrhododb_v1.6.2.sqlite` | 33648640 | `7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288` |
 
-Both databases are attached to the GitHub Release `v1.6.1`. v1.6.1 can also be rebuilt from v1.6.0 with
-`snakemake -c 1 all_v161`; the rebuild is checked against the checksum above.
-
-## Built, not yet on a GitHub Release
-
-v1.6.2 is built and checked, but its database is not yet attached to a GitHub Release, so the CLI, the API and the
-website still default to v1.6.1. Rebuild it from v1.6.1 with `snakemake -c 1 all_v162`, or with
-`bash pipeline/v162/assemble_release_v162.sh`, which writes `releases/v1.6.2/`.
-
-<!-- path | sha256 | bytes on purpose: rows in the `path | bytes | sha256` order above are read as GitHub Release
-     assets by web/scripts/release_gate.py and fetch_release_db.py. Move this row there once the asset is attached. -->
-| Path | SHA-256 | Bytes |
-|---|---|---|
-| `releases/v1.6.2/db/microrhododb_v1.6.2.sqlite` | `7f2bf0c766ffa1f3f2730c493a1bbeca8b50871f6e2a2f462ab6f9c49dc03288` | 33648640 |
+All three databases are attached to the GitHub Release `v1.6.2` (the v1.6.0 and v1.6.1 databases also to the Release
+`v1.6.1`). v1.6.2 can be rebuilt from v1.6.1 with `snakemake -c 1 all_v162`, and v1.6.1 from v1.6.0 with
+`snakemake -c 1 all_v161`; each rebuild is checked against the checksums above.
 
 ## Release archive
 
-The `v1.6.0` and `v1.6.1` Releases also have a v1.6.0-only archive of the repository: the code, curation files, reference package and
+The `v1.6.0`, `v1.6.1` and `v1.6.2` Releases also have a v1.6.0-only archive of the repository: the code, curation files, reference package and
 `releases/v1.6.0/` (including the database above), without the earlier releases. `PACKAGE_NOTES.md` inside it says
 how it was derived and what it cannot do (the Snakemake rebuild needs the v1.5.0 database, and the tests that compare
 with earlier releases skip).
