@@ -46,8 +46,11 @@ def compute(query_faa, seeds_faa, seed_meta_tsv, hmm01036, hmm18761, workdir):
         if not sub: continue
         sto, ref = fx.run_hmmalign(HMMER_BIN, path, both, workdir, f'aln_{model}')
         col = fx.lysine_column(sto, ref, set(seed_set))
-        for a, (res, pos) in fx.read_lysine({k: v for k, v in sto.items() if not k.endswith('|seed')}, col).items():
-            lys[a] = (res, pos)
+        # one row per call: fx.read_lysine (frozen) keys its result on name.split('|')[0], which collapses
+        # UniProt-style IDs (tr|ACC|NAME) to 'tr' so their lysine was never found; key on the full ID instead
+        for a, row in sto.items():
+            if not a.endswith('|seed'):
+                (lys[a],) = fx.read_lysine({a: row}, col).values()
     feat['has_retinal_lysine'] = [int(lys.get(a, (None, None))[0] == 'K') for a in feat.index]
     feat['retinal_pos'] = [lys.get(a, (None, None))[1] for a in feat.index]
     with open(os.path.join(workdir, 'seeds.faa'), 'w') as fh:
