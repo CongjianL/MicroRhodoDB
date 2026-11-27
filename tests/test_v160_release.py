@@ -376,6 +376,27 @@ def _cli_records(*ids):
     return "".join(recs[i] for i in ids)
 
 
+def test_cli_uniprot_style_ids(tmp_path):
+    # UniProt FASTA IDs (tr|ACC|NAME) must score like plain IDs: the retinal-lysine read used to key on
+    # name.split('|')[0], so every such query got has_retinal_lysine = 0 and could not be member_like
+    for b in ("hmmscan", "hmmsearch", "diamond"):
+        assert shutil.which(b), f"{b} not on PATH - activate the pinned environment (workflow/envs/mrdb.lock.yml)"
+    qf, out = tmp_path / "q.faa", tmp_path / "hits.tsv"
+    import re
+    src = open(os.path.join(REPO, "tests/data/cli_queries_12.faa")).read()
+    qf.write_text(re.sub(r"^>(\S+)", r">tr|\1|\1_TEST", src, flags=re.M))
+    subprocess.run([sys.executable, os.path.join(REPO, "tools/mrdb_search.py"), str(qf), "-o", str(out),
+                    "--workdir", str(tmp_path / "w")], check=True, cwd=tmp_path, capture_output=True)
+    got = pd.read_csv(out, sep="\t")
+    got["query"] = got["query"].str.split("|").str[1]
+    exp = pd.read_csv(os.path.join(REPO, "tests/data/cli_expected_12.tsv"), sep="\t")
+    m = exp.merge(got, on="query", suffixes=("_exp", ""))
+    assert len(m) == 12
+    assert (m.provisional_status_exp == m.provisional_status).all()
+    assert (abs(m.membership_score_exp - m.membership_score) < 1e-3).all()
+    assert (m.has_retinal_lysine == 1).sum() >= 10
+
+
 def test_cli_queries_without_seed_hit(tmp_path):
     # neither query hits a scorer seed with DIAMOND: the empty seed-homology table used to raise KeyError
     for b in ("hmmscan", "hmmsearch", "diamond"):
